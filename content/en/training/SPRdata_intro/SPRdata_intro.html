@@ -1,0 +1,91 @@
+---
+title: _systemPipeRdata_
+subtitle: ""
+author: "<br/>Daniela Cassol"
+institute: "<h3>University of California Riverside<h3/>"
+date: "<h3>2020/08/28 (updated: 2021-02-05)<h3/>"
+output:
+  xaringan::moon_reader:
+    css: ["css/xaringan-themer.css", "css/custom.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    # seal: false
+---
+
+<link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/tile-view/tile-view.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/tile-view/tile-view.js"></script>
+<link href="/rmarkdown-libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/tachyons/tachyons.min.css" rel="stylesheet" />
+
+
+<p>layout: true
+background-image: url(<a href="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/systemPipeR.png" class="uri">https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/systemPipeR.png</a>)
+background-position: 99% 1%
+background-size: 10%</p>
+<p>class: inverse, center, middle</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>class: inverse, center, middle</p>
+</div>
+<div id="live-demo" class="section level1">
+<h1><i class="fas fa-code"></i> Live Demo</h1>
+<div id="quick-start" class="section level2">
+<h2><i class="fas fa-code"></i> Quick Start</h2>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+Generate workflow template:</p>
+<pre class="r"><code>genWorkenvir(workflow=&quot;varseq&quot;)
+setwd(&quot;varseq&quot;)</code></pre>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+Command-line alternative for generating workflow environments:</p>
+<pre class="bash"><code>$ Rscript -e &quot;systemPipeRdata::genWorkenvir(workflow=&#39;varseq&#39;, mydirname=NULL, url=NULL, urlname=NULL)&quot;</code></pre>
+</div>
+<div id="workflows-collection" class="section level2">
+<h2><i class="fas fa-project-diagram"></i> Workflows Collection</h2>
+<p>Browse pipelines that are currently available as part of the <em>systemPipeR</em> toolkit</p>
+<p>.small[
+| WorkFlow | Description | Version | GitHub | CI Testing |
+|:———————–:|:—————-:|:—————-:|:——————–:|:——————————-:|
+| <a href="https://systempiper.github.io/systemPipeChIPseq/articles/systemPipeChIPseq.html">systemPipeChIPseq</a> | ChIP-Seq Workflow Template | v1.0 <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/check.png" align="center" style="width:20px;" /> | <a href="https://github.com/systemPipeR/systemPipeChIPseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeChIPseq/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://systempiper.github.io/systemPipeRIBOseq/articles/systemPipeRIBOseq.html">systemPipeRIBOseq</a> | RIBO-Seq Workflow Template | v1.0 <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/check.png" align="center" style="width:20px;" /> | <a href="https://github.com/systemPipeR/systemPipeRIBOseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeRIBOseq/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://systempiper.github.io/systemPipeRNAseq/articles/systemPipeRNAseq.html">systemPipeRNAseq</a> | RNA-Seq Workflow Template | v1.0 <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/check.png" align="center" style="width:20px;" /> | <a href="https://github.com/systemPipeR/systemPipeRNAseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeRNAseq/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://systempiper.github.io/systemPipeVARseq/articles/systemPipeVARseq.html">systemPipeVARseq</a> | VAR-Seq Workflow Template | v1.0 <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/check.png" align="center" style="width:20px;" /> | <a href="https://github.com/systemPipeR/systemPipeVARseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeVARseq/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://github.com/systemPipeR/systemPipeMethylseq">systemPipeMethylseq</a> | Methyl-Seq Workflow Template | devel <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png" align="center" style="width:25px;" /> | <a href="https://github.com/systemPipeR/systemPipeMethylseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeMethylseq/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://github.com/systemPipeR/systemPipeDeNovo">systemPipeDeNovo</a> | De novo transcriptome assembly Workflow Template | devel <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png" align="center" style="width:25px;" /> | <a href="https://github.com/systemPipeR/systemPipeDeNovo"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeDeNovo/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://github.com/systemPipeR/systemPipeCLIPseq">systemPipeCLIPseq</a> | CLIP-Seq Workflow Template | devel <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png" align="center" style="width:25px;" /> | <a href="https://github.com/systemPipeR/systemPipeCLIPseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeCLIPseq/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |
+| <a href="https://github.com/systemPipeR/systemPipeMetaTrans">systemPipeMetaTrans</a> | Metatranscriptomic Sequencing Workflow Template | devel <img src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png" align="center" style="width:25px;" /> | <a href="https://github.com/systemPipeR/systemPipeMetaTrans"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | <img src="https://github.com/systemPipeR/systemPipeMetaTrans/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /> |]</p>
+</div>
+<div id="install-workflow" class="section level2">
+<h2><i class="fas fa-box-open"></i> Install Workflow</h2>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+Install Workflow Template from <a href="https://github.com/systemPipeR"><em>systemPipeR</em> Organization</a>:</p>
+<pre class="r"><code>genWorkenvir(workflow=&quot;systemPipeR/systemPipeVARseq&quot;, mydirname=NULL)
+
+# [1] &quot;Package systemPipeVARseq is successfully installed!&quot;
+# [1] &quot;The &#39;demo data&#39;was successfully copied to your project.&quot;
+# [1] &quot;The &#39;param&#39; directory was successfully copied to your project.&quot;
+# [1] &quot;Generated systemPipeVARseq directory. Next run in systemPipeR/systemPipeVARseq directory, the R code from *.Rmd template interactively. Alternatively, workflows can be exectued with a single command as instructed in the vignette.&quot;</code></pre>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+Install Workflow Template with a specific <em>R Markdown</em> file:</p>
+<pre class="r"><code>genWorkenvir(workflow=&quot;systemPipeR/systemPipeRNAseq&quot;, mydirname=&quot;rnaseq&quot;,
+             url = &quot;https://raw.githubusercontent.com/systemPipeR/systemPipeRNAseq/cluster/vignettes/systemPipeRNAseq.Rmd&quot;,
+             urlname = &quot;rnaseq_V-cluster.Rmd&quot;)</code></pre>
+<p>class: middle</p>
+</div>
+</div>
+<div id="thanks" class="section level1">
+<h1>Thanks!</h1>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+Browse source code at <a href="https://github.com/tgirke/systemPipeRdata/"> <i class="fab fa-github fa-2x"></i></a></p>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+Ask a question about systemPipeRdata at Bioconductor Support Page
+<a href="https://support.bioconductor.org/t/systempiper/"><i class="far fa-question-circle fa-2x"></i></a></p>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+<em>systemPipeRdata</em> at <a href="http://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html">Bioconductor</a></p>
+<p><i class="fas fa-hand-point-right" style="color:#00758a;"></i>
+<a href="https://systempipe.org/">https://systempipe.org/</a></p>
+</div>
