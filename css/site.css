@@ -35,6 +35,7 @@
   background: var(--blue);
 }
 
+/* content all set to 100%*/
 .td-max-width-on-larger-screens, .td-content > pre, .td-content > .highlight,
 .td-content > .lead, .td-content > h1, .td-content > h2, .td-content > ul,
 .td-content > ol, .td-content > p, .td-content > blockquote,
@@ -42,8 +43,39 @@
     max-width: 100%;
 }
 
+.td-content * {
+  max-width: 100%;
+}
+
 .pl-md-5, .px-md-5 {
   padding-right: 3rem !important;
 }
 
+
+/* view source code button*/
+.reading-time {
+  display: inline;
+  padding-right: 10px;
+}
+
+/* hack to fix position: sticky in driver js*/
+div#driver-highlighted-element-stage, div#driver-page-overlay {
+  background: transparent !important;
+  outline: 5000px solid rgba(0, 0, 0, .75)
+}
+
+/* highlight toc*/
+#TableOfContents li.active > a {
+	color: #333;
+	font-weight: 600;
+}
+
+/* toc font */
+.td-toc li li {
+    margin-left: 0.7rem;
+}
+
+.td-toc ul {
+    font-size: 0.9rem;;
+}
 
