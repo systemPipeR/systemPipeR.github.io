@@ -23,6 +23,7 @@
         
         
         
+&lt;script src=&#34;../rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 &lt;link href=&#34;../rmarkdown-libs/font-awesome/css/all.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;link href=&#34;../rmarkdown-libs/font-awesome/css/v4-shims.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;link href=&#34;../rmarkdown-libs/tile-view/tile-view.css&#34; rel=&#34;stylesheet&#34; /&gt;
@@ -35,13 +36,91 @@
 background-image: url(&lt;a href=&#34;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/systemPipeR.png&#34; class=&#34;uri&#34;&gt;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/systemPipeR.png&lt;/a&gt;)
 background-position: 99% 1%
 background-size: 10%&lt;/p&gt;
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;class: middle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;## Outline&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;#### Introduction
+#### Live Demo
+- Install Package
+- Quick Start
+- Directory Structure
+- Workflow Collection
+- Install Workflow Template&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;class: inverse, center, middle&lt;/p&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;## Introduction&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+&lt;a href=&#34;http://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html&#34;&gt;&lt;em&gt;systemPipeRdata&lt;/em&gt;&lt;/a&gt; is a helper package to generate with a single command workflow templates
+that are intended to be used by its parent package &lt;a href=&#34;http://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html&#34;&gt;&lt;em&gt;systemPipeR&lt;/em&gt;&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+Includes sample data for testing.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+Users can create &lt;em&gt;new workflows&lt;/em&gt; or change and extend existing ones.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;class: inverse, center, middle&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;live-demo&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;&lt;i class=&#34;fas fa-code&#34;&gt;&lt;/i&gt; Live Demo&lt;/h1&gt;
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;## &lt;i class=&#34;fas fa-box-open&#34;&gt;&lt;/i&gt; Install Package&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Install the &lt;strong&gt;systemPipeRdata&lt;/strong&gt; package from &lt;a href=&#34;http://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html&#34;&gt;Bioconductor&lt;/a&gt;:&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;r if (!requireNamespace(&#34;BiocManager&#34;, quietly=TRUE)) install.packages(&#34;BiocManager&#34;) BiocManager::install(&#34;systemPipeRdata&#34;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;### &lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; Load Package and Documentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-question&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+Load package:&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;r library(&#34;systemPipeRdata&#34;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-question&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+Access help:&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;r library(help=&#34;systemPipeRdata&#34;) vignette(&#34;systemPipeRdata&#34;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;div id=&#34;quick-start&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;i class=&#34;fas fa-code&#34;&gt;&lt;/i&gt; Quick Start&lt;/h2&gt;
 &lt;p&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
@@ -51,6 +130,22 @@ setwd(&amp;quot;varseq&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
 Command-line alternative for generating workflow environments:&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;$ Rscript -e &amp;quot;systemPipeRdata::genWorkenvir(workflow=&amp;#39;varseq&amp;#39;, mydirname=NULL, url=NULL, urlname=NULL)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;## &lt;i class=&#34;far fa-folder-open&#34;&gt;&lt;/i&gt; Directory Structure&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;The workflow templates generated by &lt;em&gt;&lt;code&gt;genWorkenvir&lt;/code&gt;&lt;/em&gt; contain the following preconfigured directory structure:&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;img src=&#34;directory.png&#34; height=&#34;425px&#34; class=&#34;center&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div id=&#34;workflows-collection&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;i class=&#34;fas fa-project-diagram&#34;&gt;&lt;/i&gt; Workflows Collection&lt;/h2&gt;
@@ -66,6 +161,40 @@ Command-line alternative for generating workflow environments:&lt;/p&gt;
 | &lt;a href=&#34;https://github.com/systemPipeR/systemPipeDeNovo&#34;&gt;systemPipeDeNovo&lt;/a&gt; | De novo transcriptome assembly Workflow Template | devel &lt;img src=&#34;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png&#34; align=&#34;center&#34; style=&#34;width:25px;&#34; /&gt; | &lt;a href=&#34;https://github.com/systemPipeR/systemPipeDeNovo&#34;&gt; &lt;img src=&#34;https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png&#34; align=&#34;center&#34; style=&#34;width:20px;&#34; /&gt; | &lt;img src=&#34;https://github.com/systemPipeR/systemPipeDeNovo/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt; |
 | &lt;a href=&#34;https://github.com/systemPipeR/systemPipeCLIPseq&#34;&gt;systemPipeCLIPseq&lt;/a&gt; | CLIP-Seq Workflow Template | devel &lt;img src=&#34;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png&#34; align=&#34;center&#34; style=&#34;width:25px;&#34; /&gt; | &lt;a href=&#34;https://github.com/systemPipeR/systemPipeCLIPseq&#34;&gt; &lt;img src=&#34;https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png&#34; align=&#34;center&#34; style=&#34;width:20px;&#34; /&gt; | &lt;img src=&#34;https://github.com/systemPipeR/systemPipeCLIPseq/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt; |
 | &lt;a href=&#34;https://github.com/systemPipeR/systemPipeMetaTrans&#34;&gt;systemPipeMetaTrans&lt;/a&gt; | Metatranscriptomic Sequencing Workflow Template | devel &lt;img src=&#34;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/devel.png&#34; align=&#34;center&#34; style=&#34;width:25px;&#34; /&gt; | &lt;a href=&#34;https://github.com/systemPipeR/systemPipeMetaTrans&#34;&gt; &lt;img src=&#34;https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png&#34; align=&#34;center&#34; style=&#34;width:20px;&#34; /&gt; | &lt;img src=&#34;https://github.com/systemPipeR/systemPipeMetaTrans/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt; |]&lt;/p&gt;
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;## &lt;i class=&#34;fas fa-box-open&#34;&gt;&lt;/i&gt; Install Workflow&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+Check the workflow template availability&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;```r
+availableWF(github = TRUE)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;# $systemPipeRdata
+# [1] “chipseq” “new” “riboseq” “rnaseq” “varseq”
+#
+# $github
+# workflow branches version html description
+# 1 systemPipeR/systemPipeChIPseq master release &lt;a href=&#34;https://github.com/systemPipeR/systemPipeChIPseq&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeChIPseq&lt;/a&gt; Workflow Template
+# 2 systemPipeR/systemPipeRIBOseq master release &lt;a href=&#34;https://github.com/systemPipeR/systemPipeRIBOseq&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeRIBOseq&lt;/a&gt; Workflow Template
+# 3 systemPipeR/systemPipeRNAseq cluster, master, singleMachine release &lt;a href=&#34;https://github.com/systemPipeR/systemPipeRNAseq&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeRNAseq&lt;/a&gt; Workflow Template
+# 4 systemPipeR/systemPipeVARseq master release &lt;a href=&#34;https://github.com/systemPipeR/systemPipeVARseq&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeVARseq&lt;/a&gt; Workflow Template
+# 5 systemPipeR/systemPipeCLIPseq master devel &lt;a href=&#34;https://github.com/systemPipeR/systemPipeCLIPseq&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeCLIPseq&lt;/a&gt; Workflow Template
+# 6 systemPipeR/systemPipeDeNovo master devel &lt;a href=&#34;https://github.com/systemPipeR/systemPipeDeNovo&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeDeNovo&lt;/a&gt; Workflow Template
+# 7 systemPipeR/systemPipeMetaTrans master devel &lt;a href=&#34;https://github.com/systemPipeR/systemPipeMetaTrans&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeMetaTrans&lt;/a&gt; Workflow Template
+# 8 systemPipeR/systemPipeMethylseq master devel &lt;a href=&#34;https://github.com/systemPipeR/systemPipeMethylseq&#34; class=&#34;uri&#34;&gt;https://github.com/systemPipeR/systemPipeMethylseq&lt;/a&gt; Workflow Template
+```&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div id=&#34;install-workflow&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;i class=&#34;fas fa-box-open&#34;&gt;&lt;/i&gt; Install Workflow&lt;/h2&gt;
@@ -82,6 +211,26 @@ Install Workflow Template with a specific &lt;em&gt;R Markdown&lt;/em&gt; file:&
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genWorkenvir(workflow=&amp;quot;systemPipeR/systemPipeRNAseq&amp;quot;, mydirname=&amp;quot;rnaseq&amp;quot;,
              url = &amp;quot;https://raw.githubusercontent.com/systemPipeR/systemPipeRNAseq/cluster/vignettes/systemPipeRNAseq.Rmd&amp;quot;,
              urlname = &amp;quot;rnaseq_V-cluster.Rmd&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;## &lt;i class=&#34;fas fa-mouse-pointer&#34;&gt;&lt;/i&gt; Dynamic Workflow Template&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+Create dynamic Workflow Templates with &lt;em&gt;RStudio&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;i class=&#34;fas fa-hand-point-right&#34; style=&#34;color:#00758a;&#34;&gt;&lt;/i&gt;
+&lt;code&gt;File -&amp;gt; New File -&amp;gt; R Markdown -&amp;gt; From Template&lt;/code&gt;
+.center[
+&lt;img src=&#34;rstudio.png&#34; height=&#34;425px&#34; class=&#34;center&#34; /&gt;]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;class: middle&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
