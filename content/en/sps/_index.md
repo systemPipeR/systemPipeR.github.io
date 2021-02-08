@@ -4,11 +4,8 @@ linkTitle: "systemPipeShiny"
 type: docs
 ---
 
-{{% pageinfo %}}
-Find here all the documentation!
-{{% /pageinfo %}}
-
-
-
+<center >
+<img src="img/sps.png" alt="logo" style="width:500px;"/>
+</center>
 
 

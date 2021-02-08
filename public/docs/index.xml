@@ -76,6 +76,81 @@ ggplotly(p)
     </item>
     
     <item>
+      <title>Sps: Introduction</title>
+      <link>/sps/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/intro/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;&lt;span style=&#34;color:#5DA7D6;&#34;&gt;s&lt;/span&gt;ystem&lt;span
+style=&#34;color:#5DA7D6;&#34;&gt;P&lt;/span&gt;ipe&lt;span style=&#34;color:#5DA7D6;&#34;&gt;S&lt;/span&gt;hiny&lt;/strong&gt;
+(SPS) extends the widely used &lt;a href=&#34;../spr/&#34;&gt;systemPipeR&lt;/a&gt;
+(SPR) workflow
+environment with a versatile graphical user interface provided by a &lt;a href=&#34;https://shiny.rstudio.com&#34;&gt;Shiny
+App&lt;/a&gt;. This allows non-R users, such as
+experimentalists, to run many systemPipeR&amp;rsquo;s workflow designs, control, and
+visualization functionalities interactively without requiring knowledge of R.
+Most importantly, &lt;code&gt;SPS&lt;/code&gt; has been designed as a general purpose framework for
+interacting with other R packages in an intuitive manner. Like most Shiny Apps,
+SPS can be used on both local computers as well as centralized server-based
+deployments that can be accessed remotely as a public web service for using
+SPR&amp;rsquo;s functionalities with community and/or private data. The framework can
+integrate many core packages from the R/Bioconductor ecosystem. Examples of
+SPS&#39; current functionalities include: (a) interactive creation of experimental
+designs and metadata using an easy to use tabular editor or file uploader; (b)
+visualization of workflow topologies combined with auto-generation of R
+Markdown preview for interactively designed workflows; (c) access to a wide
+range of data processing routines; (d) and an extendable set of visualization
+functionalities. Complex visual results can be managed on a &amp;lsquo;Canvas Workbench&amp;rsquo;
+allowing users to organize and to compare plots in an efficient manner combined
+with a session snapshot feature to continue work at a later time. The present
+suite of pre-configured visualization examples include different methods to
+plot a count table. The modular design of
+SPR makes it easy to design custom functions without any knowledge of Shiny,
+as well as extending the environment in the future with contributions from
+the community.&lt;/p&gt;
+&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;p&gt;Take a look at the demo app:&lt;/p&gt;
+&lt;p&gt;&lt;a 
+href=&#34;https://tgirke.shinyapps.io/systemPipeShiny/&#34; 
+style=&#34;background-color: #eee;border-radius: 10px;border: #c2daf7f5 solid 4px; font-weight: 800; font-size: 1.5rem; margin-left: 40%&#34;&gt;
+Try a demo!
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;main-functionalities&#34;&gt;Main functionalities&lt;/h2&gt;
+&lt;p&gt;Currently, &lt;code&gt;SPS&lt;/code&gt; includes 3 main functional categories (&lt;em&gt;Fig 1&lt;/em&gt;):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Some pre-defined modules include:
+a. A workbench for designing and configuring data analysis workflows,
+b. Downstream analysis and visualization tools for RNA-Seq, and
+c. A space to make quick ggplots.&lt;/li&gt;
+&lt;li&gt;A section with user custom tabs: users define their own shiny tabs.&lt;/li&gt;
+&lt;li&gt;An image editing tab &amp;ldquo;Canvas&amp;rdquo; which allows users to edit plots made from
+the previous two categories.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Besides, SPS provides many functions to extend the default Shiny development, like
+more UI components, server functions. Also, SPS has some useful general R ulitlies
+like error catching, logging, and more.&lt;/p&gt;
+&lt;center id=&#34;sps_structure&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_structure.jpg&#34; alt=&#34;SPS_structure&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Design of &lt;code&gt;systemPipeShiny.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The framework provides an
+interactive web interface for workflow management and data visualization.&lt;/p&gt;
+&lt;p&gt;Within the functional categories, &lt;code&gt;SPS&lt;/code&gt; functions are modularized in
+sub-components, here referred to as &lt;strong&gt;SPS tabs&lt;/strong&gt; that are similar to
+menu tabs in other GUI applications that organize related and inter-connected
+functionalies into groups. On the backend, &lt;strong&gt;SPS tabs&lt;/strong&gt; are based on &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny modules&lt;/a&gt;,
+that are stored in separate files. This modular structure is highly extensible
+and greatly simplifies the design of new &lt;code&gt;SPS&lt;/code&gt; tabs by both users and/or developers.
+Details about extending existing tabs and designing new ones are provided in
+&lt;a href=&#34;https://systempipe.org/sps/&#34;&gt;advanced sections on our website&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>About: Our Team</title>
       <link>/about/team/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -95,6 +170,179 @@ ggplotly(p)
 &lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/le-zhang/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu//members/le-zhang.jpg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy/&#34;&gt;Ponmathi Ramasamy, Undergraduate Student in Bioengineering&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Workflow</title>
+      <link>/sps/modules/workflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/modules/workflow/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;workflow-management&#34;&gt;Workflow management&lt;/h2&gt;
+&lt;p&gt;The workflow management module in &lt;code&gt;SPS&lt;/code&gt; allows one to modify or create the
+configuration files required for running data analysis workflows in
+&lt;a href=&#34;https://systempipe.org/docs/systemPipeR/&#34;&gt;systemPipeR&lt;/a&gt; (SPR). This includes
+three types of important files: a sample metadata (targets) file, a
+workflow file (in R Markdown format) defining the workflow steps, and workflow running
+files in &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language (CWL)&lt;/a&gt; format. In SPS, one can easily create
+these files under the &amp;ldquo;Workflow Management&amp;rdquo; module, located in navigation bar
+on the left of the dashboard (&lt;a href=&#34;../sps/quick_start/#launch-sps&#34;&gt;Fig2&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The current version of &lt;code&gt;SPS&lt;/code&gt; allows to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;create a workflow environment;&lt;/li&gt;
+&lt;li&gt;create and/or check the format of targets / workflow / CWL files;&lt;/li&gt;
+&lt;li&gt;download the prepared workflow files to run elsewhere, like a cluster;&lt;/li&gt;
+&lt;li&gt;directly execute the workflow from SPS.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;1-setup-a-workflow&#34;&gt;1. setup a workflow&lt;/h3&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_wf_setup.jpg&#34; alt=&#34;wf_setup&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. A.&lt;/strong&gt; Workflow Management - Targets File&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In the workflow module, read the instructions and choose step 1. Step 1 should be
+automatically opened for you on start.&lt;/li&gt;
+&lt;li&gt;Choose a folder where you want to create the workflow environment.&lt;/li&gt;
+&lt;li&gt;Choose a workflow template. These are SPR workflows and mainly are next-generation
+sequencing workflows.&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Gen workflow&amp;rdquo; to create the workflow project.&lt;/li&gt;
+&lt;li&gt;You should see a pop-up saying about the project path and other information.
+Clicking the pop-up will jump you to the step 2. The status tracker and banner for
+step 1 should all turn green.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;2-prepare-a-target-file&#34;&gt;2. Prepare a target file&lt;/h3&gt;
+&lt;p&gt;The targets file defines all input file paths and other sample information of
+analysis workflows. To better undertand the structure of this file, one can
+consult the &lt;a href=&#34;https://systempipe.org/docs/systemPipeR/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
+file&amp;rdquo;&lt;/a&gt;
+section in the SPR vignette. Essentially, this is the tabular file representation
+of the &lt;code&gt;colData&lt;/code&gt; slot in an &lt;code&gt;SummarizedExperiment&lt;/code&gt; object which stores sample
+IDs and other meta information.&lt;/p&gt;
+&lt;p&gt;The following step-by-step instructions explain how to create and/or modify targets
+files using RNA-Seq as an example (Fig.3 A):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Your project targets file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
+&lt;li&gt;You can edit, right click to add/remove rows/columns (The first row is treated as column names).&lt;/li&gt;
+&lt;li&gt;SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a &amp;ldquo;#&amp;rdquo;. Header is only useful for RNA-Seq workflow in current SPR. You can define sample comparison groups
+here. Leave it as default for other projects.&lt;/li&gt;
+&lt;li&gt;The section on the left provides sample statistics and information whether files exist inside the workflow project&amp;rsquo;s &lt;code&gt;data&lt;/code&gt; directory. Choose any column you want from the dropdown to check and watch the statistics bar change in this section.&lt;/li&gt;
+&lt;li&gt;statistic status bar.&lt;/li&gt;
+&lt;li&gt;Clicking on &amp;ldquo;Add to task&amp;rdquo; can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click &amp;ldquo;save&amp;rdquo; to download it and later use in a SPR project.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_ui_target.jpg&#34; alt=&#34;wf_targets&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. A.&lt;/strong&gt; Workflow Management - Targets File&lt;/p&gt;
+&lt;h3 id=&#34;3-prepare-a-workflow-file&#34;&gt;3. Prepare a workflow file&lt;/h3&gt;
+&lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/pages/pipelines_area/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Your project workflow file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
+&lt;li&gt;The workflow structure is displayed in a tree-leaf-like plot.&lt;/li&gt;
+&lt;li&gt;Check all steps in the workflow that you want to include. You can skip (uncheck) some steps but it may cause the workflow to fail. Read more SPR instructions before do so.&lt;/li&gt;
+&lt;li&gt;Clicking on the &amp;ldquo;Plot steps&amp;rdquo; will show a flow chart of what the step execution orders will be when you run the workflow in SPR.&lt;/li&gt;
+&lt;li&gt;Clicking &amp;ldquo;Report preview&amp;rdquo; generates a preview of what the final report will look like for current RNAseq workflow (hidden in Fig 3.B), but in the preview, no code is evaluated.&lt;/li&gt;
+&lt;li&gt;If you are satisfied with your workflow file, click &amp;ldquo;Add to task&amp;rdquo; to save your workflow file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_ui_wf.jpg&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.&lt;/strong&gt; Workflow Management - Workflow File&lt;/p&gt;
+&lt;h3 id=&#34;4-prepare-cwl-files-optional&#34;&gt;4. Prepare CWL files (optional)&lt;/h3&gt;
+&lt;p&gt;In the new version of SPR, all individual system workflow steps are called by the
+CWL files. Each SPR workflow has a set of CWL files and normally users do not need
+to make any change. In case you want to learn more about CWL and create some new
+CWL files, Step 4 is a good place to practice.&lt;/p&gt;
+&lt;p&gt;To run a CWL step in SPR, 3 files are required:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;targets: to determine how many samples will be run and sample names.&lt;/li&gt;
+&lt;li&gt;CWL running file: can be translated to bash code;&lt;/li&gt;
+&lt;li&gt;CWL input: variables to inject into the running file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SPR is the parser between R and CWL by injecting sample information from targets
+to &lt;code&gt;CWL input&lt;/code&gt; file and then CWL parser translates it to bash code.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Most people are not familiar this part, so read instructions carefully.&lt;/li&gt;
+&lt;li&gt;Your project targets has been loaded for you, and an example CWL running and input
+for &lt;strong&gt;hisat2&lt;/strong&gt; is also loaded for you. Directly parse the code. See what commandline
+code you get.&lt;/li&gt;
+&lt;li&gt;Change the targets injecting column, and parse again, see what has changed.&lt;/li&gt;
+&lt;li&gt;You can edit the CWL running and input files&lt;/li&gt;
+&lt;li&gt;Try to parse the new file and see what has changed.&lt;/li&gt;
+&lt;li&gt;If new CWL files has been created, you can edit workflow Rmd files by adding your
+new steps.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_wf_cwl.jpg&#34; alt=&#34;wf_cwl&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. C.&lt;/strong&gt; Workflow Management - CWL File&lt;/p&gt;
+&lt;h3 id=&#34;5-run-or-finish-workflow-preparation&#34;&gt;5. Run or finish workflow preparation&lt;/h3&gt;
+&lt;p&gt;Up until this step, congratulations, the workflow is prepared. You can choose to
+download the workflow project files as a bundle or continue to run the workflow.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_wf_run.jpg&#34; alt=&#34;wf_cwl&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 4.A.B&lt;/strong&gt; Workflow Runner&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;On step 5 you can choose to download the prepared workflow or directly run the
+workflow. However, if you do not have the required commandline tools, workflow will
+most likely fail. Make sure you system has these tools (&lt;a href=&#34;http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#261_Third-party_software_tools&#34;&gt;Read about these tools&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Open up the runner. It is a &amp;ldquo;Rstudio-like&amp;rdquo; interface.&lt;/li&gt;
+&lt;li&gt;Code editor. Required workflow running code is pre-entered for you. You can simply
+hit &amp;ldquo;Run&amp;rdquo; to start. Of course, you can delete the default code and run random R
+code.&lt;/li&gt;
+&lt;li&gt;Output R console.&lt;/li&gt;
+&lt;li&gt;Workflow running log.&lt;/li&gt;
+&lt;li&gt;View any plot output. and send a copy of your current plot to SPS Canvas tab or
+download it.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Installation</title>
+      <link>/sps/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/install/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;systemPipeShiny&lt;/code&gt; package can be installed from a user&amp;rsquo;s R console as follows.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly=TRUE))
+    install.packages(&amp;quot;BiocManager&amp;quot;)
+BiocManager::install(&amp;quot;systemPipeShiny&amp;quot;)
+
+# or use &amp;quot;pak&amp;quot;
+if (!requireNamespace(&amp;quot;pak&amp;quot;, quietly=TRUE))
+    install.packages(&amp;quot;pak&amp;quot;, repos = &amp;quot;https://r-lib.github.io/p/pak/dev/&amp;quot;)
+pak::pkg_install(&amp;quot;systemPipeShiny&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the user&amp;rsquo;s OS is Linux then one may need to install the following dependencies
+&lt;strong&gt;before&lt;/strong&gt; installing SPS.
+The following example applies to Ubuntu.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install -y libcurl4-openssl-dev
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y libv8-dev
+# other dependencies
+sudo apt-get install -y libicu-dev
+sudo apt-get install -y pandoc
+sudo apt-get install -y make
+sudo apt-get install -y libglpk-dev
+sudo apt-get install -y libgmp3-dev
+sudo apt-get install -y zlib1g-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Most likely you only need to install first 3, &lt;em&gt;libcurl4-openssl-dev&lt;/em&gt; may not be
+required for Ubuntu &amp;gt; 18.04. In case any other problem happens, try to install
+other system dependencies.&lt;/p&gt;
+&lt;p&gt;On other Linux distributions, the install commands may be slightly different.&lt;/p&gt;
 
       </description>
     </item>
@@ -132,17 +380,126 @@ ggplotly(p)
     </item>
     
     <item>
-      <title>Sps: systemPipeShiny Demo</title>
-      <link>/sps/systempipeshiny_demo/</link>
+      <title>Sps: RNAseq</title>
+      <link>/sps/modules/rnaseq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/sps/systempipeshiny_demo/</guid>
+      <guid>/sps/modules/rnaseq/</guid>
       <description>
         
         
-        &lt;h1 id=&#34;graphical-user-interface&#34;&gt;Graphical User Interface&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://tgirke.shinyapps.io/systemPipeShiny/&#34;&gt;systemPipeShiny&lt;/a&gt;&lt;/p&gt;
-&lt;iframe src=&#34;https://tgirke.shinyapps.io/systemPipeShiny/&#34; style=&#34;border: none; width: 900px; height: 800px&#34;&gt;&lt;/iframe&gt;
+        &lt;h2 id=&#34;rna-seq-module&#34;&gt;RNA-Seq Module&lt;/h2&gt;
+&lt;p&gt;This is a module which takes a &lt;strong&gt;raw count table&lt;/strong&gt; to do normalization,
+Differential gene expression (DEG) analysis, and finally helps users to generate
+different plots to visualize the results.&lt;/p&gt;
+&lt;h3 id=&#34;prepare-metadata-and-count-table&#34;&gt;Prepare metadata and count table&lt;/h3&gt;
+&lt;p&gt;To start, we require two files, the metadata file (targets) and a raw count table (Fig. 5).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_rna_data.jpg&#34; alt=&#34;rna_data&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 5&lt;/strong&gt; RNAseq&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;This is the RNAseq module UI when you first click it. All sub-tabs are disbled
+at the beginning. Other tabs will enabled as you proceed with different options.&lt;/li&gt;
+&lt;li&gt;First, we need a metadata file to tell SPS what samples and conditions to use.
+Here, we use the metadata file from SPR, which is also known as &amp;ldquo;targets&amp;rdquo; file.
+If you are not familiar with the targets file, we suggest to use the workflow module
+step 2 to practice creating and checking the format. You can also use the example to
+see how it looks like.&lt;/li&gt;
+&lt;li&gt;The loaded targets table is display here. You can use the box below each column
+name to filter what samples to include/exclude. Only the &amp;ldquo;SampleName&amp;rdquo; and &amp;ldquo;Factor&amp;rdquo;
+columns are used, other columns are ignored. &lt;code&gt;SampleName&lt;/code&gt; should be a unique character
+string without space for each row.  &lt;code&gt;Factor&lt;/code&gt; is the experiment design factors, or
+conditions, or treatments.&lt;/li&gt;
+&lt;li&gt;If you want to DEG analysis, DEG comparison groups are defined in the targets
+file header.&lt;/li&gt;
+&lt;li&gt;The header will be parsed into comparison groups which contain individual comparisons.
+If the parsed comparison is not what you want, edit the header lines and reupload.&lt;/li&gt;
+&lt;li&gt;If everything is expected, confirm to use this table.&lt;/li&gt;
+&lt;li&gt;You should see the progress timeline of step 1 becomes green if your targets
+and header pass the format checking.&lt;/li&gt;
+&lt;li&gt;(Not on  figure) Similarly, use example or upload a count table and confirm to use it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note: For the count table, the first column will be used as gene names. Other column
+names will be treated as sample names, and values in these columns are treated as
+raw counts. Make sure columns except the first one are &lt;strong&gt;numeric&lt;/strong&gt;, and replace &lt;code&gt;NA&lt;/code&gt;
+with &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Upon successfully confirm targets and count table, you should see the &amp;ldquo;Normalize Data&amp;rdquo;
+subtab is enabled. You can click on the top navigation or click the pop-up for the next
+step.&lt;/p&gt;
+&lt;h3 id=&#34;process-raw-count&#34;&gt;Process raw count&lt;/h3&gt;
+&lt;p&gt;If this UI is displayed, that means your targets and count table are accepted by
+SPS (Fig 6). On this sub-tab, you can choose:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Transform your count data with &amp;ldquo;raw&amp;rdquo;, &amp;ldquo;rlog&amp;rdquo; or &amp;ldquo;VST&amp;rdquo; and visualize the results
+in other sub-tabs.&lt;/li&gt;
+&lt;li&gt;Do DEG analysis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These two options are independent.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_rna_norm.jpg&#34; alt=&#34;rna_norm&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 6&lt;/strong&gt; RNAseq Normalization&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;At step 1 panel, choose how SPS can help you, count transformation or DEG analysis.
+The former will jump you to step 2, latter will jump to step 3.&lt;/li&gt;
+&lt;li&gt;There are many options. If you are not clear, hover your mouse on the option,
+and some tips will show up.&lt;/li&gt;
+&lt;li&gt;To start data transformation or DEG analysis.&lt;/li&gt;
+&lt;li&gt;A gallery of different plot options will show up when the data process is done.&lt;/li&gt;
+&lt;li&gt;When the data process is done, you can download results from the right side panel.
+Check all items you want and SPS will help you to zip it into one file to download.&lt;/li&gt;
+&lt;li&gt;If at least one item is checked, downloading is enabled.&lt;/li&gt;
+&lt;li&gt;Progress timeline will also change upon successful data process.&lt;/li&gt;
+&lt;li&gt;Different visualization options will be enabled depending on the data process options.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;plot-options&#34;&gt;Plot options&lt;/h3&gt;
+&lt;p&gt;SPS RNAseq module provides 6 different plot options to cluster transformed count table.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_rna_plot.jpg&#34; alt=&#34;rna_plot&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 6&lt;/strong&gt; RNAseq plots&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Change plot options to customize your plots.&lt;/li&gt;
+&lt;li&gt;Most plots are &lt;a href=&#34;https://plotly.com&#34;&gt;Plotly&lt;/a&gt; plots, which means you can interact
+with these plots, like hiding/show groups, zoom in/out, etc.&lt;/li&gt;
+&lt;li&gt;All SPS plots are resizable. Dragging the bottom-right corner icon to resize your
+plot.&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;To canvas&amp;rdquo; to take a screenshot of current plot and edit it in &lt;code&gt;SPS Canvas&lt;/code&gt;
+tab. Or clicking the down-arrow button to directly save current plot to a png or jpg.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;deg-report&#34;&gt;DEG report&lt;/h3&gt;
+&lt;p&gt;This is a special sub-tab designed to filter and visualize DEG results. This sub-tab
+can be accessed once the DEG is calculated on the &amp;ldquo;Normalize Data&amp;rdquo; sub-tab.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_rna_deg.jpg&#34; alt=&#34;rna_deg&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 7&lt;/strong&gt; RNAseq DEG&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DEG summary plot. You can view what are the DEG results across different comparision
+groups.&lt;/li&gt;
+&lt;li&gt;Switch to view a ggplot friendly table. Different from the table you could download from
+&amp;ldquo;Normalize Data&amp;rdquo; subtab, this DEG table is rearranged so you can easily make a ggplot from it.&lt;/li&gt;
+&lt;li&gt;You can change the filter settings here, so DEGs will be re-filtered and you do not need
+to go back to &amp;ldquo;Normalize Data&amp;rdquo; subtab to recalculate DEG.&lt;/li&gt;
+&lt;li&gt;DEG plotting options. Choose from a volcano plot, an upset plot (intersection),
+a MA plot or a heatmap.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;interact-with-other-bioconductor-packages&#34;&gt;Interact with other bioconductor packages.&lt;/h3&gt;
+&lt;h4 id=&#34;locally&#34;&gt;Locally&lt;/h4&gt;
+&lt;p&gt;If you are familiar with R and want to continue other analysis after these, simple stop SPS:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;After count transformation, there is a &lt;code&gt;spsRNA_trans&lt;/code&gt; object stored in your R
+environment. &lt;code&gt;raw&lt;/code&gt; method gives you a normalized count table. Other two methods
+give you a &lt;code&gt;DESeq2&lt;/code&gt; class object. You can use it for other analysis.&lt;/li&gt;
+&lt;li&gt;After DEG analysis,  SPS stores a global object called &lt;code&gt;spsDEG.&lt;/code&gt;
+It is a &lt;code&gt;summerizedExperiment&lt;/code&gt; object which has all individual tables from all
+DEG comparisons. You can use it for other downstream analysis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;remotely&#34;&gt;Remotely&lt;/h4&gt;
+&lt;p&gt;If you are using SPS from a remote server, you can choose to download results from
+&amp;ldquo;Normalize Data&amp;rdquo; sub-tab. Choose results in tabular format or &lt;code&gt;summerizedExperiment&lt;/code&gt;
+format which is saved in a &lt;code&gt;.rds&lt;/code&gt; file.&lt;/p&gt;
 
       </description>
     </item>
@@ -159,6 +516,149 @@ ggplotly(p)
         &lt;h2 id=&#34;acknowledgement&#34;&gt;Acknowledgement&lt;/h2&gt;
 &lt;p&gt;This project is funded by NSF award &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152&#34;&gt;ABI-1661152&lt;/a&gt;.&lt;/p&gt;
 &lt;center&gt;&lt;img title=&#34;nsflogo&#34; src=&#34;https://systempipe.org/assets/images/doc/NSF_Logo.png&#34;&gt;&lt;img/&gt;&lt;/center&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Quick ggplot</title>
+      <link>/sps/modules/ggplot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/modules/ggplot/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;quick-ggplot-module&#34;&gt;Quick {ggplot} module&lt;/h2&gt;
+&lt;p&gt;This module enables you to quickly upload datasets and make a {&lt;a href=&#34;https://ggplot2.tidyverse.org/&#34;&gt;ggplot&lt;/a&gt;}
+in a second by using some functionalities from {&lt;a href=&#34;https://dreamrs.github.io/esquisse/index.html&#34;&gt;Esquisse&lt;/a&gt;}.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_quickgg.jpg&#34; alt=&#34;quickgg&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 8&lt;/strong&gt; Quick ggplot&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Provide a tabular data table by uploading or use example.&lt;/li&gt;
+&lt;li&gt;Drag variables from into different ggplot aesthetic boxes to make a ggplot.&lt;/li&gt;
+&lt;li&gt;Change to different plot types.&lt;/li&gt;
+&lt;li&gt;Customize other different plotting options.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For a more specific guide, read &lt;a href=&#34;https://dreamrs.github.io/esquisse/articles/get-started.html&#34;&gt;Esquisse official guide&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Quick start</title>
+      <link>/sps/quick_start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/quick_start/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;sps-example-usage&#34;&gt;SPS example usage&lt;/h1&gt;
+&lt;p&gt;To start with SPS after installation:&lt;/p&gt;
+&lt;h2 id=&#34;load-package&#34;&gt;Load package&lt;/h2&gt;
+&lt;p&gt;Load the &lt;code&gt;systemPipeShiny&lt;/code&gt; package in your R session.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: shiny
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: shinyTree
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Registered S3 method overwritten by &#39;treeio&#39;:
+##   method     from
+##   root.phylo ape
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;initialize-sps-project&#34;&gt;Initialize &lt;code&gt;SPS&lt;/code&gt; project&lt;/h2&gt;
+&lt;p&gt;Before launching the &lt;code&gt;SPS&lt;/code&gt; application, a project environment needs to be created with the
+following command.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsInit()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For this demo, the project directory structure is written to a temporary
+directory on a user&amp;rsquo;s system. For a real project, it should be written to a
+defined and user controlled location on a system rather than a temporary
+directory.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_tmp_dir &amp;lt;- tempdir()
+spsInit(app_path = sps_tmp_dir, change_wd = FALSE, project_name = &amp;quot;SPSProject&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-02-08 11:14:40 Start to create a new SPS project
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-02-08 11:14:40 Create project under /tmp/Rtmp1K8609/SPSProject
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-02-08 11:14:40 Now copy files
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-02-08 11:14:40 Create SPS database
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-02-08 11:14:40 Created SPS database method container
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-02-08 11:14:40 Creating SPS db...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-02-08 11:14:40 Db created at &#39;/tmp/Rtmp1K8609/SPSProject/config/sps.db&#39;. DO NOT share this file with others
+## [SPS-INFO] 2021-02-08 11:14:40 Key md5 c450a90144b99bfb888b4078d636a418
+## [SPS-INFO] 2021-02-08 11:14:40 SPS project setup done!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_dir &amp;lt;- file.path(sps_tmp_dir, &amp;quot;SPSProject&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sps-project-structure&#34;&gt;SPS project structure&lt;/h3&gt;
+&lt;p&gt;The file and directory structure of an SPS project is organized as follows.&lt;/p&gt;
+&lt;pre&gt;
+SPS_xx/  
+├── server.R               &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt; 
+├── global.R               &lt;span class=&#34;text-success&#34;&gt;| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit manually&lt;/span&gt;   
+├── ui.R                   &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt;  
+├── deploy.R               &lt;span class=&#34;text-info&#34;&gt;| Deploy helper file&lt;/span&gt;  
+├── config                 &lt;span class=&#34;text-success&#34;&gt;| Important app config files. Do not edit them if you don&#39;t know&lt;/span&gt;  
+│   ├── sps.db             &lt;span class=&#34;text-gray&#34;&gt;| SPS database&lt;/span&gt; 
+│   ├── sps_options.yaml   &lt;span class=&#34;text-gray&#34;&gt;| SPS default option list&lt;/span&gt; 
+│   └── tabs.csv           &lt;span class=&#34;text-gray&#34;&gt;| SPS tab information&lt;/span&gt; 
+├── data                   &lt;span class=&#34;text-primary&#34;&gt;| App example data files&lt;/span&gt; 
+│   ├── xx.csv             
+├── R                      &lt;span class=&#34;text-primary&#34;&gt;| All SPS additional tab files and helper R function files&lt;/span&gt; 
+│   ├── tab_xx.R            
+├── README.md              
+├── results                &lt;span class=&#34;text-gray&#34;&gt;| Not in use for this current version, you can store some data been generated from the app&lt;/span&gt; 
+│   └── README.md          
+└── www                    &lt;span class=&#34;text-primary&#34;&gt;| Internet resources&lt;/span&gt;  
+    ├── about              &lt;span class=&#34;text-gray&#34;&gt;| About tab information&lt;/span&gt; 
+    │   └── xx.md          
+    ├── css                &lt;span class=&#34;text-info&#34;&gt;| CSS files&lt;/span&gt;  
+    │   └── sps.css         
+    ├── img                &lt;span class=&#34;text-info&#34;&gt;| App image resources&lt;/span&gt;    
+    │   └── xx.png         
+    ├── js                 &lt;span class=&#34;text-info&#34;&gt;| Javascripts&lt;/span&gt;
+    │   └── xx.js           
+    ├── loading_themes     &lt;span class=&#34;text-info&#34;&gt;| Loading screen files&lt;/span&gt; 
+    │   └── xx.html         
+    └── plot_list          &lt;span class=&#34;text-info&#34;&gt;| Image files for plot gallery&lt;/span&gt;  
+        └── plot_xx.jpg      
+&lt;/pre&gt;
+&lt;h2 id=&#34;launch-sps&#34;&gt;Launch &lt;code&gt;SPS&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;By default, the working directory will be set inside the project folder automatically.
+To launch the &lt;code&gt;SPS&lt;/code&gt; Shiny application, one only needs to execute the following command.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;shiny::runApp()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After the SPS app has been launched, clicking the &amp;ldquo;Continue to app&amp;rdquo; button
+on the welcome screen will open the main dashboard (Fig.2).&lt;/p&gt;
+&lt;center id=&#34;sps_ui&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_ui_main.jpg&#34; alt=&#34;sps_ui&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 2:&lt;/strong&gt; Snapshot of SPS&#39; UI.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Welcome screen.&lt;/li&gt;
+&lt;li&gt;Module tabs.&lt;/li&gt;
+&lt;li&gt;User defined custom tabs.&lt;/li&gt;
+&lt;li&gt;The Canvas tab.&lt;/li&gt;
+&lt;li&gt;All SPS tabs has this description on top. It is highly recommend to click here
+to expand and read the full the description for the first time.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Alternatively, when using RStudio one can click the &lt;img src=../img/app_start.png style=&#34;display: inline;
+padding-left:0; width:10px; height:15px;&#34;&gt;&lt;code&gt;Run App&lt;/code&gt; button in the top right corner.&lt;/p&gt;
+&lt;p&gt;In addition, in Rstudio the &lt;em&gt;global.R&lt;/em&gt; file will be automatically
+opened when the &lt;code&gt;SPS&lt;/code&gt; project is created. Custom changes can be made inside this file
+before the app launches. Later we will discuss how to change and create new custom tabs and change other settings.&lt;/p&gt;
 
       </description>
     </item>

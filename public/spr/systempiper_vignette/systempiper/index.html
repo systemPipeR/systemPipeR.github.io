@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -22,11 +22,11 @@
 Introduction systemPipeR provides flexible utilities for building and running automated end-to-end analysis workflows for a wide range of research applications, including next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq (H Backman and Girke 2016)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/spr/systempiper_vignette/systempiper/" />
-<meta property="article:modified_time" content="2021-02-05T17:54:49-08:00" /><meta property="og:site_name" content="systemPipeR" />
+<meta property="article:modified_time" content="2021-02-06T01:57:38+00:00" /><meta property="og:site_name" content="systemPipeR" />
 <meta itemprop="name" content="systemPipeR: Workflow design and reporting generation environment">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: if you use systemPipeR in published research, please cite: Backman, T.W.H and Girke, T. (2016). systemPipeR: NGS Workflow and Report Generation Environment. BMC Bioinformatics, 17: 388. 10.1186/s12859-016-1241-0.
 Introduction systemPipeR provides flexible utilities for building and running automated end-to-end analysis workflows for a wide range of research applications, including next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq (H Backman and Girke 2016).">
-<meta itemprop="dateModified" content="2021-02-05T17:54:49-08:00" />
+<meta itemprop="dateModified" content="2021-02-06T01:57:38+00:00" />
 <meta itemprop="wordCount" content="11207">
 
 
@@ -246,7 +246,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.045847311bcad37ee7a4c5ebb2b18566.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d98a25d1237433a4242747465a4ce87d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -278,7 +278,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.045847311bcad37ee7a4c5ebb2b18566.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d98a25d1237433a4242747465a4ce87d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -447,113 +447,135 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#workflow-design-structure-using-sysargs2">Workflow design structure using <em><code>SYSargs2</code></em></a></li>
-    <li><a href="#workflow-management-using-sysargslist">Workflow Management using <em><code>SYSargsList</code></em></a></li>
-    <li><a href="#workflow-design-structure-using-sysargs-previous-version">Workflow design structure using <em><code>SYSargs</code></em>: Previous version</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#loading-package-and-documentation">Loading package and documentation</a></li>
-    <li><a href="#load-sample-data-and-workflow-templates">Load sample data and workflow templates</a>
+    <li><a href="#introduction">Introduction</a>
       <ul>
-        <li><a href="#workflow-template-from-an-individuals-package">Workflow template from an individual’s package</a></li>
+        <li><a href="#workflow-design-structure-using-sysargs2">Workflow design structure using <em><code>SYSargs2</code></em></a></li>
+        <li><a href="#workflow-management-using-sysargslist">Workflow Management using <em><code>SYSargsList</code></em></a></li>
+        <li><a href="#workflow-design-structure-using-sysargs-previous-version">Workflow design structure using <em><code>SYSargs</code></em>: Previous version</a></li>
       </ul>
     </li>
-    <li><a href="#directory-structure">Directory Structure</a></li>
-    <li><a href="#structure-of-targets-file">Structure of <em><code>targets</code></em> file</a>
+    <li><a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#structure-of-targets-file-for-single-end-se-samples">Structure of <em><code>targets</code></em> file for single-end (SE) samples</a></li>
-        <li><a href="#structure-of-targets-file-for-paired-end-pe-samples">Structure of <em><code>targets</code></em> file for paired-end (PE) samples</a></li>
-        <li><a href="#sample-comparisons">Sample comparisons</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#loading-package-and-documentation">Loading package and documentation</a></li>
+        <li><a href="#load-sample-data-and-workflow-templates">Load sample data and workflow templates</a>
+          <ul>
+            <li><a href="#workflow-template-from-an-individuals-package">Workflow template from an individual’s package</a></li>
+          </ul>
+        </li>
+        <li><a href="#directory-structure">Directory Structure</a></li>
+        <li><a href="#structure-of-targets-file">Structure of <em><code>targets</code></em> file</a>
+          <ul>
+            <li><a href="#structure-of-targets-file-for-single-end-se-samples">Structure of <em><code>targets</code></em> file for single-end (SE) samples</a></li>
+            <li><a href="#structure-of-targets-file-for-paired-end-pe-samples">Structure of <em><code>targets</code></em> file for paired-end (PE) samples</a></li>
+            <li><a href="#sample-comparisons">Sample comparisons</a></li>
+          </ul>
+        </li>
+        <li><a href="#structure-of-the-new-param-files-and-construct-sysargs2-container">Structure of the new <em><code>param</code></em> files and construct <em><code>SYSargs2</code></em> container</a>
+          <ul>
+            <li><a href="#third-party-software-tools">Third-party software tools</a></li>
+          </ul>
+        </li>
+        <li><a href="#structure-of-param-file-and-sysargs-container-previous-version">Structure of <em><code>param</code></em> file and <em><code>SYSargs</code></em> container (Previous version)</a></li>
       </ul>
     </li>
-    <li><a href="#structure-of-the-new-param-files-and-construct-sysargs2-container">Structure of the new <em><code>param</code></em> files and construct <em><code>SYSargs2</code></em> container</a>
+    <li><a href="#how-to-run-a-workflow">How to run a Workflow</a>
       <ul>
-        <li><a href="#third-party-software-tools">Third-party software tools</a></li>
+        <li><a href="#load-sample-data-and-workflow-templates-1">Load sample data and workflow templates</a></li>
+        <li><a href="#setup-and-requirements">Setup and Requirements</a></li>
+        <li><a href="#project-initialization">Project Initialization</a></li>
+        <li><a href="#project-initialization-in-a-temporary-directory">Project Initialization in a Temporary Directory</a></li>
+        <li><a href="#configuration-and-run-of-the-project">Configuration and run of the project</a></li>
+        <li><a href="#how-to-use-pipes-with-systempiper">How to Use Pipes with <em>systemPipeR</em></a></li>
+        <li><a href="#how-to-run-the-workflow-on-a-cluster">How to run the workflow on a cluster</a>
+          <ul>
+            <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#structure-of-param-file-and-sysargs-container-previous-version">Structure of <em><code>param</code></em> file and <em><code>SYSargs</code></em> container (Previous version)</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#load-sample-data-and-workflow-templates-1">Load sample data and workflow templates</a></li>
-    <li><a href="#setup-and-requirements">Setup and Requirements</a></li>
-    <li><a href="#project-initialization">Project Initialization</a></li>
-    <li><a href="#project-initialization-in-a-temporary-directory">Project Initialization in a Temporary Directory</a></li>
-    <li><a href="#configuration-and-run-of-the-project">Configuration and run of the project</a></li>
-    <li><a href="#how-to-use-pipes-with-systempiper">How to Use Pipes with <em>systemPipeR</em></a></li>
-    <li><a href="#how-to-run-the-workflow-on-a-cluster">How to run the workflow on a cluster</a>
+    <li><a href="#workflow-steps-overview">Workflow steps overview</a>
       <ul>
-        <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
+        <li><a href="#define-environment-settings-and-samples">Define environment settings and samples</a></li>
+        <li><a href="#read-preprocessing">Read Preprocessing</a>
+          <ul>
+            <li><a href="#preprocessing-with-preprocessreads-function">Preprocessing with <em><code>preprocessReads</code></em> function</a></li>
+            <li><a href="#preprocessing-with-trimgalore">Preprocessing with TrimGalore!</a></li>
+            <li><a href="#preprocessing-with-trimmomatic">Preprocessing with Trimmomatic</a></li>
+          </ul>
+        </li>
+        <li><a href="#fastq-quality-report">FASTQ quality report</a></li>
+        <li><a href="#ngs-alignment-software">NGS Alignment software</a>
+          <ul>
+            <li><a href="#alignment-with-hisat2-using-sysargs2">Alignment with <code>HISAT2</code> using <em><code>SYSargs2</code></em></a>
+              <ul>
+                <li><a href="#interactive-job-submissions-in-a-single-machine">Interactive job submissions in a single machine</a></li>
+                <li><a href="#parallelization-on-clusters-1">Parallelization on clusters</a></li>
+                <li><a href="#create-new-targets-file">Create new targets file</a></li>
+                <li><a href="#alignment-with-hisat2-and-samtools">Alignment with <code>HISAT2</code> and <code>SAMtools</code></a></li>
+              </ul>
+            </li>
+            <li><a href="#alignment-with-tophat2">Alignment with <em><code>Tophat2</code></em></a></li>
+            <li><a href="#alignment-with-bowtie2-eg-for-mirna-profiling">Alignment with <em><code>Bowtie2</code></em> (<em>e.g.</em> for miRNA profiling)</a></li>
+            <li><a href="#alignment-with-bwa-mem-eg-for-var-seq">Alignment with <em><code>BWA-MEM</code></em> (<em>e.g.</em> for VAR-Seq)</a></li>
+            <li><a href="#alignment-with-rsubread-eg-for-rna-seq">Alignment with <em><code>Rsubread</code></em> (<em>e.g.</em> for RNA-Seq)</a></li>
+            <li><a href="#alignment-with-gsnap-eg-for-var-seq-and-rna-seq">Alignment with <em><code>gsnap</code></em> (<em>e.g.</em> for VAR-Seq and RNA-Seq)</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-symbolic-links-for-viewing-bam-files-in-igv">Create symbolic links for viewing BAM files in IGV</a></li>
+        <li><a href="#read-counting-for-mrna-profiling-experiments">Read counting for mRNA profiling experiments</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#read-and-alignment-count-stats">Read and alignment count stats</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#read-counting-for-mirna-profiling-experiments">Read counting for miRNA profiling experiments</a></li>
+        <li><a href="#correlation-analysis-of-samples">Correlation analysis of samples</a></li>
+        <li><a href="#deg-analysis-with-edger">DEG analysis with <em><code>edgeR</code></em></a></li>
+        <li><a href="#deg-analysis-with-deseq2">DEG analysis with <em><code>DESeq2</code></em></a></li>
+        <li><a href="#venn-diagrams">Venn Diagrams</a></li>
+        <li><a href="#go-term-enrichment-analysis-of-degs">GO term enrichment analysis of DEGs</a>
+          <ul>
+            <li><a href="#obtain-gene-to-go-mappings">Obtain gene-to-GO mappings</a></li>
+            <li><a href="#batch-go-term-enrichment-analysis">Batch GO term enrichment analysis</a></li>
+            <li><a href="#plot-batch-go-term-results">Plot batch GO term results</a></li>
+          </ul>
+        </li>
+        <li><a href="#clustering-and-heat-maps">Clustering and heat maps</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#define-environment-settings-and-samples">Define environment settings and samples</a></li>
-    <li><a href="#read-preprocessing">Read Preprocessing</a>
+    <li><a href="#workflow-templates">Workflow templates</a>
       <ul>
-        <li><a href="#preprocessing-with-preprocessreads-function">Preprocessing with <em><code>preprocessReads</code></em> function</a></li>
-        <li><a href="#preprocessing-with-trimgalore">Preprocessing with TrimGalore!</a></li>
-        <li><a href="#preprocessing-with-trimmomatic">Preprocessing with Trimmomatic</a></li>
+        <li><a href="#rna-seq-sample">RNA-Seq sample</a>
+          <ul>
+            <li><a href="#run-workflow">Run workflow</a></li>
+          </ul>
+        </li>
+        <li><a href="#chip-seq-sample">ChIP-Seq sample</a>
+          <ul>
+            <li><a href="#run-workflow-1">Run workflow</a></li>
+          </ul>
+        </li>
+        <li><a href="#var-seq-sample">VAR-Seq sample</a>
+          <ul>
+            <li><a href="#var-seq-workflow-for-the-single-machine">VAR-Seq workflow for the single machine</a></li>
+            <li><a href="#run-workflow-2">Run workflow</a></li>
+            <li><a href="#var-seq-workflow-for-computer-cluster">VAR-Seq workflow for computer cluster</a></li>
+          </ul>
+        </li>
+        <li><a href="#ribo-seq-sample">Ribo-Seq sample</a>
+          <ul>
+            <li><a href="#run-workflow-3">Run workflow</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#fastq-quality-report">FASTQ quality report</a></li>
-    <li><a href="#ngs-alignment-software">NGS Alignment software</a>
-      <ul>
-        <li><a href="#alignment-with-hisat2-using-sysargs2">Alignment with <code>HISAT2</code> using <em><code>SYSargs2</code></em></a></li>
-        <li><a href="#alignment-with-tophat2">Alignment with <em><code>Tophat2</code></em></a></li>
-        <li><a href="#alignment-with-bowtie2-eg-for-mirna-profiling">Alignment with <em><code>Bowtie2</code></em> (<em>e.g.</em> for miRNA profiling)</a></li>
-        <li><a href="#alignment-with-bwa-mem-eg-for-var-seq">Alignment with <em><code>BWA-MEM</code></em> (<em>e.g.</em> for VAR-Seq)</a></li>
-        <li><a href="#alignment-with-rsubread-eg-for-rna-seq">Alignment with <em><code>Rsubread</code></em> (<em>e.g.</em> for RNA-Seq)</a></li>
-        <li><a href="#alignment-with-gsnap-eg-for-var-seq-and-rna-seq">Alignment with <em><code>gsnap</code></em> (<em>e.g.</em> for VAR-Seq and RNA-Seq)</a></li>
-      </ul>
-    </li>
-    <li><a href="#create-symbolic-links-for-viewing-bam-files-in-igv">Create symbolic links for viewing BAM files in IGV</a></li>
-    <li><a href="#read-counting-for-mrna-profiling-experiments">Read counting for mRNA profiling experiments</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#read-counting-for-mirna-profiling-experiments">Read counting for miRNA profiling experiments</a></li>
-    <li><a href="#correlation-analysis-of-samples">Correlation analysis of samples</a></li>
-    <li><a href="#deg-analysis-with-edger">DEG analysis with <em><code>edgeR</code></em></a></li>
-    <li><a href="#deg-analysis-with-deseq2">DEG analysis with <em><code>DESeq2</code></em></a></li>
-    <li><a href="#venn-diagrams">Venn Diagrams</a></li>
-    <li><a href="#go-term-enrichment-analysis-of-degs">GO term enrichment analysis of DEGs</a>
-      <ul>
-        <li><a href="#obtain-gene-to-go-mappings">Obtain gene-to-GO mappings</a></li>
-        <li><a href="#batch-go-term-enrichment-analysis">Batch GO term enrichment analysis</a></li>
-        <li><a href="#plot-batch-go-term-results">Plot batch GO term results</a></li>
-      </ul>
-    </li>
-    <li><a href="#clustering-and-heat-maps">Clustering and heat maps</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#rna-seq-sample">RNA-Seq sample</a>
-      <ul>
-        <li><a href="#run-workflow">Run workflow</a></li>
-      </ul>
-    </li>
-    <li><a href="#chip-seq-sample">ChIP-Seq sample</a>
-      <ul>
-        <li><a href="#run-workflow-1">Run workflow</a></li>
-      </ul>
-    </li>
-    <li><a href="#var-seq-sample">VAR-Seq sample</a>
-      <ul>
-        <li><a href="#var-seq-workflow-for-the-single-machine">VAR-Seq workflow for the single machine</a></li>
-        <li><a href="#run-workflow-2">Run workflow</a></li>
-        <li><a href="#var-seq-workflow-for-computer-cluster">VAR-Seq workflow for computer cluster</a></li>
-      </ul>
-    </li>
-    <li><a href="#ribo-seq-sample">Ribo-Seq sample</a>
-      <ul>
-        <li><a href="#run-workflow-3">Run workflow</a></li>
-      </ul>
-    </li>
+    <li><a href="#version-information">Version information</a></li>
+    <li><a href="#funding">Funding</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
 
@@ -2584,7 +2606,7 @@ setwd(&quot;riboseq&quot;)
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-05: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/b3117a546c1ff93b6798c919f95569b09fe85c28">pg_build (b3117a5)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-06: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/f9869920fcc01afbb7055464e4bb251fed3560eb">Bot update public and md5sum table (f986992)</a>
 </div>
 </div>
 
