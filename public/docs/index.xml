@@ -175,6 +175,19 @@ Details about extending existing tabs and designing new ones are provided in
     </item>
     
     <item>
+      <title>Sps: UI components</title>
+      <link>/sps/dev/ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/dev/ui/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>Sps: Workflow</title>
       <link>/sps/modules/workflow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -505,6 +518,19 @@ format which is saved in a &lt;code&gt;.rds&lt;/code&gt; file.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Sps: Server functions</title>
+      <link>/sps/dev/server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/dev/server/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>About: Acknowledgement</title>
       <link>/about/acknowledgement/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -516,6 +542,20 @@ format which is saved in a &lt;code&gt;.rds&lt;/code&gt; file.&lt;/p&gt;
         &lt;h2 id=&#34;acknowledgement&#34;&gt;Acknowledgement&lt;/h2&gt;
 &lt;p&gt;This project is funded by NSF award &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152&#34;&gt;ABI-1661152&lt;/a&gt;.&lt;/p&gt;
 &lt;center&gt;&lt;img title=&#34;nsflogo&#34; src=&#34;https://systempipe.org/assets/images/doc/NSF_Logo.png&#34;&gt;&lt;img/&gt;&lt;/center&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: General utilities</title>
+      <link>/sps/dev/general/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/dev/general/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
 
       </description>
     </item>
@@ -690,6 +730,213 @@ Department of Botany and Plant Sciences (&lt;a href=&#34;http://plantbiology.ucr
 University of California, Riverside (&lt;a href=&#34;http://www.ucr.edu/&#34;&gt;UCR&lt;/a&gt;) &lt;br/&gt;
 CA 92521 &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;Email: &lt;a href=&#34;mailto:danielac@ucr.edu&#34;&gt;danielac@ucr.edu&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Canvas</title>
+      <link>/sps/canvas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/canvas/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;p&gt;SPS Canvas is a place to display and edit scrennshots from different plots. To start
+to use Canvas, you need to take some screenshots but clicking &amp;ldquo;To Canvas&amp;rdquo; buttons
+on different tabs/modules. After clicking, the screenshots will be automatically sent
+from these places to this Canvas.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_canvas.jpg&#34; alt=&#34;plot_tab&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Figure 9&lt;/strong&gt; Canvas&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The Canvas area.&lt;/li&gt;
+&lt;li&gt;Canvas drawing grids. By default, your objects are limited to these drawing grids, but you can change it from top options inside &amp;ldquo;canvas&amp;rdquo;.
+The grid area size is automatically calculated to fit your screen size when you start SPS.&lt;/li&gt;
+&lt;li&gt;Object information. When you select any object on the Canvas, a bounding box will show to display the object&amp;rsquo;s dimensions, scale, angle and other information.
+You can disable them in the &amp;ldquo;View&amp;rdquo; menu&lt;/li&gt;
+&lt;li&gt;To edit your screenshots, simply drag your screenshots from left to Canvas working area.&lt;/li&gt;
+&lt;li&gt;You can add text or titles, and change the font color, decorations in this panel.&lt;/li&gt;
+&lt;li&gt;Different Canvas options. Several menus and buttons help you to better control the Canvas.
+Hover your mouse on buttons will display a tooltip of their functionality.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Keyboard shortcuts are also enabled with SPS Canvas. Go to &amp;ldquo;help&amp;rdquo; menu to see these
+options.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Configuration</title>
+      <link>/sps/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/config/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;h3 id=&#34;app-options&#34;&gt;App options&lt;/h3&gt;
+&lt;p&gt;App options in SPS are controlled by &amp;ldquo;SPS options&amp;rdquo;. These options can change
+app appearance, debugging level, server server behaviors, &lt;em&gt;etc&lt;/em&gt;. The valid options can
+be found and change on the &lt;code&gt;global.R&lt;/code&gt; file. They are similar to &lt;em&gt;Shiny&lt;/em&gt; options,
+but unlike &lt;em&gt;shiny&lt;/em&gt; options are single values, SPS options are passed using the &lt;code&gt;Option(sps = list(...))&lt;/code&gt;
+function in &lt;code&gt;global.R&lt;/code&gt; as a group. To view all options and their default, valid
+values(&#39;*&#39; means any value is okay):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r,&#34;&gt;viewSpsDefaults(app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To view a single option value, use &lt;code&gt;spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;)&lt;/code&gt;; to overwrite a single
+option, use &lt;code&gt;spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;, value = &amp;quot;NEW_VALUE&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p style=&#34;color:var(--primary)&#34;&gt;Note: Do not worry if you set some invalid values, on app start, `sps()` will check all SPS
+options, ignore unknown values and set invalid values back to default. You will see warning 
+messages on console to tell you specifically what is wrong with your options.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Other&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;mode&lt;/td&gt;
+&lt;td&gt;running mode&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;local&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;server&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;warning_toast&lt;/td&gt;
+&lt;td&gt;show security warnings?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loading_screen&lt;/td&gt;
+&lt;td&gt;show loading screen?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loading_theme&lt;/td&gt;
+&lt;td&gt;loading screen theme&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;vhelix&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;any string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;use_crayon&lt;/td&gt;
+&lt;td&gt;colorful console message?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;verbose&lt;/td&gt;
+&lt;td&gt;more details for SPS functions?&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;admin_page&lt;/td&gt;
+&lt;td&gt;show admin page?&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;admin_url&lt;/td&gt;
+&lt;td&gt;admin_page query url&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;admin&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;any string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;some details:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mode: this option will change how the upload files are selected.
+&lt;ul&gt;
+&lt;li&gt;local: You can choose file from server side, and it is a direct link, no file will be copied to server. Most often used when you are on you own computer. &lt;span style=&#34;color:var(--info)&#34;&gt;It is still choosing files from the server side, because you are using your own computer as a Shiny server.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;server: Choose files from the client side, and upload as a temp file to the server.&lt;/li&gt;
+&lt;li&gt;If you are on you own computer, there is no difference, but &lt;code&gt;local&lt;/code&gt; mode can avoid copy your files to temp. &lt;span style=&#34;color:var(--info)&#34;&gt;If you are deploying the app to cloud, please &lt;strong&gt;use server mode&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;warning_toast: A toast pop-up message when you are under some dangerous options when app starts.&lt;/li&gt;
+&lt;li&gt;loading_theme: &lt;code&gt;loading_screen&lt;/code&gt; must be &lt;code&gt;TRUE&lt;/code&gt;. Only one theme for now, we will add more in future.&lt;/li&gt;
+&lt;li&gt;verbose: Give you more information on debugging.&lt;/li&gt;
+&lt;li&gt;admin_url (disabled in current version): the admin page url, &lt;code&gt;admin_page&lt;/code&gt; must be &lt;code&gt;TRUE&lt;/code&gt; for it to work. It will be added in an upcoming version, a preview can be seen by adding &amp;ldquo;/?admin&amp;rdquo; to the end of app url, e.g. &amp;ldquo;&lt;a href=&#34;https://tgirke.shinyapps.io/systemPipeShiny/?admin&#34;&gt;https://tgirke.shinyapps.io/systemPipeShiny/?admin&lt;/a&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tab-configurations&#34;&gt;Tab configurations&lt;/h3&gt;
+&lt;p&gt;Tabs are registered(defined) by the &lt;em&gt;tabs.csv&lt;/em&gt; file under SPS project &lt;em&gt;config&lt;/em&gt; folder. It contains information for all
+the tabs. Do not modify it if you don&amp;rsquo;t plan to build new tabs. See &lt;a href=&#34;#extend-spsfor-developers&#34;&gt;developer section&lt;/a&gt; for how
+to operate this file.&lt;/p&gt;
+&lt;p&gt;To control what tabs to appear(load/unload) on SPS, pass the tab IDs of tabs you want to see to
+&lt;code&gt;tabs =&lt;/code&gt; argument on &lt;code&gt;sps()&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;sps_app &amp;lt;- sps(tabs = c(&amp;quot;ID1&amp;quot;, &amp;quot;ID2&amp;quot;, ...))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;tabs.csv&lt;/em&gt; has all the tab IDs. Under current version of SPS, you can only load/unload
+tabs in the &amp;ldquo;vs&amp;rdquo; type. Tabs under &amp;ldquo;core&amp;rdquo; and &amp;ldquo;wf&amp;rdquo; types are unable to change.&lt;/p&gt;
+&lt;h2 id=&#34;a-variety-of-additional-shiny-widgets&#34;&gt;A variety of additional shiny widgets&lt;/h2&gt;
+&lt;p&gt;There are many useful HTML components that
+can be use outside out SPS. You can include these widgets in your own Shiny apps without
+loading SPS main framework.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: New custom tabs</title>
+      <link>/sps/newtab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/newtab/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;p&gt;As a framework, &lt;code&gt;SPS&lt;/code&gt; allows users to add/remove/customize individual tabs. At current
+version, you can only modify tabs in Visualization module (data tabs, plot tabs).
+Use &lt;code&gt;spsNewTab&lt;/code&gt; to create new tabs. This function
+will help you to &lt;strong&gt;create the tab file&lt;/strong&gt;, store it to the &lt;em&gt;R&lt;/em&gt; folder in your SPS project, and
+&lt;strong&gt;register tab information&lt;/strong&gt; by adding records to &lt;em&gt;config/tabs.csv&lt;/em&gt;.
+Most arguments are self-explanatory or can be
+easily understood by reading the the help file.&lt;/p&gt;
+&lt;h2 id=&#34;adding-the-new-tabs-at-your-sps-application&#34;&gt;Adding the new tabs at your SPS application&lt;/h2&gt;
+&lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
+    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
+    server_expr = {
+        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
+    }
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
+&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
+tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
+essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Deploy</title>
+      <link>/sps/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/deploy/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;h2 id=&#34;how-to-deploy-the-application&#34;&gt;How to deploy the application&lt;/h2&gt;
+&lt;p&gt;Among several options of deployment of your &lt;code&gt;SPS&lt;/code&gt; custom application, here you can find the example of &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;shinyapps.io&lt;/a&gt;.
+To get started, it is required to create a &lt;em&gt;shinyapps.io&lt;/em&gt; account. Please follow this &lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;tutorial&lt;/a&gt;
+with all the instructions to create an account.
+&lt;code&gt;SPS&lt;/code&gt; project provides a ready-to-use file, &lt;code&gt;deploy.R&lt;/code&gt;, with the required information to configure ShinyApps account and deploy the application.&lt;/p&gt;
+&lt;p&gt;Once the account is set correctly, you can deploy it as soon as the project is created. It
+is recommended to create -&amp;gt; test/run -&amp;gt; deploy a Shiny app from Rstudio and follow
+&lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;this tutorial&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
