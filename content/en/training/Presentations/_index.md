@@ -8,21 +8,21 @@ type: docs
 
 ## [systemPipeRdata](http://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html)
 
-<iframe width="900" height="600" src="https://systempipe.org/pages/SPRdata_intro/SPRdata_intro#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="900" height="600" src="https://systempipe.org/presentations/SPRdata_intro/SPRdata_intro.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## [BioC2019](https://bioc2019.bioconductor.org/)
 
-<iframe width="900" height="600" src="https://systempipe.org/assets/images/doc/Bioc2019.html#/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="900" height="600" src="https://systempipe.org/presentations/Bioc2019.html#/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Slide Shows
 
 + [Overview Slide Show - 2016](https://docs.google.com/presentation/d/175aup31LvnbIJUAvEEoSkpGsKgtBJ2RpQYd0Gs23dLo/embed?start=false&loop=false&delayms=60000)
 
 
-+ [Overview Slide Show - 2015](https://systempipe.org/assets/images/doc/systemPipeRslides.html#1)
++ [Overview Slide Show - 2015](https://systempipe.org/presentations/systemPipeRslides.html#1)
 
-<iframe width="900" height="600" src="https://systempipe.org/assets/images/doc/systemPipeRslides.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="900" height="600" src="https://systempipe.org/presentations/systemPipeRslides.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Material for Bioc2016 Tutorial 
 

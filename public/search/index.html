@@ -39,7 +39,7 @@
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-185279673-1', 'auto');
+	ga('create', 'UA-158796879-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -223,20 +223,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-
-
-
-<input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="../offline-search-index.d98a25d1237433a4242747465a4ce87d.json"
-  data-offline-search-base-href="../"
-  data-offline-search-max-results="10"
->
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 
 </div>
 </nav>
@@ -248,6 +235,19 @@ if (!doNotTrack) {
 <section class="row td-search-result">
 <div class="col-12 col-md-8 offset-md-2">
 <h2 class="ml-4">Search Results</h2>
+
+<script>
+(function() {
+var cx = '68f09b43ef5dd93a4';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+			<gcse:searchresults-only></gcse:searchresults-only>
 
 </div>
 </section>
@@ -349,6 +349,7 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
+</script>
 
 
 
