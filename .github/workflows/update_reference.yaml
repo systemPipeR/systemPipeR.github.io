@@ -1,0 +1,28 @@
+on:
+  schedule:
+  - cron: "0 2 * * *"
+
+name: update_pkg_reference_manuals
+
+jobs:
+  update_ref:
+    name: update_pkg_reference_manuals
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update reference
+        run: |
+          bash .github/bash/update_reference.sh https://github.com/lz100/spsUtil.git static/sps/funcs/spsutil
+          bash .github/bash/update_reference.sh https://github.com/lz100/systemPipeShiny.git static/sps/funcs/sps
+      - name: Update github
+        run: |
+          git config --local user.name "Github Action Bot"
+          git config --local user.email "gh-action-bot@protonmail.com"
+          git add -A
+          git commit -m "Bot update reference no_render" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+

@@ -2,7 +2,7 @@
 title: "Deploy"
 linkTitle: "Deploy"
 type: docs
-weight: 8
+weight: 9
 ---
 *****
 ## How to deploy the application

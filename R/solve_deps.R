@@ -37,5 +37,4 @@ install_deps <- function(pkgs, type, FORCE_UPDATE){
 install_deps(pkgs$CRAN, "CRAN", FORCE_UPDATE)
 install_deps(pkgs$Bioc, "Bioc", FORCE_UPDATE)
 install_deps(pkgs$Github, "Github", FORCE_UPDATE)
-dir.create("public", showWarnings = FALSE, recursive = TRUE)
 cat("Deps installation done.\n")

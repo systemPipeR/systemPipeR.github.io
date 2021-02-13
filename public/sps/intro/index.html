@@ -19,15 +19,15 @@
 
 <title>Introduction | systemPipeR</title><meta property="og:title" content="Introduction" />
 <meta property="og:description" content="Main functionalities Currently, SPS includes 3 main functional categories (Fig 1):
- Some pre-defined modules include: a. A workbench for designing and configuring data analysis workflows, b. Downstream analysis and visualization tools for RNA-Seq, and c. A space to make quick ggplots. A section with user custom tabs: users define their own shiny tabs. An image editing tab &ldquo;Canvas&rdquo; which allows users to edit plots made from the previous two categories." />
+ Some pre-defined modules (tabs) include: a. A workbench for designing and configuring data analysis workflows, b. Downstream analysis and visualization tools for RNA-Seq, and c. A space to make quick ggplots. A section with user custom tabs: users define their own shiny tabs. An image editing tab &ldquo;Canvas&rdquo; which allows users to edit plots made from the previous two categories." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/intro/" />
 <meta property="article:modified_time" content="2021-02-08T12:18:06-08:00" /><meta property="og:site_name" content="systemPipeR" />
 <meta itemprop="name" content="Introduction">
 <meta itemprop="description" content="Main functionalities Currently, SPS includes 3 main functional categories (Fig 1):
- Some pre-defined modules include: a. A workbench for designing and configuring data analysis workflows, b. Downstream analysis and visualization tools for RNA-Seq, and c. A space to make quick ggplots. A section with user custom tabs: users define their own shiny tabs. An image editing tab &ldquo;Canvas&rdquo; which allows users to edit plots made from the previous two categories.">
+ Some pre-defined modules (tabs) include: a. A workbench for designing and configuring data analysis workflows, b. Downstream analysis and visualization tools for RNA-Seq, and c. A space to make quick ggplots. A section with user custom tabs: users define their own shiny tabs. An image editing tab &ldquo;Canvas&rdquo; which allows users to edit plots made from the previous two categories.">
 <meta itemprop="dateModified" content="2021-02-08T12:18:06-08:00" />
-<meta itemprop="wordCount" content="206">
+<meta itemprop="wordCount" content="210">
 
 
 
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction"/>
 <meta name="twitter:description" content="Main functionalities Currently, SPS includes 3 main functional categories (Fig 1):
- Some pre-defined modules include: a. A workbench for designing and configuring data analysis workflows, b. Downstream analysis and visualization tools for RNA-Seq, and c. A space to make quick ggplots. A section with user custom tabs: users define their own shiny tabs. An image editing tab &ldquo;Canvas&rdquo; which allows users to edit plots made from the previous two categories."/>
+ Some pre-defined modules (tabs) include: a. A workbench for designing and configuring data analysis workflows, b. Downstream analysis and visualization tools for RNA-Seq, and c. A space to make quick ggplots. A section with user custom tabs: users define their own shiny tabs. An image editing tab &ldquo;Canvas&rdquo; which allows users to edit plots made from the previous two categories."/>
 
 
 <script type="application/javascript">
@@ -54,8 +54,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
+<link href="../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -365,8 +365,26 @@ if (!doNotTrack) {
       
         
           
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsadv_features">
+      
+      
+      
+      
+        
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsconfig" href="../../sps/config/">Configuration</a>
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../sps/adv_features/config/">Configuration</a>
         
       
       
@@ -374,7 +392,14 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsnewtab" href="../../sps/newtab/">New custom tabs</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../sps/adv_features/tabs/">Manage tabs</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
         
       
       
@@ -490,6 +515,17 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#main-functionalities">Main functionalities</a></li>
+        <li><a href="#sps-tabs">SPS tabs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
               </div>
@@ -530,7 +566,7 @@ if (!doNotTrack) {
 <h2 id="main-functionalities">Main functionalities</h2>
 <p>Currently, <code>SPS</code> includes 3 main functional categories (<em>Fig 1</em>):</p>
 <ol>
-<li>Some pre-defined modules include:
+<li>Some pre-defined modules (<a href="#sps-tabs">tabs</a>) include:
 a. A workbench for designing and configuring data analysis workflows,
 b. Downstream analysis and visualization tools for RNA-Seq, and
 c. A space to make quick ggplots.</li>
@@ -547,14 +583,15 @@ like error catching, logging, and more.</p>
 <p><strong>Figure 1.</strong> Design of SPS</p>
 <p>The framework provides an
 interactive web interface for workflow management and data visualization.</p>
-<p>Within the functional categories, <code>SPS</code> functions are modularized in
+<h2 id="sps-tabs">SPS tabs</h2>
+<p>Within the functional categories, <code>SPS</code> functions are modularized into
 sub-components, here referred to as <strong>SPS tabs</strong> that are similar to
 menu tabs in other GUI applications that organize related and inter-connected
 functionalies into groups. On the backend, <strong>SPS tabs</strong> are based on <a href="https://shiny.rstudio.com/articles/modules.html">Shiny modules</a>,
 that are stored in separate files. This modular structure is highly extensible
 and greatly simplifies the design of new <code>SPS</code> tabs by both users and/or developers.
 Details about extending existing tabs and designing new ones are provided in
-<a href="https://systempipe.org/sps/">advanced sections on our website</a>.</p>
+<a href="https://systempipe.org/sps/adv_features/tabs/">Manage tabs section on our website</a>.</p>
 
 	
 		<style>
