@@ -12,7 +12,7 @@ jobs:
     name: update_pkg_reference_manuals
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.update_gh.outputs.pg_build }}
+      pg_build: ${{ steps.update_gh.outputs.pg_build }}
     steps:
       - uses: actions/checkout@v2
       - name: Update reference
@@ -35,7 +35,7 @@ jobs:
     if: ${{needs.update_ref.outputs.pg_build}} == "true"
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{needs.update_ref.outputs.pg_build}}
+      - run: echo ${{ needs.update_ref.outputs.pg_build }}
 
       # - uses: actions/checkout@v2
       #   with:
