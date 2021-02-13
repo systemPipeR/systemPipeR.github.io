@@ -909,6 +909,79 @@ is recommended to create -&amp;gt; test/run -&amp;gt; deploy a Shiny app from Rs
     </item>
     
     <item>
+      <title>Spr: SPR detailed installation instructions</title>
+      <link>/spr/sprinstall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/spr/sprinstall/</guid>
+      <description>
+        
+        
+        &lt;style type=&#34;text/css&#34;&gt;
+pre code {
+white-space: pre !important;
+overflow-x: scroll !important;
+word-break: keep-all !important;
+word-wrap: initial !important;
+}
+&lt;/style&gt;
+&lt;!--
+- Compile from command-line
+Rscript -e &#34;rmarkdown::render(&#39;SPRinstall.Rmd&#39;, c(&#39;BiocStyle::html_document&#39;), clean=F); knitr::knit(&#39;SPRinstall.Rmd&#39;, tangle=TRUE)&#34;; Rscript -e &#34;rmarkdown::render(&#39;SPRinstall.Rmd&#39;, c(&#39;BiocStyle::pdf_document&#39;))&#34;
+--&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+  document.querySelector(&#34;h1&#34;).className = &#34;title&#34;;
+});
+&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i &lt; linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = &#39;_blank&#39;;
+});
+&lt;/script&gt;
+&lt;h1 id=&#34;systempiper&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;To install the &lt;code&gt;systemPipeR&lt;/code&gt; package (H Backman and Girke 2016), please use the &lt;em&gt;&lt;code&gt;BiocManager::install&lt;/code&gt;&lt;/em&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) install.packages(&amp;quot;BiocManager&amp;quot;)
+BiocManager::install(&amp;quot;systemPipeR&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To obtain the most recent updates immediately, one can install it directly from
+&lt;a href=&#34;https://github.com/tgirke/systemPipeR&#34;&gt;github&lt;/a&gt; as follow:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) install.packages(&amp;quot;BiocManager&amp;quot;)
+BiocManager::install(&amp;quot;tgirke/systemPipeR&amp;quot;, build_vignettes = TRUE, 
+    dependencies = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;third-party-software-tools-in-spr&#34;&gt;Third-party software tools in &lt;em&gt;&lt;code&gt;SPR&lt;/code&gt;&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;This guide provides detailed installation instructions for the software tools used within &lt;code&gt;systemPipeR&lt;/code&gt; package. This guide provides the instruction for a Linux system.&lt;/p&gt;
+&lt;h2 id=&#34;bwa&#34;&gt;BWA&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/lh3/bwa&#34;&gt;Burrow-Wheeler Aligner (BWA)&lt;/a&gt; for short-read alignment (Li 2013).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/lh3/bwa.git
+cd bwa
+make
+vim ~/.bashrc ## Open the Bash shell script 
+export PATH=$PATH:/path/to/bwa ## &amp;quot;/path/to/bwa&amp;quot; is an example! Replace with real PATH
+source ~/.bashrc
+bwa ## Test if the installation was successful
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note: In some systems, &lt;code&gt;~/.bash_profile&lt;/code&gt; is used in place of &lt;code&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;More information about how to set an enviroment variable &lt;a href=&#34;https://en.wikipedia.org/wiki/Environment_variable&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
+&lt;div id=&#34;ref-H_Backman2016-bt&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;H Backman, Tyler W, and Thomas Girke. 2016. “&lt;span class=&#34;nocase&#34;&gt;systemPipeR: NGS workflow and report generation environment&lt;/span&gt;.” &lt;em&gt;BMC Bioinformatics&lt;/em&gt; 17 (1): 388. &lt;a href=&#34;https://doi.org/10.1186/s12859-016-1241-0&#34;&gt;https://doi.org/10.1186/s12859-016-1241-0&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Li2013-sw&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. &lt;a href=&#34;http://arxiv.org/abs/1303.3997&#34;&gt;http://arxiv.org/abs/1303.3997&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Spr: systemPipeR: Workflow design and reporting generation environment</title>
       <link>/spr/systempiper_vignette/systempiper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
