@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
       - name: Update reference
         run: |
           bash .github/bash/update_reference.sh https://github.com/lz100/spsUtil.git static/sps/funcs/spsutil
@@ -22,54 +20,42 @@ jobs:
       - name: Update github
         run: |
           if [ -n "$(git status --porcelain)" ]; then
-              echo "there are changes";
-              git config --local user.name "Github Action Bot"
-              git config --local user.email "gh-action-bot@protonmail.com"
-              git add -A
-              git commit -m "Bot update reference pg_build" -a
-              echo "skip_build=false" >> $GITHUB_ENV
+              echo "there are changes, start to build page";
+              echo "::set-output name=pg_build::true"
           else
               echo "no changes";
-              echo "skip_build=true" >> $GITHUB_ENV
-              exit 78
+              echo "::set-output name=pg_build::false"
           fi
-      - name: Push changes
-        if: env.skip_build != 'true'
-        uses: ad-m/github-push-action@master
+  blogdown:
+    name: build_and_push_to_gh_pages
+    needs: update_ref
+    if: ${{needs.update_ref.outputs.pg_build}} == "true"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
+          submodules: "recursive"
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: install node pkgs
-        run: |
-          npm install -g postcss-cli
-          npm install autoprefixer
-          npm audit fix
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-pandoc@v1
-      - name: Cache R packages
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.79.1'
+          extended: true
+      - name: Cache node dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: blogdown-1-dep
-          restore-keys: blogdown-1-dep
-      - name: Install system dependencies
-        run: bash .github/bash/install_system.sh
-      - name: Install R dependencies
-        run: Rscript R/solve_deps.R
-      - name: Install Hugo
-        run: Rscript -e 'blogdown::install_hugo(extended = TRUE)'
-      - name: Run hugo_build()
-        run: |
-          Rscript -e 'blogdown::build_site(build_rmd = "md5sum")'
-          Rscript -e 'writeLines(as.character(Sys.time()), "blogdown/timestamp.txt")'
+          path: ~/.npm
+          key: node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            node-
+      - run: npm ci
+      - run: hugo --minify
       - name: Update github
         run: |
-          git config --local user.name "dcassol"
-          git config --local user.email "danicassol@gmail.com"
+          git config --local user.name "Github Action Bot"
+          git config --local user.email "gh-action-bot@protonmail.com"
           git add -A
           git commit -m "Bot update public and md5sum table" -a
       - name: Push changes
