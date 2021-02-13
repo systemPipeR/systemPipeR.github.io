@@ -19,10 +19,15 @@ jobs:
           bash .github/bash/update_reference.sh https://github.com/lz100/systemPipeShiny.git static/sps/funcs/sps
       - name: Update github
         run: |
-          git config --local user.name "Github Action Bot"
-          git config --local user.email "gh-action-bot@protonmail.com"
-          git add -A
-          git commit -m "Bot update reference no_render" -a
+          if [ -n "$(git status --porcelain)" ]; then
+              echo "there are changes";
+              git config --local user.name "Github Action Bot"
+              git config --local user.email "gh-action-bot@protonmail.com"
+              git add -A
+              git commit -m "Bot update reference no_render" -a
+          else
+              echo "no changes";
+          fi
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
