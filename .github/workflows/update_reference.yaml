@@ -24,7 +24,7 @@ jobs:
               git config --local user.name "Github Action Bot"
               git config --local user.email "gh-action-bot@protonmail.com"
               git add -A
-              git commit -m "Bot update reference" -a
+              git commit -m "Bot update reference pg_build" -a
               echo "skip_build=false" >> $GITHUB_ENV
           else
               echo "no changes";
@@ -36,15 +36,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-  ph-pages:
-    name: gh_pages_only
-    if: env.skip_build != 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: systempipe.org
+
