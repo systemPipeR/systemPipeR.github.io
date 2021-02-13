@@ -32,7 +32,7 @@ jobs:
   blogdown:
     name: build_and_push_to_gh_pages
     needs: update_ref
-    if: ${{ needs.update_ref.outputs.pg_build }} == "true"
+    if: needs.update_ref.outputs.pg_build == "true"
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.update_ref.outputs.pg_build }}
