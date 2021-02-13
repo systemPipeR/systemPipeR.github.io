@@ -27,7 +27,7 @@ if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i systemPipeR Installation To install the systemPipeR package (H Backman and Girke 2016), please use the BiocManager::install command:
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeR&quot;)  To obtain the most recent updates immediately, one can install it directly from github as follow:">
 <meta itemprop="dateModified" content="2021-02-12T13:20:06-08:00" />
-<meta itemprop="wordCount" content="222">
+<meta itemprop="wordCount" content="271">
 
 
 
@@ -437,6 +437,7 @@ if (!doNotTrack) {
     <li><a href="#third-party-software-tools-in-spr">Third-party software tools in <em><code>SPR</code></em></a>
       <ul>
         <li><a href="#bwa">BWA</a></li>
+        <li><a href="#blast">BLAST</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -530,6 +531,16 @@ bwa ## Test if the installation was successful
 </code></pre>
 <p>Note: In some systems, <code>~/.bash_profile</code> is used in place of <code>~/.bashrc</code>.</p>
 <p>More information about how to set an enviroment variable <a href="https://en.wikipedia.org/wiki/Environment_variable">here</a>.</p>
+<h2 id="blast">BLAST</h2>
+<p>Please check the <a href="https://www.ncbi.nlm.nih.gov/books/NBK279671/">BLAST Command Line Applications User Manual</a> to
+find the installation introduction for your system environment.</p>
+<p>Download the latest version from <a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/">here</a>, as the following example:</p>
+<pre><code class="language-bash">wget https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz
+tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
+cd ncbi-blast-2.11.0+/
+export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## &quot;/path/to/ncbi-blast-2.11.0+&quot; is an example! Replace with real PATH
+</code></pre>
+<p><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz">https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz</a></p>
 <h1 id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-H_Backman2016-bt" class="csl-entry">

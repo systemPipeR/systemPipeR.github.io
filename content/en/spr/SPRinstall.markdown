@@ -86,6 +86,22 @@ Note: In some systems, `~/.bash_profile` is used in place of `~/.bashrc`.
 
 More information about how to set an enviroment variable [here](https://en.wikipedia.org/wiki/Environment_variable).
 
+## BLAST
+
+Please check the [BLAST Command Line Applications User Manual](https://www.ncbi.nlm.nih.gov/books/NBK279671/) to
+find the installation introduction for your system environment.
+
+Download the latest version from [here](https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/), as the following example:
+
+``` bash
+wget https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz
+tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
+cd ncbi-blast-2.11.0+/
+export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## "/path/to/ncbi-blast-2.11.0+" is an example! Replace with real PATH
+```
+
+https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz
+
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent">

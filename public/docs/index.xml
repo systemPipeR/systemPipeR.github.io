@@ -968,6 +968,16 @@ bwa ## Test if the installation was successful
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note: In some systems, &lt;code&gt;~/.bash_profile&lt;/code&gt; is used in place of &lt;code&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;More information about how to set an enviroment variable &lt;a href=&#34;https://en.wikipedia.org/wiki/Environment_variable&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;blast&#34;&gt;BLAST&lt;/h2&gt;
+&lt;p&gt;Please check the &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/books/NBK279671/&#34;&gt;BLAST Command Line Applications User Manual&lt;/a&gt; to
+find the installation introduction for your system environment.&lt;/p&gt;
+&lt;p&gt;Download the latest version from &lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/&#34;&gt;here&lt;/a&gt;, as the following example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz
+tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
+cd ncbi-blast-2.11.0+/
+export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## &amp;quot;/path/to/ncbi-blast-2.11.0+&amp;quot; is an example! Replace with real PATH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz&#34;&gt;https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
 &lt;div id=&#34;ref-H_Backman2016-bt&#34; class=&#34;csl-entry&#34;&gt;
