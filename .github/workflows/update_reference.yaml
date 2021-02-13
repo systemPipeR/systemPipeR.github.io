@@ -11,6 +11,8 @@ jobs:
   update_ref:
     name: update_pkg_reference_manuals
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.update_gh.outputs.pg_build }}
     steps:
       - uses: actions/checkout@v2
       - name: Update reference
@@ -18,6 +20,7 @@ jobs:
           bash .github/bash/update_reference.sh https://github.com/lz100/spsUtil.git static/sps/funcs/spsutil
           bash .github/bash/update_reference.sh https://github.com/lz100/systemPipeShiny.git static/sps/funcs/sps
       - name: Update github
+        id: update_gh
         run: |
           if [ -n "$(git status --porcelain)" ]; then
               echo "there are changes, start to build page";
@@ -32,41 +35,42 @@ jobs:
     if: ${{needs.update_ref.outputs.pg_build}} == "true"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.79.1'
-          extended: true
-      - name: Cache node dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            node-
-      - run: npm ci
-      - run: hugo --minify
-      - name: Update github
-        run: |
-          git config --local user.name "Github Action Bot"
-          git config --local user.email "gh-action-bot@protonmail.com"
-          git add -A
-          git commit -m "Bot update public and md5sum table" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: systempipe.org
-
+      - run: echo ${{needs.update_ref.outputs.pg_build}}
+      # - uses: actions/checkout@v2
+      #   with:
+      #     submodules: "recursive"
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '14'
+      # - name: Setup Hugo
+      #   uses: peaceiris/actions-hugo@v2
+      #   with:
+      #     hugo-version: '0.79.1'
+      #     extended: true
+      # - name: Cache node dependencies
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ~/.npm
+      #     key: node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       node-
+      # - run: npm ci
+      # - run: hugo --minify
+      # - name: Update github
+      #   run: |
+      #     git config --local user.name "Github Action Bot"
+      #     git config --local user.email "gh-action-bot@protonmail.com"
+      #     git add -A
+      #     git commit -m "Bot update public and md5sum table" -a
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ github.ref }}
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./public
+      #     cname: systempipe.org
+      #
