@@ -22,10 +22,20 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
               echo "there are changes, start to build page";
               echo "::set-output name=pg_build::true"
+              git config --local user.name "Github Action Bot"
+              git config --local user.email "gh-action-bot@protonmail.com"
+              git add -A
+              git commit -m "Bot update hash" -a
           else
               echo "no changes";
               echo "::set-output name=pg_build::false"
           fi
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
   hugobuild:
     name: build_and_push_to_gh_pages
     needs: update_ref
@@ -57,7 +67,7 @@ jobs:
           git config --local user.name "Github Action Bot"
           git config --local user.email "gh-action-bot@protonmail.com"
           git add -A
-          git commit -m "Bot update public and md5sum table" -a
+          git commit -m "Bot build site" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
