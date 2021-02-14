@@ -7,7 +7,7 @@ name: update_pkg_reference_manuals
 jobs:
   update_ref:
     name: update_pkg_reference_manuals
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     outputs:
       pg_build: ${{ steps.update_gh.outputs.pg_build }}
     steps:
@@ -40,7 +40,7 @@ jobs:
     name: build_and_push_to_gh_pages
     needs: update_ref
     if: needs.update_ref.outputs.pg_build == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
