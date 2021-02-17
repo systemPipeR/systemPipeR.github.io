@@ -14,7 +14,11 @@ weight: 6
 
 ## SPS Function Reference Manuals
 
-Functions exported from SPS core and sub packages can be found in following:
+There are many more useful functions one could use from SPS core and sub packages.
+We could not cover all the details in this manual. To take a look at these functions, 
+click links below to go to the function reference manual of each package. Detailed 
+function usage, example code, and example running results are shown inside. 
+
 
 - [systemPipeShiny -- main package](/sps/funcs/sps/reference)
 

@@ -1,8 +1,7 @@
-# Add repos that are not in systempipeR organizations here
-name: update_pkg_reference_manuals
+name: SPS triggered docs update
 on:
-  schedule:
-  - cron: "0 2 * * *"
+  repository_dispatch:
+    types: [SPS-docs-updated]
 
 jobs:
   update_ref:
@@ -14,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Update reference
         run: |
-          bash .github/bash/update_reference.sh https://github.com/lz100/spsUtil.git static/sps/funcs/spsutil
+          bash .github/bash/update_reference.sh https://github.com/systemPipeR/systemPipeShiny.git static/sps/funcs/sps
       - name: Update github
         id: update_gh
         run: |
