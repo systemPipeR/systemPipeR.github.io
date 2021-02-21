@@ -28,7 +28,7 @@ to generate with a single command workflow templates that are intended to be
 used by its parent package [*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) (H Backman and Girke 2016).
 
 |                                               WorkFlow                                               |                   Description                    |                                     Version                                     |                                                                                                       GitHub                                                                                                        |                                            R-CMD-check                                             |
-|:----------------------------------------------------------------------------------------------------:|:------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|
+| :--------------------------------------------------------------------------------------------------: | :----------------------------------------------: | :-----------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
 | [systemPipeChIPseq](https://systempiper.github.io/systemPipeChIPseq/articles/systemPipeChIPseq.html) |            ChIP-Seq Workflow Template            |       ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg)        |  <a href="https://github.com/systemPipeR/systemPipeChIPseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" />  |  ![R-CMD-check](https://github.com/systemPipeR/systemPipeChIPseq/workflows/R-CMD-check/badge.svg)  |
 | [systemPipeRIBOseq](https://systempiper.github.io/systemPipeRIBOseq/articles/systemPipeRIBOseq.html) |            RIBO-Seq Workflow Template            |       ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg)        |  <a href="https://github.com/systemPipeR/systemPipeRIBOseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" />  |  ![R-CMD-check](https://github.com/systemPipeR/systemPipeRIBOseq/workflows/R-CMD-check/badge.svg)  |
 |  [systemPipeRNAseq](https://systempiper.github.io/systemPipeRNAseq/articles/systemPipeRNAseq.html)   |            RNA-Seq Workflow Template             |       ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg)        |  <a href="https://github.com/systemPipeR/systemPipeRNAseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" />   |  ![R-CMD-check](https://github.com/systemPipeR/systemPipeRNAseq/workflows/R-CMD-check/badge.svg)   |
@@ -40,11 +40,11 @@ used by its parent package [*`systemPipeR`*](http://www.bioconductor.org/package
 
 ### Reference
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-H_Backman2016-bt" class="csl-entry">
+<div id="ref-H_Backman2016-bt">
 
-H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
 
 </div>
 
