@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.81.0" /><link rel="alternate" type="application/rss&#43;xml" href="../../sps/dev/index.xml">
-<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.81.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../favicons/favicon.ico" >
@@ -18,15 +17,23 @@
 <link rel="icon" type="image/png" href="../../favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="../../favicons/android-192x192.png" sizes="192x192">
 
-<title>Development tools | systemPipeR</title><meta property="og:title" content="Development tools" />
-<meta property="og:description" content="systemPipeR Project" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/sps/dev/" /><meta property="og:site_name" content="systemPipeR" />
+<title>How to install SPR Workflows | systemPipeR</title><meta property="og:title" content="How to install SPR Workflows" />
+<meta property="og:description" content="Starting with pre-configured workflow templates To test workflows quickly or design new ones from existing templates, users can generate with a single command workflow instances fully populated with sample data and parameter files required for running a chosen workflow.
+Load one of the available workflows into your current working directory. The following does this for the varseq workflow template. The name of the resulting workflow directory can be specified under the mydirname argument." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/spr_wf/installwf/" /><meta property="article:section" content="spr_wf" />
 
-<meta itemprop="name" content="Development tools">
-<meta itemprop="description" content="systemPipeR Project"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Development tools"/>
-<meta name="twitter:description" content="systemPipeR Project"/>
+<meta property="article:modified_time" content="2021-02-21T12:41:20-08:00" /><meta property="og:site_name" content="systemPipeR" />
+
+<meta itemprop="name" content="How to install SPR Workflows">
+<meta itemprop="description" content="Starting with pre-configured workflow templates To test workflows quickly or design new ones from existing templates, users can generate with a single command workflow instances fully populated with sample data and parameter files required for running a chosen workflow.
+Load one of the available workflows into your current working directory. The following does this for the varseq workflow template. The name of the resulting workflow directory can be specified under the mydirname argument.">
+<meta itemprop="dateModified" content="2021-02-21T12:41:20-08:00" />
+<meta itemprop="wordCount" content="361">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to install SPR Workflows"/>
+<meta name="twitter:description" content="Starting with pre-configured workflow templates To test workflows quickly or design new ones from existing templates, users can generate with a single command workflow instances fully populated with sample data and parameter files required for running a chosen workflow.
+Load one of the available workflows into your current working directory. The following does this for the varseq workflow template. The name of the resulting workflow directory can be specified under the mydirname argument."/>
 
 
 <script type="application/javascript">
@@ -74,7 +81,7 @@ if (!doNotTrack) {
 
 
   </head>
-  <body class="td-section line-numbers">
+  <body class="td-page line-numbers">
     <header>
      
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -265,10 +272,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
+    <a  href="../../spr_wf/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">SPR WorkFlow Collection</a>
   </li>
   <ul>
-    <li class="collapse show" id="sps">
+    <li class="collapse show" id="spr_wf">
       
       
       
@@ -276,186 +283,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../sps/intro/">Introduction</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../sps/install/">Installation</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../sps/quick_start/">Quick start</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsmodules">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../sps/modules/workflow/">Workflow</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../sps/modules/rnaseq/">RNAseq</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../sps/modules/ggplot/">Quick ggplot</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../sps/canvas/">Canvas</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../sps/sps_funcs/">SPS Functions</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsadv_features">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../sps/adv_features/config/">Configuration</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../sps/adv_features/tabs/">Manage tabs</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../sps/deploy/">Deploy</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../sps/dev/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Development tools</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdev">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevui" href="../../sps/dev/ui/">UI components</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevserver" href="../../sps/dev/server/">Server functions</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevgeneral" href="../../sps/dev/general/">General utilities</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spr_wfinstallwf" href="../../spr_wf/installwf/">How to install SPR Workflows</a>
         
       
       
@@ -497,10 +325,10 @@ if (!doNotTrack) {
     
     
     
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/_index.md" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=Development%20tools" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/spr_wf/installWF.markdown" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/spr_wf/installWF.markdown" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/spr_wf/installWF.markdown?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=How%20to%20install%20SPR%20Workflows" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -513,6 +341,17 @@ if (!doNotTrack) {
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#starting-with-pre-configured-workflow-templates">Starting with pre-configured workflow templates</a></li>
+        <li><a href="#check-availability-of-workflow-templates">Check availability of workflow templates</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -532,14 +371,14 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="../../sps/">systemPipeShiny</a>
+	<a href="../../spr_wf/">SPR WorkFlow Collection</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="../../sps/dev/">Development tools</a>
+	<a href="../../spr_wf/installwf/">How to install SPR Workflows</a>
 </li>
 
 	</ol>
@@ -547,90 +386,74 @@ if (!doNotTrack) {
 
                 
 <div class="td-content">
-	<h1>Development tools</h1>
-        
-	
-	
-
-<div class="pageinfo pageinfo-primary">
-<p>In this section, we will discuss the development tools SPS provides</p>
-
-</div>
-
-
-        <div class="section-index">
+	<h1>How to install SPR Workflows</h1>
     
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="../../sps/dev/ui/">UI components</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="../../sps/dev/server/">Server functions</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="../../sps/dev/general/">General utilities</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-</div>
+	       
+	<h2 id="starting-with-pre-configured-workflow-templates">Starting with pre-configured workflow templates</h2>
+<p>To test workflows quickly or design new ones from existing templates, users can
+generate with a single command workflow instances fully populated with sample data
+and parameter files required for running a chosen workflow.</p>
+<p>Load one of the available workflows into your current working directory.
+The following does this for the <em><code>varseq</code></em> workflow template. The name of the resulting
+workflow directory can be specified under the <em><code>mydirname</code></em> argument. The default <em><code>NULL</code></em>
+uses the name of the chosen workflow. An error is issued if a directory of the same
+name and path exists already.</p>
+<pre><code class="language-r">library(&quot;systemPipeRdata&quot;) 
+genWorkenvir(workflow=&quot;varseq&quot;, mydirname=NULL)
+setwd(&quot;varseq&quot;)
+</code></pre>
+<p>On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.</p>
+<pre><code class="language-bash">$ Rscript -e &quot;systemPipeRdata::genWorkenvir(workflow='varseq', mydirname=NULL)&quot;
+</code></pre>
+<h2 id="check-availability-of-workflow-templates">Check availability of workflow templates</h2>
+<p>A collection of workflow templates are available, and it is possible to browse the
+current availability, as follows:</p>
+<pre><code class="language-r">availableWF(github = TRUE)
+</code></pre>
+<pre><code>## $systemPipeRdata
+## [1] &quot;chipseq&quot; &quot;new&quot;     &quot;riboseq&quot; &quot;rnaseq&quot;  &quot;varseq&quot; 
+## 
+## $github
+##                          workflow                       branches version
+## 1   systemPipeR/systemPipeChIPseq                         master release
+## 2   systemPipeR/systemPipeRIBOseq                         master release
+## 3    systemPipeR/systemPipeRNAseq cluster, master, singleMachine release
+## 4    systemPipeR/systemPipeVARseq                         master release
+## 5   systemPipeR/systemPipeCLIPseq                         master   devel
+## 6    systemPipeR/systemPipeDeNovo                         master   devel
+## 7 systemPipeR/systemPipeMetaTrans                         master   devel
+## 8 systemPipeR/systemPipeMethylseq                         master   devel
+##                                                 html       description
+## 1   https://github.com/systemPipeR/systemPipeChIPseq Workflow Template
+## 2   https://github.com/systemPipeR/systemPipeRIBOseq Workflow Template
+## 3    https://github.com/systemPipeR/systemPipeRNAseq Workflow Template
+## 4    https://github.com/systemPipeR/systemPipeVARseq Workflow Template
+## 5   https://github.com/systemPipeR/systemPipeCLIPseq Workflow Template
+## 6    https://github.com/systemPipeR/systemPipeDeNovo Workflow Template
+## 7 https://github.com/systemPipeR/systemPipeMetaTrans Workflow Template
+## 8 https://github.com/systemPipeR/systemPipeMethylseq Workflow Template
+</code></pre>
+<p>This function returns the list of workflow templates available within the package
+and <a href="https://github.com/systemPipeR">systemPipeR Project Organization</a> on GitHub. Each one
+listed template can be created as described above.</p>
+<p>The workflow template choose from Github will be installed as an R package, and
+also it creates an environment with all the settings and files to run the demo analysis.</p>
+<pre><code class="language-r">genWorkenvir(workflow=&quot;systemPipeR/systemPipeVARseq&quot;, mydirname=&quot;NULL&quot;)
+setwd(&quot;systemPipeVARseq&quot;)
+</code></pre>
+<p>Besides, it is possible to choose different versions of the workflow template,
+defined through other branches on the GitHub Repository. By default, the <em><code>master</code></em>
+branch is selected, however, it is possible to define a different branch with the <em><code>ref</code></em> argument.</p>
+<pre><code class="language-r">genWorkenvir(workflow=&quot;systemPipeR/systemPipeRNAseq&quot;, ref = &quot;singleMachine&quot;)
+setwd(&quot;systemPipeRNAseq&quot;)
+</code></pre>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-21: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/280238a2117ff479e0926acf9b17ceb88a9e4432">pg_build (280238a)</a>
 </div>
 </div>
+
 
               </main>
           
