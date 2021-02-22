@@ -1,17 +1,15 @@
 ---
-title: systemPipeR Team
-linkTitle: About
+title: "News"
+linkTitle: "News"
+type: docs
+description: >
 ---
 
-
-{{< blocks/cover title="News" image_anchor="bottom" height="min" >}}
 # *systemPipeR* 1.24 is available
-{{< /blocks/cover >}}
 
-{{% blocks/lead %}}
+![image](SYS_WF.png) 
 
-<img align="rigth" title="systemPipeR" src="https://systempipe.org/assets/images/SYS_WF.png" style="width:800px;"><img/>
-
+### OVERVIEW
 
 The following enhancements have been added to systemPipeR.
 
@@ -23,22 +21,5 @@ The following enhancements have been added to systemPipeR.
 
 - Improvements have been added to monitor the run status of workflows, as well as tracking of warning and error messages. This includes the generation of both scientific and technical status reports.
 <br> <br/>
-{{% /blocks/lead %}}
 
-
-<!--{{< blocks/section >}}
-<div class="col-12">
-<h1 class="text-center">systemPipeR New and Updated functions</h1>
-</div>
 <script src="https://gist.github.com/dcassol/175fc73f52e62647c45697dbebc81ece.js"></script>
-{{< /blocks/section >}}-->
-
-
-{{< blocks/section >}}
-
-<div class="col-12">
-<h1 class="text-center">systemPipeR New and Updated functions</h1>
-</div>
-<script src="https://gist.github.com/dcassol/175fc73f52e62647c45697dbebc81ece.js"></script>
-
-{{< /blocks/section >}} 

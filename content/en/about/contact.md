@@ -6,7 +6,7 @@ description: >
 weight: 4
 ---
 
-<br/>
+<br><br/>
 
 **Thomas Girke**, Ph.D. <br/>
 Professor of Bioinformatics <br/>
@@ -16,11 +16,9 @@ Department of Botany and Plant Sciences ([BPSC](http://plantbiology.ucr.edu/)) <
 1207F Genomics Building <br/>
 University of California, Riverside ([UCR](http://www.ucr.edu/)) <br/>
 CA 92521 <br/>
-
 Email: thomas.girke@ucr.edu <br/>
 
 
-<br/>
 
 **Daniela Cassol**, Ph.D. <br/>
 Postdoctoral Researcher <br/>
