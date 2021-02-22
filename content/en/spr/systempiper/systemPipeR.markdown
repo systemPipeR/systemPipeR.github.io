@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow design and reporting generation environment" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 22 February, 2021" 
+date: "Last update: 21 February, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -27,13 +27,11 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
 -->
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -48,7 +46,7 @@ Backman, T.W.H and Girke, T. (2016). *`systemPipeR`*: NGS Workflow and Report Ge
 
 # Introduction
 
-[*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) provides flexible utilities for building and running automated end-to-end analysis workflows for a wide range of research applications, including next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform workflow interface across different data analysis applications, automated report generation, and support for running both R and command-line software, such as NGS aligners or peak/variant callers, on local computers or compute clusters (Figure 1). The latter supports interactive job submissions and batch submissions to queuing systems of clusters. For instance, *`systemPipeR`* can be used with most command-line aligners such as `BWA` (Li 2013; Li and Durbin 2009), `HISAT2` (Kim, Langmead, and Salzberg 2015), `TopHat2` (Kim et al. 2013) and `Bowtie2` (Langmead and Salzberg 2012), as well as the R-based NGS aligners [*`Rsubread`*](http://www.bioconductor.org/packages/devel/bioc/html/Rsubread.html) (Liao, Smyth, and Shi 2013) and [*`gsnap (gmapR)`*](http://www.bioconductor.org/packages/devel/bioc/html/gmapR.html) (Wu and Nacu 2010). Efficient handling of complex sample sets (*e.g.* FASTQ/BAM files) and experimental designs are facilitated by a well-defined sample annotation infrastructure which improves reproducibility and user-friendliness of many typical analysis workflows in the NGS area (Lawrence et al. 2013).
+[*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) provides flexible utilities for building and running automated end-to-end analysis workflows for a wide range of research applications, including next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform workflow interface across different data analysis applications, automated report generation, and support for running both R and command-line software, such as NGS aligners or peak/variant callers, on local computers or compute clusters (Figure 1). The latter supports interactive job submissions and batch submissions to queuing systems of clusters. For instance, *`systemPipeR`* can be used with most command-line aligners such as `BWA` (Heng Li 2013; H. Li and Durbin 2009), `HISAT2` (Kim, Langmead, and Salzberg 2015), `TopHat2` (Kim et al. 2013) and `Bowtie2` (Langmead and Salzberg 2012), as well as the R-based NGS aligners [*`Rsubread`*](http://www.bioconductor.org/packages/devel/bioc/html/Rsubread.html) (Liao, Smyth, and Shi 2013) and [*`gsnap (gmapR)`*](http://www.bioconductor.org/packages/devel/bioc/html/gmapR.html) (Wu and Nacu 2010). Efficient handling of complex sample sets (*e.g.* FASTQ/BAM files) and experimental designs are facilitated by a well-defined sample annotation infrastructure which improves reproducibility and user-friendliness of many typical analysis workflows in the NGS area (Lawrence et al. 2013).
 
 The main motivation and advantages of using *`systemPipeR`* for complex data analysis tasks are:
 
@@ -61,9 +59,7 @@ The main motivation and advantages of using *`systemPipeR`* for complex data ana
 7.  Improves reproducibility by automating analyses and generation of analysis reports
 
 <center>
-
 <img src="utilities.png">
-
 </center>
 
 **Figure 1:** Relevant features in *`systemPipeR`*.
@@ -127,9 +123,7 @@ design enhances the *`systemPipeR`* workflow framework with a generalized,
 flexible, and robust design.
 
 <center>
-
 <img src="SYS_WF.png">
-
 </center>
 
 **Figure 2:** Workflow steps with input/output file operations are controlled by
@@ -144,9 +138,7 @@ or many *`SYSargs2`* objects are organized in an *`SYSargs2Pipe`* container.
 **systemPipeR** allows creation (multi-step analyses) and execution of workflow entirely for R, with control, flexibility, and scalability of the all process. The execution of the workflow can be sent to a HPC, can be parallelizes, accelerating results acquisition. A workflow management system provides an infrastructure for the set-up, performance and monitoring of a defined sequence of tasks, arranged as a workflow application.
 
 <center>
-
 <img src="sysargslist.png">
-
 </center>
 
 **Figure 3:** Workflow Management using *`SYSargsList`*.
@@ -171,9 +163,7 @@ construct complex workflows involving many sample-level input/output file
 operations with any combination of command-line or R-based software.
 
 <center>
-
 <img src="SystemPipeR_Workflow.png">
-
 </center>
 
 **Figure 4:** Workflow design structure of *`systemPipeR`* using *`SYSargs`*.
@@ -258,27 +248,25 @@ in <span style="color:grey">***green***</span>. Users can change this
 structure as needed, but need to adjust the code in their workflows
 accordingly.
 
-  - <span style="color:green">***workflow/***</span> (*e.g.* *rnaseq/*)
-      - This is the root directory of the R session running the workflow.
-      - Run script ( *\*.Rmd*) and sample annotation (*targets.txt*) files are located here.
-      - Note, this directory can have any name (*e.g.* <span style="color:green">***rnaseq***</span>, <span style="color:green">***varseq***</span>). Changing its name does not require any modifications in the run script(s).
-      - **Important subdirectories**:
-          - <span style="color:green">***param/***</span>
-              - Stores non-CWL parameter files such as: *\*.param*, *\*.tmpl* and *\*.run.sh*. These files are only required for backwards compatibility to run old workflows using the previous custom command-line interface.
-              - <span style="color:green">***param/cwl/***</span>: This subdirectory stores all the CWL parameter files. To organize workflows, each can have its own subdirectory, where all `CWL param` and `input.yml` files need to be in the same subdirectory.
-          - <span style="color:green">***data/*** </span>
-              - FASTQ files
-              - FASTA file of reference (*e.g.* reference genome)
-              - Annotation files
-              - etc.
-          - <span style="color:green">***results/***</span>
-              - Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files
-              - Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.
+-   <span style="color:green">***workflow/***</span> (*e.g.* *rnaseq/*)
+    -   This is the root directory of the R session running the workflow.
+    -   Run script ( *\*.Rmd*) and sample annotation (*targets.txt*) files are located here.
+    -   Note, this directory can have any name (*e.g.* <span style="color:green">***rnaseq***</span>, <span style="color:green">***varseq***</span>). Changing its name does not require any modifications in the run script(s).
+    -   **Important subdirectories**:
+        -   <span style="color:green">***param/***</span>
+            -   Stores non-CWL parameter files such as: *\*.param*, *\*.tmpl* and *\*.run.sh*. These files are only required for backwards compatibility to run old workflows using the previous custom command-line interface.
+            -   <span style="color:green">***param/cwl/***</span>: This subdirectory stores all the CWL parameter files. To organize workflows, each can have its own subdirectory, where all `CWL param` and `input.yml` files need to be in the same subdirectory.
+        -   <span style="color:green">***data/*** </span>
+            -   FASTQ files
+            -   FASTA file of reference (*e.g.* reference genome)
+            -   Annotation files
+            -   etc.
+        -   <span style="color:green">***results/***</span>
+            -   Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files
+            -   Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.
 
 <center>
-
 <img src="SYSdir.png">
-
 </center>
 
 **Figure 5:** *systemPipeR’s* preconfigured directory structure.
@@ -287,12 +275,12 @@ The following parameter files are included in each workflow template:
 
 1.  *`targets.txt`*: initial one provided by user; downstream *`targets_*.txt`* files are generated automatically
 2.  *`*.param/cwl`*: defines parameter for input/output file operations, *e.g.*:
-      - *`hisat2-se/hisat2-mapping-se.cwl`*
-      - *`hisat2-se/hisat2-mapping-se.yml`*
+    -   *`hisat2-se/hisat2-mapping-se.cwl`*
+    -   *`hisat2-se/hisat2-mapping-se.yml`*
 3.  *`*_run.sh`*: optional bash scripts
 4.  Configuration files for computer cluster environments (skip on single machines):
-      - *`.batchtools.conf.R`*: defines the type of scheduler for *`batchtools`* pointing to template file of cluster, and located in user’s home directory
-      - *`*.tmpl`*: specifies parameters of scheduler used by a system, *e.g.* Torque, SGE, Slurm, etc.
+    -   *`.batchtools.conf.R`*: defines the type of scheduler for *`batchtools`* pointing to template file of cluster, and located in user’s home directory
+    -   *`*.tmpl`*: specifies parameters of scheduler used by a system, *e.g.* Torque, SGE, Slurm, etc.
 
 ## Structure of *`targets`* file
 
@@ -354,7 +342,7 @@ read.delim(targetspath, comment.char = "#")[1:2, 1:6]
 ### Sample comparisons
 
 Sample comparisons are defined in the header lines of the *`targets`* file
-starting with ‘`# <CMP>`’.
+starting with ‘`# <CMP>`.’
 
 ``` r
 readLines(targetspath)[1:4]
@@ -546,565 +534,285 @@ Current, *systemPipeR* provides the *`param`* file templates for third-party sof
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:80%; ">
 
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
-
 <thead>
-
 <tr>
-
 <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
-
 Tool Name
-
 </th>
-
 <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
-
 Description
-
 </th>
-
 <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
-
 Step
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://bio-bwa.sourceforge.net/bwa.shtml">bwa</a>
-
 </td>
-
 <td style="text-align:center;">
-
 BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. 
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml">Bowtie2</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://hannonlab.cshl.edu/fastx_toolkit/commandline.html">FASTX-Toolkit</a>
-
 </td>
-
 <td style="text-align:center;">
-
 FASTX-Toolkit is a collection of command line tools for Short-Reads FASTA/FASTQ files preprocessing.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #EC7770 !important;">Read Preprocessing</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://hibberdlab.com/transrate/">TransRate</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Transrate is software for de-novo transcriptome assembly quality analysis.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #D98576 !important;">Quality</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://research-pub.gene.com/gmap/">Gsnap</a>
-
 </td>
-
 <td style="text-align:center;">
-
 GSNAP is a genomic short-read nucleotide alignment program.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://www.htslib.org/doc/samtools-1.2.html">Samtools</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Samtools is a suite of programs for interacting with high-throughput sequencing data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #D08C79 !important;">Post-processing</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Trimmomatic is a flexible read trimming tool for Illumina NGS data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #EC7770 !important;">Read Preprocessing</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://bioconductor.org/packages/release/bioc/vignettes/Rsubread/inst/doc/SubreadUsersGuide.pdf">Rsubread</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Rsubread is a Bioconductor software package that provides high-performance alignment and read counting functions for RNA-seq reads.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://broadinstitute.github.io/picard/">Picard</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #B4A082 !important;">Manipulating HTS data</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://busco.ezlab.org/">Busco</a>
-
 </td>
-
 <td style="text-align:center;">
-
 BUSCO assesses genome assembly and annotation completeness with Benchmarking Universal Single-Copy Orthologs.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #D98576 !important;">Quality</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://ccb.jhu.edu/software/hisat2/manual.shtml">Hisat2</a>
-
 </td>
-
 <td style="text-align:center;">
-
 HISAT2 is a fast and sensitive alignment program for mapping NGS reads (both DNA and RNA) to reference genomes.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://ccb.jhu.edu/software/tophat/manual.shtml">Tophat2</a>
-
 </td>
-
 <td style="text-align:center;">
-
 TopHat is a fast splice junction mapper for RNA-Seq reads.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://gatk.broadinstitute.org/hc/en-us">GATK</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Variant Discovery in High-Throughput Sequencing Data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FF6A6A !important;">Variant Discovery</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://github.com/alexdobin/STAR">STAR</a>
-
 </td>
-
 <td style="text-align:center;">
-
 STAR is an ultrafast universal RNA-seq aligner.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #8FBC8F !important;">Alignment</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://github.com/FelixKrueger/TrimGalore">Trim\_galore</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Trim Galore is a wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #EC7770 !important;">Read Preprocessing</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://github.com/TransDecoder/TransDecoder/wiki">TransDecoder</a>
-
 </td>
-
 <td style="text-align:center;">
-
 TransDecoder identifies candidate coding regions within transcript sequences.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #ABA785 !important;">Find Coding Regions</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki">Trinity</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Trinity assembles transcript sequences from Illumina RNA-Seq data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #A1AE88 !important;">denovo Transcriptome Assembly</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://github.com/Trinotate/Trinotate.github.io/wiki">Trinotate</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Trinotate is a comprehensive annotation suite designed for automatic functional annotation of transcriptomes.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #F5706D !important;">Transcriptome Functional Annotation</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://macs3-project.github.io/MACS/">MACS2</a>
-
 </td>
-
 <td style="text-align:center;">
-
 MACS2 identifies transcription factor binding sites in ChIP-seq data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #C7937C !important;">Peak calling</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://pachterlab.github.io/kallisto/manual">Kallisto</a>
-
 </td>
-
 <td style="text-align:center;">
-
 kallisto is a program for quantifying abundances of transcripts from RNA-Seq data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #E37E73 !important;">Read counting</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://samtools.github.io/bcftools/howtos/index.html">BCFtools</a>
-
 </td>
-
 <td style="text-align:center;">
-
 BCFtools is a program for variant calling and manipulating files in the Variant Call Format (VCF) and its binary counterpart BCF.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FF6A6A !important;">Variant Discovery</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://www.bioinformatics.babraham.ac.uk/projects/bismark/">Bismark</a>
-
 </td>
-
 <td style="text-align:center;">
-
 Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #98B58B !important;">Bisulfite mapping</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">Fastqc</a>
-
 </td>
-
 <td style="text-align:center;">
-
 FastQC is a quality control tool for high throughput sequence data.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #D98576 !important;">Quality</span>
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:center;">
-
 <a href="https://www.ncbi.nlm.nih.gov/books/NBK279690/">Blast</a>
-
 </td>
-
 <td style="text-align:center;">
-
 BLAST finds regions of similarity between biological sequences.
-
 </td>
-
 <td style="text-align:center;">
-
 <span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #BD997F !important;">Blast</span>
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
 </div>
@@ -1229,9 +937,9 @@ setwd("rnaseq")
 
 To go through this tutorial, you need the following software installed:
 
-  - R/\>=3.6.2
-  - systemPipeR R package (version 1.22)
-  - Hisat2/2.1.0
+-   R/&gt;=3.6.2
+-   systemPipeR R package (version 1.22)
+-   Hisat2/2.1.0
 
 If you desire to build your pipeline with any different software, make sure to have the respective software installed and configured in your PATH. To make sure if the configuration is right, you always can test as follow:
 
@@ -1271,7 +979,7 @@ sysargslist <- runWF(sysargslist = sysargslist, steps = "1:2")
 
 ## How to Use Pipes with *systemPipeR*
 
-At first encounter, you may wonder whether an operator such as *%\>%* can really be all that beneficial; but as you may notice, it semantically changes your code in a way that makes it more intuitive to both read and write.
+At first encounter, you may wonder whether an operator such as *%&gt;%* can really be all that beneficial; but as you may notice, it semantically changes your code in a way that makes it more intuitive to both read and write.
 
 Consider the following example, in which the steps are the initialization, configuration and running the entire workflow.
 
@@ -1419,9 +1127,9 @@ filterFct <- function(fq, cutoff = 20, Nexceptions = 0) {
 preprocessReads(args = trim, Fct = "filterFct(fq, cutoff=20, Nexceptions=0)", batchsize = 1e+05)
 ```
 
-### Preprocessing with TrimGalore\!
+### Preprocessing with TrimGalore!
 
-[TrimGalore\!](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) is
+[TrimGalore!](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) is
 a wrapper tool to consistently apply quality and adapter trimming to fastq files,
 with some extra functionality for removing Reduced Representation Bisulfite-Seq
 (RRBS) libraries.
@@ -1476,12 +1184,10 @@ dev.off()
 ```
 
 <center>
-
 <img src="fastqReport.png">
-
 </center>
 
-<div data-align="center">
+<div align="center">
 
 **Figure 5:** FASTQ quality report
 
@@ -1885,7 +1591,7 @@ writeTargetsout(x = bwaPE, file = "default", step = 1, new_col = "bwaPE", new_co
 
 ### Alignment with *`Rsubread`* (*e.g.* for RNA-Seq)
 
-The following example shows how one can use within the  environment the R-based aligner , allowing running from R or command-line.
+The following example shows how one can use within the environment the R-based aligner , allowing running from R or command-line.
 
 ``` r
 ## Build the index:
@@ -2146,7 +1852,7 @@ plot.phylo(as.phylo(hc), type = "p", edge.col = 4, edge.width = 3, show.node.lab
 
 <img src="/en/spr/systempiper/systemPipeR_files/figure-html/sample_tree_rlog-1.png" width="672" />
 
-<div data-align="center">
+<div align="center">
 
 **Figure 6:** Correlation dendrogram of samples for *`rlog`* values.
 
@@ -2173,7 +1879,7 @@ identifying differentially expressed genes (DEGs) in batch mode with
 *`edgeR`*’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
 pairwise sample comparisons specified under the *`cmp`* argument. Users
 are strongly encouraged to consult the
-[*`edgeR`*](\\href%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) vignette
+[*`edgeR`*](\href%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) vignette
 for more detailed information on this topic and how to properly run *`edgeR`*
 on data sets with more complex experimental designs.
 
@@ -2211,7 +1917,7 @@ DEG_list <- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 
 <img src="/en/spr/systempiper/systemPipeR_files/figure-html/edger_deg_counts-1.png" width="672" />
 
-<div data-align="center">
+<div align="center">
 
 **Figure 7:** Up and down regulated DEGs identified by *`edgeR`*.
 
@@ -2261,7 +1967,7 @@ DEG_list2 <- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 
 <img src="/en/spr/systempiper/systemPipeR_files/figure-html/deseq2_deg_counts-1.png" width="672" />
 
-<div data-align="center">
+<div align="center">
 
 **Figure 8:** Up and down regulated DEGs identified by *`DESeq2`*.
 
@@ -2282,7 +1988,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = "", mysub = "", colmode = 2, cco
 
 <img src="/en/spr/systempiper/systemPipeR_files/figure-html/vennplot-1.png" width="672" />
 
-<div data-align="center">
+<div align="center">
 
 **Figure 9:** Venn Diagram for 4 Up and Down DEG Sets.
 
@@ -2361,7 +2067,7 @@ goBarplot(gos, gocat = "CC")
 
 ![](GOslimbarplotMF.png)
 
-<div data-align="center">
+<div align="center">
 
 **Figure 10:** GO Slim Barplot for MF Ontology.
 
@@ -2384,12 +2090,10 @@ dev.off()
 ```
 
 <center>
-
 <img src="heatmap1.png">
-
 </center>
 
-<div data-align="center">
+<div align="center">
 
 **Figure 11:** Heat map with hierarchical clustering dendrograms of DEGs.
 
@@ -2430,8 +2134,8 @@ Next, run the chosen sample workflow *`systemPipeRNAseq`* ([PDF](https://github.
 The workflow includes following steps:
 
 1.  Read preprocessing
-      - Quality filtering (trimming)
-      - FASTQ quality report
+    -   Quality filtering (trimming)
+    -   FASTQ quality report
 2.  Alignments: *`Tophat2`* (or any other RNA-Seq aligner)
 3.  Alignment stats
 4.  Read counting
@@ -2457,8 +2161,8 @@ Next, run the chosen sample workflow *`systemPipeChIPseq_single`* ([PDF](https:/
 The workflow includes the following steps:
 
 1.  Read preprocessing
-      - Quality filtering (trimming)
-      - FASTQ quality report
+    -   Quality filtering (trimming)
+    -   FASTQ quality report
 2.  Alignments: *`Bowtie2`* or *`rsubread`*
 3.  Alignment stats
 4.  Peak calling: *`MACS2`*, *`BayesPeak`*
@@ -2486,8 +2190,8 @@ Next, run the chosen sample workflow *`systemPipeVARseq_single`* ([PDF](https://
 The workflow includes following steps:
 
 1.  Read preprocessing
-      - Quality filtering (trimming)
-      - FASTQ quality report
+    -   Quality filtering (trimming)
+    -   FASTQ quality report
 2.  Alignments: *`gsnap`*, *`bwa`*
 3.  Variant calling: *`VariantTools`*, *`GATK`*, *`BCFtools`*
 4.  Variant filtering: *`VariantTools`* and *`VariantAnnotation`*
@@ -2517,8 +2221,8 @@ Next, run the chosen sample workflow *`systemPipeRIBOseq`* ([PDF](https://github
 The workflow includes following steps:
 
 1.  Read preprocessing
-      - Adaptor trimming and quality filtering
-      - FASTQ quality report
+    -   Adaptor trimming and quality filtering
+    -   FASTQ quality report
 2.  Alignments: *`Tophat2`* (or any other RNA-Seq aligner)
 3.  Alignment stats
 4.  Compute read distribution across genomic features
@@ -2618,83 +2322,83 @@ This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearc
 
 # References
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-H_Backman2016-bt">
+<div id="ref-H_Backman2016-bt" class="csl-entry">
 
-H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
 
 </div>
 
-<div id="ref-Howard2013-fq">
+<div id="ref-Howard2013-fq" class="csl-entry">
 
 Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” *PLoS One* 8 (10): e74183. <https://doi.org/10.1371/journal.pone.0074183>.
 
 </div>
 
-<div id="ref-Kim2015-ve">
+<div id="ref-Kim2015-ve" class="csl-entry">
 
 Kim, Daehwan, Ben Langmead, and Steven L Salzberg. 2015. “HISAT: A Fast Spliced Aligner with Low Memory Requirements.” *Nat. Methods* 12 (4): 357–60.
 
 </div>
 
-<div id="ref-Kim2013-vg">
+<div id="ref-Kim2013-vg" class="csl-entry">
 
 Kim, Daehwan, Geo Pertea, Cole Trapnell, Harold Pimentel, Ryan Kelley, and Steven L Salzberg. 2013. “TopHat2: Accurate Alignment of Transcriptomes in the Presence of Insertions, Deletions and Gene Fusions.” *Genome Biol.* 14 (4): R36. <https://doi.org/10.1186/gb-2013-14-4-r36>.
 
 </div>
 
-<div id="ref-Langmead2012-bs">
+<div id="ref-Langmead2012-bs" class="csl-entry">
 
 Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” *Nat. Methods* 9 (4): 357–59. <https://doi.org/10.1038/nmeth.1923>.
 
 </div>
 
-<div id="ref-Lawrence2013-kt">
+<div id="ref-Lawrence2013-kt" class="csl-entry">
 
 Lawrence, Michael, Wolfgang Huber, Hervé Pagès, Patrick Aboyoun, Marc Carlson, Robert Gentleman, Martin T Morgan, and Vincent J Carey. 2013. “Software for Computing and Annotating Genomic Ranges.” *PLoS Comput. Biol.* 9 (8): e1003118. <https://doi.org/10.1371/journal.pcbi.1003118>.
 
 </div>
 
-<div id="ref-Li2009-oc">
+<div id="ref-Li2009-oc" class="csl-entry">
 
 Li, H, and R Durbin. 2009. “Fast and Accurate Short Read Alignment with Burrows-Wheeler Transform.” *Bioinformatics* 25 (14): 1754–60. <https://doi.org/10.1093/bioinformatics/btp324>.
 
 </div>
 
-<div id="ref-Li2013-oy">
+<div id="ref-Li2013-oy" class="csl-entry">
 
-Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” *arXiv \[Q-bio.GN\]*, March. <http://arxiv.org/abs/1303.3997>.
+Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” *arXiv \[q-Bio.GN\]*, March. <http://arxiv.org/abs/1303.3997>.
 
 </div>
 
-<div id="ref-Liao2013-bn">
+<div id="ref-Liao2013-bn" class="csl-entry">
 
 Liao, Yang, Gordon K Smyth, and Wei Shi. 2013. “The Subread Aligner: Fast, Accurate and Scalable Read Mapping by Seed-and-Vote.” *Nucleic Acids Res.* 41 (10): e108. <https://doi.org/10.1093/nar/gkt214>.
 
 </div>
 
-<div id="ref-Love2014-sh">
+<div id="ref-Love2014-sh" class="csl-entry">
 
-Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-seq Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
-
-</div>
-
-<div id="ref-Rsamtools">
-
-Morgan, Martin, Hervé Pagès, Valerie Obenchain, and Nathaniel Hayden. 2019. *Rsamtools: Binary Alignment (Bam), Fasta, Variant Call (Bcf), and Tabix File Import*. <http://bioconductor.org/packages/Rsamtools>.
+Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
 
 </div>
 
-<div id="ref-Robinson2010-uk">
+<div id="ref-Rsamtools" class="csl-entry">
 
-Robinson, M D, D J McCarthy, and G K Smyth. 2010. “EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” *Bioinformatics* 26 (1): 139–40. <https://doi.org/10.1093/bioinformatics/btp616>.
+Morgan, Martin, Hervé Pagès, Valerie Obenchain, and Nathaniel Hayden. 2019. *Rsamtools: Binary Alignment (BAM), FASTA, Variant Call (BCF), and Tabix File Import*. <http://bioconductor.org/packages/Rsamtools>.
 
 </div>
 
-<div id="ref-Wu2010-iq">
+<div id="ref-Robinson2010-uk" class="csl-entry">
 
-Wu, T D, and S Nacu. 2010. “Fast and SNP-tolerant Detection of Complex Variants and Splicing in Short Reads.” *Bioinformatics* 26 (7): 873–81. <https://doi.org/10.1093/bioinformatics/btq057>.
+Robinson, M D, D J McCarthy, and G K Smyth. 2010. “edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” *Bioinformatics* 26 (1): 139–40. <https://doi.org/10.1093/bioinformatics/btp616>.
+
+</div>
+
+<div id="ref-Wu2010-iq" class="csl-entry">
+
+Wu, T D, and S Nacu. 2010. “Fast and <span class="nocase">SNP-tolerant</span> Detection of Complex Variants and Splicing in Short Reads.” *Bioinformatics* 26 (7): 873–81. <https://doi.org/10.1093/bioinformatics/btq057>.
 
 </div>
 

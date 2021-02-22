@@ -1,0 +1,50 @@
+
+#svg-logo {
+  z-index: 999;
+  display: block;
+}
+
+svg a[id^="cover"] {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+svg a[id^="cover"]:hover {
+  opacity: 0.1;
+  transition: opacity 500ms;
+}
+
+
+.bg-blur:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width : 100%;
+    height: 100%;
+    background: inherit;
+    z-index: 1;
+
+    filter        : blur(10px);
+    -moz-filter   : blur(10px);
+    -webkit-filter: blur(10px);
+    -o-filter     : blur(10px);
+
+    transition        : all 2s linear;
+    -moz-transition   : all 2s linear;
+    -webkit-transition: all 2s linear;
+    -o-transition     : all 2s linear;
+}
+
+.logo-blur {
+    opacity: 0.8 !important;
+
+    filter        : blur(10px);
+    -moz-filter   : blur(10px);
+    -webkit-filter: blur(10px);
+    -o-filter     : blur(10px);
+
+    transition        : all 2s linear;
+    -moz-transition   : all 2s linear;
+    -webkit-transition: all 2s linear;
+    -o-transition     : all 2s linear;
+}
