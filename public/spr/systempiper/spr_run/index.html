@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
+
+<title>How to run a Workflow | systemPipeR</title><meta property="og:title" content="How to run a Workflow" />
+<meta property="og:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i How to run a Workflow This tutorial introduces the basic ideas and tools needed to build a specific workflow from preconfigured templates.
+Load sample data and workflow templates library(systemPipeRdata) genWorkenvir(workflow = &quot;rnaseq&quot;) setwd(&quot;rnaseq&quot;)  Setup and Requirements To go through this tutorial, you need the following software installed:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/spr/systempiper/spr_run/" />
+<meta property="article:modified_time" content="2021-02-22T08:39:18+00:00" /><meta property="og:site_name" content="systemPipeR" />
+<meta itemprop="name" content="How to run a Workflow">
+<meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i How to run a Workflow This tutorial introduces the basic ideas and tools needed to build a specific workflow from preconfigured templates.
+Load sample data and workflow templates library(systemPipeRdata) genWorkenvir(workflow = &quot;rnaseq&quot;) setwd(&quot;rnaseq&quot;)  Setup and Requirements To go through this tutorial, you need the following software installed:">
+<meta itemprop="dateModified" content="2021-02-22T08:39:18+00:00" />
+<meta itemprop="wordCount" content="808">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to run a Workflow"/>
+<meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i How to run a Workflow This tutorial introduces the basic ideas and tools needed to build a specific workflow from preconfigured templates.
+Load sample data and workflow templates library(systemPipeRdata) genWorkenvir(workflow = &quot;rnaseq&quot;) setwd(&quot;rnaseq&quot;)  Setup and Requirements To go through this tutorial, you need the following software installed:"/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
+<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../../css/prism.css"/>
+
+
+<script src="../../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../../css/site.css"/>
+<script src="../../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page line-numbers">
+    <header>
+     
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="../../../">
+		<span class="font-weight-bold">systemPipeR</span>
+	</a>
+	<row class="header-switch">
+	  	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
+        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
+      </div>
+    	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
+        <label class="custom-control-label" for="tocSwitch">toc</label>
+      </div>
+	</row>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr/" id="navbarDropdown" role="button">
+          	systemPipeR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeR Package
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/systempiper/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/gettingstarted/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Getting Started
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/spr_run/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 How to run a Workflow
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/steps/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow steps overview
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/templates/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow Templates
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/sprinstall/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR detailed installation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiperdata/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRdata
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiperdata/vignette/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Vignette
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Links
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata GitHub
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
+          	systemPipeR Workflows
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeRNAseq/articles/systemPipeRNAseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 RNA-Seq
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeChIPseq/articles/systemPipeChIPseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 ChIP-Seq
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeRIBOseq/articles/systemPipeRIBOseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 RIBO-Seq
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeVARseq/articles/systemPipeVARseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 VAR-Seq
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
+          	systemPipeShiny
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sps/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 SPS Documentation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Github
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
+          	Training
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/presentations/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/videos/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Videos Tutorials
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+					<a class="nav-link" href="../../../news/" ><span>News</span></a>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/team/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Our Team
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/publications/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Publications
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/acknowledgement/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Acknowledgement
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/contact/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Contact
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../spr/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="spr">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../spr/systempiper/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">systemPipeR</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="sprsystempiper">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperintroduction" href="../../../spr/systempiper/introduction/">Introduction</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipergettingstarted" href="../../../spr/systempiper/gettingstarted/">Getting Started</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-sprsystempiperspr_run" href="../../../spr/systempiper/spr_run/">How to run a Workflow</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersteps" href="../../../spr/systempiper/steps/">Workflow steps overview</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipertemplates" href="../../../spr/systempiper/templates/">Workflow Templates</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_funcs" href="../../../spr/systempiper/spr_funcs/">systemPipeR Help Manual</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersprinstall" href="../../../spr/systempiper/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../spr/systempiperdata/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a>
+  </li>
+  <ul>
+    <li class="collapse " id="sprsystempiperdata">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatavignette" href="../../../spr/systempiperdata/vignette/">SRPdata Vignette</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          
+          
+
+          
+
+          
+          
+              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+                
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/spr/systempiper/spr_run.markdown" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/spr/systempiper/spr_run.markdown" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/spr/systempiper/spr_run.markdown?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=How%20to%20run%20a%20Workflow" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    
+      
+      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-run-a-workflow">How to run a Workflow</a>
+      <ul>
+        <li><a href="#load-sample-data-and-workflow-templates">Load sample data and workflow templates</a></li>
+        <li><a href="#setup-and-requirements">Setup and Requirements</a></li>
+        <li><a href="#project-initialization">Project Initialization</a></li>
+        <li><a href="#project-initialization-in-a-temporary-directory">Project Initialization in a Temporary Directory</a></li>
+        <li><a href="#configuration-and-run-of-the-project">Configuration and run of the project</a></li>
+        <li><a href="#how-to-use-pipes-with-systempiper">How to Use Pipes with <em>systemPipeR</em></a></li>
+        <li><a href="#how-to-run-the-workflow-on-a-cluster">How to run the workflow on a cluster</a>
+          <ul>
+            <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+              </div>
+              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+                
+  
+
+                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../spr/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../spr/systempiper/">systemPipeR</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="../../../spr/systempiper/spr_run/">How to run a Workflow</a>
+</li>
+
+	</ol>
+</nav	>
+
+                
+<div class="td-content">
+	<h1>How to run a Workflow</h1>
+    
+	       
+	<!--
+- Compile from command-line
+Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
+-->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector("h1").className = "title";
+});
+</script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i < linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = '_blank';
+});
+</script>
+<h1 id="how-to-run-a-workflow">How to run a Workflow</h1>
+<p>This tutorial introduces the basic ideas and tools needed to build a specific workflow from preconfigured templates.</p>
+<h2 id="load-sample-data-and-workflow-templates">Load sample data and workflow templates</h2>
+<pre><code class="language-r">library(systemPipeRdata)
+genWorkenvir(workflow = &quot;rnaseq&quot;)
+setwd(&quot;rnaseq&quot;)
+</code></pre>
+<h2 id="setup-and-requirements">Setup and Requirements</h2>
+<p>To go through this tutorial, you need the following software installed:</p>
+<ul>
+<li>R/&gt;=3.6.2</li>
+<li>systemPipeR R package (version 1.22)</li>
+<li>Hisat2/2.1.0</li>
+</ul>
+<p>If you desire to build your pipeline with any different software, make sure to have the respective software installed and configured in your PATH. To make sure if the configuration is right, you always can test as follow:</p>
+<pre><code class="language-r">tryCL(command = &quot;hisat2&quot;)  ## 'All set up, proceed!'
+</code></pre>
+<h2 id="project-initialization">Project Initialization</h2>
+<p>The Project management structure is essential, especially for reproducibility and efficiency in the analysis. Here we show how to construct an instance of this S4 object class by the <em><code>initWF</code></em> function. The object of class <em><code>SYSarsgsList</code></em> storing all the configuration information for the project and allows management and control at a high level.</p>
+<pre><code class="language-r">script &lt;- &quot;systemPipeRNAseq.Rmd&quot;
+targetspath &lt;- &quot;targets.txt&quot;
+sysargslist &lt;- initWF(script = script, targets = targetspath)
+</code></pre>
+<h2 id="project-initialization-in-a-temporary-directory">Project Initialization in a Temporary Directory</h2>
+<pre><code class="language-r">library(systemPipeRdata)
+script &lt;- system.file(&quot;extdata/workflows/rnaseq&quot;, &quot;systemPipeRNAseq.Rmd&quot;, package = &quot;systemPipeRdata&quot;)
+targets &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
+dir_path &lt;- tempdir()
+SYSconfig &lt;- initProject(projPath = dir_path, targets = targets, script = script, 
+    overwrite = TRUE)
+sysargslist_temp &lt;- initWF(sysconfig = &quot;SYSconfig.yml&quot;)
+</code></pre>
+<h2 id="configuration-and-run-of-the-project">Configuration and run of the project</h2>
+<pre><code class="language-r">sysargslist &lt;- configWF(x = sysargslist, input_steps = &quot;1:3&quot;)
+sysargslist &lt;- runWF(sysargslist = sysargslist, steps = &quot;ALL&quot;)
+sysargslist &lt;- runWF(sysargslist = sysargslist, steps = &quot;1:2&quot;)
+</code></pre>
+<h2 id="how-to-use-pipes-with-systempiper">How to Use Pipes with <em>systemPipeR</em></h2>
+<p>At first encounter, you may wonder whether an operator such as <em>%&gt;%</em> can really be all that beneficial; but as you may notice, it semantically changes your code in a way that makes it more intuitive to both read and write.</p>
+<p>Consider the following example, in which the steps are the initialization, configuration and running the entire workflow.</p>
+<pre><code class="language-r">library(systemPipeR)
+sysargslist &lt;- initWF(script = &quot;systemPipeRNAseq.Rmd&quot;, overwrite = T) %&gt;% configWF(input_steps = &quot;1:3&quot;) %&gt;% 
+    runWF(steps = &quot;1:2&quot;)
+</code></pre>
+<h2 id="how-to-run-the-workflow-on-a-cluster">How to run the workflow on a cluster</h2>
+<p>This section of the tutorial provides an introduction to the usage of the <em>systemPipeR</em> features on a cluster.</p>
+<p>Now open the R markdown script <code>*.Rmd</code>in your R IDE (_e.g._vim-r or RStudio) and run the workflow as outlined below. If you work under Vim-R-Tmux, the following command sequence will connect the user in an
+interactive session with a node on the cluster. The code of the <code>Rmd</code>
+script can then be sent from Vim on the login (head) node to an open R session running
+on the corresponding computer node. This is important since Tmux sessions
+should not be run on the computer nodes.</p>
+<pre><code class="language-r">q(&quot;no&quot;)  # closes R session on head node
+</code></pre>
+<pre><code class="language-bash">srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 2:00:00 --pty bash -l
+module load R/3.4.2
+R
+</code></pre>
+<p>Now check whether your R session is running on a computer node of the cluster and not on a head node.</p>
+<pre><code class="language-r">system(&quot;hostname&quot;)  # should return name of a compute node starting with i or c 
+getwd()  # checks current working directory of R session
+dir()  # returns content of current working directory
+</code></pre>
+<h3 id="parallelization-on-clusters">Parallelization on clusters</h3>
+<p>Alternatively, the computation can be greatly accelerated by processing many files
+in parallel using several compute nodes of a cluster, where a scheduling/queuing
+system is used for load balancing. For this the <em><code>clusterRun</code></em> function submits
+the computing requests to the scheduler using the run specifications
+defined by <em><code>runCommandline</code></em>.</p>
+<p>To avoid over-subscription of CPU cores on the compute nodes, the value from
+<em><code>yamlinput(args)['thread']</code></em> is passed on to the submission command, here <em><code>ncpus</code></em>
+in the <em><code>resources</code></em> list object. The number of independent parallel cluster
+processes is defined under the <em><code>Njobs</code></em> argument. The following example will run
+18 processes in parallel using for each 4 CPU cores. If the resources available
+on a cluster allow running all 18 processes at the same time then the shown sample
+submission will utilize in total 72 CPU cores. Note, <em><code>clusterRun</code></em> can be used
+with most queueing systems as it is based on utilities from the <em><code>batchtools</code></em>
+package which supports the use of template files (<em><code>*.tmpl</code></em>) for defining the
+run parameters of different schedulers. To run the following code, one needs to
+have both a conf file (see <em><code>.batchtools.conf.R</code></em> samples <a href="https://mllg.github.io/batchtools/">here</a>)
+and a template file (see <em><code>*.tmpl</code></em> samples <a href="https://github.com/mllg/batchtools/tree/master/inst/templates">here</a>)
+for the queueing available on a system. The following example uses the sample
+conf and template files for the Slurm scheduler provided by this package.</p>
+<pre><code class="language-r">library(batchtools)
+resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
+reg &lt;- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE, 
+    dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+    Njobs = 18, runid = &quot;01&quot;, resourceList = resources)
+getStatus(reg = reg)
+waitForJobs(reg = reg)
+</code></pre>
+<h1 id="references">References</h1>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-22: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/37cea73572687f6ee778b6b733f184627fc230b2">Bot update public and md5sum table (37cea73)</a>
+</div>
+</div>
+
+
+              </main>
+          
+
+
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
+      <i class="fa fa-dna"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="../../../about/">About systemPipeR Project</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+<script src="../../../js/mathjax3.1.2.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true }
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
