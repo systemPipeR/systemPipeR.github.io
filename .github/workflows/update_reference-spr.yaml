@@ -1,0 +1,51 @@
+name: SPR triggered docs update
+on:
+  repository_dispatch:
+    types: [SPR-docs-updated]
+
+jobs:
+  hugobuild:
+    name: build_hash_gh_pages
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Update hash
+        run: |
+          bash .github/bash/update_reference.sh https://github.com/systemPipeR/systemPipeR.git static/spr/funcs/spr
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.79.1'
+          extended: true
+      - name: Cache node dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            node-
+      - run: npm ci
+      - run: hugo --minify
+      - name: Update github
+        run: |
+          git config --local user.name "Github Action Bot"
+          git config --local user.email "gh-action-bot@protonmail.com"
+          git add -A
+          git commit -m "Bot build site" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: systempipe.org
+
