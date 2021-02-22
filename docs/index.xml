@@ -1377,6 +1377,31 @@ function usage, example code, and example running results are shown inside.&lt;/
     </item>
     
     <item>
+      <title>Spr: systemPipeR Help Manual</title>
+      <link>/spr/systempiper/spr_funcs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/spr/systempiper/spr_funcs/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;style&gt;
+.td-content li a {
+  font-size: 1.5rem;
+}
+&lt;/style&gt;
+&lt;h2 id=&#34;systempiper-functions-reference-manuals&#34;&gt;&lt;em&gt;systempipeR&lt;/em&gt; Functions Reference Manuals&lt;/h2&gt;
+&lt;p&gt;The following reference manual was created by &lt;a href=&#34;http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html&#34;&gt;systemPipeR Development version&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../spr/funcs/spr/reference&#34;&gt;systemPipeR Reference Manual&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Sps: Deploy</title>
       <link>/sps/deploy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1554,10 +1579,10 @@ export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## &amp;quot;/path/to/ncbi-bl
     
     <item>
       <title>Spr: systemPipeR: Workflow design and reporting generation environment</title>
-      <link>/spr/systempiper_vignette/systempiper/</link>
+      <link>/spr/systempiper/systempiper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/spr/systempiper_vignette/systempiper/</guid>
+      <guid>/spr/systempiper/systempiper/</guid>
       <description>
         
         
@@ -1973,6 +1998,9 @@ here next &lt;em&gt;&lt;code&gt;SYSargs2&lt;/code&gt;&lt;/em&gt; instance (see F
 ## 
 ## $steps
 ## [1] &amp;quot;hisat2-mapping-se&amp;quot;
+## 
+## $targets
+## [1] &amp;quot;/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/targets.txt&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;inputvars(WF)
 &lt;/code&gt;&lt;/pre&gt;
@@ -2334,8 +2362,8 @@ of new command-line software or changing the parameter settings of existing
 ones.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sysargs(args)[1]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                                                                                                                                                                                                                                                                                                                                                                                    M1A 
-## &amp;quot;tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/dcassol/danielac@ucr.edu/projects/SYSPipeWF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper_vignette/results/SRR446027_1.fastq.gz.tophat /home/dcassol/danielac@ucr.edu/projects/SYSPipeWF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper_vignette/data/tair10.fasta ./data/SRR446027_1.fastq.gz &amp;quot;
+&lt;pre&gt;&lt;code&gt;##                                                                                                                                                                                                                                                                                                                                                            M1A 
+## &amp;quot;tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/results/SRR446027_1.fastq.gz.tophat /home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/data/tair10.fasta ./data/SRR446027_1.fastq.gz &amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;modules(args)
 &lt;/code&gt;&lt;/pre&gt;
@@ -2347,8 +2375,8 @@ ones.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;outpaths(args)[1]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                                                                                                                                                                           M1A 
-## &amp;quot;/home/dcassol/danielac@ucr.edu/projects/SYSPipeWF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper_vignette/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam&amp;quot;
+&lt;pre&gt;&lt;code&gt;##                                                                                                                                                               M1A 
+## &amp;quot;/home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The content of the &lt;em&gt;&lt;code&gt;param&lt;/code&gt;&lt;/em&gt; file can also be returned as JSON object as follows (requires &lt;em&gt;&lt;code&gt;rjson&lt;/code&gt;&lt;/em&gt; package).&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;systemArgs(sysma = parampath, mytargets = targetspath, type = &amp;quot;json&amp;quot;)
@@ -3065,7 +3093,7 @@ hc &amp;lt;- hclust(dist(1 - d))
 plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE, 
     no.margin = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper_vignette/systemPipeR_files/figure-html/sample_tree_rlog-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper/systemPipeR_files/figure-html/sample_tree_rlog-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div data-align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 6:&lt;/strong&gt; Correlation dendrogram of samples for &lt;em&gt;&lt;code&gt;rlog&lt;/code&gt;&lt;/em&gt; values.&lt;/p&gt;
 &lt;/div&gt;
@@ -3113,7 +3141,7 @@ edgeDF &amp;lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[
 &lt;p&gt;Filter and plot DEG results for up and down-regulated genes. Because of the small size of the toy data set used by this vignette, the &lt;em&gt;FDR&lt;/em&gt; value has been set to a relatively high threshold (here 10%). More commonly used &lt;em&gt;FDR&lt;/em&gt; cutoffs are 1% or 5%. The definition of ‘&lt;em&gt;up&lt;/em&gt;’ and ‘&lt;em&gt;down&lt;/em&gt;’ is given in the corresponding help file. To open it, type &lt;em&gt;&lt;code&gt;?filterDEGs&lt;/code&gt;&lt;/em&gt; in the R console.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DEG_list &amp;lt;- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper_vignette/systemPipeR_files/figure-html/edger_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper/systemPipeR_files/figure-html/edger_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div data-align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 7:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -3147,7 +3175,7 @@ on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;p&gt;Filter and plot DEG results for up and down-regulated genes.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DEG_list2 &amp;lt;- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper_vignette/systemPipeR_files/figure-html/deseq2_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper/systemPipeR_files/figure-html/deseq2_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div data-align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 8:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -3159,7 +3187,7 @@ vennsetdown &amp;lt;- overLapper(DEG_list$Down[6:9], type = &amp;quot;vennsets&a
 vennPlot(list(vennsetup, vennsetdown), mymain = &amp;quot;&amp;quot;, mysub = &amp;quot;&amp;quot;, colmode = 2, ccol = c(&amp;quot;blue&amp;quot;, 
     &amp;quot;red&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper_vignette/systemPipeR_files/figure-html/vennplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../en/spr/systempiper/systemPipeR_files/figure-html/vennplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div data-align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 9:&lt;/strong&gt; Venn Diagram for 4 Up and Down DEG Sets.&lt;/p&gt;
 &lt;/div&gt;
@@ -3362,7 +3390,7 @@ setwd(&amp;quot;riboseq&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## R version 4.0.3 (2020-10-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.1 LTS
+## Running under: Ubuntu 20.04.2 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -3382,12 +3410,12 @@ setwd(&amp;quot;riboseq&amp;quot;)
 ## 
 ## other attached packages:
 ##  [1] DESeq2_1.30.0               kableExtra_1.3.1           
-##  [3] dplyr_1.0.3                 magrittr_2.0.1             
+##  [3] dplyr_1.0.4                 magrittr_2.0.1             
 ##  [5] batchtools_0.9.15           ape_5.4-1                  
-##  [7] ggplot2_3.3.3               systemPipeR_1.25.4         
+##  [7] ggplot2_3.3.3               systemPipeR_1.25.5         
 ##  [9] ShortRead_1.48.0            GenomicAlignments_1.26.0   
 ## [11] SummarizedExperiment_1.20.0 Biobase_2.50.0             
-## [13] MatrixGenerics_1.2.0        matrixStats_0.57.0         
+## [13] MatrixGenerics_1.2.1        matrixStats_0.58.0         
 ## [15] BiocParallel_1.24.1         Rsamtools_2.6.0            
 ## [17] Biostrings_2.58.0           XVector_0.30.0             
 ## [19] GenomicRanges_1.42.0        GenomeInfoDb_1.26.2        
@@ -3398,24 +3426,24 @@ setwd(&amp;quot;riboseq&amp;quot;)
 ##   [1] colorspace_2.0-0         rjson_0.2.20             hwriter_1.3.2           
 ##   [4] ellipsis_0.3.1           rstudioapi_0.13          farver_2.0.3            
 ##   [7] bit64_4.0.5              AnnotationDbi_1.52.0     xml2_1.3.2              
-##  [10] codetools_0.2-18         splines_4.0.3            cachem_1.0.1            
+##  [10] codetools_0.2-18         splines_4.0.3            cachem_1.0.3            
 ##  [13] geneplotter_1.68.0       knitr_1.31               jsonlite_1.7.2          
-##  [16] annotate_1.68.0          GO.db_3.12.1             dbplyr_2.0.0            
+##  [16] annotate_1.68.0          GO.db_3.12.1             dbplyr_2.1.0            
 ##  [19] png_0.1-7                pheatmap_1.0.12          graph_1.68.0            
 ##  [22] BiocManager_1.30.10      compiler_4.0.3           httr_1.4.2              
 ##  [25] GOstats_2.56.0           backports_1.2.1          assertthat_0.2.1        
-##  [28] Matrix_1.2-18            fastmap_1.1.0            limma_3.46.0            
+##  [28] Matrix_1.3-2             fastmap_1.1.0            limma_3.46.0            
 ##  [31] formatR_1.7              htmltools_0.5.1.1        prettyunits_1.1.1       
 ##  [34] tools_4.0.3              gtable_0.3.0             glue_1.4.2              
 ##  [37] GenomeInfoDbData_1.2.4   Category_2.56.0          rsvg_2.1                
-##  [40] rappdirs_0.3.2           V8_3.4.0                 Rcpp_1.0.6              
-##  [43] vctrs_0.3.6              nlme_3.1-151             blogdown_1.1.7          
-##  [46] rtracklayer_1.50.0       xfun_0.20                stringr_1.4.0           
-##  [49] rvest_0.3.6              lifecycle_0.2.0          XML_3.99-0.5            
+##  [40] rappdirs_0.3.3           V8_3.4.0                 Rcpp_1.0.6              
+##  [43] vctrs_0.3.6              nlme_3.1-152             blogdown_1.1.7          
+##  [46] rtracklayer_1.50.0       xfun_0.21                stringr_1.4.0           
+##  [49] rvest_0.3.6              lifecycle_1.0.0.9000     XML_3.99-0.5            
 ##  [52] edgeR_3.32.1             zlibbioc_1.36.0          scales_1.1.1            
 ##  [55] BSgenome_1.58.0          VariantAnnotation_1.36.0 hms_1.0.0               
 ##  [58] RBGL_1.66.0              RColorBrewer_1.1-2       yaml_2.2.1              
-##  [61] curl_4.3                 memoise_2.0.0            biomaRt_2.46.2          
+##  [61] curl_4.3                 memoise_2.0.0            biomaRt_2.46.3          
 ##  [64] latticeExtra_0.6-29      stringi_1.5.3            RSQLite_2.2.3           
 ##  [67] highr_0.8                genefilter_1.72.1        checkmate_2.0.0         
 ##  [70] GenomicFeatures_1.42.1   DOT_0.1                  rlang_0.4.10            
@@ -3425,8 +3453,8 @@ setwd(&amp;quot;riboseq&amp;quot;)
 ##  [82] AnnotationForge_1.32.0   bookdown_0.21            R6_2.5.0                
 ##  [85] generics_0.1.0           base64url_1.4            DelayedArray_0.16.1     
 ##  [88] DBI_1.1.1                withr_2.4.1              pillar_1.4.7            
-##  [91] survival_3.2-7           RCurl_1.98-1.2           tibble_3.0.5            
-##  [94] crayon_1.3.4             BiocFileCache_1.14.0     rmarkdown_2.6           
+##  [91] survival_3.2-7           RCurl_1.98-1.2           tibble_3.0.6            
+##  [94] crayon_1.4.1             BiocFileCache_1.14.0     rmarkdown_2.6           
 ##  [97] jpeg_0.1-8.1             progress_1.2.2           locfit_1.5-9.4          
 ## [100] grid_4.0.3               data.table_1.13.6        blob_1.2.1              
 ## [103] Rgraphviz_2.34.0         webshot_0.5.2            digest_0.6.27           
