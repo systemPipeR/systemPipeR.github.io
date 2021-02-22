@@ -23,22 +23,24 @@ SPS can be used on both local computers as well as centralized server-based
 deployments that can be accessed remotely as a public web service for using
 SPR's functionalities with community and/or private data. The framework can
 integrate many core packages from the R/Bioconductor ecosystem. Examples of
-SPS' current functionalities include: (a) interactive creation of experimental
-designs and metadata using an easy to use tabular editor or file uploader; (b)
-visualization of workflow topologies combined with auto-generation of R
-Markdown preview for interactively designed workflows; (c) access to a wide
-range of data processing routines; (d) and an extendable set of visualization
-functionalities. Complex visual results can be managed on a 'Canvas Workbench'
-allowing users to organize and to compare plots in an efficient manner combined
-with a session snapshot feature to continue work at a later time. The present
-suite of pre-configured visualization examples include different methods to
-plot a count table. The modular design of 
-SPR makes it easy to design custom functions without any knowledge of Shiny, 
-as well as extending the environment in the future with contributions from 
-the community.
+SPS' current functionalities include: 
+
+- A default interactive workflow module to 
+create experimental designs, visualize and customize workflow topologies with previews, and 
+programming free workflow execution within the application. 
+- An interactive module with extensive plot options to visualize downstream analysis of a RNA-Seq workflow.
+- A quick ggplot module to make all variety of scientific plots from any user defined 
+tabular data. 
+- An extendable set of visualization functionalities makes it easy to design 
+custom Shiny Apps under SPS framework without any knowledge of Shiny. 
+- A 'Canvas Workbench' to manage complex visual results. It allows users to 
+organize and to compare plots in an efficient manner combined
+with a session screenshot feature to edit scientific and publishable figures. 
+- Three other supporting packages to help all users from beginners and advanced developers 
+to extend under current SPS framework or on their own Shiny Apps. 
 
 ## Demo
-Take a look at the demo app:
+View our online demo app:
 
 <a 
 href="https://tgirke.shinyapps.io/systemPipeShiny/" 
@@ -46,3 +48,11 @@ style="background-color: #eee;border-radius: 10px;border: #c2daf7f5 solid 4px; f
 Try a demo!
 </a>
 
+## Other packages in systemPipeShiny
+
+| Package | Description | Documents | Demo |
+| --- | --- | --- | --- |
+|<img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/sps_small.png?raw=true" align="right" height="25" width="50" />[systemPipeShiny](https://github.com/systemPipeR/systemPipeShiny) | SPS main package |[website](https://systempipe.org/sps/)|[demo](https://tgirke.shinyapps.io/systemPipeShiny/)|
+|<img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/spscomps.png?raw=true" align="right" height="25" width="50" />[spsComps](https://github.com/lz100/spsComps) | SPS UI and server components |[website](https://systempipe.org/sps/dev/ui/)|[demo](https://lezhang.shinyapps.io/spsComps)|
+|<img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/spsutil.png?raw=true" align="right" height="25" width="50" />[spsUtil](https://github.com/lz100/spsUtil) | SPS utility functions |[website](https://systempipe.org/sps/dev/general/)|NA|
+|<img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/drawr.png?raw=true" align="right" height="25" width="50" />[drawR](https://github.com/lz100/drawR) | SPS interactive image editting tool |[website](https://systempipe.org/sps/canvas/)|[demo](https://lezhang.shinyapps.io/drawR)|
