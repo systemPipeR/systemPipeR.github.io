@@ -716,6 +716,17 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#other-packages-in-systempipeshiny">Other packages in systemPipeShiny</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
               </div>
@@ -759,26 +770,66 @@ SPS can be used on both local computers as well as centralized server-based
 deployments that can be accessed remotely as a public web service for using
 SPR&rsquo;s functionalities with community and/or private data. The framework can
 integrate many core packages from the R/Bioconductor ecosystem. Examples of
-SPS' current functionalities include: (a) interactive creation of experimental
-designs and metadata using an easy to use tabular editor or file uploader; (b)
-visualization of workflow topologies combined with auto-generation of R
-Markdown preview for interactively designed workflows; (c) access to a wide
-range of data processing routines; (d) and an extendable set of visualization
-functionalities. Complex visual results can be managed on a &lsquo;Canvas Workbench&rsquo;
-allowing users to organize and to compare plots in an efficient manner combined
-with a session snapshot feature to continue work at a later time. The present
-suite of pre-configured visualization examples include different methods to
-plot a count table. The modular design of
-SPR makes it easy to design custom functions without any knowledge of Shiny,
-as well as extending the environment in the future with contributions from
-the community.</p>
+SPS' current functionalities include:</p>
+<ul>
+<li>A default interactive workflow module to
+create experimental designs, visualize and customize workflow topologies with previews, and
+programming free workflow execution within the application.</li>
+<li>An interactive module with extensive plot options to visualize downstream analysis of a RNA-Seq workflow.</li>
+<li>A quick ggplot module to make all variety of scientific plots from any user defined
+tabular data.</li>
+<li>An extendable set of visualization functionalities makes it easy to design
+custom Shiny Apps under SPS framework without any knowledge of Shiny.</li>
+<li>A &lsquo;Canvas Workbench&rsquo; to manage complex visual results. It allows users to
+organize and to compare plots in an efficient manner combined
+with a session screenshot feature to edit scientific and publishable figures.</li>
+<li>Three other supporting packages to help all users from beginners and advanced developers
+to extend under current SPS framework or on their own Shiny Apps.</li>
+</ul>
 <h2 id="demo">Demo</h2>
-<p>Take a look at the demo app:</p>
+<p>View our online demo app:</p>
 <p><a 
 href="https://tgirke.shinyapps.io/systemPipeShiny/" 
 style="background-color: #eee;border-radius: 10px;border: #c2daf7f5 solid 4px; font-weight: 800; font-size: 1.5rem; margin-left: 40%">
 Try a demo!
 </a></p>
+<h2 id="other-packages-in-systempipeshiny">Other packages in systemPipeShiny</h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Description</th>
+<th>Documents</th>
+<th>Demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/sps_small.png?raw=true" align="right" height="25" width="50" /><a href="https://github.com/systemPipeR/systemPipeShiny">systemPipeShiny</a></td>
+<td>SPS main package</td>
+<td><a href="https://systempipe.org/sps/">website</a></td>
+<td><a href="https://tgirke.shinyapps.io/systemPipeShiny/">demo</a></td>
+</tr>
+<tr>
+<td><img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/spscomps.png?raw=true" align="right" height="25" width="50" /><a href="https://github.com/lz100/spsComps">spsComps</a></td>
+<td>SPS UI and server components</td>
+<td><a href="https://systempipe.org/sps/dev/ui/">website</a></td>
+<td><a href="https://lezhang.shinyapps.io/spsComps">demo</a></td>
+</tr>
+<tr>
+<td><img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/spsutil.png?raw=true" align="right" height="25" width="50" /><a href="https://github.com/lz100/spsUtil">spsUtil</a></td>
+<td>SPS utility functions</td>
+<td><a href="https://systempipe.org/sps/dev/general/">website</a></td>
+<td>NA</td>
+</tr>
+<tr>
+<td><img src="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/images/drawr.png?raw=true" align="right" height="25" width="50" /><a href="https://github.com/lz100/drawR">drawR</a></td>
+<td>SPS interactive image editting tool</td>
+<td><a href="https://systempipe.org/sps/canvas/">website</a></td>
+<td><a href="https://lezhang.shinyapps.io/drawR">demo</a></td>
+</tr>
+</tbody>
+</table>
 
         <div class="section-index">
     
