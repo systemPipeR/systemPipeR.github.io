@@ -220,21 +220,107 @@ enable = false
   name = "systemPipeR"
   weight = 1
   url = "/spr/"
-[[menu.main]]
-  name = "Introduction"
-  url = "/spr/Introduction/"
-  parent = "systemPipeR"
-  weight = 1
-[[menu.main]]
-  name = "systemPipeR Vignette"
-  url = "/spr/systempiper_vignette/systempiper/"
-  parent = "systemPipeR"
-  weight = 2
-[[menu.main]]
-  name = "systemPipeRdata"
-  url = "/spr/systempiperdata/"
-  parent = "systemPipeR"
-  weight = 3
+  [[menu.main]]
+    name = "systemPipeR Package"
+    url = "/spr/systempiper/"
+    parent = "systemPipeR"
+    weight = 1
+  [[menu.main]]
+    name = "Introduction"
+    url = "/spr/systempiper/systempiper/"
+    parent = "systemPipeR"
+    weight = 2
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "Getting Started"
+    url = "/spr/systempiper/gettingstarted/"
+    parent = "systemPipeR"
+    weight = 3
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "How to run a Workflow"
+    url = "/spr/systempiper/spr_run/"
+    parent = "systemPipeR"
+    weight = 4
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "Workflow steps overview"
+    url = "/spr/systempiper/steps/"
+    parent = "systemPipeR"
+    weight = 5
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "Workflow Templates"
+    url = "/spr/systempiper/templates/"
+    parent = "systemPipeR"
+    weight = 6
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "Reference Manual"
+    url = "/spr/systempiper/spr_funcs/"
+    parent = "systemPipeR"
+    weight = 7
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "SPR detailed installation"
+    url = "/spr/systempiper/sprinstall/"
+    parent = "systemPipeR"
+    weight = 8
+    [menu.main.params]
+      level = 2
+## SPRdata
+  [[menu.main]]
+    name = "systemPipeRdata"
+    url = "/spr/systempiperdata/"
+    parent = "systemPipeR"
+    weight = 9
+  [[menu.main]]
+    name = "Vignette"
+    url = "spr/systempiperdata/vignette/"
+    parent = "systemPipeR"
+    weight = 10
+    [menu.main.params]
+      level = 2
+## SSPR Links
+  [[menu.main]]
+    name = "Links"
+    url = "/spr/"
+    parent = "systemPipeR"
+    weight = 11
+  [[menu.main]]
+    name = "SPR Bioconductor"
+    url = "http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+    parent = "systemPipeR"
+    weight = 12
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "SPR GitHub"
+    url = "https://github.com/tgirke/systemPipeR"
+    parent = "systemPipeR"
+    weight = 13
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "SPRdata Bioconductor"
+    url = "http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+    parent = "systemPipeR"
+    weight = 14
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "SPRdata GitHub"
+    url = "https://github.com/tgirke/systemPipeRdata"
+    parent = "systemPipeR"
+    weight = 15
+    [menu.main.params]
+      level = 2
 ## SPR workflows
 [[menu.main]]
   name = "systemPipeR Workflows"

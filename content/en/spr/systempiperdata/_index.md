@@ -2,13 +2,11 @@
 title: "systemPipeRdata"
 linkTitle: "systemPipeRdata"
 weight: 3
-description: >
-  Vignette
 type: docs
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+Find [here](https://systempipe.org/spr/systempiperdata/vignette/) all the documentation!
 {{% /pageinfo %}}
 
 # systemPipeRdata: Workflow templates and sample data
@@ -55,5 +53,5 @@ Detailed user manuals are available here:
 + [_systemPipeRdata_ Vignette](http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html)
 + [_systemPipeR_ Overview Vignette](http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html)
 
-<iframe width="1000" height="680" src="/SPRdata_intro/_index.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="900" height="600" src="https://systempipe.org/presentations/SPRdata_intro/SPRdata_intro.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

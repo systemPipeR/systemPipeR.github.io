@@ -1,7 +1,7 @@
 ---
 title: "SPR WorkFlow Collection" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 21 February, 2021" 
+date: "Last update: 22 February, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true

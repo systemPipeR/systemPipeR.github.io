@@ -1,6 +1,6 @@
 ---
 title: "systemPipeR Documentation"
-linkTitle: "systemPipeR"
+linkTitle: "Documentation"
 type: docs
 ---
 
