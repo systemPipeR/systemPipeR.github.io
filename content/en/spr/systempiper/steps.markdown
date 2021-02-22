@@ -1,7 +1,7 @@
 ---
 title: "Workflow steps overview"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 21 February, 2021" 
+date: "Last update: 22 February, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -24,11 +24,13 @@ weight: 5
 - Compile from command-line
 Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -113,9 +115,9 @@ filterFct <- function(fq, cutoff = 20, Nexceptions = 0) {
 preprocessReads(args = trim, Fct = "filterFct(fq, cutoff=20, Nexceptions=0)", batchsize = 1e+05)
 ```
 
-### Preprocessing with TrimGalore!
+### Preprocessing with TrimGalore\!
 
-[TrimGalore!](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) is
+[TrimGalore\!](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) is
 a wrapper tool to consistently apply quality and adapter trimming to fastq files,
 with some extra functionality for removing Reduced Representation Bisulfite-Seq
 (RRBS) libraries.
@@ -170,10 +172,12 @@ dev.off()
 ```
 
 <center>
+
 <img src="fastqReport.png">
+
 </center>
 
-<div align="center">
+<div data-align="center">
 
 **Figure 5:** FASTQ quality report
 
@@ -577,7 +581,7 @@ writeTargetsout(x = bwaPE, file = "default", step = 1, new_col = "bwaPE", new_co
 
 ### Alignment with *`Rsubread`* (*e.g.* for RNA-Seq)
 
-The following example shows how one can use within the environment the R-based aligner , allowing running from R or command-line.
+The following example shows how one can use within the  environment the R-based aligner , allowing running from R or command-line.
 
 ``` r
 ## Build the index:
@@ -838,7 +842,7 @@ plot.phylo(as.phylo(hc), type = "p", edge.col = 4, edge.width = 3, show.node.lab
 
 <img src="/en/spr/systempiper/steps_files/figure-html/sample_tree_rlog-1.png" width="672" />
 
-<div align="center">
+<div data-align="center">
 
 **Figure 6:** Correlation dendrogram of samples for *`rlog`* values.
 
@@ -865,7 +869,7 @@ identifying differentially expressed genes (DEGs) in batch mode with
 *`edgeR`*’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
 pairwise sample comparisons specified under the *`cmp`* argument. Users
 are strongly encouraged to consult the
-[*`edgeR`*](\href%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) vignette
+[*`edgeR`*](\\href%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) vignette
 for more detailed information on this topic and how to properly run *`edgeR`*
 on data sets with more complex experimental designs.
 
@@ -904,7 +908,7 @@ DEG_list <- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 
 <img src="/en/spr/systempiper/steps_files/figure-html/edger_deg_counts-1.png" width="672" />
 
-<div align="center">
+<div data-align="center">
 
 **Figure 7:** Up and down regulated DEGs identified by *`edgeR`*.
 
@@ -954,7 +958,7 @@ DEG_list2 <- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 
 <img src="/en/spr/systempiper/steps_files/figure-html/deseq2_deg_counts-1.png" width="672" />
 
-<div align="center">
+<div data-align="center">
 
 **Figure 8:** Up and down regulated DEGs identified by *`DESeq2`*.
 
@@ -975,7 +979,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = "", mysub = "", colmode = 2, cco
 
 <img src="/en/spr/systempiper/steps_files/figure-html/vennplot-1.png" width="672" />
 
-<div align="center">
+<div data-align="center">
 
 **Figure 9:** Venn Diagram for 4 Up and Down DEG Sets.
 
@@ -1054,7 +1058,7 @@ goBarplot(gos, gocat = "CC")
 
 ![](GOslimbarplotMF.png)
 
-<div align="center">
+<div data-align="center">
 
 **Figure 10:** GO Slim Barplot for MF Ontology.
 
@@ -1077,10 +1081,12 @@ dev.off()
 ```
 
 <center>
+
 <img src="heatmap1.png">
+
 </center>
 
-<div align="center">
+<div data-align="center">
 
 **Figure 11:** Heat map with hierarchical clustering dendrograms of DEGs.
 
@@ -1090,47 +1096,47 @@ dev.off()
 
 # References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-Kim2015-ve" class="csl-entry">
+<div id="ref-Kim2015-ve">
 
 Kim, Daehwan, Ben Langmead, and Steven L Salzberg. 2015. “HISAT: A Fast Spliced Aligner with Low Memory Requirements.” *Nat. Methods* 12 (4): 357–60.
 
 </div>
 
-<div id="ref-Kim2013-vg" class="csl-entry">
+<div id="ref-Kim2013-vg">
 
 Kim, Daehwan, Geo Pertea, Cole Trapnell, Harold Pimentel, Ryan Kelley, and Steven L Salzberg. 2013. “TopHat2: Accurate Alignment of Transcriptomes in the Presence of Insertions, Deletions and Gene Fusions.” *Genome Biol.* 14 (4): R36. <https://doi.org/10.1186/gb-2013-14-4-r36>.
 
 </div>
 
-<div id="ref-Langmead2012-bs" class="csl-entry">
+<div id="ref-Langmead2012-bs">
 
 Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” *Nat. Methods* 9 (4): 357–59. <https://doi.org/10.1038/nmeth.1923>.
 
 </div>
 
-<div id="ref-Love2014-sh" class="csl-entry">
+<div id="ref-Love2014-sh">
 
-Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
-
-</div>
-
-<div id="ref-Rsamtools" class="csl-entry">
-
-Morgan, Martin, Hervé Pagès, Valerie Obenchain, and Nathaniel Hayden. 2019. *Rsamtools: Binary Alignment (BAM), FASTA, Variant Call (BCF), and Tabix File Import*. <http://bioconductor.org/packages/Rsamtools>.
+Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-seq Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
 
 </div>
 
-<div id="ref-Robinson2010-uk" class="csl-entry">
+<div id="ref-Rsamtools">
 
-Robinson, M D, D J McCarthy, and G K Smyth. 2010. “edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” *Bioinformatics* 26 (1): 139–40. <https://doi.org/10.1093/bioinformatics/btp616>.
+Morgan, Martin, Hervé Pagès, Valerie Obenchain, and Nathaniel Hayden. 2019. *Rsamtools: Binary Alignment (Bam), Fasta, Variant Call (Bcf), and Tabix File Import*. <http://bioconductor.org/packages/Rsamtools>.
 
 </div>
 
-<div id="ref-Wu2010-iq" class="csl-entry">
+<div id="ref-Robinson2010-uk">
 
-Wu, T D, and S Nacu. 2010. “Fast and <span class="nocase">SNP-tolerant</span> Detection of Complex Variants and Splicing in Short Reads.” *Bioinformatics* 26 (7): 873–81. <https://doi.org/10.1093/bioinformatics/btq057>.
+Robinson, M D, D J McCarthy, and G K Smyth. 2010. “EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” *Bioinformatics* 26 (1): 139–40. <https://doi.org/10.1093/bioinformatics/btp616>.
+
+</div>
+
+<div id="ref-Wu2010-iq">
+
+Wu, T D, and S Nacu. 2010. “Fast and SNP-tolerant Detection of Complex Variants and Splicing in Short Reads.” *Bioinformatics* 26 (7): 873–81. <https://doi.org/10.1093/bioinformatics/btq057>.
 
 </div>
 

@@ -1,7 +1,7 @@
 ---
 title: "How to run a Workflow" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 21 February, 2021" 
+date: "Last update: 22 February, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -24,11 +24,13 @@ weight: 3
 - Compile from command-line
 Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -54,9 +56,9 @@ setwd("rnaseq")
 
 To go through this tutorial, you need the following software installed:
 
--   R/&gt;=3.6.2
--   systemPipeR R package (version 1.22)
--   Hisat2/2.1.0
+  - R/\>=3.6.2
+  - systemPipeR R package (version 1.22)
+  - Hisat2/2.1.0
 
 If you desire to build your pipeline with any different software, make sure to have the respective software installed and configured in your PATH. To make sure if the configuration is right, you always can test as follow:
 
@@ -96,7 +98,7 @@ sysargslist <- runWF(sysargslist = sysargslist, steps = "1:2")
 
 ## How to Use Pipes with *systemPipeR*
 
-At first encounter, you may wonder whether an operator such as *%&gt;%* can really be all that beneficial; but as you may notice, it semantically changes your code in a way that makes it more intuitive to both read and write.
+At first encounter, you may wonder whether an operator such as *%\>%* can really be all that beneficial; but as you may notice, it semantically changes your code in a way that makes it more intuitive to both read and write.
 
 Consider the following example, in which the steps are the initialization, configuration and running the entire workflow.
 

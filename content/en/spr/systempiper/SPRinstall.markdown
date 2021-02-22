@@ -1,7 +1,7 @@
 ---
 title: "SPR detailed installation instructions" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 21 February, 2021" 
+date: "Last update: 22 February, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -27,15 +27,18 @@ word-break: keep-all !important;
 word-wrap: initial !important;
 }
 </style>
+
 <!--
 - Compile from command-line
 Rscript -e "rmarkdown::render('SPRinstall.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('SPRinstall.Rmd', tangle=TRUE)"; Rscript -e "rmarkdown::render('SPRinstall.Rmd', c('BiocStyle::pdf_document'))"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -105,15 +108,15 @@ https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-lin
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-H_Backman2016-bt" class="csl-entry">
+<div id="ref-H_Backman2016-bt">
 
-H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
 
 </div>
 
-<div id="ref-Li2013-sw" class="csl-entry">
+<div id="ref-Li2013-sw">
 
 Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <http://arxiv.org/abs/1303.3997>.
 

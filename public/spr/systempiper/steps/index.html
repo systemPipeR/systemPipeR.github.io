@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.81.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -20,17 +20,15 @@
 <title>Workflow steps overview | systemPipeR</title><meta property="og:title" content="Workflow steps overview" />
 <meta property="og:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/spr/systempiper/steps/" />
-<meta property="article:modified_time" content="2021-02-22T00:02:57-08:00" /><meta property="og:site_name" content="systemPipeR" />
+<meta property="og:url" content="/spr/systempiper/steps/" /><meta property="article:section" content="spr" />
+
+<meta property="article:modified_time" content="2021-02-22T00:36:41-08:00" /><meta property="og:site_name" content="systemPipeR" />
+
 <meta itemprop="name" content="Workflow steps overview">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory.">
-<meta itemprop="dateModified" content="2021-02-22T00:02:57-08:00" />
+<meta itemprop="dateModified" content="2021-02-22T00:36:41-08:00" />
 <meta itemprop="wordCount" content="5403">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Workflow steps overview"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory."/>
 
@@ -51,8 +49,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" as="style">
+<link href="../../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -886,7 +884,7 @@ dev.off()
 <center>
 <img src="fastqReport.png">
 </center>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 5:</strong> FASTQ quality report</p>
 </div>
 </br>
@@ -1192,7 +1190,7 @@ writeTargetsout(x = bwaPE, file = &quot;default&quot;, step = 1, new_col = &quot
     overwrite = TRUE)
 </code></pre>
 <h3 id="alignment-with-rsubread-eg-for-rna-seq">Alignment with <em><code>Rsubread</code></em> (<em>e.g.</em> for RNA-Seq)</h3>
-<p>The following example shows how one can use within the environment the R-based aligner , allowing running from R or command-line.</p>
+<p>The following example shows how one can use within the  environment the R-based aligner , allowing running from R or command-line.</p>
 <pre><code class="language-r">## Build the index:
 dir_path &lt;- system.file(&quot;extdata/cwl/rsubread/rsubread-idx&quot;, package = &quot;systemPipeR&quot;)
 idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;rsubread-index.cwl&quot;, input_file = &quot;rsubread-index.yml&quot;, 
@@ -1398,7 +1396,7 @@ plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = 4, edge.width = 3, sho
     no.margin = TRUE)
 </code></pre>
 <p><img src="../../../en/spr/systempiper/steps_files/figure-html/sample_tree_rlog-1.png" width="672" /></p>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 6:</strong> Correlation dendrogram of samples for <em><code>rlog</code></em> values.</p>
 </div>
 </br>
@@ -1447,7 +1445,7 @@ edgeDF &lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
 <pre><code class="language-r">DEG_list &lt;- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 </code></pre>
 <p><img src="../../../en/spr/systempiper/steps_files/figure-html/edger_deg_counts-1.png" width="672" /></p>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 7:</strong> Up and down regulated DEGs identified by <em><code>edgeR</code></em>.</p>
 </div>
 </br>
@@ -1481,7 +1479,7 @@ on data sets with more complex experimental designs.</p>
 <pre><code class="language-r">DEG_list2 &lt;- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 </code></pre>
 <p><img src="../../../en/spr/systempiper/steps_files/figure-html/deseq2_deg_counts-1.png" width="672" /></p>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 8:</strong> Up and down regulated DEGs identified by <em><code>DESeq2</code></em>.</p>
 </div>
 </br>
@@ -1493,7 +1491,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = &quot;&quot;, mysub = &quot;&quo
     &quot;red&quot;))
 </code></pre>
 <p><img src="../../../en/spr/systempiper/steps_files/figure-html/vennplot-1.png" width="672" /></p>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 9:</strong> Venn Diagram for 4 Up and Down DEG Sets.</p>
 </div>
 </br>
@@ -1554,7 +1552,7 @@ goBarplot(gos, gocat = &quot;BP&quot;)
 goBarplot(gos, gocat = &quot;CC&quot;)
 </code></pre>
 <p><img src="GOslimbarplotMF.png" alt=""></p>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 10:</strong> GO Slim Barplot for MF Ontology.</p>
 </div>
 </br>
@@ -1571,38 +1569,38 @@ dev.off()
 <center>
 <img src="heatmap1.png">
 </center>
-<div align="center">
+<div data-align="center">
 <p><strong>Figure 11:</strong> Heat map with hierarchical clustering dendrograms of DEGs.</p>
 </div>
 </br>
 <h1 id="references">References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Kim2015-ve" class="csl-entry">
+<div id="refs" class="references">
+<div id="ref-Kim2015-ve">
 <p>Kim, Daehwan, Ben Langmead, and Steven L Salzberg. 2015. “HISAT: A Fast Spliced Aligner with Low Memory Requirements.” <em>Nat. Methods</em> 12 (4): 357–60.</p>
 </div>
-<div id="ref-Kim2013-vg" class="csl-entry">
+<div id="ref-Kim2013-vg">
 <p>Kim, Daehwan, Geo Pertea, Cole Trapnell, Harold Pimentel, Ryan Kelley, and Steven L Salzberg. 2013. “TopHat2: Accurate Alignment of Transcriptomes in the Presence of Insertions, Deletions and Gene Fusions.” <em>Genome Biol.</em> 14 (4): R36. <a href="https://doi.org/10.1186/gb-2013-14-4-r36">https://doi.org/10.1186/gb-2013-14-4-r36</a>.</p>
 </div>
-<div id="ref-Langmead2012-bs" class="csl-entry">
+<div id="ref-Langmead2012-bs">
 <p>Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” <em>Nat. Methods</em> 9 (4): 357–59. <a href="https://doi.org/10.1038/nmeth.1923">https://doi.org/10.1038/nmeth.1923</a>.</p>
 </div>
-<div id="ref-Love2014-sh" class="csl-entry">
-<p>Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” <em>Genome Biol.</em> 15 (12): 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.</p>
+<div id="ref-Love2014-sh">
+<p>Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-seq Data with DESeq2.” <em>Genome Biol.</em> 15 (12): 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.</p>
 </div>
-<div id="ref-Rsamtools" class="csl-entry">
-<p>Morgan, Martin, Hervé Pagès, Valerie Obenchain, and Nathaniel Hayden. 2019. <em>Rsamtools: Binary Alignment (BAM), FASTA, Variant Call (BCF), and Tabix File Import</em>. <a href="http://bioconductor.org/packages/Rsamtools">http://bioconductor.org/packages/Rsamtools</a>.</p>
+<div id="ref-Rsamtools">
+<p>Morgan, Martin, Hervé Pagès, Valerie Obenchain, and Nathaniel Hayden. 2019. <em>Rsamtools: Binary Alignment (Bam), Fasta, Variant Call (Bcf), and Tabix File Import</em>. <a href="http://bioconductor.org/packages/Rsamtools">http://bioconductor.org/packages/Rsamtools</a>.</p>
 </div>
-<div id="ref-Robinson2010-uk" class="csl-entry">
-<p>Robinson, M D, D J McCarthy, and G K Smyth. 2010. “edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” <em>Bioinformatics</em> 26 (1): 139–40. <a href="https://doi.org/10.1093/bioinformatics/btp616">https://doi.org/10.1093/bioinformatics/btp616</a>.</p>
+<div id="ref-Robinson2010-uk">
+<p>Robinson, M D, D J McCarthy, and G K Smyth. 2010. “EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” <em>Bioinformatics</em> 26 (1): 139–40. <a href="https://doi.org/10.1093/bioinformatics/btp616">https://doi.org/10.1093/bioinformatics/btp616</a>.</p>
 </div>
-<div id="ref-Wu2010-iq" class="csl-entry">
-<p>Wu, T D, and S Nacu. 2010. “Fast and <span class="nocase">SNP-tolerant</span> Detection of Complex Variants and Splicing in Short Reads.” <em>Bioinformatics</em> 26 (7): 873–81. <a href="https://doi.org/10.1093/bioinformatics/btq057">https://doi.org/10.1093/bioinformatics/btq057</a>.</p>
+<div id="ref-Wu2010-iq">
+<p>Wu, T D, and S Nacu. 2010. “Fast and SNP-tolerant Detection of Complex Variants and Splicing in Short Reads.” <em>Bioinformatics</em> 26 (7): 873–81. <a href="https://doi.org/10.1093/bioinformatics/btq057">https://doi.org/10.1093/bioinformatics/btq057</a>.</p>
 </div>
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-22: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/79a02c111f5173dd10c7155cdd076cde085d1409">pg_build (79a02c1)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-22: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/f66f6f62cb94bc533430c9a79a193c35637ac431">pg_build (f66f6f6)</a>
 </div>
 </div>
 
@@ -1719,7 +1717,7 @@ MathJax.Hub.Config({
 
 
 
-<script src="../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
+<script src="../../../js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

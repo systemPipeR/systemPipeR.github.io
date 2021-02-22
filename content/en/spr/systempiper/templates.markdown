@@ -1,7 +1,7 @@
 ---
 title: "Workflow Templates" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 21 February, 2021" 
+date: "Last update: 22 February, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -24,11 +24,13 @@ weight: 5
 - Compile from command-line
 Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -71,8 +73,8 @@ Next, run the chosen sample workflow *`systemPipeRNAseq`* ([PDF](https://github.
 The workflow includes following steps:
 
 1.  Read preprocessing
-    -   Quality filtering (trimming)
-    -   FASTQ quality report
+      - Quality filtering (trimming)
+      - FASTQ quality report
 2.  Alignments: *`Tophat2`* (or any other RNA-Seq aligner)
 3.  Alignment stats
 4.  Read counting
@@ -98,8 +100,8 @@ Next, run the chosen sample workflow *`systemPipeChIPseq_single`* ([PDF](https:/
 The workflow includes the following steps:
 
 1.  Read preprocessing
-    -   Quality filtering (trimming)
-    -   FASTQ quality report
+      - Quality filtering (trimming)
+      - FASTQ quality report
 2.  Alignments: *`Bowtie2`* or *`rsubread`*
 3.  Alignment stats
 4.  Peak calling: *`MACS2`*, *`BayesPeak`*
@@ -127,8 +129,8 @@ Next, run the chosen sample workflow *`systemPipeVARseq_single`* ([PDF](https://
 The workflow includes following steps:
 
 1.  Read preprocessing
-    -   Quality filtering (trimming)
-    -   FASTQ quality report
+      - Quality filtering (trimming)
+      - FASTQ quality report
 2.  Alignments: *`gsnap`*, *`bwa`*
 3.  Variant calling: *`VariantTools`*, *`GATK`*, *`BCFtools`*
 4.  Variant filtering: *`VariantTools`* and *`VariantAnnotation`*
@@ -158,8 +160,8 @@ Next, run the chosen sample workflow *`systemPipeRIBOseq`* ([PDF](https://github
 The workflow includes following steps:
 
 1.  Read preprocessing
-    -   Adaptor trimming and quality filtering
-    -   FASTQ quality report
+      - Adaptor trimming and quality filtering
+      - FASTQ quality report
 2.  Alignments: *`Tophat2`* (or any other RNA-Seq aligner)
 3.  Alignment stats
 4.  Compute read distribution across genomic features
