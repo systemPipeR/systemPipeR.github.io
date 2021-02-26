@@ -58,7 +58,7 @@ id = "UA-158796879-1"
 
 [languages]
 [languages.en]
-title = "systemPipe Workflow Environment"
+title = "sysPipe"
 description = "systemPipe Workflow Environment"
 languageName ="English"
 time_format_default = "2006-01-02"
@@ -323,28 +323,33 @@ enable = false
       level = 2
 ## SPR workflows
 [[menu.main]]
-  name = "systemPipeR Workflows"
+  name = "SPR-Workflows"
   url = "/spr_wf"
   weight = 2
 [[menu.main]]
+  name = "Collection"
+  url = "/spr_wf"
+  parent = "SPR-Workflows"
+  weight = 1
+[[menu.main]]
   name = "RNA-Seq"
   url = "https://systempipe.org/systemPipeRNAseq/articles/systemPipeRNAseq.html"
-  parent = "systemPipeR Workflows"
+  parent = "SPR-Workflows"
   weight = 1
 [[menu.main]]
   name = "ChIP-Seq"
   url = "https://systempipe.org/systemPipeChIPseq/articles/systemPipeChIPseq.html"
-  parent = "systemPipeR Workflows"
+  parent = "SPR-Workflows"
   weight = 2
 [[menu.main]]
   name = "RIBO-Seq"
   url = "https://systempipe.org/systemPipeRIBOseq/articles/systemPipeRIBOseq.html"
-  parent = "systemPipeR Workflows"
+  parent = "SPR-Workflows"
   weight = 3
 [[menu.main]]
   name = "VAR-Seq"
   url = "https://systempipe.org/systemPipeVARseq/articles/systemPipeVARseq.html"
-  parent = "systemPipeR Workflows"
+  parent = "SPR-Workflows"
   weight = 4
 ## SPS
 [[menu.main]]
