@@ -1,4 +1,4 @@
-## Source code of systemPipeR Project Site 
+## Source code of systemPipe Workflow Environment Project  
 
 The life version of this page is available [here](https://systempipe.org/).
 
