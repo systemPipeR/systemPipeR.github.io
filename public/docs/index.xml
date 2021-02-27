@@ -687,25 +687,58 @@ Details about extending existing tabs and designing new ones are provided in
     </item>
     
     <item>
-      <title>About: Our Team</title>
-      <link>/about/team/</link>
+      <title>About: systemPipe Workflow Environment</title>
+      <link>/about/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/team/</guid>
+      <guid>/about/overview/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;principal-investigator-pi&#34;&gt;Principal Investigator (PI)&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/bio/&#34;&gt;Thomas Girke, Ph.D.&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/bio/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu/members/thomas-girke.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;current-members&#34;&gt;Current Members&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/daniela-cassol/&#34;&gt;Daniela Cassol, Ph.D., Postdoc&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/daniela-cassol/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu//members/daniela-cassol.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/le-zhang/&#34;&gt;Le Zhang, Graduate Student in GGB&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/le-zhang/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu//members/le-zhang.jpg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy/&#34;&gt;Ponmathi Ramasamy, Undergraduate Student in Bioengineering&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Find &lt;a href=&#34;https://systempipe.org/spr/systempiper_vignette/&#34;&gt;here&lt;/a&gt; all the documentation!&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
+&lt;p&gt;The analysis of Next-generation sequencing (NGS) data remains a
+major obstacle to the efficient utilization of the technology.  While
+substantial effort has been invested on the development of software dedicated
+to the individual analysis steps of NGS experiments, insufficient resources are
+currently available for integrating the individual software components within
+the widely used R/Bioconductor environment into automated workflows capable of
+running the analysis of most types of NGS applications from start-to-finish in
+a time-efficient and reproducible manner.&lt;/p&gt;
+&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
+&lt;p&gt;To address this need, we have developed the R/Bioconductor package
+&lt;em&gt;systemPipeR&lt;/em&gt;. It is an extensible environment for both building and
+running end-to-end analysis workflows with automated report generation for a
+wide range of NGS applications. Its unique features include a uniform workflow
+interface across different NGS applications, automated report generation, and
+support for running both R and command-line software on local computers and
+computer clusters. A flexible sample annotation infrastructure efficiently
+handles complex sample sets and experimental designs.&lt;/p&gt;
+&lt;p&gt;To simplify the analysis
+of widely used NGS applications, the package provides pre-configured workflows
+and reporting templates for a wide range of NGS applications that are listed on
+the &lt;a href=&#34;http://girke.bioinformatics.ucr.edu/systemPipeR/mydoc_wf_colletions.html&#34;&gt;Workflow Collection&lt;/a&gt;
+page of this site. Additional workflow templates will be provided in the future. &lt;em&gt;systemPipeR&lt;/em&gt;
+accelerates the extraction of reproducible analysis results from NGS
+experiments. By combining the capabilities of many R/Bioconductor and
+command-line tools, it makes efficient use of existing software resources
+without limiting the user to a set of predefined methods or environments.&lt;/p&gt;
+&lt;p&gt;&lt;img align=&#34;center&#34; title=&#34;spr_overview&#34; src=&#34;SPR.png&#34;&gt;&lt;img/&gt;&lt;/p&gt;
+&lt;h3 id=&#34;availability&#34;&gt;Availability&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;systemPipeR&lt;/em&gt; is freely available for all common operating systems from
+&lt;a href=&#34;http://bioconductor.org/packages/systemPipeR&#34;&gt;Bioconductor&lt;/a&gt;. Its GitHub
+repository is &lt;a href=&#34;https://github.com/tgirke/systemPipeR&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/tgirke/systemPipeR&#34;&gt;
+&lt;img align=&#34;rigth&#34; title=&#34;systemPipeR&#34; src=&#34;https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeR.png&#34; style=&#34;width:200px;&#34;&gt;&lt;img/&gt;
+&lt;/a&gt;
+&lt;h2 id=&#34;acknowledgement&#34;&gt;Acknowledgement&lt;/h2&gt;
+&lt;p&gt;This project is funded by NSF award &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152&#34;&gt;ABI-1661152&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
@@ -1826,33 +1859,25 @@ essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt
     </item>
     
     <item>
-      <title>About: Publications</title>
-      <link>/about/publications/</link>
+      <title>About: Our Team</title>
+      <link>/about/team/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/publications/</guid>
+      <guid>/about/team/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;publications-of-this-project&#34;&gt;Publications of this project&lt;/h2&gt;
-&lt;h3 id=&#34;journal-publications&#34;&gt;Journal publications&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Backman TW, Girke T (2016) systemPipeR: NGS workflow and report generation environment. &lt;em&gt;BMC Bioinformatics&lt;/em&gt;: 17, 1-8. &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/27650223&#34;&gt;PubMed&lt;/a&gt;{:target=&amp;quot;_blank&amp;quot;}&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;posters&#34;&gt;Posters&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Backman TW, Girke T (2017) systemPipeR: NGS workflow and report generation environment. Poster presented at ISMB 2017 in Prague. Download &lt;a href=&#34;https://drive.google.com/open?id=0B-lLYVUOliJFV1RGMkcyblBjekk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Cassol D, Girke T (2018) systemPipeR: NGS workflow and report generation environment. Poster presented at BioC 2018 in Toronto. Download &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/Poster_BioC2018.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;publications-related-to-this-project&#34;&gt;Publications related to this project&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Zillikens et al. (2017) Large meta-analysis of genome-wide association studies identifies five loci for lean body mass. Nature Communications: 8, 1-13. &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/28724990&#34;&gt;PubMed&lt;/a&gt;{:target=&amp;quot;_blank&amp;quot;}&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
+        &lt;h2 id=&#34;principal-investigator-pi&#34;&gt;Principal Investigator (PI)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/bio/&#34;&gt;Thomas Girke, Ph.D.&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/bio/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu/members/thomas-girke.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;current-members&#34;&gt;Current Members&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/daniela-cassol/&#34;&gt;Daniela Cassol, Ph.D., Postdoc&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/daniela-cassol/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu//members/daniela-cassol.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/le-zhang/&#34;&gt;Le Zhang, Graduate Student in GGB&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/le-zhang/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu//members/le-zhang.jpg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy/&#34;&gt;Ponmathi Ramasamy, Undergraduate Student in Bioengineering&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy/&#34;&gt;&lt;img src=&#34;https://girke.bioinformatics.ucr.edu/members/ponmathi-ramasamy.jpeg&#34; alt=&#34;image&#34; style=&#34;width:150px;&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -2007,22 +2032,6 @@ of these server components.&lt;/p&gt;
     </item>
     
     <item>
-      <title>About: Acknowledgement</title>
-      <link>/about/acknowledgement/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/acknowledgement/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;acknowledgement&#34;&gt;Acknowledgement&lt;/h2&gt;
-&lt;p&gt;This project is funded by NSF award &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152&#34;&gt;ABI-1661152&lt;/a&gt; and the USDA National Institute of Food and Agriculture, Hatch project #1016331.&lt;/p&gt;
-&lt;center&gt;&lt;img title=&#34;nsflogo&#34; src=&#34;NSF_Logo.png&#34;&gt;&lt;img/&gt;&lt;/center&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Sps: General utilities</title>
       <link>/sps/dev/general/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2163,6 +2172,38 @@ getStatus(reg = reg)
 waitForJobs(reg = reg)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: Publications</title>
+      <link>/about/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/publications/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;publications-of-this-project&#34;&gt;Publications of this project&lt;/h2&gt;
+&lt;h3 id=&#34;journal-publications&#34;&gt;Journal publications&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Backman TW, Girke T (2016) systemPipeR: NGS workflow and report generation environment. &lt;em&gt;BMC Bioinformatics&lt;/em&gt;: 17, 1-8. &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/27650223&#34;&gt;PubMed&lt;/a&gt;{:target=&amp;quot;_blank&amp;quot;}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;posters&#34;&gt;Posters&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Backman TW, Girke T (2017) systemPipeR: NGS workflow and report generation environment. Poster presented at ISMB 2017 in Prague. Download &lt;a href=&#34;https://drive.google.com/open?id=0B-lLYVUOliJFV1RGMkcyblBjekk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cassol D, Girke T (2018) systemPipeR: NGS workflow and report generation environment. Poster presented at BioC 2018 in Toronto. Download &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/Poster_BioC2018.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;publications-related-to-this-project&#34;&gt;Publications related to this project&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Zillikens et al. (2017) Large meta-analysis of genome-wide association studies identifies five loci for lean body mass. Nature Communications: 8, 1-13. &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/28724990&#34;&gt;PubMed&lt;/a&gt;{:target=&amp;quot;_blank&amp;quot;}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
 
       </description>
     </item>
@@ -2311,31 +2352,17 @@ before the app launches. Later we will discuss how to change and create new cust
     </item>
     
     <item>
-      <title>About: Contact</title>
-      <link>/about/contact/</link>
+      <title>About: Acknowledgement</title>
+      <link>/about/acknowledgement/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/contact/</guid>
+      <guid>/about/acknowledgement/</guid>
       <description>
         
         
-        &lt;p&gt;&lt;br&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Thomas Girke&lt;/strong&gt;, Ph.D. &lt;br/&gt;
-Professor of Bioinformatics &lt;br/&gt;
-Director of HPC Center (&lt;a href=&#34;http://hpcc.ucr.edu/&#34;&gt;HPCC&lt;/a&gt;)&lt;br/&gt;
-Institute for Integrative Genome Biology (&lt;a href=&#34;http://genomics.ucr.edu/&#34;&gt;IIGB&lt;/a&gt;) &lt;br/&gt;
-Department of Botany and Plant Sciences (&lt;a href=&#34;http://plantbiology.ucr.edu/&#34;&gt;BPSC&lt;/a&gt;) &lt;br/&gt;
-1207F Genomics Building &lt;br/&gt;
-University of California, Riverside (&lt;a href=&#34;http://www.ucr.edu/&#34;&gt;UCR&lt;/a&gt;) &lt;br/&gt;
-CA 92521 &lt;br/&gt;
-Email: &lt;a href=&#34;mailto:thomas.girke@ucr.edu&#34;&gt;thomas.girke@ucr.edu&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Daniela Cassol&lt;/strong&gt;, Ph.D. &lt;br/&gt;
-Postdoctoral Researcher &lt;br/&gt;
-Department of Botany and Plant Sciences (&lt;a href=&#34;http://plantbiology.ucr.edu/&#34;&gt;BPSC&lt;/a&gt;) &lt;br/&gt;
-1207E Genomics Building &lt;br/&gt;
-University of California, Riverside (&lt;a href=&#34;http://www.ucr.edu/&#34;&gt;UCR&lt;/a&gt;) &lt;br/&gt;
-CA 92521 &lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;Email: &lt;a href=&#34;mailto:danielac@ucr.edu&#34;&gt;danielac@ucr.edu&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+        &lt;h2 id=&#34;acknowledgement&#34;&gt;Acknowledgement&lt;/h2&gt;
+&lt;p&gt;This project is funded by NSF award &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152&#34;&gt;ABI-1661152&lt;/a&gt; and the USDA National Institute of Food and Agriculture, Hatch project #1016331.&lt;/p&gt;
+&lt;center&gt;&lt;img title=&#34;nsflogo&#34; src=&#34;NSF_Logo.png&#34;&gt;&lt;img/&gt;&lt;/center&gt;
 
       </description>
     </item>
@@ -2371,6 +2398,36 @@ Hover your mouse on buttons will display a tooltip of their functionality.&lt;/l
 &lt;/ol&gt;
 &lt;p&gt;Keyboard shortcuts are also enabled with SPS Canvas. Go to &amp;ldquo;help&amp;rdquo; menu to see these
 options.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: Contact</title>
+      <link>/about/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/contact/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thomas Girke&lt;/strong&gt;, Ph.D. &lt;br/&gt;
+Professor of Bioinformatics &lt;br/&gt;
+Director of HPC Center (&lt;a href=&#34;http://hpcc.ucr.edu/&#34;&gt;HPCC&lt;/a&gt;)&lt;br/&gt;
+Institute for Integrative Genome Biology (&lt;a href=&#34;http://genomics.ucr.edu/&#34;&gt;IIGB&lt;/a&gt;) &lt;br/&gt;
+Department of Botany and Plant Sciences (&lt;a href=&#34;http://plantbiology.ucr.edu/&#34;&gt;BPSC&lt;/a&gt;) &lt;br/&gt;
+1207F Genomics Building &lt;br/&gt;
+University of California, Riverside (&lt;a href=&#34;http://www.ucr.edu/&#34;&gt;UCR&lt;/a&gt;) &lt;br/&gt;
+CA 92521 &lt;br/&gt;
+Email: &lt;a href=&#34;mailto:thomas.girke@ucr.edu&#34;&gt;thomas.girke@ucr.edu&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Daniela Cassol&lt;/strong&gt;, Ph.D. &lt;br/&gt;
+Postdoctoral Researcher &lt;br/&gt;
+Department of Botany and Plant Sciences (&lt;a href=&#34;http://plantbiology.ucr.edu/&#34;&gt;BPSC&lt;/a&gt;) &lt;br/&gt;
+1207E Genomics Building &lt;br/&gt;
+University of California, Riverside (&lt;a href=&#34;http://www.ucr.edu/&#34;&gt;UCR&lt;/a&gt;) &lt;br/&gt;
+CA 92521 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Email: &lt;a href=&#34;mailto:danielac@ucr.edu&#34;&gt;danielac@ucr.edu&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 
       </description>
     </item>
