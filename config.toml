@@ -215,10 +215,40 @@ enable = false
 
 
 # Top-level navigation (horizontal)
+## About
+[[menu.main]]
+  name = "About"
+  weight = 1
+  url = "/about/"
+[[menu.main]]
+  name = "Overview"
+  url = "/overview/"
+  parent = "About"
+  weight = 1
+[[menu.main]]
+  name = "Our Team"
+  url = "/about/team/"
+  parent = "About"
+  weight = 2
+[[menu.main]]
+  name = "Publications"
+  url = "/about/publications/"
+  parent = "About"
+  weight = 3
+[[menu.main]]
+  name = "Acknowledgement"
+  url = "/about/acknowledgement/"
+  parent = "About"
+  weight = 4
+[[menu.main]]
+  name = "Contact"
+  url = "/about/contact/"
+  parent = "About"
+  weight = 5
 ## SPR
 [[menu.main]]
   name = "systemPipeR"
-  weight = 1
+  weight = 2
   url = "/spr/"
   [[menu.main]]
     name = "systemPipeR Package"
@@ -227,7 +257,7 @@ enable = false
     weight = 1
   [[menu.main]]
     name = "Introduction"
-    url = "/spr/systempiper/systempiper/"
+    url = "/spr/systempiper/introduction/"
     parent = "systemPipeR"
     weight = 2
     [menu.main.params]
@@ -323,58 +353,58 @@ enable = false
       level = 2
 ## SPR workflows
 [[menu.main]]
-  name = "SPR-Workflows"
+  name = "Workflows"
   url = "/spr_wf"
-  weight = 2
+  weight = 3
 [[menu.main]]
   name = "Collection"
   url = "/spr_wf"
-  parent = "SPR-Workflows"
+  parent = "Workflows"
   weight = 1
 [[menu.main]]
   name = "RNA-Seq"
   url = "https://systempipe.org/systemPipeRNAseq/articles/systemPipeRNAseq.html"
-  parent = "SPR-Workflows"
+  parent = "Workflows"
   weight = 1
 [[menu.main]]
   name = "ChIP-Seq"
   url = "https://systempipe.org/systemPipeChIPseq/articles/systemPipeChIPseq.html"
-  parent = "SPR-Workflows"
+  parent = "Workflows"
   weight = 2
 [[menu.main]]
   name = "RIBO-Seq"
   url = "https://systempipe.org/systemPipeRIBOseq/articles/systemPipeRIBOseq.html"
-  parent = "SPR-Workflows"
+  parent = "Workflows"
   weight = 3
 [[menu.main]]
   name = "VAR-Seq"
   url = "https://systempipe.org/systemPipeVARseq/articles/systemPipeVARseq.html"
-  parent = "SPR-Workflows"
+  parent = "Workflows"
   weight = 4
 ## SPS
 [[menu.main]]
-  name = "systemPipeShiny"
+  name = "Shiny"
   url = "/sps/"
   weight = 4
 [[menu.main]]
   name = "SPS Documentation"
   url = "/sps/"
-  parent = "systemPipeShiny"
+  parent = "Shiny"
   weight = 1
 [[menu.main]]
   name = "Github"
   url = "https://github.com/systemPipeR/systemPipeShiny"
-  parent = "systemPipeShiny"
+  parent = "Shiny"
   weight = 2
 [[menu.main]]
   name = "Bioconductor"
   url = "http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-  parent = "systemPipeShiny"
+  parent = "Shiny"
   weight = 3
 ## Training
 [[menu.main]]
   name = "Training"
-  weight = 9
+  weight = 5
   url = "/training/"
 [[menu.main]]
   name = "Presentations"
@@ -389,30 +419,10 @@ enable = false
 ## News
 [[menu.main]]
   name = "News"
-  weight = 10
+  weight = 6
   url = "/News/"
-## About
 [[menu.main]]
-  name = "About"
-  weight = 20
-  url = "/about/"
-[[menu.main]]
-  name = "Our Team"
-  url = "/about/team/"
-  parent = "About"
+  name = "Release"
+  url = "/News/"
+  parent = "News"
   weight = 1
-[[menu.main]]
-  name = "Publications"
-  url = "/about/publications/"
-  parent = "About"
-  weight = 2
-[[menu.main]]
-  name = "Acknowledgement"
-  url = "/about/acknowledgement/"
-  parent = "About"
-  weight = 3
-[[menu.main]]
-  name = "Contact"
-  url = "/about/contact/"
-  parent = "About"
-  weight = 4

@@ -3,7 +3,7 @@ title: "Publications"
 linkTitle: "Publications"
 type: docs
 description: >
-weight: 2
+weight: 3
 ---
 
 ## Publications of this project 

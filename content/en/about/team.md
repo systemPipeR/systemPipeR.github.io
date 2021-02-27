@@ -3,7 +3,7 @@ title: "Our Team"
 linkTitle: "Our Team"
 type: docs
 description: >
-weight: 1
+weight: 2
 ---
 
 ## Principal Investigator (PI)
