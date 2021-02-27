@@ -6,40 +6,34 @@
 <meta name="generator" content="Hugo 0.81.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
-<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
+<link rel="shortcut icon" href="../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../favicons/android-192x192.png" sizes="192x192">
 
-<title>General utilities | sysPipe</title><meta property="og:title" content="General utilities" />
-<meta property="og:description" content=" SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
-Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
-install.packages(&quot;spsUtil&quot;)  Develop version:
-if (!requireNamespace(&quot;spsUtil&quot;, quietly=TRUE)) remotes::install_github(&quot;lz100/spsComps&quot;)  " />
+<title>systemPipe Workflow Environment | sysPipe</title><meta property="og:title" content="systemPipe Workflow Environment" />
+<meta property="og:description" content="Find here all the documentation!
+ Motivation The analysis of Next-generation sequencing (NGS) data remains a major obstacle to the efficient utilization of the technology. While substantial effort has been invested on the development of software dedicated to the individual analysis steps of NGS experiments, insufficient resources are currently available for integrating the individual software components within the widely used R/Bioconductor environment into automated workflows capable of running the analysis of most types of NGS applications from start-to-finish in a time-efficient and reproducible manner." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/sps/dev/general/" /><meta property="article:section" content="sps" />
+<meta property="og:url" content="/about/overview/" /><meta property="article:section" content="about" />
 
 <meta property="article:modified_time" content="2021-02-26T22:36:54-08:00" /><meta property="og:site_name" content="sysPipe" />
 
-<meta itemprop="name" content="General utilities">
-<meta itemprop="description" content=" SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
-Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
-install.packages(&quot;spsUtil&quot;)  Develop version:
-if (!requireNamespace(&quot;spsUtil&quot;, quietly=TRUE)) remotes::install_github(&quot;lz100/spsComps&quot;)  ">
+<meta itemprop="name" content="systemPipe Workflow Environment">
+<meta itemprop="description" content="Find here all the documentation!
+ Motivation The analysis of Next-generation sequencing (NGS) data remains a major obstacle to the efficient utilization of the technology. While substantial effort has been invested on the development of software dedicated to the individual analysis steps of NGS experiments, insufficient resources are currently available for integrating the individual software components within the widely used R/Bioconductor environment into automated workflows capable of running the analysis of most types of NGS applications from start-to-finish in a time-efficient and reproducible manner.">
 <meta itemprop="dateModified" content="2021-02-26T22:36:54-08:00" />
-<meta itemprop="wordCount" content="50">
+<meta itemprop="wordCount" content="273">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="General utilities"/>
-<meta name="twitter:description" content=" SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
-Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
-install.packages(&quot;spsUtil&quot;)  Develop version:
-if (!requireNamespace(&quot;spsUtil&quot;, quietly=TRUE)) remotes::install_github(&quot;lz100/spsComps&quot;)  "/>
+<meta name="twitter:title" content="systemPipe Workflow Environment"/>
+<meta name="twitter:description" content="Find here all the documentation!
+ Motivation The analysis of Next-generation sequencing (NGS) data remains a major obstacle to the efficient utilization of the technology. While substantial effort has been invested on the development of software dedicated to the individual analysis steps of NGS experiments, insufficient resources are currently available for integrating the individual software components within the widely used R/Bioconductor environment into automated workflows capable of running the analysis of most types of NGS applications from start-to-finish in a time-efficient and reproducible manner."/>
 
 
 <script type="application/javascript">
@@ -58,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" as="style">
-<link href="../../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" as="style">
+<link href="../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -69,15 +63,15 @@ if (!doNotTrack) {
 
 
 
-<link rel="stylesheet" href="../../../css/prism.css"/>
+<link rel="stylesheet" href="../../css/prism.css"/>
 
 
-<script src="../../../js/driver0.9.8.min.js"></script>
-<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
+<script src="../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../css/driver0.9.8.min.css"/>
 
 
-<link rel="stylesheet" href="../../../css/site.css"/>
-<script src="../../../js/site.js"></script>
+<link rel="stylesheet" href="../../css/site.css"/>
+<script src="../../js/site.js"></script>
 
 
 
@@ -86,7 +80,7 @@ if (!doNotTrack) {
     <header>
      
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-  <a class="navbar-brand" href="../../../">
+  <a class="navbar-brand" href="../../">
 		<span class="font-weight-bold">sysPipe</span>
 	</a>
 	<row class="header-switch">
@@ -109,7 +103,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="../../about/" id="navbarDropdown" role="button">
           	About
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -117,7 +111,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../overview/"
+              <a class="dropdown-item" href="../../overview/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Overview
               </a>
@@ -125,7 +119,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../about/team/"
+              <a class="dropdown-item" href="../../about/team/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Our Team
               </a>
@@ -133,7 +127,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../about/publications/"
+              <a class="dropdown-item" href="../../about/publications/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Publications
               </a>
@@ -141,7 +135,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../about/acknowledgement/"
+              <a class="dropdown-item" href="../../about/acknowledgement/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Acknowledgement
               </a>
@@ -149,7 +143,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../about/contact/"
+              <a class="dropdown-item" href="../../about/contact/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Contact
               </a>
@@ -164,7 +158,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../spr/" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="../../spr/" id="navbarDropdown" role="button">
           	systemPipeR
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -172,7 +166,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/"
+              <a class="dropdown-item" href="../../spr/systempiper/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  systemPipeR Package
               </a>
@@ -182,7 +176,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/introduction/"
+              <a class="dropdown-item" href="../../spr/systempiper/introduction/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Introduction
               </a>
@@ -192,7 +186,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/gettingstarted/"
+              <a class="dropdown-item" href="../../spr/systempiper/gettingstarted/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Getting Started
               </a>
@@ -202,7 +196,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/spr_run/"
+              <a class="dropdown-item" href="../../spr/systempiper/spr_run/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  How to run a Workflow
               </a>
@@ -212,7 +206,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/steps/"
+              <a class="dropdown-item" href="../../spr/systempiper/steps/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Workflow steps overview
               </a>
@@ -222,7 +216,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/templates/"
+              <a class="dropdown-item" href="../../spr/systempiper/templates/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Workflow Templates
               </a>
@@ -232,7 +226,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/spr_funcs/"
+              <a class="dropdown-item" href="../../spr/systempiper/spr_funcs/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Reference Manual
               </a>
@@ -242,7 +236,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiper/sprinstall/"
+              <a class="dropdown-item" href="../../spr/systempiper/sprinstall/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  SPR detailed installation
               </a>
@@ -250,7 +244,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../spr/systempiperdata/"
+              <a class="dropdown-item" href="../../spr/systempiperdata/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  systemPipeRdata
               </a>
@@ -260,7 +254,7 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../spr/systempiperdata/vignette/"
+              <a class="dropdown-item" href="../../spr/systempiperdata/vignette/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Vignette
               </a>
@@ -268,7 +262,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../spr/"
+              <a class="dropdown-item" href="../../spr/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Links
               </a>
@@ -323,7 +317,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="../../spr_wf" id="navbarDropdown" role="button">
           	Workflows
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -331,7 +325,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../spr_wf"
+              <a class="dropdown-item" href="../../spr_wf"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Collection
               </a>
@@ -378,7 +372,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="../../sps/" id="navbarDropdown" role="button">
           	Shiny
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -386,7 +380,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../sps/"
+              <a class="dropdown-item" href="../../sps/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  SPS Documentation
               </a>
@@ -417,7 +411,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="../../training/" id="navbarDropdown" role="button">
           	Training
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -425,7 +419,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../training/presentations/"
+              <a class="dropdown-item" href="../../training/presentations/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Presentations
               </a>
@@ -433,7 +427,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../training/videos/"
+              <a class="dropdown-item" href="../../training/videos/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Videos Tutorials
               </a>
@@ -448,7 +442,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="../../news/" id="navbarDropdown" role="button">
           	News
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -456,7 +450,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="../../../news/"
+              <a class="dropdown-item" href="../../news/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Release
               </a>
@@ -508,10 +502,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
+    <a  href="../../about/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">sysPipe Project</a>
   </li>
   <ul>
-    <li class="collapse show" id="sps">
+    <li class="collapse show" id="about">
       
       
       
@@ -519,7 +513,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../../sps/intro/">Introduction</a>
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-aboutoverview" href="../../about/overview/">Overview</a>
         
       
       
@@ -527,7 +521,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../../sps/install/">Installation</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-aboutteam" href="../../about/team/">Our Team</a>
         
       
       
@@ -535,33 +529,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../../sps/quick_start/">Quick start</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsmodules">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../../sps/modules/workflow/">Workflow</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-aboutpublications" href="../../about/publications/">Publications</a>
         
       
       
@@ -569,7 +537,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../../sps/modules/rnaseq/">RNAseq</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-aboutacknowledgement" href="../../about/acknowledgement/">Acknowledgement</a>
         
       
       
@@ -577,128 +545,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../../sps/modules/ggplot/">Quick ggplot</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../../sps/canvas/">Canvas</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../../sps/sps_funcs/">SPS Functions</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsadv_features">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../../sps/adv_features/config/">Configuration</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../../sps/adv_features/tabs/">Manage tabs</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../../sps/deploy/">Deploy</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/dev/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Development tools</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdev">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevui" href="../../../sps/dev/ui/">UI components</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevserver" href="../../../sps/dev/server/">Server functions</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsdevgeneral" href="../../../sps/dev/general/">General utilities</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-aboutcontact" href="../../about/contact/">Contact</a>
         
       
       
@@ -740,10 +587,10 @@ if (!doNotTrack) {
     
     
     
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/general.md" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/general.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/general.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=General%20utilities" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/about/overview.md" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/about/overview.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/about/overview.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=systemPipe%20Workflow%20Environment" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -756,6 +603,23 @@ if (!doNotTrack) {
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#availability">Availability</a></li>
+          </ul>
+        </li>
+        <li><a href="#acknowledgement">Acknowledgement</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -774,25 +638,15 @@ if (!doNotTrack) {
 
 
 
-
-
-
 <li class="breadcrumb-item" >
-	<a href="../../../sps/">systemPipeShiny</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../sps/dev/">Development tools</a>
+	<a href="../../about/">sysPipe Project</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../sps/dev/general/">General utilities</a>
+	<a href="../../about/overview/">Overview</a>
 </li>
 
 	</ol>
@@ -800,20 +654,53 @@ if (!doNotTrack) {
 
                 
 <div class="td-content">
-	<h1>General utilities</h1>
+	<h1>systemPipe Workflow Environment</h1>
     
 	       
-	<hr>
-<p>SPS framework come with a plenty of useful general R utility functions, like
-pretty logging, package namespace checking, URL checking, and more.</p>
-<p>Since SPS 1.1, these functions are separated into a supporting package called
-<strong>spsUtil</strong> (systemPipeShiny Utility). You can install it from CRAN.</p>
-<pre><code class="language-r">install.packages(&quot;spsUtil&quot;)
-</code></pre>
-<p>Develop version:</p>
-<pre><code class="language-r">if (!requireNamespace(&quot;spsUtil&quot;, quietly=TRUE))
-    remotes::install_github(&quot;lz100/spsComps&quot;)
-</code></pre>
+	
+
+<div class="pageinfo pageinfo-primary">
+<p>Find <a href="https://systempipe.org/spr/systempiper_vignette/">here</a> all the documentation!</p>
+
+</div>
+
+<h3 id="motivation">Motivation</h3>
+<p>The analysis of Next-generation sequencing (NGS) data remains a
+major obstacle to the efficient utilization of the technology.  While
+substantial effort has been invested on the development of software dedicated
+to the individual analysis steps of NGS experiments, insufficient resources are
+currently available for integrating the individual software components within
+the widely used R/Bioconductor environment into automated workflows capable of
+running the analysis of most types of NGS applications from start-to-finish in
+a time-efficient and reproducible manner.</p>
+<h3 id="results">Results</h3>
+<p>To address this need, we have developed the R/Bioconductor package
+<em>systemPipeR</em>. It is an extensible environment for both building and
+running end-to-end analysis workflows with automated report generation for a
+wide range of NGS applications. Its unique features include a uniform workflow
+interface across different NGS applications, automated report generation, and
+support for running both R and command-line software on local computers and
+computer clusters. A flexible sample annotation infrastructure efficiently
+handles complex sample sets and experimental designs.</p>
+<p>To simplify the analysis
+of widely used NGS applications, the package provides pre-configured workflows
+and reporting templates for a wide range of NGS applications that are listed on
+the <a href="http://girke.bioinformatics.ucr.edu/systemPipeR/mydoc_wf_colletions.html">Workflow Collection</a>
+page of this site. Additional workflow templates will be provided in the future. <em>systemPipeR</em>
+accelerates the extraction of reproducible analysis results from NGS
+experiments. By combining the capabilities of many R/Bioconductor and
+command-line tools, it makes efficient use of existing software resources
+without limiting the user to a set of predefined methods or environments.</p>
+<p><img align="center" title="spr_overview" src="SPR.png"><img/></p>
+<h3 id="availability">Availability</h3>
+<p><em>systemPipeR</em> is freely available for all common operating systems from
+<a href="http://bioconductor.org/packages/systemPipeR">Bioconductor</a>. Its GitHub
+repository is <a href="https://github.com/tgirke/systemPipeR">here</a>.</p>
+<a href="https://github.com/tgirke/systemPipeR">
+<img align="rigth" title="systemPipeR" src="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeR.png" style="width:200px;"><img/>
+</a>
+<h2 id="acknowledgement">Acknowledgement</h2>
+<p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p>
 
 	
 	
@@ -870,7 +757,7 @@ pretty logging, package namespace checking, URL checking, and more.</p>
         <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
         
 	
-		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
+		<p class="mt-2"><a href="../../about/">About systemPipe Project</a></p>
 	
       </div>
     </div>
@@ -906,7 +793,7 @@ pretty logging, package namespace checking, URL checking, and more.</p>
     }
   })();
 </script>
-<script src="../../../js/mathjax3.1.2.js"></script>
+<script src="../../js/mathjax3.1.2.js"></script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -934,11 +821,11 @@ MathJax.Hub.Config({
 
 
 
-<script src="../../../js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+<script src="../../js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 
-<script src='../../../js/prism.js'></script>
+<script src='../../js/prism.js'></script>
 
 
 
