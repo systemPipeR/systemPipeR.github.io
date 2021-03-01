@@ -8,7 +8,7 @@ type: docs
 {{% pageinfo %}}
 Find [here](https://systempipe.org/spr/systempiper_vignette/) all the documentation!
 {{% /pageinfo %}}
-
+ 
 ### Motivation
 
 The analysis of Next-generation sequencing (NGS) data remains a 

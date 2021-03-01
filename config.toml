@@ -222,7 +222,7 @@ enable = false
   url = "/about/"
 [[menu.main]]
   name = "Overview"
-  url = "/overview/"
+  url = "/about/overview/"
   parent = "About"
   weight = 1
 [[menu.main]]
@@ -351,11 +351,31 @@ enable = false
     weight = 15
     [menu.main.params]
       level = 2
+## SPS
+[[menu.main]]
+  name = "Shiny"
+  url = "/sps/"
+  weight = 3
+[[menu.main]]
+  name = "SPS Documentation"
+  url = "/sps/"
+  parent = "Shiny"
+  weight = 1
+[[menu.main]]
+  name = "Github"
+  url = "https://github.com/systemPipeR/systemPipeShiny"
+  parent = "Shiny"
+  weight = 2
+[[menu.main]]
+  name = "Bioconductor"
+  url = "http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+  parent = "Shiny"
+  weight = 3
 ## SPR workflows
 [[menu.main]]
   name = "Workflows"
   url = "/spr_wf"
-  weight = 3
+  weight = 4
 [[menu.main]]
   name = "Collection"
   url = "/spr_wf"
@@ -381,26 +401,6 @@ enable = false
   url = "https://systempipe.org/systemPipeVARseq/articles/systemPipeVARseq.html"
   parent = "Workflows"
   weight = 4
-## SPS
-[[menu.main]]
-  name = "Shiny"
-  url = "/sps/"
-  weight = 4
-[[menu.main]]
-  name = "SPS Documentation"
-  url = "/sps/"
-  parent = "Shiny"
-  weight = 1
-[[menu.main]]
-  name = "Github"
-  url = "https://github.com/systemPipeR/systemPipeShiny"
-  parent = "Shiny"
-  weight = 2
-[[menu.main]]
-  name = "Bioconductor"
-  url = "http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-  parent = "Shiny"
-  weight = 3
 ## Training
 [[menu.main]]
   name = "Training"
@@ -422,7 +422,7 @@ enable = false
   weight = 6
   url = "/News/"
 [[menu.main]]
-  name = "Release"
-  url = "/News/"
+  name = "Bioconductor 3.12"
+  url = "/news/release_3_12//"
   parent = "News"
   weight = 1
