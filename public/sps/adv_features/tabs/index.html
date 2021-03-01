@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.81.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -22,17 +22,19 @@
 From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
 To understand how SPS tabs work, we will demonstrate with a SPS project." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/sps/adv_features/tabs/" /><meta property="article:section" content="sps" />
-
-<meta property="article:modified_time" content="2021-02-26T22:36:54-08:00" /><meta property="og:site_name" content="sysPipe" />
-
+<meta property="og:url" content="/sps/adv_features/tabs/" />
+<meta property="article:modified_time" content="2021-02-12T17:56:49-08:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Manage tabs">
 <meta itemprop="description" content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
 From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
 To understand how SPS tabs work, we will demonstrate with a SPS project.">
-<meta itemprop="dateModified" content="2021-02-26T22:36:54-08:00" />
+<meta itemprop="dateModified" content="2021-02-12T17:56:49-08:00" />
 <meta itemprop="wordCount" content="1270">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manage tabs"/>
 <meta name="twitter:description" content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
 From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
@@ -55,8 +57,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" as="style">
-<link href="../../../scss/main.min.d9e5a57962818e88e6e0d816616d5a161faf94ea687fe0e2d2b6cff2e4a60504.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
+<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -671,8 +673,26 @@ if (!doNotTrack) {
       
         
           
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/dev/spscomps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">spsComps</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsdevspscomps">
+      
+      
+      
+      
+        
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevui" href="../../../sps/dev/ui/">UI components</a>
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsui" href="../../../sps/dev/spscomps/ui/">UI components</a>
         
       
       
@@ -680,7 +700,40 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevserver" href="../../../sps/dev/server/">Server functions</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsserver" href="../../../sps/dev/spscomps/server/">Server functions</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/dev/drawer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsdevdrawer">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawershiny" href="../../../sps/dev/drawer/shiny/">drawer in Shiny</a>
         
       
       
@@ -688,7 +741,22 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevgeneral" href="../../../sps/dev/general/">General utilities</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawerrmd" href="../../../sps/dev/drawer/rmd/">drawer in Rmarkdown</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspsutil" href="../../../sps/dev/spsutil/">spsUtil</a>
         
       
       
@@ -1017,7 +1085,7 @@ essential framework tabs(<em>core</em>) and workflow tabs (<em>wf</em>) are load
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-26: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/53170601c7900ddf9120491bc6d26c775ddd7b38">updated about: pg_build (5317060)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-12: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/a0f25d82d147f8c6892ad0e4c06b0c50782955be">update reference workflow (a0f25d8)</a>
 </div>
 </div>
 
@@ -1134,7 +1202,7 @@ MathJax.Hub.Config({
 
 
 
-<script src="../../../js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+<script src="../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
 
 
 
