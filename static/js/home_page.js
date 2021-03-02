@@ -1,4 +1,5 @@
-$('#svg-logo').load("images/sp_org_links.svg", function(){
+function loadLogo(img_src) {
+  $('#svg-logo').load(img_src, function(){
    $('a[id^="cover"]')
    .removeAttr("style")
    .on("mouseover", function(){
@@ -12,5 +13,6 @@ $('#svg-logo').load("images/sp_org_links.svg", function(){
    });
 
 })
+}
 
 

@@ -4,9 +4,37 @@ linkTitle: "systemPipeShiny"
 type: docs
 ---
 
-<center >
-<img src="img/sps.png" alt="logo" style="width:500px;"/>
-</center>
+<link href="/css/home_page.css" rel="stylesheet">
+<div id="svg-logo"></div>
+
+<script src="/js/home_page.js"></script>
+<script>
+  loadLogo("/images/sps_logos.svg")
+</script>
+<style>
+#svg-logo {
+  background: 
+    radial-gradient(circle, transparent 0%,  rgba(255,255,255,1) 30%),
+    linear-gradient(to right, var(--color), var(--color)), var(--image2);
+  background-repeat: no-repeat;
+  background-size: auto 1200px;
+  background-position: center center;
+  background-blend-mode: 
+    var(--blend-top, normal),
+    var(--blend-bottom, saturation),
+    normal;
+  --image2: url("/background.jpg");
+  --color-v: rgba(76,169,237,1);
+  --color: rgba(76,169,237,1);
+}
+
+#svg-logo svg {
+  margin: 0 auto;
+  display: block;
+  padding: 50px;
+}
+</style>
+
 
 
 **<span style="color:#5DA7D6;">s</span>ystem<span
@@ -37,7 +65,7 @@ custom Shiny Apps under SPS framework without any knowledge of Shiny.
 organize and to compare plots in an efficient manner combined
 with a session screenshot feature to edit scientific and publishable figures. 
 - Three other supporting packages to help all users from beginners and advanced developers 
-to extend under current SPS framework or on their own Shiny Apps. 
+to extend under current SPS framework or on their own visualization apps. 
 
 ## Demo
 View our online demo app:
