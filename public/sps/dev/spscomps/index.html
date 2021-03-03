@@ -652,7 +652,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/dev/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Development tools</a>
+    <a  href="../../../sps/dev/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a>
   </li>
   <ul>
     <li class="collapse show" id="spsdev">
@@ -811,6 +811,19 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sps-components-package">SPS Components package</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#category">Category</a></li>
+        <li><a href="#functions-reference-manual">Functions reference manual</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
               </div>
@@ -839,7 +852,7 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="../../../sps/dev/">Development tools</a>
+	<a href="../../../sps/dev/">Developer tools</a>
 </li>
 
 
@@ -858,17 +871,29 @@ if (!doNotTrack) {
         
 	
 	<h2 id="sps-components-package">SPS Components package</h2>
-<p>SPS provides a lot of nice-looking UI  and server components. If you want to design your next
-Shiny App, take a look at these components. Here is a <a href="https://lezhang.shinyapps.io/spsComps">online demo</a>
+<p>systemPipeShiny Components (spsComps) package is a collection of custom UI  and
+server components that are used in SPS main framework. If you see a component
+in SPS but want to outside the SPS framework, like in your own Shiny apps,
+take a look at these components. Here is a <strong><a href="https://lezhang.shinyapps.io/spsComps">online demo</a></strong>
 of these components.</p>
-<p>After SPS 1.1, these components are separated into a supporting package called
-<strong>spsComps</strong> (systemPipeShiny Components), and you can install from CRAN.</p>
-<pre><code class="language-r">install.packages(&quot;spsComps&quot;)
-</code></pre>
-<p>Develop version:</p>
-<pre><code class="language-r">if (!requireNamespace(&quot;spsComps&quot;, quietly=TRUE))
-    remotes::install_github(&quot;lz100/spsComps&quot;)
-</code></pre>
+<h2 id="installation">Installation</h2>
+<p>Read the <a href="..">developer tools</a> main page, not repeating here.</p>
+<h2 id="category">Category</h2>
+<p>{spsComps} can be divided into two major categories: <a href="ui">UI</a> and <a href="server">server</a>.</p>
+<ul>
+<li><strong>UI</strong>: Shiny or HTML UI components, for example, a box, a gallery, a button, etc. With
+these most of components, you do <strong>NOT need a server</strong>, so they are compatible with
+R markdown documents. See the <a href="ui">UI</a> page and its source code how we use the
+components in a Rmd doucment. However, some UI components has server side functions,
+mostly like <code>updateXXX</code> functions. Mainly these functions are used to update/change the
+UI based on user behaviors. It is totally okay to use the UI functions without the
+server functions (you will get static UI).</li>
+<li><strong>server</strong>: <strong>can only be run in the Shiny server</strong>. These functions are designed
+to make back-end progress easier, extensions of original shiny Server functions.</li>
+</ul>
+<h2 id="functions-reference-manual">Functions reference manual</h2>
+<p>In documents, we only highlight some important functions. Please read
+the <a href="../../../sps/sps_funcs">reference manuals</a> for details of every function.</p>
 
         <div class="section-index">
     

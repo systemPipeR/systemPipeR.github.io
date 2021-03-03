@@ -752,7 +752,386 @@ repository is &lt;a href=&#34;https://github.com/tgirke/systemPipeR&#34;&gt;here
       <description>
         
         
-        
+        &lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/sps-gotop/js/sps_gotop.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;../rmarkdown-libs/spsComps-js/js/sps-comps.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/spsComps-js/js/sps-comps.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/spsComps-js/js/sps-comps.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/spsComps-js/js/sps-comps.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/spsComps-js/js/sps-comps.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/spsComps-js/js/sps-comps.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../rmarkdown-libs/spsComps-css/css/sps-comps.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;load-package&#34;&gt;load package&lt;/h2&gt;
+&lt;p&gt;To start to use &lt;code&gt;spsComps&lt;/code&gt;, load it in your Shiny app file or Rmarkdown file&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(spsComps)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: shiny
+
+## Loading required package: spsUtil
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(magrittr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So you can see it depends on &lt;code&gt;shiny&lt;/code&gt; and &lt;code&gt;spsUtil&lt;/code&gt;. When you load it, there is no
+need to additionally load &lt;code&gt;shiny&lt;/code&gt; or &lt;code&gt;spsUtil&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;ui-components&#34;&gt;UI Components&lt;/h2&gt;
+&lt;p&gt;For most of the UI components, you can view them in the &lt;a href=&#34;https://lezhang.shinyapps.io/spsComps&#34;&gt;online Shiny demo&lt;/a&gt;.
+Here we just select a few to demonstrate how you can use them &lt;strong&gt;in a R markdown&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;spsgotop&#34;&gt;&lt;code&gt;spsGoTop&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;A go top button.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsGoTop()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;sps-gotop&#34; id=&#34;gotop&#34; style=&#34;right: 1rem;&amp;#10;bottom: 10rem;&amp;#10;fill: #337ab7;&#34; data-toggle=&#34;tooltip&#34; data-placement=&#34;left&#34; title=&#34;Go Top&#34; onclick=&#34;goTop()&#34;&gt;
+          &lt;svg viewBox=&#34;0 0 1024 1024&#34; version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+            &lt;path d=&#34;M526.60727968 10.90185116
+              a27.675 27.675 0 0 0-29.21455937 0
+              c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402
+              394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903
+              c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765
+              54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777
+              c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017
+              42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696
+              6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492
+              c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158
+              55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489
+              52.69160879-4.22606768a371.15156223 371.15156223 0 0 0
+              11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001
+              462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103
+              357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z&#34;&gt;
+            &lt;/path&gt;
+            &lt;path d=&#34;M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686
+              1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328
+              82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037
+              30.59548842-82.51086798 68.34111062z&#34;&gt;
+            &lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+&lt;p&gt;It will not be display inline of the Rmd, just simply call it and maybe change the
+style as you want. By default, a “go to top” button will be created on the &lt;strong&gt;bottom-right&lt;/strong&gt;
+&lt;strong&gt;corner&lt;/strong&gt;. Now scroll this page, and you should see it (the rocket button).&lt;/p&gt;
+&lt;h3 id=&#34;gallery&#34;&gt;&lt;code&gt;gallery&lt;/code&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;texts &amp;lt;- c(&amp;quot;p1&amp;quot;, &amp;quot;p2&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;p4&amp;quot;, &amp;quot;p5&amp;quot;)
+hrefs &amp;lt;- c(&amp;quot;https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true&amp;quot;,
+           &amp;quot;https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true&amp;quot;,
+           &amp;quot;&amp;quot;,
+           &amp;quot;https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true&amp;quot;,
+           &amp;quot;https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true&amp;quot;)
+images &amp;lt;- c(&amp;quot;https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true&amp;quot;,
+            &amp;quot;https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true&amp;quot;,
+            &amp;quot;https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true&amp;quot;,
+            &amp;quot;https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true&amp;quot;,
+            &amp;quot;https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true&amp;quot;)
+gallery(
+  texts = texts, hrefs = hrefs, images = images,
+  enlarge = TRUE,
+  enlarge_method = &amp;quot;modal&amp;quot;
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;gallery8536851&#34; class=&#34;col sps-gallery&#34; style=&#34;&#34;&gt;
+&lt;p class=&#34;text-center h2&#34; style=&#34;color: #0275d8;&#34;&gt;Gallery&lt;/p&gt;
+&lt;div class=&#34;row&#34; style=&#34;  margin: 10px;&#34;&gt;&lt;div  id=gallery8536851-1 class=&#34;col-sm-4 sps-tab-link&#34; style=&#34;right: 1px;&#34;&gt;
+  &lt;img
+    src=&#34;https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true&#34; class=&#34;img-gallery &#34;
+    height=300 width=400
+    style=&#34;width: 100%;&#34;
+    onclick=galEnlarge(&#34;#gallery8536851-1&#34;)
+  &gt;
+  &lt;a href=&#34;https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true&#34;&gt;&lt;p class=&#34;text-center h4&#34;&gt;p1&lt;/p&gt;&lt;/a&gt;
+&lt;/div&gt; &lt;div  id=gallery8536851-2 class=&#34;col-sm-4 sps-tab-link&#34; style=&#34;right: 1px;&#34;&gt;
+  &lt;img
+    src=&#34;https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true&#34; class=&#34;img-gallery &#34;
+    height=300 width=400
+    style=&#34;width: 100%;&#34;
+    onclick=galEnlarge(&#34;#gallery8536851-2&#34;)
+  &gt;
+  &lt;a href=&#34;https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true&#34;&gt;&lt;p class=&#34;text-center h4&#34;&gt;p2&lt;/p&gt;&lt;/a&gt;
+&lt;/div&gt; &lt;div  id=gallery8536851-3 class=&#34;col-sm-4 sps-tab-link&#34; style=&#34;right: 1px;&#34;&gt;
+  &lt;img
+    src=&#34;https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true&#34; class=&#34;img-gallery gallery-nohover&#34;
+    height=300 width=400
+    style=&#34;width: 100%;&#34;
+    onclick=galEnlarge(&#34;#gallery8536851-3&#34;)
+  &gt;
+  &lt;a &gt;&lt;p class=&#34;text-center h4&#34;&gt;&amp;nbsp;&lt;/p&gt;&lt;/a&gt;
+&lt;/div&gt; &lt;div  id=gallery8536851-4 class=&#34;col-sm-4 sps-tab-link&#34; style=&#34;right: 1px;&#34;&gt;
+  &lt;img
+    src=&#34;https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true&#34; class=&#34;img-gallery &#34;
+    height=300 width=400
+    style=&#34;width: 100%;&#34;
+    onclick=galEnlarge(&#34;#gallery8536851-4&#34;)
+  &gt;
+  &lt;a href=&#34;https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true&#34;&gt;&lt;p class=&#34;text-center h4&#34;&gt;p4&lt;/p&gt;&lt;/a&gt;
+&lt;/div&gt; &lt;div  id=gallery8536851-5 class=&#34;col-sm-4 sps-tab-link&#34; style=&#34;right: 1px;&#34;&gt;
+  &lt;img
+    src=&#34;https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true&#34; class=&#34;img-gallery &#34;
+    height=300 width=400
+    style=&#34;width: 100%;&#34;
+    onclick=galEnlarge(&#34;#gallery8536851-5&#34;)
+  &gt;
+  &lt;a href=&#34;https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true&#34;&gt;&lt;p class=&#34;text-center h4&#34;&gt;p5&lt;/p&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;!--SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]--&gt;
+&lt;div id=&#34;sps-gallery-modal&#34; class=&#34;gallery-modal&#34; onclick=&#34;galModalClose()&#34;&gt;
+&lt;span class=&#34;gallery-modal-close&#34;&gt;X&lt;/span&gt;
+&lt;img id=&#34;sps-gallery-modal-content&#34; class=&#34;gallery-modal-content&#34;/&gt;
+&lt;div class=&#34;gallery-caption&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]--&gt;
+&lt;script&gt;fixGalHeight(&#34;gallery8536851&#34;)&lt;/script&gt;
+&lt;/div&gt;
+&lt;p&gt;You can show a gallery of plots you make in the Rmd and when people click it,
+it will be enlarged. You can also specify a link for each image.&lt;/p&gt;
+&lt;h3 id=&#34;logos&#34;&gt;Logos&lt;/h3&gt;
+&lt;h4 id=&#34;a-single-one-with-hexlogo&#34;&gt;a single one with &lt;code&gt;hexLogo&lt;/code&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hexLogo(
+    &amp;quot;logo&amp;quot;, &amp;quot;Logo&amp;quot;,
+    hex_img = &amp;quot;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&amp;quot;,
+    hex_link = &amp;quot;https://www.google.com&amp;quot;,
+    footer = &amp;quot;Footer&amp;quot;,
+    footer_link = &amp;quot;https://www.google.com&amp;quot;
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;logo&#34; class=&#34;hex-container&#34;&gt;
+  &lt;span class=&#34;text-info&#34;&gt;Logo&lt;/span&gt;&lt;br&gt;
+  &lt;svg class=&#34;hex-box&#34; viewBox=&#34;0 0 100 115&#34; version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;defs&gt;
+      &lt;pattern id=&#34;logo-hex&#34; patternUnits=&#34;userSpaceOnUse&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+        &lt;image href=&#34;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&#34; x=&#34;-10&#34; y=&#34;-20&#34; height=&#34;125%&#34; width=&#34;125%&#34; /&gt;
+      &lt;/pattern&gt;
+    &lt;/defs&gt;
+    &lt;a href=&#34;https://www.google.com&#34; target=&#34;_blank&#34;&gt;&lt;polygon class=&#34;hex&#34; points=&#34;50 1 95 25 95 75 50 99 5 75 5 25&#34;fill=&#34;url(#logo-hex)&#34; stroke=&#34;var(--primary)&#34;stroke-width=&#34;2&#34;/&gt;&lt;/a&gt;
+    &lt;text x=10 y=115&gt;&lt;a class=&#34;powerby-link&#34;href=&#34;https://www.google.com&#34; target=&#34;_blank&#34;&gt;Footer&lt;/a&gt;&lt;/text&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;a-panel-of-logos-with-hexpanel&#34;&gt;a panel of logos with &lt;code&gt;hexPanel&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;row hex-panel&#34;&gt;
+&lt;h5 class=&#34;text-primary&#34;&gt;&lt;/h5&gt;
+&lt;div class=&#34;hex-item&#34;&gt;&lt;div id=&#34;demo11&#34; class=&#34;hex-container&#34;&gt;
+  &lt;svg class=&#34;hex-box&#34; viewBox=&#34;0 0 100 115&#34; version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;defs&gt;
+      &lt;pattern id=&#34;demo11-hex&#34; patternUnits=&#34;userSpaceOnUse&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+        &lt;image href=&#34;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&#34; x=&#34;-10&#34; y=&#34;-20&#34; height=&#34;125%&#34; width=&#34;125%&#34; /&gt;
+      &lt;/pattern&gt;
+    &lt;/defs&gt;
+    &lt;polygon points=&#34;50 1 95 25 95 75 50 99 5 75 5 25&#34;fill=&#34;url(#demo11-hex)&#34; stroke=&#34;var(--primary)&#34;stroke-width=&#34;2&#34;/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&#34;hex-item&#34;&gt;&lt;div id=&#34;demo12&#34; class=&#34;hex-container&#34;&gt;
+  &lt;svg class=&#34;hex-box&#34; viewBox=&#34;0 0 100 115&#34; version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;defs&gt;
+      &lt;pattern id=&#34;demo12-hex&#34; patternUnits=&#34;userSpaceOnUse&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+        &lt;image href=&#34;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&#34; x=&#34;-10&#34; y=&#34;-20&#34; height=&#34;125%&#34; width=&#34;125%&#34; /&gt;
+      &lt;/pattern&gt;
+    &lt;/defs&gt;
+    &lt;polygon points=&#34;50 1 95 25 95 75 50 99 5 75 5 25&#34;fill=&#34;url(#demo12-hex)&#34; stroke=&#34;var(--primary)&#34;stroke-width=&#34;2&#34;/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;buttons&#34;&gt;Buttons&lt;/h3&gt;
+&lt;h4 id=&#34;some-colorful-buttons-hreftab&#34;&gt;Some colorful buttons &lt;code&gt;hrefTab&lt;/code&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hrefTab(
+    title = &amp;quot;Different background and text colors&amp;quot;,
+    label_texts = c(&amp;quot;Go top&amp;quot;, &amp;quot;Disabled&amp;quot;, &amp;quot;Email me&amp;quot;),
+    hrefs = c(&amp;quot;#&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;mailto:xxx@abc.com&amp;quot;),
+    bg_colors = c(&amp;quot;green&amp;quot;, &amp;quot;#eee&amp;quot;, &amp;quot;orange&amp;quot;),
+    text_colors = c(&amp;quot;#caffc1&amp;quot;, &amp;quot;black&amp;quot;, &amp;quot;blue&amp;quot;)
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;list-tab3246665&#34; class=&#34;col&#34;&gt;
+&lt;p class=&#34;h4&#34; style=&#34;color: #0275d8; text-align: left;&#34;&gt;Different background and text colors&lt;/p&gt;
+&lt;div&gt;&lt;a
+  href=&#34;#&#34;
+  class=&#34;href-button sps-tab-link &#34;
+  style=&#34;background-color: green; color: #caffc1;&#34;
+ &gt;
+  Go top
+&lt;/a&gt;
+ &lt;a
+  href=&#34;javascript:null;&#34;
+  class=&#34;href-button sps-tab-link nohover&#34;
+  style=&#34;background-color: #eee; color: black;&#34;
+ &gt;
+  Disabled
+&lt;/a&gt;
+ &lt;a
+  href=&#34;mailto:xxx@abc.com&#34;
+  class=&#34;href-button sps-tab-link &#34;
+  style=&#34;background-color: orange; color: blue;&#34;
+ &gt;
+  Email me
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;a-table-colorful-buttons-hreftable&#34;&gt;A table colorful buttons &lt;code&gt;hrefTable&lt;/code&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hrefTable(
+    title = &amp;quot;Change button color and text color&amp;quot;,
+    item_titles = c(&amp;quot;workflow 1&amp;quot;, &amp;quot;No links&amp;quot;),
+    item_labels = list(c(&amp;quot;tab 1&amp;quot;), c(&amp;quot;tab 3&amp;quot;, &amp;quot;tab 4&amp;quot;)),
+    item_hrefs = list(c(&amp;quot;https://www.google.com/&amp;quot;), c(&amp;quot;&amp;quot;, &amp;quot;&amp;quot;)),
+    item_bg_colors =  list(c(&amp;quot;blue&amp;quot;), c(&amp;quot;red&amp;quot;, &amp;quot;orange&amp;quot;)),
+    item_text_colors =  list(c(&amp;quot;black&amp;quot;), c(&amp;quot;yellow&amp;quot;, &amp;quot;green&amp;quot;)),
+    style = &amp;quot;display: table;&amp;quot;
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table id=&#34;list-table2767990&#34; class=&#34;table table-hover table-href table-striped&#34; style=&#34;display: table;&#34;&gt;
+&lt;caption class=&#34;text-center h2&#34; style=&#34;color: #0275d8;&#34;&gt;Change button color and text color&lt;/caption&gt;
+&lt;thead&gt;
+  &lt;tr class=&#34;info&#34;&gt;
+    &lt;th&gt;Category&lt;/th&gt;
+    &lt;th&gt;Options&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;  &lt;tr&gt;
+    &lt;td class=&#34;h4&#34; style=&#34;color: #0275d8;&#34;&gt;workflow 1&lt;/td&gt;
+    &lt;td&gt;&lt;a
+  href=&#34;https://www.google.com/&#34;
+  class=&#34;href-button  sps-tab-link&#34;
+  style=&#34;background-color: blue; color: black;&#34;
+&gt;
+  tab 1
+&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class=&#34;h4&#34; style=&#34;color: #0275d8;&#34;&gt;No links&lt;/td&gt;
+    &lt;td&gt;&lt;a
+  href=&#34;javascript:null;&#34;
+  class=&#34;href-button nohover sps-tab-link&#34;
+  style=&#34;background-color: red; color: yellow;&#34;
+&gt;
+  tab 3
+&lt;/a&gt;&lt;a
+  href=&#34;javascript:null;&#34;
+  class=&#34;href-button nohover sps-tab-link&#34;
+  style=&#34;background-color: orange; color: green;&#34;
+&gt;
+  tab 4
+&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hrefTable(
+    title = &amp;quot;Change row name colors and width&amp;quot;,
+    item_titles = c(&amp;quot;Green&amp;quot;, &amp;quot;Red&amp;quot;, &amp;quot;Orange&amp;quot;),
+    item_labels = list(c(&amp;quot;tab 1&amp;quot;), c(&amp;quot;tab 3&amp;quot;, &amp;quot;tab 4&amp;quot;), c(&amp;quot;tab 5&amp;quot;, &amp;quot;tab 6&amp;quot;, &amp;quot;tab 7&amp;quot;)),
+    item_hrefs = list(
+        c(&amp;quot;https://www.google.com/&amp;quot;),
+        c(&amp;quot;&amp;quot;, &amp;quot;&amp;quot;),
+        c(&amp;quot;https://www.google.com/&amp;quot;, &amp;quot;https://www.google.com/&amp;quot;, &amp;quot;&amp;quot;)
+    ),
+    item_title_colors = c(&amp;quot;green&amp;quot;, &amp;quot;red&amp;quot;, &amp;quot;orange&amp;quot;),
+    style = &amp;quot;display: table;&amp;quot;
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table id=&#34;list-table9943946&#34; class=&#34;table table-hover table-href table-striped&#34; style=&#34;display: table;&#34;&gt;
+&lt;caption class=&#34;text-center h2&#34; style=&#34;color: #0275d8;&#34;&gt;Change row name colors and width&lt;/caption&gt;
+&lt;thead&gt;
+  &lt;tr class=&#34;info&#34;&gt;
+    &lt;th&gt;Category&lt;/th&gt;
+    &lt;th&gt;Options&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;  &lt;tr&gt;
+    &lt;td class=&#34;h4&#34; style=&#34;color: green;&#34;&gt;Green&lt;/td&gt;
+    &lt;td&gt;&lt;a
+  href=&#34;https://www.google.com/&#34;
+  class=&#34;href-button  sps-tab-link&#34;
+  style=&#34;background-color: #337ab7; color: white;&#34;
+&gt;
+  tab 1
+&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class=&#34;h4&#34; style=&#34;color: red;&#34;&gt;Red&lt;/td&gt;
+    &lt;td&gt;&lt;a
+  href=&#34;javascript:null;&#34;
+  class=&#34;href-button nohover sps-tab-link&#34;
+  style=&#34;background-color: #337ab7; color: white;&#34;
+&gt;
+  tab 3
+&lt;/a&gt;&lt;a
+  href=&#34;javascript:null;&#34;
+  class=&#34;href-button nohover sps-tab-link&#34;
+  style=&#34;background-color: #337ab7; color: white;&#34;
+&gt;
+  tab 4
+&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class=&#34;h4&#34; style=&#34;color: orange;&#34;&gt;Orange&lt;/td&gt;
+    &lt;td&gt;&lt;a
+  href=&#34;https://www.google.com/&#34;
+  class=&#34;href-button  sps-tab-link&#34;
+  style=&#34;background-color: #337ab7; color: white;&#34;
+&gt;
+  tab 5
+&lt;/a&gt;&lt;a
+  href=&#34;https://www.google.com/&#34;
+  class=&#34;href-button  sps-tab-link&#34;
+  style=&#34;background-color: #337ab7; color: white;&#34;
+&gt;
+  tab 6
+&lt;/a&gt;&lt;a
+  href=&#34;javascript:null;&#34;
+  class=&#34;href-button nohover sps-tab-link&#34;
+  style=&#34;background-color: #337ab7; color: white;&#34;
+&gt;
+  tab 7
+&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The table caption is on top in Shiny but on bottom in Rmd. You may also want to
+add the &lt;code&gt;style = &amp;quot;display: table;&amp;quot;&lt;/code&gt; in Rmd to make the table occupy full length of
+the document in R markdown.&lt;/p&gt;
+&lt;h3 id=&#34;show-tips-with-bshoverpopover&#34;&gt;show tips with &lt;code&gt;bsHoverPopover&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Space in a document is valuable. Sometimes you do not want to explain too much in
+the main text but still want to give readers some additional information. Use
+a popover to hide your additional text can be useful.&lt;/p&gt;
+&lt;h4 id=&#34;on-a-button&#34;&gt;On a button&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;actionButton(&amp;quot;a_btn&amp;quot;, &amp;quot;A button&amp;quot;, class = &amp;quot;btn-primary&amp;quot;) %&amp;gt;% 
+   bsHoverPopover(
+                title = &amp;quot;title a&amp;quot;,
+                content = &amp;quot;popover works on a button&amp;quot;,
+                placement = &amp;quot;bottom&amp;quot;
+    )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-primary&#34; data-content=&#34;popover works on a button&#34; data-placement=&#34;bottom&#34; data-toggle=&#34;popover&#34; id=&#34;a_btn&#34; pop-toggle=&#34;hover&#34; title=&#34;title a&#34; type=&#34;button&#34;&gt;A button&lt;/button&gt;&lt;/p&gt;
+&lt;h4 id=&#34;on-a-link&#34;&gt;On a link&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;tags$a(href=&amp;quot;mailto:xxx@abc.com&amp;quot;, &amp;quot;Email&amp;quot;) %&amp;gt;% 
+   bsHoverPopover(
+                title = &amp;quot;Email me&amp;quot;,
+                content = &amp;quot;popover works on a link&amp;quot;,
+                placement = &amp;quot;bottom&amp;quot;
+    )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:xxx@abc.com&#34; title=&#34;Email me&#34; data-toggle=&#34;popover&#34; data-content=&#34;popover works on a link&#34; data-placement=&#34;bottom&#34; pop-toggle=&#34;hover&#34;&gt;Email&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;on-a-plot&#34;&gt;On a plot&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;png(&amp;quot;random_plot.png&amp;quot;)
+plot(1:10, 10:1)
+dev.off()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## png 
+##   2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;tags$img(src = &amp;quot;../random_plot.png&amp;quot;) %&amp;gt;% 
+  bsHoverPopover(
+              title = &amp;quot;My plot&amp;quot;,
+              content = &amp;quot;popover works on a plot&amp;quot;,
+              placement = &amp;quot;right&amp;quot;
+  )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;../random_plot.png&#34; title=&#34;My plot&#34; data-toggle=&#34;popover&#34; data-content=&#34;popover works on a plot&#34; data-placement=&#34;right&#34; pop-toggle=&#34;hover&#34;/&gt;
+&lt;h2 id=&#34;other-components&#34;&gt;Other components&lt;/h2&gt;
+&lt;p&gt;Other components are either performed the best in a Shiny app or requires
+a server. Please see the &lt;a href=&#34;https://lezhang.shinyapps.io/spsComps/&#34;&gt;demo&lt;/a&gt;&lt;/p&gt;
+
       </description>
     </item>
     
@@ -2018,7 +2397,305 @@ format which is saved in a &lt;code&gt;.rds&lt;/code&gt; file.&lt;/p&gt;
       <description>
         
         
-        
+        &lt;p&gt;{spsComps} has some useful functions for exception catch, expression validation,
+and more. Even though  we say they are Shiny server functions, but in fact most
+of them can be run without a Shiny server. We have designed the functions to detect
+whether there is a Shiny server, if not, they will work only in R console as well.&lt;/p&gt;
+&lt;h2 id=&#34;load-package&#34;&gt;load package&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(spsComps)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: shiny
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: spsUtil
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(magrittr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;server-components&#34;&gt;Server components&lt;/h2&gt;
+&lt;h3 id=&#34;shinycatch&#34;&gt;&lt;code&gt;shinyCatch&lt;/code&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;basic&#34;&gt;basic&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;shinyCatch&lt;/code&gt; function is useful to capture exception. What we mean exception
+can be &lt;code&gt;message&lt;/code&gt;, &lt;code&gt;warning&lt;/code&gt; or &lt;code&gt;error&lt;/code&gt;. For example&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;shinyCatch({
+  message(&amp;quot;This is a message&amp;quot;)
+  warning(&amp;quot;This is a warning&amp;quot;)
+  stop(&amp;quot;This is an error&amp;quot;)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-03-02 23:04:38 This is a message
+## 
+## [SPS-WARNING] 2021-03-02 23:04:38 This is a warning
+## [SPS-ERROR] 2021-03-02 23:04:38 This is an error
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see all 3 levels are captured inside the [SPS-XX] log on your console. If you run this
+in your Shiny app, a pop-up message with the corresponding log level message will
+be displayed in in app, like following:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../shinycatch.png&#34; alt=&#34;shinycatch&#34;&gt;&lt;/p&gt;
+&lt;p&gt;So the message on both UI and console is called &lt;strong&gt;dual-end logging&lt;/strong&gt; in SPS.&lt;/p&gt;
+&lt;h4 id=&#34;shiny-off&#34;&gt;Shiny off&lt;/h4&gt;
+&lt;p&gt;Of course, if you do not want users to see the message, you can hide it by
+&lt;code&gt;shiny = FALSE&lt;/code&gt;, but the message will be still logged on R console.
+Run the following on your own computer and watch the difference.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(shiny)
+
+ui &amp;lt;- fluidPage(
+  spsDepend(&amp;quot;toastr&amp;quot;)
+)
+
+server &amp;lt;- function(input, output, session) {
+  shinyCatch({
+    stop(&amp;quot;This is an error&amp;quot;)
+  }, shiny = FALSE)
+}
+
+shinyApp(ui, server)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;get-return&#34;&gt;get return&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;shinyCatch&lt;/code&gt; is able to return you values if your expression has any. Imagine we
+have a function &lt;code&gt;addNum&lt;/code&gt; that gives message, warning or error depeend on the input.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;addNum &amp;lt;- function(num){
+  if (num &amp;gt; 0) {message(num)}
+  else if (num == 0) {warning(&amp;quot;Num is 0&amp;quot;)}
+  else {stop(&amp;quot;less than 0&amp;quot;)}
+  return(num + num)
+}
+
+value_a &amp;lt;- shinyCatch({
+  addNum(1)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-03-02 23:04:38 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;value_a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;value_b &amp;lt;- shinyCatch({
+  addNum(0)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-WARNING] 2021-03-02 23:04:38 Num is 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;value_b
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;value_c &amp;lt;- shinyCatch({
+  addNum(-1)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-ERROR] 2021-03-02 23:04:38 less than 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;value_c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see at &lt;code&gt;message&lt;/code&gt; and &lt;code&gt;warning&lt;/code&gt; level, the expected value returned, and
+at &lt;code&gt;error&lt;/code&gt; level, the return is &lt;code&gt;NULL&lt;/code&gt;. So the following code &lt;code&gt;value_c&lt;/code&gt; still runs
+and is not blocked by the &lt;code&gt;error&lt;/code&gt; occurred in &lt;code&gt;shinyCatch&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;blocking-level&#34;&gt;Blocking level&lt;/h4&gt;
+&lt;p&gt;More often, if there is an error, we do want take the log in R console, inform the Shinyapp user
+and then stop the following code. In this case, we need to specify the &lt;code&gt;blocking_level&lt;/code&gt;. So,
+default is &lt;code&gt;&amp;quot;none&amp;quot;&lt;/code&gt;, do not block and return &lt;code&gt;NULL&lt;/code&gt; if there is an error, and you can
+choose &lt;code&gt;&amp;quot;error&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;warning&amp;quot;&lt;/code&gt; or &lt;code&gt;&amp;quot;message&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;error&lt;/strong&gt;: block downstream if the first &lt;code&gt;error&lt;/code&gt; detected in &lt;code&gt;shinyCatch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;warning&lt;/strong&gt;: block downstream if the first &lt;code&gt;error&lt;/code&gt; or &lt;code&gt;warning&lt;/code&gt; detected in &lt;code&gt;shinyCatch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;message&lt;/strong&gt;: block downstream if the first &lt;code&gt;error&lt;/code&gt;, &lt;code&gt;warning&lt;/code&gt; or &lt;code&gt;message&lt;/code&gt; detected in &lt;code&gt;shinyCatch&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can see the stringency becomes tighter: message &amp;gt; warning &amp;gt; error&lt;/p&gt;
+&lt;p&gt;&lt;b class=&#34;text-primary&#34;&gt;Blocking code will generate error, in order to have the Rmd rendered, we wrap the expression in &lt;code&gt;try&lt;/code&gt; &lt;/b&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;try({
+  shinyCatch({
+    stop(&amp;quot;error level is the most commonly used level&amp;quot;)
+  }, blocking_level = &amp;quot;error&amp;quot;)
+  print(&amp;quot;This will not be evaluated&amp;quot;)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-ERROR] 2021-03-02 23:04:38 error level is the most commonly used level
+## Error : 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;try({
+  shinyCatch({
+    message(&amp;quot;error level is the most commonly used level&amp;quot;)
+  }, blocking_level = &amp;quot;message&amp;quot;)
+  print(&amp;quot;This will not be evaluated either&amp;quot;)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-03-02 23:04:38 error level is the most commonly used level
+## 
+## Error : 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see the following &lt;code&gt;print&lt;/code&gt; in both cases are not got evaluated.&lt;/p&gt;
+&lt;h4 id=&#34;block-reative&#34;&gt;Block reative&lt;/h4&gt;
+&lt;p&gt;The most useful case for &lt;code&gt;shinyCatch&lt;/code&gt; is to use it in the &lt;a href=&#34;https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/&#34;&gt;Shiny reactive&lt;/a&gt;
+context. Most errors in shiny::reactive,  shiny::observer, shiny::observeEvent,
+or shiny::renderXXX series function will &lt;strong&gt;crash&lt;/strong&gt; the app. With &lt;code&gt;shinyCatch&lt;/code&gt;, it
+will not. It &amp;ldquo;dual-logs&amp;rdquo; the error and stop downstream code.&lt;/p&gt;
+&lt;p&gt;&lt;b class=&#34;text-primary&#34;&gt;The following example use &lt;code&gt;shiny::reactiveConsole()&lt;/code&gt; to mock a Shiny server session&lt;/b&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;shiny::reactiveConsole(TRUE)
+y &amp;lt;- observe({
+  stop(&amp;quot;an error from a function&amp;quot;)
+  print(&amp;quot;some other process&amp;quot;)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Error in &amp;lt;observer&amp;gt;: The value of x is 
+##   38: stop
+##   37: &amp;lt;observer&amp;gt; [#2]
+##   35: contextFunc
+##   34: env$runWith
+##   27: ctx$run
+##   26: run
+##    7: flushCallback
+##    6: FUN
+##    5: lapply
+##    4: ctx$executeFlushCallbacks
+##    3: .getReactiveEnvironment()$flush
+##    2: flushReact
+##    1: &amp;lt;Anonymous&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It crashes the app. However, if you use &lt;code&gt;shinyCatch&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;shiny::reactiveConsole(TRUE)
+y &amp;lt;- observe({
+  shinyCatch({
+    stop(&amp;quot;an error from a function&amp;quot;)
+  }, blocking_level = &amp;quot;error&amp;quot;)
+  print(&amp;quot;some other process&amp;quot;)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-ERROR] 2021-03-02 22:13:05 an error from a function
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It only logs the error and prevent the downstream &lt;code&gt;print&lt;/code&gt; to run. Now try following
+real Shiny apps and watch the difference:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# with shinyCatch
+library(shiny)
+server &amp;lt;- function(input, output, session) {
+  observe({
+    shinyCatch({
+      stop(&amp;quot;an error from a function&amp;quot;)
+    }, blocking_level = &amp;quot;error&amp;quot;)
+    print(&amp;quot;some other process&amp;quot;)
+  })
+}
+shinyApp(fluidPage(spsDepend(&amp;quot;toastr&amp;quot;)), server)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# without shinyCatch
+library(shiny)
+server &amp;lt;- function(input, output, session) {
+  observe({
+    stop(&amp;quot;an error from a function&amp;quot;)
+    print(&amp;quot;some other process&amp;quot;)
+  })
+}
+shinyApp(fluidPage(spsDepend(&amp;quot;toastr&amp;quot;)), server)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;spsvalidate&#34;&gt;&lt;code&gt;spsValidate&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;In data analysis, it is important we do some validations before the downstream
+process, like make a plot. It is epecially the case in Shiny apps. We cannot
+predict what the user inputs will be, like what kind of data they will use.
+Similar to &lt;code&gt;shinyCatch&lt;/code&gt;, &lt;code&gt;spsValidate&lt;/code&gt; is able to catch exceptions but more
+useful to handle validations. In addtion to &lt;code&gt;shinyCatch&lt;/code&gt; functionalities, it
+will give users a success message if the expression goes through and return &lt;code&gt;TRUE&lt;/code&gt;
+(&lt;code&gt;shinyCatch&lt;/code&gt; returns the final expression value).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;shiny::reactiveConsole(TRUE)
+x &amp;lt;- reactiveVal(10)
+
+y &amp;lt;- observe({
+  spsValidate({
+    # have multiple validations in one expression
+    if (x() == 1) stop(&amp;quot;cannot be 1&amp;quot;)
+    if (x() == 0) stop(&amp;quot;cannot be 0&amp;quot;)
+    if (x() &amp;lt; 0) stop(&amp;quot;less than 0&amp;quot;)
+  })
+  message(&amp;quot;The value of x is &amp;quot;, x())
+})
+x(0)
+x(-10)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The value of x is 10
+## [ ERROR] 2021-03-02 22:36:16 cannot be 0
+## [ ERROR] 2021-03-02 22:36:16 less than 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Try this real Shiny app:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(shiny)
+ui &amp;lt;- fluidPage(
+  spsDepend(&amp;quot;toastr&amp;quot;),
+  shiny::sliderInput(
+    &amp;quot;num&amp;quot;, &amp;quot;change number&amp;quot;, 
+    min = -1, max = 2, value = 2, step = 1
+  )
+)
+server &amp;lt;- function(input, output, session) {
+  x &amp;lt;- reactive(as.numeric(input$num))
+  
+  y &amp;lt;- observe({
+    spsValidate(vd_name = &amp;quot;check numbers&amp;quot;, verbose = TRUE, {
+      # have multiple validations in one expression
+      if (x() == 1) stop(&amp;quot;cannot be 1&amp;quot;)
+      if (x() == 0) stop(&amp;quot;cannot be 0&amp;quot;)
+      if (x() &amp;lt; 0) stop(&amp;quot;less than 0&amp;quot;)
+    })
+    message(&amp;quot;The value of x is &amp;quot;, x())
+  })
+}
+shinyApp(ui, server)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You should see the success message like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../spsvalidate.png&#34; alt=&#34;spsvalidate&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;shinycheckpkg&#34;&gt;&lt;code&gt;shinyCheckPkg&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Sometimes we want the app behave differently if users have certain packages installed.
+For example, if some packages are installed, we open up additional tabs on
+UI to allow more features. This can be done with the &lt;code&gt;shinyCheckPkg&lt;/code&gt; function.
+This function has to run inside Shiny server, an alternative version to use
+without Shiny is from the &lt;a href=&#34;../../spsutil&#34;&gt;spsUtil&lt;/a&gt; package, &lt;code&gt;spsUtil::checkNameSpace&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Use it in Shiny server, specify the packages you want to check by different sources,
+like CRAN, Bioconductor, or github.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;shinyCheckPkg(session, cran_pkg = c(&amp;quot;pkg1&amp;quot;, &amp;quot;pkg2&amp;quot;), bioc_pkg = &amp;quot;bioxxx&amp;quot;, github = &amp;quot;user1/pkg1&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It will return &lt;code&gt;TRUE&lt;/code&gt; if all packages are installed, otherwise &lt;code&gt;FALSE&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now try this real example. We check if the &lt;code&gt;ggplot99&lt;/code&gt; package is installed, if
+yes we make a plot. It also combines the &lt;code&gt;spsValidate&lt;/code&gt; function. You can have
+a better idea how these functions work.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(shiny)
+
+ui &amp;lt;- fluidPage(
+  tags$label(&#39;Check if package &amp;quot;pkg1&amp;quot;, &amp;quot;pkg2&amp;quot;, &amp;quot;bioxxx&amp;quot;,
+github package &amp;quot;user1/pkg1&amp;quot; are installed&#39;), br(),
+  actionButton(&amp;quot;check_random_pkg&amp;quot;, &amp;quot;check random_pkg&amp;quot;),
+  br(), spsHr(),
+  tags$label(&#39;We can combine `spsValidate` to block server code to prevent
+crash if some packages are not installed.&#39;), br(),
+  tags$label(&#39;If &amp;quot;shiny&amp;quot; is installed, make a plot.&#39;), br(),
+  actionButton(&amp;quot;check_shiny&amp;quot;, &amp;quot;check shiny&amp;quot;), br(),
+  tags$label(&#39;If &amp;quot;ggplot99&amp;quot; is installed, make a plot.&#39;), br(),
+  actionButton(&amp;quot;check_gg99&amp;quot;, &amp;quot;check ggplot99&amp;quot;), br(),
+  plotOutput(&amp;quot;plot_pkg&amp;quot;)
+)
+
+server &amp;lt;- function(input, output, session) {
+  observeEvent(input$check_random_pkg, {
+    shinyCheckPkg(session, cran_pkg = c(&amp;quot;pkg1&amp;quot;, &amp;quot;pkg2&amp;quot;), bioc_pkg = &amp;quot;bioxxx&amp;quot;, github = &amp;quot;user1/pkg1&amp;quot;)
+  })
+  observeEvent(input$check_shiny, {
+    spsValidate(verbose = FALSE, {
+      if(!shinyCheckPkg(session, cran_pkg = c(&amp;quot;shiny&amp;quot;))) stop(&amp;quot;Install packages&amp;quot;)
+    })
+    output$plot_pkg &amp;lt;- renderPlot(plot(1))
+  })
+  observeEvent(input$check_gg99, {
+    spsValidate({
+      if(!shinyCheckPkg(session, cran_pkg = c(&amp;quot;ggplot99&amp;quot;))) stop(&amp;quot;Install packages&amp;quot;)
+    })
+    output$plot_pkg &amp;lt;- renderPlot(plot(99))
+  })
+}
+
+shinyApp(ui, server)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You should see something like this if there is any missing package:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../shinycheckpkg.png&#34; alt=&#34;shinycheckpkg&#34;&gt;&lt;/p&gt;
+
       </description>
     </item>
     
@@ -3552,6 +4229,12 @@ function usage, example code, and example running results are shown inside.&lt;/
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;../sps/funcs/sps/reference&#34;&gt;systemPipeShiny &amp;ndash; main package&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;../sps/funcs/spscomps/reference&#34;&gt;spsComps &amp;ndash; SPS components&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;../sps/funcs/drawer/reference&#34;&gt;drawer &amp;ndash; image editing tool&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;../sps/funcs/spsutil/reference&#34;&gt;spsUtil &amp;ndash; utility functions &lt;/a&gt;&lt;/p&gt;

@@ -22,6 +22,10 @@ function usage, example code, and example running results are shown inside.
 
 - [systemPipeShiny -- main package](/sps/funcs/sps/reference)
 
+- [spsComps -- SPS components](/sps/funcs/spscomps/reference)
+
+- [drawer -- image editing tool](/sps/funcs/drawer/reference)
+
 - [spsUtil -- utility functions ](/sps/funcs/spsutil/reference)
 
 *****

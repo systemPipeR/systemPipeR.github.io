@@ -1,0 +1,174 @@
+---
+title: "UI components"
+linkTitle: "UI components"
+type: docs
+weight: 1
+---
+
+## load package
+To start to use `spsComps`, load it in your Shiny app file or Rmarkdown file 
+
+```{r}
+library(spsComps)
+library(magrittr)
+```
+
+So you can see it depends on `shiny` and `spsUtil`. When you load it, there is no 
+need to additionally load `shiny` or `spsUtil`.
+
+## UI Components 
+For most of the UI components, you can view them in the [online Shiny demo](https://lezhang.shinyapps.io/spsComps).
+Here we just select a few to demonstrate how you can use them **in a R markdown**. 
+
+### `spsGoTop`
+
+A go top button. 
+
+```{r}
+spsGoTop()
+```
+
+It will not be display inline of the Rmd, just simply call it and maybe change the 
+style as you want. By default, a "go to top" button will be created on the **bottom-right**
+**corner**. Now scroll this page, and you should see it (the rocket button).
+
+
+### `gallery`
+
+```{r}
+texts <- c("p1", "p2", "", "p4", "p5")
+hrefs <- c("https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true",
+           "https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true",
+           "",
+           "https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true",
+           "https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true")
+images <- c("https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true",
+            "https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true",
+            "https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true",
+            "https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true",
+            "https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true")
+gallery(
+  texts = texts, hrefs = hrefs, images = images,
+  enlarge = TRUE,
+  enlarge_method = "modal"
+)
+```
+
+
+You can show a gallery of plots you make in the Rmd and when people click it, 
+it will be enlarged. You can also specify a link for each image. 
+
+
+### Logos
+
+#### a single one with `hexLogo`
+
+```{r}
+hexLogo(
+    "logo", "Logo",
+    hex_img = "https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg",
+    hex_link = "https://www.google.com",
+    footer = "Footer",
+    footer_link = "https://www.google.com"
+)
+```
+
+#### a panel of logos with `hexPanel`
+```{r echo=FALSE}
+hexPanel(
+    "demo1", "" ,
+    rep("https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg", 2)
+)
+```
+
+
+### Buttons
+
+#### Some colorful buttons `hrefTab`
+
+```{r}
+hrefTab(
+    title = "Different background and text colors",
+    label_texts = c("Go top", "Disabled", "Email me"),
+    hrefs = c("#", "", "mailto:xxx@abc.com"),
+    bg_colors = c("green", "#eee", "orange"),
+    text_colors = c("#caffc1", "black", "blue")
+)
+
+```
+
+
+#### A table colorful buttons `hrefTable`
+```{r}
+hrefTable(
+    title = "Change button color and text color",
+    item_titles = c("workflow 1", "No links"),
+    item_labels = list(c("tab 1"), c("tab 3", "tab 4")),
+    item_hrefs = list(c("https://www.google.com/"), c("", "")),
+    item_bg_colors =  list(c("blue"), c("red", "orange")),
+    item_text_colors =  list(c("black"), c("yellow", "green")),
+    style = "display: table;"
+)
+hrefTable(
+    title = "Change row name colors and width",
+    item_titles = c("Green", "Red", "Orange"),
+    item_labels = list(c("tab 1"), c("tab 3", "tab 4"), c("tab 5", "tab 6", "tab 7")),
+    item_hrefs = list(
+        c("https://www.google.com/"),
+        c("", ""),
+        c("https://www.google.com/", "https://www.google.com/", "")
+    ),
+    item_title_colors = c("green", "red", "orange"),
+    style = "display: table;"
+)
+```
+
+The table caption is on top in Shiny but on bottom in Rmd. You may also want to 
+add the `style = "display: table;"` in Rmd to make the table occupy full length of 
+the document in R markdown. 
+
+
+### show tips with  `bsHoverPopover`
+
+Space in a document is valuable. Sometimes you do not want to explain too much in 
+the main text but still want to give readers some additional information. Use 
+a popover to hide your additional text can be useful. 
+
+#### On a button
+```{r}
+actionButton("a_btn", "A button", class = "btn-primary") %>% 
+   bsHoverPopover(
+                title = "title a",
+                content = "popover works on a button",
+                placement = "bottom"
+    )
+```
+
+#### On a link
+```{r}
+tags$a(href="mailto:xxx@abc.com", "Email") %>% 
+   bsHoverPopover(
+                title = "Email me",
+                content = "popover works on a link",
+                placement = "bottom"
+    )
+```
+
+
+#### On a plot
+```{r}
+png("random_plot.png")
+plot(1:10, 10:1)
+dev.off()
+tags$img(src = "../random_plot.png") %>% 
+  bsHoverPopover(
+              title = "My plot",
+              content = "popover works on a plot",
+              placement = "right"
+  )
+```
+
+## Other components
+
+Other components are either performed the best in a Shiny app or requires 
+a server. Please see the [demo](https://lezhang.shinyapps.io/spsComps/)
