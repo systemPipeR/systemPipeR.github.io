@@ -811,6 +811,26 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#functions-reference-manual">Functions reference manual</a></li>
+        <li><a href="#some-video-demos">Some video demos</a>
+          <ul>
+            <li><a href="#basic-looking-and-options">Basic looking and options</a></li>
+            <li><a href="#capture">Capture</a></li>
+            <li><a href="#add-text">Add text</a></li>
+            <li><a href="#upload-your-own-images">Upload your own images</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
               </div>
@@ -857,13 +877,48 @@ if (!doNotTrack) {
 	<h1>drawer</h1>
         
 	
-	
-
-<div class="pageinfo pageinfo-primary">
-<p>This section talks about the supporting package {<a href="https://github.com/lz100/drawer">drawer</a>}</p>
-
-</div>
-
+	<p>The {drawer} package offers an interactive image editing tool that can be added as part of the
+HTML in Shiny, R markdown or any type of HTML document. Often times, plots,
+photos are embedded in the web application/file. {drawer} can take screenshots
+of these image-like elements, or any part of the HTML document and send to an
+image editing space called &ldquo;canvas&rdquo; to allow users immediately edit the
+screenshot(s) within the same document. Users can quickly combine, compare
+different screenshots, upload their own images and maybe make a scientific figure.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>{drawer} is built with 99% javascript + HTML + CSS, there is <strong>no need to have a Shiny server</strong> or any other
+types of server in the back-end. That&rsquo;s why you can use it in any HTML document.
+<strong>All you need is a modern web browser</strong>, like Chrome or Firefox (IE will not work).</li>
+<li>Shiny and R markdown compatible.</li>
+<li>Screenshot any element in the page and edit in canvas or download it <em>png</em> or <em>jpg</em></li>
+<li>Drag and upload your own images.</li>
+</ul>
+<p>Drawer UI screenshot
+<img src="drawer_demo.png" alt="drawer"></p>
+<h2 id="installation">Installation</h2>
+<p>Read the <a href="..">developer tools</a> main page, not repeating here.</p>
+<h2 id="functions-reference-manual">Functions reference manual</h2>
+<p>Please read the <a href="../../../sps/sps_funcs">reference manuals</a> for details of every function.</p>
+<h2 id="some-video-demos">Some video demos</h2>
+<h3 id="basic-looking-and-options">Basic looking and options</h3>
+<video width="100%" height="100%" controls>
+  <source src="basic_and_options.mp4" type="video/mp4">
+</video>
+<h3 id="capture">Capture</h3>
+<p>Use the capture buttons to capture plots, images and other elements in the same
+document.</p>
+<video width="100%" height="100%" controls>
+  <source src="capture_plots.mp4" type="video/mp4">
+</video>
+<h3 id="add-text">Add text</h3>
+<video width="100%" height="100%" controls>
+  <source src="add_text.mp4" type="video/mp4">
+</video>
+<h3 id="upload-your-own-images">Upload your own images</h3>
+<p>You can upload one or multiple your own images at once.</p>
+<video width="100%" height="100%" controls>
+  <source src="upload_img.mp4" type="video/mp4">
+</video>
 
         <div class="section-index">
     

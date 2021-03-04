@@ -59,13 +59,48 @@ the &lt;a href=&#34;../../sps/sps_funcs&#34;&gt;reference manuals&lt;/a&gt; for 
       <description>
         
         
-        
-
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;This section talks about the supporting package {&lt;a href=&#34;https://github.com/lz100/drawer&#34;&gt;drawer&lt;/a&gt;}&lt;/p&gt;
-
-&lt;/div&gt;
-
+        &lt;p&gt;The {drawer} package offers an interactive image editing tool that can be added as part of the
+HTML in Shiny, R markdown or any type of HTML document. Often times, plots,
+photos are embedded in the web application/file. {drawer} can take screenshots
+of these image-like elements, or any part of the HTML document and send to an
+image editing space called &amp;ldquo;canvas&amp;rdquo; to allow users immediately edit the
+screenshot(s) within the same document. Users can quickly combine, compare
+different screenshots, upload their own images and maybe make a scientific figure.&lt;/p&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;{drawer} is built with 99% javascript + HTML + CSS, there is &lt;strong&gt;no need to have a Shiny server&lt;/strong&gt; or any other
+types of server in the back-end. That&amp;rsquo;s why you can use it in any HTML document.
+&lt;strong&gt;All you need is a modern web browser&lt;/strong&gt;, like Chrome or Firefox (IE will not work).&lt;/li&gt;
+&lt;li&gt;Shiny and R markdown compatible.&lt;/li&gt;
+&lt;li&gt;Screenshot any element in the page and edit in canvas or download it &lt;em&gt;png&lt;/em&gt; or &lt;em&gt;jpg&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Drag and upload your own images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Drawer UI screenshot
+&lt;img src=&#34;drawer_demo.png&#34; alt=&#34;drawer&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Read the &lt;a href=&#34;..&#34;&gt;developer tools&lt;/a&gt; main page, not repeating here.&lt;/p&gt;
+&lt;h2 id=&#34;functions-reference-manual&#34;&gt;Functions reference manual&lt;/h2&gt;
+&lt;p&gt;Please read the &lt;a href=&#34;../../sps/sps_funcs&#34;&gt;reference manuals&lt;/a&gt; for details of every function.&lt;/p&gt;
+&lt;h2 id=&#34;some-video-demos&#34;&gt;Some video demos&lt;/h2&gt;
+&lt;h3 id=&#34;basic-looking-and-options&#34;&gt;Basic looking and options&lt;/h3&gt;
+&lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
+  &lt;source src=&#34;basic_and_options.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;h3 id=&#34;capture&#34;&gt;Capture&lt;/h3&gt;
+&lt;p&gt;Use the capture buttons to capture plots, images and other elements in the same
+document.&lt;/p&gt;
+&lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
+  &lt;source src=&#34;capture_plots.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;h3 id=&#34;add-text&#34;&gt;Add text&lt;/h3&gt;
+&lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
+  &lt;source src=&#34;add_text.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;h3 id=&#34;upload-your-own-images&#34;&gt;Upload your own images&lt;/h3&gt;
+&lt;p&gt;You can upload one or multiple your own images at once.&lt;/p&gt;
+&lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
+  &lt;source src=&#34;upload_img.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
 
       </description>
     </item>
@@ -84,11 +119,293 @@ the &lt;a href=&#34;../../sps/sps_funcs&#34;&gt;reference manuals&lt;/a&gt; for 
 pretty logging, package namespace checking, URL checking, and more.&lt;/p&gt;
 &lt;p&gt;Since SPS 1.1, these functions are separated into a supporting package called
 &lt;strong&gt;spsUtil&lt;/strong&gt; (systemPipeShiny Utility). You can install it from CRAN.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;spsUtil&amp;quot;)
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Read the &lt;a href=&#34;..&#34;&gt;developer tools&lt;/a&gt; main page, not repeating here.&lt;/p&gt;
+&lt;h2 id=&#34;functions-reference-manual&#34;&gt;Functions reference manual&lt;/h2&gt;
+&lt;p&gt;In documents, we only highlight some important functions. Please read
+the &lt;a href=&#34;../../sps/sps_funcs&#34;&gt;reference manuals&lt;/a&gt; for details of every function.&lt;/p&gt;
+&lt;h2 id=&#34;function-highlights&#34;&gt;Function highlights&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(spsUtil)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Develop version:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if (!requireNamespace(&amp;quot;spsUtil&amp;quot;, quietly=TRUE))
-    remotes::install_github(&amp;quot;lz100/spsComps&amp;quot;)
+&lt;h3 id=&#34;logging-with-msg&#34;&gt;logging with &lt;code&gt;msg&lt;/code&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;basic&#34;&gt;basic&lt;/h4&gt;
+&lt;p&gt;Often times in an R function, we want to use some text to inform users the
+status and message. We can use functions like &lt;code&gt;message&lt;/code&gt;, &lt;code&gt;warning&lt;/code&gt;, &lt;code&gt;stop&lt;/code&gt; to generate different
+levels of information.&lt;/p&gt;
+&lt;p&gt;{spsUtil} provides some more informative and prettier ways to generate these kind of messages.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;my message&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [INFO] 2021-03-03 18:20:15 my message
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see it starts with a &lt;code&gt;level&lt;/code&gt; information, then a time stamp, and follows the
+actual message. By default, it uses the &lt;code&gt;INFO&lt;/code&gt; level, and you can change to whatever
+level you want. However, there are 3 keywords that have special meaning.&lt;/p&gt;
+&lt;h4 id=&#34;levels&#34;&gt;Levels&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;INFO&lt;/strong&gt;: equals &lt;code&gt;message&lt;/code&gt; method in native R&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WARNING&lt;/strong&gt;: generates warnings the same as &lt;code&gt;warning&lt;/code&gt; function&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ERROR&lt;/strong&gt;: generates error the same as &lt;code&gt;stop&lt;/code&gt; function and will prevent downstream
+code get evaluated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the level is other than these 3, there is no special meaning in R, just &lt;code&gt;cat&lt;/code&gt;
+the message out.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am info&amp;quot;, level = &amp;quot;INFO&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [INFO] 2021-03-03 18:20:15 I am info
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am warning&amp;quot;, level = &amp;quot;warning&amp;quot;) # not case sensitive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: [WARNING] 2021-03-03 18:20:15 I am warning
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am error&amp;quot;, level = &amp;quot;ERROR&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error: 
+[ERROR] 2021-03-03 18:20:15 I am error
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am random level&amp;quot;, level = &amp;quot;MY LEVEL&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [MY LEVEL] 2021-03-03 18:20:15 I am random level
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;prefix&#34;&gt;Prefix&lt;/h4&gt;
+&lt;p&gt;For the 3 key levels, you can specify the prefix in front of the level text to
+over write the default level text &lt;code&gt;INFO&lt;/code&gt;, &lt;code&gt;WARNING&lt;/code&gt;, or &lt;code&gt;ERROR&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am info&amp;quot;, level = &amp;quot;INFO&amp;quot;, info_text = &amp;quot;NEW-INFO&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [NEW-INFO] 2021-03-03 18:20:15 I am info
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am warning&amp;quot;, level = &amp;quot;warning&amp;quot;, warning_text = &amp;quot;MY-WARNING&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: [MY-WARNING] 2021-03-03 18:20:15 I am warning
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am error&amp;quot;, level = &amp;quot;ERROR&amp;quot;, error_text = &amp;quot;STOP&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error: 
+[STOP] 2021-03-03 18:20:15 I am error
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;colors&#34;&gt;Colors&lt;/h4&gt;
+&lt;p&gt;Colors are automatically enabled if it is supported. If you try all code above in
+your terminal or Rstudio, they all have colors. In Rmd, to enable the color,
+you need to add the following code chunk. You also need to install the &lt;code&gt;fansi&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```{r echo=FALSE, results=&#39;asis&#39;} 
+options(crayon.enabled = TRUE)
+old_hooks &amp;lt;- fansi::set_knit_hooks(knitr::knit_hooks, which = c(&amp;quot;output&amp;quot;, &amp;quot;message&amp;quot;, &amp;quot;error&amp;quot;, &amp;quot;warning&amp;quot;))
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;STYLE type=&#39;text/css&#39; scoped&gt;
+PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
+&lt;/STYLE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am info&amp;quot;, level = &amp;quot;INFO&amp;quot;, info_text = &amp;quot;NEW-INFO&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;[NEW-INFO] 2021-03-03 18:20:15 I am info&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;p&gt;The 3 key levels has default colors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;INFO&lt;/strong&gt;: &lt;span style=&#34;color:blue&#34;&gt;blue&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WARNING&lt;/strong&gt;: &lt;span style=&#34;color:orange&#34;&gt;orange&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ERROR&lt;/strong&gt;: &lt;span style=&#34;color:red&#34;&gt;red&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can specify colors for your own levels&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am warning&amp;quot;, level = &amp;quot;warning&amp;quot;) ## not super orange in Rmd translation -_-=
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-03-03 18:20:15 I am warning&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am error&amp;quot;, level = &amp;quot;error&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-error&#34;&gt;&lt;CODE&gt;## Error: 
+&lt;span style=&#39;color: #BB0000;font-weight: bold;&#39;&gt;[ERROR] 2021-03-03 18:20:15 I am error&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;oh yeah&amp;quot;, level = &amp;quot;SUCCESS&amp;quot;, .other_color = &amp;quot;green&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;[SUCCESS] 2021-03-03 18:20:15 oh yeah&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;oh no&amp;quot;, level = &amp;quot;FAIL&amp;quot;, .other_color = &amp;quot;purple&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #BB00BB;font-weight: bold;&#39;&gt;[FAIL] 2021-03-03 18:20:15 oh no&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;h4 id=&#34;wrapper&#34;&gt;Wrapper&lt;/h4&gt;
+&lt;p&gt;You can use this logging function in your own projects by wrapping it inside a
+upper level function, like what we do for &lt;code&gt;spsinfo&lt;/code&gt;, &lt;code&gt;spswarn&lt;/code&gt;, &lt;code&gt;spserror&lt;/code&gt;. They
+have &lt;code&gt;SPS-&lt;/code&gt; prefix added, and have some SPS global settings appended.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(&#39;use_crayon&#39;, TRUE)
+spsinfo(&amp;quot;info&amp;quot;, verbose = TRUE) ## default `verbose` mute the message
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;[SPS-INFO] 2021-03-03 18:20:15 info&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spswarn(&amp;quot;warning&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[SPS-WARNING] 2021-03-03 18:20:15 warning&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spserror(&amp;quot;stop&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-error&#34;&gt;&lt;CODE&gt;## Error: 
+&lt;span style=&#39;color: #BB0000;font-weight: bold;&#39;&gt;[SPS-ERROR] 2021-03-03 18:20:15 stop&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;p&gt;To create a simple one for project is very easy. Assume your project is named &amp;ldquo;My Project&amp;rdquo;.
+You can create logging as:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mpInfo &amp;lt;- function(text){
+  spsUtil::msg(text, info_text = &amp;quot;MP-INFO&amp;quot;)
+}
+mpWarn &amp;lt;- function(text){
+  spsUtil::msg(text, level = &amp;quot;warning&amp;quot;, warning_text  = &amp;quot;MP-WARNING&amp;quot;)
+}
+mpErr &amp;lt;- function(text){
+  spsUtil::msg(text, level = &amp;quot;error&amp;quot;, error_text = &amp;quot;MP-ERROR&amp;quot;)
+}
+mpInfo(&amp;quot;info&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;[MP-INFO] 2021-03-03 18:20:15 info&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mpWarn(&amp;quot;warning&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[MP-WARNING] 2021-03-03 18:20:15 warning&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mpErr(&amp;quot;error&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-error&#34;&gt;&lt;CODE&gt;## Error: 
+&lt;span style=&#39;color: #BB0000;font-weight: bold;&#39;&gt;[MP-ERROR] 2021-03-03 18:20:15 error&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;h2 id=&#34;mute-message-with-quiet&#34;&gt;mute message with &lt;code&gt;quiet&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;In R, you can easily mute message and warnings with &lt;code&gt;suppressMessages()&lt;/code&gt;, and
+&lt;code&gt;suppressWarnings()&lt;/code&gt;, but not so easy with &lt;code&gt;print&lt;/code&gt; or &lt;code&gt;cat&lt;/code&gt; methods. &lt;code&gt;spsUtil::quiet&lt;/code&gt;
+enables you to mute all these methods or choose what to mute.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;{
+# muted
+quiet(warning(123))
+quiet(message(123))
+quiet(print(123))
+quiet(cat(123))
+# not muted
+quiet(warning(123), warning = FALSE)
+quiet(message(123), message = FALSE)
+quiet(print(123), print_cat = FALSE)
+quiet(cat(123), print_cat = FALSE)
+}
+## Warning in force(x): 123
+## 123
+## [1] 123
+## 123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;check-empty-values-with-emptyisfalse&#34;&gt;check &amp;ldquo;empty&amp;rdquo; values with &lt;code&gt;emptyIsFalse&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;In R, values like &lt;code&gt;NA&lt;/code&gt;, &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, length(0) is not very meaningful in
+condition judgment and will give you errors. Yet, R does not have a native
+method to handle these &amp;ldquo;empty&amp;rdquo; values in &lt;code&gt;if&lt;/code&gt; like other languages. They are
+meaningful in other ways, but in conditions, we may want to turn them to &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if(&amp;quot;&amp;quot;) TRUE else FALSE
+## Error in if (&amp;quot;&amp;quot;) TRUE else FALSE: argument is not interpretable as logical
+if(NULL) TRUE else FALSE
+## Error in if (NULL) TRUE else FALSE: argument is of length zero
+if(character(0)) TRUE else FALSE
+## Error in if (character(0)) TRUE else FALSE: argument is of length zero
+if(NA) TRUE else FALSE
+## Error in if (NA) TRUE else FALSE: missing value where TRUE/FALSE needed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see they all give errors. In other languages (javascript in this example),
+these values are often treated as &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;if (NaN) true; else false
+//&amp;gt; false
+if (undefined) true; else false
+//&amp;gt; false
+if (&amp;quot;&amp;quot;) true; else false
+//&amp;gt; false
+if (null) true; else false
+//&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+if (NaN) true; else false
+//&gt; false
+if (undefined) true; else false
+//&gt; false
+if (&#34;&#34;) true; else false
+//&gt; false
+if (null) true; else false
+//&gt; false
+&lt;/script&gt;
+&lt;p&gt;This is how &lt;code&gt;emptyIsFalse&lt;/code&gt;
+work. If the input is one of these values, return &lt;code&gt;FALSE&lt;/code&gt;, else &lt;code&gt;TRUE&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if(emptyIsFalse(&amp;quot;&amp;quot;)) TRUE else FALSE
+## [1] FALSE
+if(emptyIsFalse(NULL)) TRUE else FALSE
+## [1] FALSE
+if(emptyIsFalse(character(0))) TRUE else FALSE
+## [1] FALSE
+if(emptyIsFalse(NA)) TRUE else FALSE
+## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;check-missing-packages-checknamespace&#34;&gt;check missing packages &lt;code&gt;checkNameSpace&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;In our functions, sometimes we want to have the users to install certain packages
+to enable more functionalities, like the &lt;code&gt;DESeq2::lfcShrink&lt;/code&gt; function. Or like
+in a Rmd source code, before other people can rerender the document, they must
+install certain packages. &lt;code&gt;checkNameSpace&lt;/code&gt; checks all required packages and returns
+the missing names.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;checkNameSpace(&amp;quot;random_pkg&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-03-03 18:20:16 These packages are missing from
+## CRAN: random_pkg&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;random_pkg&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can add it to your function to or on the top of your Rmd document to inform
+your users the missing packages and where to install.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pkgs &amp;lt;- list(
+  CRAN = c(&amp;quot;pkg1&amp;quot;, &amp;quot;pkg2&amp;quot;),
+  Bioconductor = c(&amp;quot;bio_pkg1&amp;quot;, &amp;quot;bio_pkg2&amp;quot;)
+)
+
+missing_pkg &amp;lt;- checkNameSpace(pkgs[[1]], from =  names(pkgs)[1])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-03-03 18:20:16 These packages are missing from
+## CRAN: pkg1,pkg2&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;missing_pkg &amp;lt;- c(missing_pkg, checkNameSpace(pkgs[[2]], from =  names(pkgs)[2]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-03-03 18:20:16 These packages are missing from
+## Bioconductor: bio_pkg1,bio_pkg2&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if(emptyIsFalse(missing_pkg)) stop(&amp;quot;Install packages&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): Install packages
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or write your custom warning message:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;{
+missing_pkg &amp;lt;- mapply(function(pkg, from) {
+  checkNameSpace(pkg, quietly = TRUE, from)
+}, pkg = pkgs, from = names(pkgs), SIMPLIFY = FALSE)
+
+
+cat(
+  &amp;quot;Use `install.packages(c(&#39;&amp;quot;, 
+  paste0(missing_pkg[[&#39;CRAN&#39;]], collapse = &amp;quot;&#39;,&#39;&amp;quot;), 
+  &amp;quot;&#39;))` to install CRAN packages\n&amp;quot;, 
+  sep = &amp;quot;&amp;quot;
+)
+cat(
+  &amp;quot;Use `BiocManager::install(c(&#39;&amp;quot;, 
+  paste0(missing_pkg[[&#39;Bioconductor&#39;]], collapse = &amp;quot;&#39;,&#39;&amp;quot;), 
+  &amp;quot;&#39;))` to install Bioconductor packages\n&amp;quot;, 
+  sep = &amp;quot;&amp;quot;
+)
+if(emptyIsFalse(unlist(missing_pkg))) stop(&amp;quot;Install packages&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Use `install.packages(c(&#39;pkg1&#39;,&#39;pkg2&#39;))` to install CRAN packages
+## Use `BiocManager::install(c(&#39;bio_pkg1&#39;,&#39;bio_pkg2&#39;))` to install Bioconductor packages
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): Install packages
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;check-a-url-is-reachable-with-checkurl&#34;&gt;check a URL is reachable with &lt;code&gt;checkUrl&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Useful if you need make some big HTTP requests.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;checkUrl(&amp;quot;https://google.com&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;checkUrl(&amp;quot;https://randomwebsite123.com&amp;quot;, timeout = 1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-03-03 18:20:17 Bad url https://
+## randomwebsite123.com&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-03-03 18:20:17 Failed to connect to
+&lt;h2 id=&#34;randomwebsite123com-port-443-connection-timed-outspanspan&#34;&gt;randomwebsite123.com port 443: Connection timed out&lt;/span&gt;&lt;span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
 &lt;/code&gt;&lt;/pre&gt;
 
       </description>
