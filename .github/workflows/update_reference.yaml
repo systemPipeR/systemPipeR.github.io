@@ -15,6 +15,8 @@ jobs:
       - name: Update reference
         run: |
           bash .github/bash/update_reference.sh https://github.com/lz100/spsUtil.git static/sps/funcs/spsutil
+          bash .github/bash/update_reference.sh https://github.com/lz100/spsComps.git static/sps/funcs/spscomps
+          bash .github/bash/update_reference.sh https://github.com/lz100/drawer.git static/sps/funcs/drawer
       - name: Update github
         id: update_gh
         run: |
