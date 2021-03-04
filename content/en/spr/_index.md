@@ -49,7 +49,7 @@ _systemPipeR_ is freely available for all common operating systems from
 repository is [here](https://github.com/tgirke/systemPipeR).
 
 <a href="https://github.com/tgirke/systemPipeR">
-<img align="rigth" title="systemPipeR" src="https://raw.githubusercontent.com/tgirke/systemPipeR/gh-pages/images/systemPipeR.png" style="width:200px;"><img/>
+<img align="rigth" title="systemPipeR" src="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeR.png" style="width:200px;"><img/>
 </a>
 
 ## Acknowledgement
