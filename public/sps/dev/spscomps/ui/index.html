@@ -29,7 +29,7 @@ UI Components For most of the UI components, you can view them in the online Shi
 library(spsComps)  ## Loading required package: shiny ## Loading required package: spsUtil  library(magrittr)  So you can see it depends on shiny and spsUtil. When you load it, there is no need to additionally load shiny or spsUtil.
 UI Components For most of the UI components, you can view them in the online Shiny demo.">
 <meta itemprop="dateModified" content="2021-03-02T23:05:00-08:00" />
-<meta itemprop="wordCount" content="615">
+<meta itemprop="wordCount" content="622">
 
 
 
@@ -996,46 +996,46 @@ gallery(
   enlarge_method = &quot;modal&quot;
 )
 </code></pre>
-<div id="gallery8536851" class="col sps-gallery" style="">
+<div id="gallery7387905" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery8536851-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery7387905-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-1")
+    onclick=galEnlarge("#gallery7387905-1")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true"><p class="text-center h4">p1</p></a>
-</div> <div  id=gallery8536851-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-2")
+    onclick=galEnlarge("#gallery7387905-2")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true"><p class="text-center h4">p2</p></a>
-</div> <div  id=gallery8536851-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery gallery-nohover"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-3")
+    onclick=galEnlarge("#gallery7387905-3")
   >
   <a ><p class="text-center h4">&nbsp;</p></a>
-</div> <div  id=gallery8536851-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-4")
+    onclick=galEnlarge("#gallery7387905-4")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true"><p class="text-center h4">p4</p></a>
-</div> <div  id=gallery8536851-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-5")
+    onclick=galEnlarge("#gallery7387905-5")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true"><p class="text-center h4">p5</p></a>
 </div></div>
@@ -1046,7 +1046,7 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery8536851")</script>
+<script>fixGalHeight("gallery7387905")</script>
 </div>
 <p>You can show a gallery of plots you make in the Rmd and when people click it,
 it will be enlarged. You can also specify a link for each image.</p>
@@ -1073,6 +1073,11 @@ it will be enlarged. You can also specify a link for each image.</p>
   </svg>
 </div>
 <h4 id="a-panel-of-logos-with-hexpanel">a panel of logos with <code>hexPanel</code></h4>
+<pre><code class="language-r">hexPanel(
+    &quot;demo1&quot;, &quot;&quot; ,
+    rep(&quot;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&quot;, 2)
+)
+</code></pre>
 <div class="row hex-panel">
 <h5 class="text-primary"></h5>
 <div class="hex-item"><div id="demo11" class="hex-container">
@@ -1106,7 +1111,7 @@ it will be enlarged. You can also specify a link for each image.</p>
     text_colors = c(&quot;#caffc1&quot;, &quot;black&quot;, &quot;blue&quot;)
 )
 </code></pre>
-<div id="list-tab3246665" class="col">
+<div id="list-tab5903669" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
   href="#"
@@ -1142,7 +1147,7 @@ it will be enlarged. You can also specify a link for each image.</p>
     style = &quot;display: table;&quot;
 )
 </code></pre>
-<table id="list-table2767990" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table6027168" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -1191,7 +1196,7 @@ it will be enlarged. You can also specify a link for each image.</p>
     style = &quot;display: table;&quot;
 )
 </code></pre>
-<table id="list-table9943946" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table9565178" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">

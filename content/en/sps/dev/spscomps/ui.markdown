@@ -106,46 +106,46 @@ gallery(
 )
 ```
 
-<div id="gallery8536851" class="col sps-gallery" style="">
+<div id="gallery7387905" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery8536851-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery7387905-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-1")
+    onclick=galEnlarge("#gallery7387905-1")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true"><p class="text-center h4">p1</p></a>
-</div> <div  id=gallery8536851-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-2")
+    onclick=galEnlarge("#gallery7387905-2")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true"><p class="text-center h4">p2</p></a>
-</div> <div  id=gallery8536851-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery gallery-nohover"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-3")
+    onclick=galEnlarge("#gallery7387905-3")
   >
   <a ><p class="text-center h4">&nbsp;</p></a>
-</div> <div  id=gallery8536851-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-4")
+    onclick=galEnlarge("#gallery7387905-4")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true"><p class="text-center h4">p4</p></a>
-</div> <div  id=gallery8536851-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7387905-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery "
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8536851-5")
+    onclick=galEnlarge("#gallery7387905-5")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true"><p class="text-center h4">p5</p></a>
 </div></div>
@@ -156,7 +156,7 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery8536851")</script>
+<script>fixGalHeight("gallery7387905")</script>
 </div>
 
 You can show a gallery of plots you make in the Rmd and when people click it,
@@ -190,6 +190,13 @@ hexLogo(
 </div>
 
 #### a panel of logos with `hexPanel`
+
+``` r
+hexPanel(
+    "demo1", "" ,
+    rep("https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg", 2)
+)
+```
 
 <div class="row hex-panel">
 <h5 class="text-primary"></h5>
@@ -233,7 +240,7 @@ hrefTab(
 )
 ```
 
-<div id="list-tab3246665" class="col">
+<div id="list-tab5903669" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
   href="#"
@@ -273,7 +280,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table2767990" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table6027168" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -325,7 +332,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table9943946" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table9565178" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">
