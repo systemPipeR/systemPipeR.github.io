@@ -1,75 +1,938 @@
-<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../favicons/android-192x192.png sizes=192x192><title>Manage tabs | sysPipe</title><meta property="og:title" content="Manage tabs"><meta property="og:description" content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.81.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
+
+<title>Manage tabs | sysPipe</title><meta property="og:title" content="Manage tabs" />
+<meta property="og:description" content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
 From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
-To understand how SPS tabs work, we will demonstrate with a SPS project."><meta property="og:type" content="article"><meta property="og:url" content="/sps/adv_features/tabs/"><meta property="article:modified_time" content="2021-03-04T13:17:32-08:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="Manage tabs"><meta itemprop=description content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
+To understand how SPS tabs work, we will demonstrate with a SPS project." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/sps/adv_features/tabs/" /><meta property="article:section" content="sps" />
+
+<meta property="article:modified_time" content="2021-03-05T12:17:53-08:00" /><meta property="og:site_name" content="sysPipe" />
+
+<meta itemprop="name" content="Manage tabs">
+<meta itemprop="description" content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
 From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
-To understand how SPS tabs work, we will demonstrate with a SPS project."><meta itemprop=dateModified content="2021-03-04T13:17:32-08:00"><meta itemprop=wordCount content="1270"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Manage tabs"><meta name=twitter:description content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
+To understand how SPS tabs work, we will demonstrate with a SPS project.">
+<meta itemprop="dateModified" content="2021-03-05T12:17:53-08:00" />
+<meta itemprop="wordCount" content="1270">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manage tabs"/>
+<meta name="twitter:description" content="SPS tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
 From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
-To understand how SPS tabs work, we will demonstrate with a SPS project."><link rel=preload href=../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css as=style><link href=../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><link rel=stylesheet href=../../../css/prism.css><script src=../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../css/site.css><script src=../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../><span class=font-weight-bold>sysPipe</span></a>
-<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
-<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
-<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
-<a class=dropdown-item href=../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
-<a class=dropdown-item href=../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
-<a class=dropdown-item href=../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
-<a class=dropdown-item href=../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../spr/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../spr/systempiper/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
-<a class=dropdown-item href=../../../spr/systempiper/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
-<a class=dropdown-item href=../../../spr/systempiper/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
-<a class=dropdown-item href=../../../spr/systempiper/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
-<a class=dropdown-item href=../../../spr/systempiper/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
-<a class=dropdown-item href=../../../spr/systempiper/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
-<a class=dropdown-item href=../../../spr/systempiper/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
-<a class=dropdown-item href=../../../spr/systempiper/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
-<a class=dropdown-item href=../../../spr/systempiperdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
-<a class=dropdown-item href=../../../spr/systempiperdata/vignette/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
-<a class=dropdown-item href=../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
-<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a>
-<a class=dropdown-item href=https://systempipe.org/systemPipeRNAseq/articles/systemPipeRNAseq.html style=padding-left:1rem;font-weight:calc(3/3*500)>RNA-Seq</a>
-<a class=dropdown-item href=https://systempipe.org/systemPipeChIPseq/articles/systemPipeChIPseq.html style=padding-left:1rem;font-weight:calc(3/3*500)>ChIP-Seq</a>
-<a class=dropdown-item href=https://systempipe.org/systemPipeRIBOseq/articles/systemPipeRIBOseq.html style=padding-left:1rem;font-weight:calc(3/3*500)>RIBO-Seq</a>
-<a class=dropdown-item href=https://systempipe.org/systemPipeVARseq/articles/systemPipeVARseq.html style=padding-left:1rem;font-weight:calc(3/3*500)>VAR-Seq</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../training/ id=navbarDropdown role=button>Training</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../training/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
-<a class=dropdown-item href=../../../training/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off>
-<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a></li><ul><li class="collapse show" id=sps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsintro href=../../../sps/intro/>Introduction</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsinstall href=../../../sps/install/>Installation</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsquick_start href=../../../sps/quick_start/>Quick start</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/modules/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a></li><ul><li class=collapse id=spsmodules><a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesworkflow href=../../../sps/modules/workflow/>Workflow</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesrnaseq href=../../../sps/modules/rnaseq/>RNAseq</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesggplot href=../../../sps/modules/ggplot/>Quick ggplot</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spscanvas href=../../../sps/canvas/>Canvas</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spssps_funcs href=../../../sps/sps_funcs/>SPS Functions</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/adv_features/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Advanced features</a></li><ul><li class="collapse show" id=spsadv_features><a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresconfig href=../../../sps/adv_features/config/>Configuration</a>
-<a class="td-sidebar-link td-sidebar-link__page active" id=m-spsadv_featurestabs href=../../../sps/adv_features/tabs/>Manage tabs</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdeploy href=../../../sps/deploy/>Deploy</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/dev/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Developer tools</a></li><ul><li class=collapse id=spsdev><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/dev/spscomps/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">spsComps</a></li><ul><li class=collapse id=spsdevspscomps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsui href=../../../sps/dev/spscomps/ui/>UI components</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsserver href=../../../sps/dev/spscomps/server/>Server functions</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/dev/drawer/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a></li><ul><li class=collapse id=spsdevdrawer><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawershiny href=../../../sps/dev/drawer/shiny/>drawer in Shiny</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawerrmd href=../../../sps/dev/drawer/rmd/>drawer in Rmarkdown</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspsutil href=../../../sps/dev/spsutil/>spsUtil</a></li></ul></ul></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/adv_features/tabs.markdown target=_blank><i class="fa fa-code fa-fw"></i>View source code</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/adv_features/tabs.markdown target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
-<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/adv_features/tabs.markdown?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
-<a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=Manage%20tabs" target=_blank><i class="fab fa-github fa-fw"></i>Create documentation issue</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><ul><li><a href=#sps-tabs>SPS tabs</a></li><li><a href=#tab-registration>Tab registration</a></li><li><a href=#add-a-new-custom-tab>Add a new custom tab</a><ul><li><a href=#simple-template>Simple template</a><ul><li><a href=#ui>UI</a></li><li><a href=#server>Server</a></li></ul></li><li><a href=#full-template>Full template</a></li></ul></li></ul></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../sps/>systemPipeShiny</a></li><li class=breadcrumb-item><a href=../../../sps/adv_features/>Advanced features</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../sps/adv_features/tabs/>Manage tabs</a></li></ol></nav><div class=td-content><h1>Manage tabs</h1><hr><h2 id=sps-tabs>SPS tabs</h2><p>In SPS, <strong>tab</strong> is the basic component of a functionality unit. For example, all the <a href=../../../sps/modules/>Modules</a>
-in SPS are complex tabs with many small sub-tabs, the <a href=../../../sps/canvas/>Canvas</a> is another independent tab providing
-image editing features and an <em>user custom tab</em> is also a SPS tab.</p><p>From the developer&rsquo;s view, all SPS tabs are <a href=https://shiny.rstudio.com/articles/modules.html>Shiny Modules</a>.</p><p>To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-<code>/tmp</code> folder but one should use a regular location instead of the temp in a real
-case.</p><pre><code class=language-r>suppressPackageStartupMessages(library(systemPipeShiny))
+To understand how SPS tabs work, we will demonstrate with a SPS project."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../../scss/main.min.0756a6fa7d79dc1412e447fd9be7507fe1ce18319db02fdbe4dcffad59d2bed7.css" as="style">
+<link href="../../../scss/main.min.0756a6fa7d79dc1412e447fd9be7507fe1ce18319db02fdbe4dcffad59d2bed7.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../../css/prism.css"/>
+
+
+<script src="../../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../../css/site.css"/>
+<script src="../../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page line-numbers">
+    <header>
+     
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="../../../">
+		<span class="font-weight-bold">sysPipe</span>
+	</a>
+	<row class="header-switch">
+	  	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
+        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
+      </div>
+    	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
+        <label class="custom-control-label" for="tocSwitch">toc</label>
+      </div>
+	</row>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/overview/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Overview
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/team/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Our Team
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/publications/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Publications
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/acknowledgement/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Acknowledgement
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/contact/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Contact
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr/" id="navbarDropdown" role="button">
+          	systemPipeR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeR Package
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/introduction/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/gettingstarted/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Getting Started
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/spr_run/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 How to run a Workflow
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/steps/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow steps overview
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/templates/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow Templates
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/sprinstall/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR detailed installation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiperdata/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRdata
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiperdata/vignette/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Vignette
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Links
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata GitHub
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
+          	Shiny
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sps/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 SPS Documentation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Github
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
+          	Workflows
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr_wf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Collection
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeRNAseq/articles/systemPipeRNAseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 RNA-Seq
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeChIPseq/articles/systemPipeChIPseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 ChIP-Seq
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeRIBOseq/articles/systemPipeRIBOseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 RIBO-Seq
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://systempipe.org/systemPipeVARseq/articles/systemPipeVARseq.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 VAR-Seq
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
+          	Training
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/presentations/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/videos/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Videos Tutorials
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
+          	News
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../news/release_3_12/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor 3.12
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="sps">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../../sps/intro/">Introduction</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../../sps/install/">Installation</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../../sps/quick_start/">Quick start</a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsmodules">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../../sps/modules/workflow/">Workflow</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../../sps/modules/rnaseq/">RNAseq</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../../sps/modules/ggplot/">Quick ggplot</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../../sps/canvas/">Canvas</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../../sps/sps_funcs/">SPS Functions</a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/adv_features/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Advanced features</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="spsadv_features">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../../sps/adv_features/config/">Configuration</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsadv_featurestabs" href="../../../sps/adv_features/tabs/">Manage tabs</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../../sps/deploy/">Deploy</a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/dev/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Developer tools</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsdev">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/dev/spscomps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">spsComps</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsdevspscomps">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsui" href="../../../sps/dev/spscomps/ui/">UI components</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsserver" href="../../../sps/dev/spscomps/server/">Server functions</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sps/dev/drawer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsdevdrawer">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawershiny" href="../../../sps/dev/drawer/shiny/">drawer in Shiny</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawerrmd" href="../../../sps/dev/drawer/rmd/">drawer in Rmarkdown</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspsutil" href="../../../sps/dev/spsutil/">spsUtil</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          
+          
+
+          
+
+          
+          
+              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+                
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/adv_features/tabs.markdown" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/adv_features/tabs.markdown" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/adv_features/tabs.markdown?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=Manage%20tabs" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    
+      
+      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sps-tabs">SPS tabs</a></li>
+        <li><a href="#tab-registration">Tab registration</a></li>
+        <li><a href="#add-a-new-custom-tab">Add a new custom tab</a>
+          <ul>
+            <li><a href="#simple-template">Simple template</a>
+              <ul>
+                <li><a href="#ui">UI</a></li>
+                <li><a href="#server">Server</a></li>
+              </ul>
+            </li>
+            <li><a href="#full-template">Full template</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+                
+  
+
+                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../sps/">systemPipeShiny</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../sps/adv_features/">Advanced features</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="../../../sps/adv_features/tabs/">Manage tabs</a>
+</li>
+
+	</ol>
+</nav	>
+
+                
+<div class="td-content">
+	<h1>Manage tabs</h1>
+    
+	       
+	<hr>
+<h2 id="sps-tabs">SPS tabs</h2>
+<p>In SPS, <strong>tab</strong> is the basic component of a functionality unit. For example, all the <a href="../../../sps/modules/">Modules</a>
+in SPS are complex tabs with many small sub-tabs, the <a href="../../../sps/canvas/">Canvas</a> is another independent tab providing
+image editing features and an <em>user custom tab</em> is also a SPS tab.</p>
+<p>From the developer&rsquo;s view, all SPS tabs are <a href="https://shiny.rstudio.com/articles/modules.html">Shiny Modules</a>.</p>
+<p>To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
+<code>/tmp</code> folder but one should use a regular location instead of the temp in a  real
+case.</p>
+<pre><code class="language-r">suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &quot;tab_demo&quot;, overwrite = TRUE, change_wd = FALSE)
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Start to create a new SPS project
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Create project under /tmp/RtmpVUdu2M/tab_demo
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Now copy files
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Create SPS database
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Created SPS database method container
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Creating SPS db...
-</code></pre><pre><code>## [SPS-DANGER] 2021-02-12 17:56:22 Db created at '/tmp/RtmpVUdu2M/tab_demo/config/sps.db'. DO NOT share this file with others
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Start to create a new SPS project
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Create project under /tmp/RtmpVUdu2M/tab_demo
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Now copy files
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Create SPS database
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Created SPS database method container
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:22 Creating SPS db...
+</code></pre>
+<pre><code>## [SPS-DANGER] 2021-02-12 17:56:22 Db created at '/tmp/RtmpVUdu2M/tab_demo/config/sps.db'. DO NOT share this file with others
 ## [SPS-INFO] 2021-02-12 17:56:22 Key md5 be5e352c4d777b1ab3530be8362dd5cb
 ## [SPS-INFO] 2021-02-12 17:56:22 SPS project setup done!
-</code></pre><pre><code class=language-r>## save project path 
+</code></pre>
+<pre><code class="language-r">## save project path 
 (sps_dir &lt;- file.path(tempdir(), &quot;tab_demo&quot;))
-</code></pre><pre><code>## [1] &quot;/tmp/RtmpVUdu2M/tab_demo&quot;
-</code></pre><p>To reproduce code locally, run the following chunk instead.</p><pre><code class=language-r>library(systemPipeShiny)
+</code></pre>
+<pre><code>## [1] &quot;/tmp/RtmpVUdu2M/tab_demo&quot;
+</code></pre>
+<p>To reproduce code locally, run the following chunk instead.</p>
+<pre><code class="language-r">library(systemPipeShiny)
 spsInit()
 sps_dir &lt;- normalizePath(&quot;.&quot;)
-</code></pre><h2 id=tab-registration>Tab registration</h2><p>In SPS, all tabs are controlled by the <em>config/tabs.csv</em> file. To see what kind of
+</code></pre>
+<h2 id="tab-registration">Tab registration</h2>
+<p>In SPS, all tabs are controlled by the <em>config/tabs.csv</em> file. To see what kind of
 tabs you have with current project. use the <code>spsTabInfo</code> function. It returns a tibble
-of current tab information.</p><pre><code class=language-r>spsTabInfo(app_path = sps_dir)
-</code></pre><pre><code>## # A tibble: 11 x 8
+of current tab information.</p>
+<pre><code class="language-r">spsTabInfo(app_path = sps_dir)
+</code></pre>
+<pre><code>## # A tibble: 11 x 8
 ##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
 ##    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt; 
 ##  1 core_ab… About this App   core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
@@ -83,18 +946,53 @@ of current tab information.</p><pre><code class=language-r>spsTabInfo(app_path =
 ##  9 vs_esq   Quick ggplot mo… vs    &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
 ## 10 vs_main  custom tabs mai… vs    &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
 ## 11 vs_exam… My custom plott… vs    &quot;plot&quot;   &quot;&quot;    1         tab_vs_examp… &quot;&quot;
-</code></pre><ul><li>tab_id: A unique string ID</li><li>display_label: for type is &ldquo;core&rdquo; or &ldquo;module&rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.</li><li>type: tab category, &ldquo;core&rdquo;, &ldquo;module&rdquo; and &ldquo;vs&rdquo; (visualization).</li><li>type_sub: more specific category, current only &ldquo;plot&rdquo; (plotting)</li><li>image: If this is an user custom tab, providing an image path will display the image in
+</code></pre>
+<ul>
+<li>tab_id: A unique string ID</li>
+<li>display_label: for type is &ldquo;core&rdquo; or &ldquo;module&rdquo;, this is only some description, but for you own custom tabs,
+this value will be used as a display tab name on left sidebar on SPS UI.</li>
+<li>type: tab category, &ldquo;core&rdquo;, &ldquo;module&rdquo; and &ldquo;vs&rdquo; (visualization).</li>
+<li>type_sub: more specific category, current only &ldquo;plot&rdquo; (plotting)</li>
+<li>image: If this is an user custom tab, providing an image path will display the image in
 visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &ldquo;No image&rdquo; image will be used like the following:</li></ul><p><img src=../vs_main.png alt=vs_main></p><ul><li>displayed: Internal use only</li><li>tab_file_name: where the tab file is relative to the <code>R</code> folder.</li><li>plugin: Internal use only</li></ul><h2 id=add-a-new-custom-tab>Add a new custom tab</h2><p>SPS provides a template to help developers to create a small SPS tab that</p><ol><li>The main purpose is to generate some plots</li><li>can be loaded into SPS framework easily</li><li>can interact with other SPS tabs (components), like the Canvas tab.</li></ol><h3 id=simple-template>Simple template</h3><p>Under current SPS version, users are able to add custom tabs with the <code>spsNewTab</code> function.
-This function:</p><ol><li>creates the tab file.</li><li>provides a nice template.</li><li>Helps you to register tab information to <code>tabs.csv</code></li></ol><pre><code class=language-r>spsNewTab(tab_id = &quot;vs_new&quot;, tab_displayname = &quot;New tab demo&quot;, app_path = sps_dir)
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Write to file /tmp/RtmpVUdu2M/tab_demo/R/tab_vs_new.R
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Now register your new tab to config/tab.csv
-</code></pre><pre><code>## [SPS-SUCCESS] 2021-02-12 17:56:23 New tab created!
+starts and an &ldquo;No image&rdquo; image will be used like the following:</li>
+</ul>
+<p><img src="../vs_main.png" alt="vs_main"></p>
+<ul>
+<li>displayed: Internal use only</li>
+<li>tab_file_name: where the tab file is relative to the <code>R</code> folder.</li>
+<li>plugin: Internal use only</li>
+</ul>
+<h2 id="add-a-new-custom-tab">Add a new custom tab</h2>
+<p>SPS provides a template to help developers to create a small SPS tab  that</p>
+<ol>
+<li>The main purpose is to generate some plots</li>
+<li>can be loaded into SPS framework easily</li>
+<li>can interact with other SPS tabs (components), like the Canvas tab.</li>
+</ol>
+<h3 id="simple-template">Simple template</h3>
+<p>Under current SPS version, users are able to add custom tabs with the <code>spsNewTab</code> function.
+This function:</p>
+<ol>
+<li>creates the tab file.</li>
+<li>provides a nice template.</li>
+<li>Helps you to register tab information to <code>tabs.csv</code></li>
+</ol>
+<pre><code class="language-r">spsNewTab(tab_id = &quot;vs_new&quot;, tab_displayname = &quot;New tab demo&quot;, app_path = sps_dir)
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Write to file /tmp/RtmpVUdu2M/tab_demo/R/tab_vs_new.R
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Now register your new tab to config/tab.csv
+</code></pre>
+<pre><code>## [SPS-SUCCESS] 2021-02-12 17:56:23 New tab created!
 ## [SPS] 2021-02-12 17:56:23 To load this new tab: `sps(tabs = c(&quot;vs_new&quot;)`
-</code></pre><p>If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.</p><p>By default, it uses the simple template, which contains the <code>spsEzUI</code> and <code>spsEzServer</code> functions.
-We have provided commented instructions on how to fill each argument.</p><h4 id=ui>UI</h4><pre><code class=language-r>spsEzUI(
+</code></pre>
+<p>If you are running the code locally, and are using Rstudio, the tab file will be opened
+automatically for you.</p>
+<p>By default, it uses the simple template, which contains the <code>spsEzUI</code> and  <code>spsEzServer</code> functions.
+We have provided commented instructions on how to fill each argument.</p>
+<h4 id="ui">UI</h4>
+<pre><code class="language-r">spsEzUI(
   desc = &quot;xxx&quot;,
   tab_title = &quot;xxx&quot;,
   plot_title = &quot;xxx&quot;,
@@ -102,10 +1000,13 @@ We have provided commented instructions on how to fill each argument.</p><h4 id=
     xxx
   )
 )
-</code></pre><p>The only augment new users need to take some time to learn is adding <code>plot_control</code>.
+</code></pre>
+<p>The only augment new users need to take some time to learn is adding <code>plot_control</code>.
 Developers need to add some Shiny UI components to let users control how the plotting is
 done with interactive options. Basic use can be learned in 5 minutes on
-<a href=https://shiny.rstudio.com/articles/basics.html>Shiny website</a> and <a href=https://mastering-shiny.org/basic-ui.html>Shiny book</a></p><h4 id=server>Server</h4><pre><code class=language-r>spsEzServer(
+<a href="https://shiny.rstudio.com/articles/basics.html">Shiny website</a> and <a href="https://mastering-shiny.org/basic-ui.html">Shiny book</a></p>
+<h4 id="server">Server</h4>
+<pre><code class="language-r">spsEzServer(
     plot_code = {
         # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
         plot_data &lt;- mydata$data
@@ -129,42 +1030,150 @@ done with interactive options. Basic use can be learned in 5 minutes on
     },
     other_server_code = {}
 )
-</code></pre><p>For the server code, users only need to focus on the plotting code. The only very important thing
+</code></pre>
+<p>For the server code, users only need to focus on the plotting code. The only very important thing
 developers need to remember is that the plotting data been passed to this function
-is stored in a <a href=https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html>reactiveValues</a>
+is stored in a <a href="https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html">reactiveValues</a>
 object and it is called <code>mydata$data</code>. Usually we assign it to a new value so it can
-be used easily downstream, like <code>plot_data &lt;- mydata$data</code>.</p><p>Some validation is recommended before reaching the plotting code. You would never know what
+be used easily downstream, like <code>plot_data &lt;- mydata$data</code>.</p>
+<p>Some validation is recommended before reaching the plotting code. You would never know what
 kind of dataset users upload. It is always good to check if users' uploads meet the
-requirements. In SPS you can use the <code>spsValidate</code> function or use Shiny&rsquo;s default <a href=https://shiny.rstudio.com/reference/shiny/0.14/validate.html>validate</a>
-function (<code>spsValidate</code> is discussed in <a href=../../../sps/dev/server/>tools section</a>).</p><h3 id=full-template>Full template</h3><p>For some developers who already has experience with Shiny, and would like to make more
+requirements. In SPS you can use the <code>spsValidate</code> function or use Shiny&rsquo;s default <a href="https://shiny.rstudio.com/reference/shiny/0.14/validate.html">validate</a>
+function (<code>spsValidate</code> is discussed in <a href="../../../sps/dev/server/">tools section</a>).</p>
+<h3 id="full-template">Full template</h3>
+<p>For some developers who already has experience with Shiny, and would like to make more
 complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the <code>template = "full"</code> argument.</p><pre><code class=language-r>spsNewTab(
+the new tab. Simply add the <code>template = &quot;full&quot;</code> argument.</p>
+<pre><code class="language-r">spsNewTab(
   tab_id = &quot;vs_new_full&quot;, 
   tab_displayname = &quot;New tab demo&quot;,
   template = &quot;full&quot;,
   app_path = sps_dir)
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Write to file /tmp/RtmpVUdu2M/tab_demo/R/tab_vs_new_full.R
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Now register your new tab to config/tab.csv
-</code></pre><pre><code>## [SPS-SUCCESS] 2021-02-12 17:56:23 New tab created!
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Write to file /tmp/RtmpVUdu2M/tab_demo/R/tab_vs_new_full.R
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:23 Now register your new tab to config/tab.csv
+</code></pre>
+<pre><code>## [SPS-SUCCESS] 2021-02-12 17:56:23 New tab created!
 ## [SPS] 2021-02-12 17:56:23 To load this new tab: `sps(tabs = c(&quot;vs_new_full&quot;)`
-</code></pre><p>You can see the full template is a lot longer than the simple template:</p><pre><code class=language-r>simple_len &lt;- R.utils::countLines(file.path(sps_dir, &quot;R&quot;, &quot;tab_vs_new.R&quot;))
+</code></pre>
+<p>You can see the full template is a lot longer than the simple template:</p>
+<pre><code class="language-r">simple_len &lt;- R.utils::countLines(file.path(sps_dir, &quot;R&quot;, &quot;tab_vs_new.R&quot;))
 full_len &lt;- R.utils::countLines(file.path(sps_dir, &quot;R&quot;, &quot;tab_vs_new_full.R&quot;))
 spsinfo(glue::glue(&quot;Simple template has {simple_len} lines&quot;), TRUE)
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:24 Simple template has 66 lines
-</code></pre><pre><code class=language-r>spsinfo(glue::glue(&quot;Full template has {full_len} lines&quot;), TRUE)
-</code></pre><pre><code>## [SPS-INFO] 2021-02-12 17:56:24 Full template has 281 lines
-</code></pre><p>In your <em>global.R</em>, scroll down to the bottom, you should see:</p><pre><code class=language-r>sps_app &lt;- sps(
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:24 Simple template has 66 lines
+</code></pre>
+<pre><code class="language-r">spsinfo(glue::glue(&quot;Full template has {full_len} lines&quot;), TRUE)
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-02-12 17:56:24 Full template has 281 lines
+</code></pre>
+<p>In your <em>global.R</em>, scroll down to the bottom, you should see:</p>
+<pre><code class="language-r">sps_app &lt;- sps(
     tabs = c(&quot;data_example&quot;, &quot;plot_example1&quot;, &quot;plot_example2&quot;),
     server_expr = {
         msg(&quot;Custom expression runs -- Hello World&quot;, &quot;GREETING&quot;, &quot;green&quot;)
     }
 )
-</code></pre><p>This is the SPS main function. You can load/unload tabs by providing tab IDs in <code>vstabs</code> argument, like
-<code>c("tab1", "tab2)</code>. Open <em>config/tabs.csv</em> or use <code>spsTabInfo()</code> to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word <code>vs</code> under column &ldquo;<em>type</em>";
-essential framework tabs(<em>core</em>) and workflow tabs (<em>wf</em>) are loaded automatically and these tabs cannot be modified.</p><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-04: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/cee9f4108731fd68bd9162da8d8c2cb81b878b21>Merge pull request #3 from systemPipeR/dependabot/npm_and_yarn/postcss-8.2.7 (cee9f41)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipeR Project All Rights Reserved</small><p class=mt-2><a href=../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
-if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
-i++;}})();</script><script src=../../../js/mathjax3.1.2.js></script><script type=text/x-mathjax-config>
+</code></pre>
+<p>This is the SPS main function. You can load/unload tabs by providing tab IDs in <code>vstabs</code> argument, like
+<code>c(&quot;tab1&quot;, &quot;tab2)</code>. Open <em>config/tabs.csv</em> or use <code>spsTabInfo()</code> to see what tabs IDs can be load and other
+tab information. Currently you can only load/unload visualization tabs, the key word <code>vs</code> under column &ldquo;<em>type</em>&quot;;
+essential framework tabs(<em>core</em>) and workflow tabs (<em>wf</em>) are loaded automatically and these tabs cannot be modified.</p>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-05: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/f40fb631f050ae9174d53c31aa5d6a7a2adc780f">Merge pull request #4 from systemPipeR/dependabot/npm_and_yarn/autoprefixer-10.2.5 (f40fb63)</a>
+</div>
+</div>
+
+
+              </main>
+          
+
+
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
+      <i class="fa fa-dna"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+<script src="../../../js/mathjax3.1.2.js"></script>
+<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -180,4 +1189,24 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script><script src=../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin=anonymous></script><script src=../../../js/prism.js></script></body></html>
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="../../../js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
