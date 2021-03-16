@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render some collapsible markdown text — renderDesc • systemPipeShiny</title>
+<title>Print SPS options — spsOptDefaults • systemPipeShiny</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,14 @@
 
 
 
-<meta property="og:title" content="Render some collapsible markdown text — renderDesc" />
-<meta property="og:description" content="write some text in markdown format and it will help you
-render to a collapsible markdown section on Shiny UI" />
+<meta property="og:title" content="Print SPS options — spsOptDefaults" />
+<meta property="og:description" content="Make sure you have created the app directory and it
+has config/config.yaml file.
+spsOptDefaults prints out all default and other avaliable values for
+each option. spsOptions print all current set option values.
+Note: the spsUtil::spsOption is used to get or set a single option value.
+spsOptions is used to print all current option values. If you need to
+set all values at once, use the global.R file under SPS project root." />
 
 
 
@@ -73,7 +78,7 @@ render to a collapsible markdown section on Shiny UI" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeShiny</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.20</span>
       </span>
     </div>
 
@@ -113,60 +118,59 @@ render to a collapsible markdown section on Shiny UI" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Render some collapsible markdown text</h1>
-    <small class="dont-index">Source: <a href='https://github.com/systemPipeR/systemPipeShiny/blob/master/R/spsUIcollections.R'><code>R/spsUIcollections.R</code></a></small>
-    <div class="hidden name"><code>renderDesc.Rd</code></div>
+    <h1>Print SPS options</h1>
+    <small class="dont-index">Source: <a href='https://github.com/systemPipeR/systemPipeShiny/blob/master/R/spsCore.R'><code>R/spsCore.R</code></a></small>
+    <div class="hidden name"><code>spsOptDefaults.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>write some text in markdown format and it will help you
-render to a collapsible markdown section on Shiny UI</p>
+    <p>Make sure you have created the app directory and it
+has <em>config/config.yaml</em> file.</p>
+<p>spsOptDefaults prints out all default and other avaliable values for
+each option. spsOptions print all current set option values.</p>
+<p>Note: the <a href='https://rdrr.io/pkg/spsUtil/man/spsOption.html'>spsUtil::spsOption</a> is used to get or set a <strong>single</strong> option value.
+spsOptions is used to print <strong>all</strong> current option values. If you need to
+set all values at once, use the <em>global.R</em> file under SPS project root.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>renderDesc</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>desc</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>spsOptDefaults</span><span class='op'>(</span>app_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'>spsOptions</span><span class='op'>(</span>app_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, show_legend <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>id</th>
-      <td><p>HTML ID</p></td>
+      <th>app_path</th>
+      <td><p>path, where is the app directory</p></td>
     </tr>
     <tr>
-      <th>desc</th>
-      <td><p>one string in markdown format</p></td>
+      <th>show_legend</th>
+      <td><p>bool, show the color legend?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>HTML elements</p>
+    <p>cat to console SPS option values</p>
+
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
-    <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
-    <span class='va'>desc</span> <span class='op'>&lt;-</span>
-        <span class='st'>"
-    # Some desc
-    - xxxx
-    - bbbb
-
-    `Some other things`
-    &gt; other markdown things
-    1. aaa
-    2. bbb
-    3. ccc
-    "</span>
-    <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span>
-        <span class='fu'><a href='useSps.html'>useSps</a></span><span class='op'>(</span><span class='op'>)</span>,
-        <span class='fu'>renderDesc</span><span class='op'>(</span>id <span class='op'>=</span> <span class='st'>"desc"</span>, <span class='va'>desc</span><span class='op'>)</span>
-    <span class='op'>)</span>
-
-    <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-
-    <span class='op'>}</span>
-
-    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span>
+    <span class='co'># start a SPS project</span>
+    <span class='fu'><a href='spsInit.html'>spsInit</a></span><span class='op'>(</span>open_files <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+    <span class='fu'>viewSpsDefaults</span><span class='op'>(</span><span class='op'>)</span>
+    <span class='co'># change a few options</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>sps <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+        mode <span class='op'>=</span> <span class='st'>"server"</span>,
+        warning_toast <span class='op'>=</span> <span class='cn'>TRUE</span>,
+        loading_screen <span class='op'>=</span> <span class='cn'>FALSE</span>,
+        loading_theme <span class='op'>=</span> <span class='st'>"vhelix"</span>,
+        use_crayon <span class='op'>=</span> <span class='cn'>TRUE</span>
+    <span class='op'>)</span><span class='op'>)</span>
+    <span class='co'># view current options</span>
+    <span class='fu'>spsOptions</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
