@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Screenshot a plot or UI to SPS Canvas or download as an image — canvasBtn • systemPipeShiny</title>
+<title>Print SPS options — spsOptDefaults • systemPipeShiny</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,14 @@
 
 
 
-<meta property="og:title" content="Screenshot a plot or UI to SPS Canvas or download as an image — canvasBtn" />
-<meta property="og:description" content="A upper level function of drawer::toCanvasBtn. You should only
-use it under SPS projects. For you own apps, still use the drawer::toCanvasBtn." />
+<meta property="og:title" content="Print SPS options — spsOptDefaults" />
+<meta property="og:description" content="Make sure you have created the app directory and it
+has config/config.yaml file.
+spsOptDefaults prints out all default and other avaliable values for
+each option. spsOptions print all current set option values.
+Note: the spsUtil::spsOption is used to get or set a single option value.
+spsOptions is used to print all current option values. If you need to
+set all values at once, use the global.R file under SPS project root." />
 
 
 
@@ -113,72 +118,61 @@ use it under SPS projects. For you own apps, still use the drawer::toCanvasBtn."
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Screenshot a plot or UI to SPS Canvas or download as an image</h1>
-    <small class="dont-index">Source: <a href='https://github.com/systemPipeR/systemPipeShiny/blob/master/R/canvas.R'><code>R/canvas.R</code></a></small>
-    <div class="hidden name"><code>canvasBtn.Rd</code></div>
+    <h1>Print SPS options</h1>
+    <small class="dont-index">Source: <a href='https://github.com/systemPipeR/systemPipeShiny/blob/master/R/spsCore.R'><code>R/spsCore.R</code></a></small>
+    <div class="hidden name"><code>spsOptDefaults.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A upper level function of <a href='https://rdrr.io/pkg/drawer/man/toCanvasBtn.html'>drawer::toCanvasBtn</a>. You should only
-use it under SPS projects. For you own apps, still use the <a href='https://rdrr.io/pkg/drawer/man/toCanvasBtn.html'>drawer::toCanvasBtn</a>.</p>
+    <p>Make sure you have created the app directory and it
+has <em>config/config.yaml</em> file.</p>
+<p>spsOptDefaults prints out all default and other avaliable values for
+each option. spsOptions print all current set option values.</p>
+<p>Note: the <a href='https://rdrr.io/pkg/spsUtil/man/spsOption.html'>spsUtil::spsOption</a> is used to get or set a <strong>single</strong> option value.
+spsOptions is used to print <strong>all</strong> current option values. If you need to
+set all values at once, use the <em>global.R</em> file under SPS project root.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>canvasBtn</span><span class='op'>(</span><span class='va'>dom</span>, id <span class='op'>=</span> <span class='st'>""</span>, isID <span class='op'>=</span> <span class='cn'>TRUE</span>, class <span class='op'>=</span> <span class='st'>"text-center"</span>, placement <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>spsOptDefaults</span><span class='op'>(</span>app_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'>spsOptions</span><span class='op'>(</span>app_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, show_legend <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dom</th>
-      <td><p>a HTML DOM selector, mostly common is to select the element by ID:</p>
-<p>e.g. a plot with ID "plot1", to select, use <code>dom = "plot1"</code> to select the plot if
-<code>isID = TRUE</code>. If <code>isID = FALSE</code>, use <code>dom = "#plot1"</code></p>
-<p>Other complex selector is supported. First turn <code>isID = FALSE</code>, then try things
-like <code>dom = ".btn i"</code> selects an icon inside an element
-with "btn" class. If more than one element is matched, only the first one will
-be screenshoted.</p></td>
+      <th>app_path</th>
+      <td><p>path, where is the app directory</p></td>
     </tr>
     <tr>
-      <th>id</th>
-      <td><p>ID of this button, optional.</p></td>
-    </tr>
-    <tr>
-      <th>isID</th>
-      <td><p>bool, if the <code>dom</code> argument is selected by ID or other selector</p></td>
-    </tr>
-    <tr>
-      <th>class</th>
-      <td><p>string, length 1, other html class add to the button wrapper</p></td>
-    </tr>
-    <tr>
-      <th>placement</th>
-      <td><p>where should the tiptool place, top, bottom, left, right.</p></td>
+      <th>show_legend</th>
+      <td><p>bool, show the color legend?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a button group with several options</p>
+    <p>cat to console SPS option values</p>
+
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>canvasBtn</span><span class='op'>(</span><span class='st'>"#mydiv"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;div class="text-center" title="Send to Canvas" data-toggle="popover" data-content="Take a screenshot of current plot and send to SPS Canvas tab,&amp;#10;            or save as an image" data-placement="top" pop-toggle="hover"&gt;
-#&gt;   &lt;div class="btn-group to-canvas" id=""&gt;
-#&gt;     &lt;button type="button" class="btn btn-primary" onclick="toCanvas(&amp;quot;##mydiv&amp;quot;, &amp;quot;core_canvas&amp;quot;)"&gt;To Canvas&lt;/button&gt;
-#&gt;     &lt;button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
-#&gt;       &lt;span class="caret"&gt;&lt;/span&gt;
-#&gt;       &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
-#&gt;     &lt;/button&gt;
-#&gt;     &lt;ul class="dropdown-menu"&gt;
-#&gt;       &lt;li&gt;
-#&gt;         &lt;a href="#" onclick="toPng(&amp;quot;##mydiv&amp;quot;)"&gt;Save as png&lt;/a&gt;
-#&gt;       &lt;/li&gt;
-#&gt;       &lt;li&gt;
-#&gt;         &lt;a href="#" onclick="toJpg(&amp;quot;##mydiv&amp;quot;)"&gt;Save as jpg&lt;/a&gt;
-#&gt;       &lt;/li&gt;
-#&gt;     &lt;/ul&gt;
-#&gt;   &lt;/div&gt;
-#&gt; &lt;/div&gt;</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+    <span class='co'># start a SPS project</span>
+    <span class='fu'><a href='spsInit.html'>spsInit</a></span><span class='op'>(</span>open_files <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+    <span class='fu'>viewSpsDefaults</span><span class='op'>(</span><span class='op'>)</span>
+    <span class='co'># change a few options</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>sps <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+        mode <span class='op'>=</span> <span class='st'>"server"</span>,
+        warning_toast <span class='op'>=</span> <span class='cn'>TRUE</span>,
+        loading_screen <span class='op'>=</span> <span class='cn'>FALSE</span>,
+        loading_theme <span class='op'>=</span> <span class='st'>"vhelix"</span>,
+        use_crayon <span class='op'>=</span> <span class='cn'>TRUE</span>
+    <span class='op'>)</span><span class='op'>)</span>
+    <span class='co'># view current options</span>
+    <span class='fu'>spsOptions</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
