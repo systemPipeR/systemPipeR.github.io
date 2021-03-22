@@ -34,7 +34,7 @@ name and path exists already.
 
 ```r
 library("systemPipeRdata") 
-genWorkenvir(workflow="varseq", mydirname=NULL)
+genWorkenvir(workflow="systemPipeR/SPvarseq", mydirname=NULL)
 setwd("varseq")
 ```
 
