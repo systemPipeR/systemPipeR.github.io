@@ -1,7 +1,7 @@
 ---
-title: "How to install SPR Workflows" 
+title: "How to install systemPipe Workflows" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 21 February, 2021" 
+date: "Last update: 22 March, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -60,24 +60,24 @@ availableWF(github = TRUE)
 ## [1] "chipseq" "new"     "riboseq" "rnaseq"  "varseq" 
 ## 
 ## $github
-##                          workflow                       branches version
-## 1   systemPipeR/systemPipeChIPseq                         master release
-## 2   systemPipeR/systemPipeRIBOseq                         master release
-## 3    systemPipeR/systemPipeRNAseq cluster, master, singleMachine release
-## 4    systemPipeR/systemPipeVARseq                         master release
-## 5   systemPipeR/systemPipeCLIPseq                         master   devel
-## 6    systemPipeR/systemPipeDeNovo                         master   devel
-## 7 systemPipeR/systemPipeMetaTrans                         master   devel
-## 8 systemPipeR/systemPipeMethylseq                         master   devel
-##                                                 html       description
-## 1   https://github.com/systemPipeR/systemPipeChIPseq Workflow Template
-## 2   https://github.com/systemPipeR/systemPipeRIBOseq Workflow Template
-## 3    https://github.com/systemPipeR/systemPipeRNAseq Workflow Template
-## 4    https://github.com/systemPipeR/systemPipeVARseq Workflow Template
-## 5   https://github.com/systemPipeR/systemPipeCLIPseq Workflow Template
-## 6    https://github.com/systemPipeR/systemPipeDeNovo Workflow Template
-## 7 https://github.com/systemPipeR/systemPipeMetaTrans Workflow Template
-## 8 https://github.com/systemPipeR/systemPipeMethylseq Workflow Template
+##                  workflow                       branches version
+## 1   systemPipeR/SPchipseq                         master release
+## 2   systemPipeR/SPriboseq                         master release
+## 3    systemPipeR/SPrnaseq cluster, master, singleMachine release
+## 4    systemPipeR/SPvarseq                         master release
+## 5   systemPipeR/SPclipseq                         master   devel
+## 6    systemPipeR/SPdenovo                         master   devel
+## 7 systemPipeR/SPmetatrans                         master   devel
+## 8 systemPipeR/SPmethylseq                         master   devel
+##                                         html       description
+## 1   https://github.com/systemPipeR/SPchipseq Workflow Template
+## 2   https://github.com/systemPipeR/SPriboseq Workflow Template
+## 3    https://github.com/systemPipeR/SPrnaseq Workflow Template
+## 4    https://github.com/systemPipeR/SPvarseq Workflow Template
+## 5   https://github.com/systemPipeR/SPclipseq Workflow Template
+## 6    https://github.com/systemPipeR/SPdenovo Workflow Template
+## 7 https://github.com/systemPipeR/SPmetatrans Workflow Template
+## 8 https://github.com/systemPipeR/SPmethylseq Workflow Template
 ```
 
 This function returns the list of workflow templates available within the package 
