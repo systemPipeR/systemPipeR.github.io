@@ -1,914 +1,66 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-
-<link rel="shortcut icon" href="../../../../favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="../../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="../../../../favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="../../../../favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="../../../../favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="../../../../favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="../../../../favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="../../../../favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="../../../../favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="../../../../favicons/android-192x192.png" sizes="192x192">
-
-<title>Server functions | sysPipe</title><meta property="og:title" content="Server functions" />
-<meta property="og:description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
-load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/sps/dev/spscomps/server/" />
-<meta property="article:modified_time" content="2021-03-02T23:05:00-08:00" /><meta property="og:site_name" content="sysPipe" />
-<meta itemprop="name" content="Server functions">
-<meta itemprop="description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
-load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception.">
-<meta itemprop="dateModified" content="2021-03-02T23:05:00-08:00" />
-<meta itemprop="wordCount" content="1351">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Server functions"/>
-<meta name="twitter:description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
-load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception."/>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-<link rel="preload" href="../../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
-
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-
-
-
-<link rel="stylesheet" href="../../../../css/prism.css"/>
-
-
-<script src="../../../../js/driver0.9.8.min.js"></script>
-<link rel="stylesheet" href="../../../../css/driver0.9.8.min.css"/>
-
-
-<link rel="stylesheet" href="../../../../css/site.css"/>
-<script src="../../../../js/site.js"></script>
-
-
-
-  </head>
-  <body class="td-page line-numbers">
-    <header>
-     
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-  <a class="navbar-brand" href="../../../../">
-		<span class="font-weight-bold">sysPipe</span>
-	</a>
-	<row class="header-switch">
-	  	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
-        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
-      </div>
-    	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
-        <label class="custom-control-label" for="tocSwitch">toc</label>
-      </div>
-	</row>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/overview/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Overview
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../spr/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/spr_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiper/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiperdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../spr/systempiperdata/vignette/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../sps/" id="navbarDropdown" role="button">
-          	Shiny
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sps/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 SPS Documentation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Github
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../training/" id="navbarDropdown" role="button">
-          	Training
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../training/presentations/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../training/videos/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../news/release_3_12/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-</div>
-</nav>
-
-    </header>
-    <div class="container-fluid td-outer">
-      <div class="td-main">
-        <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
-            
-
-
-
-
-<div id="td-sidebar-menu" class="td-sidebar__inner">
-  
-  <form class="td-sidebar__search d-flex align-items-center">
-    
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
-    </button>
-  </form>
-  
-  <nav class="collapse td-sidebar-nav" id="td-section-nav">
-    
-    
-    
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="sps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../../../sps/intro/">Introduction</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../../../sps/install/">Installation</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../../../sps/quick_start/">Quick start</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsmodules">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../../../sps/modules/workflow/">Workflow</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../../../sps/modules/rnaseq/">RNAseq</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../../../sps/modules/ggplot/">Quick ggplot</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../../../sps/canvas/">Canvas</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../../../sps/sps_funcs/">SPS Functions</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsadv_features">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../../../sps/adv_features/config/">Configuration</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../../../sps/adv_features/tabs/">Manage tabs</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../../../sps/deploy/">Deploy</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdev">
-      
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/spscomps/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">spsComps</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdevspscomps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsui" href="../../../../sps/dev/spscomps/ui/">UI components</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsdevspscompsserver" href="../../../../sps/dev/spscomps/server/">Server functions</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/drawer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsdevdrawer">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawershiny" href="../../../../sps/dev/drawer/shiny/">drawer in Shiny</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawerrmd" href="../../../../sps/dev/drawer/rmd/">drawer in Rmarkdown</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspsutil" href="../../../../sps/dev/spsutil/">spsUtil</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-  </nav>
-</div>
-
-
-
-
-          </div>
-          
-          
-
-          
-
-          
-          
-              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-                
-  
-  
-  
-  
-  
-  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-  
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spscomps/server.markdown" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spscomps/server.markdown" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spscomps/server.markdown?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=Server%20functions" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
-    
-      
-      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-    
-
-  
-  
-  </div>
-
-
-
-
-
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#load-package">load package</a></li>
-        <li><a href="#server-components">Server components</a>
-          <ul>
-            <li><a href="#shinycatch"><code>shinyCatch</code></a>
-              <ul>
-                <li><a href="#basic">basic</a></li>
-                <li><a href="#shiny-off">Shiny off</a></li>
-                <li><a href="#get-return">get return</a></li>
-                <li><a href="#blocking-level">Blocking level</a></li>
-                <li><a href="#block-reative">Block reative</a></li>
-              </ul>
-            </li>
-            <li><a href="#spsvalidate"><code>spsValidate</code></a></li>
-            <li><a href="#shinycheckpkg"><code>shinyCheckPkg</code></a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-              </div>
-              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-                
-  
-
-                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/">systemPipeShiny</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/dev/">Developer tools</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/dev/spscomps/">spsComps</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../../sps/dev/spscomps/server/">Server functions</a>
-</li>
-
-	</ol>
-</nav	>
-
-                
-<div class="td-content">
-	<h1>Server functions</h1>
-    
-	       
-	<p>{spsComps} has some useful functions for exception catch, expression validation,
-and more. Even though  we say they are Shiny server functions, but in fact most
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../../favicons/android-192x192.png sizes=192x192><title>Server functions | sysPipe</title><meta property="og:title" content="Server functions"><meta property="og:description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
+load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception."><meta property="og:type" content="article"><meta property="og:url" content="/sps/dev/spscomps/server/"><meta property="article:modified_time" content="2021-03-22T13:33:01-07:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="Server functions"><meta itemprop=description content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
+load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception."><meta itemprop=dateModified content="2021-03-22T13:33:01-07:00"><meta itemprop=wordCount content="1351"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Server functions"><meta name=twitter:description content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
+load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception."><link rel=preload href=../../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css as=style><link href=../../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><link rel=stylesheet href=../../../../css/prism.css><script src=../../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../../css/site.css><script src=../../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../../><span class=font-weight-bold>sysPipe</span></a>
+<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
+<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
+<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
+<a class=dropdown-item href=../../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
+<a class=dropdown-item href=../../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
+<a class=dropdown-item href=../../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
+<a class=dropdown-item href=../../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../spr/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../spr/systempiper/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
+<a class=dropdown-item href=../../../../spr/systempiper/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
+<a class=dropdown-item href=../../../../spr/systempiper/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
+<a class=dropdown-item href=../../../../spr/systempiper/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
+<a class=dropdown-item href=../../../../spr/systempiper/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
+<a class=dropdown-item href=../../../../spr/systempiper/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
+<a class=dropdown-item href=../../../../spr/systempiper/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
+<a class=dropdown-item href=../../../../spr/systempiper/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
+<a class=dropdown-item href=../../../../spr/systempiperdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
+<a class=dropdown-item href=../../../../spr/systempiperdata/vignette/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
+<a class=dropdown-item href=../../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
+<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../training/ id=navbarDropdown role=button>Training</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../training/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
+<a class=dropdown-item href=../../../../training/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a></li><ul><li class="collapse show" id=sps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsintro href=../../../../sps/intro/>Introduction</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsinstall href=../../../../sps/install/>Installation</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsquick_start href=../../../../sps/quick_start/>Quick start</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/modules/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a></li><ul><li class=collapse id=spsmodules><a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesworkflow href=../../../../sps/modules/workflow/>Workflow</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesrnaseq href=../../../../sps/modules/rnaseq/>RNAseq</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesggplot href=../../../../sps/modules/ggplot/>Quick ggplot</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spscanvas href=../../../../sps/canvas/>Canvas</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spssps_funcs href=../../../../sps/sps_funcs/>SPS Functions</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/adv_features/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a></li><ul><li class=collapse id=spsadv_features><a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresconfig href=../../../../sps/adv_features/config/>Configuration</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featurestabs href=../../../../sps/adv_features/tabs/>Manage tabs</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdeploy href=../../../../sps/deploy/>Deploy</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a></li><ul><li class="collapse show" id=spsdev><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/spscomps/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">spsComps</a></li><ul><li class="collapse show" id=spsdevspscomps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsui href=../../../../sps/dev/spscomps/ui/>UI components</a>
+<a class="td-sidebar-link td-sidebar-link__page active" id=m-spsdevspscompsserver href=../../../../sps/dev/spscomps/server/>Server functions</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/drawer/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a></li><ul><li class=collapse id=spsdevdrawer><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawershiny href=../../../../sps/dev/drawer/shiny/>drawer in Shiny</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawerrmd href=../../../../sps/dev/drawer/rmd/>drawer in Rmarkdown</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspsutil href=../../../../sps/dev/spsutil/>spsUtil</a></li></ul></ul></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spscomps/server.markdown target=_blank><i class="fa fa-code fa-fw"></i>View source code</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spscomps/server.markdown target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spscomps/server.markdown?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=Server%20functions" target=_blank><i class="fab fa-github fa-fw"></i>Create documentation issue</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><ul><li><a href=#load-package>load package</a></li><li><a href=#server-components>Server components</a><ul><li><a href=#shinycatch><code>shinyCatch</code></a><ul><li><a href=#basic>basic</a></li><li><a href=#shiny-off>Shiny off</a></li><li><a href=#get-return>get return</a></li><li><a href=#blocking-level>Blocking level</a></li><li><a href=#block-reative>Block reative</a></li></ul></li><li><a href=#spsvalidate><code>spsValidate</code></a></li><li><a href=#shinycheckpkg><code>shinyCheckPkg</code></a></li></ul></li></ul></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../../sps/>systemPipeShiny</a></li><li class=breadcrumb-item><a href=../../../../sps/dev/>Developer tools</a></li><li class=breadcrumb-item><a href=../../../../sps/dev/spscomps/>spsComps</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../../sps/dev/spscomps/server/>Server functions</a></li></ol></nav><div class=td-content><h1>Server functions</h1><p>{spsComps} has some useful functions for exception catch, expression validation,
+and more. Even though we say they are Shiny server functions, but in fact most
 of them can be run without a Shiny server. We have designed the functions to detect
-whether there is a Shiny server, if not, they will work only in R console as well.</p>
-<h2 id="load-package">load package</h2>
-<pre><code class="language-r">library(spsComps)
-</code></pre>
-<pre><code>## Loading required package: shiny
-</code></pre>
-<pre><code>## Loading required package: spsUtil
-</code></pre>
-<pre><code class="language-r">library(magrittr)
-</code></pre>
-<h2 id="server-components">Server components</h2>
-<h3 id="shinycatch"><code>shinyCatch</code></h3>
-<h4 id="basic">basic</h4>
-<p>The <code>shinyCatch</code> function is useful to capture exception. What we mean exception
-can be <code>message</code>, <code>warning</code> or <code>error</code>. For example</p>
-<pre><code class="language-r">shinyCatch({
+whether there is a Shiny server, if not, they will work only in R console as well.</p><h2 id=load-package>load package</h2><pre><code class=language-r>library(spsComps)
+</code></pre><pre><code>## Loading required package: shiny
+</code></pre><pre><code>## Loading required package: spsUtil
+</code></pre><pre><code class=language-r>library(magrittr)
+</code></pre><h2 id=server-components>Server components</h2><h3 id=shinycatch><code>shinyCatch</code></h3><h4 id=basic>basic</h4><p>The <code>shinyCatch</code> function is useful to capture exception. What we mean exception
+can be <code>message</code>, <code>warning</code> or <code>error</code>. For example</p><pre><code class=language-r>shinyCatch({
   message(&quot;This is a message&quot;)
   warning(&quot;This is a warning&quot;)
   stop(&quot;This is an error&quot;)
 })
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-03-02 23:04:38 This is a message
+</code></pre><pre><code>## [SPS-INFO] 2021-03-02 23:04:38 This is a message
 ## 
 ## [SPS-WARNING] 2021-03-02 23:04:38 This is a warning
 ## [SPS-ERROR] 2021-03-02 23:04:38 This is an error
-</code></pre>
-<pre><code>## NULL
-</code></pre>
-<p>You can see all 3 levels are captured inside the [SPS-XX] log on your console. If you run this
+</code></pre><pre><code>## NULL
+</code></pre><p>You can see all 3 levels are captured inside the [SPS-XX] log on your console. If you run this
 in your Shiny app, a pop-up message with the corresponding log level message will
-be displayed in in app, like following:</p>
-<p><img src="../shinycatch.png" alt="shinycatch"></p>
-<p>So the message on both UI and console is called <strong>dual-end logging</strong> in SPS.</p>
-<h4 id="shiny-off">Shiny off</h4>
-<p>Of course, if you do not want users to see the message, you can hide it by
+be displayed in in app, like following:</p><p><img src=../shinycatch.png alt=shinycatch></p><p>So the message on both UI and console is called <strong>dual-end logging</strong> in SPS.</p><h4 id=shiny-off>Shiny off</h4><p>Of course, if you do not want users to see the message, you can hide it by
 <code>shiny = FALSE</code>, but the message will be still logged on R console.
-Run the following on your own computer and watch the difference.</p>
-<pre><code class="language-r">library(shiny)
+Run the following on your own computer and watch the difference.</p><pre><code class=language-r>library(shiny)
 
 ui &lt;- fluidPage(
   spsDepend(&quot;toastr&quot;)
@@ -921,11 +73,8 @@ server &lt;- function(input, output, session) {
 }
 
 shinyApp(ui, server)
-</code></pre>
-<h4 id="get-return">get return</h4>
-<p><code>shinyCatch</code> is able to return you values if your expression has any. Imagine we
-have a function <code>addNum</code> that gives message, warning or error depeend on the input.</p>
-<pre><code class="language-r">addNum &lt;- function(num){
+</code></pre><h4 id=get-return>get return</h4><p><code>shinyCatch</code> is able to return you values if your expression has any. Imagine we
+have a function <code>addNum</code> that gives message, warning or error depeend on the input.</p><pre><code class=language-r>addNum &lt;- function(num){
   if (num &gt; 0) {message(num)}
   else if (num == 0) {warning(&quot;Num is 0&quot;)}
   else {stop(&quot;less than 0&quot;)}
@@ -935,83 +84,52 @@ have a function <code>addNum</code> that gives message, warning or error depeend
 value_a &lt;- shinyCatch({
   addNum(1)
 })
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-03-02 23:04:38 1
-</code></pre>
-<pre><code class="language-r">value_a
-</code></pre>
-<pre><code>## [1] 2
-</code></pre>
-<pre><code class="language-r">value_b &lt;- shinyCatch({
+</code></pre><pre><code>## [SPS-INFO] 2021-03-02 23:04:38 1
+</code></pre><pre><code class=language-r>value_a
+</code></pre><pre><code>## [1] 2
+</code></pre><pre><code class=language-r>value_b &lt;- shinyCatch({
   addNum(0)
 })
-</code></pre>
-<pre><code>## [SPS-WARNING] 2021-03-02 23:04:38 Num is 0
-</code></pre>
-<pre><code class="language-r">value_b
-</code></pre>
-<pre><code>## [1] 0
-</code></pre>
-<pre><code class="language-r">value_c &lt;- shinyCatch({
+</code></pre><pre><code>## [SPS-WARNING] 2021-03-02 23:04:38 Num is 0
+</code></pre><pre><code class=language-r>value_b
+</code></pre><pre><code>## [1] 0
+</code></pre><pre><code class=language-r>value_c &lt;- shinyCatch({
   addNum(-1)
 })
-</code></pre>
-<pre><code>## [SPS-ERROR] 2021-03-02 23:04:38 less than 0
-</code></pre>
-<pre><code class="language-r">value_c
-</code></pre>
-<pre><code>## NULL
-</code></pre>
-<p>You can see at <code>message</code> and <code>warning</code> level, the expected value returned, and
+</code></pre><pre><code>## [SPS-ERROR] 2021-03-02 23:04:38 less than 0
+</code></pre><pre><code class=language-r>value_c
+</code></pre><pre><code>## NULL
+</code></pre><p>You can see at <code>message</code> and <code>warning</code> level, the expected value returned, and
 at <code>error</code> level, the return is <code>NULL</code>. So the following code <code>value_c</code> still runs
-and is not blocked by the <code>error</code> occurred in <code>shinyCatch</code>.</p>
-<h4 id="blocking-level">Blocking level</h4>
-<p>More often, if there is an error, we do want take the log in R console, inform the Shinyapp user
+and is not blocked by the <code>error</code> occurred in <code>shinyCatch</code>.</p><h4 id=blocking-level>Blocking level</h4><p>More often, if there is an error, we do want take the log in R console, inform the Shinyapp user
 and then stop the following code. In this case, we need to specify the <code>blocking_level</code>. So,
-default is <code>&quot;none&quot;</code>, do not block and return <code>NULL</code> if there is an error, and you can
-choose <code>&quot;error&quot;</code>, <code>&quot;warning&quot;</code> or <code>&quot;message&quot;</code>.</p>
-<ul>
-<li><strong>error</strong>: block downstream if the first <code>error</code> detected in <code>shinyCatch</code></li>
-<li><strong>warning</strong>: block downstream if the first <code>error</code> or <code>warning</code> detected in <code>shinyCatch</code></li>
-<li><strong>message</strong>: block downstream if the first <code>error</code>, <code>warning</code> or <code>message</code> detected in <code>shinyCatch</code></li>
-</ul>
-<p>You can see the stringency becomes tighter: message &gt; warning &gt; error</p>
-<p><b class="text-primary">Blocking code will generate error, in order to have the Rmd rendered, we wrap the expression in <code>try</code> </b></p>
-<pre><code class="language-r">try({
+default is <code>"none"</code>, do not block and return <code>NULL</code> if there is an error, and you can
+choose <code>"error"</code>, <code>"warning"</code> or <code>"message"</code>.</p><ul><li><strong>error</strong>: block downstream if the first <code>error</code> detected in <code>shinyCatch</code></li><li><strong>warning</strong>: block downstream if the first <code>error</code> or <code>warning</code> detected in <code>shinyCatch</code></li><li><strong>message</strong>: block downstream if the first <code>error</code>, <code>warning</code> or <code>message</code> detected in <code>shinyCatch</code></li></ul><p>You can see the stringency becomes tighter: message > warning > error</p><p><b class=text-primary>Blocking code will generate error, in order to have the Rmd rendered, we wrap the expression in <code>try</code></b></p><pre><code class=language-r>try({
   shinyCatch({
     stop(&quot;error level is the most commonly used level&quot;)
   }, blocking_level = &quot;error&quot;)
   print(&quot;This will not be evaluated&quot;)
 })
-</code></pre>
-<pre><code>## [SPS-ERROR] 2021-03-02 23:04:38 error level is the most commonly used level
+</code></pre><pre><code>## [SPS-ERROR] 2021-03-02 23:04:38 error level is the most commonly used level
 ## Error : 
-</code></pre>
-<pre><code class="language-r">try({
+</code></pre><pre><code class=language-r>try({
   shinyCatch({
     message(&quot;error level is the most commonly used level&quot;)
   }, blocking_level = &quot;message&quot;)
   print(&quot;This will not be evaluated either&quot;)
 })
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-03-02 23:04:38 error level is the most commonly used level
+</code></pre><pre><code>## [SPS-INFO] 2021-03-02 23:04:38 error level is the most commonly used level
 ## 
 ## Error : 
-</code></pre>
-<p>You can see the following <code>print</code> in both cases are not got evaluated.</p>
-<h4 id="block-reative">Block reative</h4>
-<p>The most useful case for <code>shinyCatch</code> is to use it in the <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/">Shiny reactive</a>
-context. Most errors in shiny::reactive,  shiny::observer, shiny::observeEvent,
+</code></pre><p>You can see the following <code>print</code> in both cases are not got evaluated.</p><h4 id=block-reative>Block reative</h4><p>The most useful case for <code>shinyCatch</code> is to use it in the <a href=https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/>Shiny reactive</a>
+context. Most errors in shiny::reactive, shiny::observer, shiny::observeEvent,
 or shiny::renderXXX series function will <strong>crash</strong> the app. With <code>shinyCatch</code>, it
-will not. It &ldquo;dual-logs&rdquo; the error and stop downstream code.</p>
-<p><b class="text-primary">The following example use <code>shiny::reactiveConsole()</code> to mock a Shiny server session</b></p>
-<pre><code class="language-r">shiny::reactiveConsole(TRUE)
+will not. It &ldquo;dual-logs&rdquo; the error and stop downstream code.</p><p><b class=text-primary>The following example use <code>shiny::reactiveConsole()</code> to mock a Shiny server session</b></p><pre><code class=language-r>shiny::reactiveConsole(TRUE)
 y &lt;- observe({
   stop(&quot;an error from a function&quot;)
   print(&quot;some other process&quot;)
 })
-</code></pre>
-<pre><code>## Warning: Error in &lt;observer&gt;: The value of x is 
+</code></pre><pre><code>## Warning: Error in &lt;observer&gt;: The value of x is 
 ##   38: stop
 ##   37: &lt;observer&gt; [#2]
 ##   35: contextFunc
@@ -1025,21 +143,16 @@ y &lt;- observe({
 ##    3: .getReactiveEnvironment()$flush
 ##    2: flushReact
 ##    1: &lt;Anonymous&gt;
-</code></pre>
-<p>It crashes the app. However, if you use <code>shinyCatch</code></p>
-<pre><code class="language-r">shiny::reactiveConsole(TRUE)
+</code></pre><p>It crashes the app. However, if you use <code>shinyCatch</code></p><pre><code class=language-r>shiny::reactiveConsole(TRUE)
 y &lt;- observe({
   shinyCatch({
     stop(&quot;an error from a function&quot;)
   }, blocking_level = &quot;error&quot;)
   print(&quot;some other process&quot;)
 })
-</code></pre>
-<pre><code>## [SPS-ERROR] 2021-03-02 22:13:05 an error from a function
-</code></pre>
-<p>It only logs the error and prevent the downstream <code>print</code> to run. Now try following
-real Shiny apps and watch the difference:</p>
-<pre><code class="language-r"># with shinyCatch
+</code></pre><pre><code>## [SPS-ERROR] 2021-03-02 22:13:05 an error from a function
+</code></pre><p>It only logs the error and prevent the downstream <code>print</code> to run. Now try following
+real Shiny apps and watch the difference:</p><pre><code class=language-r># with shinyCatch
 library(shiny)
 server &lt;- function(input, output, session) {
   observe({
@@ -1050,8 +163,7 @@ server &lt;- function(input, output, session) {
   })
 }
 shinyApp(fluidPage(spsDepend(&quot;toastr&quot;)), server)
-</code></pre>
-<pre><code class="language-r"># without shinyCatch
+</code></pre><pre><code class=language-r># without shinyCatch
 library(shiny)
 server &lt;- function(input, output, session) {
   observe({
@@ -1060,16 +172,13 @@ server &lt;- function(input, output, session) {
   })
 }
 shinyApp(fluidPage(spsDepend(&quot;toastr&quot;)), server)
-</code></pre>
-<h3 id="spsvalidate"><code>spsValidate</code></h3>
-<p>In data analysis, it is important we do some validations before the downstream
+</code></pre><h3 id=spsvalidate><code>spsValidate</code></h3><p>In data analysis, it is important we do some validations before the downstream
 process, like make a plot. It is epecially the case in Shiny apps. We cannot
 predict what the user inputs will be, like what kind of data they will use.
 Similar to <code>shinyCatch</code>, <code>spsValidate</code> is able to catch exceptions but more
 useful to handle validations. In addtion to <code>shinyCatch</code> functionalities, it
 will give users a success message if the expression goes through and return <code>TRUE</code>
-(<code>shinyCatch</code> returns the final expression value).</p>
-<pre><code class="language-r">shiny::reactiveConsole(TRUE)
+(<code>shinyCatch</code> returns the final expression value).</p><pre><code class=language-r>shiny::reactiveConsole(TRUE)
 x &lt;- reactiveVal(10)
 
 y &lt;- observe({
@@ -1083,13 +192,10 @@ y &lt;- observe({
 })
 x(0)
 x(-10)
-</code></pre>
-<pre><code>## The value of x is 10
+</code></pre><pre><code>## The value of x is 10
 ## [ ERROR] 2021-03-02 22:36:16 cannot be 0
 ## [ ERROR] 2021-03-02 22:36:16 less than 0
-</code></pre>
-<p>Try this real Shiny app:</p>
-<pre><code class="language-r">library(shiny)
+</code></pre><p>Try this real Shiny app:</p><pre><code class=language-r>library(shiny)
 ui &lt;- fluidPage(
   spsDepend(&quot;toastr&quot;),
   shiny::sliderInput(
@@ -1111,24 +217,15 @@ server &lt;- function(input, output, session) {
   })
 }
 shinyApp(ui, server)
-</code></pre>
-<p>You should see the success message like this:</p>
-<p><img src="../spsvalidate.png" alt="spsvalidate"></p>
-<h3 id="shinycheckpkg"><code>shinyCheckPkg</code></h3>
-<p>Sometimes we want the app behave differently if users have certain packages installed.
+</code></pre><p>You should see the success message like this:</p><p><img src=../spsvalidate.png alt=spsvalidate></p><h3 id=shinycheckpkg><code>shinyCheckPkg</code></h3><p>Sometimes we want the app behave differently if users have certain packages installed.
 For example, if some packages are installed, we open up additional tabs on
 UI to allow more features. This can be done with the <code>shinyCheckPkg</code> function.
 This function has to run inside Shiny server, an alternative version to use
-without Shiny is from the <a href="../../spsutil">spsUtil</a> package, <code>spsUtil::checkNameSpace</code></p>
-<p>Use it in Shiny server, specify the packages you want to check by different sources,
-like CRAN, Bioconductor, or github.</p>
-<pre><code class="language-r">shinyCheckPkg(session, cran_pkg = c(&quot;pkg1&quot;, &quot;pkg2&quot;), bioc_pkg = &quot;bioxxx&quot;, github = &quot;user1/pkg1&quot;)
-</code></pre>
-<p>It will return <code>TRUE</code> if all packages are installed, otherwise <code>FALSE</code></p>
-<p>Now try this real example. We check if the <code>ggplot99</code> package is installed, if
+without Shiny is from the <a href=../../spsutil>spsUtil</a> package, <code>spsUtil::checkNameSpace</code></p><p>Use it in Shiny server, specify the packages you want to check by different sources,
+like CRAN, Bioconductor, or github.</p><pre><code class=language-r>shinyCheckPkg(session, cran_pkg = c(&quot;pkg1&quot;, &quot;pkg2&quot;), bioc_pkg = &quot;bioxxx&quot;, github = &quot;user1/pkg1&quot;)
+</code></pre><p>It will return <code>TRUE</code> if all packages are installed, otherwise <code>FALSE</code></p><p>Now try this real example. We check if the <code>ggplot99</code> package is installed, if
 yes we make a plot. It also combines the <code>spsValidate</code> function. You can have
-a better idea how these functions work.</p>
-<pre><code class="language-r">library(shiny)
+a better idea how these functions work.</p><pre><code class=language-r>library(shiny)
 
 ui &lt;- fluidPage(
   tags$label('Check if package &quot;pkg1&quot;, &quot;pkg2&quot;, &quot;bioxxx&quot;,
@@ -1163,103 +260,9 @@ server &lt;- function(input, output, session) {
 }
 
 shinyApp(ui, server)
-</code></pre>
-<p>You should see something like this if there is any missing package:</p>
-<p><img src="../shinycheckpkg.png" alt="shinycheckpkg"></p>
-
-	
-	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-02: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/c8f946fe5c23104bc940963407d11a4d4bf82c07">updates no_render (c8f946f)</a>
-</div>
-</div>
-
-
-              </main>
-          
-
-
-        </div>
-      </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-        
-        
-        
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-<ul class="list-inline mb-0">
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
-      <i class="fab fa-github"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
-      <i class="fa fa-dna"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
-      <i class="fa fa-envelope"></i>
-    </a>
-  </li>
-  
-</ul>
-
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
-        
-	
-		<p class="mt-2"><a href="../../../../about/">About systemPipe Project</a></p>
-	
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script>
-  (function() {
-    var i, text, code, codes = document.getElementsByTagName('code');
-    for (i = 0; i < codes.length;) {
-      code = codes[i];
-      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-        text = code.textContent;
-        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
-          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
-          code.textContent = text;
-        }
-        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-            /^\$(.|\s)+\$$/.test(text) ||
-            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-          code.outerHTML = code.innerHTML;  
-          continue;
-        }
-      }
-      i++;
-    }
-  })();
-</script>
-<script src="../../../../js/mathjax3.1.2.js"></script>
-<script type="text/x-mathjax-config">
+</code></pre><p>You should see something like this if there is any missing package:</p><p><img src=../shinycheckpkg.png alt=shinycheckpkg></p><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-22: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/7acbce416fd227f91fe1538b4a8b3e193153898a>WF collection;no_render (7acbce4)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipeR Project All Rights Reserved</small><p class=mt-2><a href=../../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
+if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
+i++;}})();</script><script src=../../../../js/mathjax3.1.2.js></script><script type=text/x-mathjax-config>
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -1275,24 +278,4 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-<script src="../../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
-
-
-
-<script src='../../../../js/prism.js'></script>
-
-
-
-  </body>
-</html>
+</script><script src=../../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin=anonymous></script><script src=../../../../js/prism.js></script></body></html>
