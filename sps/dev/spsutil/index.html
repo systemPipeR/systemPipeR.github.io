@@ -1,1002 +1,107 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-
-<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
-
-<title>spsUtil | sysPipe</title><meta property="og:title" content="spsUtil" />
-<meta property="og:description" content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../favicons/android-192x192.png sizes=192x192><title>spsUtil | sysPipe</title><meta property="og:title" content="spsUtil"><meta property="og:description" content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
 Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
 Installation Read the developer tools main page, not repeating here.
-Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/sps/dev/spsutil/" />
-<meta property="article:modified_time" content="2021-03-03T18:23:48-08:00" /><meta property="og:site_name" content="sysPipe" />
-<meta itemprop="name" content="spsUtil">
-<meta itemprop="description" content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
+Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function."><meta property="og:type" content="article"><meta property="og:url" content="/sps/dev/spsutil/"><meta property="article:modified_time" content="2021-03-22T13:33:01-07:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="spsUtil"><meta itemprop=description content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
 Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
 Installation Read the developer tools main page, not repeating here.
-Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function.">
-<meta itemprop="dateModified" content="2021-03-03T18:23:48-08:00" />
-<meta itemprop="wordCount" content="1308">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="spsUtil"/>
-<meta name="twitter:description" content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
+Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function."><meta itemprop=dateModified content="2021-03-22T13:33:01-07:00"><meta itemprop=wordCount content="1308"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="spsUtil"><meta name=twitter:description content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
 Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
 Installation Read the developer tools main page, not repeating here.
-Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function."/>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
-
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-
-
-
-<link rel="stylesheet" href="../../../css/prism.css"/>
-
-
-<script src="../../../js/driver0.9.8.min.js"></script>
-<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
-
-
-<link rel="stylesheet" href="../../../css/site.css"/>
-<script src="../../../js/site.js"></script>
-
-
-
-  </head>
-  <body class="td-page line-numbers">
-    <header>
-     
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-  <a class="navbar-brand" href="../../../">
-		<span class="font-weight-bold">sysPipe</span>
-	</a>
-	<row class="header-switch">
-	  	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
-        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
-      </div>
-    	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
-        <label class="custom-control-label" for="tocSwitch">toc</label>
-      </div>
-	</row>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/overview/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Overview
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../spr/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/spr_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiper/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiperdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../spr/systempiperdata/vignette/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
-          	Shiny
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sps/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 SPS Documentation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Github
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr_wf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
-          	Training
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../training/presentations/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../training/videos/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../news/release_3_12/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-</div>
-</nav>
-
-    </header>
-    <div class="container-fluid td-outer">
-      <div class="td-main">
-        <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
-            
-
-
-
-
-<div id="td-sidebar-menu" class="td-sidebar__inner">
-  
-  <form class="td-sidebar__search d-flex align-items-center">
-    
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
-    </button>
-  </form>
-  
-  <nav class="collapse td-sidebar-nav" id="td-section-nav">
-    
-    
-    
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="sps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../../sps/intro/">Introduction</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../../sps/install/">Installation</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../../sps/quick_start/">Quick start</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsmodules">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../../sps/modules/workflow/">Workflow</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../../sps/modules/rnaseq/">RNAseq</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../../sps/modules/ggplot/">Quick ggplot</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../../sps/canvas/">Canvas</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../../sps/sps_funcs/">SPS Functions</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsadv_features">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../../sps/adv_features/config/">Configuration</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../../sps/adv_features/tabs/">Manage tabs</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../../sps/deploy/">Deploy</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/dev/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Developer tools</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdev">
-      
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/dev/spscomps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">spsComps</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsdevspscomps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsui" href="../../../sps/dev/spscomps/ui/">UI components</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsserver" href="../../../sps/dev/spscomps/server/">Server functions</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sps/dev/drawer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsdevdrawer">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawershiny" href="../../../sps/dev/drawer/shiny/">drawer in Shiny</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawerrmd" href="../../../sps/dev/drawer/rmd/">drawer in Rmarkdown</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsdevspsutil" href="../../../sps/dev/spsutil/">spsUtil</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-  </nav>
-</div>
-
-
-
-
-          </div>
-          
-          
-
-          
-
-          
-          
-              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-                
-  
-  
-  
-  
-  
-  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-  
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spsutil.markdown" target="_blank"><i class="fa fa-code fa-fw"></i> View source code</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spsutil.markdown" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spsutil.markdown?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=spsUtil" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
-    
-      
-      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-    
-
-  
-  
-  </div>
-
-
-
-
-
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#functions-reference-manual">Functions reference manual</a></li>
-        <li><a href="#function-highlights">Function highlights</a>
-          <ul>
-            <li><a href="#logging-with-msg">logging with <code>msg</code></a>
-              <ul>
-                <li><a href="#basic">basic</a></li>
-                <li><a href="#levels">Levels</a></li>
-                <li><a href="#prefix">Prefix</a></li>
-                <li><a href="#colors">Colors</a></li>
-                <li><a href="#wrapper">Wrapper</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#mute-message-with-quiet">mute message with <code>quiet</code></a></li>
-        <li><a href="#check-empty-values-with-emptyisfalse">check &ldquo;empty&rdquo; values with <code>emptyIsFalse</code></a></li>
-        <li><a href="#check-missing-packages-checknamespace">check missing packages <code>checkNameSpace</code></a></li>
-        <li><a href="#check-a-url-is-reachable-with-checkurl">check a URL is reachable with <code>checkUrl</code></a></li>
-        <li><a href="#randomwebsite123com-port-443-connection-timed-outspanspan">randomwebsite123.com port 443: Connection timed out</span><span></a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-              </div>
-              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-                
-  
-
-                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../sps/">systemPipeShiny</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../sps/dev/">Developer tools</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../sps/dev/spsutil/">spsUtil</a>
-</li>
-
-	</ol>
-</nav	>
-
-                
-<div class="td-content">
-	<h1>spsUtil</h1>
-    
-	       
-	<hr>
-<p>SPS framework come with a plenty of useful general R utility functions, like
-pretty logging, package namespace checking, URL checking, and more.</p>
-<p>Since SPS 1.1, these functions are separated into a supporting package called
-<strong>spsUtil</strong> (systemPipeShiny Utility). You can install it from CRAN.</p>
-<h2 id="installation">Installation</h2>
-<p>Read the <a href="..">developer tools</a> main page, not repeating here.</p>
-<h2 id="functions-reference-manual">Functions reference manual</h2>
-<p>In documents, we only highlight some important functions. Please read
-the <a href="../../../sps/sps_funcs">reference manuals</a> for details of every function.</p>
-<h2 id="function-highlights">Function highlights</h2>
-<pre><code class="language-r">library(spsUtil)
-</code></pre>
-<h3 id="logging-with-msg">logging with <code>msg</code></h3>
-<h4 id="basic">basic</h4>
-<p>Often times in an R function, we want to use some text to inform users the
+Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function."><link rel=preload href=../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css as=style><link href=../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><link rel=stylesheet href=../../../css/prism.css><script src=../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../css/site.css><script src=../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../><span class=font-weight-bold>sysPipe</span></a>
+<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
+<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
+<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
+<a class=dropdown-item href=../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
+<a class=dropdown-item href=../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
+<a class=dropdown-item href=../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
+<a class=dropdown-item href=../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../spr/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../spr/systempiper/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
+<a class=dropdown-item href=../../../spr/systempiper/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
+<a class=dropdown-item href=../../../spr/systempiper/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
+<a class=dropdown-item href=../../../spr/systempiper/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
+<a class=dropdown-item href=../../../spr/systempiper/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
+<a class=dropdown-item href=../../../spr/systempiper/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
+<a class=dropdown-item href=../../../spr/systempiper/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
+<a class=dropdown-item href=../../../spr/systempiper/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
+<a class=dropdown-item href=../../../spr/systempiperdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
+<a class=dropdown-item href=../../../spr/systempiperdata/vignette/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
+<a class=dropdown-item href=../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
+<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../training/ id=navbarDropdown role=button>Training</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../training/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
+<a class=dropdown-item href=../../../training/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a></li><ul><li class="collapse show" id=sps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsintro href=../../../sps/intro/>Introduction</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsinstall href=../../../sps/install/>Installation</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsquick_start href=../../../sps/quick_start/>Quick start</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/modules/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a></li><ul><li class=collapse id=spsmodules><a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesworkflow href=../../../sps/modules/workflow/>Workflow</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesrnaseq href=../../../sps/modules/rnaseq/>RNAseq</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesggplot href=../../../sps/modules/ggplot/>Quick ggplot</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spscanvas href=../../../sps/canvas/>Canvas</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spssps_funcs href=../../../sps/sps_funcs/>SPS Functions</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/adv_features/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a></li><ul><li class=collapse id=spsadv_features><a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresconfig href=../../../sps/adv_features/config/>Configuration</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featurestabs href=../../../sps/adv_features/tabs/>Manage tabs</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdeploy href=../../../sps/deploy/>Deploy</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/dev/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Developer tools</a></li><ul><li class="collapse show" id=spsdev><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/dev/spscomps/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">spsComps</a></li><ul><li class=collapse id=spsdevspscomps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsui href=../../../sps/dev/spscomps/ui/>UI components</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsserver href=../../../sps/dev/spscomps/server/>Server functions</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sps/dev/drawer/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a></li><ul><li class=collapse id=spsdevdrawer><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawershiny href=../../../sps/dev/drawer/shiny/>drawer in Shiny</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawerrmd href=../../../sps/dev/drawer/rmd/>drawer in Rmarkdown</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page active" id=m-spsdevspsutil href=../../../sps/dev/spsutil/>spsUtil</a></li></ul></ul></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spsutil.markdown target=_blank><i class="fa fa-code fa-fw"></i>View source code</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spsutil.markdown target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spsutil.markdown?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=spsUtil" target=_blank><i class="fab fa-github fa-fw"></i>Create documentation issue</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><ul><li><a href=#installation>Installation</a></li><li><a href=#functions-reference-manual>Functions reference manual</a></li><li><a href=#function-highlights>Function highlights</a><ul><li><a href=#logging-with-msg>logging with <code>msg</code></a><ul><li><a href=#basic>basic</a></li><li><a href=#levels>Levels</a></li><li><a href=#prefix>Prefix</a></li><li><a href=#colors>Colors</a></li><li><a href=#wrapper>Wrapper</a></li></ul></li></ul></li><li><a href=#mute-message-with-quiet>mute message with <code>quiet</code></a></li><li><a href=#check-empty-values-with-emptyisfalse>check &ldquo;empty&rdquo; values with <code>emptyIsFalse</code></a></li><li><a href=#check-missing-packages-checknamespace>check missing packages <code>checkNameSpace</code></a></li><li><a href=#check-a-url-is-reachable-with-checkurl>check a URL is reachable with <code>checkUrl</code></a></li><li><a href=#randomwebsite123com-port-443-connection-timed-outspanspan>randomwebsite123.com port 443: Connection timed out</span><span></a></li></ul></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../sps/>systemPipeShiny</a></li><li class=breadcrumb-item><a href=../../../sps/dev/>Developer tools</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../sps/dev/spsutil/>spsUtil</a></li></ol></nav><div class=td-content><h1>spsUtil</h1><hr><p>SPS framework come with a plenty of useful general R utility functions, like
+pretty logging, package namespace checking, URL checking, and more.</p><p>Since SPS 1.1, these functions are separated into a supporting package called
+<strong>spsUtil</strong> (systemPipeShiny Utility). You can install it from CRAN.</p><h2 id=installation>Installation</h2><p>Read the <a href=..>developer tools</a> main page, not repeating here.</p><h2 id=functions-reference-manual>Functions reference manual</h2><p>In documents, we only highlight some important functions. Please read
+the <a href=../../../sps/sps_funcs>reference manuals</a> for details of every function.</p><h2 id=function-highlights>Function highlights</h2><pre><code class=language-r>library(spsUtil)
+</code></pre><h3 id=logging-with-msg>logging with <code>msg</code></h3><h4 id=basic>basic</h4><p>Often times in an R function, we want to use some text to inform users the
 status and message. We can use functions like <code>message</code>, <code>warning</code>, <code>stop</code> to generate different
-levels of information.</p>
-<p>{spsUtil} provides some more informative and prettier ways to generate these kind of messages.</p>
-<pre><code class="language-r">msg(&quot;my message&quot;)
-</code></pre>
-<pre><code>## [INFO] 2021-03-03 18:20:15 my message
-</code></pre>
-<p>You can see it starts with a <code>level</code> information, then a time stamp, and follows the
+levels of information.</p><p>{spsUtil} provides some more informative and prettier ways to generate these kind of messages.</p><pre><code class=language-r>msg(&quot;my message&quot;)
+</code></pre><pre><code>## [INFO] 2021-03-03 18:20:15 my message
+</code></pre><p>You can see it starts with a <code>level</code> information, then a time stamp, and follows the
 actual message. By default, it uses the <code>INFO</code> level, and you can change to whatever
-level you want. However, there are 3 keywords that have special meaning.</p>
-<h4 id="levels">Levels</h4>
-<ul>
-<li><strong>INFO</strong>: equals <code>message</code> method in native R</li>
-<li><strong>WARNING</strong>: generates warnings the same as <code>warning</code> function</li>
-<li><strong>ERROR</strong>: generates error the same as <code>stop</code> function and will prevent downstream
-code get evaluated.</li>
-</ul>
-<p>If the level is other than these 3, there is no special meaning in R, just <code>cat</code>
-the message out.</p>
-<pre><code class="language-r">msg(&quot;I am info&quot;, level = &quot;INFO&quot;)
-</code></pre>
-<pre><code>## [INFO] 2021-03-03 18:20:15 I am info
-</code></pre>
-<pre><code class="language-r">msg(&quot;I am warning&quot;, level = &quot;warning&quot;) # not case sensitive
-</code></pre>
-<pre><code>## Warning: [WARNING] 2021-03-03 18:20:15 I am warning
-</code></pre>
-<pre><code class="language-r">msg(&quot;I am error&quot;, level = &quot;ERROR&quot;)
-</code></pre>
-<pre><code>## Error: 
+level you want. However, there are 3 keywords that have special meaning.</p><h4 id=levels>Levels</h4><ul><li><strong>INFO</strong>: equals <code>message</code> method in native R</li><li><strong>WARNING</strong>: generates warnings the same as <code>warning</code> function</li><li><strong>ERROR</strong>: generates error the same as <code>stop</code> function and will prevent downstream
+code get evaluated.</li></ul><p>If the level is other than these 3, there is no special meaning in R, just <code>cat</code>
+the message out.</p><pre><code class=language-r>msg(&quot;I am info&quot;, level = &quot;INFO&quot;)
+</code></pre><pre><code>## [INFO] 2021-03-03 18:20:15 I am info
+</code></pre><pre><code class=language-r>msg(&quot;I am warning&quot;, level = &quot;warning&quot;) # not case sensitive
+</code></pre><pre><code>## Warning: [WARNING] 2021-03-03 18:20:15 I am warning
+</code></pre><pre><code class=language-r>msg(&quot;I am error&quot;, level = &quot;ERROR&quot;)
+</code></pre><pre><code>## Error: 
 [ERROR] 2021-03-03 18:20:15 I am error
-</code></pre>
-<pre><code class="language-r">msg(&quot;I am random level&quot;, level = &quot;MY LEVEL&quot;)
-</code></pre>
-<pre><code>## [MY LEVEL] 2021-03-03 18:20:15 I am random level
-</code></pre>
-<h4 id="prefix">Prefix</h4>
-<p>For the 3 key levels, you can specify the prefix in front of the level text to
-over write the default level text <code>INFO</code>, <code>WARNING</code>, or <code>ERROR</code></p>
-<pre><code class="language-r">msg(&quot;I am info&quot;, level = &quot;INFO&quot;, info_text = &quot;NEW-INFO&quot;)
-</code></pre>
-<pre><code>## [NEW-INFO] 2021-03-03 18:20:15 I am info
-</code></pre>
-<pre><code class="language-r">msg(&quot;I am warning&quot;, level = &quot;warning&quot;, warning_text = &quot;MY-WARNING&quot;)
-</code></pre>
-<pre><code>## Warning: [MY-WARNING] 2021-03-03 18:20:15 I am warning
-</code></pre>
-<pre><code class="language-r">msg(&quot;I am error&quot;, level = &quot;ERROR&quot;, error_text = &quot;STOP&quot;)
-</code></pre>
-<pre><code>## Error: 
+</code></pre><pre><code class=language-r>msg(&quot;I am random level&quot;, level = &quot;MY LEVEL&quot;)
+</code></pre><pre><code>## [MY LEVEL] 2021-03-03 18:20:15 I am random level
+</code></pre><h4 id=prefix>Prefix</h4><p>For the 3 key levels, you can specify the prefix in front of the level text to
+over write the default level text <code>INFO</code>, <code>WARNING</code>, or <code>ERROR</code></p><pre><code class=language-r>msg(&quot;I am info&quot;, level = &quot;INFO&quot;, info_text = &quot;NEW-INFO&quot;)
+</code></pre><pre><code>## [NEW-INFO] 2021-03-03 18:20:15 I am info
+</code></pre><pre><code class=language-r>msg(&quot;I am warning&quot;, level = &quot;warning&quot;, warning_text = &quot;MY-WARNING&quot;)
+</code></pre><pre><code>## Warning: [MY-WARNING] 2021-03-03 18:20:15 I am warning
+</code></pre><pre><code class=language-r>msg(&quot;I am error&quot;, level = &quot;ERROR&quot;, error_text = &quot;STOP&quot;)
+</code></pre><pre><code>## Error: 
 [STOP] 2021-03-03 18:20:15 I am error
-</code></pre>
-<h4 id="colors">Colors</h4>
-<p>Colors are automatically enabled if it is supported. If you try all code above in
+</code></pre><h4 id=colors>Colors</h4><p>Colors are automatically enabled if it is supported. If you try all code above in
 your terminal or Rstudio, they all have colors. In Rmd, to enable the color,
-you need to add the following code chunk. You also need to install the <code>fansi</code> package.</p>
-<pre><code>```{r echo=FALSE, results='asis'} 
+you need to add the following code chunk. You also need to install the <code>fansi</code> package.</p><pre><code>```{r echo=FALSE, results='asis'} 
 options(crayon.enabled = TRUE)
 old_hooks &lt;- fansi::set_knit_hooks(knitr::knit_hooks, which = c(&quot;output&quot;, &quot;message&quot;, &quot;error&quot;, &quot;warning&quot;))
 ```
-</code></pre>
-<STYLE type='text/css' scoped>
-PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
-</STYLE>
-<pre><code class="language-r">msg(&quot;I am info&quot;, level = &quot;INFO&quot;, info_text = &quot;NEW-INFO&quot;)
-</code></pre>
-<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB;font-weight: bold;'>[NEW-INFO] 2021-03-03 18:20:15 I am info</span><span>
-</span></CODE></PRE>
-<p>The 3 key levels has default colors:</p>
-<ul>
-<li><strong>INFO</strong>: <span style="color:blue">blue</span></li>
-<li><strong>WARNING</strong>: <span style="color:orange">orange</span></li>
-<li><strong>ERROR</strong>: <span style="color:red">red</span></li>
-</ul>
-<p>You can specify colors for your own levels</p>
-<pre><code class="language-r">msg(&quot;I am warning&quot;, level = &quot;warning&quot;) ## not super orange in Rmd translation -_-=
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-03-03 18:20:15 I am warning</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">msg(&quot;I am error&quot;, level = &quot;error&quot;)
-</code></pre>
-<PRE class="fansi fansi-error"><CODE>## Error: 
-<span style='color: #BB0000;font-weight: bold;'>[ERROR] 2021-03-03 18:20:15 I am error</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">msg(&quot;oh yeah&quot;, level = &quot;SUCCESS&quot;, .other_color = &quot;green&quot;)
-</code></pre>
-<PRE class="fansi fansi-output"><CODE>## <span style='color: #00BB00;font-weight: bold;'>[SUCCESS] 2021-03-03 18:20:15 oh yeah</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">msg(&quot;oh no&quot;, level = &quot;FAIL&quot;, .other_color = &quot;purple&quot;)
-</code></pre>
-<PRE class="fansi fansi-output"><CODE>## <span style='color: #BB00BB;font-weight: bold;'>[FAIL] 2021-03-03 18:20:15 oh no</span><span>
-</span></CODE></PRE>
-<h4 id="wrapper">Wrapper</h4>
-<p>You can use this logging function in your own projects by wrapping it inside a
+</code></pre><style type=text/css scoped>pre.fansi span{padding-top:.25em;padding-bottom:.25em}</style><pre><code class=language-r>msg(&quot;I am info&quot;, level = &quot;INFO&quot;, info_text = &quot;NEW-INFO&quot;)
+</code></pre><pre class="fansi fansi-message"><code>## <span style=color:#00b;font-weight:700>[NEW-INFO] 2021-03-03 18:20:15 I am info</span><span>
+</span></code></pre><p>The 3 key levels has default colors:</p><ul><li><strong>INFO</strong>: <span style=color:blue>blue</span></li><li><strong>WARNING</strong>: <span style=color:orange>orange</span></li><li><strong>ERROR</strong>: <span style=color:red>red</span></li></ul><p>You can specify colors for your own levels</p><pre><code class=language-r>msg(&quot;I am warning&quot;, level = &quot;warning&quot;) ## not super orange in Rmd translation -_-=
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[WARNING] 2021-03-03 18:20:15 I am warning</span><span>
+</span></code></pre><pre><code class=language-r>msg(&quot;I am error&quot;, level = &quot;error&quot;)
+</code></pre><pre class="fansi fansi-error"><code>## Error: 
+<span style=color:#b00;font-weight:700>[ERROR] 2021-03-03 18:20:15 I am error</span><span>
+</span></code></pre><pre><code class=language-r>msg(&quot;oh yeah&quot;, level = &quot;SUCCESS&quot;, .other_color = &quot;green&quot;)
+</code></pre><pre class="fansi fansi-output"><code>## <span style=color:#0b0;font-weight:700>[SUCCESS] 2021-03-03 18:20:15 oh yeah</span><span>
+</span></code></pre><pre><code class=language-r>msg(&quot;oh no&quot;, level = &quot;FAIL&quot;, .other_color = &quot;purple&quot;)
+</code></pre><pre class="fansi fansi-output"><code>## <span style=color:#b0b;font-weight:700>[FAIL] 2021-03-03 18:20:15 oh no</span><span>
+</span></code></pre><h4 id=wrapper>Wrapper</h4><p>You can use this logging function in your own projects by wrapping it inside a
 upper level function, like what we do for <code>spsinfo</code>, <code>spswarn</code>, <code>spserror</code>. They
-have <code>SPS-</code> prefix added, and have some SPS global settings appended.</p>
-<pre><code class="language-r">spsOption('use_crayon', TRUE)
+have <code>SPS-</code> prefix added, and have some SPS global settings appended.</p><pre><code class=language-r>spsOption('use_crayon', TRUE)
 spsinfo(&quot;info&quot;, verbose = TRUE) ## default `verbose` mute the message
-</code></pre>
-<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB;font-weight: bold;'>[SPS-INFO] 2021-03-03 18:20:15 info</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">spswarn(&quot;warning&quot;)
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[SPS-WARNING] 2021-03-03 18:20:15 warning</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">spserror(&quot;stop&quot;)
-</code></pre>
-<PRE class="fansi fansi-error"><CODE>## Error: 
-<span style='color: #BB0000;font-weight: bold;'>[SPS-ERROR] 2021-03-03 18:20:15 stop</span><span>
-</span></CODE></PRE>
-<p>To create a simple one for project is very easy. Assume your project is named &ldquo;My Project&rdquo;.
-You can create logging as:</p>
-<pre><code class="language-r">mpInfo &lt;- function(text){
+</code></pre><pre class="fansi fansi-message"><code>## <span style=color:#00b;font-weight:700>[SPS-INFO] 2021-03-03 18:20:15 info</span><span>
+</span></code></pre><pre><code class=language-r>spswarn(&quot;warning&quot;)
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[SPS-WARNING] 2021-03-03 18:20:15 warning</span><span>
+</span></code></pre><pre><code class=language-r>spserror(&quot;stop&quot;)
+</code></pre><pre class="fansi fansi-error"><code>## Error: 
+<span style=color:#b00;font-weight:700>[SPS-ERROR] 2021-03-03 18:20:15 stop</span><span>
+</span></code></pre><p>To create a simple one for project is very easy. Assume your project is named &ldquo;My Project&rdquo;.
+You can create logging as:</p><pre><code class=language-r>mpInfo &lt;- function(text){
   spsUtil::msg(text, info_text = &quot;MP-INFO&quot;)
 }
 mpWarn &lt;- function(text){
@@ -1006,23 +111,15 @@ mpErr &lt;- function(text){
   spsUtil::msg(text, level = &quot;error&quot;, error_text = &quot;MP-ERROR&quot;)
 }
 mpInfo(&quot;info&quot;)
-</code></pre>
-<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB;font-weight: bold;'>[MP-INFO] 2021-03-03 18:20:15 info</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">mpWarn(&quot;warning&quot;)
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[MP-WARNING] 2021-03-03 18:20:15 warning</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">mpErr(&quot;error&quot;)
-</code></pre>
-<PRE class="fansi fansi-error"><CODE>## Error: 
-<span style='color: #BB0000;font-weight: bold;'>[MP-ERROR] 2021-03-03 18:20:15 error</span><span>
-</span></CODE></PRE>
-<h2 id="mute-message-with-quiet">mute message with <code>quiet</code></h2>
-<p>In R, you can easily mute message and warnings with <code>suppressMessages()</code>, and
+</code></pre><pre class="fansi fansi-message"><code>## <span style=color:#00b;font-weight:700>[MP-INFO] 2021-03-03 18:20:15 info</span><span>
+</span></code></pre><pre><code class=language-r>mpWarn(&quot;warning&quot;)
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[MP-WARNING] 2021-03-03 18:20:15 warning</span><span>
+</span></code></pre><pre><code class=language-r>mpErr(&quot;error&quot;)
+</code></pre><pre class="fansi fansi-error"><code>## Error: 
+<span style=color:#b00;font-weight:700>[MP-ERROR] 2021-03-03 18:20:15 error</span><span>
+</span></code></pre><h2 id=mute-message-with-quiet>mute message with <code>quiet</code></h2><p>In R, you can easily mute message and warnings with <code>suppressMessages()</code>, and
 <code>suppressWarnings()</code>, but not so easy with <code>print</code> or <code>cat</code> methods. <code>spsUtil::quiet</code>
-enables you to mute all these methods or choose what to mute.</p>
-<pre><code class="language-r">{
+enables you to mute all these methods or choose what to mute.</p><pre><code class=language-r>{
 # muted
 quiet(warning(123))
 quiet(message(123))
@@ -1038,13 +135,10 @@ quiet(cat(123), print_cat = FALSE)
 ## 123
 ## [1] 123
 ## 123
-</code></pre>
-<h2 id="check-empty-values-with-emptyisfalse">check &ldquo;empty&rdquo; values with <code>emptyIsFalse</code></h2>
-<p>In R, values like <code>NA</code>, <code>&quot;&quot;</code>, <code>NULL</code>, length(0) is not very meaningful in
+</code></pre><h2 id=check-empty-values-with-emptyisfalse>check &ldquo;empty&rdquo; values with <code>emptyIsFalse</code></h2><p>In R, values like <code>NA</code>, <code>""</code>, <code>NULL</code>, length(0) is not very meaningful in
 condition judgment and will give you errors. Yet, R does not have a native
 method to handle these &ldquo;empty&rdquo; values in <code>if</code> like other languages. They are
-meaningful in other ways, but in conditions, we may want to turn them to <code>FALSE</code>.</p>
-<pre><code class="language-r">if(&quot;&quot;) TRUE else FALSE
+meaningful in other ways, but in conditions, we may want to turn them to <code>FALSE</code>.</p><pre><code class=language-r>if(&quot;&quot;) TRUE else FALSE
 ## Error in if (&quot;&quot;) TRUE else FALSE: argument is not interpretable as logical
 if(NULL) TRUE else FALSE
 ## Error in if (NULL) TRUE else FALSE: argument is of length zero
@@ -1052,10 +146,8 @@ if(character(0)) TRUE else FALSE
 ## Error in if (character(0)) TRUE else FALSE: argument is of length zero
 if(NA) TRUE else FALSE
 ## Error in if (NA) TRUE else FALSE: missing value where TRUE/FALSE needed
-</code></pre>
-<p>You can see they all give errors. In other languages (javascript in this example),
-these values are often treated as <code>FALSE</code>.</p>
-<pre><code class="language-js">if (NaN) true; else false
+</code></pre><p>You can see they all give errors. In other languages (javascript in this example),
+these values are often treated as <code>FALSE</code>.</p><pre><code class=language-js>if (NaN) true; else false
 //&gt; false
 if (undefined) true; else false
 //&gt; false
@@ -1063,20 +155,11 @@ if (&quot;&quot;) true; else false
 //&gt; false
 if (null) true; else false
 //&gt; false
-</code></pre>
-<script type="text/javascript">
-if (NaN) true; else false
-//> false
-if (undefined) true; else false
-//> false
-if ("") true; else false
-//> false
-if (null) true; else false
-//> false
-</script>
-<p>This is how <code>emptyIsFalse</code>
-work. If the input is one of these values, return <code>FALSE</code>, else <code>TRUE</code></p>
-<pre><code class="language-r">if(emptyIsFalse(&quot;&quot;)) TRUE else FALSE
+</code></pre><script type=text/javascript>if(NaN)true;else false
+if(undefined)true;else false
+if("")true;else false
+if(null)true;else false</script><p>This is how <code>emptyIsFalse</code>
+work. If the input is one of these values, return <code>FALSE</code>, else <code>TRUE</code></p><pre><code class=language-r>if(emptyIsFalse(&quot;&quot;)) TRUE else FALSE
 ## [1] FALSE
 if(emptyIsFalse(NULL)) TRUE else FALSE
 ## [1] FALSE
@@ -1084,43 +167,29 @@ if(emptyIsFalse(character(0))) TRUE else FALSE
 ## [1] FALSE
 if(emptyIsFalse(NA)) TRUE else FALSE
 ## [1] FALSE
-</code></pre>
-<h2 id="check-missing-packages-checknamespace">check missing packages <code>checkNameSpace</code></h2>
-<p>In our functions, sometimes we want to have the users to install certain packages
+</code></pre><h2 id=check-missing-packages-checknamespace>check missing packages <code>checkNameSpace</code></h2><p>In our functions, sometimes we want to have the users to install certain packages
 to enable more functionalities, like the <code>DESeq2::lfcShrink</code> function. Or like
 in a Rmd source code, before other people can rerender the document, they must
 install certain packages. <code>checkNameSpace</code> checks all required packages and returns
-the missing names.</p>
-<pre><code class="language-r">checkNameSpace(&quot;random_pkg&quot;)
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-03-03 18:20:16 These packages are missing from
+the missing names.</p><pre><code class=language-r>checkNameSpace(&quot;random_pkg&quot;)
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[WARNING] 2021-03-03 18:20:16 These packages are missing from
 ## CRAN: random_pkg</span><span>
-</span></CODE></PRE>
-<pre><code>## [1] &quot;random_pkg&quot;
-</code></pre>
-<p>You can add it to your function to or on the top of your Rmd document to inform
-your users the missing packages and where to install.</p>
-<pre><code class="language-r">pkgs &lt;- list(
+</span></code></pre><pre><code>## [1] &quot;random_pkg&quot;
+</code></pre><p>You can add it to your function to or on the top of your Rmd document to inform
+your users the missing packages and where to install.</p><pre><code class=language-r>pkgs &lt;- list(
   CRAN = c(&quot;pkg1&quot;, &quot;pkg2&quot;),
   Bioconductor = c(&quot;bio_pkg1&quot;, &quot;bio_pkg2&quot;)
 )
 
 missing_pkg &lt;- checkNameSpace(pkgs[[1]], from =  names(pkgs)[1])
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-03-03 18:20:16 These packages are missing from
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[WARNING] 2021-03-03 18:20:16 These packages are missing from
 ## CRAN: pkg1,pkg2</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">missing_pkg &lt;- c(missing_pkg, checkNameSpace(pkgs[[2]], from =  names(pkgs)[2]))
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-03-03 18:20:16 These packages are missing from
+</span></code></pre><pre><code class=language-r>missing_pkg &lt;- c(missing_pkg, checkNameSpace(pkgs[[2]], from =  names(pkgs)[2]))
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[WARNING] 2021-03-03 18:20:16 These packages are missing from
 ## Bioconductor: bio_pkg1,bio_pkg2</span><span>
-</span></CODE></PRE>
-<pre><code class="language-r">if(emptyIsFalse(missing_pkg)) stop(&quot;Install packages&quot;)
-</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): Install packages
-</code></pre>
-<p>Or write your custom warning message:</p>
-<pre><code class="language-r">{
+</span></code></pre><pre><code class=language-r>if(emptyIsFalse(missing_pkg)) stop(&quot;Install packages&quot;)
+</code></pre><pre><code>## Error in eval(expr, envir, enclos): Install packages
+</code></pre><p>Or write your custom warning message:</p><pre><code class=language-r>{
 missing_pkg &lt;- mapply(function(pkg, from) {
   checkNameSpace(pkg, quietly = TRUE, from)
 }, pkg = pkgs, from = names(pkgs), SIMPLIFY = FALSE)
@@ -1140,121 +209,20 @@ cat(
 )
 if(emptyIsFalse(unlist(missing_pkg))) stop(&quot;Install packages&quot;)
 }
-</code></pre>
-<pre><code>## Use `install.packages(c('pkg1','pkg2'))` to install CRAN packages
+</code></pre><pre><code>## Use `install.packages(c('pkg1','pkg2'))` to install CRAN packages
 ## Use `BiocManager::install(c('bio_pkg1','bio_pkg2'))` to install Bioconductor packages
-</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): Install packages
-</code></pre>
-<h2 id="check-a-url-is-reachable-with-checkurl">check a URL is reachable with <code>checkUrl</code></h2>
-<p>Useful if you need make some big HTTP requests.</p>
-<pre><code class="language-r">checkUrl(&quot;https://google.com&quot;)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">checkUrl(&quot;https://randomwebsite123.com&quot;, timeout = 1)
-</code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-03-03 18:20:17 Bad url https://
+</code></pre><pre><code>## Error in eval(expr, envir, enclos): Install packages
+</code></pre><h2 id=check-a-url-is-reachable-with-checkurl>check a URL is reachable with <code>checkUrl</code></h2><p>Useful if you need make some big HTTP requests.</p><pre><code class=language-r>checkUrl(&quot;https://google.com&quot;)
+</code></pre><pre><code>## [1] TRUE
+</code></pre><pre><code class=language-r>checkUrl(&quot;https://randomwebsite123.com&quot;, timeout = 1)
+</code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[WARNING] 2021-03-03 18:20:17 Bad url https://
 ## randomwebsite123.com</span><span>
-</span></CODE></PRE><PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-03-03 18:20:17 Failed to connect to
-<h2 id="randomwebsite123com-port-443-connection-timed-outspanspan">randomwebsite123.com port 443: Connection timed out</span><span></h2>
-<p></span></CODE></PRE></p>
-<pre><code>## [1] FALSE
-</code></pre>
-
-	
-	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-03: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/56f34d56b8f860d6a9e348d31478b9222c02ef53">updates for subpkgs no_render (56f34d5)</a>
-</div>
-</div>
-
-
-              </main>
-          
-
-
-        </div>
-      </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-        
-        
-        
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-<ul class="list-inline mb-0">
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
-      <i class="fab fa-github"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
-      <i class="fa fa-dna"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
-      <i class="fa fa-envelope"></i>
-    </a>
-  </li>
-  
-</ul>
-
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
-        
-	
-		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
-	
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script>
-  (function() {
-    var i, text, code, codes = document.getElementsByTagName('code');
-    for (i = 0; i < codes.length;) {
-      code = codes[i];
-      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-        text = code.textContent;
-        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
-          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
-          code.textContent = text;
-        }
-        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-            /^\$(.|\s)+\$$/.test(text) ||
-            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-          code.outerHTML = code.innerHTML;  
-          continue;
-        }
-      }
-      i++;
-    }
-  })();
-</script>
-<script src="../../../js/mathjax3.1.2.js"></script>
-<script type="text/x-mathjax-config">
+</span></code></pre><pre class="fansi fansi-warning"><code>## Warning: <span style=color:#bb0;font-weight:700>[WARNING] 2021-03-03 18:20:17 Failed to connect to
+<h2 id=randomwebsite123com-port-443-connection-timed-outspanspan>randomwebsite123.com port 443: Connection timed out</span><span></h2>
+<p></span></code></pre></p><pre><code>## [1] FALSE
+</code></pre><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-22: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/7acbce416fd227f91fe1538b4a8b3e193153898a>WF collection;no_render (7acbce4)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipeR Project All Rights Reserved</small><p class=mt-2><a href=../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
+if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
+i++;}})();</script><script src=../../../js/mathjax3.1.2.js></script><script type=text/x-mathjax-config>
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -1270,24 +238,4 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-<script src="../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
-
-
-
-<script src='../../../js/prism.js'></script>
-
-
-
-  </body>
-</html>
+</script><script src=../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin=anonymous></script><script src=../../../js/prism.js></script></body></html>
