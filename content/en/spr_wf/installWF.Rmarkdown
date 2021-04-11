@@ -44,7 +44,7 @@ setwd("varseq")
 On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.
 
 ```{bash generate_workenvir_from_shell, eval=FALSE}
-$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='varseq', mydirname=NULL)"
+$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname=NULL)"
 ```
 
 ## Check availability of workflow templates 
@@ -64,7 +64,7 @@ The workflow template choose from Github will be installed as an R package, and
 also it creates an environment with all the settings and files to run the demo analysis.
 
 ```{r eval=FALSE, tidy=FALSE}
-genWorkenvir(workflow="systemPipeR/systemPipeVARseq", mydirname="NULL")
+genWorkenvir(workflow="systemPipeR/SPrnaseq", mydirname="NULL")
 setwd("systemPipeVARseq")
 ```
 
@@ -73,6 +73,6 @@ defined through other branches on the GitHub Repository. By default, the _`maste
 branch is selected, however, it is possible to define a different branch with the _`ref`_ argument. 
 
 ```{r eval=FALSE, tidy=FALSE}
-genWorkenvir(workflow="systemPipeR/systemPipeRNAseq", ref = "singleMachine")
+genWorkenvir(workflow="systemPipeR/SPrnaseq", ref = "singleMachine")
 setwd("systemPipeRNAseq")
 ```

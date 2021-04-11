@@ -1,7 +1,7 @@
 ---
 title: "How to install systemPipe Workflows" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 22 March, 2021" 
+date: "Last update: 10 April, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -42,7 +42,7 @@ On Linux and OS X systems the same can be achieved from the command-line of a te
 
 
 ```bash
-$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='varseq', mydirname=NULL)"
+$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname=NULL)"
 ```
 
 ## Check availability of workflow templates 
@@ -69,6 +69,7 @@ availableWF(github = TRUE)
 ## 6    systemPipeR/SPdenovo                         master   devel
 ## 7 systemPipeR/SPmetatrans                         master   devel
 ## 8 systemPipeR/SPmethylseq                         master   devel
+## 9  systemPipeR/SPmirnaseq                         master   devel
 ##                                         html       description
 ## 1   https://github.com/systemPipeR/SPchipseq Workflow Template
 ## 2   https://github.com/systemPipeR/SPriboseq Workflow Template
@@ -78,6 +79,7 @@ availableWF(github = TRUE)
 ## 6    https://github.com/systemPipeR/SPdenovo Workflow Template
 ## 7 https://github.com/systemPipeR/SPmetatrans Workflow Template
 ## 8 https://github.com/systemPipeR/SPmethylseq Workflow Template
+## 9  https://github.com/systemPipeR/SPmirnaseq Workflow Template
 ```
 
 This function returns the list of workflow templates available within the package 
@@ -89,7 +91,7 @@ also it creates an environment with all the settings and files to run the demo a
 
 
 ```r
-genWorkenvir(workflow="systemPipeR/systemPipeVARseq", mydirname="NULL")
+genWorkenvir(workflow="systemPipeR/SPrnaseq", mydirname="NULL")
 setwd("systemPipeVARseq")
 ```
 
@@ -99,6 +101,6 @@ branch is selected, however, it is possible to define a different branch with th
 
 
 ```r
-genWorkenvir(workflow="systemPipeR/systemPipeRNAseq", ref = "singleMachine")
+genWorkenvir(workflow="systemPipeR/SPrnaseq", ref = "singleMachine")
 setwd("systemPipeRNAseq")
 ```
