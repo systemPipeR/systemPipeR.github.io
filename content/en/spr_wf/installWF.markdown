@@ -1,7 +1,7 @@
 ---
 title: "How to install systemPipe Workflows" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 10 April, 2021" 
+date: "Last update: 12 April, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true

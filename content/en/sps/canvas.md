@@ -12,6 +12,11 @@ to use Canvas, you need to take some screenshots but clicking "To Canvas" button
 on different tabs/modules. After clicking, the screenshots will be automatically sent 
 from these places to this Canvas. 
 
+After SPS v1.1.0 this Canvas feature has been provided as a separate package 
+{[drawer](../dev/drawer)}. If you like this feature and want to use outside 
+of SPS, install {[drawer](../dev/drawer)}. It is fully compatible with both 
+Shiny and R markdown. 
+
 
 <center>
 

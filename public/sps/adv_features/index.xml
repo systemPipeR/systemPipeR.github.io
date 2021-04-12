@@ -1,581 +1,633 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sysPipe – Advanced features</title><link>/sps/adv_features/</link><description>Recent content in Advanced features on sysPipe</description><generator>Hugo -- gohugo.io</generator><atom:link href="/sps/adv_features/index.xml" rel="self" type="application/rss+xml"/><item><title>Sps: Configuration</title><link>/sps/adv_features/config/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sps/adv_features/config/</guid><description>
-&lt;hr>
-&lt;h2 id="config-sps">Config SPS&lt;/h2>
-&lt;p>Let us start by creating an example SPS project. For demo purpose, we are using the
-&lt;code>/tmp&lt;/code> folder but one should use a regular location instead of the temp in a real
-case.&lt;/p>
-&lt;pre>&lt;code class="language-r">suppressPackageStartupMessages(library(systemPipeShiny))
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sysPipe – Advanced features</title>
+    <link>/sps/adv_features/</link>
+    <description>Recent content in Advanced features on sysPipe</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/sps/adv_features/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Sps: Configuration</title>
+      <link>/sps/adv_features/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/adv_features/config/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;h2 id=&#34;config-sps&#34;&gt;Config SPS&lt;/h2&gt;
+&lt;p&gt;Let us start by creating an example SPS project. For demo purpose, we are using the
+&lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
+case.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &amp;quot;config_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:02 Start to create a new SPS project
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:02 Create project under /tmp/Rtmp3dzki3/config_demo
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:02 Now copy files
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:03 Create SPS database
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:03 Created SPS database method container
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:03 Creating SPS db...
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-DANGER] 2021-02-12 17:56:03 Db created at '/tmp/Rtmp3dzki3/config_demo/config/sps.db'. DO NOT share this file with others
-## [SPS-INFO] 2021-02-12 17:56:03 Key md5 ade535c7b129259899081ba344c1b843
-## [SPS-INFO] 2021-02-12 17:56:03 SPS project setup done!
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-r">## save project path
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:43:17 Start to create a new SPS project
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:43:17 Create project under /tmp/Rtmp0DT2yS/config_demo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:43:17 Now copy files
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:43:17 Create SPS database
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:43:17 Created SPS database method container
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:43:17 Creating SPS db...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 11:43:17 Done, Db created at &#39;/tmp/Rtmp0DT2yS/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-12 11:43:17 Key md5 e55c4f696d0b55d79a13732f75c7ad0b
+## [SPS-INFO] 2021-04-12 11:43:17 SPS project setup done!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
 (sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;config_demo&amp;quot;))
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [1] &amp;quot;/tmp/Rtmp3dzki3/config_demo&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>To reproduce code locally, run the following chunk instead.&lt;/p>
-&lt;pre>&lt;code class="language-r">library(systemPipeShiny)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmp0DT2yS/config_demo&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
 spsInit()
 sps_dir &amp;lt;- normalizePath(&amp;quot;.&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;h2 id="sps-structure">SPS structure&lt;/h2>
-&lt;pre>
-SPS_xx/
-├── server.R &lt;span class="text-success">|&lt;/span>
-├── global.R &lt;span class="text-success">| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit manually&lt;/span>
-├── ui.R &lt;span class="text-success">|&lt;/span>
-├── deploy.R &lt;span class="text-info">| Deploy helper file&lt;/span>
-├── config &lt;span class="text-success">| Important app config files. Do not edit them if you don't know&lt;/span>
-│ ├── sps.db &lt;span class="text-gray">| SPS database&lt;/span>
-│ ├── sps_options.yaml &lt;span class="text-gray">| SPS default option list&lt;/span>
-│ └── tabs.csv &lt;span class="text-gray">| SPS tab information&lt;/span>
-├── data &lt;span class="text-primary">| App example data files&lt;/span>
-│ ├── xx.csv
-├── R &lt;span class="text-primary">| All SPS additional tab files and helper R function files&lt;/span>
-│ ├── tab_xx.R
-├── README.md
-├── results &lt;span class="text-gray">| Not in use for this current version, you can store some data been generated from the app&lt;/span>
-│ └── README.md
-└── www &lt;span class="text-primary">| Internet resources&lt;/span>
-├── about &lt;span class="text-gray">| About tab information&lt;/span>
-│ └── xx.md
-├── css &lt;span class="text-info">| CSS files&lt;/span>
-│ └── sps.css
-├── img &lt;span class="text-info">| App image resources&lt;/span>
-│ └── xx.png
-├── js &lt;span class="text-info">| Javascripts&lt;/span>
-│ └── xx.js
-├── loading_themes &lt;span class="text-info">| Loading screen files&lt;/span>
-│ └── xx.html
-└── plot_list &lt;span class="text-info">| Image files for plot gallery&lt;/span>
-└── plot_xx.jpg
-&lt;/pre>
-&lt;p>This is a reminder of what you will get when a SPS project is initiated with &lt;code>spsInit()&lt;/code>.&lt;/p>
-&lt;ol>
-&lt;li>For most users, the &lt;code>global.R&lt;/code> file is the only file that one needs to make change.&lt;/li>
-&lt;li>The second important files are the files inside &lt;code>config&lt;/code> folder. For normal users,
+&lt;/code&gt;&lt;/pre&gt;
+&lt;STYLE type=&#39;text/css&#39; scoped&gt;
+PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
+&lt;/STYLE&gt;
+&lt;h2 id=&#34;sps-structure&#34;&gt;SPS structure&lt;/h2&gt;
+&lt;pre&gt;
+SPS_xx/  
+├── server.R               &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt; 
+├── global.R               &lt;span class=&#34;text-success&#34;&gt;| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit manually&lt;/span&gt;   
+├── ui.R                   &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt;  
+├── deploy.R               &lt;span class=&#34;text-info&#34;&gt;| Deploy helper file&lt;/span&gt;  
+├── config                 &lt;span class=&#34;text-success&#34;&gt;| Important app config files. Do not edit them if you don&#39;t know&lt;/span&gt;  
+│   ├── sps.db             &lt;span class=&#34;text-gray&#34;&gt;| SPS database&lt;/span&gt; 
+│   ├── sps_options.yaml   &lt;span class=&#34;text-gray&#34;&gt;| SPS default option list&lt;/span&gt; 
+│   └── tabs.csv           &lt;span class=&#34;text-gray&#34;&gt;| SPS tab information&lt;/span&gt; 
+├── data                   &lt;span class=&#34;text-primary&#34;&gt;| App example data files&lt;/span&gt; 
+│   ├── xx.csv             
+├── R                      &lt;span class=&#34;text-primary&#34;&gt;| All SPS additional tab files and helper R function files&lt;/span&gt; 
+│   ├── tab_xx.R            
+├── README.md              
+├── results                &lt;span class=&#34;text-gray&#34;&gt;| Not in use for this current version, you can store some data been generated from the app&lt;/span&gt; 
+│   └── README.md          
+└── www                    &lt;span class=&#34;text-primary&#34;&gt;| Internet resources&lt;/span&gt;  
+    ├── about              &lt;span class=&#34;text-gray&#34;&gt;| About tab information&lt;/span&gt; 
+    │   └── xx.md          
+    ├── css                &lt;span class=&#34;text-info&#34;&gt;| CSS files&lt;/span&gt;  
+    │   └── sps.css         
+    ├── img                &lt;span class=&#34;text-info&#34;&gt;| App image resources&lt;/span&gt;    
+    │   └── xx.png         
+    ├── js                 &lt;span class=&#34;text-info&#34;&gt;| Javascripts&lt;/span&gt;
+    │   └── xx.js           
+    ├── loading_themes     &lt;span class=&#34;text-info&#34;&gt;| Loading screen files&lt;/span&gt; 
+    │   └── xx.html         
+    └── plot_list          &lt;span class=&#34;text-info&#34;&gt;| Image files for plot gallery&lt;/span&gt;  
+        └── plot_xx.jpg      
+&lt;/pre&gt;
+&lt;p&gt;This is a reminder of what you will get when a SPS project is initiated with &lt;code&gt;spsInit()&lt;/code&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;For most users, the &lt;code&gt;global.R&lt;/code&gt; file is the only file that one needs to make change.&lt;/li&gt;
+&lt;li&gt;The second important files are the files inside &lt;code&gt;config&lt;/code&gt; folder. For normal users,
 these files are controlled by SPS functions. No need to make any modification. For advanced users, deep customization
-is possible. Please read the &lt;a href="../../sps/dev/">Developer sections&lt;/a>.
-&lt;ul>
-&lt;li>&lt;code>sps_options.yaml&lt;/code> stores all default and valid values for SPS.&lt;/li>
-&lt;li>&lt;code>tabs.csv&lt;/code> all SPS tab registration information.&lt;/li>
-&lt;li>&lt;code>sps.db&lt;/code> A SQLite database to store data generated in SPS. Since we have
+is possible. Please read the &lt;a href=&#34;../../sps/dev/&#34;&gt;Developer sections&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sps_options.yaml&lt;/code&gt; stores all default and valid values for SPS.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tabs.csv&lt;/code&gt; all SPS tab registration information.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sps.db&lt;/code&gt; A SQLite database to store data generated in SPS. Since we have
 the new Canvas module which is purely client-side served, this database is not
 heavily used. However, it provides you some tables storing project information and
-a SHA key pair in case you want to encrypt password or files. Read &lt;a href="../../sps/dev/">Developer sections&lt;/a>
-for more information.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>R&lt;/code> folder stores all custom tab files, your helper functions. This &lt;code>.R&lt;/code> or &lt;code>.r&lt;/code> files under this
-folder &lt;strong>will be automatically sourced&lt;/strong> when SPS starts.&lt;/li>
-&lt;li>&lt;code>www&lt;/code> folder is where you add the internet resources, like images you want to show in
-the app, &lt;code>css&lt;/code> style sheets to attach. Read more &lt;a href="https://stevenmortimer.com/tips-for-making-professional-shiny-apps-with-r/#create-a-www-folder">here&lt;/a>.&lt;/li>
-&lt;/ol>
-&lt;h2 id="app-options">App options&lt;/h2>
-&lt;p>App options in SPS are controlled by &amp;ldquo;SPS options&amp;rdquo;. These options can change
-app appearance, debugging level, server behaviors, &lt;em>etc&lt;/em>. The valid options can
-be found and change on the &lt;code>global.R&lt;/code> file. They are similar to &lt;em>Shiny&lt;/em> options,
-but unlike &lt;em>shiny&lt;/em> options are single values, SPS options are passed using the &lt;code>Option(sps = list(...))&lt;/code>
-function in &lt;code>global.R&lt;/code> as a group. To view all options and their default, valid
-values('*' means any value is okay). All the options are listed in &lt;code>global.R&lt;/code> from
-the line starting with &lt;em>## SPS options&lt;/em>. We provided some comments below that line to
+a SHA key pair in case you want to encrypt password or files. Read &lt;a href=&#34;../../sps/dev/&#34;&gt;Developer sections&lt;/a&gt;
+for more information.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;R&lt;/code&gt; folder stores all custom tab files, your helper functions. This &lt;code&gt;.R&lt;/code&gt; or &lt;code&gt;.r&lt;/code&gt; files under this
+folder &lt;strong&gt;will be automatically sourced&lt;/strong&gt; when SPS starts.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;www&lt;/code&gt; folder is where you add the internet resources, like images you want to show in
+the app, &lt;code&gt;css&lt;/code&gt; style sheets to attach. Read more &lt;a href=&#34;https://stevenmortimer.com/tips-for-making-professional-shiny-apps-with-r/#create-a-www-folder&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;app-options&#34;&gt;App options&lt;/h2&gt;
+&lt;p&gt;App options in SPS are controlled by &amp;ldquo;SPS options&amp;rdquo;. These options can change
+app appearance, debugging level, server behaviors, &lt;em&gt;etc&lt;/em&gt;. The valid options can
+be found and change on the &lt;code&gt;global.R&lt;/code&gt; file. They are similar to &lt;em&gt;Shiny&lt;/em&gt; options,
+but unlike &lt;em&gt;shiny&lt;/em&gt; options are single values, SPS options are passed using the &lt;code&gt;Option(sps = list(...))&lt;/code&gt;
+function in &lt;code&gt;global.R&lt;/code&gt; as a group. To view all options and their default, valid
+values(&#39;*&#39; means any value is okay) see &lt;code&gt;global.R&lt;/code&gt; from
+the line starting with &lt;em&gt;## SPS options&lt;/em&gt;. We provided some comments below that line to
 generally describe what each option is and valid values for options. Use function
-&lt;code>viewSpsDefaults&lt;/code> to see the default and other valid options.&lt;/p>
-&lt;pre>&lt;code class="language-r">viewSpsDefaults(app_path = sps_dir)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## mode: list(default = &amp;quot;local&amp;quot;, other = &amp;quot;server&amp;quot;)
-## loading_screen: list(default = TRUE, other = FALSE)
-## loading_theme: list(default = &amp;quot;vhelix&amp;quot;, other = &amp;quot;*&amp;quot;)
-## use_crayon: list(default = TRUE, other = FALSE)
-## verbose: list(default = FALSE, other = TRUE)
-## admin_page: list(default = FALSE, other = TRUE)
-## admin_url: list(default = &amp;quot;admin&amp;quot;, other = &amp;quot;*&amp;quot;)
-## warning_toast: list(default = TRUE, other = FALSE)
-## module_wf: list(default = TRUE, other = FALSE)
-## module_rnaseq: list(default = TRUE, other = FALSE)
-## module_ggplot: list(default = TRUE, other = FALSE)
-&lt;/code>&lt;/pre>
-&lt;p>Options are first set in &lt;code>global.R&lt;/code> with these following lines, and you can change
-their values.&lt;/p>
-&lt;pre>&lt;code class="language-r">options(sps = list(
-mode = &amp;quot;server&amp;quot;,
-warning_toast = FALSE,
-loading_screen = TRUE,
-loading_theme = &amp;quot;vhelix&amp;quot;,
-use_crayon = TRUE,
-verbose = FALSE,
-admin_page = FALSE,
-admin_url = &amp;quot;admin&amp;quot;,
-module_wf = TRUE,
-module_rnaseq = TRUE,
-module_ggplot = TRUE
+&lt;code&gt;spsOptDefaults&lt;/code&gt; to see the default and other valid options.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptDefaults(app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;systemPipeShiny 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;img/sps_small.png 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;mode&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;local 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;server 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;vhelix 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;admin 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;note_url&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## * means any value will be accepted
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;p&gt;After the app has started once, you can use &lt;code&gt;spsOptions()&lt;/code&gt; to see all current settings.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptions(app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;Current project option settings:&lt;/span&gt;&lt;span&gt; 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## ********
+## Option legend:
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;    known options    &lt;/span&gt;&lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;    Hidden/custom options* and values+
+## &lt;/span&gt;&lt;span&gt;Value legend:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    same as default values    &lt;/span&gt;&lt;span&gt;    different from defaults+
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;p&gt;A copy of options in &lt;code&gt;global.R&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;options(sps = list(
+    title = &amp;quot;systemPipeShiny&amp;quot;,
+    title_logo = &amp;quot;img/sps_small.png&amp;quot;,
+    mode = &amp;quot;local&amp;quot;,
+    warning_toast = FALSE,
+    login_screen = FALSE,
+    login_theme = &amp;quot;random&amp;quot;,
+    use_crayon = TRUE,
+    verbose = FALSE,
+    admin_page = TRUE,
+    admin_url = &amp;quot;admin&amp;quot;,
+    note_url = &#39;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml&#39;,
+    tab_welcome = TRUE,
+    tab_vs_main = TRUE,
+    tab_canvas = TRUE,
+    tab_about = TRUE,
+    module_wf = TRUE,
+    module_rnaseq = TRUE,
+    module_ggplot = TRUE,
+    traceback = FALSE
 ))
-&lt;/code>&lt;/pre>
-&lt;p style="color:var(--danger)">Note: Do not worry if you set some invalid values, on app start, `sps()` will check all SPS
-options, ignore unknown values and set invalid values back to default. You will see warning
-messages on console to tell you specifically what is wrong with your options.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>Description&lt;/th>
-&lt;th>Default&lt;/th>
-&lt;th>Other&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>mode&lt;/td>
-&lt;td>running mode&lt;/td>
-&lt;td>&amp;ldquo;local&amp;rdquo;&lt;/td>
-&lt;td>&amp;ldquo;server&amp;rdquo;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>warning_toast&lt;/td>
-&lt;td>show security warnings?&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>loading_screen&lt;/td>
-&lt;td>show loading screen?&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>loading_theme&lt;/td>
-&lt;td>loading screen theme&lt;/td>
-&lt;td>&amp;ldquo;vhelix&amp;rdquo;&lt;/td>
-&lt;td>any string&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>use_crayon&lt;/td>
-&lt;td>colorful console message?&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>verbose&lt;/td>
-&lt;td>more details for SPS functions?&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>admin_page&lt;/td>
-&lt;td>show admin page?&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>admin_url&lt;/td>
-&lt;td>admin_page query url&lt;/td>
-&lt;td>&amp;ldquo;admin&amp;rdquo;&lt;/td>
-&lt;td>any string&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>warning_toast&lt;/td>
-&lt;td>for internal test only&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>module_wf&lt;/td>
-&lt;td>load workflow module?&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>module_rnaseq&lt;/td>
-&lt;td>load RNAseq module?&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>module_ggplot&lt;/td>
-&lt;td>load quick ggplot module?&lt;/td>
-&lt;td>TRUE&lt;/td>
-&lt;td>FALSE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>app_path&lt;/td>
-&lt;td>hidden, automatically added&lt;/td>
-&lt;td>N.A.&lt;/td>
-&lt;td>N.A.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="some-details">Some details&lt;/h3>
-&lt;ul>
-&lt;li>mode: this option will change how the upload files are selected.
-&lt;ul>
-&lt;li>local: You can choose file from server side, and it is a direct link, no file will be copied to server. Most often used when you are on you own computer. &lt;span style="color:var(--primary)">It is still choosing files from the server side, because you are using your own computer as a Shiny server.&lt;/span>&lt;/li>
-&lt;li>server: Choose files from the client side, and upload as a temp file to the server.&lt;/li>
-&lt;li>If you are on you own computer, there is no difference, but &lt;code>local&lt;/code> mode can avoid copy your files to temp. &lt;span style="color:var(--primary)">If you are deploying the app to cloud, please &lt;strong>use server mode&lt;/strong>&lt;/span>&lt;/li>
-&lt;li>Functions directly associated with this option are &lt;code>dynamicFile&lt;/code> and &lt;code>dynamicFileServer&lt;/code>. We will discuss details in &lt;a href="../../sps/dev/">Developer sections&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>warning_toast: A toast pop-up message when you are under some dangerous options when app starts (For internal testing only under current version).&lt;/li>
-&lt;li>loading_theme: &lt;code>loading_screen&lt;/code> must be &lt;code>TRUE&lt;/code>. Only one theme for now, we will add more in future.&lt;/li>
-&lt;li>verbose: Give you more information on debugging. Most SPS core functions has this option. If it is on, more debugging information will be printed on console.&lt;/li>
-&lt;li>admin_url (disabled in current version): the admin page URL, &lt;code>admin_page&lt;/code> must be &lt;code>TRUE&lt;/code> for it to work. It will be added in an upcoming version, a preview can be seen by adding &amp;ldquo;/?admin&amp;rdquo; to the end of app url, e.g. &amp;ldquo;&lt;a href="https://tgirke.shinyapps.io/systemPipeShiny/?admin">https://tgirke.shinyapps.io/systemPipeShiny/?admin&lt;/a>&amp;rdquo;.&lt;/li>
-&lt;/ul>
-&lt;h3 id="getset-option-values">get/set option values&lt;/h3>
-&lt;p>SPS values are globally set, which means you can get/change the these options at
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p style=&#34;color:var(--danger)&#34;&gt;Note: Do not worry if you set some invalid values, on app start, `sps()` will check all SPS
+options, ignore unknown values and set invalid values back to default. You will see warning 
+messages on console to tell you specifically what is wrong with your options.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Other&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;mode&lt;/td&gt;
+&lt;td&gt;running mode&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;local&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;server&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;warning_toast&lt;/td&gt;
+&lt;td&gt;show security warnings?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loading_screen&lt;/td&gt;
+&lt;td&gt;show loading screen?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loading_theme&lt;/td&gt;
+&lt;td&gt;loading screen theme&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;vhelix&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;any string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;use_crayon&lt;/td&gt;
+&lt;td&gt;colorful console message?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;verbose&lt;/td&gt;
+&lt;td&gt;more details for SPS functions?&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;admin_page&lt;/td&gt;
+&lt;td&gt;show admin page?&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;admin_url&lt;/td&gt;
+&lt;td&gt;admin_page query url&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;admin&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;any string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;warning_toast&lt;/td&gt;
+&lt;td&gt;for internal test only&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;module_wf&lt;/td&gt;
+&lt;td&gt;load workflow module?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;module_rnaseq&lt;/td&gt;
+&lt;td&gt;load RNAseq module?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;module_ggplot&lt;/td&gt;
+&lt;td&gt;load quick ggplot module?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;app_path&lt;/td&gt;
+&lt;td&gt;hidden, automatically added&lt;/td&gt;
+&lt;td&gt;N.A.&lt;/td&gt;
+&lt;td&gt;N.A.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;some-details&#34;&gt;Some details&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;mode: this option will change how the upload files are selected.
+&lt;ul&gt;
+&lt;li&gt;local: You can choose file from server side, and it is a direct link, no file will be copied to server. Most often used when you are on you own computer. &lt;span style=&#34;color:var(--primary)&#34;&gt;It is still choosing files from the server side, because you are using your own computer as a Shiny server.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;server: Choose files from the client side, and upload as a temp file to the server.&lt;/li&gt;
+&lt;li&gt;If you are on you own computer, there is no difference, but &lt;code&gt;local&lt;/code&gt; mode can avoid copy your files to temp. &lt;span style=&#34;color:var(--primary)&#34;&gt;If you are deploying the app to cloud, please &lt;strong&gt;use server mode&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Functions directly associated with this option are &lt;code&gt;dynamicFile&lt;/code&gt; and &lt;code&gt;dynamicFileServer&lt;/code&gt;. We will discuss details in &lt;a href=&#34;../../sps/dev/&#34;&gt;Developer sections&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;warning_toast: A toast pop-up message when you are under some dangerous options when app starts (For internal testing only under current version).&lt;/li&gt;
+&lt;li&gt;loading_theme: &lt;code&gt;loading_screen&lt;/code&gt; must be &lt;code&gt;TRUE&lt;/code&gt;. Only one theme for now, we will add more in future.&lt;/li&gt;
+&lt;li&gt;verbose: Give you more information on debugging. Most SPS core functions has this option. If it is on, more debugging information will be printed on console.&lt;/li&gt;
+&lt;li&gt;admin_url (disabled in current version): the admin page URL, &lt;code&gt;admin_page&lt;/code&gt; must be &lt;code&gt;TRUE&lt;/code&gt; for it to work. It will be added in an upcoming version, a preview can be seen by adding &amp;ldquo;/?admin&amp;rdquo; to the end of app url, e.g. &amp;ldquo;&lt;a href=&#34;https://tgirke.shinyapps.io/systemPipeShiny/?admin&#34;&gt;https://tgirke.shinyapps.io/systemPipeShiny/?admin&lt;/a&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;getset-option-values&#34;&gt;get/set option values&lt;/h3&gt;
+&lt;p&gt;SPS values are globally set, which means you can get/change the these options at
 inside any R code, R functions and while the app is running (change options after app started
-is not recommended).&lt;/p>
-&lt;p>To view a single option value, use &lt;code>spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;)&lt;/code>; to overwrite a single
-option, use &lt;code>spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;, value = &amp;quot;NEW_VALUE&amp;quot;)&lt;/code>.&lt;/p>
-&lt;pre>&lt;code class="language-r">spsOption(opt = &amp;quot;mode&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [1] &amp;quot;server&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>To overwrite the &amp;ldquo;mode&amp;rdquo; option:&lt;/p>
-&lt;pre>&lt;code class="language-r">spsOption(opt = &amp;quot;mode&amp;quot;, &amp;quot;local&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;p>Check again, the value has changed to &amp;ldquo;local&amp;rdquo;:&lt;/p>
-&lt;pre>&lt;code class="language-r">spsOption(opt = &amp;quot;mode&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [1] &amp;quot;local&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>If any option does not exist, or the value is &amp;ldquo;empty&amp;rdquo; or &lt;code>0&lt;/code>, when getting the value &lt;code>spsOption&lt;/code> will return &lt;code>FALSE&lt;/code>.
-Common &amp;ldquo;empty&amp;rdquo; values:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>NA&lt;/code>&lt;/li>
-&lt;li>&lt;code>NULL&lt;/code>&lt;/li>
-&lt;li>&lt;code>length(value) == 0&lt;/code>&lt;/li>
-&lt;li>&lt;code>&amp;quot;&amp;quot;&lt;/code> (empty string)&lt;/li>
-&lt;/ul>
-&lt;p>Read the help file of &lt;code>?emptyIsFalse&lt;/code> for more information.&lt;/p>
-&lt;pre>&lt;code class="language-r">spsOption(opt = &amp;quot;random_opt&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [1] FALSE
-&lt;/code>&lt;/pre>
-&lt;p>However, these &amp;ldquo;empty&amp;rdquo; values can be meaningful in some cases, so use &lt;code>empty_is_false = FALSE&lt;/code>
-to return the original value instead of &lt;code>FALSE&lt;/code>&lt;/p>
-&lt;pre>&lt;code class="language-r">spsOption(opt = &amp;quot;random_opt&amp;quot;, empty_is_false = FALSE)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## NULL
-&lt;/code>&lt;/pre>
-&lt;h2 id="session-info">session info&lt;/h2>
-&lt;pre>&lt;code class="language-r">sessionInfo()
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## R version 4.0.3 (2020-10-10)
+is not recommended).&lt;/p&gt;
+&lt;p&gt;To view a single option value, use &lt;code&gt;spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;)&lt;/code&gt;; to overwrite a single
+option, use &lt;code&gt;spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;, value = &amp;quot;NEW_VALUE&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;mode&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To overwrite the &amp;ldquo;mode&amp;rdquo; option:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;mode&amp;quot;, &amp;quot;local&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check again, the value has changed to &amp;ldquo;local&amp;rdquo;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;mode&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;local&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If any option does not exist, or the value is &amp;ldquo;empty&amp;rdquo; or &lt;code&gt;0&lt;/code&gt;, when getting the value &lt;code&gt;spsOption&lt;/code&gt; will return &lt;code&gt;FALSE&lt;/code&gt;.
+Common &amp;ldquo;empty&amp;rdquo; values:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;NA&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NULL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;length(value) == 0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt; (empty string)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Read the help file of &lt;code&gt;?emptyIsFalse&lt;/code&gt; for more information.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;random_opt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, these &amp;ldquo;empty&amp;rdquo; values can be meaningful in some cases, so use &lt;code&gt;empty_is_false = FALSE&lt;/code&gt;
+to return the original value instead of &lt;code&gt;FALSE&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;random_opt&amp;quot;, empty_is_false = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;session-info&#34;&gt;session info&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sessionInfo()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 4.0.3 (2020-10-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 18.04.5 LTS
-##
+## 
 ## Matrix products: default
-## BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
-##
+## 
 ## locale:
-## [1] LC_CTYPE=en_US.UTF-8 LC_NUMERIC=C
-## [3] LC_TIME=en_US.UTF-8 LC_COLLATE=en_US.UTF-8
-## [5] LC_MONETARY=en_US.UTF-8 LC_MESSAGES=en_US.UTF-8
-## [7] LC_PAPER=en_US.UTF-8 LC_NAME=C
-## [9] LC_ADDRESS=C LC_TELEPHONE=C
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
-##
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
 ## attached base packages:
-## [1] stats graphics grDevices utils datasets methods base
-##
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
 ## other attached packages:
-## [1] systemPipeShiny_1.1.11 shinyTree_0.2.7 shiny_1.6.0.9000
-##
+## [1] systemPipeShiny_1.1.30 drawer_0.1.0.9         spsComps_0.1.9.99     
+## [4] spsUtil_0.1.0.9        shiny_1.6.0.9000      
+## 
 ## loaded via a namespace (and not attached):
-## [1] shinydashboard_0.7.1 R.utils_2.10.1
-## [3] esquisse_0.3.1 tidyselect_1.1.0
-## [5] RSQLite_2.2.3 AnnotationDbi_1.52.0
-## [7] htmlwidgets_1.5.3 grid_4.0.3
-## [9] BiocParallel_1.24.1 Rtsne_0.15
-## [11] munsell_0.5.0 base64url_1.4
-## [13] DT_0.17 systemPipeR_1.24.3
-## [15] miniUI_0.1.1.1 withr_2.4.1
-## [17] shinytoastr_2.1.1 colorspace_2.0-0
-## [19] Biobase_2.50.0 Category_2.56.0
-## [21] knitr_1.31 rstudioapi_0.13
-## [23] stats4_4.0.3 shinyWidgets_0.5.6
-## [25] MatrixGenerics_1.2.0 GenomeInfoDbData_1.2.4
-## [27] hwriter_1.3.2 bit64_4.0.5
-## [29] pheatmap_1.0.12 batchtools_0.9.15
-## [31] vctrs_0.3.6 treeio_1.14.3
-## [33] generics_0.1.0 xfun_0.20
-## [35] BiocFileCache_1.14.0 R6_2.5.0
-## [37] markdown_1.1 GenomeInfoDb_1.26.2
-## [39] locfit_1.5-9.4 rsvg_2.1
-## [41] bitops_1.0-6 cachem_1.0.1
-## [43] shinyAce_0.4.1 DelayedArray_0.16.1
-## [45] assertthat_0.2.1 vroom_1.3.2
-## [47] promises_1.1.1 networkD3_0.4
-## [49] scales_1.1.1 gtable_0.3.0
-## [51] processx_3.4.5 systemPipeRdata_1.18.1
-## [53] rlang_0.4.10 genefilter_1.72.1
-## [55] splines_4.0.3 rtracklayer_1.50.0
-## [57] lazyeval_0.2.2 shinyjqui_0.3.3
-## [59] bsplus_0.1.2 brew_1.0-6
-## [61] checkmate_2.0.0 BiocManager_1.30.10
-## [63] yaml_2.2.1 GenomicFeatures_1.42.1
-## [65] backports_1.2.1 httpuv_1.5.5
-## [67] RBGL_1.66.0 tools_4.0.3
-## [69] bookdown_0.21.6 ggplot2_3.3.3
-## [71] ellipsis_0.3.1 RColorBrewer_1.1-2
-## [73] BiocGenerics_0.36.0 Rcpp_1.0.6
-## [75] plyr_1.8.6 progress_1.2.2
-## [77] zlibbioc_1.36.0 purrr_0.3.4
-## [79] RCurl_1.98-1.2 ps_1.5.0
-## [81] prettyunits_1.1.1 openssl_1.4.3
-## [83] S4Vectors_0.28.1 SummarizedExperiment_1.20.0
-## [85] fs_1.5.0 magrittr_2.0.1
-## [87] data.table_1.13.6 blogdown_1.1.7
-## [89] colourpicker_1.1.0 matrixStats_0.58.0
-## [91] hms_1.0.0 patchwork_1.1.1
-## [93] shinyjs_2.0.0 mime_0.9
-## [95] evaluate_0.14 xtable_1.8-4
-## [97] XML_3.99-0.5 jpeg_0.1-8.1
-## [99] IRanges_2.24.1 gridExtra_2.3
-## [101] compiler_4.0.3 biomaRt_2.46.1
-## [103] tibble_3.0.6 V8_3.4.0
-## [105] crayon_1.3.4 R.oo_1.24.0
-## [107] htmltools_0.5.1.1 GOstats_2.56.0
-## [109] later_1.1.0.1 tidyr_1.1.2
-## [111] geneplotter_1.68.0 aplot_0.0.6
-## [113] lubridate_1.7.9.2 DBI_1.1.1
-## [115] dbplyr_2.0.0 MASS_7.3-53
-## [117] rappdirs_0.3.2 ShortRead_1.48.0
-## [119] Matrix_1.3-2 readr_1.4.0
-## [121] glmpca_0.2.0 R.methodsS3_1.8.1
-## [123] parallel_4.0.3 igraph_1.2.6
-## [125] GenomicRanges_1.42.0 pkgconfig_2.0.3
-## [127] rvcheck_0.1.8 GenomicAlignments_1.26.0
-## [129] plotly_4.9.3 xml2_1.3.2
-## [131] ggtree_2.4.1 annotate_1.68.0
-## [133] XVector_0.30.0 AnnotationForge_1.32.0
-## [135] VariantAnnotation_1.36.0 stringr_1.4.0
-## [137] callr_3.5.1 digest_0.6.27
-## [139] graph_1.68.0 Biostrings_2.58.0
-## [141] rmarkdown_2.6 tidytree_0.3.3
-## [143] edgeR_3.32.1 GSEABase_1.52.1
-## [145] curl_4.3 Rsamtools_2.6.0
-## [147] rjson_0.2.20 lifecycle_0.2.0
-## [149] nlme_3.1-151 jsonlite_1.7.2
-## [151] BSgenome_1.58.0 viridisLite_0.3.0
-## [153] askpass_1.1 limma_3.46.0
-## [155] pillar_1.4.7 lattice_0.20-41
-## [157] shinyFiles_0.9.0 fastmap_1.1.0
-## [159] httr_1.4.2 survival_3.2-7
-## [161] GO.db_3.12.1 remotes_2.2.0
-## [163] glue_1.4.2 zip_2.1.1
-## [165] UpSetR_1.4.0 png_0.1-7
-## [167] rhandsontable_0.3.7 bit_4.0.4
-## [169] Rgraphviz_2.34.0 stringi_1.5.3
-## [171] blob_1.2.1 DESeq2_1.30.0
-## [173] latticeExtra_0.6-29 shinydashboardPlus_0.7.5
-## [175] memoise_2.0.0 DOT_0.1
-## [177] styler_1.3.2 dplyr_1.0.3
-## [179] ape_5.4-1
-&lt;/code>&lt;/pre></description></item><item><title>Sps: Manage tabs</title><link>/sps/adv_features/tabs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sps/adv_features/tabs/</guid><description>
-&lt;hr>
-&lt;h2 id="sps-tabs">SPS tabs&lt;/h2>
-&lt;p>In SPS, &lt;strong>tab&lt;/strong> is the basic component of a functionality unit. For example, all the &lt;a href="../../sps/modules/">Modules&lt;/a>
-in SPS are complex tabs with many small sub-tabs, the &lt;a href="../../sps/canvas/">Canvas&lt;/a> is another independent tab providing
-image editing features and an &lt;em>user custom tab&lt;/em> is also a SPS tab.&lt;/p>
-&lt;p>From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href="https://shiny.rstudio.com/articles/modules.html">Shiny Modules&lt;/a>.&lt;/p>
-&lt;p>To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-&lt;code>/tmp&lt;/code> folder but one should use a regular location instead of the temp in a real
-case.&lt;/p>
-&lt;pre>&lt;code class="language-r">suppressPackageStartupMessages(library(systemPipeShiny))
+##  [1] httr_1.4.2               sass_0.3.1               shinyFiles_0.9.0        
+##  [4] tidyr_1.1.2              bit64_4.0.5              vroom_1.3.2             
+##  [7] jsonlite_1.7.2           viridisLite_0.3.0        bslib_0.2.4             
+## [10] assertthat_0.2.1         askpass_1.1              blob_1.2.1              
+## [13] yaml_2.2.1               backports_1.2.1          pillar_1.5.0            
+## [16] RSQLite_2.2.3            glue_1.4.2               digest_0.6.27           
+## [19] promises_1.1.1           colorspace_2.0-0         htmltools_0.5.1.1       
+## [22] httpuv_1.5.5             pkgconfig_2.0.3          bookdown_0.21.6         
+## [25] purrr_0.3.4              xtable_1.8-4             scales_1.1.1            
+## [28] later_1.1.0.1            tibble_3.1.0             openssl_1.4.3           
+## [31] styler_1.3.2             generics_0.1.0           ggplot2_3.3.3           
+## [34] ellipsis_0.3.1           DT_0.17                  shinyjs_2.0.0           
+## [37] cachem_1.0.1             lazyeval_0.2.2           magrittr_2.0.1          
+## [40] crayon_1.4.1             mime_0.9                 memoise_2.0.0           
+## [43] evaluate_0.14            shinytoastr_2.1.1        fs_1.5.0                
+## [46] fansi_0.4.2              shinydashboard_0.7.1     blogdown_1.2            
+## [49] tools_4.0.3              data.table_1.13.6        lifecycle_1.0.0         
+## [52] stringr_1.4.0            plotly_4.9.3             munsell_0.5.0           
+## [55] shinyAce_0.4.1           compiler_4.0.3           jquerylib_0.1.3         
+## [58] rlang_0.4.10             shinyjqui_0.3.3          grid_4.0.3              
+## [61] shinydashboardPlus_2.0.0 rstudioapi_0.13          htmlwidgets_1.5.3       
+## [64] rmarkdown_2.7.7          shinyWidgets_0.6.0       gtable_0.3.0            
+## [67] DBI_1.1.1                R6_2.5.0                 lubridate_1.7.9.2       
+## [70] knitr_1.31               dplyr_1.0.3              fastmap_1.1.0           
+## [73] bit_4.0.4                utf8_1.1.4               bsplus_0.1.2            
+## [76] stringi_1.5.3            Rcpp_1.0.6               vctrs_0.3.6             
+## [79] tidyselect_1.1.0         xfun_0.22
+&lt;/code&gt;&lt;/pre&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sps: Manage tabs</title>
+      <link>/sps/adv_features/tabs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/adv_features/tabs/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;h2 id=&#34;sps-tabs&#34;&gt;SPS tabs&lt;/h2&gt;
+&lt;p&gt;In SPS, &lt;strong&gt;tab&lt;/strong&gt; is the basic component of a functionality unit. For example, all the &lt;a href=&#34;../../sps/modules/&#34;&gt;Modules&lt;/a&gt;
+in SPS are complex tabs with many small sub-tabs, the &lt;a href=&#34;../../sps/canvas/&#34;&gt;Canvas&lt;/a&gt; is another independent tab providing
+image editing features and an &lt;em&gt;user custom tab&lt;/em&gt; is also a SPS tab.&lt;/p&gt;
+&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
+&lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
+case.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &amp;quot;tab_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:22 Start to create a new SPS project
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:22 Create project under /tmp/RtmpVUdu2M/tab_demo
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:22 Now copy files
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:22 Create SPS database
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:22 Created SPS database method container
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:22 Creating SPS db...
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-DANGER] 2021-02-12 17:56:22 Db created at '/tmp/RtmpVUdu2M/tab_demo/config/sps.db'. DO NOT share this file with others
-## [SPS-INFO] 2021-02-12 17:56:22 Key md5 be5e352c4d777b1ab3530be8362dd5cb
-## [SPS-INFO] 2021-02-12 17:56:22 SPS project setup done!
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-r">## save project path
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at &#39;/tmp/Rtmp4RU0eV/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
+## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
 (sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;tab_demo&amp;quot;))
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [1] &amp;quot;/tmp/RtmpVUdu2M/tab_demo&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>To reproduce code locally, run the following chunk instead.&lt;/p>
-&lt;pre>&lt;code class="language-r">library(systemPipeShiny)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmp4RU0eV/tab_demo&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
 spsInit()
 sps_dir &amp;lt;- normalizePath(&amp;quot;.&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;h2 id="tab-registration">Tab registration&lt;/h2>
-&lt;p>In SPS, all tabs are controlled by the &lt;em>config/tabs.csv&lt;/em> file. To see what kind of
-tabs you have with current project. use the &lt;code>spsTabInfo&lt;/code> function. It returns a tibble
-of current tab information.&lt;/p>
-&lt;pre>&lt;code class="language-r">spsTabInfo(app_path = sps_dir)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## # A tibble: 11 x 8
-## tab_id display_label type type_sub image displayed tab_file_name plugin
-## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
-## 1 core_ab… About this App core &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 2 core_ca… Plot Canvas core &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 3 core_da… Home core &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 4 core_ri… Right side menu core &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 5 core_top Top push bars core &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 6 module_… Module Main Page vs &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 7 wf Workflow module wf &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 8 vs_rnas… RNAseq module vs &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 9 vs_esq Quick ggplot mo… vs &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 10 vs_main custom tabs mai… vs &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 No file for … &amp;quot;core&amp;quot;
-## 11 vs_exam… My custom plott… vs &amp;quot;plot&amp;quot; &amp;quot;&amp;quot; 1 tab_vs_examp… &amp;quot;&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;ul>
-&lt;li>tab_id: A unique string ID&lt;/li>
-&lt;li>display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li>
-&lt;li>type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li>
-&lt;li>type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li>
-&lt;li>image: If this is an user custom tab, providing an image path will display the image in
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;tab-registration&#34;&gt;Tab registration&lt;/h2&gt;
+&lt;p&gt;In SPS, all tabs are controlled by the &lt;em&gt;config/tabs.csv&lt;/em&gt; file. To see what kind of
+tabs you have with current project. use the &lt;code&gt;spsTabInfo&lt;/code&gt; function. It returns a tibble
+of current tab information.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsTabInfo(app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 11 x 8
+##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
+##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt; 
+##  1 core_ab… About this App   core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  2 core_ca… Canvas           core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  3 core_we… Home             core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  4 core_ri… Internal use on… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  5 core_top Top push bars    core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  6 module_… Module Main Page core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  7 wf       Workflow module  modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  8 vs_rnas… RNAseq module    modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+##  9 vs_esq   Quick ggplot mo… modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+## 10 vs_main  custom tabs mai… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
+## 11 vs_exam… My custom plott… vs    &amp;quot;plot&amp;quot;   &amp;quot;&amp;quot;    1         tab_vs_examp… &amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;tab_id: A unique string ID&lt;/li&gt;
+&lt;li&gt;display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
+this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li&gt;
+&lt;li&gt;type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
+&lt;li&gt;type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
+&lt;li&gt;image: If this is an user custom tab, providing an image path will display the image in
 visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="../vs_main.png" alt="vs_main">&lt;/p>
-&lt;ul>
-&lt;li>displayed: Internal use only&lt;/li>
-&lt;li>tab_file_name: where the tab file is relative to the &lt;code>R&lt;/code> folder.&lt;/li>
-&lt;li>plugin: Internal use only&lt;/li>
-&lt;/ul>
-&lt;h2 id="add-a-new-custom-tab">Add a new custom tab&lt;/h2>
-&lt;p>SPS provides a template to help developers to create a small SPS tab that&lt;/p>
-&lt;ol>
-&lt;li>The main purpose is to generate some plots&lt;/li>
-&lt;li>can be loaded into SPS framework easily&lt;/li>
-&lt;li>can interact with other SPS tabs (components), like the Canvas tab.&lt;/li>
-&lt;/ol>
-&lt;h3 id="simple-template">Simple template&lt;/h3>
-&lt;p>Under current SPS version, users are able to add custom tabs with the &lt;code>spsNewTab&lt;/code> function.
-This function:&lt;/p>
-&lt;ol>
-&lt;li>creates the tab file.&lt;/li>
-&lt;li>provides a nice template.&lt;/li>
-&lt;li>Helps you to register tab information to &lt;code>tabs.csv&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;pre>&lt;code class="language-r">spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:23 Write to file /tmp/RtmpVUdu2M/tab_demo/R/tab_vs_new.R
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:23 Now register your new tab to config/tab.csv
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-SUCCESS] 2021-02-12 17:56:23 New tab created!
-## [SPS] 2021-02-12 17:56:23 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
-&lt;/code>&lt;/pre>
-&lt;p>If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.&lt;/p>
-&lt;p>By default, it uses the simple template, which contains the &lt;code>spsEzUI&lt;/code> and &lt;code>spsEzServer&lt;/code> functions.
-We have provided commented instructions on how to fill each argument.&lt;/p>
-&lt;h4 id="ui">UI&lt;/h4>
-&lt;pre>&lt;code class="language-r">spsEzUI(
-desc = &amp;quot;xxx&amp;quot;,
-tab_title = &amp;quot;xxx&amp;quot;,
-plot_title = &amp;quot;xxx&amp;quot;,
-plot_control = shiny::tagList(
-xxx
+starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../vs_main.png&#34; alt=&#34;vs_main&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;displayed: Internal use only&lt;/li&gt;
+&lt;li&gt;tab_file_name: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
+&lt;li&gt;plugin: Internal use only&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;add-a-new-custom-tab&#34;&gt;Add a new custom tab&lt;/h2&gt;
+&lt;p&gt;SPS provides a template to help developers to create a small SPS tab  that&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The main purpose is to generate some plots&lt;/li&gt;
+&lt;li&gt;can be loaded into SPS framework easily&lt;/li&gt;
+&lt;li&gt;can interact with other SPS tabs (components), like the Canvas tab.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;simple-template&#34;&gt;Simple template&lt;/h3&gt;
+&lt;p&gt;Under current SPS version, users are able to add custom tabs with the &lt;code&gt;spsNewTab&lt;/code&gt; function.
+This function:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;creates the tab file.&lt;/li&gt;
+&lt;li&gt;provides a nice template.&lt;/li&gt;
+&lt;li&gt;Helps you to register tab information to &lt;code&gt;tabs.csv&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
+## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you are running the code locally, and are using Rstudio, the tab file will be opened
+automatically for you.&lt;/p&gt;
+&lt;p&gt;By default, it uses the simple template, which contains the &lt;code&gt;spsEzUI&lt;/code&gt; and  &lt;code&gt;spsEzServer&lt;/code&gt; functions.
+We have provided commented instructions on how to fill each argument.&lt;/p&gt;
+&lt;h4 id=&#34;ui&#34;&gt;UI&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzUI(
+  desc = &amp;quot;xxx&amp;quot;,
+  tab_title = &amp;quot;xxx&amp;quot;,
+  plot_title = &amp;quot;xxx&amp;quot;,
+  plot_control =  shiny::tagList(
+    xxx
+  )
 )
-)
-&lt;/code>&lt;/pre>
-&lt;p>The only augment new users need to take some time to learn is adding &lt;code>plot_control&lt;/code>.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The only augment new users need to take some time to learn is adding &lt;code&gt;plot_control&lt;/code&gt;.
 Developers need to add some Shiny UI components to let users control how the plotting is
 done with interactive options. Basic use can be learned in 5 minutes on
-&lt;a href="https://shiny.rstudio.com/articles/basics.html">Shiny website&lt;/a> and &lt;a href="https://mastering-shiny.org/basic-ui.html">Shiny book&lt;/a>&lt;/p>
-&lt;h4 id="server">Server&lt;/h4>
-&lt;pre>&lt;code class="language-r">spsEzServer(
-plot_code = {
-# data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-plot_data &amp;lt;- mydata$data
-# some validations, make sure users give you the right data format
-spsValidate({
-stopifnot(inherits(plot_data, &amp;quot;data.frame&amp;quot;)) # require a dataframe
-stopifnot(nrow(plot_data) &amp;gt; 1) # has least one row
-if (!all(c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;) %in% colnames(plot_data)))# has two required columns
-stop(&amp;quot;Require column 'Sepal.Length' and 'Sepal.Width'&amp;quot;)
-TRUE # give it a TRUE if all checks passed.
-},
-verbose = FALSE # only show messages when fail
+&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;server&#34;&gt;Server&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzServer(
+    plot_code = {
+        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
+        plot_data &amp;lt;- mydata$data
+        # some validations, make sure users give you the right data format
+        spsValidate({
+            stopifnot(inherits(plot_data, &amp;quot;data.frame&amp;quot;))                        # require a dataframe
+            stopifnot(nrow(plot_data) &amp;gt; 1)                                      # has least one row
+            if (!all(c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;) %in% colnames(plot_data)))# has two required columns
+                stop(&amp;quot;Require column &#39;Sepal.Length&#39; and &#39;Sepal.Width&#39;&amp;quot;)
+
+            TRUE # give it a TRUE if all checks passed.
+            },
+            verbose = FALSE # only show messages when fail
+        )
+        # actual plot code
+        ggplot2::ggplot(plot_data) +
+            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
+            # grab user defined title from plot control by `input$+control_ID`,
+            # no need to add `ns()` on server end.
+            ggplot2::ggtitle(input$plot_title)
+    },
+    other_server_code = {}
 )
-# actual plot code
-ggplot2::ggplot(plot_data) +
-ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-# grab user defined title from plot control by `input$+control_ID`,
-# no need to add `ns()` on server end.
-ggplot2::ggtitle(input$plot_title)
-},
-other_server_code = {}
-)
-&lt;/code>&lt;/pre>
-&lt;p>For the server code, users only need to focus on the plotting code. The only very important thing
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the server code, users only need to focus on the plotting code. The only very important thing
 developers need to remember is that the plotting data been passed to this function
-is stored in a &lt;a href="https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html">reactiveValues&lt;/a>
-object and it is called &lt;code>mydata$data&lt;/code>. Usually we assign it to a new value so it can
-be used easily downstream, like &lt;code>plot_data &amp;lt;- mydata$data&lt;/code>.&lt;/p>
-&lt;p>Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users' uploads meet the
-requirements. In SPS you can use the &lt;code>spsValidate&lt;/code> function or use Shiny&amp;rsquo;s default &lt;a href="https://shiny.rstudio.com/reference/shiny/0.14/validate.html">validate&lt;/a>
-function (&lt;code>spsValidate&lt;/code> is discussed in &lt;a href="../../sps/dev/server/">tools section&lt;/a>).&lt;/p>
-&lt;h3 id="full-template">Full template&lt;/h3>
-&lt;p>For some developers who already has experience with Shiny, and would like to make more
+is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues&lt;/a&gt;
+object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
+be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
+kind of dataset users upload. It is always good to check if users&#39; uploads meet the
+requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate&lt;/a&gt;
+function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../../sps/dev/server/&#34;&gt;tools section&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
+&lt;p&gt;For some developers who already has experience with Shiny, and would like to make more
 complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the &lt;code>template = &amp;quot;full&amp;quot;&lt;/code> argument.&lt;/p>
-&lt;pre>&lt;code class="language-r">spsNewTab(
-tab_id = &amp;quot;vs_new_full&amp;quot;,
-tab_displayname = &amp;quot;New tab demo&amp;quot;,
-template = &amp;quot;full&amp;quot;,
-app_path = sps_dir)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:23 Write to file /tmp/RtmpVUdu2M/tab_demo/R/tab_vs_new_full.R
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:23 Now register your new tab to config/tab.csv
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-SUCCESS] 2021-02-12 17:56:23 New tab created!
-## [SPS] 2021-02-12 17:56:23 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
-&lt;/code>&lt;/pre>
-&lt;p>You can see the full template is a lot longer than the simple template:&lt;/p>
-&lt;pre>&lt;code class="language-r">simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
+the new tab. Simply add the &lt;code&gt;template = &amp;quot;full&amp;quot;&lt;/code&gt; argument.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(
+  tab_id = &amp;quot;vs_new_full&amp;quot;, 
+  tab_displayname = &amp;quot;New tab demo&amp;quot;,
+  template = &amp;quot;full&amp;quot;,
+  app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
+## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see the full template is a lot longer than the simple template:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
 full_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new_full.R&amp;quot;))
 spsinfo(glue::glue(&amp;quot;Simple template has {simple_len} lines&amp;quot;), TRUE)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:24 Simple template has 66 lines
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-r">spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code>## [SPS-INFO] 2021-02-12 17:56:24 Full template has 281 lines
-&lt;/code>&lt;/pre>
-&lt;p>In your &lt;em>global.R&lt;/em>, scroll down to the bottom, you should see:&lt;/p>
-&lt;pre>&lt;code class="language-r">sps_app &amp;lt;- sps(
-tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
-server_expr = {
-msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
-}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
+    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
+    server_expr = {
+        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
+    }
 )
-&lt;/code>&lt;/pre>
-&lt;p>This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code>vstabs&lt;/code> argument, like
-&lt;code>c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code>. Open &lt;em>config/tabs.csv&lt;/em> or use &lt;code>spsTabInfo()&lt;/code> to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word &lt;code>vs&lt;/code> under column &amp;ldquo;&lt;em>type&lt;/em>&amp;quot;;
-essential framework tabs(&lt;em>core&lt;/em>) and workflow tabs (&lt;em>wf&lt;/em>) are loaded automatically and these tabs cannot be modified.&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
+&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
+tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
+essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
