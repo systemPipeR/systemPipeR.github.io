@@ -1,0 +1,145 @@
+---
+title: "Debugging"
+linkTitle: "Debugging"
+type: docs
+weight: 11
+---
+*****
+
+There are some options in SPS that will give you more information and help you on 
+debugging. They are: `verbose` and `traceback`. You can [config](../config) 
+(enable/disable) themin a SPS project's `global.R` file, or use 
+`spsOption("verbose", TRUE)` and `spsOption("traceback", TRUE)` to turn on them.
+
+Some setup:
+```{r collapse=TRUE}
+suppressPackageStartupMessages(library(systemPipeShiny))
+app_dir <- tempdir()
+spsInit(app_path = app_dir, overwrite = TRUE, change_wd = FALSE, open_files = FALSE)
+app_path <- file.path(app_dir, glue::glue("SPS_{format(Sys.time(), '%Y%m%d')}"))
+```
+
+## `verbose`
+In many SPS functions, there is this argument `verbose` and usually default is `FALSE`.
+It means do not print extra message, keep it clean. You can set in `spsOption("verbose", TRUE)`
+or inside `global.R` file to turn on. These are called global settings, and you 
+can use a local setting to overwrite it (`func(..., verbose = TRUE)`). 
+
+Let's use SPS main function `sps` for example, without the verbose 
+```{r echo=FALSE}
+spsOption("module_wf", FALSE)
+spsOption("module_rnaseq", FALSE)
+spsOption("module_ggplot", FALSE)
+spsOption("module_wf", FALSE)
+```
+
+```{r collapse=TRUE}
+spsOption("verbose", FALSE)
+app <- sps(app_path = app_path)
+```
+
+Turn on the verbose:
+```{r collapse=TRUE}
+spsOption("verbose", TRUE)
+app <- sps(app_path = app_path)
+```
+
+
+### Exception
+There is one exception which is the `spsInit`. It is used to create a SPS project 
+for you, so it assumes you do not have a SPS project yet and therefore do not have 
+the chance to reach SPS options. So the `verbose` global setting will not work here. 
+You need to turn it on locally with `verbose = TRUE`. 
+
+Compare messages of this with the initial `spsInit` creation on top.
+```{r collapse=TRUE}
+spsInit(verbose = TRUE, app_path = app_path, overwrite = TRUE, change_wd = FALSE, open_files = FALSE)
+```
+
+
+## `traceback`
+When error happens, it will be helpful if we can know where it happened. This option 
+will give you additional information of which function it happened, the system call 
+list and error file and line of code if possible. 
+
+This feature is enabled in two functions `sps` and `shinyCatch`. 
+- `sps`: Adding tracebacks if there are some errors sourcing helper functions located
+  in your SPS project under the `R` folder.  
+- `shinyCatch`: Traceback errors of expressions inside `shinyCatch`
+
+Let's use `shinyCatch` to demo.
+
+Before adding traceback:
+```{r}
+spsOption("traceback", FALSE)
+shinyCatch({
+  stop("some error message")
+})
+```
+
+After
+```{r}
+spsOption("traceback", TRUE)
+shinyCatch({
+  stop("some error message")
+})
+```
+
+Or use local setting to overwrite the global, even we have `spsOption("traceback", TRUE)`,
+but traceback is still muted by ` trace_back = FALSE`.
+```{r}
+spsOption("traceback", TRUE)
+shinyCatch({
+  stop("some error message")
+}, trace_back = FALSE)
+```
+
+### Traceback with file and line number
+Let's write an R file with functions, source it and then call the function from 
+this file. Try it on your own computer:
+```{r eval=FALSE}
+temp_file <- tempfile(fileext = ".R")
+writeLines(
+  "myFunc <- function(){
+      myFunc2()
+  }
+  myFunc2 <- function(){
+      stop('some error message')
+  }
+  ",
+  temp_file
+)
+source(temp_file)
+
+shinyCatch({
+  myFunc()
+})
+```
+
+![](../shinycatch_traceback.png)
+
+You can see the error happened in `myFunc` line No. 2 and then inside this function 
+it calls another function `myFunc2` which caused the final error. In `myFunc2` 
+it is also the line No. 2 caused the issue and error is coming from `/tmp/...` file.
+
+## other Shiny built-in options
+There are some Shiny options can also be helpful on debugging:
+
+```{r eval=FALSE}
+# developer mode, use ?devmode to see details 
+devmode(TRUE)
+# inspect reactivity in shiny
+options(shiny.reactlog = TRUE)
+# similar to SPS's traceback but on the whole app level 
+options(shiny.fullstacktrace = TRUE)
+# open the `browser` debug mode on error
+options(shiny.error = browser)
+# when a shiny app file saves, reload the app, not working with modular apps like SPS at this moment
+options(shiny.autoreload = TRUE)
+```
+
+See [Shiny option website{blk}](https://shiny.rstudio.com/reference/shiny/0.14/shiny-options.html)
+for more details 
+
+
+

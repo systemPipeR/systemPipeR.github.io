@@ -25,7 +25,7 @@ like error catching, logging, and more.
 
 <center id="sps_structure">
 
-![SPS_structure](../img/sps_structure.jpg)
+![SPS_structure](../img/sps_structure.png)
 
 </center>
 

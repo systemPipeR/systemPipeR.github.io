@@ -1,0 +1,42 @@
+---
+title: "SPS database"
+linkTitle: "SPS database"
+type: docs
+weight: 9
+---
+*****
+
+SPS database is a small SQLite database which stores some basic app information, 
+the project encryption key pair, account information
+
+
+
+First to create a SPS project
+```{r}
+suppressPackageStartupMessages(library(systemPipeShiny))
+
+```
+
+```{r eval=FALSE}
+app_path <- "."
+spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
+```
+
+```{r echo=FALSE, collapse=TRUE}
+app_path <- tempdir()
+spsInit(app_path = app_path, overwrite = TRUE, change_wd = FALSE, open_files = FALSE)
+```
+
+
+## `spsDb` class
+
+## `spsEncryption` class
+To see the public and private keys (in {[openssil{blk}](https://github.com/jeroen/openssl)} format):
+```{r}
+# private
+# acc$keyGet()
+# #public
+# acc$keyGet()$pubkey
+```
+
+## `spsAcount` class

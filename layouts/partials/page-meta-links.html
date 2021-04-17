@@ -21,6 +21,7 @@
     {{ $newPageStub := resources.Get "stubs/new-page-template.md" }}
     {{ $newPageQS := querify "value" $newPageStub.Content "filename" "change-me.md" | safeURL }}
     {{ $newPageURL := printf "%s/new/%s?%s"  $gh_repo $gh_repo_path $newPageQS }}
+    {{ $githubURL := printf "%s/blob/%s" $gh_repo $gh_repo_path }}
 
 
     {{$rmdPath := replace .Path ".md" ".Rmd" }}
@@ -29,10 +30,9 @@
     {{ else }}
       <a href="{{ $sourceURL }}" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> {{ "View source code" }}</a>
     {{ end }}
-
+    <a href="{{ $githubURL }}" target="_blank"><i class="fab fa-github fa-fw"></i> {{ "View on Github" }}</a>
     <a href="{{ $editURL }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_edit_this" }}</a>
     <a href="{{ $newPageURL }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_create_child_page" }}</a>
-    <a href="{{ $issuesURL }}" target="_blank"><i class="fab fa-github fa-fw"></i> {{ T "post_create_issue" }}</a>
     {{ if $gh_project_repo }}
       {{ $project_issueURL := printf "%s/issues/new" $gh_project_repo }}
       <a href="{{ $project_issueURL }}" target="_blank"><i class="fas fa-tasks fa-fw"></i> {{ T "post_create_project_issue" }}</a>

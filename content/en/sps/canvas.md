@@ -18,6 +18,27 @@ of SPS, install {[drawer](../dev/drawer)}. It is fully compatible with both
 Shiny and R markdown. 
 
 
+## Prepare plots
+In other SPS tabs, adjust your plots to the optimal size by dragging the corner: 
+
+<center>
+
+![plot_tab](../img/plot_drag.png)
+
+</center>
+
+Then use the ‵toCanvas‵ button of that plot to send a screenshot of current plot 
+to the Canvas. Or you can click on the "down arrow" <i class="fa fa-sort-down"></i>
+to save it to edit in other tools.
+
+<center>
+
+![plot_tab](../img/tocanvas.png)
+
+</center>
+
+## Use the Canvas
+
 <center>
 
 ![plot_tab](../img/sps_canvas.jpg)
@@ -39,3 +60,11 @@ Hover your mouse on buttons will display a tooltip of their functionality.
 
 Keyboard shortcuts are also enabled with SPS Canvas. Go to "help" menu to see these 
 options. 
+
+
+## Support
+
+Canvas only works on recent browsers versions, like Chrome, latest Edge, Firefox. 
+IE is not supported. Also, some browser privacy extensions will block javascript 
+and HTML5 canvas fingerprint. This will cause the screenshot to be blank. 
+

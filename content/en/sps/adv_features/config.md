@@ -5,6 +5,9 @@ type: docs
 weight: 1
 ---
 
+SPS has many options you can change. These options will determine how the app 
+behaves.
+
 *****
 ## Config SPS
 
@@ -19,33 +22,9 @@ spsInit(app_path = tempdir(), project_name = "config_demo", overwrite = TRUE, ch
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:43:17 Start to create a new SPS project
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:43:17 Create project under /tmp/Rtmp0DT2yS/config_demo
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:43:17 Now copy files
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:43:17 Create SPS database
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:43:17 Created SPS database method container
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:43:17 Creating SPS db...
-```
-
-```
-## [SPS-DANGER] 2021-04-12 11:43:17 Done, Db created at '/tmp/Rtmp0DT2yS/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:43:17 Key md5 e55c4f696d0b55d79a13732f75c7ad0b
-## [SPS-INFO] 2021-04-12 11:43:17 SPS project setup done!
+## [SPS-DANGER] 2021-04-16 18:02:46 Done, Db created at '/tmp/RtmpEwPsQa/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-16 18:02:46 Key md5 2f47cb4559f0517a50321c504f2a8ce5
+## [SPS-INFO] 2021-04-16 18:02:46 SPS project setup done!
 ```
 
 ```r
@@ -54,7 +33,7 @@ spsInit(app_path = tempdir(), project_name = "config_demo", overwrite = TRUE, ch
 ```
 
 ```
-## [1] "/tmp/Rtmp0DT2yS/config_demo"
+## [1] "/tmp/RtmpEwPsQa/config_demo"
 ```
 
 To reproduce code locally, run the following chunk instead. 
@@ -255,31 +234,43 @@ messages on console to tell you specifically what is wrong with your options.</p
 | Option          | Description                       | Default | Other     |
 |-----------------|-----------------------------------|---------|-----------|
 | mode            | running mode                      | "local" | "server"  |
+| title           | App title                         | "systemPipeShiny" | any string|
+| title_logo      | App logo to display on browser tab| "img/sps_small.png" | any path  |
 | warning_toast   | show security warnings?           | TRUE    | FALSE     |
-| loading_screen  | show loading screen?              | TRUE    | FALSE     |
-| loading_theme   | loading screen theme              | "vhelix"| any string|
+| login_screen    | add login screen?                 | TRUE    | FALSE     |
+| login_theme     | login screen theme                | "random"| see details|
 | use_crayon      | colorful console message?         | TRUE    | FALSE     |
 | verbose         | more details for SPS functions?   | FALSE   | TRUE      |
-| admin_page      | show admin page?                  | FALSE   | TRUE      |
+| admin_page      | enable admin page?                  | FALSE   | TRUE      |
 | admin_url       | admin_page query url              | "admin" | any string|
 | warning_toast   | for internal test only            | TRUE    | FALSE     |
 | module_wf       | load workflow module?             | TRUE    | FALSE     |
 | module_rnaseq   | load RNAseq module?               | TRUE    | FALSE     |
 | module_ggplot   | load quick ggplot module?         | TRUE    | FALSE     |
+| tab_welcome     | load welcome tab?                 | TRUE    | FALSE     |  
+| tab_vs_main     | load custom visualization main tab?| TRUE    | FALSE     |  
+| tab_canvas      | load Canvas tab?                  | TRUE    | FALSE     |  
+| tab_about       | load about tab?                   | TRUE    | FALSE     | 
+| note_url        | SPS notification remote URL       | see code above| any URL| 
 | app_path        | hidden, automatically added       | N.A.    | N.A.      |
 
 
-### Some details
+### Details
 
-- mode: this option will change how the upload files are selected.
-    - local: You can choose file from server side, and it is a direct link, no file will be copied to server. Most often used when you are on you own computer. <span style="color:var(--primary)">It is still choosing files from the server side, because you are using your own computer as a Shiny server.</span>
-    - server: Choose files from the client side, and upload as a temp file to the server.
-    - If you are on you own computer, there is no difference, but `local` mode can avoid copy your files to temp. <span style="color:var(--primary)">If you are deploying the app to cloud, please **use server mode**</span>
-    - Functions directly associated with this option are `dynamicFile` and `dynamicFileServer`. We will discuss details in [Developer sections](/sps/dev/)
-- warning_toast: A toast pop-up message when you are under some dangerous options when app starts (For internal testing only under current version).
-- loading_theme: `loading_screen` must be `TRUE`. Only one theme for now, we will add more in future.
-- verbose: Give you more information on debugging. Most SPS core functions has this option. If it is on, more debugging information will be printed on console.
-- admin_url (disabled in current version): the admin page URL, `admin_page` must be `TRUE` for it to work. It will be added in an upcoming version, a preview can be seen by adding "/?admin" to the end of app url, e.g. "[https://tgirke.shinyapps.io/systemPipeShiny/?admin](https://tgirke.shinyapps.io/systemPipeShiny/?admin)".
+- **mode**: see [[App security](../app_security)] this option will change how 
+  the upload files are selected.
+- **title & title_logo**: see [[Other customizations](../other_customizations)]
+- **warning_toast**: see [[App security](../app_security)], 
+  A toast pop-up message to help you check pre-deploy for security problems.
+- **login_screen & login_theme & admin_page & admin_url**: 
+  see [[Accounts, Login and Admin](../login)].
+- **verbose**: Give you more information on debugging. Most SPS core functions 
+  has this option. If it is on, more debugging information will be printed 
+  on console. See [[Debugging](../debug)]
+- **module_xx -- tab_xx**: see [[Toggle tabs](../displaytabs)] for loading and unloading 
+  tabs.
+- **tab_xx**: see [[Overwrite tabs](../overwritetabs)] for customizing core SPS default tabs.
+- **note_url**: see [[Notification system](../notification)] for customizing SPS notifications.
 
 ### get/set option values
 SPS values are globally set, which means you can get/change the these options at 
@@ -375,7 +366,7 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] systemPipeShiny_1.1.30 drawer_0.1.0.9         spsComps_0.1.9.99     
+## [1] systemPipeShiny_1.1.37 drawer_0.1.0.9         spsComps_0.1.9.99     
 ## [4] spsUtil_0.1.0.9        shiny_1.6.0.9000      
 ## 
 ## loaded via a namespace (and not attached):

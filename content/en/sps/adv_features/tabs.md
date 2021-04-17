@@ -25,33 +25,33 @@ spsInit(app_path = tempdir(), project_name = "tab_demo", overwrite = TRUE, chang
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
+## [SPS-INFO] 2021-04-12 17:19:02 Start to create a new SPS project
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
+## [SPS-INFO] 2021-04-12 17:19:02 Create project under /tmp/RtmpqF5tDX/tab_demo
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
+## [SPS-INFO] 2021-04-12 17:19:02 Now copy files
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
+## [SPS-INFO] 2021-04-12 17:19:02 Create SPS database
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
+## [SPS-INFO] 2021-04-12 17:19:02 Created SPS database method container
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
+## [SPS-INFO] 2021-04-12 17:19:02 Creating SPS db...
 ```
 
 ```
-## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at '/tmp/Rtmp4RU0eV/tab_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
+## [SPS-DANGER] 2021-04-12 17:19:03 Done, Db created at '/tmp/RtmpqF5tDX/tab_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-12 17:19:03 Key md5 b70d8ccbc29813b599138173478f6980
+## [SPS-INFO] 2021-04-12 17:19:03 SPS project setup done!
 ```
 
 ```r
@@ -60,7 +60,7 @@ spsInit(app_path = tempdir(), project_name = "tab_demo", overwrite = TRUE, chang
 ```
 
 ```
-## [1] "/tmp/Rtmp4RU0eV/tab_demo"
+## [1] "/tmp/RtmpqF5tDX/tab_demo"
 ```
 
 To reproduce code locally, run the following chunk instead. 
@@ -136,16 +136,16 @@ spsNewTab(tab_id = "vs_new", tab_displayname = "New tab demo", app_path = sps_di
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
+## [SPS-INFO] 2021-04-12 17:19:03 Write to file /tmp/RtmpqF5tDX/tab_demo/R/tab_vs_new.R
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
+## [SPS-INFO] 2021-04-12 17:19:03 Now register your new tab to config/tab.csv
 ```
 
 ```
-## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c("vs_new")`
+## [SPS-SUCCESS] 2021-04-12 17:19:03 New tab created!
+## [SPS] 2021-04-12 17:19:03 To load this new tab: `sps(tabs = c("vs_new")`
 ```
 
 If you are running the code locally, and are using Rstudio, the tab file will be opened 
@@ -166,6 +166,7 @@ spsEzUI(
   )
 )
 ```
+
 
 The only augment new users need to take some time to learn is adding `plot_control`.
 Developers need to add some Shiny UI components to let users control how the plotting is 
@@ -227,16 +228,16 @@ spsNewTab(
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
+## [SPS-INFO] 2021-04-12 17:19:03 Write to file /tmp/RtmpqF5tDX/tab_demo/R/tab_vs_new_full.R
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
+## [SPS-INFO] 2021-04-12 17:19:03 Now register your new tab to config/tab.csv
 ```
 
 ```
-## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c("vs_new_full")`
+## [SPS-SUCCESS] 2021-04-12 17:19:03 New tab created!
+## [SPS] 2021-04-12 17:19:03 To load this new tab: `sps(tabs = c("vs_new_full")`
 ```
 You can see the full template is a lot longer than the simple template:
 
@@ -247,7 +248,7 @@ spsinfo(glue::glue("Simple template has {simple_len} lines"), TRUE)
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
+## [SPS-INFO] 2021-04-12 17:19:03 Simple template has 66 lines
 ```
 
 ```r
@@ -255,7 +256,7 @@ spsinfo(glue::glue("Full template has {full_len} lines"), TRUE)
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
+## [SPS-INFO] 2021-04-12 17:19:03 Full template has 281 lines
 ```
 
 

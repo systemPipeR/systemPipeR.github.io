@@ -15,6 +15,7 @@ different screenshots, upload their own images and maybe make a scientific figur
 
 ## Features 
 
+
 - {drawer} is built with 99% javascript + HTML + CSS, there is **no need to have a Shiny server** or any other 
 types of server in the back-end. That's why you can use it in any HTML document. 
 **All you need is a modern web browser**, like Chrome or Firefox (IE will not work).
@@ -59,3 +60,10 @@ You can upload one or multiple your own images at once.
 <video width="100%" height="100%" controls>
   <source src="upload_img.mp4" type="video/mp4">
 </video>
+
+## Browser support
+
+{drawer} only works on recent browsers versions, like Chrome, latest Edge, Firefox. 
+IE is not supported (IE is not my friend). Also, some browser privacy extensions will block javascript 
+and HTML5 canvas fingerprint. This will cause the screenshot to be blank. {**drawer**} 
+does not collect any user information from you. 

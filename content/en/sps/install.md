@@ -5,40 +5,60 @@ type: docs
 weight: 2
 ---
 
-# Installation
+### Full
 
-The `systemPipeShiny` package can be installed from a user's R console as follows.
+``` r
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("systemPipeShiny", dependencies=TRUE)
 
-```r
+```
+This will install **all** required packages including suggested packages that 
+are required by the core modules. Be aware, it will take quite some time if you 
+are installing on Linux where only source installation is available. Windows and Mac
+binary installations will be much faster. 
+
+### Minimum
+
+To install the package, please use the `BiocManager::install` command:
+
+``` r
 if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
 BiocManager::install("systemPipeShiny")
 
-# or use "pak"
-if (!requireNamespace("pak", quietly=TRUE))
-    install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
-pak::pkg_install("systemPipeShiny")
 ```
 
-If the user's OS is Linux then one may need to install the following dependencies 
-**before** installing SPS.
-The following example applies to Ubuntu.
+By the minimum installation, all the 3 core modules are not installed. You 
+can still start the app, and When you start the app and click on these modules, 
+it will tell to enable these modules, what packages and command you need to run. 
+Just follow the instructions. So, install as you need.
 
-```bash
-sudo apt-get install -y libcurl4-openssl-dev
-sudo apt-get install -y libssl-dev
-sudo apt-get install -y libv8-dev
-# other dependencies
-sudo apt-get install -y libicu-dev
-sudo apt-get install -y pandoc
-sudo apt-get install -y make
-sudo apt-get install -y libglpk-dev
-sudo apt-get install -y libgmp3-dev
-sudo apt-get install -y zlib1g-dev
+### Most recent 
+
+To obtain the most recent updates immediately, one can install it directly from 
+[GitHub{blk}](https://github.com/systemPipeR/systemPipeShiny) as follow:
+
+``` r
+if (!requireNamespace("remotes", quietly=TRUE))
+    install.packages("remotes")
+remotes::install("systemPipeR/systemPipeShiny", dependencies=TRUE)
 ```
 
-Most likely you only need to install first 3, *libcurl4-openssl-dev* may not be 
-required for Ubuntu > 18.04. In case any other problem happens, try to install 
-other system dependencies.
+Similarly, `remotes::install("systemPipeR/systemPipeShiny")` for the minimum develop
+version. 
+
+### Linux
+
+If you are on Linux, you may also need the following libraries **before installing SPS**.
+Different distributions 
+may have different commands, but the following commands are examples for Ubuntu:
+
+```
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libv8-dev
+sudo apt-get install libxm12-dev
+sudo apt-get install libssl-dev
+```
 
 On other Linux distributions, the install commands may be slightly different. 
