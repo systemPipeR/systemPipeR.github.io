@@ -27,7 +27,7 @@ if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i  systemPipeR Installation To install the systemPipeR package (H Backman and Girke 2016), please use the BiocManager::install command:
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeR&quot;)  To obtain the most recent updates immediately, one can install it directly from github as follow:">
 <meta itemprop="dateModified" content="2021-02-22T08:39:18+00:00" />
-<meta itemprop="wordCount" content="271">
+<meta itemprop="wordCount" content="289">
 
 
 
@@ -54,8 +54,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
-<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -541,7 +541,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_funcs" href="../../../spr/systempiper/spr_funcs/">systemPipeR Help Manual</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_funcs" href="../../../spr/systempiper/spr_funcs/">Help Manual</a>
         
       
       
@@ -550,6 +550,14 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page  active" id="m-sprsystempipersprinstall" href="../../../spr/systempiper/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersp_docker" href="../../../spr/systempiper/sp_docker/">SPR Docker container</a>
         
       
       
@@ -582,7 +590,15 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatavignette" href="../../../spr/systempiperdata/vignette/">SRPdata Vignette</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatasystempiperdata" href="../../../spr/systempiperdata/systempiperdata/">Workflow templates and sample data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatanewwf" href="../../../spr/systempiperdata/newwf/">Rules to create a new Workflow Template</a>
         
       
       
@@ -631,16 +647,16 @@ if (!doNotTrack) {
     
     
     
+    
 
 
     
     
       <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/spr/systempiper/SPRinstall.markdown" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
     
-
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/spr/systempiper/SPRinstall.markdown" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
     <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/spr/systempiper/SPRinstall.markdown" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
     <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/spr/systempiper/SPRinstall.markdown?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=SPR%20detailed%20installation%20instructions" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -663,6 +679,7 @@ if (!doNotTrack) {
           <ul>
             <li><a href="#bwa">BWA</a></li>
             <li><a href="#blast">BLAST</a></li>
+            <li><a href="#cutadapt">Cutadapt</a></li>
           </ul>
         </li>
         <li><a href="#references">References</a></li>
@@ -777,14 +794,18 @@ tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
 cd ncbi-blast-2.11.0+/
 export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## &quot;/path/to/ncbi-blast-2.11.0+&quot; is an example! Replace with real PATH
 </code></pre>
-<p><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz">https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz</a></p>
+<h3 id="cutadapt">Cutadapt</h3>
+<p>Please check the <a href="https://cutadapt.readthedocs.io/en/stable/installation.html">Cutadapt Manual</a> to
+find the installation introduction for your system environment.</p>
+<pre><code class="language-bash">sudo apt install cutadapt
+</code></pre>
 <h2 id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-H_Backman2016-bt" class="csl-entry">
 <p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
 </div>
 <div id="ref-Li2013-sw" class="csl-entry">
-<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <a href="http://arxiv.org/abs/1303.3997">http://arxiv.org/abs/1303.3997</a>.</p>
+<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <a href="https://arxiv.org/abs/1303.3997">https://arxiv.org/abs/1303.3997</a>.</p>
 </div>
 </div>
 

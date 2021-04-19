@@ -2084,7 +2084,7 @@ setwd(&amp;quot;riboseq&amp;quot;)
     </item>
     
     <item>
-      <title>Spr: systemPipeR Help Manual</title>
+      <title>Spr: Help Manual</title>
       <link>/spr/systempiper/spr_funcs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -2177,16 +2177,297 @@ tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
 cd ncbi-blast-2.11.0+/
 export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## &amp;quot;/path/to/ncbi-blast-2.11.0+&amp;quot; is an example! Replace with real PATH
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz&#34;&gt;https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cutadapt&#34;&gt;Cutadapt&lt;/h3&gt;
+&lt;p&gt;Please check the &lt;a href=&#34;https://cutadapt.readthedocs.io/en/stable/installation.html&#34;&gt;Cutadapt Manual&lt;/a&gt; to
+find the installation introduction for your system environment.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install cutadapt
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
 &lt;div id=&#34;ref-H_Backman2016-bt&#34; class=&#34;csl-entry&#34;&gt;
 &lt;p&gt;H Backman, Tyler W, and Thomas Girke. 2016. “&lt;span class=&#34;nocase&#34;&gt;systemPipeR: NGS workflow and report generation environment&lt;/span&gt;.” &lt;em&gt;BMC Bioinformatics&lt;/em&gt; 17 (1): 388. &lt;a href=&#34;https://doi.org/10.1186/s12859-016-1241-0&#34;&gt;https://doi.org/10.1186/s12859-016-1241-0&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ref-Li2013-sw&#34; class=&#34;csl-entry&#34;&gt;
-&lt;p&gt;Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. &lt;a href=&#34;http://arxiv.org/abs/1303.3997&#34;&gt;http://arxiv.org/abs/1303.3997&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. &lt;a href=&#34;https://arxiv.org/abs/1303.3997&#34;&gt;https://arxiv.org/abs/1303.3997&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Spr: SPR Docker container</title>
+      <link>/spr/systempiper/sp_docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/spr/systempiper/sp_docker/</guid>
+      <description>
+        
+        
+        &lt;blockquote&gt;
+&lt;p&gt;Guidelines from &lt;a href=&#34;https://github.com/Bioconductor/bioconductor_docker&#34;&gt;bioconductor_docker&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;running-the-systempiper-with-docker&#34;&gt;Running the &lt;code&gt;systemPipeR&lt;/code&gt; with Docker&lt;/h1&gt;
+&lt;h2 id=&#34;get-a-copy-of-the-public-docker-image&#34;&gt;Get a copy of the public docker image&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker pull systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-run-rstudio-server&#34;&gt;To run RStudio Server:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 \
+        systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can then open a web browser pointing to your docker host on
+port 8787.  If you&amp;rsquo;re on Linux and using default settings, the docker
+host is &lt;code&gt;127.0.0.1&lt;/code&gt; (or &lt;code&gt;localhost&lt;/code&gt;, so the full URL to RStudio would
+be &lt;code&gt;http://localhost:8787)&lt;/code&gt;. If you are on Mac or Windows and running
+&lt;code&gt;Docker Toolbox&lt;/code&gt;, you can determine the docker host with the
+&lt;code&gt;docker-machine ip default&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;In the above command, &lt;code&gt;-e PASSWORD=&lt;/code&gt; is setting the RStudio password
+and is required by the RStudio Docker image. It can be whatever you
+like except it cannot be &lt;code&gt;rstudio&lt;/code&gt;. Log in to RStudio with the
+username &lt;code&gt;rstudio&lt;/code&gt; and whatever password was specified, in this
+example &lt;code&gt;systemPipe&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;to-run-r-from-the-command-line&#34;&gt;To run R from the command line:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-open-a-bash-shell-on-the-container&#34;&gt;To open a Bash shell on the container:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- # Full Documentation --&gt;
+&lt;!-- This tutorial shows how to create, access, run, build a Docker container. --&gt;
+&lt;!-- ## Table of Content --&gt;
+&lt;!-- 1. [Install](#Install) --&gt;
+&lt;!-- 2. [Docker Hub Account](#dockerHub) --&gt;
+&lt;!-- 3. [Log in to the Docker Hub](#login) --&gt;
+&lt;!-- 4. [Run Docker](#run) --&gt;
+&lt;!-- 5. [Create your first repository](#create) --&gt;
+&lt;!-- 6. [Make changes to the container and Create the new image](#changes) --&gt;
+&lt;!-- 7. [Commands](#commands) --&gt;
+&lt;!-- 8. [Docker and GitHub Actions](#github) --&gt;
+&lt;!-- 9. [Common Problems](#faq) --&gt;
+&lt;!-- 10. [Singularity Container](#singularity) --&gt;
+&lt;!-- 11. [Resources](#resources) --&gt;
+&lt;hr&gt;
+&lt;div id=&#39;Install&#39;/&gt;
+&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;:
+&lt;a href=&#34;https://docs.docker.com/installation/&#34;&gt;Linux&lt;/a&gt;
+&lt;a href=&#34;http://docs.docker.com/installation/mac/&#34;&gt;Mac&lt;/a&gt;
+&lt;a href=&#34;http://docs.docker.com/installation/windows/&#34;&gt;Windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Instructions &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;here&lt;/a&gt; on how to install Docker Engine on Ubuntu.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  &amp;quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable&amp;quot; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 
+## Verify that Docker Engine is installed correctly by running the hello-world image.
+sudo docker run hello-world
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;uninstall&#34;&gt;Uninstall&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get remove docker docker-engine docker.io containerd runc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;dockerHUb&#39;/&gt;
+&lt;h1 id=&#34;docker-hub-account&#34;&gt;Docker Hub Account&lt;/h1&gt;
+&lt;p&gt;To be able to share a custom image, please go to &lt;a href=&#34;https://hub.docker.com&#34;&gt;https://hub.docker.com&lt;/a&gt; and
+create a free account.&lt;/p&gt;
+&lt;hr&gt;
+&lt;div id=&#39;login&#39;/&gt;
+&lt;h2 id=&#34;log-in-to-the-docker-hub-locally&#34;&gt;Log in to the Docker Hub locally&lt;/h2&gt;
+&lt;p&gt;Login with your Docker ID to push and pull images from Docker Hub. If you don&amp;rsquo;t
+have a Docker ID, head over to &lt;a href=&#34;https://hub.docker.com&#34;&gt;https://hub.docker.com&lt;/a&gt; to create one.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker login
+# Username: XXXX
+# Password: xxx
+# Login Succeeded
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;run&#39;/&gt;
+&lt;h1 id=&#34;run-docker&#34;&gt;Run Docker&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run-dP systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Make sure the container is running:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker ps
+# CONTAINER ID   IMAGE                                    COMMAND   CREATED         STATUS         PORTS                     # NAMES
+#5d007f66a7b3   systempipe/systempipe_docker:latest   &amp;quot;/init&amp;quot;   5 minutes ago   Up 5 minutes   0.0.0.0:49153-&amp;gt;8787/tcp   determined_easle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;login-to-the-container&#34;&gt;Login to the container&lt;/h2&gt;
+&lt;p&gt;Please check the &lt;code&gt;NAMES&lt;/code&gt; in this example, &lt;code&gt;determined_easle,&lt;/code&gt; to login into the container.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker exec -it determined_easle /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;other-alternatives-to-run-the-container&#34;&gt;Other alternatives to run the container&lt;/h2&gt;
+&lt;h3 id=&#34;to-run-rstudio-server-1&#34;&gt;To run RStudio Server:&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 \
+    systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;to-run-r-from-the-command-line-1&#34;&gt;To run R from the command line:&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;to-open-a-bash-shell-on-the-container-1&#34;&gt;To open a Bash shell on the container:&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;check-r-version-into-the-container&#34;&gt;Check R Version into the container&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;R --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;stop-docker&#34;&gt;Stop Docker&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker stop determined_easle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;create&#39;/&gt;
+&lt;h1 id=&#34;create-your-first-repository-linkhttpsdocsdockercomdocker-hub&#34;&gt;Create your first repository &lt;a href=&#34;https://docs.docker.com/docker-hub/&#34;&gt;Link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;create-a-repository&#34;&gt;Create a repository:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sign in to Docker Hub.&lt;/li&gt;
+&lt;li&gt;Click Create a Repository on the Docker Hub welcome page:&lt;/li&gt;
+&lt;li&gt;Name it &lt;your-username&gt;/my-repo.&lt;/li&gt;
+&lt;li&gt;Click Create.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;build-and-push-a-container-image-to-docker-hub-from-your-computer&#34;&gt;Build and push a container image to Docker Hub from your computer&lt;/h2&gt;
+&lt;h3 id=&#34;start-by-creating-a-dockerfile-to-specify-your-application&#34;&gt;Start by creating a &lt;em&gt;Dockerfile&lt;/em&gt; to specify your application&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir docker_test
+cd docker_test
+touch Dockerfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Docker inheritance
+FROM systempipe/systempipe_docker:latest
+
+## Install BiocStyle
+RUN R -e &#39;BiocManager::install(&amp;quot;BiocStyle&amp;quot;)&#39;
+
+# Install required Bioconductor package from devel version
+RUN R -e &#39;BiocManager::install(&amp;quot;tgirke/systemPipeR&amp;quot;)&#39;
+RUN R -e &#39;BiocManager::install(&amp;quot;tgirke/systemPipeRdata&amp;quot;)&#39;
+
+WORKDIR /home/rstudio/SPRojects
+
+COPY --chown=rstudio:rstudio . /home/rstudio/SPRojects
+
+# Metadata
+LABEL name=&amp;quot;systempipe/systempipe_docker&amp;quot; \
+      version=$BIOCONDUCTOR_DOCKER_systempipe \
+      url=&amp;quot;https://github.com/systemPipeR/systempipe/systempipe_docker&amp;quot; \
+      vendor=&amp;quot;systemPipeR Project&amp;quot; \
+      maintainer=&amp;quot;email@gmail.com&amp;quot; \
+      description=&amp;quot;Bioconductor docker image containing the systemPipeR Project&amp;quot; \
+      license=&amp;quot;Artistic-2.0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-docker-build-to-build-your-docker-image&#34;&gt;Run &lt;code&gt;docker build&lt;/code&gt; to build your Docker image&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker build -t systempipe/systempipe_docker . 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-docker-run-to-test-your-docker-image-locally&#34;&gt;Run &lt;code&gt;docker run&lt;/code&gt; to test your Docker image locally&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-docker-push-to-push-your-docker-image-to-docker-hub&#34;&gt;Run &lt;code&gt;docker push&lt;/code&gt; to push your Docker image to Docker Hub&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker push systempipe/systempipe_docker
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Your repository in Docker Hub should now display a new latest tag under &lt;code&gt;Tags&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div id=&#39;changes&#39;/&gt;
+&lt;h1 id=&#34;make-changes-to-the-container-and-create-the-new-image&#34;&gt;Make changes to the container and Create the new image&lt;/h1&gt;
+&lt;p&gt;Create a folder, for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -dP systempipe/systempipe_docker
+docker ps ## To check the NAME &amp;lt;lucid_grothendieck&amp;gt;
+docker exec -it lucid_grothendieck /bin/bash
+root@33c758eb1626:/# R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;setwd(&amp;quot;home/rstudio/&amp;quot;)
+systemPipeRdata::genWorkenvir(&amp;quot;rnaseq&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;exit
+docker commit -m &amp;quot;Added rnaseq template&amp;quot; -a &amp;quot;Dani Cassol&amp;quot; lucid_grothendieck dcassol/systempipeworkshop2021:rnaseq
+docker push systempipe/systempipe_docker:rnaseq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Run the new image:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnaseq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;commands&#39;/&gt;
+&lt;h1 id=&#34;commands&#34;&gt;Commands&lt;/h1&gt;
+&lt;h2 id=&#34;list-which-docker-machines-are-available-locally&#34;&gt;List which docker machines are available locally&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker images&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;list-running-containers&#34;&gt;List running containers&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker ps&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;list-all-containers&#34;&gt;List all containers&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker ps -a&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;resume-a-stopped-container&#34;&gt;Resume a stopped container&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker start &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;shell-into-a-running-container&#34;&gt;Shell into a running container&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker exec -it &amp;lt;CONTAINER ID&amp;gt; /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;stop-or-remove-a-cointainer&#34;&gt;Stop OR remove a cointainer&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker stop &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;
+&lt;code&gt;{bash, eval=FALSE}docker rm &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;remove-a-image&#34;&gt;Remove a image&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div id=&#39;github&#39;/&gt;
+&lt;h1 id=&#34;docker-and-github-actions&#34;&gt;Docker and GitHub Actions&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;To create a new token, go to Docker Hub Settings&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1.1. Account Settings &amp;raquo; Security &amp;raquo; New Access Token
+1.2. Add Access Token Description &amp;raquo; Create
+1.3. Copy the Access Token &amp;raquo; Copy and Close&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Go to the Repository at GitHub&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2.1. Settings &amp;gt; Secrets &amp;gt; New repository secret
+2.2. Create a new secret with the name &lt;code&gt;DOCKER_HUB_USERNAME&lt;/code&gt; and your &lt;code&gt;Docker ID&lt;/code&gt; as value
+2.3. Click at Add secret
+2.4. Create a new secret with the name &lt;code&gt;DOCKER_HUB_ACCESS_TOKEN&lt;/code&gt; and your &lt;code&gt;Personal Access Token (PAT)&lt;/code&gt; as value (generated in the previous step)&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Set up the GitHub Actions workflow&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    steps:
+    
+      - name: Checkout Repo 
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;faq&#39;/&gt;
+&lt;h1 id=&#34;common-problems&#34;&gt;Common Problems&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;## Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/auth: dial unix /var/run/docker.sock: connect: permission denied
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Solution:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo chmod 666 /var/run/docker.sock
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;singularity&#39;/&gt;
+&lt;h1 id=&#34;singularity-container&#34;&gt;Singularity Container&lt;/h1&gt;
+&lt;p&gt;Please download the Docker image of systemPipe, as follow:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;singularity pull docker://systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also use the &lt;code&gt;build&lt;/code&gt; command to download pre-built images from Docker.
+Unlike &lt;code&gt;pull&lt;/code&gt;, &lt;code&gt;build&lt;/code&gt; will convert the image to the latest Singularity image format after
+downloading it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;singularity build systempipe_docker_latest.sif docker://systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To run the container:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;singularity shell systempipe_docker_latest.sif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;resources&#39;/&gt;
+&lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mirantis.com/blog/how-do-i-create-a-new-docker-image-for-my-application/&#34;&gt;Docker Run: How to create images from an application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/docker-hub/&#34;&gt;Docker Hub Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/ci-cd/github-actions/&#34;&gt;Configure GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images&#34;&gt;Singularity&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>

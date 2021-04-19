@@ -18,27 +18,27 @@
 <link rel="icon" type="image/png" href="../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Installation | sysPipe</title><meta property="og:title" content="Installation" />
-<meta property="og:description" content="Installation The systemPipeShiny package can be installed from a user&rsquo;s R console as follows.
-if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;) # or use &quot;pak&quot; if (!requireNamespace(&quot;pak&quot;, quietly=TRUE)) install.packages(&quot;pak&quot;, repos = &quot;https://r-lib.github.io/p/pak/dev/&quot;) pak::pkg_install(&quot;systemPipeShiny&quot;)  If the user&rsquo;s OS is Linux then one may need to install the following dependencies before installing SPS. The following example applies to Ubuntu.
-sudo apt-get install -y libcurl4-openssl-dev sudo apt-get install -y libssl-dev sudo apt-get install -y libv8-dev # other dependencies sudo apt-get install -y libicu-dev sudo apt-get install -y pandoc sudo apt-get install -y make sudo apt-get install -y libglpk-dev sudo apt-get install -y libgmp3-dev sudo apt-get install -y zlib1g-dev  Most likely you only need to install first 3, libcurl4-openssl-dev may not be required for Ubuntu &gt; 18." />
+<meta property="og:description" content="Full if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;, dependencies=TRUE)  This will install all required packages including suggested packages that are required by the core modules. Be aware, it will take quite some time if you are installing on Linux where only source installation is available. Windows and Mac binary installations will be much faster.
+Minimum To install the package, please use the BiocManager::install command:
+if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;)  By the minimum installation, all the 3 core modules are not installed." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/install/" />
-<meta property="article:modified_time" content="2021-02-08T11:15:56-08:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Installation">
-<meta itemprop="description" content="Installation The systemPipeShiny package can be installed from a user&rsquo;s R console as follows.
-if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;) # or use &quot;pak&quot; if (!requireNamespace(&quot;pak&quot;, quietly=TRUE)) install.packages(&quot;pak&quot;, repos = &quot;https://r-lib.github.io/p/pak/dev/&quot;) pak::pkg_install(&quot;systemPipeShiny&quot;)  If the user&rsquo;s OS is Linux then one may need to install the following dependencies before installing SPS. The following example applies to Ubuntu.
-sudo apt-get install -y libcurl4-openssl-dev sudo apt-get install -y libssl-dev sudo apt-get install -y libv8-dev # other dependencies sudo apt-get install -y libicu-dev sudo apt-get install -y pandoc sudo apt-get install -y make sudo apt-get install -y libglpk-dev sudo apt-get install -y libgmp3-dev sudo apt-get install -y zlib1g-dev  Most likely you only need to install first 3, libcurl4-openssl-dev may not be required for Ubuntu &gt; 18.">
-<meta itemprop="dateModified" content="2021-02-08T11:15:56-08:00" />
-<meta itemprop="wordCount" content="144">
+<meta itemprop="description" content="Full if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;, dependencies=TRUE)  This will install all required packages including suggested packages that are required by the core modules. Be aware, it will take quite some time if you are installing on Linux where only source installation is available. Windows and Mac binary installations will be much faster.
+Minimum To install the package, please use the BiocManager::install command:
+if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;)  By the minimum installation, all the 3 core modules are not installed.">
+<meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
+<meta itemprop="wordCount" content="208">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installation"/>
-<meta name="twitter:description" content="Installation The systemPipeShiny package can be installed from a user&rsquo;s R console as follows.
-if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;) # or use &quot;pak&quot; if (!requireNamespace(&quot;pak&quot;, quietly=TRUE)) install.packages(&quot;pak&quot;, repos = &quot;https://r-lib.github.io/p/pak/dev/&quot;) pak::pkg_install(&quot;systemPipeShiny&quot;)  If the user&rsquo;s OS is Linux then one may need to install the following dependencies before installing SPS. The following example applies to Ubuntu.
-sudo apt-get install -y libcurl4-openssl-dev sudo apt-get install -y libssl-dev sudo apt-get install -y libv8-dev # other dependencies sudo apt-get install -y libicu-dev sudo apt-get install -y pandoc sudo apt-get install -y make sudo apt-get install -y libglpk-dev sudo apt-get install -y libgmp3-dev sudo apt-get install -y zlib1g-dev  Most likely you only need to install first 3, libcurl4-openssl-dev may not be required for Ubuntu &gt; 18."/>
+<meta name="twitter:description" content="Full if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;, dependencies=TRUE)  This will install all required packages including suggested packages that are required by the core modules. Be aware, it will take quite some time if you are installing on Linux where only source installation is available. Windows and Mac binary installations will be much faster.
+Minimum To install the package, please use the BiocManager::install command:
+if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeShiny&quot;)  By the minimum installation, all the 3 core modules are not installed."/>
 
 
 <script type="application/javascript">
@@ -57,8 +57,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
-<link href="../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -605,6 +605,78 @@ if (!doNotTrack) {
         
       
       
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresoverwritetabs" href="../../sps/adv_features/overwritetabs/">Overwrite tabs</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../sps/adv_features/notification/">Notification system</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../sps/adv_features/guide/">SPS Guide</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../sps/adv_features/displaytabs/">Toggle tabs</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresapp_security" href="../../sps/adv_features/app_security/">App security</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdatabase" href="../../sps/adv_features/database/">SPS database</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featureslogin" href="../../sps/adv_features/login/">Accounts, login and admin</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdebug" href="../../sps/adv_features/debug/">Debugging</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresother_customizations" href="../../sps/adv_features/other_customizations/">Other customizations</a>
+        
+      
+      
     </li>
   </ul>
 </ul>
@@ -773,16 +845,16 @@ if (!doNotTrack) {
     
     
     
+    
 
 
     
     
       <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/install.md" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View source code</a>
     
-
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/install.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
     <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/install.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
     <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/install.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new?title=Installation" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -795,6 +867,23 @@ if (!doNotTrack) {
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#full">Full</a></li>
+            <li><a href="#minimum">Minimum</a></li>
+            <li><a href="#most-recent">Most recent</a></li>
+            <li><a href="#linux">Linux</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -832,39 +921,50 @@ if (!doNotTrack) {
 	<h1>Installation</h1>
     
 	       
-	<h1 id="installation">Installation</h1>
-<p>The <code>systemPipeShiny</code> package can be installed from a user&rsquo;s R console as follows.</p>
+	<h3 id="full">Full</h3>
+<pre><code class="language-r">if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE))
+    install.packages(&quot;BiocManager&quot;)
+BiocManager::install(&quot;systemPipeShiny&quot;, dependencies=TRUE)
+
+</code></pre>
+<p>This will install <strong>all</strong> required packages including suggested packages that
+are required by the core modules. Be aware, it will take quite some time if you
+are installing on Linux where only source installation is available. Windows and Mac
+binary installations will be much faster.</p>
+<h3 id="minimum">Minimum</h3>
+<p>To install the package, please use the <code>BiocManager::install</code> command:</p>
 <pre><code class="language-r">if (!requireNamespace(&quot;BiocManager&quot;, quietly=TRUE))
     install.packages(&quot;BiocManager&quot;)
 BiocManager::install(&quot;systemPipeShiny&quot;)
 
-# or use &quot;pak&quot;
-if (!requireNamespace(&quot;pak&quot;, quietly=TRUE))
-    install.packages(&quot;pak&quot;, repos = &quot;https://r-lib.github.io/p/pak/dev/&quot;)
-pak::pkg_install(&quot;systemPipeShiny&quot;)
 </code></pre>
-<p>If the user&rsquo;s OS is Linux then one may need to install the following dependencies
-<strong>before</strong> installing SPS.
-The following example applies to Ubuntu.</p>
-<pre><code class="language-bash">sudo apt-get install -y libcurl4-openssl-dev
-sudo apt-get install -y libssl-dev
-sudo apt-get install -y libv8-dev
-# other dependencies
-sudo apt-get install -y libicu-dev
-sudo apt-get install -y pandoc
-sudo apt-get install -y make
-sudo apt-get install -y libglpk-dev
-sudo apt-get install -y libgmp3-dev
-sudo apt-get install -y zlib1g-dev
+<p>By the minimum installation, all the 3 core modules are not installed. You
+can still start the app, and When you start the app and click on these modules,
+it will tell to enable these modules, what packages and command you need to run.
+Just follow the instructions. So, install as you need.</p>
+<h3 id="most-recent">Most recent</h3>
+<p>To obtain the most recent updates immediately, one can install it directly from
+<a href="https://github.com/systemPipeR/systemPipeShiny">GitHub{blk}</a> as follow:</p>
+<pre><code class="language-r">if (!requireNamespace(&quot;remotes&quot;, quietly=TRUE))
+    install.packages(&quot;remotes&quot;)
+remotes::install(&quot;systemPipeR/systemPipeShiny&quot;, dependencies=TRUE)
 </code></pre>
-<p>Most likely you only need to install first 3, <em>libcurl4-openssl-dev</em> may not be
-required for Ubuntu &gt; 18.04. In case any other problem happens, try to install
-other system dependencies.</p>
+<p>Similarly, <code>remotes::install(&quot;systemPipeR/systemPipeShiny&quot;)</code> for the minimum develop
+version.</p>
+<h3 id="linux">Linux</h3>
+<p>If you are on Linux, you may also need the following libraries <strong>before installing SPS</strong>.
+Different distributions
+may have different commands, but the following commands are examples for Ubuntu:</p>
+<pre><code>sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libv8-dev
+sudo apt-get install libxm12-dev
+sudo apt-get install libssl-dev
+</code></pre>
 <p>On other Linux distributions, the install commands may be slightly different.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-08: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/c30b3d05e39610bbdd450295197fce10dbbfc6a5">sps updates no_render (c30b3d0)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-16: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5e9129ad29c8960356962ae697b286a451f6a7c2">update in progress (5e9129a)</a>
 </div>
 </div>
 
