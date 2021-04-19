@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
+
+<title>SPR Data Visualization | sysPipe</title><meta property="og:title" content="SPR Data Visualization" />
+<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/spr/systempiper/systempiper_dataviz/" />
+<meta property="article:modified_time" content="2021-04-18T22:44:08-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta itemprop="name" content="SPR Data Visualization">
+<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.">
+<meta itemprop="dateModified" content="2021-04-18T22:44:08-07:00" />
+<meta itemprop="wordCount" content="1780">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPR Data Visualization"/>
+<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../../css/prism.css"/>
+
+
+<script src="../../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../../css/site.css"/>
+<script src="../../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page line-numbers">
+    <header>
+     
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="../../../">
+		<span class="font-weight-bold">sysPipe</span>
+	</a>
+	<row class="header-switch">
+	  	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
+        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
+      </div>
+    	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
+        <label class="custom-control-label" for="tocSwitch">toc</label>
+      </div>
+	</row>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/overview/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Overview
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/team/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Our Team
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/publications/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Publications
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/acknowledgement/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Acknowledgement
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/contact/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Contact
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr/" id="navbarDropdown" role="button">
+          	systemPipeR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeR Package
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/introduction/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/gettingstarted/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Getting Started
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/spr_run/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 How to run a Workflow
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/steps/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow steps overview
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/templates/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow Templates
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiper/sprinstall/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR detailed installation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiperdata/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRdata
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../spr/systempiperdata/vignette/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Vignette
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Links
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata GitHub
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
+          	Shiny
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sps/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 SPS Documentation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Github
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
+          	Workflows
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr_wf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Collection
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
+          	Training
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/presentations/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/videos/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Videos Tutorials
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
+          	News
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../news/release_3_12/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor 3.12
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../spr/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="spr">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../spr/systempiper/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">systemPipeR</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="sprsystempiper">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperintroduction" href="../../../spr/systempiper/introduction/">Introduction</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipergettingstarted" href="../../../spr/systempiper/gettingstarted/">Getting Started</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_run" href="../../../spr/systempiper/spr_run/">How to run a Workflow</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersteps" href="../../../spr/systempiper/steps/">Workflow steps overview</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersprdataviz" href="../../../spr/systempiper/sprdataviz/">SPR Data Visualization</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-sprsystempipersystempiper_dataviz" href="../../../spr/systempiper/systempiper_dataviz/">SPR Data Visualization</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipertemplates" href="../../../spr/systempiper/templates/">Workflow Templates</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_funcs" href="../../../spr/systempiper/spr_funcs/">Help Manual</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersprinstall" href="../../../spr/systempiper/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersp_docker" href="../../../spr/systempiper/sp_docker/">SPR Docker container</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../spr/systempiperdata/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a>
+  </li>
+  <ul>
+    <li class="collapse " id="sprsystempiperdata">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatasystempiperdata" href="../../../spr/systempiperdata/systempiperdata/">Workflow templates and sample data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatanewwf" href="../../../spr/systempiperdata/newwf/">Rules to create a new Workflow Template</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          
+          
+
+          
+
+          
+          
+              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+                
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/spr/systempiper/systemPipeR_dataViz.md" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View source code</a>
+    
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/spr/systempiper/systemPipeR_dataViz.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/spr/systempiper/systemPipeR_dataViz.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/spr/systempiper/systemPipeR_dataViz.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    
+      
+      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-visualization-with-systempiper">Data Visualization with <code>systemPipeR</code></a>
+      <ul>
+        <li><a href="#metadata-and-reads-counting-information">Metadata and Reads Counting Information</a></li>
+        <li><a href="#data-transformation">Data Transformation</a></li>
+        <li><a href="#scatterplot">Scatterplot</a></li>
+        <li><a href="#hierarchical-clustering-dendrogram">Hierarchical Clustering Dendrogram</a></li>
+        <li><a href="#hierarchical-clustering-heatmap">Hierarchical Clustering HeatMap</a></li>
+        <li><a href="#principal-component-analysis">Principal Component Analysis</a></li>
+        <li><a href="#multidimensional-scaling-with-mdsplot">Multidimensional scaling with <code>MDSplot</code></a></li>
+        <li><a href="#dimension-reduction-with-glmplot">Dimension Reduction with <code>GLMplot</code></a></li>
+        <li><a href="#ma-plot">MA plot</a></li>
+        <li><a href="#t-distributed-stochastic-neighbor-embedding-with-tsneplot">t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></a></li>
+        <li><a href="#volcano-plot">Volcano plot</a></li>
+      </ul>
+    </li>
+    <li><a href="#version-information">Version information</a></li>
+    <li><a href="#funding">Funding</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+              </div>
+              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+                
+  
+
+                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../spr/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../spr/systempiper/">systemPipeR</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="../../../spr/systempiper/systempiper_dataviz/">SPR Data Visualization</a>
+</li>
+
+	</ol>
+</nav	>
+
+                
+<div class="td-content">
+	<h1>SPR Data Visualization</h1>
+    
+	       
+	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+<link href="../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<style type="text/css">
+pre code {
+white-space: pre !important;
+overflow-x: scroll !important;
+word-break: keep-all !important;
+word-wrap: initial !important;
+}
+</style>
+<!--
+- Compile from command-line
+Rscript -e "rmarkdown::render('systemPipeR_dataViz.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR_dataViz.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR_dataViz.Rmd', c('BiocStyle::pdf_document'))"
+-->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector("h1").className = "title";
+});
+</script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i < linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = '_blank';
+});
+</script>
+<h1 id="data-visualization-with-systempiper">Data Visualization with <code>systemPipeR</code></h1>
+<h2 id="metadata-and-reads-counting-information">Metadata and Reads Counting Information</h2>
+<p>The first step is importing the <code>targets</code> file and raw reads counting table.</p>
+<ul>
+<li>The <code>targets</code> file defines all FASTQ files and sample comparisons of the analysis workflow.</li>
+<li>The raw reads counting table represents all the reads that map to gene (row) for each sample (columns).</li>
+</ul>
+<pre><code class="language-r">## Targets file
+targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
+targets &lt;- read.delim(targetspath, comment = &quot;#&quot;)
+cmp &lt;- systemPipeR::readComp(file = targetspath, format = &quot;matrix&quot;, delim = &quot;-&quot;)
+## Count table file
+countMatrixPath &lt;- system.file(&quot;extdata&quot;, &quot;countDFeByg.xls&quot;, package = &quot;systemPipeR&quot;)
+countMatrix &lt;- read.delim(countMatrixPath, row.names = 1)
+systemPipeR::showDT(targets)
+</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":5},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<pre><code class="language-r">head(countMatrix)
+</code></pre>
+<pre><code>##           M1A M1B A1A A1B V1A V1B M6A M6B A6A A6B V6A  V6B M12A M12B A12A A12B
+## AT1G01010  57 244 201 169 365 229  41  38 152  46 294  405  117  139  132   64
+## AT1G01020  23  93  69 126 107  88  18  25  20   5  88  151   43   74   33   18
+## AT1G01030  41  98  73  58  94 156   9  13   8   6  36  147   32   29   12    9
+## AT1G01040 180 684 522 664 585 680 162 163 249  66 697 1060  338  604  360   80
+## AT1G01050  60 127 102 166 125 303 116 180 139  37 236  679  362  746  194   50
+## AT1G01060  26 264  59  56   8  26   5   2   0   0   0    4   89  203  118   24
+##           V12A V12B
+## AT1G01010  230  120
+## AT1G01020   43   31
+## AT1G01030   70   85
+## AT1G01040  203  171
+## AT1G01050  214  181
+## AT1G01060   62   32
+</code></pre>
+<h2 id="data-transformation">Data Transformation</h2>
+<p>For gene differential expression, raw counts are required, however for data
+visualization or clustering, it can be useful to work with transformed count data.
+<code>exploreDDS</code> function is convenience wrapper to transform raw read counts using the
+<a href="@Love2014-sh"><code>DESeq2</code></a> package transformations methods. The input file
+has to contain all the genes, not just differentially expressed ones.</p>
+<pre><code class="language-r">exploredds &lt;- exploreDDS(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, 
+    transformationMethod = &quot;rlog&quot;)
+exploredds
+</code></pre>
+<pre><code>## class: DESeqTransform 
+## dim: 116 18 
+## metadata(1): version
+## assays(1): ''
+## rownames(116): AT1G01010 AT1G01020 ... ATMG00180 ATMG00200
+## rowData names(51): baseMean baseVar ... dispFit rlogIntercept
+## colnames(18): M1A M1B ... V12A V12B
+## colData names(2): condition sizeFactor
+</code></pre>
+<p>Users are strongly encouraged to consult the <a href="@Love2014-sh"><code>DESeq2</code></a> vignette for
+more detailed information on this topic and how to properly run <code>DESeq2</code> on data
+sets with more complex experimental designs.</p>
+<h2 id="scatterplot">Scatterplot</h2>
+<p>To decide which transformation to choose, we can visualize the transformation effect
+comparing two samples or a grid of all samples, as follows:</p>
+<pre><code class="language-r">exploreDDSplot(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, samples = c(&quot;M12A&quot;, 
+    &quot;A12A&quot;), scattermatrix = FALSE)
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/exploreDDSplot-1.png" width="672" /></p>
+<pre><code class="language-r">exploreDDSplot(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, samples = c(&quot;M12A&quot;, 
+    &quot;M12A&quot;, &quot;A12A&quot;, &quot;A12A&quot;), scattermatrix = TRUE)
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/exploreDDSplot-2.png" width="672" /></p>
+<p>The scatterplots are created using the log2 transform normalized reads count,
+variance stabilizing transformation (VST) (Anders and Huber 2010), and regularized-logarithm transformation
+or <code>rlog</code> (Love, Huber, and Anders 2014).</p>
+<h2 id="hierarchical-clustering-dendrogram">Hierarchical Clustering Dendrogram</h2>
+<p>The following computes the sample-wise correlation coefficients using the <code>stats::cor()</code>
+function from the transformed expression values. After transformation to a distance matrix,
+hierarchical clustering is performed with the <code>stats::hclust</code> function and the
+result is plotted as a dendrogram, as follows:</p>
+<pre><code class="language-r">hclustplot(exploredds, method = &quot;spearman&quot;, savePlot = TRUE, filePlot = &quot;cor.png&quot;)
+</code></pre>
+<pre><code>## Saving 5.6 x 4 in image
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/hclustplot-1.png" width="672" /></p>
+<p><img src="cor.png" alt=""></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="hierarchical-clustering-heatmap">Hierarchical Clustering HeatMap</h2>
+<p>This function performs hierarchical clustering on the transformed expression matrix
+generated within the <code>DESeq2</code> package. It uses, by default, a <code>Pearson</code> correlation-based distance
+measure and complete linkage for cluster join.
+If <code>samples</code> selected in the <code>clust</code> argument, it will be applied the <code>stats::dist()</code>
+function to the transformed count matrix to get sample-to-sample distances. Also,
+it is possible to generate the <code>pheatmap</code> or <code>plotly</code> plot format.</p>
+<pre><code class="language-r">## Samples plot
+heatMaplot(exploredds, clust = &quot;samples&quot;)
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/heatMaplot_samples-1.png" width="672" /></p>
+<pre><code class="language-r">heatMaplot(exploredds, clust = &quot;samples&quot;, plotly = TRUE)
+</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"f37353cf555d":["function () ","plotlyVisDat"]},"cur_data":"f37353cf555d","attrs":{"f37353cf555d":{"x":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"y":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"z":[[0,7.04650716301563,5.70678310405774,8.20976445672658,5.82667776225818,7.3279781790244,8.39986657356742,8.16733063204217,9.58637200173571,7.68841587215867,10.1640441508758,10.7676019921496,10.0039632569807,11.32498784981,9.8146750121175,7.74473230078491,9.45716343166999,7.95378561107353],[7.04650716301563,0,6.66154862259465,4.25865887783483,6.67960023884926,6.26668680998727,9.91630309634838,9.25451827523275,10.9564120825428,9.93575571094716,11.099388064366,10.6754670535994,9.90683653800534,10.9561298226477,10.7399675586854,9.18116169782986,9.77109863659917,9.40323019102986],[5.70678310405774,6.66154862259465,0,7.98994675562316,4.94593038167375,5.72836463615867,8.11235158724083,7.65256178153187,8.15065142907597,8.76007256265634,8.30988507282082,8.91309701678265,8.66629724080143,9.82426010379448,8.30870129249907,8.54268071001664,8.35323474316893,7.70897398227057],[8.20976445672658,4.25865887783483,7.98994675562316,0,6.99532785790822,6.43469620310431,10.4096764476556,9.51652950962973,11.1939050957909,10.4627147426448,11.1689702900908,10.546647320753,10.5708484745604,11.5547562063225,11.6160197603858,9.88406363111819,10.7020155017471,10.4675703563444],[5.82667776225818,6.67960023884926,4.94593038167375,6.99532785790822,0,4.8575131388009,8.46288752842871,8.0319315058583,8.726172089783,8.73161790330149,8.27286514155669,8.88152783442813,9.62675093908279,10.8109068917939,9.50867890759956,8.56129430593498,9.21166728284744,8.48571139105286],[7.3279781790244,6.26668680998727,5.72836463615867,6.43469620310431,4.8575131388009,0,10.051631844146,8.92833694901717,9.88801350128227,10.1968579735558,9.80606329541741,9.47694677716336,10.2032985748696,10.9502439173503,10.7118343889731,10.2485736407499,9.95124988126944,9.6455696901528],[8.39986657356742,9.91630309634838,8.11235158724083,10.4096764476556,8.46288752842871,10.051631844146,0,4.32289188181976,5.45401419571659,6.66929785847857,5.82333805363524,6.89960979808065,6.60846441830892,7.49378480640748,6.09490379797155,6.92856692552639,6.73658240504653,6.04084631483171],[8.16733063204217,9.25451827523275,7.65256178153187,9.51652950962973,8.0319315058583,8.92833694901717,4.32289188181976,0,5.86548263173596,6.92170483627566,6.43771467140554,5.936553276735,6.66918890392232,7.10201521498403,6.87338305585792,7.70858313971616,6.93977726065822,6.12205683109543],[9.58637200173571,10.9564120825428,8.15065142907597,11.1939050957909,8.726172089783,9.88801350128227,5.45401419571659,5.86548263173596,0,8.10337075683393,4.02970654063498,6.37598537189006,6.96355226928132,7.79890861008178,5.50539366529938,8.64913887544163,6.82883422186719,6.22801929982399],[7.68841587215867,9.93575571094716,8.76007256265634,10.4627147426448,8.73161790330149,10.1968579735558,6.66929785847857,6.92170483627566,8.10337075683393,0,9.22853479532283,10.1030591897721,9.35527845594351,11.0912154866989,8.92785474831708,6.32121021712703,9.14034499886722,7.20502415178336],[10.1640441508758,11.099388064366,8.30988507282082,11.1689702900908,8.27286514155669,9.80606329541741,5.82333805363524,6.43771467140554,4.02970654063498,9.22853479532283,0,5.40796455622463,7.23562402229216,8.05893271349359,5.83000947413891,8.94623155465764,6.52802367477244,6.94139936721835],[10.7676019921496,10.6754670535994,8.91309701678265,10.546647320753,8.88152783442813,9.47694677716336,6.89960979808065,5.936553276735,6.37598537189006,10.1030591897721,5.40796455622463,0,7.14309602773391,6.1610771391521,7.4911181113735,10.0381028337193,7.56298264238769,7.68916986877059],[10.0039632569807,9.90683653800534,8.66629724080143,10.5708484745604,9.62675093908279,10.2032985748696,6.60846441830892,6.66918890392232,6.96355226928132,9.35527845594351,7.23562402229216,7.14309602773391,0,5.69259437645614,5.58694500597765,8.50447659713418,5.53119139458227,6.33933832045536],[11.32498784981,10.9561298226477,9.82426010379448,11.5547562063225,10.8109068917939,10.9502439173503,7.49378480640748,7.10201521498403,7.79890861008178,11.0912154866989,8.05893271349359,6.1610771391521,5.69259437645614,0,6.42494730487994,10.5078546330517,7.19994521380774,7.82561653509729],[9.8146750121175,10.7399675586854,8.30870129249907,11.6160197603858,9.50867890759956,10.7118343889731,6.09490379797155,6.87338305585792,5.50539366529938,8.92785474831708,5.83000947413891,7.4911181113735,5.58694500597765,6.42494730487994,0,8.18110233128943,5.25899641633563,5.72577800197228],[7.74473230078491,9.18116169782986,8.54268071001664,9.88406363111819,8.56129430593498,10.2485736407499,6.92856692552639,7.70858313971616,8.64913887544163,6.32121021712703,8.94623155465764,10.0381028337193,8.50447659713418,10.5078546330517,8.18110233128943,0,7.99272460895717,6.58008064549415],[9.45716343166999,9.77109863659917,8.35323474316893,10.7020155017471,9.21166728284744,9.95124988126944,6.73658240504653,6.93977726065822,6.82883422186719,9.14034499886722,6.52802367477244,7.56298264238769,5.53119139458227,7.19994521380774,5.25899641633563,7.99272460895717,0,5.56397338345294],[7.95378561107353,9.40323019102986,7.70897398227057,10.4675703563444,8.48571139105286,9.6455696901528,6.04084631483171,6.12205683109543,6.22801929982399,7.20502415178336,6.94139936721835,7.68916986877059,6.33933832045536,7.82561653509729,5.72577800197228,6.58008064549415,5.56397338345294,0]],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"heatmap"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"y":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"z":[[0,7.04650716301563,5.70678310405774,8.20976445672658,5.82667776225818,7.3279781790244,8.39986657356742,8.16733063204217,9.58637200173571,7.68841587215867,10.1640441508758,10.7676019921496,10.0039632569807,11.32498784981,9.8146750121175,7.74473230078491,9.45716343166999,7.95378561107353],[7.04650716301563,0,6.66154862259465,4.25865887783483,6.67960023884926,6.26668680998727,9.91630309634838,9.25451827523275,10.9564120825428,9.93575571094716,11.099388064366,10.6754670535994,9.90683653800534,10.9561298226477,10.7399675586854,9.18116169782986,9.77109863659917,9.40323019102986],[5.70678310405774,6.66154862259465,0,7.98994675562316,4.94593038167375,5.72836463615867,8.11235158724083,7.65256178153187,8.15065142907597,8.76007256265634,8.30988507282082,8.91309701678265,8.66629724080143,9.82426010379448,8.30870129249907,8.54268071001664,8.35323474316893,7.70897398227057],[8.20976445672658,4.25865887783483,7.98994675562316,0,6.99532785790822,6.43469620310431,10.4096764476556,9.51652950962973,11.1939050957909,10.4627147426448,11.1689702900908,10.546647320753,10.5708484745604,11.5547562063225,11.6160197603858,9.88406363111819,10.7020155017471,10.4675703563444],[5.82667776225818,6.67960023884926,4.94593038167375,6.99532785790822,0,4.8575131388009,8.46288752842871,8.0319315058583,8.726172089783,8.73161790330149,8.27286514155669,8.88152783442813,9.62675093908279,10.8109068917939,9.50867890759956,8.56129430593498,9.21166728284744,8.48571139105286],[7.3279781790244,6.26668680998727,5.72836463615867,6.43469620310431,4.8575131388009,0,10.051631844146,8.92833694901717,9.88801350128227,10.1968579735558,9.80606329541741,9.47694677716336,10.2032985748696,10.9502439173503,10.7118343889731,10.2485736407499,9.95124988126944,9.6455696901528],[8.39986657356742,9.91630309634838,8.11235158724083,10.4096764476556,8.46288752842871,10.051631844146,0,4.32289188181976,5.45401419571659,6.66929785847857,5.82333805363524,6.89960979808065,6.60846441830892,7.49378480640748,6.09490379797155,6.92856692552639,6.73658240504653,6.04084631483171],[8.16733063204217,9.25451827523275,7.65256178153187,9.51652950962973,8.0319315058583,8.92833694901717,4.32289188181976,0,5.86548263173596,6.92170483627566,6.43771467140554,5.936553276735,6.66918890392232,7.10201521498403,6.87338305585792,7.70858313971616,6.93977726065822,6.12205683109543],[9.58637200173571,10.9564120825428,8.15065142907597,11.1939050957909,8.726172089783,9.88801350128227,5.45401419571659,5.86548263173596,0,8.10337075683393,4.02970654063498,6.37598537189006,6.96355226928132,7.79890861008178,5.50539366529938,8.64913887544163,6.82883422186719,6.22801929982399],[7.68841587215867,9.93575571094716,8.76007256265634,10.4627147426448,8.73161790330149,10.1968579735558,6.66929785847857,6.92170483627566,8.10337075683393,0,9.22853479532283,10.1030591897721,9.35527845594351,11.0912154866989,8.92785474831708,6.32121021712703,9.14034499886722,7.20502415178336],[10.1640441508758,11.099388064366,8.30988507282082,11.1689702900908,8.27286514155669,9.80606329541741,5.82333805363524,6.43771467140554,4.02970654063498,9.22853479532283,0,5.40796455622463,7.23562402229216,8.05893271349359,5.83000947413891,8.94623155465764,6.52802367477244,6.94139936721835],[10.7676019921496,10.6754670535994,8.91309701678265,10.546647320753,8.88152783442813,9.47694677716336,6.89960979808065,5.936553276735,6.37598537189006,10.1030591897721,5.40796455622463,0,7.14309602773391,6.1610771391521,7.4911181113735,10.0381028337193,7.56298264238769,7.68916986877059],[10.0039632569807,9.90683653800534,8.66629724080143,10.5708484745604,9.62675093908279,10.2032985748696,6.60846441830892,6.66918890392232,6.96355226928132,9.35527845594351,7.23562402229216,7.14309602773391,0,5.69259437645614,5.58694500597765,8.50447659713418,5.53119139458227,6.33933832045536],[11.32498784981,10.9561298226477,9.82426010379448,11.5547562063225,10.8109068917939,10.9502439173503,7.49378480640748,7.10201521498403,7.79890861008178,11.0912154866989,8.05893271349359,6.1610771391521,5.69259437645614,0,6.42494730487994,10.5078546330517,7.19994521380774,7.82561653509729],[9.8146750121175,10.7399675586854,8.30870129249907,11.6160197603858,9.50867890759956,10.7118343889731,6.09490379797155,6.87338305585792,5.50539366529938,8.92785474831708,5.83000947413891,7.4911181113735,5.58694500597765,6.42494730487994,0,8.18110233128943,5.25899641633563,5.72577800197228],[7.74473230078491,9.18116169782986,8.54268071001664,9.88406363111819,8.56129430593498,10.2485736407499,6.92856692552639,7.70858313971616,8.64913887544163,6.32121021712703,8.94623155465764,10.0381028337193,8.50447659713418,10.5078546330517,8.18110233128943,0,7.99272460895717,6.58008064549415],[9.45716343166999,9.77109863659917,8.35323474316893,10.7020155017471,9.21166728284744,9.95124988126944,6.73658240504653,6.93977726065822,6.82883422186719,9.14034499886722,6.52802367477244,7.56298264238769,5.53119139458227,7.19994521380774,5.25899641633563,7.99272460895717,0,5.56397338345294],[7.95378561107353,9.40323019102986,7.70897398227057,10.4675703563444,8.48571139105286,9.6455696901528,6.04084631483171,6.12205683109543,6.22801929982399,7.20502415178336,6.94139936721835,7.68916986877059,6.33933832045536,7.82561653509729,5.72577800197228,6.58008064549415,5.56397338345294,0]],"type":"heatmap","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>If <code>ind</code> selected in the <code>clust</code> argument, it is necessary to provide the list of
+differentially expressed genes for the <code>exploredds</code> subset.</p>
+<pre><code class="language-r">## Individuals genes identified in DEG analysis DEG analysis with `systemPipeR`
+degseqDF &lt;- systemPipeR::run_DESeq2(countDF = countMatrix, targets = targets, cmp = cmp[[1]], 
+    independent = FALSE)
+</code></pre>
+<pre><code>## Warning in DESeqDataSet(se, design = design, ignoreRank): some variables in
+## design formula are characters, converting to factors
+</code></pre>
+<pre><code class="language-r">DEG_list &lt;- systemPipeR::filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/heatMaplot_DEG-1.png" width="672" /></p>
+<pre><code class="language-r">### Plot
+heatMaplot(exploredds, clust = &quot;ind&quot;, DEGlist = unique(as.character(unlist(DEG_list[[1]]))))
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/heatMaplot_DEG-2.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="principal-component-analysis">Principal Component Analysis</h2>
+<p>This function plots a Principal Component Analysis (PCA) from transformed expression
+matrix. This plot shows samples variation based on the expression values and identifies
+batch effects.</p>
+<pre><code class="language-r">PCAplot(exploredds, plotly = TRUE, save = TRUE, filePlot = &quot;PCAplot.png&quot;)
+</code></pre>
+<pre><code>## Saving 7 x 5 in image
+</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":[{"x":[-3.03168381476885,-6.03412691707515],"y":[-0.535073099413187,-2.0971750907225],"text":["colour: A1<br />PC1: -3.0316838<br />PC2: -0.5350731","colour: A1<br />PC1: -6.0341269<br />PC2: -2.0971751"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"A1","legendgroup":"A1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.88869312311426,-0.383756141678079],"y":[0.0701335027868824,4.53821439195817],"text":["colour: A12<br />PC1:  3.8886931<br />PC2:  0.0701335","colour: A12<br />PC1: -0.3837561<br />PC2:  4.5382144"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(211,146,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(211,146,0,1)"}},"hoveron":"points","name":"A12","legendgroup":"A12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.28184331604165,-0.416809087724184],"y":[0.185372641000547,5.30010399483779],"text":["colour: A6<br />PC1:  3.2818433<br />PC2:  0.1853726","colour: A6<br />PC1: -0.4168091<br />PC2:  5.3001040"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(147,170,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(147,170,0,1)"}},"hoveron":"points","name":"A6","legendgroup":"A6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-4.23478929449673,-5.72288504075975],"y":[2.46441944072604,-1.3362445127839],"text":["colour: M1<br />PC1: -4.2347893<br />PC2:  2.4644194","colour: M1<br />PC1: -5.7228850<br />PC2: -1.3362445"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"M1","legendgroup":"M1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.08219911545694,4.0916538760623],"y":[-1.26931397709069,-3.52388688937858],"text":["colour: M12<br />PC1:  3.0821991<br />PC2: -1.2693140","colour: M12<br />PC1:  4.0916539<br />PC2: -3.5238869"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,193,159,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,193,159,1)"}},"hoveron":"points","name":"M12","legendgroup":"M12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.40175386965523,1.53523865252027],"y":[1.67449958551854,0.392038639964049],"text":["colour: M6<br />PC1:  2.4017539<br />PC2:  1.6744996","colour: M6<br />PC1:  1.5352387<br />PC2:  0.3920386"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,185,227,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,185,227,1)"}},"hoveron":"points","name":"M6","legendgroup":"M6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-4.10114199086997,-5.13397514161901],"y":[-0.524772724724376,-2.59419479868824],"text":["colour: V1<br />PC1: -4.1011420<br />PC2: -0.5247727","colour: V1<br />PC1: -5.1339751<br />PC2: -2.5941948"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"V1","legendgroup":"V1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.70779870992001,1.85669227563915],"y":[-0.325101355885941,1.77346995606566],"text":["colour: V12<br />PC1:  2.7077987<br />PC2: -0.3251014","colour: V12<br />PC1:  1.8566923<br />PC2:  1.7734700"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(219,114,251,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(219,114,251,1)"}},"hoveron":"points","name":"V12","legendgroup":"V12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.29098889669914,2.92230559388278],"y":[-0.928463576912153,-3.26402612725811],"text":["colour: V6<br />PC1:  3.2909889<br />PC2: -0.9284636","colour: V6<br />PC1:  2.9223056<br />PC2: -3.2640261"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,97,195,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,97,195,1)"}},"hoveron":"points","name":"V6","legendgroup":"V6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":37.2602739726027},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Principal Component Analysis (PCA)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.54041595673202,4.59794291571917],"tickmode":"array","ticktext":["-6","-4","-2","0","2","4"],"tickvals":[-6,-4,-2,0,2,4],"categoryorder":"array","categoryarray":["-6","-4","-2","0","2","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"PC1: 39% variance","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"scaleanchor":"y","scaleratio":1,"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.9650864335894,5.74130353904861],"tickmode":"array","ticktext":["-2","0","2","4"],"tickvals":[-2,0,2,4],"categoryorder":"array","categoryarray":["-2","0","2","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"PC2: 17% variance","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"scaleanchor":"x","scaleratio":1,"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937},"annotations":[{"text":"colour","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"10c1512d26772":{"colour":{},"x":{},"y":{},"type":"scatter"}},"cur_data":"10c1512d26772","visdat":{"10c1512d26772":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p><img src="PCAplot.png" alt=""></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="multidimensional-scaling-with-mdsplot">Multidimensional scaling with <code>MDSplot</code></h2>
+<p>This function computes and plots multidimensional scaling analysis for dimension
+reduction of count expression matrix. Internally, it is applied the <code>stats::dist()</code>
+function to the transformed count matrix to get sample-to-sample distances.</p>
+<pre><code class="language-r">MDSplot(exploredds, plotly = TRUE, save = TRUE, filePlot = &quot;MDSplot.png&quot;)
+</code></pre>
+<pre><code>## Saving 7 x 5 in image
+</code></pre>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"data":[{"x":[-0.0385691257375645,-0.0756465550222067],"y":[0.0121348112883654,-0.0263185211619564],"text":["colour: A1<br />X1: -0.0385691257<br />X2: -0.0121348113","colour: A1<br />X1: -0.0756465550<br />X2:  0.0263185212"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"A1","legendgroup":"A1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.0471312515186602,-0.000702385152090552],"y":[-0.00846046530513539,0.0179460735463539],"text":["colour: A12<br />X1:  0.0471312515<br />X2:  0.0084604653","colour: A12<br />X1: -0.0007023852<br />X2: -0.0179460735"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(211,146,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(211,146,0,1)"}},"hoveron":"points","name":"A12","legendgroup":"A12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.0358833473747432,-0.00698971620844441],"y":[0.00545825889678074,0.0218008001814644],"text":["colour: A6<br />X1:  0.0358833474<br />X2: -0.0054582589","colour: A6<br />X1: -0.0069897162<br />X2: -0.0218008002"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(147,170,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(147,170,0,1)"}},"hoveron":"points","name":"A6","legendgroup":"A6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-0.0555141654157414,-0.0695498036732859],"y":[0.0118604318806951,-0.0241184563060315],"text":["colour: M1<br />X1: -0.0555141654<br />X2: -0.0118604319","colour: M1<br />X1: -0.0695498037<br />X2:  0.0241184563"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"M1","legendgroup":"M1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.0388440472952876,0.0478911346735303],"y":[-0.0117752224280402,-0.0330674144060864],"text":["colour: M12<br />X1:  0.0388440473<br />X2:  0.0117752224","colour: M12<br />X1:  0.0478911347<br />X2:  0.0330674144"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,193,159,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,193,159,1)"}},"hoveron":"points","name":"M12","legendgroup":"M12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.0336430182081294,0.0247109258766723],"y":[0.011533547712276,0.0102886348222388],"text":["colour: M6<br />X1:  0.0336430182<br />X2: -0.0115335477","colour: M6<br />X1:  0.0247109259<br />X2: -0.0102886348"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,185,227,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,185,227,1)"}},"hoveron":"points","name":"M6","legendgroup":"M6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-0.049148445393543,-0.0588363893574552],"y":[0.0135847221710498,-0.000110011861092134],"text":["colour: V1<br />X1: -0.0491484454<br />X2: -0.0135847222","colour: V1<br />X1: -0.0588363894<br />X2:  0.0001100119"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"V1","legendgroup":"V1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.030330635804856,0.0260585388758099],"y":[-0.0116374454684681,0.015319846717863],"text":["colour: V12<br />X1:  0.0303306358<br />X2:  0.0116374455","colour: V12<br />X1:  0.0260585389<br />X2: -0.0153198467"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(219,114,251,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(219,114,251,1)"}},"hoveron":"points","name":"V12","legendgroup":"V12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.0348355992486336,0.0356280870840091],"y":[0.00266781598250113,-0.00710740626277818],"text":["colour: V6<br />X1:  0.0348355992<br />X2: -0.0026678160","colour: V6<br />X1:  0.0356280871<br />X2:  0.0071074063"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,97,195,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,97,195,1)"}},"hoveron":"points","name":"V6","legendgroup":"V6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":54.7945205479452},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Multidimensional Scaling (MDS)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0818234395069935,0.0540680191583172],"tickmode":"array","ticktext":["-0.075","-0.050","-0.025","0.000","0.025","0.050"],"tickvals":[-0.075,-0.05,-0.025,0,0.025,0.05],"categoryorder":"array","categoryarray":["-0.075","-0.050","-0.025","0.000","0.025","0.050"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"X1","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0358108251354639,0.0245442109108419],"tickmode":"array","ticktext":["-0.02","0.00","0.02"],"tickvals":[0.02,0,-0.02],"categoryorder":"array","categoryarray":["-0.02","0.00","0.02"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"X2","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937},"annotations":[{"text":"colour","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1006a6a16fefe":{"colour":{},"x":{},"y":{},"type":"scatter"}},"cur_data":"1006a6a16fefe","visdat":{"1006a6a16fefe":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="dimension-reduction-with-glmplot">Dimension Reduction with <code>GLMplot</code></h2>
+<p>This function computes and plots generalized principal components analysis for
+dimension reduction of count expression matrix.</p>
+<pre><code class="language-r">exploredds &lt;- exploreDDS(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, 
+    transformationMethod = &quot;raw&quot;)
+</code></pre>
+<pre><code>## Warning in DESeqDataSet(se, design = design, ignoreRank): some variables in
+## design formula are characters, converting to factors
+</code></pre>
+<pre><code class="language-r">GLMplot(exploredds, plotly = TRUE)
+</code></pre>
+<div id="htmlwidget-4" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"data":[{"x":[-3.07282043148337,-9.02169604006794],"y":[0.355509898702326,6.84964005886565],"text":["Samples: A1<br />dim1: -3.072820<br />dim2:  0.35550990","Samples: A1<br />dim1: -9.021696<br />dim2:  6.84964006"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"A1","legendgroup":"A1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6.09318326158254,-6.06990272919691],"y":[-2.85486346166379,-4.83540020044359],"text":["Samples: A12<br />dim1:  6.093183<br />dim2: -2.85486346","Samples: A12<br />dim1: -6.069903<br />dim2: -4.83540020"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(211,146,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(211,146,0,1)"}},"hoveron":"points","name":"A12","legendgroup":"A12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.32880943847029,1.33568207596985],"y":[-2.40215920677197,-6.52186695775196],"text":["Samples: A6<br />dim1:  5.328809<br />dim2: -2.40215921","Samples: A6<br />dim1:  1.335682<br />dim2: -6.52186696"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(147,170,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(147,170,0,1)"}},"hoveron":"points","name":"A6","legendgroup":"A6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-4.04339639205837,-9.14684019860581],"y":[-4.09612852327418,4.6075259253951],"text":["Samples: M1<br />dim1: -4.043396<br />dim2: -4.09612852","Samples: M1<br />dim1: -9.146840<br />dim2:  4.60752593"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"M1","legendgroup":"M1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4.67903154392687,4.91922395539371],"y":[0.78324776091176,6.08306183555444],"text":["Samples: M12<br />dim1:  4.679032<br />dim2:  0.78324776","Samples: M12<br />dim1:  4.919224<br />dim2:  6.08306184"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,193,159,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,193,159,1)"}},"hoveron":"points","name":"M12","legendgroup":"M12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.49975611934938,3.94614588794651],"y":[-5.00000566694733,-3.72570968971032],"text":["Samples: M6<br />dim1:  3.499756<br />dim2: -5.00000567","Samples: M6<br />dim1:  3.946146<br />dim2: -3.72570969"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,185,227,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,185,227,1)"}},"hoveron":"points","name":"M6","legendgroup":"M6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-7.20178884014322,-8.04327769207498],"y":[2.85046817886984,8.04235387114888],"text":["Samples: V1<br />dim1: -7.201789<br />dim2:  2.85046818","Samples: V1<br />dim1: -8.043278<br />dim2:  8.04235387"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"V1","legendgroup":"V1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4.64930559998623,3.1440676564093],"y":[-2.88130230639793,-4.19648505787353],"text":["Samples: V12<br />dim1:  4.649306<br />dim2: -2.88130231","Samples: V12<br />dim1:  3.144068<br />dim2: -4.19648506"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(219,114,251,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(219,114,251,1)"}},"hoveron":"points","name":"V12","legendgroup":"V12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.54045006955959,3.46406671503634],"y":[-0.0937082808929163,7.03582182227953],"text":["Samples: V6<br />dim1:  5.540450<br />dim2: -0.09370828","Samples: V6<br />dim1:  3.464067<br />dim2:  7.03582182"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,97,195,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,97,195,1)"}},"hoveron":"points","name":"V6","legendgroup":"V6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":37.2602739726027},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Generalized PCA (GLM-PCA)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-9.90884137161522,6.85518443459195],"tickmode":"array","ticktext":["-5","0","5"],"tickvals":[-5,0,5],"categoryorder":"array","categoryarray":["-5","0","5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"dim1","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"scaleanchor":"y","scaleratio":1,"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-7.250077999197,8.77056491259392],"tickmode":"array","ticktext":["-4","0","4","8"],"tickvals":[-4,0,4,8],"categoryorder":"array","categoryarray":["-4","0","4","8"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"dim2","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"scaleanchor":"x","scaleratio":1,"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937},"annotations":[{"text":"Samples","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"10479791351a6":{"colour":{},"x":{},"y":{},"type":"scatter"}},"cur_data":"10479791351a6","visdat":{"10479791351a6":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="ma-plot">MA plot</h2>
+<p>This function plots log2 fold changes (y-axis) versus the mean of normalized counts
+(on the x-axis). Statistically significant features are colored.</p>
+<pre><code class="language-r">MAplot(degseqDF, FDR.cutoff = 0.05, comparison = &quot;M12-A12&quot;, filter = c(Fold = 2, 
+    FDR = 10), genes = &quot;ATCG00280&quot;)
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/MAplot-1.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="t-distributed-stochastic-neighbor-embedding-with-tsneplot">t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></h2>
+<p>This function computes and plots t-Distributed Stochastic Neighbor embedding (t-SNE)
+analysis for unsupervised nonlinear dimensionality reduction of count expression
+matrix. Internally, it is applied the <code>Rtsne::Rtsne()</code> function, using the exact
+t-SNE computing with <code>theta=0.0</code>.</p>
+<pre><code class="language-r">tSNEplot(countMatrix, targets, perplexity = 5)
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/tSNEplot-1.png" width="672" /></p>
+<h2 id="volcano-plot">Volcano plot</h2>
+<p>A simple function that shows statistical significance (<code>p-value</code>) versus magnitude
+of change (<code>log2 fold change</code>).</p>
+<pre><code class="language-r">volcanoplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
+</code></pre>
+<p><img src="../../../en/spr/systempiper/systemPipeR_dataViz_files/figure-html/volcanoplot-1.png" width="672" /></p>
+<h1 id="version-information">Version information</h1>
+<pre><code class="language-r">sessionInfo()
+</code></pre>
+<pre><code>## R Under development (unstable) (2021-02-04 r79940)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.2 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /home/dcassol/src/R-devel/lib/libRlapack.so
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats4    parallel  stats     graphics  grDevices utils     datasets 
+## [8] methods   base     
+## 
+## other attached packages:
+##  [1] systemPipeR_1.25.12         ShortRead_1.49.2           
+##  [3] GenomicAlignments_1.27.2    SummarizedExperiment_1.21.3
+##  [5] Biobase_2.51.0              MatrixGenerics_1.3.1       
+##  [7] matrixStats_0.58.0          BiocParallel_1.25.5        
+##  [9] Rsamtools_2.7.2             Biostrings_2.59.2          
+## [11] XVector_0.31.1              GenomicRanges_1.43.4       
+## [13] GenomeInfoDb_1.27.11        IRanges_2.25.8             
+## [15] S4Vectors_0.29.15           BiocGenerics_0.37.1        
+## [17] BiocStyle_2.19.2           
+## 
+## loaded via a namespace (and not attached):
+##   [1] backports_1.2.1          BiocFileCache_1.99.5     plyr_1.8.6              
+##   [4] lazyeval_0.2.2           splines_4.1.0            crosstalk_1.1.1         
+##   [7] ggplot2_3.3.3            digest_0.6.27            htmltools_0.5.1.1       
+##  [10] fansi_0.4.2              magrittr_2.0.1           checkmate_2.0.0         
+##  [13] memoise_2.0.0            BSgenome_1.59.2          base64url_1.4           
+##  [16] limma_3.47.12            annotate_1.69.2          prettyunits_1.1.1       
+##  [19] jpeg_0.1-8.1             colorspace_2.0-0         blob_1.2.1              
+##  [22] rappdirs_0.3.3           ggrepel_0.9.1            xfun_0.22               
+##  [25] dplyr_1.0.5              crayon_1.4.1             RCurl_1.98-1.3          
+##  [28] jsonlite_1.7.2           genefilter_1.73.1        VariantAnnotation_1.37.1
+##  [31] brew_1.0-6               survival_3.2-10          ape_5.4-1               
+##  [34] glue_1.4.2               gtable_0.3.0             zlibbioc_1.37.0         
+##  [37] DelayedArray_0.17.10     V8_3.4.0                 scales_1.1.1            
+##  [40] pheatmap_1.0.12          DBI_1.1.1                GGally_2.1.1            
+##  [43] edgeR_3.33.3             Rcpp_1.0.6               viridisLite_0.4.0       
+##  [46] xtable_1.8-4             progress_1.2.2           tidytree_0.3.3          
+##  [49] bit_4.0.4                rsvg_2.1                 htmlwidgets_1.5.3       
+##  [52] httr_1.4.2               RColorBrewer_1.1-2       ellipsis_0.3.1          
+##  [55] farver_2.1.0             pkgconfig_2.0.3          reshape_0.8.8           
+##  [58] XML_3.99-0.6             sass_0.3.1               dbplyr_2.1.1            
+##  [61] locfit_1.5-9.4           utf8_1.2.1               labeling_0.4.2          
+##  [64] tidyselect_1.1.0         rlang_0.4.10             AnnotationDbi_1.53.1    
+##  [67] munsell_0.5.0            tools_4.1.0              cachem_1.0.4            
+##  [70] generics_0.1.0           RSQLite_2.2.6            evaluate_0.14           
+##  [73] stringr_1.4.0            fastmap_1.1.0            yaml_2.2.1              
+##  [76] ggtree_2.5.2             knitr_1.32               bit64_4.0.5             
+##  [79] purrr_0.3.4              KEGGREST_1.31.1          nlme_3.1-152            
+##  [82] formatR_1.9              aplot_0.0.6              biomaRt_2.47.7          
+##  [85] compiler_4.1.0           plotly_4.9.3             filelock_1.0.2          
+##  [88] curl_4.3                 png_0.1-7                treeio_1.15.6           
+##  [91] tibble_3.1.0             geneplotter_1.69.0       bslib_0.2.4             
+##  [94] stringi_1.5.3            highr_0.8                blogdown_1.3            
+##  [97] GenomicFeatures_1.43.8   lattice_0.20-41          Matrix_1.3-2            
+## [100] glmpca_0.2.0             vctrs_0.3.7              pillar_1.6.0            
+## [103] lifecycle_1.0.0          BiocManager_1.30.12      jquerylib_0.1.3         
+## [106] data.table_1.14.0        bitops_1.0-6             patchwork_1.1.1         
+## [109] rtracklayer_1.51.5       R6_2.5.0                 BiocIO_1.1.2            
+## [112] latticeExtra_0.6-29      hwriter_1.3.2            bookdown_0.21           
+## [115] codetools_0.2-18         MASS_7.3-53.1            assertthat_0.2.1        
+## [118] DESeq2_1.31.18           rjson_0.2.20             withr_2.4.1             
+## [121] batchtools_0.9.15        GenomeInfoDbData_1.2.4   hms_1.0.0               
+## [124] grid_4.1.0               tidyr_1.1.3              DOT_0.1                 
+## [127] rmarkdown_2.7            rvcheck_0.1.8            Rtsne_0.15              
+## [130] restfulr_0.0.13
+</code></pre>
+<h1 id="funding">Funding</h1>
+<p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p>
+<h1 id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Anders2010-tp" class="csl-entry">
+<p>Anders, Simon, and Wolfgang Huber. 2010. “Differential Expression Analysis for Sequence Count Data.” <em>Genome Biol.</em> 11 (10): R106.</p>
+</div>
+<div id="ref-Love2014-sh" class="csl-entry">
+<p>Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” <em>Genome Biol.</em> 15 (12): 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.</p>
+</div>
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-18: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/6b7cc29e7960d7090811b26f9840f824ad79dcb3">no_render (6b7cc29)</a>
+</div>
+</div>
+
+
+              </main>
+          
+
+
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
+      <i class="fa fa-dna"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+<script src="../../../js/mathjax3.1.2.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true }
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
