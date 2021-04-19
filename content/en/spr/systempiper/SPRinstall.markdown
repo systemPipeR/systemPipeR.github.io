@@ -1,7 +1,7 @@
 ---
 title: "SPR detailed installation instructions" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 22 February, 2021" 
+date: "Last update: 18 April, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -101,7 +101,14 @@ cd ncbi-blast-2.11.0+/
 export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## "/path/to/ncbi-blast-2.11.0+" is an example! Replace with real PATH
 ```
 
-https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz
+### Cutadapt
+
+Please check the [Cutadapt Manual](https://cutadapt.readthedocs.io/en/stable/installation.html) to
+find the installation introduction for your system environment.
+
+``` bash
+sudo apt install cutadapt
+```
 
 ## References
 
@@ -115,7 +122,7 @@ H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR:
 
 <div id="ref-Li2013-sw" class="csl-entry">
 
-Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <http://arxiv.org/abs/1303.3997>.
+Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <https://arxiv.org/abs/1303.3997>.
 
 </div>
 

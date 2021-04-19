@@ -18,24 +18,27 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Configuration | sysPipe</title><meta property="og:title" content="Configuration" />
-<meta property="og:description" content="Config SPS Let us start by creating an example SPS project. For demo purpose, we are using the /tmp folder but one should use a regular location instead of the temp in a real case.
-suppressPackageStartupMessages(library(systemPipeShiny)) spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)  ## [SPS-INFO] 2021-04-14 17:31:18 Start to create a new SPS project  ## [SPS-INFO] 2021-04-14 17:31:18 Create project under /tmp/RtmpSyae9a/config_demo  ## [SPS-INFO] 2021-04-14 17:31:18 Now copy files  ## [SPS-INFO] 2021-04-14 17:31:18 Create SPS database  ## [SPS-INFO] 2021-04-14 17:31:18 Created SPS database method container  ## [SPS-INFO] 2021-04-14 17:31:18 Creating SPS db." />
+<meta property="og:description" content="SPS has many options you can change. These options will determine how the app behaves.
+ Config SPS Let us start by creating an example SPS project. For demo purpose, we are using the /tmp folder but one should use a regular location instead of the temp in a real case.
+suppressPackageStartupMessages(library(systemPipeShiny)) spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)  ## [SPS-DANGER] 2021-04-16 18:02:46 Done, Db created at &#39;/tmp/RtmpEwPsQa/config_demo/config/sps." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/adv_features/config/" />
-<meta property="article:modified_time" content="2021-04-12T11:56:01-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Configuration">
-<meta itemprop="description" content="Config SPS Let us start by creating an example SPS project. For demo purpose, we are using the /tmp folder but one should use a regular location instead of the temp in a real case.
-suppressPackageStartupMessages(library(systemPipeShiny)) spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)  ## [SPS-INFO] 2021-04-14 17:31:18 Start to create a new SPS project  ## [SPS-INFO] 2021-04-14 17:31:18 Create project under /tmp/RtmpSyae9a/config_demo  ## [SPS-INFO] 2021-04-14 17:31:18 Now copy files  ## [SPS-INFO] 2021-04-14 17:31:18 Create SPS database  ## [SPS-INFO] 2021-04-14 17:31:18 Created SPS database method container  ## [SPS-INFO] 2021-04-14 17:31:18 Creating SPS db.">
-<meta itemprop="dateModified" content="2021-04-12T11:56:01-07:00" />
-<meta itemprop="wordCount" content="1757">
+<meta itemprop="description" content="SPS has many options you can change. These options will determine how the app behaves.
+ Config SPS Let us start by creating an example SPS project. For demo purpose, we are using the /tmp folder but one should use a regular location instead of the temp in a real case.
+suppressPackageStartupMessages(library(systemPipeShiny)) spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)  ## [SPS-DANGER] 2021-04-16 18:02:46 Done, Db created at &#39;/tmp/RtmpEwPsQa/config_demo/config/sps.">
+<meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
+<meta itemprop="wordCount" content="1592">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuration"/>
-<meta name="twitter:description" content="Config SPS Let us start by creating an example SPS project. For demo purpose, we are using the /tmp folder but one should use a regular location instead of the temp in a real case.
-suppressPackageStartupMessages(library(systemPipeShiny)) spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)  ## [SPS-INFO] 2021-04-14 17:31:18 Start to create a new SPS project  ## [SPS-INFO] 2021-04-14 17:31:18 Create project under /tmp/RtmpSyae9a/config_demo  ## [SPS-INFO] 2021-04-14 17:31:18 Now copy files  ## [SPS-INFO] 2021-04-14 17:31:18 Create SPS database  ## [SPS-INFO] 2021-04-14 17:31:18 Created SPS database method container  ## [SPS-INFO] 2021-04-14 17:31:18 Creating SPS db."/>
+<meta name="twitter:description" content="SPS has many options you can change. These options will determine how the app behaves.
+ Config SPS Let us start by creating an example SPS project. For demo purpose, we are using the /tmp folder but one should use a regular location instead of the temp in a real case.
+suppressPackageStartupMessages(library(systemPipeShiny)) spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)  ## [SPS-DANGER] 2021-04-16 18:02:46 Done, Db created at &#39;/tmp/RtmpEwPsQa/config_demo/config/sps."/>
 
 
 <script type="application/javascript">
@@ -54,8 +57,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
-<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -638,7 +641,39 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuressps_security" href="../../../sps/adv_features/sps_security/">App security</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresapp_security" href="../../../sps/adv_features/app_security/">App security</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdatabase" href="../../../sps/adv_features/database/">SPS database</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featureslogin" href="../../../sps/adv_features/login/">Accounts, login and admin</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdebug" href="../../../sps/adv_features/debug/">Debugging</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresother_customizations" href="../../../sps/adv_features/other_customizations/">Other customizations</a>
         
       
       
@@ -897,7 +932,9 @@ if (!doNotTrack) {
 	<h1>Configuration</h1>
     
 	       
-	<hr>
+	<p>SPS has many options you can change. These options will determine how the app
+behaves.</p>
+<hr>
 <h2 id="config-sps">Config SPS</h2>
 <p>Let us start by creating an example SPS project. For demo purpose, we are using the
 <code>/tmp</code> folder but one should use a regular location instead of the temp in a  real
@@ -905,26 +942,14 @@ case.</p>
 <pre><code class="language-r">suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &quot;config_demo&quot;, overwrite = TRUE, change_wd = FALSE)
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:18 Start to create a new SPS project
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:18 Create project under /tmp/RtmpSyae9a/config_demo
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:18 Now copy files
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:18 Create SPS database
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:18 Created SPS database method container
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:18 Creating SPS db...
-</code></pre>
-<pre><code>## [SPS-DANGER] 2021-04-14 17:31:19 Done, Db created at '/tmp/RtmpSyae9a/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-14 17:31:19 Key md5 838ee5ff08e7e41b99e5933f0c8588d6
-## [SPS-INFO] 2021-04-14 17:31:19 SPS project setup done!
+<pre><code>## [SPS-DANGER] 2021-04-16 18:02:46 Done, Db created at '/tmp/RtmpEwPsQa/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-16 18:02:46 Key md5 2f47cb4559f0517a50321c504f2a8ce5
+## [SPS-INFO] 2021-04-16 18:02:46 SPS project setup done!
 </code></pre>
 <pre><code class="language-r">## save project path 
 (sps_dir &lt;- file.path(tempdir(), &quot;config_demo&quot;))
 </code></pre>
-<pre><code>## [1] &quot;/tmp/RtmpSyae9a/config_demo&quot;
+<pre><code>## [1] &quot;/tmp/RtmpEwPsQa/config_demo&quot;
 </code></pre>
 <p>To reproduce code locally, run the following chunk instead.</p>
 <pre><code class="language-r">library(systemPipeShiny)
@@ -1232,18 +1257,20 @@ messages on console to tell you specifically what is wrong with your options.</p
 </table>
 <h3 id="details">Details</h3>
 <ul>
-<li>mode: see <a href="../sps_security">SPS security</a> this option will change how the upload files are selected.
-<ul>
-<li>local: You can choose file from server side, and it is a direct link, no file will be copied to server. Most often used when you are on you own computer. <span style="color:var(--primary)">It is still choosing files from the server side, because you are using your own computer as a Shiny server.</span></li>
-<li>server: Choose files from the client side, and upload as a temp file to the server.</li>
-<li>If you are on you own computer, there is no difference, but <code>local</code> mode can avoid copy your files to temp. <span style="color:var(--primary)">If you are deploying the app to cloud, please <strong>use server mode</strong></span></li>
-<li>Functions directly associated with this option are <code>dynamicFile</code> and <code>dynamicFileServer</code>. We will discuss details in <a href="../../../sps/dev/">Developer sections</a></li>
-</ul>
-</li>
-<li>warning_toast: A toast pop-up message when you are under some dangerous options when app starts (For internal testing only under current version).</li>
-<li>loading_theme: <code>loading_screen</code> must be <code>TRUE</code>. Only one theme for now, we will add more in future.</li>
-<li>verbose: Give you more information on debugging. Most SPS core functions has this option. If it is on, more debugging information will be printed on console.</li>
-<li>admin_url (disabled in current version): the admin page URL, <code>admin_page</code> must be <code>TRUE</code> for it to work. It will be added in an upcoming version, a preview can be seen by adding &ldquo;/?admin&rdquo; to the end of app url, e.g. &ldquo;<a href="https://tgirke.shinyapps.io/systemPipeShiny/?admin">https://tgirke.shinyapps.io/systemPipeShiny/?admin</a>&rdquo;.</li>
+<li><strong>mode</strong>: see [<a href="../app_security">App security</a>] this option will change how
+the upload files are selected.</li>
+<li><strong>title &amp; title_logo</strong>: see [<a href="../other_customizations">Other customizations</a>]</li>
+<li><strong>warning_toast</strong>: see [<a href="../app_security">App security</a>],
+A toast pop-up message to help you check pre-deploy for security problems.</li>
+<li><strong>login_screen &amp; login_theme &amp; admin_page &amp; admin_url</strong>:
+see [<a href="../login">Accounts, Login and Admin</a>].</li>
+<li><strong>verbose</strong>: Give you more information on debugging. Most SPS core functions
+has this option. If it is on, more debugging information will be printed
+on console. See [<a href="../debug">Debugging</a>]</li>
+<li><strong>module_xx &ndash; tab_xx</strong>: see [<a href="../displaytabs">Toggle tabs</a>] for loading and unloading
+tabs.</li>
+<li><strong>tab_xx</strong>: see [<a href="../overwritetabs">Overwrite tabs</a>] for customizing core SPS default tabs.</li>
+<li><strong>note_url</strong>: see [<a href="../notification">Notification system</a>] for customizing SPS notifications.</li>
 </ul>
 <h3 id="getset-option-values">get/set option values</h3>
 <p>SPS values are globally set, which means you can get/change the these options at
@@ -1305,7 +1332,7 @@ to return the original value instead of <code>FALSE</code></p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] systemPipeShiny_1.1.35 drawer_0.1.0.9         spsComps_0.1.9.99     
+## [1] systemPipeShiny_1.1.37 drawer_0.1.0.9         spsComps_0.1.9.99     
 ## [4] spsUtil_0.1.0.9        shiny_1.6.0.9000      
 ## 
 ## loaded via a namespace (and not attached):
@@ -1340,7 +1367,7 @@ to return the original value instead of <code>FALSE</code></p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-12: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/3d323dc48d7fabb0fe59eaa0aea79b960753b673">Rmd transform (3d323dc)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-16: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5e9129ad29c8960356962ae697b286a451f6a7c2">update in progress (5e9129a)</a>
 </div>
 </div>
 

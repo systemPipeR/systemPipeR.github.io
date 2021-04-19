@@ -27,7 +27,7 @@ if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i  systemPipeR Installation To install the systemPipeR package (H Backman and Girke 2016), please use the BiocManager::install command:
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;) BiocManager::install(&quot;systemPipeR&quot;)  To obtain the most recent updates immediately, one can install it directly from github as follow:">
 <meta itemprop="dateModified" content="2021-02-22T08:39:18+00:00" />
-<meta itemprop="wordCount" content="271">
+<meta itemprop="wordCount" content="289">
 
 
 
@@ -54,8 +54,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
-<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -541,7 +541,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_funcs" href="../../../spr/systempiper/spr_funcs/">systemPipeR Help Manual</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperspr_funcs" href="../../../spr/systempiper/spr_funcs/">Help Manual</a>
         
       
       
@@ -550,6 +550,14 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page  active" id="m-sprsystempipersprinstall" href="../../../spr/systempiper/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempipersp_docker" href="../../../spr/systempiper/sp_docker/">SPR Docker container</a>
         
       
       
@@ -582,7 +590,15 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatavignette" href="../../../spr/systempiperdata/vignette/">SRPdata Vignette</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatasystempiperdata" href="../../../spr/systempiperdata/systempiperdata/">Workflow templates and sample data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-sprsystempiperdatanewwf" href="../../../spr/systempiperdata/newwf/">Rules to create a new Workflow Template</a>
         
       
       
@@ -663,6 +679,7 @@ if (!doNotTrack) {
           <ul>
             <li><a href="#bwa">BWA</a></li>
             <li><a href="#blast">BLAST</a></li>
+            <li><a href="#cutadapt">Cutadapt</a></li>
           </ul>
         </li>
         <li><a href="#references">References</a></li>
@@ -777,14 +794,18 @@ tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
 cd ncbi-blast-2.11.0+/
 export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## &quot;/path/to/ncbi-blast-2.11.0+&quot; is an example! Replace with real PATH
 </code></pre>
-<p><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz">https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz</a></p>
+<h3 id="cutadapt">Cutadapt</h3>
+<p>Please check the <a href="https://cutadapt.readthedocs.io/en/stable/installation.html">Cutadapt Manual</a> to
+find the installation introduction for your system environment.</p>
+<pre><code class="language-bash">sudo apt install cutadapt
+</code></pre>
 <h2 id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-H_Backman2016-bt" class="csl-entry">
 <p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
 </div>
 <div id="ref-Li2013-sw" class="csl-entry">
-<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <a href="http://arxiv.org/abs/1303.3997">http://arxiv.org/abs/1303.3997</a>.</p>
+<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. <a href="https://arxiv.org/abs/1303.3997">https://arxiv.org/abs/1303.3997</a>.</p>
 </div>
 </div>
 

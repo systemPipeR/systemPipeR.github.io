@@ -1,6 +1,6 @@
 ---
-title: "systemPipeR Help Manual"
-linkTitle: "systemPipeR Help Manual"
+title: "Help Manual"
+linkTitle: "Help Manual"
 type: docs
 weight: 6
 ---

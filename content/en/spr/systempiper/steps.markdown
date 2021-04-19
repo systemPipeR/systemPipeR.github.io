@@ -1,7 +1,7 @@
 ---
 title: "Workflow steps overview"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 22 February, 2021" 
+date: "Last update: 18 April, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -17,7 +17,7 @@ bibliography: bibtex.bib
 editor_options: 
   chunk_output_type: console
 type: docs
-weight: 5
+weight: 4
 ---
 
 <!--
