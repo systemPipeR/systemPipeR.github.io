@@ -21,10 +21,10 @@
 <meta property="og:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/spr/systempiper/steps/" />
-<meta property="article:modified_time" content="2021-04-20T11:29:43-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-20T12:50:43-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Workflow steps overview">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory.">
-<meta itemprop="dateModified" content="2021-04-20T11:29:43-07:00" />
+<meta itemprop="dateModified" content="2021-04-20T12:50:43-07:00" />
 <meta itemprop="wordCount" content="5403">
 
 
@@ -51,8 +51,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
+<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -791,7 +791,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
-  var links = document.links;  
+  var links = document.links;
   for (var i = 0, linksLength = links.length; i < linksLength; i++)
     if (links[i].hostname != window.location.hostname)
       links[i].target = '_blank';
@@ -836,15 +836,15 @@ trimmed FASTQ files.</p>
 <p>Construct <em><code>SYSargs2</code></em> object from <em><code>cwl</code></em> and <em><code>yml</code></em> param and <em><code>targets</code></em> files.</p>
 <pre><code class="language-r">targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/preprocessReads/trim-pe&quot;, package = &quot;systemPipeR&quot;)
-trim &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;trim-pe.cwl&quot;, input_file = &quot;trim-pe.yml&quot;, 
+trim &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;trim-pe.cwl&quot;, input_file = &quot;trim-pe.yml&quot;,
     dir_path = dir_path)
-trim &lt;- renderWF(trim, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+trim &lt;- renderWF(trim, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
     SampleName = &quot;_SampleName_&quot;))
 trim
 output(trim)[1:2]
 </code></pre>
-<pre><code class="language-r">preprocessReads(args = trim, Fct = &quot;trimLRPatterns(Rpattern='GCCCGGGTAA', 
-                subject=fq)&quot;, 
+<pre><code class="language-r">preprocessReads(args = trim, Fct = &quot;trimLRPatterns(Rpattern='GCCCGGGTAA',
+                subject=fq)&quot;,
     batchsize = 1e+05, overwrite = TRUE, compress = TRUE)
 </code></pre>
 <p>The following example shows how one can design a custom read preprocessing function
@@ -864,7 +864,7 @@ with some extra functionality for removing Reduced Representation Bisulfite-Seq
 (RRBS) libraries.</p>
 <pre><code class="language-r">targets &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/trim_galore/trim_galore-se&quot;, package = &quot;systemPipeR&quot;)
-trimG &lt;- loadWorkflow(targets = targets, wf_file = &quot;trim_galore-se.cwl&quot;, input_file = &quot;trim_galore-se.yml&quot;, 
+trimG &lt;- loadWorkflow(targets = targets, wf_file = &quot;trim_galore-se.cwl&quot;, input_file = &quot;trim_galore-se.yml&quot;,
     dir_path = dir_path)
 trimG &lt;- renderWF(trimG, inputvars = c(FileName = &quot;_FASTQ_PATH1_&quot;, SampleName = &quot;_SampleName_&quot;))
 trimG
@@ -876,9 +876,9 @@ trimG &lt;- runCommandline(trimG[1], make_bam = FALSE)
 <h3 id="preprocessing-with-trimmomatic">Preprocessing with Trimmomatic</h3>
 <pre><code class="language-r">targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/trimmomatic/trimmomatic-pe&quot;, package = &quot;systemPipeR&quot;)
-trimM &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;trimmomatic-pe.cwl&quot;, input_file = &quot;trimmomatic-pe.yml&quot;, 
+trimM &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;trimmomatic-pe.cwl&quot;, input_file = &quot;trimmomatic-pe.yml&quot;,
     dir_path = dir_path)
-trimM &lt;- renderWF(trimM, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+trimM &lt;- renderWF(trimM, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
     SampleName = &quot;_SampleName_&quot;))
 trimM
 cmdlist(trimM)[1:2]
@@ -891,7 +891,7 @@ trimM &lt;- runCommandline(trimM[1], make_bam = FALSE)
 useful quality statistics for a set of FASTQ files including per cycle quality
 box plots, base proportions, base-level quality trends, relative k-mer
 diversity, length and occurrence distribution of reads, number of reads above
-quality cutoffs and mean quality distribution.<br>
+quality cutoffs and mean quality distribution.
 The function <em><code>seeFastq</code></em> computes the quality statistics and stores the results in a
 relatively small list object that can be saved to disk with <em><code>save()</code></em> and
 reloaded with <em><code>load()</code></em> for later plotting. The argument <em><code>klength</code></em> specifies the
@@ -921,14 +921,14 @@ f &lt;- function(x) {
     library(systemPipeR)
     targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
     dir_path &lt;- system.file(&quot;extdata/cwl/preprocessReads/trim-pe&quot;, package = &quot;systemPipeR&quot;)
-    trim &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;trim-pe.cwl&quot;, input_file = &quot;trim-pe.yml&quot;, 
+    trim &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;trim-pe.cwl&quot;, input_file = &quot;trim-pe.yml&quot;,
         dir_path = dir_path)
-    trim &lt;- renderWF(trim, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+    trim &lt;- renderWF(trim, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
         SampleName = &quot;_SampleName_&quot;))
     seeFastq(fastq = infile1(trim)[x], batchsize = 1e+05, klength = 8)
 }
 resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-param &lt;- BatchtoolsParam(workers = 4, cluster = &quot;slurm&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+param &lt;- BatchtoolsParam(workers = 4, cluster = &quot;slurm&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
     resources = resources)
 fqlist &lt;- bplapply(seq(along = trim), f, BPPARAM = param)
 seeFastqPlot(unlist(fqlist, recursive = FALSE))
@@ -950,13 +950,13 @@ and <code>hisat2-mapping-se.yml</code> files. The following shows how to constru
 corresponding <em>SYSargs2</em> object, here <em>args</em>.</p>
 <pre><code class="language-r">targets &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/hisat2/hisat2-se&quot;, package = &quot;systemPipeR&quot;)
-args &lt;- loadWorkflow(targets = targets, wf_file = &quot;hisat2-mapping-se.cwl&quot;, input_file = &quot;hisat2-mapping-se.yml&quot;, 
+args &lt;- loadWorkflow(targets = targets, wf_file = &quot;hisat2-mapping-se.cwl&quot;, input_file = &quot;hisat2-mapping-se.yml&quot;,
     dir_path = dir_path)
 args &lt;- renderWF(args, inputvars = c(FileName = &quot;_FASTQ_PATH1_&quot;, SampleName = &quot;_SampleName_&quot;))
 args
 </code></pre>
 <pre><code>## Instance of 'SYSargs2':
-##    Slot names/accessors: 
+##    Slot names/accessors:
 ##       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
 ##       modules: 1
 ##       wf: 0, clt: 1, yamlinput: 7 (components)
@@ -970,8 +970,8 @@ args
 <pre><code>## $M1A
 ## $M1A$`hisat2-mapping-se`
 ## [1] &quot;hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4&quot;
-## 
-## 
+##
+##
 ## $M1B
 ## $M1B$`hisat2-mapping-se`
 ## [1] &quot;hisat2 -S ./results/M1B.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446028_1.fastq.gz --threads 4&quot;
@@ -981,38 +981,38 @@ args
 <pre><code>## $M1A
 ## $M1A$`hisat2-mapping-se`
 ## [1] &quot;./results/M1A.sam&quot;
-## 
-## 
+##
+##
 ## $M1B
 ## $M1B$`hisat2-mapping-se`
 ## [1] &quot;./results/M1B.sam&quot;
 </code></pre>
 <p>Subsetting <em><code>SYSargs2</code></em> class slots for each workflow step.</p>
-<pre><code class="language-r">subsetWF(args, slot = &quot;input&quot;, subset = &quot;FileName&quot;)[1:2]  ## Subsetting the input files for this particular workflow 
+<pre><code class="language-r">subsetWF(args, slot = &quot;input&quot;, subset = &quot;FileName&quot;)[1:2]  ## Subsetting the input files for this particular workflow
 </code></pre>
-<pre><code>##                           M1A                           M1B 
+<pre><code>##                           M1A                           M1B
 ## &quot;./data/SRR446027_1.fastq.gz&quot; &quot;./data/SRR446028_1.fastq.gz&quot;
 </code></pre>
-<pre><code class="language-r">subsetWF(args, slot = &quot;output&quot;, subset = 1, index = 1)[1:2]  ## Subsetting the output files for one particular step in the workflow 
+<pre><code class="language-r">subsetWF(args, slot = &quot;output&quot;, subset = 1, index = 1)[1:2]  ## Subsetting the output files for one particular step in the workflow
 </code></pre>
-<pre><code>##                 M1A                 M1B 
+<pre><code>##                 M1A                 M1B
 ## &quot;./results/M1A.sam&quot; &quot;./results/M1B.sam&quot;
 </code></pre>
-<pre><code class="language-r">subsetWF(args, slot = &quot;step&quot;, subset = 1)[1]  ## Subsetting the command-lines for one particular step in the workflow 
+<pre><code class="language-r">subsetWF(args, slot = &quot;step&quot;, subset = 1)[1]  ## Subsetting the command-lines for one particular step in the workflow
 </code></pre>
-<pre><code>##                                                                                                                                               M1A 
+<pre><code>##                                                                                                                                               M1A
 ## &quot;hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4&quot;
 </code></pre>
 <pre><code class="language-r">subsetWF(args, slot = &quot;output&quot;, subset = 1, index = 1, delete = TRUE)[1]  ## DELETING specific output files
 </code></pre>
 <pre><code>## The subset cannot be deleted: no such file
 
-##                 M1A 
+##                 M1A
 ## &quot;./results/M1A.sam&quot;
 </code></pre>
 <p>Build <code>Hisat2</code> index.</p>
 <pre><code class="language-r">dir_path &lt;- system.file(&quot;extdata/cwl/hisat2/hisat2-idx&quot;, package = &quot;systemPipeR&quot;)
-idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;hisat2-index.cwl&quot;, input_file = &quot;hisat2-index.yml&quot;, 
+idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;hisat2-index.cwl&quot;, input_file = &quot;hisat2-index.yml&quot;,
     dir_path = dir_path)
 idx &lt;- renderWF(idx)
 idx
@@ -1033,7 +1033,7 @@ results folder for each workflow and a sub-folder for each sample
 defined in the <em>targets</em> file. This includes all the output and log files for each
 step. When these options are used, the output location will be updated by default
 and can be assigned to the same object.</p>
-<pre><code class="language-r">runCommandline(args, make_bam = FALSE)  ## generates alignments and writes *.sam files to ./results folder 
+<pre><code class="language-r">runCommandline(args, make_bam = FALSE)  ## generates alignments and writes *.sam files to ./results folder
 args &lt;- runCommandline(args, make_bam = TRUE)  ## same as above but writes files and converts *.sam files to sorted and indexed BAM files. Assigning the new extention of the output files to the object args.
 </code></pre>
 <p>If available, multiple CPU cores can be used for processing each file. The number
@@ -1061,8 +1061,8 @@ for the queueing available on a system. The following example uses the sample
 conf and template files for the Slurm scheduler provided by this package.</p>
 <pre><code class="language-r">library(batchtools)
 resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &lt;- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE, 
-    dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+reg &lt;- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE,
+    dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
     Njobs = 18, runid = &quot;01&quot;, resourceList = resources)
 getStatus(reg = reg)
 waitForJobs(reg = reg)
@@ -1076,14 +1076,14 @@ output(args)
 <em>targets</em> file with the <em><code>writeTargetsout</code></em> function. The new <em>targets</em> file
 serves as input to the next <em><code>loadWorkflow</code></em> and <em><code>renderWF</code></em> call.</p>
 <pre><code class="language-r">names(clt(args))
-writeTargetsout(x = args, file = &quot;default&quot;, step = 1, new_col = &quot;FileName&quot;, new_col_output_index = 1, 
+writeTargetsout(x = args, file = &quot;default&quot;, step = 1, new_col = &quot;FileName&quot;, new_col_output_index = 1,
     overwrite = TRUE)
 </code></pre>
 <h4 id="alignment-with-hisat2-and-samtools">Alignment with <code>HISAT2</code> and <code>SAMtools</code></h4>
 <p>Alternatively, it possible to build an workflow with <code>HISAT2</code> and <code>SAMtools</code>.</p>
 <pre><code class="language-r">targets &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/workflow-hisat2/workflow-hisat2-se&quot;, package = &quot;systemPipeR&quot;)
-WF &lt;- loadWorkflow(targets = targets, wf_file = &quot;workflow_hisat2-se.cwl&quot;, input_file = &quot;workflow_hisat2-se.yml&quot;, 
+WF &lt;- loadWorkflow(targets = targets, wf_file = &quot;workflow_hisat2-se.cwl&quot;, input_file = &quot;workflow_hisat2-se.yml&quot;,
     dir_path = dir_path)
 WF &lt;- renderWF(WF, inputvars = c(FileName = &quot;_FASTQ_PATH1_&quot;, SampleName = &quot;_SampleName_&quot;))
 WF
@@ -1095,7 +1095,7 @@ output(WF)[1:2]
 sequence using <code>Bowtie2/TopHat2</code> (Kim et al. 2013; Langmead and Salzberg 2012).</p>
 <p>Build <em><code>Bowtie2</code></em> index.</p>
 <pre><code class="language-r">dir_path &lt;- system.file(&quot;extdata/cwl/bowtie2/bowtie2-idx&quot;, package = &quot;systemPipeR&quot;)
-idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;bowtie2-index.cwl&quot;, input_file = &quot;bowtie2-index.yml&quot;, 
+idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;bowtie2-index.cwl&quot;, input_file = &quot;bowtie2-index.yml&quot;,
     dir_path = dir_path)
 idx &lt;- renderWF(idx)
 idx
@@ -1109,9 +1109,9 @@ and <code>tophat2-mapping-pe.yml</code> files. The following shows how to constr
 corresponding <em>SYSargs2</em> object, here <em>tophat2PE</em>.</p>
 <pre><code class="language-r">targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/tophat2/tophat2-pe&quot;, package = &quot;systemPipeR&quot;)
-tophat2PE &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;tophat2-mapping-pe.cwl&quot;, 
+tophat2PE &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;tophat2-mapping-pe.cwl&quot;,
     input_file = &quot;tophat2-mapping-pe.yml&quot;, dir_path = dir_path)
-tophat2PE &lt;- renderWF(tophat2PE, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+tophat2PE &lt;- renderWF(tophat2PE, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
     SampleName = &quot;_SampleName_&quot;))
 tophat2PE
 cmdlist(tophat2PE)[1:2]
@@ -1122,21 +1122,21 @@ tophat2PE &lt;- runCommandline(tophat2PE[1], make_bam = TRUE)
 </code></pre>
 <p>Parallelization on clusters.</p>
 <pre><code class="language-r">resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &lt;- clusterRun(tophat2PE, FUN = runCommandline, more.args = list(args = tophat2PE, 
-    make_bam = TRUE, dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+reg &lt;- clusterRun(tophat2PE, FUN = runCommandline, more.args = list(args = tophat2PE,
+    make_bam = TRUE, dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
     Njobs = 18, runid = &quot;01&quot;, resourceList = resources)
 waitForJobs(reg = reg)
 </code></pre>
 <p>Create new targets file</p>
 <pre><code class="language-r">names(clt(tophat2PE))
-writeTargetsout(x = tophat2PE, file = &quot;default&quot;, step = 1, new_col = &quot;tophat2PE&quot;, 
+writeTargetsout(x = tophat2PE, file = &quot;default&quot;, step = 1, new_col = &quot;tophat2PE&quot;,
     new_col_output_index = 1, overwrite = TRUE)
 </code></pre>
 <h3 id="alignment-with-bowtie2-eg-for-mirna-profiling">Alignment with <em><code>Bowtie2</code></em> (<em>e.g.</em> for miRNA profiling)</h3>
 <p>The following example runs <em><code>Bowtie2</code></em> as a single process without submitting it to a cluster.</p>
 <p>Building the index:</p>
 <pre><code class="language-r">dir_path &lt;- system.file(&quot;extdata/cwl/bowtie2/bowtie2-idx&quot;, package = &quot;systemPipeR&quot;)
-idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;bowtie2-index.cwl&quot;, input_file = &quot;bowtie2-index.yml&quot;, 
+idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;bowtie2-index.cwl&quot;, input_file = &quot;bowtie2-index.yml&quot;,
     dir_path = dir_path)
 idx &lt;- renderWF(idx)
 idx
@@ -1148,9 +1148,9 @@ runCommandline(idx, make_bam = FALSE)
 <p>Building all the command-line:</p>
 <pre><code class="language-r">targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/bowtie2/bowtie2-pe&quot;, package = &quot;systemPipeR&quot;)
-bowtiePE &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;bowtie2-mapping-pe.cwl&quot;, 
+bowtiePE &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;bowtie2-mapping-pe.cwl&quot;,
     input_file = &quot;bowtie2-mapping-pe.yml&quot;, dir_path = dir_path)
-bowtiePE &lt;- renderWF(bowtiePE, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+bowtiePE &lt;- renderWF(bowtiePE, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
     SampleName = &quot;_SampleName_&quot;))
 bowtiePE
 cmdlist(bowtiePE)[1:2]
@@ -1158,8 +1158,8 @@ output(bowtiePE)[1:2]
 </code></pre>
 <p>Running all the jobs to computing nodes.</p>
 <pre><code class="language-r">resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &lt;- clusterRun(bowtiePE, FUN = runCommandline, more.args = list(args = bowtiePE, 
-    dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+reg &lt;- clusterRun(bowtiePE, FUN = runCommandline, more.args = list(args = bowtiePE,
+    dir = FALSE), conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
     Njobs = 18, runid = &quot;01&quot;, resourceList = resources)
 getStatus(reg = reg)
 </code></pre>
@@ -1168,14 +1168,14 @@ getStatus(reg = reg)
 </code></pre>
 <p>Create new targets file.</p>
 <pre><code class="language-r">names(clt(bowtiePE))
-writeTargetsout(x = bowtiePE, file = &quot;default&quot;, step = 1, new_col = &quot;bowtiePE&quot;, new_col_output_index = 1, 
+writeTargetsout(x = bowtiePE, file = &quot;default&quot;, step = 1, new_col = &quot;bowtiePE&quot;, new_col_output_index = 1,
     overwrite = TRUE)
 </code></pre>
 <h3 id="alignment-with-bwa-mem-eg-for-var-seq">Alignment with <em><code>BWA-MEM</code></em> (<em>e.g.</em> for VAR-Seq)</h3>
 <p>The following example runs BWA-MEM as a single process without submitting it to a cluster. ##TODO: add reference</p>
 <p>Build the index:</p>
 <pre><code class="language-r">dir_path &lt;- system.file(&quot;extdata/cwl/bwa/bwa-idx&quot;, package = &quot;systemPipeR&quot;)
-idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;bwa-index.cwl&quot;, input_file = &quot;bwa-index.yml&quot;, 
+idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;bwa-index.cwl&quot;, input_file = &quot;bwa-index.yml&quot;,
     dir_path = dir_path)
 idx &lt;- renderWF(idx)
 idx
@@ -1187,9 +1187,9 @@ runCommandline(idx, make_bam = FALSE)
 <p>Running the alignment:</p>
 <pre><code class="language-r">targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/bwa/bwa-pe&quot;, package = &quot;systemPipeR&quot;)
-bwaPE &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;bwa-pe.cwl&quot;, input_file = &quot;bwa-pe.yml&quot;, 
+bwaPE &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;bwa-pe.cwl&quot;, input_file = &quot;bwa-pe.yml&quot;,
     dir_path = dir_path)
-bwaPE &lt;- renderWF(bwaPE, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+bwaPE &lt;- renderWF(bwaPE, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
     SampleName = &quot;_SampleName_&quot;))
 bwaPE
 cmdlist(bwaPE)[1:2]
@@ -1200,21 +1200,21 @@ bwaPE &lt;- runCommandline(args = bwaPE, make_bam = FALSE)
 ## Cluster
 library(batchtools)
 resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &lt;- clusterRun(bwaPE, FUN = runCommandline, more.args = list(args = bwaPE, dir = FALSE), 
-    conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, Njobs = 18, 
+reg &lt;- clusterRun(bwaPE, FUN = runCommandline, more.args = list(args = bwaPE, dir = FALSE),
+    conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, Njobs = 18,
     runid = &quot;01&quot;, resourceList = resources)
 getStatus(reg = reg)
 </code></pre>
 <p>Create new targets file.</p>
 <pre><code class="language-r">names(clt(bwaPE))
-writeTargetsout(x = bwaPE, file = &quot;default&quot;, step = 1, new_col = &quot;bwaPE&quot;, new_col_output_index = 1, 
+writeTargetsout(x = bwaPE, file = &quot;default&quot;, step = 1, new_col = &quot;bwaPE&quot;, new_col_output_index = 1,
     overwrite = TRUE)
 </code></pre>
 <h3 id="alignment-with-rsubread-eg-for-rna-seq">Alignment with <em><code>Rsubread</code></em> (<em>e.g.</em> for RNA-Seq)</h3>
 <p>The following example shows how one can use within the environment the R-based aligner , allowing running from R or command-line.</p>
 <pre><code class="language-r">## Build the index:
 dir_path &lt;- system.file(&quot;extdata/cwl/rsubread/rsubread-idx&quot;, package = &quot;systemPipeR&quot;)
-idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;rsubread-index.cwl&quot;, input_file = &quot;rsubread-index.yml&quot;, 
+idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;rsubread-index.cwl&quot;, input_file = &quot;rsubread-index.yml&quot;,
     dir_path = dir_path)
 idx &lt;- renderWF(idx)
 idx
@@ -1224,7 +1224,7 @@ runCommandline(args = idx, make_bam = FALSE)
 ## Running the alignment:
 targets &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/rsubread/rsubread-se&quot;, package = &quot;systemPipeR&quot;)
-rsubread &lt;- loadWorkflow(targets = targets, wf_file = &quot;rsubread-mapping-se.cwl&quot;, 
+rsubread &lt;- loadWorkflow(targets = targets, wf_file = &quot;rsubread-mapping-se.cwl&quot;,
     input_file = &quot;rsubread-mapping-se.yml&quot;, dir_path = dir_path)
 rsubread &lt;- renderWF(rsubread, inputvars = c(FileName = &quot;_FASTQ_PATH1_&quot;, SampleName = &quot;_SampleName_&quot;))
 rsubread
@@ -1235,7 +1235,7 @@ rsubread &lt;- runCommandline(args = rsubread[1])
 </code></pre>
 <p>Create new targets file.</p>
 <pre><code class="language-r">names(clt(rsubread))
-writeTargetsout(x = rsubread, file = &quot;default&quot;, step = 1, new_col = &quot;rsubread&quot;, new_col_output_index = 1, 
+writeTargetsout(x = rsubread, file = &quot;default&quot;, step = 1, new_col = &quot;rsubread&quot;, new_col_output_index = 1,
     overwrite = TRUE)
 </code></pre>
 <h3 id="alignment-with-gsnap-eg-for-var-seq-and-rna-seq">Alignment with <em><code>gsnap</code></em> (<em>e.g.</em> for VAR-Seq and RNA-Seq)</h3>
@@ -1243,7 +1243,7 @@ writeTargetsout(x = rsubread, file = &quot;default&quot;, step = 1, new_col = &q
 The code sample below introduces how to run this aligner on multiple nodes of a compute cluster.</p>
 <pre><code class="language-r">## Build the index:
 dir_path &lt;- system.file(&quot;extdata/cwl/gsnap/gsnap-idx&quot;, package = &quot;systemPipeR&quot;)
-idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;gsnap-index.cwl&quot;, input_file = &quot;gsnap-index.yml&quot;, 
+idx &lt;- loadWorkflow(targets = NULL, wf_file = &quot;gsnap-index.cwl&quot;, input_file = &quot;gsnap-index.yml&quot;,
     dir_path = dir_path)
 idx &lt;- renderWF(idx)
 idx
@@ -1253,9 +1253,9 @@ runCommandline(args = idx, make_bam = FALSE)
 ## Running the alignment:
 targetsPE &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 dir_path &lt;- system.file(&quot;extdata/cwl/gsnap/gsnap-pe&quot;, package = &quot;systemPipeR&quot;)
-gsnap &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;gsnap-mapping-pe.cwl&quot;, input_file = &quot;gsnap-mapping-pe.yml&quot;, 
+gsnap &lt;- loadWorkflow(targets = targetsPE, wf_file = &quot;gsnap-mapping-pe.cwl&quot;, input_file = &quot;gsnap-mapping-pe.yml&quot;,
     dir_path = dir_path)
-gsnap &lt;- renderWF(gsnap, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;, 
+gsnap &lt;- renderWF(gsnap, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
     SampleName = &quot;_SampleName_&quot;))
 gsnap
 cmdlist(gsnap)[1]
@@ -1264,27 +1264,27 @@ output(gsnap)[1]
 ## Cluster
 library(batchtools)
 resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &lt;- clusterRun(gsnap, FUN = runCommandline, more.args = list(args = gsnap, make_bam = FALSE), 
-    conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, Njobs = 18, 
+reg &lt;- clusterRun(gsnap, FUN = runCommandline, more.args = list(args = gsnap, make_bam = FALSE),
+    conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;, Njobs = 18,
     runid = &quot;01&quot;, resourceList = resources)
 getStatus(reg = reg)
-gsnap &lt;- output_update(gsnap, dir = FALSE, replace = TRUE, extension = c(&quot;.sam&quot;, 
+gsnap &lt;- output_update(gsnap, dir = FALSE, replace = TRUE, extension = c(&quot;.sam&quot;,
     &quot;.bam&quot;))
 </code></pre>
 <p>Create new targets file.</p>
 <pre><code class="language-r">names(clt(gsnap))
-writeTargetsout(x = gsnap, file = &quot;default&quot;, step = 1, new_col = &quot;gsnap&quot;, new_col_output_index = 1, 
+writeTargetsout(x = gsnap, file = &quot;default&quot;, step = 1, new_col = &quot;gsnap&quot;, new_col_output_index = 1,
     overwrite = TRUE)
 </code></pre>
 <h2 id="create-symbolic-links-for-viewing-bam-files-in-igv">Create symbolic links for viewing BAM files in IGV</h2>
 <p>The genome browser IGV supports reading of indexed/sorted BAM files via web URLs. This way it can be avoided to create unnecessary copies of these large files. To enable this approach, an HTML directory with Http access needs to be available in the user account (<em>e.g.</em> <em><code>home/publichtml</code></em>) of a system. If this is not the case then the BAM files need to be moved or copied to the system where IGV runs. In the following, <em><code>htmldir</code></em> defines the path to the HTML directory with http access where the symbolic links to the BAM files will be stored. The corresponding URLs will be written to a text file specified under the <code>_urlfile</code>_ argument.</p>
-<pre><code class="language-r">symLink2bam(sysargs = args, htmldir = c(&quot;~/.html/&quot;, &quot;somedir/&quot;), urlbase = &quot;http://myserver.edu/~username/&quot;, 
+<pre><code class="language-r">symLink2bam(sysargs = args, htmldir = c(&quot;~/.html/&quot;, &quot;somedir/&quot;), urlbase = &quot;http://myserver.edu/~username/&quot;,
     urlfile = &quot;IGVurl.txt&quot;)
 </code></pre>
 <h2 id="read-counting-for-mrna-profiling-experiments">Read counting for mRNA profiling experiments</h2>
 <p>Create <em><code>txdb</code></em> (needs to be done only once).</p>
 <pre><code class="language-r">library(GenomicFeatures)
-txdb &lt;- makeTxDbFromGFF(file = &quot;data/tair10.gff&quot;, format = &quot;gff&quot;, dataSource = &quot;TAIR&quot;, 
+txdb &lt;- makeTxDbFromGFF(file = &quot;data/tair10.gff&quot;, format = &quot;gff&quot;, dataSource = &quot;TAIR&quot;,
     organism = &quot;Arabidopsis thaliana&quot;)
 saveDb(txdb, file = &quot;./data/tair10.sqlite&quot;)
 </code></pre>
@@ -1297,7 +1297,7 @@ bfl &lt;- BamFileList(outpaths, yieldSize = 50000, index = character())
 multicoreParam &lt;- MulticoreParam(workers = 4)
 register(multicoreParam)
 registered()
-counteByg &lt;- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode = &quot;Union&quot;, 
+counteByg &lt;- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode = &quot;Union&quot;,
     ignore.strand = TRUE, inter.feature = TRUE, singleEnd = TRUE))
 
 # Note: for strand-specific RNA-Seq set 'ignore.strand=FALSE' and for PE data set
@@ -1306,9 +1306,9 @@ countDFeByg &lt;- sapply(seq(along = counteByg), function(x) assays(counteByg[[x
 rownames(countDFeByg) &lt;- names(rowRanges(counteByg[[1]]))
 colnames(countDFeByg) &lt;- names(bfl)
 rpkmDFeByg &lt;- apply(countDFeByg, 2, function(x) returnRPKM(counts = x, ranges = eByg))
-write.table(countDFeByg, &quot;results/countDFeByg.xls&quot;, col.names = NA, quote = FALSE, 
+write.table(countDFeByg, &quot;results/countDFeByg.xls&quot;, col.names = NA, quote = FALSE,
     sep = &quot;\t&quot;)
-write.table(rpkmDFeByg, &quot;results/rpkmDFeByg.xls&quot;, col.names = NA, quote = FALSE, 
+write.table(rpkmDFeByg, &quot;results/rpkmDFeByg.xls&quot;, col.names = NA, quote = FALSE,
     sep = &quot;\t&quot;)
 </code></pre>
 <p>Please note, in addition to read counts this step generates RPKM normalized expression values. For most statistical differential expression or abundance analysis methods, such as <em><code>edgeR</code></em> or <em><code>DESeq2</code></em>, the raw count values should be used as input. The usage of RPKM values should be restricted to specialty applications required by some users, <em>e.g.</em> manually comparing the expression levels of different genes or features.</p>
@@ -1323,11 +1323,11 @@ f &lt;- function(x) {
     args &lt;- systemArgs(sysma = &quot;param/tophat.param&quot;, mytargets = &quot;targets.txt&quot;)
     outpaths &lt;- subsetWF(args, slot = &quot;output&quot;, subset = 1, index = 1)
     bfl &lt;- BamFileList(outpaths, yieldSize = 50000, index = character())
-    summarizeOverlaps(eByg, bfl[x], mode = &quot;Union&quot;, ignore.strand = TRUE, inter.feature = TRUE, 
+    summarizeOverlaps(eByg, bfl[x], mode = &quot;Union&quot;, ignore.strand = TRUE, inter.feature = TRUE,
         singleEnd = TRUE)
 }
 resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-param &lt;- BatchtoolsParam(workers = 4, cluster = &quot;slurm&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+param &lt;- BatchtoolsParam(workers = 4, cluster = &quot;slurm&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
     resources = resources)
 counteByg &lt;- bplapply(seq(along = args), f, BPPARAM = param)
 countDFeByg &lt;- sapply(seq(along = counteByg), function(x) assays(counteByg[[x]])$counts)
@@ -1343,14 +1343,14 @@ sapply(1:length(outpaths), function(x) loadResult(reg, id = x))  # Works after j
 <h4 id="read-and-alignment-count-stats">Read and alignment count stats</h4>
 <p>Generate a table of read and alignment counts for all samples.</p>
 <pre><code class="language-r">read_statsDF &lt;- alignStats(args)
-write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names = FALSE, quote = FALSE, 
+write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names = FALSE, quote = FALSE,
     sep = &quot;\t&quot;)
 </code></pre>
 <p>The following shows the first four lines of the sample alignment stats file
 provided by the <em><code>systemPipeR</code></em> package. For simplicity the number of PE reads
 is multiplied here by 2 to approximate proper alignment frequencies where each
 read in a pair is counted.</p>
-<pre><code class="language-r">read.table(system.file(&quot;extdata&quot;, &quot;alignStats.xls&quot;, package = &quot;systemPipeR&quot;), header = TRUE)[1:4, 
+<pre><code class="language-r">read.table(system.file(&quot;extdata&quot;, &quot;alignStats.xls&quot;, package = &quot;systemPipeR&quot;), header = TRUE)[1:4,
     ]
 </code></pre>
 <pre><code>##   FileName Nreads2x Nalign Perc_Aligned Nalign_Primary Perc_Aligned_Primary
@@ -1370,16 +1370,16 @@ library(batchtools)
 f &lt;- function(x) {
     library(systemPipeR)
     targets &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
-    dir_path &lt;- &quot;param/cwl/hisat2/hisat2-se&quot;  ## TODO: replace path to system.file 
-    args &lt;- loadWorkflow(targets = targets, wf_file = &quot;hisat2-mapping-se.cwl&quot;, input_file = &quot;hisat2-mapping-se.yml&quot;, 
+    dir_path &lt;- &quot;param/cwl/hisat2/hisat2-se&quot;  ## TODO: replace path to system.file
+    args &lt;- loadWorkflow(targets = targets, wf_file = &quot;hisat2-mapping-se.cwl&quot;, input_file = &quot;hisat2-mapping-se.yml&quot;,
         dir_path = dir_path)
     args &lt;- renderWF(args, inputvars = c(FileName = &quot;_FASTQ_PATH1_&quot;, SampleName = &quot;_SampleName_&quot;))
-    args &lt;- output_update(args, dir = FALSE, replace = TRUE, extension = c(&quot;.sam&quot;, 
+    args &lt;- output_update(args, dir = FALSE, replace = TRUE, extension = c(&quot;.sam&quot;,
         &quot;.bam&quot;))
     alignStats(args[x])
 }
 resources &lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-param &lt;- BatchtoolsParam(workers = 4, cluster = &quot;slurm&quot;, template = &quot;batchtools.slurm.tmpl&quot;, 
+param &lt;- BatchtoolsParam(workers = 4, cluster = &quot;slurm&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
     resources = resources)
 read_statsList &lt;- bplapply(seq(along = args), f, BPPARAM = param)
 read_statsDF &lt;- do.call(&quot;rbind&quot;, read_statsList)
@@ -1392,10 +1392,10 @@ gff &lt;- split(gff, elementMetadata(gff)$ID)
 bams &lt;- names(bampaths)
 names(bams) &lt;- targets$SampleName
 bfl &lt;- BamFileList(bams, yieldSize = 50000, index = character())
-countDFmiR &lt;- summarizeOverlaps(gff, bfl, mode = &quot;Union&quot;, ignore.strand = FALSE, 
+countDFmiR &lt;- summarizeOverlaps(gff, bfl, mode = &quot;Union&quot;, ignore.strand = FALSE,
     inter.feature = FALSE)  # Note: inter.feature=FALSE important since pre and mature miRNA ranges overlap
 rpkmDFmiR &lt;- apply(countDFmiR, 2, function(x) returnRPKM(counts = x, gffsub = gff))
-write.table(assays(countDFmiR)$counts, &quot;results/countDFmiR.xls&quot;, col.names = NA, 
+write.table(assays(countDFmiR)$counts, &quot;results/countDFmiR.xls&quot;, col.names = NA,
     quote = FALSE, sep = &quot;\t&quot;)
 write.table(rpkmDFmiR, &quot;results/rpkmDFmiR.xls&quot;, col.names = NA, quote = FALSE, sep = &quot;\t&quot;)
 </code></pre>
@@ -1413,7 +1413,7 @@ dds &lt;- DESeqDataSetFromMatrix(countData = countDF, colData = colData, design 
 </code></pre>
 <pre><code class="language-r">d &lt;- cor(assay(rlog(dds)), method = &quot;spearman&quot;)
 hc &lt;- hclust(dist(1 - d))
-plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE, 
+plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE,
     no.margin = TRUE)
 </code></pre>
 <p><img src="../../../en/spr/systempiper/steps_files/figure-html/sample_tree_rlog-1.png" width="672" /></p>
@@ -1427,7 +1427,7 @@ rpkmDFeByg &lt;- read.table(rpkmDFeBygpath, check.names = FALSE)
 rpkmDFeByg &lt;- rpkmDFeByg[rowMeans(rpkmDFeByg) &gt; 50, ]
 d &lt;- cor(rpkmDFeByg, method = &quot;spearman&quot;)
 hc &lt;- hclust(as.dist(1 - d))
-plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = &quot;blue&quot;, edge.width = 2, show.node.label = TRUE, 
+plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = &quot;blue&quot;, edge.width = 2, show.node.label = TRUE,
     no.margin = TRUE)
 </code></pre>
 <h2 id="deg-analysis-with-edger">DEG analysis with <em><code>edgeR</code></em></h2>
@@ -1444,20 +1444,20 @@ targets &lt;- read.delim(targetspath, comment = &quot;#&quot;)
 cmp &lt;- readComp(file = targetspath, format = &quot;matrix&quot;, delim = &quot;-&quot;)
 cmp[[1]]
 </code></pre>
-<pre><code>##       [,1]  [,2] 
-##  [1,] &quot;M1&quot;  &quot;A1&quot; 
-##  [2,] &quot;M1&quot;  &quot;V1&quot; 
-##  [3,] &quot;A1&quot;  &quot;V1&quot; 
-##  [4,] &quot;M6&quot;  &quot;A6&quot; 
-##  [5,] &quot;M6&quot;  &quot;V6&quot; 
-##  [6,] &quot;A6&quot;  &quot;V6&quot; 
+<pre><code>##       [,1]  [,2]
+##  [1,] &quot;M1&quot;  &quot;A1&quot;
+##  [2,] &quot;M1&quot;  &quot;V1&quot;
+##  [3,] &quot;A1&quot;  &quot;V1&quot;
+##  [4,] &quot;M6&quot;  &quot;A6&quot;
+##  [5,] &quot;M6&quot;  &quot;V6&quot;
+##  [6,] &quot;A6&quot;  &quot;V6&quot;
 ##  [7,] &quot;M12&quot; &quot;A12&quot;
 ##  [8,] &quot;M12&quot; &quot;V12&quot;
 ##  [9,] &quot;A12&quot; &quot;V12&quot;
 </code></pre>
 <pre><code class="language-r">countDFeBygpath &lt;- system.file(&quot;extdata&quot;, &quot;countDFeByg.xls&quot;, package = &quot;systemPipeR&quot;)
 countDFeByg &lt;- read.delim(countDFeBygpath, row.names = 1)
-edgeDF &lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], independent = FALSE, 
+edgeDF &lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], independent = FALSE,
     mdsplot = &quot;&quot;)
 </code></pre>
 <pre><code>## Disp = 0.21829 , BCV = 0.4672
@@ -1490,7 +1490,7 @@ are strongly encouraged to consult the
 </em><code>DESeq2</code></em><a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf"></a> vignette
 for more detailed information on this topic and how to properly run <em><code>DESeq2</code></em>
 on data sets with more complex experimental designs.</p>
-<pre><code class="language-r">degseqDF &lt;- run_DESeq2(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], 
+<pre><code class="language-r">degseqDF &lt;- run_DESeq2(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
     independent = FALSE)
 </code></pre>
 <pre><code>## Warning in DESeqDataSet(se, design = design, ignoreRank): some variables in
@@ -1508,7 +1508,7 @@ on data sets with more complex experimental designs.</p>
 <p>The function <em><code>overLapper</code></em> can compute Venn intersects for large numbers of sample sets (up to 20 or more) and <em><code>vennPlot</code></em> can plot 2-5 way Venn diagrams. A useful feature is the possibility to combine the counts from several Venn comparisons with the same number of sample sets in a single Venn diagram (here for 4 up and down DEG sets).</p>
 <pre><code class="language-r">vennsetup &lt;- overLapper(DEG_list$Up[6:9], type = &quot;vennsets&quot;)
 vennsetdown &lt;- overLapper(DEG_list$Down[6:9], type = &quot;vennsets&quot;)
-vennPlot(list(vennsetup, vennsetdown), mymain = &quot;&quot;, mysub = &quot;&quot;, colmode = 2, ccol = c(&quot;blue&quot;, 
+vennPlot(list(vennsetup, vennsetdown), mymain = &quot;&quot;, mysub = &quot;&quot;, colmode = 2, ccol = c(&quot;blue&quot;,
     &quot;red&quot;))
 </code></pre>
 <p><img src="../../../en/spr/systempiper/steps_files/figure-html/vennplot-1.png" width="672" /></p>
@@ -1534,9 +1534,9 @@ go[go[, 3] == &quot;biological_process&quot;, 3] &lt;- &quot;P&quot;
 go[go[, 3] == &quot;cellular_component&quot;, 3] &lt;- &quot;C&quot;
 go[1:4, ]
 dir.create(&quot;./data/GO&quot;)
-write.table(go, &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, quote = FALSE, row.names = FALSE, 
+write.table(go, &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, quote = FALSE, row.names = FALSE,
     col.names = FALSE, sep = &quot;\t&quot;)
-catdb &lt;- makeCATdb(myfile = &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, lib = NULL, org = &quot;&quot;, 
+catdb &lt;- makeCATdb(myfile = &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, lib = NULL, org = &quot;&quot;,
     colno = c(1, 2, 3), idconv = NULL)
 save(catdb, file = &quot;data/GO/catdb.RData&quot;)
 </code></pre>
@@ -1552,14 +1552,14 @@ down &lt;- DEG_list$Down
 names(down) &lt;- paste(names(down), &quot;_down&quot;, sep = &quot;&quot;)
 DEGlist &lt;- c(up_down, up, down)
 DEGlist &lt;- DEGlist[sapply(DEGlist, length) &gt; 0]
-BatchResult &lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &quot;all&quot;, 
+BatchResult &lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &quot;all&quot;,
     id_type = &quot;gene&quot;, CLSZ = 2, cutoff = 0.9, gocats = c(&quot;MF&quot;, &quot;BP&quot;, &quot;CC&quot;), recordSpecGO = NULL)
 library(&quot;biomaRt&quot;)
 m &lt;- useMart(&quot;plants_mart&quot;, dataset = &quot;athaliana_eg_gene&quot;, host = &quot;plants.ensembl.org&quot;)
-goslimvec &lt;- as.character(getBM(attributes = c(&quot;goslim_goa_accession&quot;), mart = m)[, 
+goslimvec &lt;- as.character(getBM(attributes = c(&quot;goslim_goa_accession&quot;), mart = m)[,
     1])
-BatchResultslim &lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &quot;slim&quot;, 
-    id_type = &quot;gene&quot;, myslimv = goslimvec, CLSZ = 10, cutoff = 0.01, gocats = c(&quot;MF&quot;, 
+BatchResultslim &lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &quot;slim&quot;,
+    id_type = &quot;gene&quot;, myslimv = goslimvec, CLSZ = 10, cutoff = 0.01, gocats = c(&quot;MF&quot;,
         &quot;BP&quot;, &quot;CC&quot;), recordSpecGO = NULL)
 </code></pre>
 <h3 id="plot-batch-go-term-results">Plot batch GO term results</h3>
@@ -1621,7 +1621,7 @@ dev.off()
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-20: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/a94ded6c4de03917bf341522f0a8667135843fe5">update (a94ded6)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-20: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/a823c081e799bae5500680b2233ad459a5d47345">local (a823c08)</a>
 </div>
 </div>
 
