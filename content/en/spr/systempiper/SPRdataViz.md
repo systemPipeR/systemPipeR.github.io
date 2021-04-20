@@ -1,7 +1,7 @@
 ---
 title: "SPR Data Visualization" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 18 April, 2021" 
+date: "Last update: 20 April, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
