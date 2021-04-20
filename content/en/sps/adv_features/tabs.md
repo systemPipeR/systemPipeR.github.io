@@ -12,7 +12,7 @@ In SPS, **tab** is the basic component of a functionality unit. For example, all
 in SPS are complex tabs with many small sub-tabs, the [Canvas](/sps/canvas/) is another independent tab providing 
 image editing features and an *user custom tab* is also a SPS tab.
 
-From the developer's view, all SPS tabs are [Shiny Modules](https://shiny.rstudio.com/articles/modules.html). 
+From the developer's view, all SPS tabs are [Shiny Modules{blk}](https://shiny.rstudio.com/articles/modules.html). 
 
 To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the 
 `/tmp` folder but one should use a regular location instead of the temp in a  real 
@@ -22,45 +22,18 @@ case.
 ```r
 suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = "tab_demo", overwrite = TRUE, change_wd = FALSE)
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:02 Start to create a new SPS project
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:02 Create project under /tmp/RtmpqF5tDX/tab_demo
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:02 Now copy files
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:02 Create SPS database
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:02 Created SPS database method container
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:02 Creating SPS db...
-```
-
-```
-## [SPS-DANGER] 2021-04-12 17:19:03 Done, Db created at '/tmp/RtmpqF5tDX/tab_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 17:19:03 Key md5 b70d8ccbc29813b599138173478f6980
-## [SPS-INFO] 2021-04-12 17:19:03 SPS project setup done!
-```
-
-```r
+## [SPS-INFO] 2021-04-19 23:16:52 Start to create a new SPS project
+## [SPS-INFO] 2021-04-19 23:16:52 Create project under /tmp/RtmpjAYUc0/tab_demo
+## [SPS-INFO] 2021-04-19 23:16:52 Now copy files
+## [SPS-INFO] 2021-04-19 23:16:52 Create SPS database
+## [SPS-INFO] 2021-04-19 23:16:52 Created SPS database method container
+## [SPS-INFO] 2021-04-19 23:16:52 Creating SPS db...
+## [SPS-DANGER] 2021-04-19 23:16:52 Done, Db created at '/tmp/RtmpjAYUc0/tab_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-19 23:16:52 Key md5 ecdf3312953a6bcdaea49e6d85954b80
+## [SPS-INFO] 2021-04-19 23:16:52 SPS project setup done!
 ## save project path 
 (sps_dir <- file.path(tempdir(), "tab_demo"))
-```
-
-```
-## [1] "/tmp/RtmpqF5tDX/tab_demo"
+## [1] "/tmp/RtmpjAYUc0/tab_demo"
 ```
 
 To reproduce code locally, run the following chunk instead. 
@@ -99,29 +72,41 @@ spsTabInfo(app_path = sps_dir)
 ## 11 vs_exam… My custom plott… vs    "plot"   ""    1         tab_vs_examp… ""
 ```
 
-- tab_id: A unique string ID
-- display_label: for type is "core" or "module", this is only some description, but for you own custom tabs, 
+- **tab_id**: A unique string ID
+- **display_label**: for type is "core" or "module", this is only some description, but for you own custom tabs, 
 this value will be used as a display tab name on left sidebar on SPS UI. 
-- type: tab category, "core", "module" and "vs" (visualization).
-- type_sub: more specific category, current only "plot" (plotting)
-- image: If this is an user custom tab, providing an image path will display the image in 
+- **type**: tab category, "core", "module" and "vs" (visualization).
+- **type_sub**: more specific category, current only "plot" (plotting)
+- **image**: If this is an user custom tab, providing an image path will display the image in 
 visualization main tab gallery. If it not provided, a warning will be given on app 
 starts and an "No image" image will be used like the following:
 
 ![vs_main](../vs_main.png)
 
-- displayed: Internal use only
-- tab_file_name: where the tab file is relative to the `R` folder. 
-- plugin: Internal use only
+- **displayed**: Internal use only
+- **tab_file_name**: where the tab file is relative to the `R` folder. 
+- **plugin**: Internal use only
 
 
 ##  Add a new custom tab 
 
-SPS provides a template to help developers to create a small SPS tab  that 
+SPS provides templates to help developers to create a small SPS tab  that 
 1. The main purpose is to generate some plots
 2. can be loaded into SPS framework easily
 3. can interact with other SPS tabs (components), like the Canvas tab. 
 
+When you initiate a SPS project, an example custom tab is created for you already.
+You can find the tab file inside the `R` folder of the project root. When you start 
+the app for the first time, you can easily find it from the left sidebar, or 
+click on the "Custom tabs" to go to custom tab main tab. 
+
+<center>
+
+![](../new_tab_before.png)
+
+<caption>Example custom tab</caption>
+
+</center>
 
 ### Simple template
 Under current SPS version, users are able to add custom tabs with the `spsNewTab` function. 
@@ -133,23 +118,36 @@ This function:
 
 ```r
 spsNewTab(tab_id = "vs_new", tab_displayname = "New tab demo", app_path = sps_dir)
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:03 Write to file /tmp/RtmpqF5tDX/tab_demo/R/tab_vs_new.R
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:03 Now register your new tab to config/tab.csv
-```
-
-```
-## [SPS-SUCCESS] 2021-04-12 17:19:03 New tab created!
-## [SPS] 2021-04-12 17:19:03 To load this new tab: `sps(tabs = c("vs_new")`
+## [SPS-INFO] 2021-04-19 23:16:52 Write to file /tmp/RtmpjAYUc0/tab_demo/R/tab_vs_new.R
+## [SPS-INFO] 2021-04-19 23:16:52 Now register your new tab to config/tab.csv
+## [SPS-SUCCESS] 2021-04-19 23:16:52 New tab created!
+## [SPS] 2021-04-19 23:16:52 To load this new tab: `sps(tabs = c("vs_new")`
 ```
 
 If you are running the code locally, and are using Rstudio, the tab file will be opened 
 automatically for you. 
+
+In your `global.R`, add the new tab to confirm you want to load it, and then restart 
+you app. Scroll down to the bottom, you should see:
+
+
+```r
+# add "vs_new" in `tabs`
+sps_app <- sps(
+    tabs = c("vs_example", "vs_new"),
+    server_expr = {
+        msg("Custom expression runs -- Hello World", "GREETING", "green")
+    }
+)
+```
+
+<center>
+
+![](../new_tab_after.png)
+
+<caption>Load new custom tabs</caption>
+
+</center>
 
 By default, it uses the simple template, which contains the `spsEzUI` and  `spsEzServer` functions. 
 We have provided commented instructions on how to fill each argument. 
@@ -171,7 +169,7 @@ spsEzUI(
 The only augment new users need to take some time to learn is adding `plot_control`.
 Developers need to add some Shiny UI components to let users control how the plotting is 
 done with interactive options. Basic use can be learned in 5 minutes on
-[Shiny website](https://shiny.rstudio.com/articles/basics.html) and [Shiny book](https://mastering-shiny.org/basic-ui.html)
+[Shiny website{blk}](https://shiny.rstudio.com/articles/basics.html) and [Shiny book{blk}](https://mastering-shiny.org/basic-ui.html)
 
 #### Server
 
@@ -204,14 +202,14 @@ spsEzServer(
 
 For the server code, users only need to focus on the plotting code. The only very important thing 
 developers need to remember is that the plotting data been passed to this function 
-is stored in a [reactiveValues](https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html)
+is stored in a [reactiveValues{blk}](https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html)
 object and it is called `mydata$data`. Usually we assign it to a new value so it can 
 be used easily downstream, like `plot_data <- mydata$data`.
 
 Some validation is recommended before reaching the plotting code. You would never know what 
 kind of dataset users upload. It is always good to check if users' uploads meet the 
-requirements. In SPS you can use the `spsValidate` function or use Shiny's default [validate](https://shiny.rstudio.com/reference/shiny/0.14/validate.html)
-function (`spsValidate` is discussed in [tools section](/sps/dev/server/)). 
+requirements. In SPS you can use the `spsValidate` function or use Shiny's default [validate{blk}](https://shiny.rstudio.com/reference/shiny/0.14/validate.html)
+function (`spsValidate` is discussed in [developer tools](/sps/dev/spscomps/server/)). 
 
 ### Full template
 For some developers who already has experience with Shiny, and would like to make more 
@@ -225,19 +223,10 @@ spsNewTab(
   tab_displayname = "New tab demo",
   template = "full",
   app_path = sps_dir)
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:03 Write to file /tmp/RtmpqF5tDX/tab_demo/R/tab_vs_new_full.R
-```
-
-```
-## [SPS-INFO] 2021-04-12 17:19:03 Now register your new tab to config/tab.csv
-```
-
-```
-## [SPS-SUCCESS] 2021-04-12 17:19:03 New tab created!
-## [SPS] 2021-04-12 17:19:03 To load this new tab: `sps(tabs = c("vs_new_full")`
+## [SPS-INFO] 2021-04-19 23:16:52 Write to file /tmp/RtmpjAYUc0/tab_demo/R/tab_vs_new_full.R
+## [SPS-INFO] 2021-04-19 23:16:52 Now register your new tab to config/tab.csv
+## [SPS-SUCCESS] 2021-04-19 23:16:52 New tab created!
+## [SPS] 2021-04-19 23:16:52 To load this new tab: `sps(tabs = c("vs_new_full")`
 ```
 You can see the full template is a lot longer than the simple template:
 
@@ -248,7 +237,7 @@ spsinfo(glue::glue("Simple template has {simple_len} lines"), TRUE)
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 17:19:03 Simple template has 66 lines
+## [SPS-INFO] 2021-04-19 23:16:52 Simple template has 66 lines
 ```
 
 ```r
@@ -256,24 +245,35 @@ spsinfo(glue::glue("Full template has {full_len} lines"), TRUE)
 ```
 
 ```
-## [SPS-INFO] 2021-04-12 17:19:03 Full template has 281 lines
+## [SPS-INFO] 2021-04-19 23:16:52 Full template has 281 lines
 ```
 
-
+## Tab registeration
 
 In your *global.R*, scroll down to the bottom, you should see:
 
 
 ```r
 sps_app <- sps(
-    tabs = c("data_example", "plot_example1", "plot_example2"),
+    tabs = c("vs_example"),
     server_expr = {
         msg("Custom expression runs -- Hello World", "GREETING", "green")
     }
 )
 ```
 
-This is the SPS main function. You can load/unload tabs by providing tab IDs in `vstabs` argument, like
-`c("tab1", "tab2)`. Open *config/tabs.csv* or use `spsTabInfo()` to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word `vs` under column "*type*";
-essential framework tabs(*core*) and workflow tabs (*wf*) are loaded automatically and these tabs cannot be modified.
+This is the SPS main function. You can load/unload custom tabs by providing tab IDs in `tabs` argument, like
+`c("tab1", "tab2)`. Open `config/tabs.csv` or use `spsTabInfo()` to see what tabs IDs can be load and other
+tab information. Essential framework tabs (*core*) and built-in modules (*modules*) are loaded automatically. However, you can choose to [unload core and modules tabs](../displaytabs), 
+and [overwrite core tabs](../overwritetabs) by changing some [SPS options](../config). 
+
+## Tab naming
+Once a tab ID is provided in the `sps` function `tabs` argument, when the function
+runs, it is looking for tab information inside this `tabs.csv`, like the display name 
+and tab image. Then it will search for the UI and server function in the enviornment. 
+It is expecting a UI function named `tab_id` + `UI` -> `tab_idUI` and the server
+`tab_id` + `Server` -> `tab_idServer`. If you did not use the `spsNewTab` function 
+to generate the new tab, make sure you name your tab UI and server in this pattern. 
+
+
+

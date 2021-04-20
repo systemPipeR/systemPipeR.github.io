@@ -1,7 +1,7 @@
 ---
 title: "SPR Docker container" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 18 April, 2021" 
+date: "Last update: 19 April, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true

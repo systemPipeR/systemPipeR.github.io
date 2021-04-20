@@ -7,7 +7,14 @@ weight: 9
 *****
 
 SPS database is a small SQLite database which stores some basic app information, 
-the project encryption key pair, account information
+the project encryption key pair, account information. The database is controlled 
+by 3 SPS R6 classes: 
+
+- **spsDb**: basic database management, queries. 
+- **spsEncryption**: Interact with the SHA256 key pair in the database to encrypt 
+  strings, and files. Also methods to view or change the key pair, inherits `spsDb`
+- **spsAcount**: use the encyption key pair to manage users and admin accounts in 
+  SPS, inherits `spsDb` and `spsEncryption`.
 
 
 
@@ -22,21 +29,134 @@ app_path <- "."
 spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 ```
 
-```{r echo=FALSE, collapse=TRUE}
+```{r echo=FALSE, collapse=TRUE, message=FALSE}
 app_path <- tempdir()
 spsInit(app_path = app_path, overwrite = TRUE, change_wd = FALSE, open_files = FALSE)
 ```
 
+You can see a database created on a SPS project initiation, you should see a message 
+like this:
+```
+[SPS-DANGER] 2021-04-19 11:06:53 Done, Db created at 
+```
+
+Then we can use different class methods to interact with the database.
 
 ## `spsDb` class
+Reference manual under [SPS Functions](/sps/funcs/sps/reference/spsDb.html).
+
+Create a class object:
+```{r}
+mydb <- spsDb$new()
+```
+
+### create new db
+If there is no database, we can create one:
+```{r collapse=TRUE}
+# delete current one first
+try(file.remove("config/sps.db"))
+# create a new one
+mydb$createDb()
+```
+
+<p class="text-danger">If you create a new database, all information in the old database
+will be overwritten. All old information will be lost</p>
+
+### Get tables 
+```{r}
+# meta info table
+mydb$queryValue("sps_meta")
+# raw blob table to store keys
+mydb$queryValue("sps_raw")
+# account table
+mydb$queryValue("sps_account")
+```
+
+### Insert new records(rows)
+To add a new row, values of all columns needs to be passed in a SQL string
+```{r}
+mydb$queryInsert("sps_meta", value = "'new1', '1'")
+```
+
+Or pass in a vector:
+```{r}
+mydb$queryInsert("sps_meta", value = c("'new2'", "'2'"))
+# check the new table 
+mydb$queryValue("sps_meta")
+```
+
+### change values
+```{r}
+mydb$queryUpdate("sps_meta", value = '234', col = "value", WHERE = "info = 'new1'")
+# check the update
+mydb$queryValue("sps_meta")
+```
+
+### remove values
+```{r}
+mydb$queryDel("sps_meta", WHERE = "value = '234'")
+# check again 
+mydb$queryValue("sps_meta")
+```
+
 
 ## `spsEncryption` class
+Reference manual under [SPS Functions](/sps/funcs/sps/reference/spsEncryption.html).
+
+Start by creating a class object
+```{r collapse=TRUE}
+my_ecpt <- spsEncryption$new()
+```
+
+### Get current key
 To see the public and private keys (in {[openssil{blk}](https://github.com/jeroen/openssl)} format):
 ```{r}
 # private
-# acc$keyGet()
-# #public
-# acc$keyGet()$pubkey
+my_ecpt$keyGet()
+# public
+my_ecpt$keyGet()$pubkey
+```
+
+### Change the encyption key
+<p class="text-danger text-bold" style="font-weight: 600;">Be super careful to change the encryption key. This will
+result any file encrypted by the old key pair unlockable and the password of all 
+current accounts invalid.</p>
+
+By default it will prevent you to change the key in case you accidentally run this 
+method
+```{r}
+my_ecpt$keyChange()
+```
+
+Unless you are super sure with a confirmation
+```{r}
+my_ecpt$keyChange(confirm = TRUE)
+```
+
+
+### Encrypt files
+```{r}
+# imagine a file has one line "test"
+writeLines(text = "test", con = "test.txt")
+my_ecpt$encrypt("test.txt", "test.bin", overwrite = TRUE)
+```
+
+### Decrypt files
+```{r}
+my_ecpt$decrypt("test.bin", "test_decpt.txt", overwrite = TRUE)
+```
+
+Check the decrypted file content
+```{r}
+readLines('test_decpt.txt')
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=TRUE, include=FALSE}
+try({
+  file.remove(c("test.txt", "test.bin", "test_decpt.txt"))
+})
 ```
 
 ## `spsAcount` class
+This class is discussed in details in the [Accounts, login and admin](../login).
+
