@@ -18,27 +18,24 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>SPS database | sysPipe</title><meta property="og:title" content="SPS database" />
-<meta property="og:description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information
-First to create a SPS project
-suppressPackageStartupMessages(library(systemPipeShiny))  app_path &lt;- &quot;.&quot; spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)  ## [SPS-INFO] 2021-04-16 14:50:29 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 14:50:29 Create project under /tmp/RtmpCRl31n/SPS_20210416 ## [SPS-INFO] 2021-04-16 14:50:29 Now copy files ## [SPS-INFO] 2021-04-16 14:50:29 Create SPS database ## [SPS-INFO] 2021-04-16 14:50:29 Created SPS database method container ## [SPS-INFO] 2021-04-16 14:50:29 Creating SPS db." />
+<meta property="og:description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information. The database is controlled by 3 SPS R6 classes:
+ spsDb: basic database management, queries. spsEncryption: Interact with the SHA256 key pair in the database to encrypt strings, and files. Also methods to view or change the key pair, inherits spsDb spsAcount: use the encyption key pair to manage users and admin accounts in SPS, inherits spsDb and spsEncryption." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/adv_features/database/" />
-<meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-20T12:50:43-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="SPS database">
-<meta itemprop="description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information
-First to create a SPS project
-suppressPackageStartupMessages(library(systemPipeShiny))  app_path &lt;- &quot;.&quot; spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)  ## [SPS-INFO] 2021-04-16 14:50:29 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 14:50:29 Create project under /tmp/RtmpCRl31n/SPS_20210416 ## [SPS-INFO] 2021-04-16 14:50:29 Now copy files ## [SPS-INFO] 2021-04-16 14:50:29 Create SPS database ## [SPS-INFO] 2021-04-16 14:50:29 Created SPS database method container ## [SPS-INFO] 2021-04-16 14:50:29 Creating SPS db.">
-<meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
-<meta itemprop="wordCount" content="149">
+<meta itemprop="description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information. The database is controlled by 3 SPS R6 classes:
+ spsDb: basic database management, queries. spsEncryption: Interact with the SHA256 key pair in the database to encrypt strings, and files. Also methods to view or change the key pair, inherits spsDb spsAcount: use the encyption key pair to manage users and admin accounts in SPS, inherits spsDb and spsEncryption.">
+<meta itemprop="dateModified" content="2021-04-20T12:50:43-07:00" />
+<meta itemprop="wordCount" content="725">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SPS database"/>
-<meta name="twitter:description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information
-First to create a SPS project
-suppressPackageStartupMessages(library(systemPipeShiny))  app_path &lt;- &quot;.&quot; spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)  ## [SPS-INFO] 2021-04-16 14:50:29 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 14:50:29 Create project under /tmp/RtmpCRl31n/SPS_20210416 ## [SPS-INFO] 2021-04-16 14:50:29 Now copy files ## [SPS-INFO] 2021-04-16 14:50:29 Create SPS database ## [SPS-INFO] 2021-04-16 14:50:29 Created SPS database method container ## [SPS-INFO] 2021-04-16 14:50:29 Creating SPS db."/>
+<meta name="twitter:description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information. The database is controlled by 3 SPS R6 classes:
+ spsDb: basic database management, queries. spsEncryption: Interact with the SHA256 key pair in the database to encrypt strings, and files. Also methods to view or change the key pair, inherits spsDb spsAcount: use the encyption key pair to manage users and admin accounts in SPS, inherits spsDb and spsEncryption."/>
 
 
 <script type="application/javascript">
@@ -57,8 +54,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
+<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -872,8 +869,23 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#spsdb-class"><code>spsDb</code> class</a></li>
-        <li><a href="#spsencryption-class"><code>spsEncryption</code> class</a></li>
+        <li><a href="#spsdb-class"><code>spsDb</code> class</a>
+          <ul>
+            <li><a href="#create-new-db">create new db</a></li>
+            <li><a href="#get-tables">Get tables</a></li>
+            <li><a href="#insert-new-recordsrows">Insert new records(rows)</a></li>
+            <li><a href="#change-values">change values</a></li>
+            <li><a href="#remove-values">remove values</a></li>
+          </ul>
+        </li>
+        <li><a href="#spsencryption-class"><code>spsEncryption</code> class</a>
+          <ul>
+            <li><a href="#get-current-key">Get current key</a></li>
+            <li><a href="#change-the-encyption-key">Change the encyption key</a></li>
+            <li><a href="#encrypt-files">Encrypt files</a></li>
+            <li><a href="#decrypt-files">Decrypt files</a></li>
+          </ul>
+        </li>
         <li><a href="#spsacount-class"><code>spsAcount</code> class</a></li>
       </ul>
     </li>
@@ -928,36 +940,178 @@ if (!doNotTrack) {
 	       
 	<hr>
 <p>SPS database is a small SQLite database which stores some basic app information,
-the project encryption key pair, account information</p>
+the project encryption key pair, account information. The database is controlled
+by 3 SPS R6 classes:</p>
+<ul>
+<li><strong>spsDb</strong>: basic database management, queries.</li>
+<li><strong>spsEncryption</strong>: Interact with the SHA256 key pair in the database to encrypt
+strings, and files. Also methods to view or change the key pair, inherits <code>spsDb</code></li>
+<li><strong>spsAcount</strong>: use the encyption key pair to manage users and admin accounts in
+SPS, inherits <code>spsDb</code> and <code>spsEncryption</code>.</li>
+</ul>
 <p>First to create a SPS project</p>
 <pre><code class="language-r">suppressPackageStartupMessages(library(systemPipeShiny))
 </code></pre>
 <pre><code class="language-r">app_path &lt;- &quot;.&quot;
 spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-16 14:50:29 Start to create a new SPS project
-## [SPS-INFO] 2021-04-16 14:50:29 Create project under /tmp/RtmpCRl31n/SPS_20210416
-## [SPS-INFO] 2021-04-16 14:50:29 Now copy files
-## [SPS-INFO] 2021-04-16 14:50:29 Create SPS database
-## [SPS-INFO] 2021-04-16 14:50:29 Created SPS database method container
-## [SPS-INFO] 2021-04-16 14:50:29 Creating SPS db...
-## [SPS-DANGER] 2021-04-16 14:50:30 Done, Db created at '/tmp/RtmpCRl31n/SPS_20210416/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-16 14:50:30 Key md5 8c3c347139245d13bf047c945b7eb1d0
-## [SPS-INFO] 2021-04-16 14:50:30 SPS project setup done!
+<pre><code>## [SPS-DANGER] 2021-04-20 12:54:52 Done, Db created at '/tmp/RtmpOJVGEa/SPS_20210420/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-20 12:54:52 Key md5 0b4402aa760dff52851ca2cc0a46125f
+## [SPS-INFO] 2021-04-20 12:54:52 SPS project setup done!
 </code></pre>
+<p>You can see a database created on a SPS project initiation, you should see a message
+like this:</p>
+<pre><code>[SPS-DANGER] 2021-04-19 11:06:53 Done, Db created at 
+</code></pre>
+<p>Then we can use different class methods to interact with the database.</p>
 <h2 id="spsdb-class"><code>spsDb</code> class</h2>
+<p>Reference manual under <a href="../../../sps/funcs/sps/reference/spsDb.html">SPS Functions</a>.</p>
+<p>Create a class object:</p>
+<pre><code class="language-r">mydb &lt;- spsDb$new()
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-04-20 12:54:52 Created SPS database method container
+</code></pre>
+<h3 id="create-new-db">create new db</h3>
+<p>If there is no database, we can create one:</p>
+<pre><code class="language-r"># delete current one first
+try(file.remove(&quot;config/sps.db&quot;))
+## [1] TRUE
+# create a new one
+mydb$createDb()
+## [SPS-INFO] 2021-04-20 12:54:52 Creating SPS db...
+## [SPS-DANGER] 2021-04-20 12:54:53 Done, Db created at 'config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-20 12:54:53 Key md5 64ebf9eaaecc16311b95fdb2a98d733c
+</code></pre>
+<p class="text-danger">If you create a new database, all information in the old database
+will be overwritten. All old information will be lost</p>
+<h3 id="get-tables">Get tables</h3>
+<pre><code class="language-r"># meta info table
+mydb$queryValue(&quot;sps_meta&quot;)
+</code></pre>
+<pre><code>##            info          value
+## 1 creation_date 20210420125452
+</code></pre>
+<pre><code class="language-r"># raw blob table to store keys
+mydb$queryValue(&quot;sps_raw&quot;)
+</code></pre>
+<pre><code>##   info         value
+## 1  key blob[1.37 kB]
+</code></pre>
+<pre><code class="language-r"># account table
+mydb$queryValue(&quot;sps_account&quot;)
+</code></pre>
+<pre><code>##   account                                                             pass
+## 1   admin c8f48db9ec1688ed213aeb94c5cd81faf6cdfb825f1deb7274eac3419a203a02
+## 2    user aafcbc2569a9a7064e9c86889bb0d591fbccd292479027cdc7b6c015ddcdaa6f
+##    role
+## 1 admin
+## 2  user
+</code></pre>
+<h3 id="insert-new-recordsrows">Insert new records(rows)</h3>
+<p>To add a new row, values of all columns needs to be passed in a SQL string</p>
+<pre><code class="language-r">mydb$queryInsert(&quot;sps_meta&quot;, value = &quot;'new1', '1'&quot;)
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+</code></pre>
+<p>Or pass in a vector:</p>
+<pre><code class="language-r">mydb$queryInsert(&quot;sps_meta&quot;, value = c(&quot;'new2'&quot;, &quot;'2'&quot;))
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+</code></pre>
+<pre><code class="language-r"># check the new table 
+mydb$queryValue(&quot;sps_meta&quot;)
+</code></pre>
+<pre><code>##            info          value
+## 1 creation_date 20210420125452
+## 2          new1              1
+## 3          new2              2
+</code></pre>
+<h3 id="change-values">change values</h3>
+<pre><code class="language-r">mydb$queryUpdate(&quot;sps_meta&quot;, value = '234', col = &quot;value&quot;, WHERE = &quot;info = 'new1'&quot;)
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Updated 1 rows
+</code></pre>
+<pre><code class="language-r"># check the update
+mydb$queryValue(&quot;sps_meta&quot;)
+</code></pre>
+<pre><code>##            info          value
+## 1 creation_date 20210420125452
+## 2          new1            234
+## 3          new2              2
+</code></pre>
+<h3 id="remove-values">remove values</h3>
+<pre><code class="language-r">mydb$queryDel(&quot;sps_meta&quot;, WHERE = &quot;value = '234'&quot;)
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Deleted 1 rows
+</code></pre>
+<pre><code class="language-r"># check again 
+mydb$queryValue(&quot;sps_meta&quot;)
+</code></pre>
+<pre><code>##            info          value
+## 1 creation_date 20210420125452
+## 2          new2              2
+</code></pre>
 <h2 id="spsencryption-class"><code>spsEncryption</code> class</h2>
+<p>Reference manual under <a href="../../../sps/funcs/sps/reference/spsEncryption.html">SPS Functions</a>.</p>
+<p>Start by creating a class object</p>
+<pre><code class="language-r">my_ecpt &lt;- spsEncryption$new()
+## [SPS-INFO] 2021-04-20 12:54:53 Created SPS encryption method container
+## [SPS-INFO] 2021-04-20 12:54:53 Default SPS-db found and is working
+</code></pre>
+<h3 id="get-current-key">Get current key</h3>
 <p>To see the public and private keys (in {<a href="https://github.com/jeroen/openssl">openssil{blk}</a>} format):</p>
 <pre><code class="language-r"># private
-# acc$keyGet()
-# #public
-# acc$keyGet()$pubkey
+my_ecpt$keyGet()
+</code></pre>
+<pre><code>## [2048-bit rsa private key]
+## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+</code></pre>
+<pre><code class="language-r"># public
+my_ecpt$keyGet()$pubkey
+</code></pre>
+<pre><code>## [2048-bit rsa public key]
+## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+</code></pre>
+<h3 id="change-the-encyption-key">Change the encyption key</h3>
+<p class="text-danger text-bold" style="font-weight: 600;">Be super careful to change the encryption key. This will
+result any file encrypted by the old key pair unlockable and the password of all 
+current accounts invalid.</p>
+<p>By default it will prevent you to change the key in case you accidentally run this
+method</p>
+<pre><code class="language-r">my_ecpt$keyChange()
+</code></pre>
+<pre><code>## [SPS-DANGER] 2021-04-20 12:54:53 
+## change this key will result all accounts' password failed to
+## authenticate. You have to regenerate all password for all
+## accounts. All encrypted file using the old key will fail to
+## decrypt. There is NO way to RECOVER the old key, password
+## and files. If you wish to continue, recall this function
+## with `confirm = TRUE`.
+</code></pre>
+<p>Unless you are super sure with a confirmation</p>
+<pre><code class="language-r">my_ecpt$keyChange(confirm = TRUE)
+</code></pre>
+<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 md5 8b5d140803e82ecf0e55b7fe24171c38
+</code></pre>
+<h3 id="encrypt-files">Encrypt files</h3>
+<pre><code class="language-r"># imagine a file has one line &quot;test&quot;
+writeLines(text = &quot;test&quot;, con = &quot;test.txt&quot;)
+my_ecpt$encrypt(&quot;test.txt&quot;, &quot;test.bin&quot;, overwrite = TRUE)
+</code></pre>
+<h3 id="decrypt-files">Decrypt files</h3>
+<pre><code class="language-r">my_ecpt$decrypt(&quot;test.bin&quot;, &quot;test_decpt.txt&quot;, overwrite = TRUE)
+</code></pre>
+<p>Check the decrypted file content</p>
+<pre><code class="language-r">readLines('test_decpt.txt')
+</code></pre>
+<pre><code>## [1] &quot;test&quot;
 </code></pre>
 <h2 id="spsacount-class"><code>spsAcount</code> class</h2>
+<p>This class is discussed in details in the <a href="../login">Accounts, login and admin</a>.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-16: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5e9129ad29c8960356962ae697b286a451f6a7c2">update in progress (5e9129a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-20: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/a823c081e799bae5500680b2233ad459a5d47345">local (a823c08)</a>
 </div>
 </div>
 

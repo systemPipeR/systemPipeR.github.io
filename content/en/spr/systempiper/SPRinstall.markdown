@@ -1,7 +1,7 @@
 ---
-title: "SPR detailed installation instructions" 
+title: "SPR detailed installation instructions"
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 19 April, 2021" 
+date: "Last update: 20 April, 2021"
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -13,7 +13,7 @@ vignette: |
   %\VignetteEngine{knitr::rmarkdown}
 fontsize: 14pt
 bibliography: bibtex_install.bib
-editor_options: 
+editor_options:
   chunk_output_type: console
 type: docs
 weight: 7
@@ -38,14 +38,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
-  var links = document.links;  
+  var links = document.links;
   for (var i = 0, linksLength = links.length; i < linksLength; i++)
     if (links[i].hostname != window.location.hostname)
       links[i].target = '_blank';
 });
 </script>
 
-# 
+#
 
 ## `systemPipeR` Installation
 
@@ -61,7 +61,7 @@ To obtain the most recent updates immediately, one can install it directly from
 
 ``` r
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-BiocManager::install("tgirke/systemPipeR", build_vignettes = TRUE, 
+BiocManager::install("tgirke/systemPipeR", build_vignettes = TRUE,
     dependencies = TRUE)
 ```
 
@@ -77,7 +77,7 @@ This guide provides detailed installation instructions for the software tools us
 git clone https://github.com/lh3/bwa.git
 cd bwa
 make
-vim ~/.bashrc ## Open the Bash shell script 
+vim ~/.bashrc ## Open the Bash shell script
 export PATH=$PATH:/path/to/bwa ## "/path/to/bwa" is an example! Replace with real PATH
 source ~/.bashrc
 bwa ## Test if the installation was successful

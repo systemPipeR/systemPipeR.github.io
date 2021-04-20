@@ -22,9 +22,9 @@ spsInit(app_path = tempdir(), project_name = "config_demo", overwrite = TRUE, ch
 ```
 
 ```
-## [SPS-DANGER] 2021-04-19 22:30:52 Done, Db created at '/tmp/RtmpFEanVV/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-19 22:30:52 Key md5 52c7efe8193d4c4a380fe3ea312cd07e
-## [SPS-INFO] 2021-04-19 22:30:52 SPS project setup done!
+## [SPS-DANGER] 2021-04-20 12:54:47 Done, Db created at '/tmp/RtmpWm2i6b/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-20 12:54:47 Key md5 5ab87e1ba033149148b6b962e40049b6
+## [SPS-INFO] 2021-04-20 12:54:47 SPS project setup done!
 ```
 
 ```r
@@ -33,7 +33,7 @@ spsInit(app_path = tempdir(), project_name = "config_demo", overwrite = TRUE, ch
 ```
 
 ```
-## [1] "/tmp/RtmpFEanVV/config_demo"
+## [1] "/tmp/RtmpWm2i6b/config_demo"
 ```
 
 To reproduce code locally, run the following chunk instead. 

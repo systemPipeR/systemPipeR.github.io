@@ -32,14 +32,14 @@ case.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &amp;quot;config_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-16 18:02:46 Done, Db created at &#39;/tmp/RtmpEwPsQa/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-16 18:02:46 Key md5 2f47cb4559f0517a50321c504f2a8ce5
-## [SPS-INFO] 2021-04-16 18:02:46 SPS project setup done!
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-20 12:54:47 Done, Db created at &#39;/tmp/RtmpWm2i6b/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-20 12:54:47 Key md5 5ab87e1ba033149148b6b962e40049b6
+## [SPS-INFO] 2021-04-20 12:54:47 SPS project setup done!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
 (sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;config_demo&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/RtmpEwPsQa/config_demo&amp;quot;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/RtmpWm2i6b/config_demo&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
@@ -53,23 +53,21 @@ PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
 &lt;pre&gt;
 SPS_xx/  
 ├── server.R               &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt; 
-├── global.R               &lt;span class=&#34;text-success&#34;&gt;| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit manually&lt;/span&gt;   
+├── global.R               &lt;span class=&#34;text-success&#34;&gt;| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit&lt;/span&gt;   
 ├── ui.R                   &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt;  
 ├── deploy.R               &lt;span class=&#34;text-info&#34;&gt;| Deploy helper file&lt;/span&gt;  
 ├── config                 &lt;span class=&#34;text-success&#34;&gt;| Important app config files. Do not edit them if you don&#39;t know&lt;/span&gt;  
 │   ├── sps.db             &lt;span class=&#34;text-gray&#34;&gt;| SPS database&lt;/span&gt; 
 │   ├── sps_options.yaml   &lt;span class=&#34;text-gray&#34;&gt;| SPS default option list&lt;/span&gt; 
-│   └── tabs.csv           &lt;span class=&#34;text-gray&#34;&gt;| SPS tab information&lt;/span&gt; 
+│   └── tabs.csv           &lt;span class=&#34;text-gray&#34;&gt;| SPS tab registration information&lt;/span&gt; 
 ├── data                   &lt;span class=&#34;text-primary&#34;&gt;| App example data files&lt;/span&gt; 
 │   ├── xx.csv             
-├── R                      &lt;span class=&#34;text-primary&#34;&gt;| All SPS additional tab files and helper R function files&lt;/span&gt; 
+├── R                      &lt;span class=&#34;text-primary&#34;&gt;| All SPS custom tab files and helper R function files&lt;/span&gt; 
 │   ├── tab_xx.R            
 ├── README.md              
-├── results                &lt;span class=&#34;text-gray&#34;&gt;| Not in use for this current version, you can store some data been generated from the app&lt;/span&gt; 
+├── results                &lt;span class=&#34;text-gray&#34;&gt;| To store data generated from the app, like the workflow module&lt;/span&gt; 
 │   └── README.md          
 └── www                    &lt;span class=&#34;text-primary&#34;&gt;| Internet resources&lt;/span&gt;  
-    ├── about              &lt;span class=&#34;text-gray&#34;&gt;| About tab information&lt;/span&gt; 
-    │   └── xx.md          
     ├── css                &lt;span class=&#34;text-info&#34;&gt;| CSS files&lt;/span&gt;  
     │   └── sps.css         
     ├── img                &lt;span class=&#34;text-info&#34;&gt;| App image resources&lt;/span&gt;    
@@ -85,28 +83,27 @@ SPS_xx/
 &lt;ol&gt;
 &lt;li&gt;For most users, the &lt;code&gt;global.R&lt;/code&gt; file is the only file that one needs to make change.&lt;/li&gt;
 &lt;li&gt;The second important files are the files inside &lt;code&gt;config&lt;/code&gt; folder. For normal users,
-these files are controlled by SPS functions. No need to make any modification. For advanced users, deep customization
-is possible. Please read the &lt;a href=&#34;../sps/dev/&#34;&gt;Developer sections&lt;/a&gt;.
+these files are controlled by SPS functions. No need to make any modification. For advanced users, deep customization is possible.
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sps_options.yaml&lt;/code&gt; stores all default and valid values for SPS.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tabs.csv&lt;/code&gt; all SPS tab registration information.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sps.db&lt;/code&gt; A SQLite database to store data generated in SPS. Since we have
-the new Canvas module which is purely client-side served, this database is not
-heavily used. However, it provides you some tables storing project information and
-a SHA key pair in case you want to encrypt password or files. Read &lt;a href=&#34;../sps/dev/&#34;&gt;Developer sections&lt;/a&gt;
+&lt;li&gt;&lt;code&gt;sps_options.yaml&lt;/code&gt; stores all default and valid values for SPS, details are
+listed &lt;a href=&#34;#app-options&#34;&gt;below&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tabs.csv&lt;/code&gt; all SPS tab registration information. Read &lt;a href=&#34;../tabs&#34;&gt;Manage tabs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sps.db&lt;/code&gt; A SQLite database to store data generated in SPS. Read &lt;a href=&#34;../database&#34;&gt;SPS database&lt;/a&gt;
 for more information.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;R&lt;/code&gt; folder stores all custom tab files, your helper functions. This &lt;code&gt;.R&lt;/code&gt; or &lt;code&gt;.r&lt;/code&gt; files under this
-folder &lt;strong&gt;will be automatically sourced&lt;/strong&gt; when SPS starts.&lt;/li&gt;
+folder &lt;strong&gt;will be automatically sourced&lt;/strong&gt; when SPS starts. This is discussed in
+&lt;a href=&#34;../tabs&#34;&gt;Manage tabs&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;www&lt;/code&gt; folder is where you add the internet resources, like images you want to show in
 the app, &lt;code&gt;css&lt;/code&gt; style sheets to attach. Read more &lt;a href=&#34;https://stevenmortimer.com/tips-for-making-professional-shiny-apps-with-r/#create-a-www-folder&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;app-options&#34;&gt;App options&lt;/h2&gt;
+&lt;h3 id=&#34;viewset-all-options&#34;&gt;View/Set all options&lt;/h3&gt;
 &lt;p&gt;App options in SPS are controlled by &amp;ldquo;SPS options&amp;rdquo;. These options can change
 app appearance, debugging level, server behaviors, &lt;em&gt;etc&lt;/em&gt;. The valid options can
 be found and change on the &lt;code&gt;global.R&lt;/code&gt; file. They are similar to &lt;em&gt;Shiny&lt;/em&gt; options,
-but unlike &lt;em&gt;shiny&lt;/em&gt; options are single values, SPS options are passed using the &lt;code&gt;Option(sps = list(...))&lt;/code&gt;
+but unlike &lt;em&gt;shiny&lt;/em&gt; options that are single values, SPS options are passed using the &lt;code&gt;Option(sps = list(...))&lt;/code&gt;
 function in &lt;code&gt;global.R&lt;/code&gt; as a group. To view all options and their default, valid
 values(&#39;*&#39; means any value is okay) see &lt;code&gt;global.R&lt;/code&gt; from
 the line starting with &lt;em&gt;## SPS options&lt;/em&gt;. We provided some comments below that line to
@@ -361,8 +358,10 @@ on console. See [&lt;a href=&#34;../debug&#34;&gt;Debugging&lt;/a&gt;]&lt;/li&gt
 tabs.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;tab_xx&lt;/strong&gt;: see [&lt;a href=&#34;../overwritetabs&#34;&gt;Overwrite tabs&lt;/a&gt;] for customizing core SPS default tabs.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;note_url&lt;/strong&gt;: see [&lt;a href=&#34;../notification&#34;&gt;Notification system&lt;/a&gt;] for customizing SPS notifications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;app_path&lt;/strong&gt;: a hidden option. This will be added after the app starts. If not specified in
+&lt;code&gt;sps()&lt;/code&gt;, use current working directory.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;getset-option-values&#34;&gt;get/set option values&lt;/h3&gt;
+&lt;h3 id=&#34;viewset-a-single-option&#34;&gt;View/Set a single option&lt;/h3&gt;
 &lt;p&gt;SPS values are globally set, which means you can get/change the these options at
 inside any R code, R functions and while the app is running (change options after app started
 is not recommended).&lt;/p&gt;
@@ -398,61 +397,6 @@ to return the original value instead of &lt;code&gt;FALSE&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;random_opt&amp;quot;, empty_is_false = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## NULL
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;session-info&#34;&gt;session info&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sessionInfo()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## R version 4.0.3 (2020-10-10)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 18.04.5 LTS
-## 
-## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-## [1] systemPipeShiny_1.1.37 drawer_0.1.0.9         spsComps_0.1.9.99     
-## [4] spsUtil_0.1.0.9        shiny_1.6.0.9000      
-## 
-## loaded via a namespace (and not attached):
-##  [1] httr_1.4.2               sass_0.3.1               shinyFiles_0.9.0        
-##  [4] tidyr_1.1.2              bit64_4.0.5              vroom_1.3.2             
-##  [7] jsonlite_1.7.2           viridisLite_0.3.0        bslib_0.2.4             
-## [10] assertthat_0.2.1         askpass_1.1              blob_1.2.1              
-## [13] yaml_2.2.1               backports_1.2.1          pillar_1.5.0            
-## [16] RSQLite_2.2.3            glue_1.4.2               digest_0.6.27           
-## [19] promises_1.1.1           colorspace_2.0-0         htmltools_0.5.1.1       
-## [22] httpuv_1.5.5             pkgconfig_2.0.3          bookdown_0.21.6         
-## [25] purrr_0.3.4              xtable_1.8-4             scales_1.1.1            
-## [28] later_1.1.0.1            tibble_3.1.0             openssl_1.4.3           
-## [31] styler_1.3.2             generics_0.1.0           ggplot2_3.3.3           
-## [34] ellipsis_0.3.1           DT_0.17                  shinyjs_2.0.0           
-## [37] cachem_1.0.1             lazyeval_0.2.2           magrittr_2.0.1          
-## [40] crayon_1.4.1             mime_0.9                 memoise_2.0.0           
-## [43] evaluate_0.14            shinytoastr_2.1.1        fs_1.5.0                
-## [46] fansi_0.4.2              shinydashboard_0.7.1     blogdown_1.2            
-## [49] tools_4.0.3              data.table_1.13.6        lifecycle_1.0.0         
-## [52] stringr_1.4.0            plotly_4.9.3             munsell_0.5.0           
-## [55] shinyAce_0.4.1           compiler_4.0.3           jquerylib_0.1.3         
-## [58] rlang_0.4.10             shinyjqui_0.3.3          grid_4.0.3              
-## [61] shinydashboardPlus_2.0.0 rstudioapi_0.13          htmlwidgets_1.5.3       
-## [64] rmarkdown_2.7.7          shinyWidgets_0.6.0       gtable_0.3.0            
-## [67] DBI_1.1.1                R6_2.5.0                 lubridate_1.7.9.2       
-## [70] knitr_1.31               dplyr_1.0.3              fastmap_1.1.0           
-## [73] bit_4.0.4                utf8_1.1.4               bsplus_0.1.2            
-## [76] stringi_1.5.3            Rcpp_1.0.6               vctrs_0.3.6             
-## [79] tidyselect_1.1.0         xfun_0.22
 &lt;/code&gt;&lt;/pre&gt;
 
       </description>
@@ -2641,33 +2585,24 @@ sudo apt-get install libssl-dev
 &lt;p&gt;In SPS, &lt;strong&gt;tab&lt;/strong&gt; is the basic component of a functionality unit. For example, all the &lt;a href=&#34;../sps/modules/&#34;&gt;Modules&lt;/a&gt;
 in SPS are complex tabs with many small sub-tabs, the &lt;a href=&#34;../sps/canvas/&#34;&gt;Canvas&lt;/a&gt; is another independent tab providing
 image editing features and an &lt;em&gt;user custom tab&lt;/em&gt; is also a SPS tab.&lt;/p&gt;
-&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules{blk}&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
 &lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
 case.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &amp;quot;tab_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:02 Start to create a new SPS project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:02 Create project under /tmp/RtmpqF5tDX/tab_demo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:02 Now copy files
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:02 Create SPS database
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:02 Created SPS database method container
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:02 Creating SPS db...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 17:19:03 Done, Db created at &#39;/tmp/RtmpqF5tDX/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 17:19:03 Key md5 b70d8ccbc29813b599138173478f6980
-## [SPS-INFO] 2021-04-12 17:19:03 SPS project setup done!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
+## [SPS-INFO] 2021-04-19 23:16:52 Start to create a new SPS project
+## [SPS-INFO] 2021-04-19 23:16:52 Create project under /tmp/RtmpjAYUc0/tab_demo
+## [SPS-INFO] 2021-04-19 23:16:52 Now copy files
+## [SPS-INFO] 2021-04-19 23:16:52 Create SPS database
+## [SPS-INFO] 2021-04-19 23:16:52 Created SPS database method container
+## [SPS-INFO] 2021-04-19 23:16:52 Creating SPS db...
+## [SPS-DANGER] 2021-04-19 23:16:52 Done, Db created at &#39;/tmp/RtmpjAYUc0/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-19 23:16:52 Key md5 ecdf3312953a6bcdaea49e6d85954b80
+## [SPS-INFO] 2021-04-19 23:16:52 SPS project setup done!
+## save project path 
 (sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;tab_demo&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/RtmpqF5tDX/tab_demo&amp;quot;
+## [1] &amp;quot;/tmp/RtmpjAYUc0/tab_demo&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
@@ -2696,28 +2631,36 @@ of current tab information.&lt;/p&gt;
 ## 11 vs_exam… My custom plott… vs    &amp;quot;plot&amp;quot;   &amp;quot;&amp;quot;    1         tab_vs_examp… &amp;quot;&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;tab_id: A unique string ID&lt;/li&gt;
-&lt;li&gt;display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
+&lt;li&gt;&lt;strong&gt;tab_id&lt;/strong&gt;: A unique string ID&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;display_label&lt;/strong&gt;: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
 this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li&gt;
-&lt;li&gt;type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
-&lt;li&gt;type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
-&lt;li&gt;image: If this is an user custom tab, providing an image path will display the image in
+&lt;li&gt;&lt;strong&gt;type&lt;/strong&gt;: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;type_sub&lt;/strong&gt;: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;image&lt;/strong&gt;: If this is an user custom tab, providing an image path will display the image in
 visualization main tab gallery. If it not provided, a warning will be given on app
 starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;../vs_main.png&#34; alt=&#34;vs_main&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;displayed: Internal use only&lt;/li&gt;
-&lt;li&gt;tab_file_name: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
-&lt;li&gt;plugin: Internal use only&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;displayed&lt;/strong&gt;: Internal use only&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tab_file_name&lt;/strong&gt;: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;plugin&lt;/strong&gt;: Internal use only&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;add-a-new-custom-tab&#34;&gt;Add a new custom tab&lt;/h2&gt;
-&lt;p&gt;SPS provides a template to help developers to create a small SPS tab  that&lt;/p&gt;
+&lt;p&gt;SPS provides templates to help developers to create a small SPS tab  that&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The main purpose is to generate some plots&lt;/li&gt;
 &lt;li&gt;can be loaded into SPS framework easily&lt;/li&gt;
 &lt;li&gt;can interact with other SPS tabs (components), like the Canvas tab.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;When you initiate a SPS project, an example custom tab is created for you already.
+You can find the tab file inside the &lt;code&gt;R&lt;/code&gt; folder of the project root. When you start
+the app for the first time, you can easily find it from the left sidebar, or
+click on the &amp;ldquo;Custom tabs&amp;rdquo; to go to custom tab main tab.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../new_tab_before.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Example custom tab&lt;/caption&gt;
+&lt;/center&gt;
 &lt;h3 id=&#34;simple-template&#34;&gt;Simple template&lt;/h3&gt;
 &lt;p&gt;Under current SPS version, users are able to add custom tabs with the &lt;code&gt;spsNewTab&lt;/code&gt; function.
 This function:&lt;/p&gt;
@@ -2727,16 +2670,27 @@ This function:&lt;/p&gt;
 &lt;li&gt;Helps you to register tab information to &lt;code&gt;tabs.csv&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:03 Write to file /tmp/RtmpqF5tDX/tab_demo/R/tab_vs_new.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:03 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 17:19:03 New tab created!
-## [SPS] 2021-04-12 17:19:03 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
+## [SPS-INFO] 2021-04-19 23:16:52 Write to file /tmp/RtmpjAYUc0/tab_demo/R/tab_vs_new.R
+## [SPS-INFO] 2021-04-19 23:16:52 Now register your new tab to config/tab.csv
+## [SPS-SUCCESS] 2021-04-19 23:16:52 New tab created!
+## [SPS] 2021-04-19 23:16:52 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you are running the code locally, and are using Rstudio, the tab file will be opened
 automatically for you.&lt;/p&gt;
+&lt;p&gt;In your &lt;code&gt;global.R&lt;/code&gt;, add the new tab to confirm you want to load it, and then restart
+you app. Scroll down to the bottom, you should see:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# add &amp;quot;vs_new&amp;quot; in `tabs`
+sps_app &amp;lt;- sps(
+    tabs = c(&amp;quot;vs_example&amp;quot;, &amp;quot;vs_new&amp;quot;),
+    server_expr = {
+        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
+    }
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../new_tab_after.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Load new custom tabs&lt;/caption&gt;
+&lt;/center&gt;
 &lt;p&gt;By default, it uses the simple template, which contains the &lt;code&gt;spsEzUI&lt;/code&gt; and  &lt;code&gt;spsEzServer&lt;/code&gt; functions.
 We have provided commented instructions on how to fill each argument.&lt;/p&gt;
 &lt;h4 id=&#34;ui&#34;&gt;UI&lt;/h4&gt;
@@ -2752,7 +2706,7 @@ We have provided commented instructions on how to fill each argument.&lt;/p&gt;
 &lt;p&gt;The only augment new users need to take some time to learn is adding &lt;code&gt;plot_control&lt;/code&gt;.
 Developers need to add some Shiny UI components to let users control how the plotting is
 done with interactive options. Basic use can be learned in 5 minutes on
-&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website{blk}&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book{blk}&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&#34;server&#34;&gt;Server&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzServer(
     plot_code = {
@@ -2781,13 +2735,13 @@ done with interactive options. Basic use can be learned in 5 minutes on
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For the server code, users only need to focus on the plotting code. The only very important thing
 developers need to remember is that the plotting data been passed to this function
-is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues&lt;/a&gt;
+is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues{blk}&lt;/a&gt;
 object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
 be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
 kind of dataset users upload. It is always good to check if users&#39; uploads meet the
-requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate&lt;/a&gt;
-function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../sps/dev/server/&#34;&gt;tools section&lt;/a&gt;).&lt;/p&gt;
+requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate{blk}&lt;/a&gt;
+function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../sps/dev/spscomps/server/&#34;&gt;developer tools&lt;/a&gt;).&lt;/p&gt;
 &lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
 &lt;p&gt;For some developers who already has experience with Shiny, and would like to make more
 complex customization, using the full template enables you to change every detail on
@@ -2797,37 +2751,42 @@ the new tab. Simply add the &lt;code&gt;template = &amp;quot;full&amp;quot;&lt;/
   tab_displayname = &amp;quot;New tab demo&amp;quot;,
   template = &amp;quot;full&amp;quot;,
   app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:03 Write to file /tmp/RtmpqF5tDX/tab_demo/R/tab_vs_new_full.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:03 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 17:19:03 New tab created!
-## [SPS] 2021-04-12 17:19:03 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
+## [SPS-INFO] 2021-04-19 23:16:52 Write to file /tmp/RtmpjAYUc0/tab_demo/R/tab_vs_new_full.R
+## [SPS-INFO] 2021-04-19 23:16:52 Now register your new tab to config/tab.csv
+## [SPS-SUCCESS] 2021-04-19 23:16:52 New tab created!
+## [SPS] 2021-04-19 23:16:52 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see the full template is a lot longer than the simple template:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
 full_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new_full.R&amp;quot;))
 spsinfo(glue::glue(&amp;quot;Simple template has {simple_len} lines&amp;quot;), TRUE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:03 Simple template has 66 lines
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-19 23:16:52 Simple template has 66 lines
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 17:19:03 Full template has 281 lines
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-19 23:16:52 Full template has 281 lines
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;tab-registeration&#34;&gt;Tab registeration&lt;/h2&gt;
 &lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
-    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
+    tabs = c(&amp;quot;vs_example&amp;quot;),
     server_expr = {
         msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
     }
 )
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
-&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
-essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
+&lt;p&gt;This is the SPS main function. You can load/unload custom tabs by providing tab IDs in &lt;code&gt;tabs&lt;/code&gt; argument, like
+&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;code&gt;config/tabs.csv&lt;/code&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
+tab information. Essential framework tabs (&lt;em&gt;core&lt;/em&gt;) and built-in modules (&lt;em&gt;modules&lt;/em&gt;) are loaded automatically. However, you can choose to &lt;a href=&#34;../displaytabs&#34;&gt;unload core and modules tabs&lt;/a&gt;,
+and &lt;a href=&#34;../overwritetabs&#34;&gt;overwrite core tabs&lt;/a&gt; by changing some &lt;a href=&#34;../config&#34;&gt;SPS options&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;tab-naming&#34;&gt;Tab naming&lt;/h2&gt;
+&lt;p&gt;Once a tab ID is provided in the &lt;code&gt;sps&lt;/code&gt; function &lt;code&gt;tabs&lt;/code&gt; argument, when the function
+runs, it is looking for tab information inside this &lt;code&gt;tabs.csv&lt;/code&gt;, like the display name
+and tab image. Then it will search for the UI and server function in the enviornment.
+It is expecting a UI function named &lt;code&gt;tab_id&lt;/code&gt; + &lt;code&gt;UI&lt;/code&gt; -&amp;gt; &lt;code&gt;tab_idUI&lt;/code&gt; and the server
+&lt;code&gt;tab_id&lt;/code&gt; + &lt;code&gt;Server&lt;/code&gt; -&amp;gt; &lt;code&gt;tab_idServer&lt;/code&gt;. If you did not use the &lt;code&gt;spsNewTab&lt;/code&gt; function
+to generate the new tab, make sure you name your tab UI and server in this pattern.&lt;/p&gt;
 
       </description>
     </item>
@@ -4742,7 +4701,7 @@ document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
 &lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34;&gt;
 document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
-  var links = document.links;  
+  var links = document.links;
   for (var i = 0, linksLength = links.length; i &lt; linksLength; i++)
     if (links[i].hostname != window.location.hostname)
       links[i].target = &#39;_blank&#39;;
@@ -4787,15 +4746,15 @@ trimmed FASTQ files.&lt;/p&gt;
 &lt;p&gt;Construct &lt;em&gt;&lt;code&gt;SYSargs2&lt;/code&gt;&lt;/em&gt; object from &lt;em&gt;&lt;code&gt;cwl&lt;/code&gt;&lt;/em&gt; and &lt;em&gt;&lt;code&gt;yml&lt;/code&gt;&lt;/em&gt; param and &lt;em&gt;&lt;code&gt;targets&lt;/code&gt;&lt;/em&gt; files.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/preprocessReads/trim-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-trim &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;trim-pe.cwl&amp;quot;, input_file = &amp;quot;trim-pe.yml&amp;quot;, 
+trim &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;trim-pe.cwl&amp;quot;, input_file = &amp;quot;trim-pe.yml&amp;quot;,
     dir_path = dir_path)
-trim &amp;lt;- renderWF(trim, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+trim &amp;lt;- renderWF(trim, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
     SampleName = &amp;quot;_SampleName_&amp;quot;))
 trim
 output(trim)[1:2]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;preprocessReads(args = trim, Fct = &amp;quot;trimLRPatterns(Rpattern=&#39;GCCCGGGTAA&#39;, 
-                subject=fq)&amp;quot;, 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;preprocessReads(args = trim, Fct = &amp;quot;trimLRPatterns(Rpattern=&#39;GCCCGGGTAA&#39;,
+                subject=fq)&amp;quot;,
     batchsize = 1e+05, overwrite = TRUE, compress = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The following example shows how one can design a custom read preprocessing function
@@ -4815,7 +4774,7 @@ with some extra functionality for removing Reduced Representation Bisulfite-Seq
 (RRBS) libraries.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targets &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targets.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/trim_galore/trim_galore-se&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-trimG &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;trim_galore-se.cwl&amp;quot;, input_file = &amp;quot;trim_galore-se.yml&amp;quot;, 
+trimG &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;trim_galore-se.cwl&amp;quot;, input_file = &amp;quot;trim_galore-se.yml&amp;quot;,
     dir_path = dir_path)
 trimG &amp;lt;- renderWF(trimG, inputvars = c(FileName = &amp;quot;_FASTQ_PATH1_&amp;quot;, SampleName = &amp;quot;_SampleName_&amp;quot;))
 trimG
@@ -4827,9 +4786,9 @@ trimG &amp;lt;- runCommandline(trimG[1], make_bam = FALSE)
 &lt;h3 id=&#34;preprocessing-with-trimmomatic&#34;&gt;Preprocessing with Trimmomatic&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/trimmomatic/trimmomatic-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-trimM &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;trimmomatic-pe.cwl&amp;quot;, input_file = &amp;quot;trimmomatic-pe.yml&amp;quot;, 
+trimM &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;trimmomatic-pe.cwl&amp;quot;, input_file = &amp;quot;trimmomatic-pe.yml&amp;quot;,
     dir_path = dir_path)
-trimM &amp;lt;- renderWF(trimM, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+trimM &amp;lt;- renderWF(trimM, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
     SampleName = &amp;quot;_SampleName_&amp;quot;))
 trimM
 cmdlist(trimM)[1:2]
@@ -4842,7 +4801,7 @@ trimM &amp;lt;- runCommandline(trimM[1], make_bam = FALSE)
 useful quality statistics for a set of FASTQ files including per cycle quality
 box plots, base proportions, base-level quality trends, relative k-mer
 diversity, length and occurrence distribution of reads, number of reads above
-quality cutoffs and mean quality distribution.&lt;br&gt;
+quality cutoffs and mean quality distribution.
 The function &lt;em&gt;&lt;code&gt;seeFastq&lt;/code&gt;&lt;/em&gt; computes the quality statistics and stores the results in a
 relatively small list object that can be saved to disk with &lt;em&gt;&lt;code&gt;save()&lt;/code&gt;&lt;/em&gt; and
 reloaded with &lt;em&gt;&lt;code&gt;load()&lt;/code&gt;&lt;/em&gt; for later plotting. The argument &lt;em&gt;&lt;code&gt;klength&lt;/code&gt;&lt;/em&gt; specifies the
@@ -4872,14 +4831,14 @@ f &amp;lt;- function(x) {
     library(systemPipeR)
     targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
     dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/preprocessReads/trim-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-    trim &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;trim-pe.cwl&amp;quot;, input_file = &amp;quot;trim-pe.yml&amp;quot;, 
+    trim &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;trim-pe.cwl&amp;quot;, input_file = &amp;quot;trim-pe.yml&amp;quot;,
         dir_path = dir_path)
-    trim &amp;lt;- renderWF(trim, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+    trim &amp;lt;- renderWF(trim, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
         SampleName = &amp;quot;_SampleName_&amp;quot;))
     seeFastq(fastq = infile1(trim)[x], batchsize = 1e+05, klength = 8)
 }
 resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-param &amp;lt;- BatchtoolsParam(workers = 4, cluster = &amp;quot;slurm&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, 
+param &amp;lt;- BatchtoolsParam(workers = 4, cluster = &amp;quot;slurm&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;,
     resources = resources)
 fqlist &amp;lt;- bplapply(seq(along = trim), f, BPPARAM = param)
 seeFastqPlot(unlist(fqlist, recursive = FALSE))
@@ -4901,13 +4860,13 @@ and &lt;code&gt;hisat2-mapping-se.yml&lt;/code&gt; files. The following shows ho
 corresponding &lt;em&gt;SYSargs2&lt;/em&gt; object, here &lt;em&gt;args&lt;/em&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targets &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targets.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/hisat2/hisat2-se&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-args &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;hisat2-mapping-se.cwl&amp;quot;, input_file = &amp;quot;hisat2-mapping-se.yml&amp;quot;, 
+args &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;hisat2-mapping-se.cwl&amp;quot;, input_file = &amp;quot;hisat2-mapping-se.yml&amp;quot;,
     dir_path = dir_path)
 args &amp;lt;- renderWF(args, inputvars = c(FileName = &amp;quot;_FASTQ_PATH1_&amp;quot;, SampleName = &amp;quot;_SampleName_&amp;quot;))
 args
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Instance of &#39;SYSargs2&#39;:
-##    Slot names/accessors: 
+##    Slot names/accessors:
 ##       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
 ##       modules: 1
 ##       wf: 0, clt: 1, yamlinput: 7 (components)
@@ -4921,8 +4880,8 @@ args
 &lt;pre&gt;&lt;code&gt;## $M1A
 ## $M1A$`hisat2-mapping-se`
 ## [1] &amp;quot;hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4&amp;quot;
-## 
-## 
+##
+##
 ## $M1B
 ## $M1B$`hisat2-mapping-se`
 ## [1] &amp;quot;hisat2 -S ./results/M1B.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446028_1.fastq.gz --threads 4&amp;quot;
@@ -4932,38 +4891,38 @@ args
 &lt;pre&gt;&lt;code&gt;## $M1A
 ## $M1A$`hisat2-mapping-se`
 ## [1] &amp;quot;./results/M1A.sam&amp;quot;
-## 
-## 
+##
+##
 ## $M1B
 ## $M1B$`hisat2-mapping-se`
 ## [1] &amp;quot;./results/M1B.sam&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Subsetting &lt;em&gt;&lt;code&gt;SYSargs2&lt;/code&gt;&lt;/em&gt; class slots for each workflow step.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;input&amp;quot;, subset = &amp;quot;FileName&amp;quot;)[1:2]  ## Subsetting the input files for this particular workflow 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;input&amp;quot;, subset = &amp;quot;FileName&amp;quot;)[1:2]  ## Subsetting the input files for this particular workflow
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                           M1A                           M1B 
+&lt;pre&gt;&lt;code&gt;##                           M1A                           M1B
 ## &amp;quot;./data/SRR446027_1.fastq.gz&amp;quot; &amp;quot;./data/SRR446028_1.fastq.gz&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;output&amp;quot;, subset = 1, index = 1)[1:2]  ## Subsetting the output files for one particular step in the workflow 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;output&amp;quot;, subset = 1, index = 1)[1:2]  ## Subsetting the output files for one particular step in the workflow
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                 M1A                 M1B 
+&lt;pre&gt;&lt;code&gt;##                 M1A                 M1B
 ## &amp;quot;./results/M1A.sam&amp;quot; &amp;quot;./results/M1B.sam&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;step&amp;quot;, subset = 1)[1]  ## Subsetting the command-lines for one particular step in the workflow 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;step&amp;quot;, subset = 1)[1]  ## Subsetting the command-lines for one particular step in the workflow
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                                                                                                                                               M1A 
+&lt;pre&gt;&lt;code&gt;##                                                                                                                                               M1A
 ## &amp;quot;hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;subsetWF(args, slot = &amp;quot;output&amp;quot;, subset = 1, index = 1, delete = TRUE)[1]  ## DELETING specific output files
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## The subset cannot be deleted: no such file
 
-##                 M1A 
+##                 M1A
 ## &amp;quot;./results/M1A.sam&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Build &lt;code&gt;Hisat2&lt;/code&gt; index.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/hisat2/hisat2-idx&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;hisat2-index.cwl&amp;quot;, input_file = &amp;quot;hisat2-index.yml&amp;quot;, 
+idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;hisat2-index.cwl&amp;quot;, input_file = &amp;quot;hisat2-index.yml&amp;quot;,
     dir_path = dir_path)
 idx &amp;lt;- renderWF(idx)
 idx
@@ -4984,7 +4943,7 @@ results folder for each workflow and a sub-folder for each sample
 defined in the &lt;em&gt;targets&lt;/em&gt; file. This includes all the output and log files for each
 step. When these options are used, the output location will be updated by default
 and can be assigned to the same object.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runCommandline(args, make_bam = FALSE)  ## generates alignments and writes *.sam files to ./results folder 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runCommandline(args, make_bam = FALSE)  ## generates alignments and writes *.sam files to ./results folder
 args &amp;lt;- runCommandline(args, make_bam = TRUE)  ## same as above but writes files and converts *.sam files to sorted and indexed BAM files. Assigning the new extention of the output files to the object args.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If available, multiple CPU cores can be used for processing each file. The number
@@ -5012,8 +4971,8 @@ for the queueing available on a system. The following example uses the sample
 conf and template files for the Slurm scheduler provided by this package.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(batchtools)
 resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &amp;lt;- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE, 
-    dir = FALSE), conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, 
+reg &amp;lt;- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE,
+    dir = FALSE), conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;,
     Njobs = 18, runid = &amp;quot;01&amp;quot;, resourceList = resources)
 getStatus(reg = reg)
 waitForJobs(reg = reg)
@@ -5027,14 +4986,14 @@ output(args)
 &lt;em&gt;targets&lt;/em&gt; file with the &lt;em&gt;&lt;code&gt;writeTargetsout&lt;/code&gt;&lt;/em&gt; function. The new &lt;em&gt;targets&lt;/em&gt; file
 serves as input to the next &lt;em&gt;&lt;code&gt;loadWorkflow&lt;/code&gt;&lt;/em&gt; and &lt;em&gt;&lt;code&gt;renderWF&lt;/code&gt;&lt;/em&gt; call.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(clt(args))
-writeTargetsout(x = args, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;FileName&amp;quot;, new_col_output_index = 1, 
+writeTargetsout(x = args, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;FileName&amp;quot;, new_col_output_index = 1,
     overwrite = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;alignment-with-hisat2-and-samtools&#34;&gt;Alignment with &lt;code&gt;HISAT2&lt;/code&gt; and &lt;code&gt;SAMtools&lt;/code&gt;&lt;/h4&gt;
 &lt;p&gt;Alternatively, it possible to build an workflow with &lt;code&gt;HISAT2&lt;/code&gt; and &lt;code&gt;SAMtools&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targets &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targets.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/workflow-hisat2/workflow-hisat2-se&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-WF &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;workflow_hisat2-se.cwl&amp;quot;, input_file = &amp;quot;workflow_hisat2-se.yml&amp;quot;, 
+WF &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;workflow_hisat2-se.cwl&amp;quot;, input_file = &amp;quot;workflow_hisat2-se.yml&amp;quot;,
     dir_path = dir_path)
 WF &amp;lt;- renderWF(WF, inputvars = c(FileName = &amp;quot;_FASTQ_PATH1_&amp;quot;, SampleName = &amp;quot;_SampleName_&amp;quot;))
 WF
@@ -5046,7 +5005,7 @@ output(WF)[1:2]
 sequence using &lt;code&gt;Bowtie2/TopHat2&lt;/code&gt; (Kim et al. 2013; Langmead and Salzberg 2012).&lt;/p&gt;
 &lt;p&gt;Build &lt;em&gt;&lt;code&gt;Bowtie2&lt;/code&gt;&lt;/em&gt; index.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/bowtie2/bowtie2-idx&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;bowtie2-index.cwl&amp;quot;, input_file = &amp;quot;bowtie2-index.yml&amp;quot;, 
+idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;bowtie2-index.cwl&amp;quot;, input_file = &amp;quot;bowtie2-index.yml&amp;quot;,
     dir_path = dir_path)
 idx &amp;lt;- renderWF(idx)
 idx
@@ -5060,9 +5019,9 @@ and &lt;code&gt;tophat2-mapping-pe.yml&lt;/code&gt; files. The following shows h
 corresponding &lt;em&gt;SYSargs2&lt;/em&gt; object, here &lt;em&gt;tophat2PE&lt;/em&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/tophat2/tophat2-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-tophat2PE &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;tophat2-mapping-pe.cwl&amp;quot;, 
+tophat2PE &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;tophat2-mapping-pe.cwl&amp;quot;,
     input_file = &amp;quot;tophat2-mapping-pe.yml&amp;quot;, dir_path = dir_path)
-tophat2PE &amp;lt;- renderWF(tophat2PE, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+tophat2PE &amp;lt;- renderWF(tophat2PE, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
     SampleName = &amp;quot;_SampleName_&amp;quot;))
 tophat2PE
 cmdlist(tophat2PE)[1:2]
@@ -5073,21 +5032,21 @@ tophat2PE &amp;lt;- runCommandline(tophat2PE[1], make_bam = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Parallelization on clusters.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &amp;lt;- clusterRun(tophat2PE, FUN = runCommandline, more.args = list(args = tophat2PE, 
-    make_bam = TRUE, dir = FALSE), conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, 
+reg &amp;lt;- clusterRun(tophat2PE, FUN = runCommandline, more.args = list(args = tophat2PE,
+    make_bam = TRUE, dir = FALSE), conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;,
     Njobs = 18, runid = &amp;quot;01&amp;quot;, resourceList = resources)
 waitForJobs(reg = reg)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Create new targets file&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(clt(tophat2PE))
-writeTargetsout(x = tophat2PE, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;tophat2PE&amp;quot;, 
+writeTargetsout(x = tophat2PE, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;tophat2PE&amp;quot;,
     new_col_output_index = 1, overwrite = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;alignment-with-bowtie2-eg-for-mirna-profiling&#34;&gt;Alignment with &lt;em&gt;&lt;code&gt;Bowtie2&lt;/code&gt;&lt;/em&gt; (&lt;em&gt;e.g.&lt;/em&gt; for miRNA profiling)&lt;/h3&gt;
 &lt;p&gt;The following example runs &lt;em&gt;&lt;code&gt;Bowtie2&lt;/code&gt;&lt;/em&gt; as a single process without submitting it to a cluster.&lt;/p&gt;
 &lt;p&gt;Building the index:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/bowtie2/bowtie2-idx&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;bowtie2-index.cwl&amp;quot;, input_file = &amp;quot;bowtie2-index.yml&amp;quot;, 
+idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;bowtie2-index.cwl&amp;quot;, input_file = &amp;quot;bowtie2-index.yml&amp;quot;,
     dir_path = dir_path)
 idx &amp;lt;- renderWF(idx)
 idx
@@ -5099,9 +5058,9 @@ runCommandline(idx, make_bam = FALSE)
 &lt;p&gt;Building all the command-line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/bowtie2/bowtie2-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-bowtiePE &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;bowtie2-mapping-pe.cwl&amp;quot;, 
+bowtiePE &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;bowtie2-mapping-pe.cwl&amp;quot;,
     input_file = &amp;quot;bowtie2-mapping-pe.yml&amp;quot;, dir_path = dir_path)
-bowtiePE &amp;lt;- renderWF(bowtiePE, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+bowtiePE &amp;lt;- renderWF(bowtiePE, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
     SampleName = &amp;quot;_SampleName_&amp;quot;))
 bowtiePE
 cmdlist(bowtiePE)[1:2]
@@ -5109,8 +5068,8 @@ output(bowtiePE)[1:2]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Running all the jobs to computing nodes.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &amp;lt;- clusterRun(bowtiePE, FUN = runCommandline, more.args = list(args = bowtiePE, 
-    dir = FALSE), conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, 
+reg &amp;lt;- clusterRun(bowtiePE, FUN = runCommandline, more.args = list(args = bowtiePE,
+    dir = FALSE), conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;,
     Njobs = 18, runid = &amp;quot;01&amp;quot;, resourceList = resources)
 getStatus(reg = reg)
 &lt;/code&gt;&lt;/pre&gt;
@@ -5119,14 +5078,14 @@ getStatus(reg = reg)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Create new targets file.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(clt(bowtiePE))
-writeTargetsout(x = bowtiePE, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;bowtiePE&amp;quot;, new_col_output_index = 1, 
+writeTargetsout(x = bowtiePE, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;bowtiePE&amp;quot;, new_col_output_index = 1,
     overwrite = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;alignment-with-bwa-mem-eg-for-var-seq&#34;&gt;Alignment with &lt;em&gt;&lt;code&gt;BWA-MEM&lt;/code&gt;&lt;/em&gt; (&lt;em&gt;e.g.&lt;/em&gt; for VAR-Seq)&lt;/h3&gt;
 &lt;p&gt;The following example runs BWA-MEM as a single process without submitting it to a cluster. ##TODO: add reference&lt;/p&gt;
 &lt;p&gt;Build the index:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/bwa/bwa-idx&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;bwa-index.cwl&amp;quot;, input_file = &amp;quot;bwa-index.yml&amp;quot;, 
+idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;bwa-index.cwl&amp;quot;, input_file = &amp;quot;bwa-index.yml&amp;quot;,
     dir_path = dir_path)
 idx &amp;lt;- renderWF(idx)
 idx
@@ -5138,9 +5097,9 @@ runCommandline(idx, make_bam = FALSE)
 &lt;p&gt;Running the alignment:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/bwa/bwa-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-bwaPE &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;bwa-pe.cwl&amp;quot;, input_file = &amp;quot;bwa-pe.yml&amp;quot;, 
+bwaPE &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;bwa-pe.cwl&amp;quot;, input_file = &amp;quot;bwa-pe.yml&amp;quot;,
     dir_path = dir_path)
-bwaPE &amp;lt;- renderWF(bwaPE, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+bwaPE &amp;lt;- renderWF(bwaPE, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
     SampleName = &amp;quot;_SampleName_&amp;quot;))
 bwaPE
 cmdlist(bwaPE)[1:2]
@@ -5151,21 +5110,21 @@ bwaPE &amp;lt;- runCommandline(args = bwaPE, make_bam = FALSE)
 ## Cluster
 library(batchtools)
 resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &amp;lt;- clusterRun(bwaPE, FUN = runCommandline, more.args = list(args = bwaPE, dir = FALSE), 
-    conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, Njobs = 18, 
+reg &amp;lt;- clusterRun(bwaPE, FUN = runCommandline, more.args = list(args = bwaPE, dir = FALSE),
+    conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, Njobs = 18,
     runid = &amp;quot;01&amp;quot;, resourceList = resources)
 getStatus(reg = reg)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Create new targets file.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(clt(bwaPE))
-writeTargetsout(x = bwaPE, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;bwaPE&amp;quot;, new_col_output_index = 1, 
+writeTargetsout(x = bwaPE, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;bwaPE&amp;quot;, new_col_output_index = 1,
     overwrite = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;alignment-with-rsubread-eg-for-rna-seq&#34;&gt;Alignment with &lt;em&gt;&lt;code&gt;Rsubread&lt;/code&gt;&lt;/em&gt; (&lt;em&gt;e.g.&lt;/em&gt; for RNA-Seq)&lt;/h3&gt;
 &lt;p&gt;The following example shows how one can use within the environment the R-based aligner , allowing running from R or command-line.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## Build the index:
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/rsubread/rsubread-idx&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;rsubread-index.cwl&amp;quot;, input_file = &amp;quot;rsubread-index.yml&amp;quot;, 
+idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;rsubread-index.cwl&amp;quot;, input_file = &amp;quot;rsubread-index.yml&amp;quot;,
     dir_path = dir_path)
 idx &amp;lt;- renderWF(idx)
 idx
@@ -5175,7 +5134,7 @@ runCommandline(args = idx, make_bam = FALSE)
 ## Running the alignment:
 targets &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targets.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/rsubread/rsubread-se&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-rsubread &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;rsubread-mapping-se.cwl&amp;quot;, 
+rsubread &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;rsubread-mapping-se.cwl&amp;quot;,
     input_file = &amp;quot;rsubread-mapping-se.yml&amp;quot;, dir_path = dir_path)
 rsubread &amp;lt;- renderWF(rsubread, inputvars = c(FileName = &amp;quot;_FASTQ_PATH1_&amp;quot;, SampleName = &amp;quot;_SampleName_&amp;quot;))
 rsubread
@@ -5186,7 +5145,7 @@ rsubread &amp;lt;- runCommandline(args = rsubread[1])
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Create new targets file.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(clt(rsubread))
-writeTargetsout(x = rsubread, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;rsubread&amp;quot;, new_col_output_index = 1, 
+writeTargetsout(x = rsubread, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;rsubread&amp;quot;, new_col_output_index = 1,
     overwrite = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;alignment-with-gsnap-eg-for-var-seq-and-rna-seq&#34;&gt;Alignment with &lt;em&gt;&lt;code&gt;gsnap&lt;/code&gt;&lt;/em&gt; (&lt;em&gt;e.g.&lt;/em&gt; for VAR-Seq and RNA-Seq)&lt;/h3&gt;
@@ -5194,7 +5153,7 @@ writeTargetsout(x = rsubread, file = &amp;quot;default&amp;quot;, step = 1, new_
 The code sample below introduces how to run this aligner on multiple nodes of a compute cluster.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## Build the index:
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/gsnap/gsnap-idx&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;gsnap-index.cwl&amp;quot;, input_file = &amp;quot;gsnap-index.yml&amp;quot;, 
+idx &amp;lt;- loadWorkflow(targets = NULL, wf_file = &amp;quot;gsnap-index.cwl&amp;quot;, input_file = &amp;quot;gsnap-index.yml&amp;quot;,
     dir_path = dir_path)
 idx &amp;lt;- renderWF(idx)
 idx
@@ -5204,9 +5163,9 @@ runCommandline(args = idx, make_bam = FALSE)
 ## Running the alignment:
 targetsPE &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targetsPE.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl/gsnap/gsnap-pe&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-gsnap &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;gsnap-mapping-pe.cwl&amp;quot;, input_file = &amp;quot;gsnap-mapping-pe.yml&amp;quot;, 
+gsnap &amp;lt;- loadWorkflow(targets = targetsPE, wf_file = &amp;quot;gsnap-mapping-pe.cwl&amp;quot;, input_file = &amp;quot;gsnap-mapping-pe.yml&amp;quot;,
     dir_path = dir_path)
-gsnap &amp;lt;- renderWF(gsnap, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;, 
+gsnap &amp;lt;- renderWF(gsnap, inputvars = c(FileName1 = &amp;quot;_FASTQ_PATH1_&amp;quot;, FileName2 = &amp;quot;_FASTQ_PATH2_&amp;quot;,
     SampleName = &amp;quot;_SampleName_&amp;quot;))
 gsnap
 cmdlist(gsnap)[1]
@@ -5215,27 +5174,27 @@ output(gsnap)[1]
 ## Cluster
 library(batchtools)
 resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg &amp;lt;- clusterRun(gsnap, FUN = runCommandline, more.args = list(args = gsnap, make_bam = FALSE), 
-    conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, Njobs = 18, 
+reg &amp;lt;- clusterRun(gsnap, FUN = runCommandline, more.args = list(args = gsnap, make_bam = FALSE),
+    conffile = &amp;quot;.batchtools.conf.R&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, Njobs = 18,
     runid = &amp;quot;01&amp;quot;, resourceList = resources)
 getStatus(reg = reg)
-gsnap &amp;lt;- output_update(gsnap, dir = FALSE, replace = TRUE, extension = c(&amp;quot;.sam&amp;quot;, 
+gsnap &amp;lt;- output_update(gsnap, dir = FALSE, replace = TRUE, extension = c(&amp;quot;.sam&amp;quot;,
     &amp;quot;.bam&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Create new targets file.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(clt(gsnap))
-writeTargetsout(x = gsnap, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;gsnap&amp;quot;, new_col_output_index = 1, 
+writeTargetsout(x = gsnap, file = &amp;quot;default&amp;quot;, step = 1, new_col = &amp;quot;gsnap&amp;quot;, new_col_output_index = 1,
     overwrite = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;create-symbolic-links-for-viewing-bam-files-in-igv&#34;&gt;Create symbolic links for viewing BAM files in IGV&lt;/h2&gt;
 &lt;p&gt;The genome browser IGV supports reading of indexed/sorted BAM files via web URLs. This way it can be avoided to create unnecessary copies of these large files. To enable this approach, an HTML directory with Http access needs to be available in the user account (&lt;em&gt;e.g.&lt;/em&gt; &lt;em&gt;&lt;code&gt;home/publichtml&lt;/code&gt;&lt;/em&gt;) of a system. If this is not the case then the BAM files need to be moved or copied to the system where IGV runs. In the following, &lt;em&gt;&lt;code&gt;htmldir&lt;/code&gt;&lt;/em&gt; defines the path to the HTML directory with http access where the symbolic links to the BAM files will be stored. The corresponding URLs will be written to a text file specified under the &lt;code&gt;_urlfile&lt;/code&gt;_ argument.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;symLink2bam(sysargs = args, htmldir = c(&amp;quot;~/.html/&amp;quot;, &amp;quot;somedir/&amp;quot;), urlbase = &amp;quot;http://myserver.edu/~username/&amp;quot;, 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;symLink2bam(sysargs = args, htmldir = c(&amp;quot;~/.html/&amp;quot;, &amp;quot;somedir/&amp;quot;), urlbase = &amp;quot;http://myserver.edu/~username/&amp;quot;,
     urlfile = &amp;quot;IGVurl.txt&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;read-counting-for-mrna-profiling-experiments&#34;&gt;Read counting for mRNA profiling experiments&lt;/h2&gt;
 &lt;p&gt;Create &lt;em&gt;&lt;code&gt;txdb&lt;/code&gt;&lt;/em&gt; (needs to be done only once).&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(GenomicFeatures)
-txdb &amp;lt;- makeTxDbFromGFF(file = &amp;quot;data/tair10.gff&amp;quot;, format = &amp;quot;gff&amp;quot;, dataSource = &amp;quot;TAIR&amp;quot;, 
+txdb &amp;lt;- makeTxDbFromGFF(file = &amp;quot;data/tair10.gff&amp;quot;, format = &amp;quot;gff&amp;quot;, dataSource = &amp;quot;TAIR&amp;quot;,
     organism = &amp;quot;Arabidopsis thaliana&amp;quot;)
 saveDb(txdb, file = &amp;quot;./data/tair10.sqlite&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -5248,7 +5207,7 @@ bfl &amp;lt;- BamFileList(outpaths, yieldSize = 50000, index = character())
 multicoreParam &amp;lt;- MulticoreParam(workers = 4)
 register(multicoreParam)
 registered()
-counteByg &amp;lt;- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode = &amp;quot;Union&amp;quot;, 
+counteByg &amp;lt;- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode = &amp;quot;Union&amp;quot;,
     ignore.strand = TRUE, inter.feature = TRUE, singleEnd = TRUE))
 
 # Note: for strand-specific RNA-Seq set &#39;ignore.strand=FALSE&#39; and for PE data set
@@ -5257,9 +5216,9 @@ countDFeByg &amp;lt;- sapply(seq(along = counteByg), function(x) assays(counteBy
 rownames(countDFeByg) &amp;lt;- names(rowRanges(counteByg[[1]]))
 colnames(countDFeByg) &amp;lt;- names(bfl)
 rpkmDFeByg &amp;lt;- apply(countDFeByg, 2, function(x) returnRPKM(counts = x, ranges = eByg))
-write.table(countDFeByg, &amp;quot;results/countDFeByg.xls&amp;quot;, col.names = NA, quote = FALSE, 
+write.table(countDFeByg, &amp;quot;results/countDFeByg.xls&amp;quot;, col.names = NA, quote = FALSE,
     sep = &amp;quot;\t&amp;quot;)
-write.table(rpkmDFeByg, &amp;quot;results/rpkmDFeByg.xls&amp;quot;, col.names = NA, quote = FALSE, 
+write.table(rpkmDFeByg, &amp;quot;results/rpkmDFeByg.xls&amp;quot;, col.names = NA, quote = FALSE,
     sep = &amp;quot;\t&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Please note, in addition to read counts this step generates RPKM normalized expression values. For most statistical differential expression or abundance analysis methods, such as &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt; or &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;, the raw count values should be used as input. The usage of RPKM values should be restricted to specialty applications required by some users, &lt;em&gt;e.g.&lt;/em&gt; manually comparing the expression levels of different genes or features.&lt;/p&gt;
@@ -5274,11 +5233,11 @@ f &amp;lt;- function(x) {
     args &amp;lt;- systemArgs(sysma = &amp;quot;param/tophat.param&amp;quot;, mytargets = &amp;quot;targets.txt&amp;quot;)
     outpaths &amp;lt;- subsetWF(args, slot = &amp;quot;output&amp;quot;, subset = 1, index = 1)
     bfl &amp;lt;- BamFileList(outpaths, yieldSize = 50000, index = character())
-    summarizeOverlaps(eByg, bfl[x], mode = &amp;quot;Union&amp;quot;, ignore.strand = TRUE, inter.feature = TRUE, 
+    summarizeOverlaps(eByg, bfl[x], mode = &amp;quot;Union&amp;quot;, ignore.strand = TRUE, inter.feature = TRUE,
         singleEnd = TRUE)
 }
 resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-param &amp;lt;- BatchtoolsParam(workers = 4, cluster = &amp;quot;slurm&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, 
+param &amp;lt;- BatchtoolsParam(workers = 4, cluster = &amp;quot;slurm&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;,
     resources = resources)
 counteByg &amp;lt;- bplapply(seq(along = args), f, BPPARAM = param)
 countDFeByg &amp;lt;- sapply(seq(along = counteByg), function(x) assays(counteByg[[x]])$counts)
@@ -5294,14 +5253,14 @@ sapply(1:length(outpaths), function(x) loadResult(reg, id = x))  # Works after j
 &lt;h4 id=&#34;read-and-alignment-count-stats&#34;&gt;Read and alignment count stats&lt;/h4&gt;
 &lt;p&gt;Generate a table of read and alignment counts for all samples.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;read_statsDF &amp;lt;- alignStats(args)
-write.table(read_statsDF, &amp;quot;results/alignStats.xls&amp;quot;, row.names = FALSE, quote = FALSE, 
+write.table(read_statsDF, &amp;quot;results/alignStats.xls&amp;quot;, row.names = FALSE, quote = FALSE,
     sep = &amp;quot;\t&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The following shows the first four lines of the sample alignment stats file
 provided by the &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt; package. For simplicity the number of PE reads
 is multiplied here by 2 to approximate proper alignment frequencies where each
 read in a pair is counted.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;read.table(system.file(&amp;quot;extdata&amp;quot;, &amp;quot;alignStats.xls&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;), header = TRUE)[1:4, 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;read.table(system.file(&amp;quot;extdata&amp;quot;, &amp;quot;alignStats.xls&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;), header = TRUE)[1:4,
     ]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   FileName Nreads2x Nalign Perc_Aligned Nalign_Primary Perc_Aligned_Primary
@@ -5321,16 +5280,16 @@ library(batchtools)
 f &amp;lt;- function(x) {
     library(systemPipeR)
     targets &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targets.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
-    dir_path &amp;lt;- &amp;quot;param/cwl/hisat2/hisat2-se&amp;quot;  ## TODO: replace path to system.file 
-    args &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;hisat2-mapping-se.cwl&amp;quot;, input_file = &amp;quot;hisat2-mapping-se.yml&amp;quot;, 
+    dir_path &amp;lt;- &amp;quot;param/cwl/hisat2/hisat2-se&amp;quot;  ## TODO: replace path to system.file
+    args &amp;lt;- loadWorkflow(targets = targets, wf_file = &amp;quot;hisat2-mapping-se.cwl&amp;quot;, input_file = &amp;quot;hisat2-mapping-se.yml&amp;quot;,
         dir_path = dir_path)
     args &amp;lt;- renderWF(args, inputvars = c(FileName = &amp;quot;_FASTQ_PATH1_&amp;quot;, SampleName = &amp;quot;_SampleName_&amp;quot;))
-    args &amp;lt;- output_update(args, dir = FALSE, replace = TRUE, extension = c(&amp;quot;.sam&amp;quot;, 
+    args &amp;lt;- output_update(args, dir = FALSE, replace = TRUE, extension = c(&amp;quot;.sam&amp;quot;,
         &amp;quot;.bam&amp;quot;))
     alignStats(args[x])
 }
 resources &amp;lt;- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-param &amp;lt;- BatchtoolsParam(workers = 4, cluster = &amp;quot;slurm&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;, 
+param &amp;lt;- BatchtoolsParam(workers = 4, cluster = &amp;quot;slurm&amp;quot;, template = &amp;quot;batchtools.slurm.tmpl&amp;quot;,
     resources = resources)
 read_statsList &amp;lt;- bplapply(seq(along = args), f, BPPARAM = param)
 read_statsDF &amp;lt;- do.call(&amp;quot;rbind&amp;quot;, read_statsList)
@@ -5343,10 +5302,10 @@ gff &amp;lt;- split(gff, elementMetadata(gff)$ID)
 bams &amp;lt;- names(bampaths)
 names(bams) &amp;lt;- targets$SampleName
 bfl &amp;lt;- BamFileList(bams, yieldSize = 50000, index = character())
-countDFmiR &amp;lt;- summarizeOverlaps(gff, bfl, mode = &amp;quot;Union&amp;quot;, ignore.strand = FALSE, 
+countDFmiR &amp;lt;- summarizeOverlaps(gff, bfl, mode = &amp;quot;Union&amp;quot;, ignore.strand = FALSE,
     inter.feature = FALSE)  # Note: inter.feature=FALSE important since pre and mature miRNA ranges overlap
 rpkmDFmiR &amp;lt;- apply(countDFmiR, 2, function(x) returnRPKM(counts = x, gffsub = gff))
-write.table(assays(countDFmiR)$counts, &amp;quot;results/countDFmiR.xls&amp;quot;, col.names = NA, 
+write.table(assays(countDFmiR)$counts, &amp;quot;results/countDFmiR.xls&amp;quot;, col.names = NA,
     quote = FALSE, sep = &amp;quot;\t&amp;quot;)
 write.table(rpkmDFmiR, &amp;quot;results/rpkmDFmiR.xls&amp;quot;, col.names = NA, quote = FALSE, sep = &amp;quot;\t&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -5364,7 +5323,7 @@ dds &amp;lt;- DESeqDataSetFromMatrix(countData = countDF, colData = colData, des
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;d &amp;lt;- cor(assay(rlog(dds)), method = &amp;quot;spearman&amp;quot;)
 hc &amp;lt;- hclust(dist(1 - d))
-plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE, 
+plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE,
     no.margin = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../en/spr/systempiper/steps_files/figure-html/sample_tree_rlog-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -5378,7 +5337,7 @@ rpkmDFeByg &amp;lt;- read.table(rpkmDFeBygpath, check.names = FALSE)
 rpkmDFeByg &amp;lt;- rpkmDFeByg[rowMeans(rpkmDFeByg) &amp;gt; 50, ]
 d &amp;lt;- cor(rpkmDFeByg, method = &amp;quot;spearman&amp;quot;)
 hc &amp;lt;- hclust(as.dist(1 - d))
-plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = &amp;quot;blue&amp;quot;, edge.width = 2, show.node.label = TRUE, 
+plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = &amp;quot;blue&amp;quot;, edge.width = 2, show.node.label = TRUE,
     no.margin = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;deg-analysis-with-edger&#34;&gt;DEG analysis with &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
@@ -5395,20 +5354,20 @@ targets &amp;lt;- read.delim(targetspath, comment = &amp;quot;#&amp;quot;)
 cmp &amp;lt;- readComp(file = targetspath, format = &amp;quot;matrix&amp;quot;, delim = &amp;quot;-&amp;quot;)
 cmp[[1]]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##       [,1]  [,2] 
-##  [1,] &amp;quot;M1&amp;quot;  &amp;quot;A1&amp;quot; 
-##  [2,] &amp;quot;M1&amp;quot;  &amp;quot;V1&amp;quot; 
-##  [3,] &amp;quot;A1&amp;quot;  &amp;quot;V1&amp;quot; 
-##  [4,] &amp;quot;M6&amp;quot;  &amp;quot;A6&amp;quot; 
-##  [5,] &amp;quot;M6&amp;quot;  &amp;quot;V6&amp;quot; 
-##  [6,] &amp;quot;A6&amp;quot;  &amp;quot;V6&amp;quot; 
+&lt;pre&gt;&lt;code&gt;##       [,1]  [,2]
+##  [1,] &amp;quot;M1&amp;quot;  &amp;quot;A1&amp;quot;
+##  [2,] &amp;quot;M1&amp;quot;  &amp;quot;V1&amp;quot;
+##  [3,] &amp;quot;A1&amp;quot;  &amp;quot;V1&amp;quot;
+##  [4,] &amp;quot;M6&amp;quot;  &amp;quot;A6&amp;quot;
+##  [5,] &amp;quot;M6&amp;quot;  &amp;quot;V6&amp;quot;
+##  [6,] &amp;quot;A6&amp;quot;  &amp;quot;V6&amp;quot;
 ##  [7,] &amp;quot;M12&amp;quot; &amp;quot;A12&amp;quot;
 ##  [8,] &amp;quot;M12&amp;quot; &amp;quot;V12&amp;quot;
 ##  [9,] &amp;quot;A12&amp;quot; &amp;quot;V12&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;countDFeBygpath &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;countDFeByg.xls&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
 countDFeByg &amp;lt;- read.delim(countDFeBygpath, row.names = 1)
-edgeDF &amp;lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], independent = FALSE, 
+edgeDF &amp;lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], independent = FALSE,
     mdsplot = &amp;quot;&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Disp = 0.21829 , BCV = 0.4672
@@ -5441,7 +5400,7 @@ are strongly encouraged to consult the
 &lt;/em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf&#34;&gt;&lt;/a&gt; vignette
 for more detailed information on this topic and how to properly run &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;
 on data sets with more complex experimental designs.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;degseqDF &amp;lt;- run_DESeq2(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;degseqDF &amp;lt;- run_DESeq2(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
     independent = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning in DESeqDataSet(se, design = design, ignoreRank): some variables in
@@ -5459,7 +5418,7 @@ on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;p&gt;The function &lt;em&gt;&lt;code&gt;overLapper&lt;/code&gt;&lt;/em&gt; can compute Venn intersects for large numbers of sample sets (up to 20 or more) and &lt;em&gt;&lt;code&gt;vennPlot&lt;/code&gt;&lt;/em&gt; can plot 2-5 way Venn diagrams. A useful feature is the possibility to combine the counts from several Venn comparisons with the same number of sample sets in a single Venn diagram (here for 4 up and down DEG sets).&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vennsetup &amp;lt;- overLapper(DEG_list$Up[6:9], type = &amp;quot;vennsets&amp;quot;)
 vennsetdown &amp;lt;- overLapper(DEG_list$Down[6:9], type = &amp;quot;vennsets&amp;quot;)
-vennPlot(list(vennsetup, vennsetdown), mymain = &amp;quot;&amp;quot;, mysub = &amp;quot;&amp;quot;, colmode = 2, ccol = c(&amp;quot;blue&amp;quot;, 
+vennPlot(list(vennsetup, vennsetdown), mymain = &amp;quot;&amp;quot;, mysub = &amp;quot;&amp;quot;, colmode = 2, ccol = c(&amp;quot;blue&amp;quot;,
     &amp;quot;red&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../en/spr/systempiper/steps_files/figure-html/vennplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -5485,9 +5444,9 @@ go[go[, 3] == &amp;quot;biological_process&amp;quot;, 3] &amp;lt;- &amp;quot;P&a
 go[go[, 3] == &amp;quot;cellular_component&amp;quot;, 3] &amp;lt;- &amp;quot;C&amp;quot;
 go[1:4, ]
 dir.create(&amp;quot;./data/GO&amp;quot;)
-write.table(go, &amp;quot;data/GO/GOannotationsBiomart_mod.txt&amp;quot;, quote = FALSE, row.names = FALSE, 
+write.table(go, &amp;quot;data/GO/GOannotationsBiomart_mod.txt&amp;quot;, quote = FALSE, row.names = FALSE,
     col.names = FALSE, sep = &amp;quot;\t&amp;quot;)
-catdb &amp;lt;- makeCATdb(myfile = &amp;quot;data/GO/GOannotationsBiomart_mod.txt&amp;quot;, lib = NULL, org = &amp;quot;&amp;quot;, 
+catdb &amp;lt;- makeCATdb(myfile = &amp;quot;data/GO/GOannotationsBiomart_mod.txt&amp;quot;, lib = NULL, org = &amp;quot;&amp;quot;,
     colno = c(1, 2, 3), idconv = NULL)
 save(catdb, file = &amp;quot;data/GO/catdb.RData&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -5503,14 +5462,14 @@ down &amp;lt;- DEG_list$Down
 names(down) &amp;lt;- paste(names(down), &amp;quot;_down&amp;quot;, sep = &amp;quot;&amp;quot;)
 DEGlist &amp;lt;- c(up_down, up, down)
 DEGlist &amp;lt;- DEGlist[sapply(DEGlist, length) &amp;gt; 0]
-BatchResult &amp;lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &amp;quot;all&amp;quot;, 
+BatchResult &amp;lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &amp;quot;all&amp;quot;,
     id_type = &amp;quot;gene&amp;quot;, CLSZ = 2, cutoff = 0.9, gocats = c(&amp;quot;MF&amp;quot;, &amp;quot;BP&amp;quot;, &amp;quot;CC&amp;quot;), recordSpecGO = NULL)
 library(&amp;quot;biomaRt&amp;quot;)
 m &amp;lt;- useMart(&amp;quot;plants_mart&amp;quot;, dataset = &amp;quot;athaliana_eg_gene&amp;quot;, host = &amp;quot;plants.ensembl.org&amp;quot;)
-goslimvec &amp;lt;- as.character(getBM(attributes = c(&amp;quot;goslim_goa_accession&amp;quot;), mart = m)[, 
+goslimvec &amp;lt;- as.character(getBM(attributes = c(&amp;quot;goslim_goa_accession&amp;quot;), mart = m)[,
     1])
-BatchResultslim &amp;lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &amp;quot;slim&amp;quot;, 
-    id_type = &amp;quot;gene&amp;quot;, myslimv = goslimvec, CLSZ = 10, cutoff = 0.01, gocats = c(&amp;quot;MF&amp;quot;, 
+BatchResultslim &amp;lt;- GOCluster_Report(catdb = catdb, setlist = DEGlist, method = &amp;quot;slim&amp;quot;,
+    id_type = &amp;quot;gene&amp;quot;, myslimv = goslimvec, CLSZ = 10, cutoff = 0.01, gocats = c(&amp;quot;MF&amp;quot;,
         &amp;quot;BP&amp;quot;, &amp;quot;CC&amp;quot;), recordSpecGO = NULL)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;plot-batch-go-term-results&#34;&gt;Plot batch GO term results&lt;/h3&gt;
@@ -6524,7 +6483,7 @@ document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
 &lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34;&gt;
 document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
-  var links = document.links;  
+  var links = document.links;
   for (var i = 0, linksLength = links.length; i &lt; linksLength; i++)
     if (links[i].hostname != window.location.hostname)
       links[i].target = &#39;_blank&#39;;
@@ -6539,7 +6498,7 @@ BiocManager::install(&amp;quot;systemPipeR&amp;quot;)
 &lt;p&gt;To obtain the most recent updates immediately, one can install it directly from
 &lt;a href=&#34;https://github.com/tgirke/systemPipeR&#34;&gt;github&lt;/a&gt; as follow:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) install.packages(&amp;quot;BiocManager&amp;quot;)
-BiocManager::install(&amp;quot;tgirke/systemPipeR&amp;quot;, build_vignettes = TRUE, 
+BiocManager::install(&amp;quot;tgirke/systemPipeR&amp;quot;, build_vignettes = TRUE,
     dependencies = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;third-party-software-tools-in-spr&#34;&gt;Third-party software tools in &lt;em&gt;&lt;code&gt;SPR&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
@@ -6549,7 +6508,7 @@ BiocManager::install(&amp;quot;tgirke/systemPipeR&amp;quot;, build_vignettes = T
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/lh3/bwa.git
 cd bwa
 make
-vim ~/.bashrc ## Open the Bash shell script 
+vim ~/.bashrc ## Open the Bash shell script
 export PATH=$PATH:/path/to/bwa ## &amp;quot;/path/to/bwa&amp;quot; is an example! Replace with real PATH
 source ~/.bashrc
 bwa ## Test if the installation was successful
@@ -6576,7 +6535,7 @@ find the installation introduction for your system environment.&lt;/p&gt;
 &lt;p&gt;H Backman, Tyler W, and Thomas Girke. 2016. “&lt;span class=&#34;nocase&#34;&gt;systemPipeR: NGS workflow and report generation environment&lt;/span&gt;.” &lt;em&gt;BMC Bioinformatics&lt;/em&gt; 17 (1): 388. &lt;a href=&#34;https://doi.org/10.1186/s12859-016-1241-0&#34;&gt;https://doi.org/10.1186/s12859-016-1241-0&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ref-Li2013-sw&#34; class=&#34;csl-entry&#34;&gt;
-&lt;p&gt;Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. &lt;a href=&#34;https://arxiv.org/abs/1303.3997&#34;&gt;https://arxiv.org/abs/1303.3997&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM,” March. &lt;a href=&#34;http://arxiv.org/abs/1303.3997&#34;&gt;http://arxiv.org/abs/1303.3997&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7019,32 +6978,174 @@ is recommended to create -&amp;gt; test/run -&amp;gt; deploy a Shiny app from Rs
         
         &lt;hr&gt;
 &lt;p&gt;SPS database is a small SQLite database which stores some basic app information,
-the project encryption key pair, account information&lt;/p&gt;
+the project encryption key pair, account information. The database is controlled
+by 3 SPS R6 classes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;spsDb&lt;/strong&gt;: basic database management, queries.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;spsEncryption&lt;/strong&gt;: Interact with the SHA256 key pair in the database to encrypt
+strings, and files. Also methods to view or change the key pair, inherits &lt;code&gt;spsDb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;spsAcount&lt;/strong&gt;: use the encyption key pair to manage users and admin accounts in
+SPS, inherits &lt;code&gt;spsDb&lt;/code&gt; and &lt;code&gt;spsEncryption&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;First to create a SPS project&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;app_path &amp;lt;- &amp;quot;.&amp;quot;
 spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-16 14:50:29 Start to create a new SPS project
-## [SPS-INFO] 2021-04-16 14:50:29 Create project under /tmp/RtmpCRl31n/SPS_20210416
-## [SPS-INFO] 2021-04-16 14:50:29 Now copy files
-## [SPS-INFO] 2021-04-16 14:50:29 Create SPS database
-## [SPS-INFO] 2021-04-16 14:50:29 Created SPS database method container
-## [SPS-INFO] 2021-04-16 14:50:29 Creating SPS db...
-## [SPS-DANGER] 2021-04-16 14:50:30 Done, Db created at &#39;/tmp/RtmpCRl31n/SPS_20210416/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-16 14:50:30 Key md5 8c3c347139245d13bf047c945b7eb1d0
-## [SPS-INFO] 2021-04-16 14:50:30 SPS project setup done!
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-20 12:54:52 Done, Db created at &#39;/tmp/RtmpOJVGEa/SPS_20210420/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-20 12:54:52 Key md5 0b4402aa760dff52851ca2cc0a46125f
+## [SPS-INFO] 2021-04-20 12:54:52 SPS project setup done!
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see a database created on a SPS project initiation, you should see a message
+like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[SPS-DANGER] 2021-04-19 11:06:53 Done, Db created at 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we can use different class methods to interact with the database.&lt;/p&gt;
 &lt;h2 id=&#34;spsdb-class&#34;&gt;&lt;code&gt;spsDb&lt;/code&gt; class&lt;/h2&gt;
+&lt;p&gt;Reference manual under &lt;a href=&#34;../sps/funcs/sps/reference/spsDb.html&#34;&gt;SPS Functions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Create a class object:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb &amp;lt;- spsDb$new()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:52 Created SPS database method container
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;create-new-db&#34;&gt;create new db&lt;/h3&gt;
+&lt;p&gt;If there is no database, we can create one:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# delete current one first
+try(file.remove(&amp;quot;config/sps.db&amp;quot;))
+## [1] TRUE
+# create a new one
+mydb$createDb()
+## [SPS-INFO] 2021-04-20 12:54:52 Creating SPS db...
+## [SPS-DANGER] 2021-04-20 12:54:53 Done, Db created at &#39;config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-20 12:54:53 Key md5 64ebf9eaaecc16311b95fdb2a98d733c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p class=&#34;text-danger&#34;&gt;If you create a new database, all information in the old database
+will be overwritten. All old information will be lost&lt;/p&gt;
+&lt;h3 id=&#34;get-tables&#34;&gt;Get tables&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# meta info table
+mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            info          value
+## 1 creation_date 20210420125452
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# raw blob table to store keys
+mydb$queryValue(&amp;quot;sps_raw&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   info         value
+## 1  key blob[1.37 kB]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# account table
+mydb$queryValue(&amp;quot;sps_account&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   account                                                             pass
+## 1   admin c8f48db9ec1688ed213aeb94c5cd81faf6cdfb825f1deb7274eac3419a203a02
+## 2    user aafcbc2569a9a7064e9c86889bb0d591fbccd292479027cdc7b6c015ddcdaa6f
+##    role
+## 1 admin
+## 2  user
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;insert-new-recordsrows&#34;&gt;Insert new records(rows)&lt;/h3&gt;
+&lt;p&gt;To add a new row, values of all columns needs to be passed in a SQL string&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryInsert(&amp;quot;sps_meta&amp;quot;, value = &amp;quot;&#39;new1&#39;, &#39;1&#39;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or pass in a vector:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryInsert(&amp;quot;sps_meta&amp;quot;, value = c(&amp;quot;&#39;new2&#39;&amp;quot;, &amp;quot;&#39;2&#39;&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# check the new table 
+mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            info          value
+## 1 creation_date 20210420125452
+## 2          new1              1
+## 3          new2              2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;change-values&#34;&gt;change values&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryUpdate(&amp;quot;sps_meta&amp;quot;, value = &#39;234&#39;, col = &amp;quot;value&amp;quot;, WHERE = &amp;quot;info = &#39;new1&#39;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Updated 1 rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# check the update
+mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            info          value
+## 1 creation_date 20210420125452
+## 2          new1            234
+## 3          new2              2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;remove-values&#34;&gt;remove values&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryDel(&amp;quot;sps_meta&amp;quot;, WHERE = &amp;quot;value = &#39;234&#39;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Deleted 1 rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# check again 
+mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            info          value
+## 1 creation_date 20210420125452
+## 2          new2              2
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;spsencryption-class&#34;&gt;&lt;code&gt;spsEncryption&lt;/code&gt; class&lt;/h2&gt;
+&lt;p&gt;Reference manual under &lt;a href=&#34;../sps/funcs/sps/reference/spsEncryption.html&#34;&gt;SPS Functions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Start by creating a class object&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt &amp;lt;- spsEncryption$new()
+## [SPS-INFO] 2021-04-20 12:54:53 Created SPS encryption method container
+## [SPS-INFO] 2021-04-20 12:54:53 Default SPS-db found and is working
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;get-current-key&#34;&gt;Get current key&lt;/h3&gt;
 &lt;p&gt;To see the public and private keys (in {&lt;a href=&#34;https://github.com/jeroen/openssl&#34;&gt;openssil{blk}&lt;/a&gt;} format):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# private
-# acc$keyGet()
-# #public
-# acc$keyGet()$pubkey
+my_ecpt$keyGet()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [2048-bit rsa private key]
+## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# public
+my_ecpt$keyGet()$pubkey
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [2048-bit rsa public key]
+## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;change-the-encyption-key&#34;&gt;Change the encyption key&lt;/h3&gt;
+&lt;p class=&#34;text-danger text-bold&#34; style=&#34;font-weight: 600;&#34;&gt;Be super careful to change the encryption key. This will
+result any file encrypted by the old key pair unlockable and the password of all 
+current accounts invalid.&lt;/p&gt;
+&lt;p&gt;By default it will prevent you to change the key in case you accidentally run this
+method&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt$keyChange()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-20 12:54:53 
+## change this key will result all accounts&#39; password failed to
+## authenticate. You have to regenerate all password for all
+## accounts. All encrypted file using the old key will fail to
+## decrypt. There is NO way to RECOVER the old key, password
+## and files. If you wish to continue, recall this function
+## with `confirm = TRUE`.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Unless you are super sure with a confirmation&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt$keyChange(confirm = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 md5 8b5d140803e82ecf0e55b7fe24171c38
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;encrypt-files&#34;&gt;Encrypt files&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# imagine a file has one line &amp;quot;test&amp;quot;
+writeLines(text = &amp;quot;test&amp;quot;, con = &amp;quot;test.txt&amp;quot;)
+my_ecpt$encrypt(&amp;quot;test.txt&amp;quot;, &amp;quot;test.bin&amp;quot;, overwrite = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;decrypt-files&#34;&gt;Decrypt files&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt$decrypt(&amp;quot;test.bin&amp;quot;, &amp;quot;test_decpt.txt&amp;quot;, overwrite = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check the decrypted file content&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;readLines(&#39;test_decpt.txt&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;test&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;spsacount-class&#34;&gt;&lt;code&gt;spsAcount&lt;/code&gt; class&lt;/h2&gt;
+&lt;p&gt;This class is discussed in details in the &lt;a href=&#34;../login&#34;&gt;Accounts, login and admin&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
