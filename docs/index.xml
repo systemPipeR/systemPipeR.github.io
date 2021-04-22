@@ -2561,7 +2561,7 @@ version.&lt;/p&gt;
 &lt;p&gt;If you are on Linux, you may also need the following libraries &lt;strong&gt;before installing SPS&lt;/strong&gt;.
 Different distributions
 may have different commands, but the following commands are examples for Ubuntu:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install libcurl4-openssl-dev
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install libcurl4-openssl-dev
 sudo apt-get install libv8-dev
 sudo apt-get install libxm12-dev
 sudo apt-get install libssl-dev
@@ -2825,197 +2825,66 @@ to generate the new tab, make sure you name your tab UI and server in this patte
         
         
         &lt;hr&gt;
+&lt;p&gt;As a framework, default SPS tabs like the &lt;strong&gt;welcome tab&lt;/strong&gt;, the &lt;strong&gt;module main tab&lt;/strong&gt;,
+the &lt;strong&gt;visualization main tab&lt;/strong&gt;, the &lt;strong&gt;Canvas tab&lt;/strong&gt; and the &lt;strong&gt;About tab&lt;/strong&gt; can be user-defined.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../default_ui.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Default UI and tabs you can overwrite&lt;/caption&gt;
+&lt;/center&gt;
 &lt;h2 id=&#34;overwrite-sps-default-tabs&#34;&gt;Overwrite SPS default tabs&lt;/h2&gt;
-&lt;p&gt;In SPS, &lt;strong&gt;tab&lt;/strong&gt; is the basic component of a functionality unit. For example, all the &lt;a href=&#34;../sps/modules/&#34;&gt;Modules&lt;/a&gt;
-in SPS are complex tabs with many small sub-tabs, the &lt;a href=&#34;../sps/canvas/&#34;&gt;Canvas&lt;/a&gt; is another independent tab providing
-image editing features and an &lt;em&gt;user custom tab&lt;/em&gt; is also a SPS tab.&lt;/p&gt;
-&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-&lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
-case.&lt;/p&gt;
+&lt;p&gt;To start create a SPS project:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
-spsInit(app_path = tempdir(), project_name = &amp;quot;tab_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;app_path &amp;lt;- &amp;quot;.&amp;quot;
+spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-22 15:45:11 Done, Db created at &#39;/tmp/Rtmp2YLDmY/overwrite/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:11 Key md5 6886f6bf17229ffb646102abad92fa31
+## [SPS-INFO] 2021-04-22 15:45:11 SPS project setup done!
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
+&lt;p&gt;use the function &lt;code&gt;spsCoreTabReplace&lt;/code&gt; to create a template of which tab you would
+like to overwrite. Here we use the &amp;ldquo;Welcome&amp;rdquo; tab as example to demo how to write
+your own welcome tab.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsCoreTabReplace(replace_tab = &amp;quot;welcome&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
+&lt;pre&gt;&lt;code&gt;## [SUCCESS] 2021-04-22 15:45:11 File /tmp/Rtmp2YLDmY/overwrite/R/tab_core_welcome.R created
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at &#39;/tmp/Rtmp4RU0eV/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
-(sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;tab_demo&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmp4RU0eV/tab_demo&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
-spsInit()
-sps_dir &amp;lt;- normalizePath(&amp;quot;.&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;tab-registration&#34;&gt;Tab registration&lt;/h2&gt;
-&lt;p&gt;In SPS, all tabs are controlled by the &lt;em&gt;config/tabs.csv&lt;/em&gt; file. To see what kind of
-tabs you have with current project. use the &lt;code&gt;spsTabInfo&lt;/code&gt; function. It returns a tibble
-of current tab information.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsTabInfo(app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 11 x 8
-##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
-##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt; 
-##  1 core_ab… About this App   core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  2 core_ca… Canvas           core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  3 core_we… Home             core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  4 core_ri… Internal use on… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  5 core_top Top push bars    core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  6 module_… Module Main Page core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  7 wf       Workflow module  modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  8 vs_rnas… RNAseq module    modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  9 vs_esq   Quick ggplot mo… modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 10 vs_main  custom tabs mai… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 11 vs_exam… My custom plott… vs    &amp;quot;plot&amp;quot;   &amp;quot;&amp;quot;    1         tab_vs_examp… &amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;tab_id: A unique string ID&lt;/li&gt;
-&lt;li&gt;display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li&gt;
-&lt;li&gt;type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
-&lt;li&gt;type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
-&lt;li&gt;image: If this is an user custom tab, providing an image path will display the image in
-visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../vs_main.png&#34; alt=&#34;vs_main&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;displayed: Internal use only&lt;/li&gt;
-&lt;li&gt;tab_file_name: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
-&lt;li&gt;plugin: Internal use only&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;add-a-new-custom-tab&#34;&gt;Add a new custom tab&lt;/h2&gt;
-&lt;p&gt;SPS provides a template to help developers to create a small SPS tab  that&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The main purpose is to generate some plots&lt;/li&gt;
-&lt;li&gt;can be loaded into SPS framework easily&lt;/li&gt;
-&lt;li&gt;can interact with other SPS tabs (components), like the Canvas tab.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;simple-template&#34;&gt;Simple template&lt;/h3&gt;
-&lt;p&gt;Under current SPS version, users are able to add custom tabs with the &lt;code&gt;spsNewTab&lt;/code&gt; function.
-This function:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;creates the tab file.&lt;/li&gt;
-&lt;li&gt;provides a nice template.&lt;/li&gt;
-&lt;li&gt;Helps you to register tab information to &lt;code&gt;tabs.csv&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.&lt;/p&gt;
-&lt;p&gt;By default, it uses the simple template, which contains the &lt;code&gt;spsEzUI&lt;/code&gt; and  &lt;code&gt;spsEzServer&lt;/code&gt; functions.
-We have provided commented instructions on how to fill each argument.&lt;/p&gt;
-&lt;h4 id=&#34;ui&#34;&gt;UI&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzUI(
-  desc = &amp;quot;xxx&amp;quot;,
-  tab_title = &amp;quot;xxx&amp;quot;,
-  plot_title = &amp;quot;xxx&amp;quot;,
-  plot_control =  shiny::tagList(
-    xxx
-  )
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The only augment new users need to take some time to learn is adding &lt;code&gt;plot_control&lt;/code&gt;.
-Developers need to add some Shiny UI components to let users control how the plotting is
-done with interactive options. Basic use can be learned in 5 minutes on
-&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;server&#34;&gt;Server&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzServer(
-    plot_code = {
-        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-        plot_data &amp;lt;- mydata$data
-        # some validations, make sure users give you the right data format
-        spsValidate({
-            stopifnot(inherits(plot_data, &amp;quot;data.frame&amp;quot;))                        # require a dataframe
-            stopifnot(nrow(plot_data) &amp;gt; 1)                                      # has least one row
-            if (!all(c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;) %in% colnames(plot_data)))# has two required columns
-                stop(&amp;quot;Require column &#39;Sepal.Length&#39; and &#39;Sepal.Width&#39;&amp;quot;)
+&lt;p&gt;If you are using Rstudio the template will be opened for you like following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;########################## Overwrite the welcome tab ###########################
+## UI
+core_welcomeUI &amp;lt;- function(id){
+    ns &amp;lt;- NS(id)
+    tagList(
+        # add your UI code below
+    )
+}
 
-            TRUE # give it a TRUE if all checks passed.
-            },
-            verbose = FALSE # only show messages when fail
-        )
-        # actual plot code
-        ggplot2::ggplot(plot_data) +
-            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-            # grab user defined title from plot control by `input$+control_ID`,
-            # no need to add `ns()` on server end.
-            ggplot2::ggtitle(input$plot_title)
-    },
-    other_server_code = {}
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the server code, users only need to focus on the plotting code. The only very important thing
-developers need to remember is that the plotting data been passed to this function
-is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues&lt;/a&gt;
-object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
-be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users&#39; uploads meet the
-requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate&lt;/a&gt;
-function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../sps/dev/server/&#34;&gt;tools section&lt;/a&gt;).&lt;/p&gt;
-&lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
-&lt;p&gt;For some developers who already has experience with Shiny, and would like to make more
-complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the &lt;code&gt;template = &amp;quot;full&amp;quot;&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(
-  tab_id = &amp;quot;vs_new_full&amp;quot;, 
-  tab_displayname = &amp;quot;New tab demo&amp;quot;,
-  template = &amp;quot;full&amp;quot;,
-  app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can see the full template is a lot longer than the simple template:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
-full_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new_full.R&amp;quot;))
-spsinfo(glue::glue(&amp;quot;Simple template has {simple_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
-    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
-    server_expr = {
-        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
+## server
+core_welcomeServer &amp;lt;- function(id, shared){
+    module &amp;lt;- function(input, output, session, shared){
+        ns &amp;lt;- session$ns
+        # add your server code below
     }
-)
+    moduleServer(id, module)
+}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
-&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
-essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
+&lt;p&gt;Then you can write your own UI and server for this tab, for example, we can add
+some UI to the tab:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;core_welcomeUI &amp;lt;- function(id){
+    ns &amp;lt;- NS(id)
+    tagList(
+        # add your UI code below
+        h2(&amp;quot;This is my welcome page&amp;quot;),
+        h4(&amp;quot;some UI&amp;quot;),
+        sliderInput(ns(&amp;quot;num&amp;quot;), &amp;quot;Select a number&amp;quot;, 0, 10, 5)
+    )
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When you restart the app, you should see your custom Welcome tab:&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../overwrite_tab.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Custom Welcome tab UI&lt;/caption&gt;
+&lt;/center&gt;
 
       </description>
     </item>
@@ -3777,211 +3646,6 @@ waitForJobs(reg = reg)
     </item>
     
     <item>
-      <title>Sps: Notification system</title>
-      <link>/sps/adv_features/notification/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/sps/adv_features/notification/</guid>
-      <description>
-        
-        
-        &lt;hr&gt;
-&lt;h2 id=&#34;sps-notification-broadcasting&#34;&gt;SPS notification broadcasting&lt;/h2&gt;
-&lt;p&gt;In SPS, &lt;strong&gt;tab&lt;/strong&gt; is the basic component of a functionality unit. For example, all the &lt;a href=&#34;../sps/modules/&#34;&gt;Modules&lt;/a&gt;
-in SPS are complex tabs with many small sub-tabs, the &lt;a href=&#34;../sps/canvas/&#34;&gt;Canvas&lt;/a&gt; is another independent tab providing
-image editing features and an &lt;em&gt;user custom tab&lt;/em&gt; is also a SPS tab.&lt;/p&gt;
-&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-&lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
-case.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
-spsInit(app_path = tempdir(), project_name = &amp;quot;tab_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at &#39;/tmp/Rtmp4RU0eV/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
-(sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;tab_demo&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmp4RU0eV/tab_demo&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
-spsInit()
-sps_dir &amp;lt;- normalizePath(&amp;quot;.&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;tab-registration&#34;&gt;Tab registration&lt;/h2&gt;
-&lt;p&gt;In SPS, all tabs are controlled by the &lt;em&gt;config/tabs.csv&lt;/em&gt; file. To see what kind of
-tabs you have with current project. use the &lt;code&gt;spsTabInfo&lt;/code&gt; function. It returns a tibble
-of current tab information.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsTabInfo(app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 11 x 8
-##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
-##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt; 
-##  1 core_ab… About this App   core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  2 core_ca… Canvas           core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  3 core_we… Home             core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  4 core_ri… Internal use on… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  5 core_top Top push bars    core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  6 module_… Module Main Page core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  7 wf       Workflow module  modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  8 vs_rnas… RNAseq module    modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  9 vs_esq   Quick ggplot mo… modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 10 vs_main  custom tabs mai… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 11 vs_exam… My custom plott… vs    &amp;quot;plot&amp;quot;   &amp;quot;&amp;quot;    1         tab_vs_examp… &amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;tab_id: A unique string ID&lt;/li&gt;
-&lt;li&gt;display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li&gt;
-&lt;li&gt;type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
-&lt;li&gt;type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
-&lt;li&gt;image: If this is an user custom tab, providing an image path will display the image in
-visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../vs_main.png&#34; alt=&#34;vs_main&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;displayed: Internal use only&lt;/li&gt;
-&lt;li&gt;tab_file_name: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
-&lt;li&gt;plugin: Internal use only&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;add-a-new-custom-tab&#34;&gt;Add a new custom tab&lt;/h2&gt;
-&lt;p&gt;SPS provides a template to help developers to create a small SPS tab  that&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The main purpose is to generate some plots&lt;/li&gt;
-&lt;li&gt;can be loaded into SPS framework easily&lt;/li&gt;
-&lt;li&gt;can interact with other SPS tabs (components), like the Canvas tab.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;simple-template&#34;&gt;Simple template&lt;/h3&gt;
-&lt;p&gt;Under current SPS version, users are able to add custom tabs with the &lt;code&gt;spsNewTab&lt;/code&gt; function.
-This function:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;creates the tab file.&lt;/li&gt;
-&lt;li&gt;provides a nice template.&lt;/li&gt;
-&lt;li&gt;Helps you to register tab information to &lt;code&gt;tabs.csv&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.&lt;/p&gt;
-&lt;p&gt;By default, it uses the simple template, which contains the &lt;code&gt;spsEzUI&lt;/code&gt; and  &lt;code&gt;spsEzServer&lt;/code&gt; functions.
-We have provided commented instructions on how to fill each argument.&lt;/p&gt;
-&lt;h4 id=&#34;ui&#34;&gt;UI&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzUI(
-  desc = &amp;quot;xxx&amp;quot;,
-  tab_title = &amp;quot;xxx&amp;quot;,
-  plot_title = &amp;quot;xxx&amp;quot;,
-  plot_control =  shiny::tagList(
-    xxx
-  )
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The only augment new users need to take some time to learn is adding &lt;code&gt;plot_control&lt;/code&gt;.
-Developers need to add some Shiny UI components to let users control how the plotting is
-done with interactive options. Basic use can be learned in 5 minutes on
-&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;server&#34;&gt;Server&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzServer(
-    plot_code = {
-        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-        plot_data &amp;lt;- mydata$data
-        # some validations, make sure users give you the right data format
-        spsValidate({
-            stopifnot(inherits(plot_data, &amp;quot;data.frame&amp;quot;))                        # require a dataframe
-            stopifnot(nrow(plot_data) &amp;gt; 1)                                      # has least one row
-            if (!all(c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;) %in% colnames(plot_data)))# has two required columns
-                stop(&amp;quot;Require column &#39;Sepal.Length&#39; and &#39;Sepal.Width&#39;&amp;quot;)
-
-            TRUE # give it a TRUE if all checks passed.
-            },
-            verbose = FALSE # only show messages when fail
-        )
-        # actual plot code
-        ggplot2::ggplot(plot_data) +
-            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-            # grab user defined title from plot control by `input$+control_ID`,
-            # no need to add `ns()` on server end.
-            ggplot2::ggtitle(input$plot_title)
-    },
-    other_server_code = {}
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the server code, users only need to focus on the plotting code. The only very important thing
-developers need to remember is that the plotting data been passed to this function
-is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues&lt;/a&gt;
-object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
-be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users&#39; uploads meet the
-requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate&lt;/a&gt;
-function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../sps/dev/server/&#34;&gt;tools section&lt;/a&gt;).&lt;/p&gt;
-&lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
-&lt;p&gt;For some developers who already has experience with Shiny, and would like to make more
-complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the &lt;code&gt;template = &amp;quot;full&amp;quot;&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(
-  tab_id = &amp;quot;vs_new_full&amp;quot;, 
-  tab_displayname = &amp;quot;New tab demo&amp;quot;,
-  template = &amp;quot;full&amp;quot;,
-  app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can see the full template is a lot longer than the simple template:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
-full_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new_full.R&amp;quot;))
-spsinfo(glue::glue(&amp;quot;Simple template has {simple_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
-    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
-    server_expr = {
-        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
-    }
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
-&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
-essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>About: Publications</title>
       <link>/about/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -4023,10 +3687,32 @@ essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt
         
         
         &lt;h2 id=&#34;quick-ggplot-module&#34;&gt;Quick {ggplot} module&lt;/h2&gt;
-&lt;p&gt;This module enables you to quickly upload datasets and make a {&lt;a href=&#34;https://ggplot2.tidyverse.org/&#34;&gt;ggplot&lt;/a&gt;}
-in a second by using some functionalities from {&lt;a href=&#34;https://dreamrs.github.io/esquisse/index.html&#34;&gt;Esquisse&lt;/a&gt;}.&lt;/p&gt;
+&lt;p&gt;This module enables you to quickly upload datasets and make a {&lt;a href=&#34;https://ggplot2.tidyverse.org/&#34;&gt;ggplot{blk}&lt;/a&gt;}
+in a second by using some functionalities from {&lt;a href=&#34;https://dreamrs.github.io/esquisse/index.html&#34;&gt;Esquisse{blk}&lt;/a&gt;}.&lt;/p&gt;
+&lt;h3 id=&#34;upload-data&#34;&gt;Upload data&lt;/h3&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_quckgg_upload.png&#34; alt=&#34;quickgg&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Upload data&lt;/caption&gt;
+&lt;/center&gt;
+&lt;ol&gt;
+&lt;li&gt;The first thing you come to this module is to upload a tabular data file. You
+can choose to use the example or upload your own. The example is just the &lt;code&gt;iris&lt;/code&gt;
+data.
+&lt;ul&gt;
+&lt;li&gt;1.1. If you choose to upload, there will be a upload button where you need to
+choose your own file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;By default, it assumes you upload a &amp;ldquo;.csv&amp;rdquo; file with &amp;ldquo;#&amp;rdquo; as comments. If not
+you can choose the file delimiter and comment character.&lt;/li&gt;
+&lt;li&gt;You can view your uploaded data and use the boxes below each column name to
+perform some filters, but you are not allowed to edit the data.&lt;/li&gt;
+&lt;li&gt;If everything looks good, you can submit to proceed to the plot making panel.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;make-a-plot&#34;&gt;Make a plot&lt;/h3&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../img/sps_quickgg.jpg&#34; alt=&#34;quickgg&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Make a plot&lt;/caption&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;strong&gt;Figure 8&lt;/strong&gt; Quick ggplot&lt;/p&gt;
 &lt;ol&gt;
@@ -4035,7 +3721,8 @@ in a second by using some functionalities from {&lt;a href=&#34;https://dreamrs.
 &lt;li&gt;Change to different plot types.&lt;/li&gt;
 &lt;li&gt;Customize other different plotting options.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;For a more specific guide, read &lt;a href=&#34;https://dreamrs.github.io/esquisse/articles/get-started.html&#34;&gt;Esquisse official guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For a more specific guide, read
+&lt;a href=&#34;https://dreamrs.github.io/esquisse/articles/get-started.html&#34;&gt;Esquisse official guide{blk}&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
@@ -4461,6 +4148,123 @@ if(emptyIsFalse(unlist(missing_pkg))) stop(&amp;quot;Install packages&amp;quot;)
     </item>
     
     <item>
+      <title>Sps: Toggle tabs</title>
+      <link>/sps/adv_features/displaytabs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sps/adv_features/displaytabs/</guid>
+      <description>
+        
+        
+        &lt;hr&gt;
+&lt;h2 id=&#34;load-and-unload-tabs&#34;&gt;Load and unload tabs&lt;/h2&gt;
+&lt;p&gt;In SPS, all tabs including tabs for modules and other default tabs can be
+loaded and unloaded. This is controlled by &lt;a href=&#34;../config#app-options&#34;&gt;SPS options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Under current version, these options are:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Other&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;module_wf&lt;/td&gt;
+&lt;td&gt;load workflow module?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;module_rnaseq&lt;/td&gt;
+&lt;td&gt;load RNAseq module?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;module_ggplot&lt;/td&gt;
+&lt;td&gt;load quick ggplot module?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tab_welcome&lt;/td&gt;
+&lt;td&gt;load welcome tab?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tab_vs_main&lt;/td&gt;
+&lt;td&gt;load custom visualization main tab?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tab_canvas&lt;/td&gt;
+&lt;td&gt;load Canvas tab?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tab_about&lt;/td&gt;
+&lt;td&gt;load about tab?&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Each of them controls whether to load or unload a tab. By default, all tabs
+are loaded, but you can unload them by turn them to &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The original UI look like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../sps_default_ui.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Default UI&lt;/caption&gt;
+&lt;/center&gt;
+&lt;p&gt;To unload some tabs, scroll to the option lines in &lt;strong&gt;&lt;code&gt;global.R&lt;/code&gt;&lt;/strong&gt; file:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;options(sps = list(
+    ...
+    tab_welcome = TRUE,
+    tab_vs_main = TRUE,
+    tab_canvas = FALSE,
+    tab_about = FALSE,
+    module_wf = FALSE,
+    module_rnaseq = FALSE,
+    module_ggplot = TRUE,
+    ...
+))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We unload the &amp;ldquo;Canvas tab&amp;rdquo;, &amp;ldquo;workflow module tab&amp;rdquo;, &amp;ldquo;RNASeq module tab&amp;rdquo; and
+&amp;ldquo;About tab&amp;rdquo;. When you restart the app, you should see some tabs are gone:&lt;/p&gt;
+&lt;p&gt;The original UI look like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../sps_unload_tabs.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Unload some tabs&lt;/caption&gt;
+&lt;/center&gt;
+&lt;h3 id=&#34;exception-for-module-main-page&#34;&gt;Exception for module main page&lt;/h3&gt;
+&lt;p&gt;You may have noticed, there is no option to unload the &lt;em&gt;module main tab&lt;/em&gt;, which is
+named &amp;ldquo;&lt;i class=&#34;fa fa-layer-group&#34;&gt;&lt;/i&gt;Modules&amp;rdquo; on the left sidebar. This is
+because this tab is controlled by its sub-tabs, the module tab options. To unload this tab, all
+the module tabs have to be unloaded the same time like following. If any module
+is loaded, this module main tab cannot be unloaded.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;options(sps = list(
+    ...
+    module_wf = FALSE,
+    module_rnaseq = FALSE,
+    module_ggplot = FALSE,
+    ...
+))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../sps_no_module.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;No module loaded&lt;/caption&gt;
+&lt;/center&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>About: Acknowledgement</title>
       <link>/about/acknowledgement/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -4477,206 +4281,107 @@ if(emptyIsFalse(unlist(missing_pkg))) stop(&amp;quot;Install packages&amp;quot;)
     </item>
     
     <item>
-      <title>Sps: SPS Guide</title>
-      <link>/sps/adv_features/guide/</link>
+      <title>Sps: Notification system</title>
+      <link>/sps/adv_features/notification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/sps/adv_features/guide/</guid>
+      <guid>/sps/adv_features/notification/</guid>
       <description>
         
         
         &lt;hr&gt;
-&lt;h2 id=&#34;sps-interative-guides-tutorials&#34;&gt;SPS interative guides (tutorials)&lt;/h2&gt;
-&lt;p&gt;In SPS, &lt;strong&gt;tab&lt;/strong&gt; is the basic component of a functionality unit. For example, all the &lt;a href=&#34;../sps/modules/&#34;&gt;Modules&lt;/a&gt;
-in SPS are complex tabs with many small sub-tabs, the &lt;a href=&#34;../sps/canvas/&#34;&gt;Canvas&lt;/a&gt; is another independent tab providing
-image editing features and an &lt;em&gt;user custom tab&lt;/em&gt; is also a SPS tab.&lt;/p&gt;
-&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-&lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
-case.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
-spsInit(app_path = tempdir(), project_name = &amp;quot;tab_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at &#39;/tmp/Rtmp4RU0eV/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
-(sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;tab_demo&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmp4RU0eV/tab_demo&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
-spsInit()
-sps_dir &amp;lt;- normalizePath(&amp;quot;.&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;tab-registration&#34;&gt;Tab registration&lt;/h2&gt;
-&lt;p&gt;In SPS, all tabs are controlled by the &lt;em&gt;config/tabs.csv&lt;/em&gt; file. To see what kind of
-tabs you have with current project. use the &lt;code&gt;spsTabInfo&lt;/code&gt; function. It returns a tibble
-of current tab information.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsTabInfo(app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 11 x 8
-##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
-##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt; 
-##  1 core_ab… About this App   core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  2 core_ca… Canvas           core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  3 core_we… Home             core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  4 core_ri… Internal use on… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  5 core_top Top push bars    core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  6 module_… Module Main Page core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  7 wf       Workflow module  modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  8 vs_rnas… RNAseq module    modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  9 vs_esq   Quick ggplot mo… modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 10 vs_main  custom tabs mai… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 11 vs_exam… My custom plott… vs    &amp;quot;plot&amp;quot;   &amp;quot;&amp;quot;    1         tab_vs_examp… &amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;tab_id: A unique string ID&lt;/li&gt;
-&lt;li&gt;display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li&gt;
-&lt;li&gt;type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
-&lt;li&gt;type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
-&lt;li&gt;image: If this is an user custom tab, providing an image path will display the image in
-visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../vs_main.png&#34; alt=&#34;vs_main&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;displayed: Internal use only&lt;/li&gt;
-&lt;li&gt;tab_file_name: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
-&lt;li&gt;plugin: Internal use only&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;add-a-new-custom-tab&#34;&gt;Add a new custom tab&lt;/h2&gt;
-&lt;p&gt;SPS provides a template to help developers to create a small SPS tab  that&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The main purpose is to generate some plots&lt;/li&gt;
-&lt;li&gt;can be loaded into SPS framework easily&lt;/li&gt;
-&lt;li&gt;can interact with other SPS tabs (components), like the Canvas tab.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;simple-template&#34;&gt;Simple template&lt;/h3&gt;
-&lt;p&gt;Under current SPS version, users are able to add custom tabs with the &lt;code&gt;spsNewTab&lt;/code&gt; function.
-This function:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;creates the tab file.&lt;/li&gt;
-&lt;li&gt;provides a nice template.&lt;/li&gt;
-&lt;li&gt;Helps you to register tab information to &lt;code&gt;tabs.csv&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.&lt;/p&gt;
-&lt;p&gt;By default, it uses the simple template, which contains the &lt;code&gt;spsEzUI&lt;/code&gt; and  &lt;code&gt;spsEzServer&lt;/code&gt; functions.
-We have provided commented instructions on how to fill each argument.&lt;/p&gt;
-&lt;h4 id=&#34;ui&#34;&gt;UI&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzUI(
-  desc = &amp;quot;xxx&amp;quot;,
-  tab_title = &amp;quot;xxx&amp;quot;,
-  plot_title = &amp;quot;xxx&amp;quot;,
-  plot_control =  shiny::tagList(
-    xxx
-  )
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The only augment new users need to take some time to learn is adding &lt;code&gt;plot_control&lt;/code&gt;.
-Developers need to add some Shiny UI components to let users control how the plotting is
-done with interactive options. Basic use can be learned in 5 minutes on
-&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;server&#34;&gt;Server&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzServer(
-    plot_code = {
-        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-        plot_data &amp;lt;- mydata$data
-        # some validations, make sure users give you the right data format
-        spsValidate({
-            stopifnot(inherits(plot_data, &amp;quot;data.frame&amp;quot;))                        # require a dataframe
-            stopifnot(nrow(plot_data) &amp;gt; 1)                                      # has least one row
-            if (!all(c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;) %in% colnames(plot_data)))# has two required columns
-                stop(&amp;quot;Require column &#39;Sepal.Length&#39; and &#39;Sepal.Width&#39;&amp;quot;)
+&lt;h2 id=&#34;sps-notification-system&#34;&gt;SPS notification system&lt;/h2&gt;
+&lt;p&gt;In SPS, there is a notification dropdown where developers can broadcast new messages
+to users. The dropdown is located on the top-right corner.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../note_main.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Notification Dropdown&lt;/caption&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br&gt;When a notification item is clicked, details of the notification will be displayed
+in a modal.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../note_view.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Notification Detail Moadal&lt;/caption&gt;
+&lt;/center&gt;
+&lt;h2 id=&#34;official-notification&#34;&gt;Official notification&lt;/h2&gt;
+&lt;p&gt;If you only use the original SPS, we will send out new notifications every time
+we update the package or other important things that we want to inform you.
+You should see the icon of the dropdown becomes.
+&lt;i class=&#34;fa fa-exclamation-triangle&#34;&gt;&lt;/i&gt; + the message number. If there is no
+message or you have clicked the dropdown, it will become &lt;i class=&#34;fa fa-check&#34;&gt;&lt;/i&gt; + 0.&lt;/p&gt;
+&lt;h2 id=&#34;custom-notification&#34;&gt;Custom notification&lt;/h2&gt;
+&lt;p&gt;If you do not want to receive the official notification or want to write your
+own note to your users, first let us understand how it works.&lt;/p&gt;
+&lt;h3 id=&#34;mechanism&#34;&gt;Mechanism&lt;/h3&gt;
+&lt;p&gt;Every time when you run the &lt;code&gt;sps()&lt;/code&gt; main function, it will look for a remote URL
+that stores the notification information in &lt;strong&gt;&lt;a href=&#34;https://yaml.org/&#34;&gt;yaml{blk}&lt;/a&gt;&lt;/strong&gt; format.
+If this file can be successfully parsed, you will see the notification dropdown menu
+on SPS UI, otherwise no dropdown displayed.&lt;/p&gt;
+&lt;p&gt;To define your own notification URL, you need to change the option &lt;code&gt;note_url&lt;/code&gt; in
+the &lt;code&gt;global.R&lt;/code&gt; file. Read more about changing &lt;a href=&#34;../config#app-options&#34;&gt;SPS options&lt;/a&gt;.
+The default value is a file on Github, which also can be used as your template to write custom
+notification messages:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml&#34;&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml{blk}&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;notification-template&#34;&gt;Notification template&lt;/h3&gt;
+&lt;p&gt;If you download the link above, you should see something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;############ Create remote messages to notify users in the app #################
+## When app starts, it will first try to load this file from online.
+## You should place this file somewhere publically reachable online, like Github.
+## This file should not be included in your app deployment.
+## Add the url of this file to the SPS option `note_url` in &amp;quot;global.R&amp;quot; file
 
-            TRUE # give it a TRUE if all checks passed.
-            },
-            verbose = FALSE # only show messages when fail
-        )
-        # actual plot code
-        ggplot2::ggplot(plot_data) +
-            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-            # grab user defined title from plot control by `input$+control_ID`,
-            # no need to add `ns()` on server end.
-            ggplot2::ggtitle(input$plot_title)
-    },
-    other_server_code = {}
-)
+# type: one of &#39;package&#39; or &#39;general&#39;, required
+# expire: note will be displayed before the date, required, YYYY-MM-DD format
+# title: string, required
+# icon: any font-awesome icon name, default is the &amp;quot;info-circle&amp;quot;
+# status: one of primary, success, info, warning, danger, default is &amp;quot;primary&amp;quot;
+# pkg_name: string, required if type == &#39;package&#39;, such as &amp;quot;systemPipeShiny&amp;quot;
+# version: string, required if type == &#39;package&#39;, such as &amp;quot;1.0.0&amp;quot;
+# message: string, optional, the text body of the notification. Be careful with indentations.
+- note:
+    type: general
+    pkg_name:
+    version:
+    title: Notification broadcasting
+    expire: 2099-01-01
+    icon:
+    status:
+    message: |
+        ## SPS notifications
+        What you are looking at is the SPS notification broadcasting system. It
+        display messages to your users by reading a remote `yaml` file stored
+        online. SPS will fetch the content of this file and translate it to different
+        notes you can see here. So you do not need to re-deploy the app every time
+        there is a new notification.
+        1. You can customize your own notifications by
+           using [this file as template](https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml).
+        2. After the modification, place this file in public accessible location, like
+           Github, do not inlcude this file in app deployment.
+        3. During app deployment, indicate the URL of this file in `global.R`
+           file, `note_url:` option.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the server code, users only need to focus on the plotting code. The only very important thing
-developers need to remember is that the plotting data been passed to this function
-is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues&lt;/a&gt;
-object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
-be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users&#39; uploads meet the
-requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate&lt;/a&gt;
-function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../sps/dev/server/&#34;&gt;tools section&lt;/a&gt;).&lt;/p&gt;
-&lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
-&lt;p&gt;For some developers who already has experience with Shiny, and would like to make more
-complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the &lt;code&gt;template = &amp;quot;full&amp;quot;&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(
-  tab_id = &amp;quot;vs_new_full&amp;quot;, 
-  tab_displayname = &amp;quot;New tab demo&amp;quot;,
-  template = &amp;quot;full&amp;quot;,
-  app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can see the full template is a lot longer than the simple template:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
-full_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new_full.R&amp;quot;))
-spsinfo(glue::glue(&amp;quot;Simple template has {simple_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
-    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
-    server_expr = {
-        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
-    }
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
-&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
-essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
+&lt;h3 id=&#34;template-details&#34;&gt;Template details&lt;/h3&gt;
+&lt;p&gt;Most entries are easy-to-understand. Here are some key points.&lt;/p&gt;
+&lt;h4 id=&#34;indentation&#34;&gt;Indentation&lt;/h4&gt;
+&lt;p&gt;Indentation is &lt;strong&gt;very important&lt;/strong&gt; in a yaml file. In the template, we use &lt;strong&gt;4 spaces&lt;/strong&gt;
+as 1 level of indentation.&lt;/p&gt;
+&lt;h4 id=&#34;notification-start-and-end&#34;&gt;Notification start and end&lt;/h4&gt;
+&lt;p&gt;Always start with a &lt;code&gt;- note:&lt;/code&gt; to define a notification item. After you finish typing
+the message body, leave at least one line blank before starting another notification.&lt;/p&gt;
+&lt;h4 id=&#34;type&#34;&gt;&lt;code&gt;type&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;general&lt;/strong&gt;: Use this type to create a general notification. It will ignore &lt;code&gt;pkg_name&lt;/code&gt;
+and &lt;code&gt;version&lt;/code&gt; information.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;package&lt;/strong&gt;: A notification that is related to a package updates. This type of note will first
+check if the user has installed the package (single one) with  a version that is
+higher than the specified version number in
+&lt;code&gt;pkg_name&lt;/code&gt; and &lt;code&gt;version&lt;/code&gt; entries. If so, the notification will &lt;strong&gt;not be displayed&lt;/strong&gt;.
+If not the user will see the notification before expiration date.&lt;/p&gt;
+&lt;h4 id=&#34;expire&#34;&gt;&lt;code&gt;expire&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;expire&lt;/code&gt; decides how long to show users the notification. If current date has
+passed the date in &lt;code&gt;expire&lt;/code&gt;, the notification will not be displayed.&lt;/p&gt;
+&lt;h4 id=&#34;message-body&#34;&gt;Message body&lt;/h4&gt;
+&lt;p&gt;Use &lt;code&gt;|&lt;/code&gt; to start a new line and put the markdown format text body
+in the next indentation level.&lt;/p&gt;
 
       </description>
     </item>
@@ -5968,206 +5673,141 @@ of change (&lt;code&gt;log2 fold change&lt;/code&gt;).&lt;/p&gt;
     </item>
     
     <item>
-      <title>Sps: Toggle tabs</title>
-      <link>/sps/adv_features/displaytabs/</link>
+      <title>Sps: SPS Guide</title>
+      <link>/sps/adv_features/guide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/sps/adv_features/displaytabs/</guid>
+      <guid>/sps/adv_features/guide/</guid>
       <description>
         
         
         &lt;hr&gt;
-&lt;h2 id=&#34;load-and-unload-tabs&#34;&gt;Load and unload tabs&lt;/h2&gt;
-&lt;p&gt;In SPS, &lt;strong&gt;tab&lt;/strong&gt; is the basic component of a functionality unit. For example, all the &lt;a href=&#34;../sps/modules/&#34;&gt;Modules&lt;/a&gt;
-in SPS are complex tabs with many small sub-tabs, the &lt;a href=&#34;../sps/canvas/&#34;&gt;Canvas&lt;/a&gt; is another independent tab providing
-image editing features and an &lt;em&gt;user custom tab&lt;/em&gt; is also a SPS tab.&lt;/p&gt;
-&lt;p&gt;From the developer&amp;rsquo;s view, all SPS tabs are &lt;a href=&#34;https://shiny.rstudio.com/articles/modules.html&#34;&gt;Shiny Modules&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-&lt;code&gt;/tmp&lt;/code&gt; folder but one should use a regular location instead of the temp in a  real
-case.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
-spsInit(app_path = tempdir(), project_name = &amp;quot;tab_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at &#39;/tmp/Rtmp4RU0eV/tab_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
-(sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;tab_demo&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmp4RU0eV/tab_demo&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
-spsInit()
-sps_dir &amp;lt;- normalizePath(&amp;quot;.&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;tab-registration&#34;&gt;Tab registration&lt;/h2&gt;
-&lt;p&gt;In SPS, all tabs are controlled by the &lt;em&gt;config/tabs.csv&lt;/em&gt; file. To see what kind of
-tabs you have with current project. use the &lt;code&gt;spsTabInfo&lt;/code&gt; function. It returns a tibble
-of current tab information.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsTabInfo(app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 11 x 8
-##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
-##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt; 
-##  1 core_ab… About this App   core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  2 core_ca… Canvas           core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  3 core_we… Home             core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  4 core_ri… Internal use on… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  5 core_top Top push bars    core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  6 module_… Module Main Page core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  7 wf       Workflow module  modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  8 vs_rnas… RNAseq module    modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-##  9 vs_esq   Quick ggplot mo… modu… &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 10 vs_main  custom tabs mai… core  &amp;quot;&amp;quot;       &amp;quot;&amp;quot;    1         No file for … &amp;quot;core&amp;quot;
-## 11 vs_exam… My custom plott… vs    &amp;quot;plot&amp;quot;   &amp;quot;&amp;quot;    1         tab_vs_examp… &amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;tab_id: A unique string ID&lt;/li&gt;
-&lt;li&gt;display_label: for type is &amp;ldquo;core&amp;rdquo; or &amp;ldquo;module&amp;rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.&lt;/li&gt;
-&lt;li&gt;type: tab category, &amp;ldquo;core&amp;rdquo;, &amp;ldquo;module&amp;rdquo; and &amp;ldquo;vs&amp;rdquo; (visualization).&lt;/li&gt;
-&lt;li&gt;type_sub: more specific category, current only &amp;ldquo;plot&amp;rdquo; (plotting)&lt;/li&gt;
-&lt;li&gt;image: If this is an user custom tab, providing an image path will display the image in
-visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &amp;ldquo;No image&amp;rdquo; image will be used like the following:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../vs_main.png&#34; alt=&#34;vs_main&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;displayed: Internal use only&lt;/li&gt;
-&lt;li&gt;tab_file_name: where the tab file is relative to the &lt;code&gt;R&lt;/code&gt; folder.&lt;/li&gt;
-&lt;li&gt;plugin: Internal use only&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;add-a-new-custom-tab&#34;&gt;Add a new custom tab&lt;/h2&gt;
-&lt;p&gt;SPS provides a template to help developers to create a small SPS tab  that&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The main purpose is to generate some plots&lt;/li&gt;
-&lt;li&gt;can be loaded into SPS framework easily&lt;/li&gt;
-&lt;li&gt;can interact with other SPS tabs (components), like the Canvas tab.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;simple-template&#34;&gt;Simple template&lt;/h3&gt;
-&lt;p&gt;Under current SPS version, users are able to add custom tabs with the &lt;code&gt;spsNewTab&lt;/code&gt; function.
-This function:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;creates the tab file.&lt;/li&gt;
-&lt;li&gt;provides a nice template.&lt;/li&gt;
-&lt;li&gt;Helps you to register tab information to &lt;code&gt;tabs.csv&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(tab_id = &amp;quot;vs_new&amp;quot;, tab_displayname = &amp;quot;New tab demo&amp;quot;, app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.&lt;/p&gt;
-&lt;p&gt;By default, it uses the simple template, which contains the &lt;code&gt;spsEzUI&lt;/code&gt; and  &lt;code&gt;spsEzServer&lt;/code&gt; functions.
-We have provided commented instructions on how to fill each argument.&lt;/p&gt;
-&lt;h4 id=&#34;ui&#34;&gt;UI&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzUI(
-  desc = &amp;quot;xxx&amp;quot;,
-  tab_title = &amp;quot;xxx&amp;quot;,
-  plot_title = &amp;quot;xxx&amp;quot;,
-  plot_control =  shiny::tagList(
-    xxx
-  )
+&lt;h2 id=&#34;sps-interative-guides-tutorials&#34;&gt;SPS interative guides (tutorials)&lt;/h2&gt;
+&lt;p&gt;SPS provides some interactive guides for users to familiarize the app. There is a
+very simple one-step welcome guide that will initialize everytime on app start to indicate
+where the guide dropdown is (top-right corner).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../guide_init.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Welcome guide on start&lt;/caption&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br&gt;By clicking the guide dropdown menu, you can open up the list of available guides.
+By default, we only proivde a main SPS guide.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../guide_main.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Guide dropdown menu&lt;/caption&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br&gt;If any of the guide is clicked in the dropdown, the corresponding interactive guide
+will start.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../guide_started.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Guide started&lt;/caption&gt;
+&lt;/center&gt;
+&lt;p&gt;You can click &amp;ldquo;Next&amp;rdquo;, &amp;ldquo;Previous&amp;rdquo; or &amp;ldquo;Close&amp;rdquo; to navigate the guide or close the guide.&lt;/p&gt;
+&lt;h2 id=&#34;custom-guide&#34;&gt;Custom guide&lt;/h2&gt;
+&lt;p&gt;To build and provide your custom guides to your users, there is file &lt;code&gt;guide_content.R&lt;/code&gt;
+created on SPS project initialization under the &lt;code&gt;R&lt;/code&gt; folder: &lt;code&gt;/R/guide_content.R&lt;/code&gt;.
+This is the place to define your own guide.&lt;/p&gt;
+&lt;p&gt;This file look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#################### Define your custom SPS tutorials ##########################
+# use `shinydashboardPlus::messageItem` to add your tutorials UI to this list
+guide_ui &amp;lt;- list(
+    ## An example is provided below
+    shinydashboardPlus::messageItem(
+        inputId = &amp;quot;guide_main&amp;quot;,
+        from = &amp;quot;Main Guide&amp;quot;,
+        icon = icon(&#39;home&#39;),
+        message = &amp;quot;Brief introduction&amp;quot;
+    )
 )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The only augment new users need to take some time to learn is adding &lt;code&gt;plot_control&lt;/code&gt;.
-Developers need to add some Shiny UI components to let users control how the plotting is
-done with interactive options. Basic use can be learned in 5 minutes on
-&lt;a href=&#34;https://shiny.rstudio.com/articles/basics.html&#34;&gt;Shiny website&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/basic-ui.html&#34;&gt;Shiny book&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;server&#34;&gt;Server&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsEzServer(
-    plot_code = {
-        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-        plot_data &amp;lt;- mydata$data
-        # some validations, make sure users give you the right data format
-        spsValidate({
-            stopifnot(inherits(plot_data, &amp;quot;data.frame&amp;quot;))                        # require a dataframe
-            stopifnot(nrow(plot_data) &amp;gt; 1)                                      # has least one row
-            if (!all(c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;) %in% colnames(plot_data)))# has two required columns
-                stop(&amp;quot;Require column &#39;Sepal.Length&#39; and &#39;Sepal.Width&#39;&amp;quot;)
 
-            TRUE # give it a TRUE if all checks passed.
-            },
-            verbose = FALSE # only show messages when fail
-        )
-        # actual plot code
-        ggplot2::ggplot(plot_data) +
-            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-            # grab user defined title from plot control by `input$+control_ID`,
-            # no need to add `ns()` on server end.
-            ggplot2::ggtitle(input$plot_title)
-    },
-    other_server_code = {}
+# use `cicerone::Cicerone$new()` to add your tutorials content to this list
+# See help `?cicerone::Cicerone`
+# A named list, each item&#39;s name must match the `inputId` in UI to trigger it in app.
+guide_content &amp;lt;- try(list(
+    ## An example is provided below, replace or add your own to the list
+    guide_main = cicerone::Cicerone$new(overlay_click_next = TRUE)$
+        step(el = &amp;quot;sidebarItemExpanded&amp;quot;,
+             title = &amp;quot;SPS tabs&amp;quot;,
+             description = &amp;quot;Browse SPS functionalities as tabs from the left&amp;quot;,
+             position = &amp;quot;right-center&amp;quot;)$
+        ...
+))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are two parts that you need to define: UI and actual guide content.&lt;/p&gt;
+&lt;h3 id=&#34;ui&#34;&gt;UI&lt;/h3&gt;
+&lt;p&gt;UI is what users see inside the dropdown menu. Guides UI needs to be stored in a
+&lt;code&gt;list&lt;/code&gt; and each item should be a &lt;code&gt;shinydashboardPlus::messageItem&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;inputId&lt;/code&gt; must be unique.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;from&lt;/code&gt; is the short description of the guide.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;icon&lt;/code&gt; should be a call of &lt;code&gt;shiny::icon()&lt;/code&gt;, the icon of the guide in dropdown menu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;message&lt;/code&gt;: short description of the guide in dropdown menu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To add multiple guides&#39; UI, for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;guide_ui &amp;lt;- list(
+    ## An example is provided below
+    shinydashboardPlus::messageItem(
+        inputId = &amp;quot;guide1&amp;quot;,
+        ...
+    ),
+    shinydashboardPlus::messageItem(
+        inputId = &amp;quot;guide2&amp;quot;,
+        ...
+    ),
+    ...
 )
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the server code, users only need to focus on the plotting code. The only very important thing
-developers need to remember is that the plotting data been passed to this function
-is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html&#34;&gt;reactiveValues&lt;/a&gt;
-object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
-be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users&#39; uploads meet the
-requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate&lt;/a&gt;
-function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../sps/dev/server/&#34;&gt;tools section&lt;/a&gt;).&lt;/p&gt;
-&lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
-&lt;p&gt;For some developers who already has experience with Shiny, and would like to make more
-complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the &lt;code&gt;template = &amp;quot;full&amp;quot;&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsNewTab(
-  tab_id = &amp;quot;vs_new_full&amp;quot;, 
-  tab_displayname = &amp;quot;New tab demo&amp;quot;,
-  template = &amp;quot;full&amp;quot;,
-  app_path = sps_dir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&amp;quot;vs_new_full&amp;quot;)`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can see the full template is a lot longer than the simple template:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;simple_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new.R&amp;quot;))
-full_len &amp;lt;- R.utils::countLines(file.path(sps_dir, &amp;quot;R&amp;quot;, &amp;quot;tab_vs_new_full.R&amp;quot;))
-spsinfo(glue::glue(&amp;quot;Simple template has {simple_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsinfo(glue::glue(&amp;quot;Full template has {full_len} lines&amp;quot;), TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In your &lt;em&gt;global.R&lt;/em&gt;, scroll down to the bottom, you should see:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sps_app &amp;lt;- sps(
-    tabs = c(&amp;quot;data_example&amp;quot;, &amp;quot;plot_example1&amp;quot;, &amp;quot;plot_example2&amp;quot;),
-    server_expr = {
-        msg(&amp;quot;Custom expression runs -- Hello World&amp;quot;, &amp;quot;GREETING&amp;quot;, &amp;quot;green&amp;quot;)
-    }
+&lt;h3 id=&#34;guide-content&#34;&gt;Guide content&lt;/h3&gt;
+&lt;p&gt;The guide content is defined with the {&lt;a href=&#34;https://github.com/JohnCoene/cicerone&#34;&gt;cicerone{blk}&lt;/a&gt;}
+package with &lt;code&gt;cicerone::Cicerone&lt;/code&gt; R6 class and also in a &lt;strong&gt;named&lt;/strong&gt; list.&lt;/p&gt;
+&lt;p&gt;The name of each item in a list must match the name of &lt;code&gt;inputId&lt;/code&gt; in guide UI.
+For example, we have two guides&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;guide_ui &amp;lt;- list(
+    ## An example is provided below
+    shinydashboardPlus::messageItem(
+        inputId = &amp;quot;guide1&amp;quot;,
+        ...
+    ),
+    shinydashboardPlus::messageItem(
+        inputId = &amp;quot;guide2&amp;quot;,
+        ...
+    ),
+    ...
 )
+
+guide_content &amp;lt;- try(list(
+    guide1 = cicerone::Cicerone$new(overlay_click_next = TRUE)$
+        ...,
+    guide2 = cicerone::Cicerone$new(overlay_click_next = TRUE)$
+        ...
+))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is the SPS main function. You can load/unload tabs by providing tab IDs in &lt;code&gt;vstabs&lt;/code&gt; argument, like
-&lt;code&gt;c(&amp;quot;tab1&amp;quot;, &amp;quot;tab2)&lt;/code&gt;. Open &lt;em&gt;config/tabs.csv&lt;/em&gt; or use &lt;code&gt;spsTabInfo()&lt;/code&gt; to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word &lt;code&gt;vs&lt;/code&gt; under column &amp;ldquo;&lt;em&gt;type&lt;/em&gt;&amp;quot;;
-essential framework tabs(&lt;em&gt;core&lt;/em&gt;) and workflow tabs (&lt;em&gt;wf&lt;/em&gt;) are loaded automatically and these tabs cannot be modified.&lt;/p&gt;
+&lt;p&gt;The &amp;ldquo;guide1&amp;rdquo; of &lt;code&gt;inputId&lt;/code&gt; in the &lt;code&gt;guide_ui&lt;/code&gt; must match &amp;ldquo;guide1&amp;rdquo; in &lt;code&gt;guide_content&lt;/code&gt; list.&lt;/p&gt;
+&lt;p&gt;The &amp;ldquo;guide2&amp;rdquo; of &lt;code&gt;inputId&lt;/code&gt; in the &lt;code&gt;guide_ui&lt;/code&gt; must match &amp;ldquo;guide2&amp;rdquo; in &lt;code&gt;guide_content&lt;/code&gt; list.&lt;/p&gt;
+&lt;h4 id=&#34;define-guide-content&#34;&gt;Define guide content&lt;/h4&gt;
+&lt;p&gt;How to define the guide content will not be expanded here, read details in the {&lt;a href=&#34;https://github.com/JohnCoene/cicerone&#34;&gt;cicerone{blk}&lt;/a&gt;} package manual.
+Here are some key points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;cicerone::Cicerone&lt;/code&gt; is R6 class, and it is obejct oriented, so
+you need to use &lt;code&gt;cicerone::Cicerone$new()&lt;/code&gt; method to create a new object before you
+can add any guide step.&lt;/li&gt;
+&lt;li&gt;R6 methods calling can be chained together, like how to define steps:
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;guide_content &amp;lt;- try(list(
+    guide1 = cicerone::Cicerone$new()$ # chain object creation with step defining
+        step(...)$                     # chain step1 to step2
+        step(...)$                     # step2 to step3
+        step(...)$                     # step3 to step4
+        step(...)                      # DO NOT use `$` for the last step
+))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you follow the manual of {cicerone} to define steps, the guide will look like this
+when users click it.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../cicerone.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;caption&gt;Cicerone steps&lt;/caption&gt;
+&lt;/center&gt;
 
       </description>
     </item>
@@ -6993,9 +6633,9 @@ SPS, inherits &lt;code&gt;spsDb&lt;/code&gt; and &lt;code&gt;spsEncryption&lt;/c
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;app_path &amp;lt;- &amp;quot;.&amp;quot;
 spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-20 12:54:52 Done, Db created at &#39;/tmp/RtmpOJVGEa/SPS_20210420/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:52 Key md5 0b4402aa760dff52851ca2cc0a46125f
-## [SPS-INFO] 2021-04-20 12:54:52 SPS project setup done!
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-22 15:45:04 Done, Db created at &#39;/tmp/Rtmp3KQ3pG/SPS_20210422/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:04 Key md5 1d1f76c8eecddb382ee2db097d6edbe9
+## [SPS-INFO] 2021-04-22 15:45:04 SPS project setup done!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see a database created on a SPS project initiation, you should see a message
 like this:&lt;/p&gt;
@@ -7007,7 +6647,7 @@ like this:&lt;/p&gt;
 &lt;p&gt;Create a class object:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb &amp;lt;- spsDb$new()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:52 Created SPS database method container
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-22 15:45:04 Created SPS database method container
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;create-new-db&#34;&gt;create new db&lt;/h3&gt;
 &lt;p&gt;If there is no database, we can create one:&lt;/p&gt;
@@ -7016,9 +6656,9 @@ try(file.remove(&amp;quot;config/sps.db&amp;quot;))
 ## [1] TRUE
 # create a new one
 mydb$createDb()
-## [SPS-INFO] 2021-04-20 12:54:52 Creating SPS db...
-## [SPS-DANGER] 2021-04-20 12:54:53 Done, Db created at &#39;config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:53 Key md5 64ebf9eaaecc16311b95fdb2a98d733c
+## [SPS-INFO] 2021-04-22 15:45:04 Creating SPS db...
+## [SPS-DANGER] 2021-04-22 15:45:04 Done, Db created at &#39;config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:04 Key md5 6306a50abcf3c7618566911a793b0405
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p class=&#34;text-danger&#34;&gt;If you create a new database, all information in the old database
 will be overwritten. All old information will be lost&lt;/p&gt;
@@ -7027,20 +6667,20 @@ will be overwritten. All old information will be lost&lt;/p&gt;
 mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# raw blob table to store keys
 mydb$queryValue(&amp;quot;sps_raw&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   info         value
-## 1  key blob[1.37 kB]
+## 1  key blob[1.36 kB]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# account table
 mydb$queryValue(&amp;quot;sps_account&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   account                                                             pass
-## 1   admin c8f48db9ec1688ed213aeb94c5cd81faf6cdfb825f1deb7274eac3419a203a02
-## 2    user aafcbc2569a9a7064e9c86889bb0d591fbccd292479027cdc7b6c015ddcdaa6f
+## 1   admin bef2094c429fa5b0ff7a37abc6bf8dd31c29fa2acd783a2303935d2b8664ea21
+## 2    user 12842a62c410af0f4b4dc866283a90f7b7c42c9d5ca0d0e1c812dca11021b052
 ##    role
 ## 1 admin
 ## 2  user
@@ -7049,52 +6689,52 @@ mydb$queryValue(&amp;quot;sps_account&amp;quot;)
 &lt;p&gt;To add a new row, values of all columns needs to be passed in a SQL string&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryInsert(&amp;quot;sps_meta&amp;quot;, value = &amp;quot;&#39;new1&#39;, &#39;1&#39;&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-22 15:45:04 Inerted 1 rows
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Or pass in a vector:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryInsert(&amp;quot;sps_meta&amp;quot;, value = c(&amp;quot;&#39;new2&#39;&amp;quot;, &amp;quot;&#39;2&#39;&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-22 15:45:04 Inerted 1 rows
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# check the new table 
 mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new1              1
 ## 3          new2              2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;change-values&#34;&gt;change values&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryUpdate(&amp;quot;sps_meta&amp;quot;, value = &#39;234&#39;, col = &amp;quot;value&amp;quot;, WHERE = &amp;quot;info = &#39;new1&#39;&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Updated 1 rows
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-22 15:45:04 Updated 1 rows
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# check the update
 mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new1            234
 ## 3          new2              2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;remove-values&#34;&gt;remove values&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydb$queryDel(&amp;quot;sps_meta&amp;quot;, WHERE = &amp;quot;value = &#39;234&#39;&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 Deleted 1 rows
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-22 15:45:05 Deleted 1 rows
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# check again 
 mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new2              2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;spsencryption-class&#34;&gt;&lt;code&gt;spsEncryption&lt;/code&gt; class&lt;/h2&gt;
 &lt;p&gt;Reference manual under &lt;a href=&#34;../sps/funcs/sps/reference/spsEncryption.html&#34;&gt;SPS Functions&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Start by creating a class object&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt &amp;lt;- spsEncryption$new()
-## [SPS-INFO] 2021-04-20 12:54:53 Created SPS encryption method container
-## [SPS-INFO] 2021-04-20 12:54:53 Default SPS-db found and is working
+## [SPS-INFO] 2021-04-22 15:45:05 Created SPS encryption method container
+## [SPS-INFO] 2021-04-22 15:45:05 Default SPS-db found and is working
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;get-current-key&#34;&gt;Get current key&lt;/h3&gt;
 &lt;p&gt;To see the public and private keys (in {&lt;a href=&#34;https://github.com/jeroen/openssl&#34;&gt;openssil{blk}&lt;/a&gt;} format):&lt;/p&gt;
@@ -7102,13 +6742,13 @@ mydb$queryValue(&amp;quot;sps_meta&amp;quot;)
 my_ecpt$keyGet()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [2048-bit rsa private key]
-## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+## md5: 6306a50abcf3c7618566911a793b0405
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# public
 my_ecpt$keyGet()$pubkey
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [2048-bit rsa public key]
-## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+## md5: 6306a50abcf3c7618566911a793b0405
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;change-the-encyption-key&#34;&gt;Change the encyption key&lt;/h3&gt;
 &lt;p class=&#34;text-danger text-bold&#34; style=&#34;font-weight: 600;&#34;&gt;Be super careful to change the encryption key. This will
@@ -7118,7 +6758,7 @@ current accounts invalid.&lt;/p&gt;
 method&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt$keyChange()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-20 12:54:53 
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-22 15:45:05 
 ## change this key will result all accounts&#39; password failed to
 ## authenticate. You have to regenerate all password for all
 ## accounts. All encrypted file using the old key will fail to
@@ -7129,7 +6769,7 @@ method&lt;/p&gt;
 &lt;p&gt;Unless you are super sure with a confirmation&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_ecpt$keyChange(confirm = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-20 12:54:53 md5 8b5d140803e82ecf0e55b7fe24171c38
+&lt;pre&gt;&lt;code&gt;## [SPS-INFO] 2021-04-22 15:45:05 md5 42e4b167ba388a9e797608eb4e466a18
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;encrypt-files&#34;&gt;Encrypt files&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# imagine a file has one line &amp;quot;test&amp;quot;

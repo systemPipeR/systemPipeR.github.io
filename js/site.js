@@ -42,7 +42,7 @@ $(function(){
   if ($('.td-page-meta').get(0)) {
     var sourceLink = $('.td-page-meta a.source-link');
     if ($(".reading-time").get(0)) $(".reading-time").after(sourceLink.clone());
-    else $(".td-content h1:first-of-type").after(sourceLink.clone());
+    else $(".td-content > h1:first-of-type").after(sourceLink.clone());
     }
 });
 

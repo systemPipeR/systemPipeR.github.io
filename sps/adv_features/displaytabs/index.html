@@ -18,27 +18,27 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Toggle tabs | sysPipe</title><meta property="og:title" content="Toggle tabs" />
-<meta property="og:description" content="Load and unload tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
-From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
-To understand how SPS tabs work, we will demonstrate with a SPS project." />
+<meta property="og:description" content="Load and unload tabs In SPS, all tabs including tabs for modules and other default tabs can be loaded and unloaded. This is controlled by SPS options
+Under current version, these options are:
+   Option Description Default Other     module_wf load workflow module? TRUE FALSE   module_rnaseq load RNAseq module? TRUE FALSE   module_ggplot load quick ggplot module? TRUE FALSE   tab_welcome load welcome tab?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/adv_features/displaytabs/" />
 <meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Toggle tabs">
-<meta itemprop="description" content="Load and unload tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
-From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
-To understand how SPS tabs work, we will demonstrate with a SPS project.">
+<meta itemprop="description" content="Load and unload tabs In SPS, all tabs including tabs for modules and other default tabs can be loaded and unloaded. This is controlled by SPS options
+Under current version, these options are:
+   Option Description Default Other     module_wf load workflow module? TRUE FALSE   module_rnaseq load RNAseq module? TRUE FALSE   module_ggplot load quick ggplot module? TRUE FALSE   tab_welcome load welcome tab?">
 <meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
-<meta itemprop="wordCount" content="1278">
+<meta itemprop="wordCount" content="279">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Toggle tabs"/>
-<meta name="twitter:description" content="Load and unload tabs In SPS, tab is the basic component of a functionality unit. For example, all the Modules in SPS are complex tabs with many small sub-tabs, the Canvas is another independent tab providing image editing features and an user custom tab is also a SPS tab.
-From the developer&rsquo;s view, all SPS tabs are Shiny Modules.
-To understand how SPS tabs work, we will demonstrate with a SPS project."/>
+<meta name="twitter:description" content="Load and unload tabs In SPS, all tabs including tabs for modules and other default tabs can be loaded and unloaded. This is controlled by SPS options
+Under current version, these options are:
+   Option Description Default Other     module_wf load workflow module? TRUE FALSE   module_rnaseq load RNAseq module? TRUE FALSE   module_ggplot load quick ggplot module? TRUE FALSE   tab_welcome load welcome tab?"/>
 
 
 <script type="application/javascript">
@@ -617,6 +617,14 @@ if (!doNotTrack) {
         
           
           
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsadv_featuresdisplaytabs" href="../../../sps/adv_features/displaytabs/">Toggle tabs</a>
+        
+      
+      
+      
+        
+          
+          
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../../sps/adv_features/notification/">Notification system</a>
         
       
@@ -626,14 +634,6 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../../sps/adv_features/guide/">SPS Guide</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsadv_featuresdisplaytabs" href="../../../sps/adv_features/displaytabs/">Toggle tabs</a>
         
       
       
@@ -872,17 +872,9 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#load-and-unload-tabs">Load and unload tabs</a></li>
-        <li><a href="#tab-registration">Tab registration</a></li>
-        <li><a href="#add-a-new-custom-tab">Add a new custom tab</a>
+        <li><a href="#load-and-unload-tabs">Load and unload tabs</a>
           <ul>
-            <li><a href="#simple-template">Simple template</a>
-              <ul>
-                <li><a href="#ui">UI</a></li>
-                <li><a href="#server">Server</a></li>
-              </ul>
-            </li>
-            <li><a href="#full-template">Full template</a></li>
+            <li><a href="#exception-for-module-main-page">Exception for module main page</a></li>
           </ul>
         </li>
       </ul>
@@ -938,196 +930,108 @@ if (!doNotTrack) {
 	       
 	<hr>
 <h2 id="load-and-unload-tabs">Load and unload tabs</h2>
-<p>In SPS, <strong>tab</strong> is the basic component of a functionality unit. For example, all the <a href="../../../sps/modules/">Modules</a>
-in SPS are complex tabs with many small sub-tabs, the <a href="../../../sps/canvas/">Canvas</a> is another independent tab providing
-image editing features and an <em>user custom tab</em> is also a SPS tab.</p>
-<p>From the developer&rsquo;s view, all SPS tabs are <a href="https://shiny.rstudio.com/articles/modules.html">Shiny Modules</a>.</p>
-<p>To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the
-<code>/tmp</code> folder but one should use a regular location instead of the temp in a  real
-case.</p>
-<pre><code class="language-r">suppressPackageStartupMessages(library(systemPipeShiny))
-spsInit(app_path = tempdir(), project_name = &quot;tab_demo&quot;, overwrite = TRUE, change_wd = FALSE)
+<p>In SPS, all tabs including tabs for modules and other default tabs can be
+loaded and unloaded. This is controlled by <a href="../config#app-options">SPS options</a></p>
+<p>Under current version, these options are:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+<th>Other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>module_wf</td>
+<td>load workflow module?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>module_rnaseq</td>
+<td>load RNAseq module?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>module_ggplot</td>
+<td>load quick ggplot module?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>tab_welcome</td>
+<td>load welcome tab?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>tab_vs_main</td>
+<td>load custom visualization main tab?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>tab_canvas</td>
+<td>load Canvas tab?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>tab_about</td>
+<td>load about tab?</td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>Each of them controls whether to load or unload a tab. By default, all tabs
+are loaded, but you can unload them by turn them to <code>FALSE</code>.</p>
+<p>The original UI look like this:</p>
+<center>
+<p><img src="../sps_default_ui.png" alt=""></p>
+<caption>Default UI</caption>
+</center>
+<p>To unload some tabs, scroll to the option lines in <strong><code>global.R</code></strong> file:</p>
+<pre><code class="language-r">options(sps = list(
+    ...
+    tab_welcome = TRUE,
+    tab_vs_main = TRUE,
+    tab_canvas = FALSE,
+    tab_about = FALSE,
+    module_wf = FALSE,
+    module_rnaseq = FALSE,
+    module_ggplot = TRUE,
+    ...
+))
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
+<p>We unload the &ldquo;Canvas tab&rdquo;, &ldquo;workflow module tab&rdquo;, &ldquo;RNASeq module tab&rdquo; and
+&ldquo;About tab&rdquo;. When you restart the app, you should see some tabs are gone:</p>
+<p>The original UI look like this:</p>
+<center>
+<p><img src="../sps_unload_tabs.png" alt=""></p>
+<caption>Unload some tabs</caption>
+</center>
+<h3 id="exception-for-module-main-page">Exception for module main page</h3>
+<p>You may have noticed, there is no option to unload the <em>module main tab</em>, which is
+named &ldquo;<i class="fa fa-layer-group"></i>Modules&rdquo; on the left sidebar. This is
+because this tab is controlled by its sub-tabs, the module tab options. To unload this tab, all
+the module tabs have to be unloaded the same time like following. If any module
+is loaded, this module main tab cannot be unloaded.</p>
+<pre><code class="language-r">options(sps = list(
+    ...
+    module_wf = FALSE,
+    module_rnaseq = FALSE,
+    module_ggplot = FALSE,
+    ...
+))
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
-</code></pre>
-<pre><code>## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at '/tmp/Rtmp4RU0eV/tab_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
-</code></pre>
-<pre><code class="language-r">## save project path 
-(sps_dir &lt;- file.path(tempdir(), &quot;tab_demo&quot;))
-</code></pre>
-<pre><code>## [1] &quot;/tmp/Rtmp4RU0eV/tab_demo&quot;
-</code></pre>
-<p>To reproduce code locally, run the following chunk instead.</p>
-<pre><code class="language-r">library(systemPipeShiny)
-spsInit()
-sps_dir &lt;- normalizePath(&quot;.&quot;)
-</code></pre>
-<h2 id="tab-registration">Tab registration</h2>
-<p>In SPS, all tabs are controlled by the <em>config/tabs.csv</em> file. To see what kind of
-tabs you have with current project. use the <code>spsTabInfo</code> function. It returns a tibble
-of current tab information.</p>
-<pre><code class="language-r">spsTabInfo(app_path = sps_dir)
-</code></pre>
-<pre><code>## # A tibble: 11 x 8
-##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
-##    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt; 
-##  1 core_ab… About this App   core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  2 core_ca… Canvas           core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  3 core_we… Home             core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  4 core_ri… Internal use on… core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  5 core_top Top push bars    core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  6 module_… Module Main Page core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  7 wf       Workflow module  modu… &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  8 vs_rnas… RNAseq module    modu… &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-##  9 vs_esq   Quick ggplot mo… modu… &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-## 10 vs_main  custom tabs mai… core  &quot;&quot;       &quot;&quot;    1         No file for … &quot;core&quot;
-## 11 vs_exam… My custom plott… vs    &quot;plot&quot;   &quot;&quot;    1         tab_vs_examp… &quot;&quot;
-</code></pre>
-<ul>
-<li>tab_id: A unique string ID</li>
-<li>display_label: for type is &ldquo;core&rdquo; or &ldquo;module&rdquo;, this is only some description, but for you own custom tabs,
-this value will be used as a display tab name on left sidebar on SPS UI.</li>
-<li>type: tab category, &ldquo;core&rdquo;, &ldquo;module&rdquo; and &ldquo;vs&rdquo; (visualization).</li>
-<li>type_sub: more specific category, current only &ldquo;plot&rdquo; (plotting)</li>
-<li>image: If this is an user custom tab, providing an image path will display the image in
-visualization main tab gallery. If it not provided, a warning will be given on app
-starts and an &ldquo;No image&rdquo; image will be used like the following:</li>
-</ul>
-<p><img src="../vs_main.png" alt="vs_main"></p>
-<ul>
-<li>displayed: Internal use only</li>
-<li>tab_file_name: where the tab file is relative to the <code>R</code> folder.</li>
-<li>plugin: Internal use only</li>
-</ul>
-<h2 id="add-a-new-custom-tab">Add a new custom tab</h2>
-<p>SPS provides a template to help developers to create a small SPS tab  that</p>
-<ol>
-<li>The main purpose is to generate some plots</li>
-<li>can be loaded into SPS framework easily</li>
-<li>can interact with other SPS tabs (components), like the Canvas tab.</li>
-</ol>
-<h3 id="simple-template">Simple template</h3>
-<p>Under current SPS version, users are able to add custom tabs with the <code>spsNewTab</code> function.
-This function:</p>
-<ol>
-<li>creates the tab file.</li>
-<li>provides a nice template.</li>
-<li>Helps you to register tab information to <code>tabs.csv</code></li>
-</ol>
-<pre><code class="language-r">spsNewTab(tab_id = &quot;vs_new&quot;, tab_displayname = &quot;New tab demo&quot;, app_path = sps_dir)
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-</code></pre>
-<pre><code>## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&quot;vs_new&quot;)`
-</code></pre>
-<p>If you are running the code locally, and are using Rstudio, the tab file will be opened
-automatically for you.</p>
-<p>By default, it uses the simple template, which contains the <code>spsEzUI</code> and  <code>spsEzServer</code> functions.
-We have provided commented instructions on how to fill each argument.</p>
-<h4 id="ui">UI</h4>
-<pre><code class="language-r">spsEzUI(
-  desc = &quot;xxx&quot;,
-  tab_title = &quot;xxx&quot;,
-  plot_title = &quot;xxx&quot;,
-  plot_control =  shiny::tagList(
-    xxx
-  )
-)
-</code></pre>
-<p>The only augment new users need to take some time to learn is adding <code>plot_control</code>.
-Developers need to add some Shiny UI components to let users control how the plotting is
-done with interactive options. Basic use can be learned in 5 minutes on
-<a href="https://shiny.rstudio.com/articles/basics.html">Shiny website</a> and <a href="https://mastering-shiny.org/basic-ui.html">Shiny book</a></p>
-<h4 id="server">Server</h4>
-<pre><code class="language-r">spsEzServer(
-    plot_code = {
-        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-        plot_data &lt;- mydata$data
-        # some validations, make sure users give you the right data format
-        spsValidate({
-            stopifnot(inherits(plot_data, &quot;data.frame&quot;))                        # require a dataframe
-            stopifnot(nrow(plot_data) &gt; 1)                                      # has least one row
-            if (!all(c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;) %in% colnames(plot_data)))# has two required columns
-                stop(&quot;Require column 'Sepal.Length' and 'Sepal.Width'&quot;)
-
-            TRUE # give it a TRUE if all checks passed.
-            },
-            verbose = FALSE # only show messages when fail
-        )
-        # actual plot code
-        ggplot2::ggplot(plot_data) +
-            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-            # grab user defined title from plot control by `input$+control_ID`,
-            # no need to add `ns()` on server end.
-            ggplot2::ggtitle(input$plot_title)
-    },
-    other_server_code = {}
-)
-</code></pre>
-<p>For the server code, users only need to focus on the plotting code. The only very important thing
-developers need to remember is that the plotting data been passed to this function
-is stored in a <a href="https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html">reactiveValues</a>
-object and it is called <code>mydata$data</code>. Usually we assign it to a new value so it can
-be used easily downstream, like <code>plot_data &lt;- mydata$data</code>.</p>
-<p>Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users' uploads meet the
-requirements. In SPS you can use the <code>spsValidate</code> function or use Shiny&rsquo;s default <a href="https://shiny.rstudio.com/reference/shiny/0.14/validate.html">validate</a>
-function (<code>spsValidate</code> is discussed in <a href="../../../sps/dev/server/">tools section</a>).</p>
-<h3 id="full-template">Full template</h3>
-<p>For some developers who already has experience with Shiny, and would like to make more
-complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the <code>template = &quot;full&quot;</code> argument.</p>
-<pre><code class="language-r">spsNewTab(
-  tab_id = &quot;vs_new_full&quot;, 
-  tab_displayname = &quot;New tab demo&quot;,
-  template = &quot;full&quot;,
-  app_path = sps_dir)
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-</code></pre>
-<pre><code>## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c(&quot;vs_new_full&quot;)`
-</code></pre>
-<p>You can see the full template is a lot longer than the simple template:</p>
-<pre><code class="language-r">simple_len &lt;- R.utils::countLines(file.path(sps_dir, &quot;R&quot;, &quot;tab_vs_new.R&quot;))
-full_len &lt;- R.utils::countLines(file.path(sps_dir, &quot;R&quot;, &quot;tab_vs_new_full.R&quot;))
-spsinfo(glue::glue(&quot;Simple template has {simple_len} lines&quot;), TRUE)
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
-</code></pre>
-<pre><code class="language-r">spsinfo(glue::glue(&quot;Full template has {full_len} lines&quot;), TRUE)
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
-</code></pre>
-<p>In your <em>global.R</em>, scroll down to the bottom, you should see:</p>
-<pre><code class="language-r">sps_app &lt;- sps(
-    tabs = c(&quot;data_example&quot;, &quot;plot_example1&quot;, &quot;plot_example2&quot;),
-    server_expr = {
-        msg(&quot;Custom expression runs -- Hello World&quot;, &quot;GREETING&quot;, &quot;green&quot;)
-    }
-)
-</code></pre>
-<p>This is the SPS main function. You can load/unload tabs by providing tab IDs in <code>vstabs</code> argument, like
-<code>c(&quot;tab1&quot;, &quot;tab2)</code>. Open <em>config/tabs.csv</em> or use <code>spsTabInfo()</code> to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word <code>vs</code> under column &ldquo;<em>type</em>&quot;;
-essential framework tabs(<em>core</em>) and workflow tabs (<em>wf</em>) are loaded automatically and these tabs cannot be modified.</p>
+<center>
+<p><img src="../sps_no_module.png" alt=""></p>
+<caption>No module loaded</caption>
+</center>
 
 	
 	
@@ -1220,7 +1124,10 @@ essential framework tabs(<em>core</em>) and workflow tabs (<em>wf</em>) are load
     }
   })();
 </script>
-<script src="../../../js/mathjax3.1.2.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -1238,6 +1145,7 @@ MathJax.Hub.Config({
     }
 });
 </script>
+
 
 
 

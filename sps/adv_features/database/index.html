@@ -614,6 +614,14 @@ if (!doNotTrack) {
         
           
           
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../../sps/adv_features/displaytabs/">Toggle tabs</a>
+        
+      
+      
+      
+        
+          
+          
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../../sps/adv_features/notification/">Notification system</a>
         
       
@@ -623,14 +631,6 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../../sps/adv_features/guide/">SPS Guide</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../../sps/adv_features/displaytabs/">Toggle tabs</a>
         
       
       
@@ -955,9 +955,9 @@ SPS, inherits <code>spsDb</code> and <code>spsEncryption</code>.</li>
 <pre><code class="language-r">app_path &lt;- &quot;.&quot;
 spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 </code></pre>
-<pre><code>## [SPS-DANGER] 2021-04-20 12:54:52 Done, Db created at '/tmp/RtmpOJVGEa/SPS_20210420/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:52 Key md5 0b4402aa760dff52851ca2cc0a46125f
-## [SPS-INFO] 2021-04-20 12:54:52 SPS project setup done!
+<pre><code>## [SPS-DANGER] 2021-04-22 15:45:04 Done, Db created at '/tmp/Rtmp3KQ3pG/SPS_20210422/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:04 Key md5 1d1f76c8eecddb382ee2db097d6edbe9
+## [SPS-INFO] 2021-04-22 15:45:04 SPS project setup done!
 </code></pre>
 <p>You can see a database created on a SPS project initiation, you should see a message
 like this:</p>
@@ -969,7 +969,7 @@ like this:</p>
 <p>Create a class object:</p>
 <pre><code class="language-r">mydb &lt;- spsDb$new()
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-20 12:54:52 Created SPS database method container
+<pre><code>## [SPS-INFO] 2021-04-22 15:45:04 Created SPS database method container
 </code></pre>
 <h3 id="create-new-db">create new db</h3>
 <p>If there is no database, we can create one:</p>
@@ -978,9 +978,9 @@ try(file.remove(&quot;config/sps.db&quot;))
 ## [1] TRUE
 # create a new one
 mydb$createDb()
-## [SPS-INFO] 2021-04-20 12:54:52 Creating SPS db...
-## [SPS-DANGER] 2021-04-20 12:54:53 Done, Db created at 'config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:53 Key md5 64ebf9eaaecc16311b95fdb2a98d733c
+## [SPS-INFO] 2021-04-22 15:45:04 Creating SPS db...
+## [SPS-DANGER] 2021-04-22 15:45:04 Done, Db created at 'config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:04 Key md5 6306a50abcf3c7618566911a793b0405
 </code></pre>
 <p class="text-danger">If you create a new database, all information in the old database
 will be overwritten. All old information will be lost</p>
@@ -989,20 +989,20 @@ will be overwritten. All old information will be lost</p>
 mydb$queryValue(&quot;sps_meta&quot;)
 </code></pre>
 <pre><code>##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 </code></pre>
 <pre><code class="language-r"># raw blob table to store keys
 mydb$queryValue(&quot;sps_raw&quot;)
 </code></pre>
 <pre><code>##   info         value
-## 1  key blob[1.37 kB]
+## 1  key blob[1.36 kB]
 </code></pre>
 <pre><code class="language-r"># account table
 mydb$queryValue(&quot;sps_account&quot;)
 </code></pre>
 <pre><code>##   account                                                             pass
-## 1   admin c8f48db9ec1688ed213aeb94c5cd81faf6cdfb825f1deb7274eac3419a203a02
-## 2    user aafcbc2569a9a7064e9c86889bb0d591fbccd292479027cdc7b6c015ddcdaa6f
+## 1   admin bef2094c429fa5b0ff7a37abc6bf8dd31c29fa2acd783a2303935d2b8664ea21
+## 2    user 12842a62c410af0f4b4dc866283a90f7b7c42c9d5ca0d0e1c812dca11021b052
 ##    role
 ## 1 admin
 ## 2  user
@@ -1011,52 +1011,52 @@ mydb$queryValue(&quot;sps_account&quot;)
 <p>To add a new row, values of all columns needs to be passed in a SQL string</p>
 <pre><code class="language-r">mydb$queryInsert(&quot;sps_meta&quot;, value = &quot;'new1', '1'&quot;)
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+<pre><code>## [SPS-INFO] 2021-04-22 15:45:04 Inerted 1 rows
 </code></pre>
 <p>Or pass in a vector:</p>
 <pre><code class="language-r">mydb$queryInsert(&quot;sps_meta&quot;, value = c(&quot;'new2'&quot;, &quot;'2'&quot;))
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+<pre><code>## [SPS-INFO] 2021-04-22 15:45:04 Inerted 1 rows
 </code></pre>
 <pre><code class="language-r"># check the new table 
 mydb$queryValue(&quot;sps_meta&quot;)
 </code></pre>
 <pre><code>##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new1              1
 ## 3          new2              2
 </code></pre>
 <h3 id="change-values">change values</h3>
 <pre><code class="language-r">mydb$queryUpdate(&quot;sps_meta&quot;, value = '234', col = &quot;value&quot;, WHERE = &quot;info = 'new1'&quot;)
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Updated 1 rows
+<pre><code>## [SPS-INFO] 2021-04-22 15:45:04 Updated 1 rows
 </code></pre>
 <pre><code class="language-r"># check the update
 mydb$queryValue(&quot;sps_meta&quot;)
 </code></pre>
 <pre><code>##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new1            234
 ## 3          new2              2
 </code></pre>
 <h3 id="remove-values">remove values</h3>
 <pre><code class="language-r">mydb$queryDel(&quot;sps_meta&quot;, WHERE = &quot;value = '234'&quot;)
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 Deleted 1 rows
+<pre><code>## [SPS-INFO] 2021-04-22 15:45:05 Deleted 1 rows
 </code></pre>
 <pre><code class="language-r"># check again 
 mydb$queryValue(&quot;sps_meta&quot;)
 </code></pre>
 <pre><code>##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new2              2
 </code></pre>
 <h2 id="spsencryption-class"><code>spsEncryption</code> class</h2>
 <p>Reference manual under <a href="../../../sps/funcs/sps/reference/spsEncryption.html">SPS Functions</a>.</p>
 <p>Start by creating a class object</p>
 <pre><code class="language-r">my_ecpt &lt;- spsEncryption$new()
-## [SPS-INFO] 2021-04-20 12:54:53 Created SPS encryption method container
-## [SPS-INFO] 2021-04-20 12:54:53 Default SPS-db found and is working
+## [SPS-INFO] 2021-04-22 15:45:05 Created SPS encryption method container
+## [SPS-INFO] 2021-04-22 15:45:05 Default SPS-db found and is working
 </code></pre>
 <h3 id="get-current-key">Get current key</h3>
 <p>To see the public and private keys (in {<a href="https://github.com/jeroen/openssl">openssil{blk}</a>} format):</p>
@@ -1064,13 +1064,13 @@ mydb$queryValue(&quot;sps_meta&quot;)
 my_ecpt$keyGet()
 </code></pre>
 <pre><code>## [2048-bit rsa private key]
-## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+## md5: 6306a50abcf3c7618566911a793b0405
 </code></pre>
 <pre><code class="language-r"># public
 my_ecpt$keyGet()$pubkey
 </code></pre>
 <pre><code>## [2048-bit rsa public key]
-## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+## md5: 6306a50abcf3c7618566911a793b0405
 </code></pre>
 <h3 id="change-the-encyption-key">Change the encyption key</h3>
 <p class="text-danger text-bold" style="font-weight: 600;">Be super careful to change the encryption key. This will
@@ -1080,7 +1080,7 @@ current accounts invalid.</p>
 method</p>
 <pre><code class="language-r">my_ecpt$keyChange()
 </code></pre>
-<pre><code>## [SPS-DANGER] 2021-04-20 12:54:53 
+<pre><code>## [SPS-DANGER] 2021-04-22 15:45:05 
 ## change this key will result all accounts' password failed to
 ## authenticate. You have to regenerate all password for all
 ## accounts. All encrypted file using the old key will fail to
@@ -1091,7 +1091,7 @@ method</p>
 <p>Unless you are super sure with a confirmation</p>
 <pre><code class="language-r">my_ecpt$keyChange(confirm = TRUE)
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-20 12:54:53 md5 8b5d140803e82ecf0e55b7fe24171c38
+<pre><code>## [SPS-INFO] 2021-04-22 15:45:05 md5 42e4b167ba388a9e797608eb4e466a18
 </code></pre>
 <h3 id="encrypt-files">Encrypt files</h3>
 <pre><code class="language-r"># imagine a file has one line &quot;test&quot;
@@ -1200,7 +1200,10 @@ my_ecpt$encrypt(&quot;test.txt&quot;, &quot;test.bin&quot;, overwrite = TRUE)
     }
   })();
 </script>
-<script src="../../../js/mathjax3.1.2.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -1218,6 +1221,7 @@ MathJax.Hub.Config({
     }
 });
 </script>
+
 
 
 
