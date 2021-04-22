@@ -54,7 +54,7 @@ If you are on Linux, you may also need the following libraries **before installi
 Different distributions 
 may have different commands, but the following commands are examples for Ubuntu:
 
-```
+```bash
 sudo apt-get install libcurl4-openssl-dev
 sudo apt-get install libv8-dev
 sudo apt-get install libxm12-dev

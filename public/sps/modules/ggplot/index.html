@@ -18,27 +18,24 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Quick ggplot | sysPipe</title><meta property="og:title" content="Quick ggplot" />
-<meta property="og:description" content="Quick {ggplot} module This module enables you to quickly upload datasets and make a {ggplot} in a second by using some functionalities from {Esquisse}.
-  Figure 8 Quick ggplot
- Provide a tabular data table by uploading or use example. Drag variables from into different ggplot aesthetic boxes to make a ggplot. Change to different plot types. Customize other different plotting options.  For a more specific guide, read Esquisse official guide." />
+<meta property="og:description" content="Quick {ggplot} module This module enables you to quickly upload datasets and make a {ggplot{blk}} in a second by using some functionalities from {Esquisse{blk}}.
+Upload data  Upload data   The first thing you come to this module is to upload a tabular data file. You can choose to use the example or upload your own. The example is just the iris data.  1.1. If you choose to upload, there will be a upload button where you need to choose your own file." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/modules/ggplot/" />
 <meta property="article:modified_time" content="2021-02-08T11:15:56-08:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Quick ggplot">
-<meta itemprop="description" content="Quick {ggplot} module This module enables you to quickly upload datasets and make a {ggplot} in a second by using some functionalities from {Esquisse}.
-  Figure 8 Quick ggplot
- Provide a tabular data table by uploading or use example. Drag variables from into different ggplot aesthetic boxes to make a ggplot. Change to different plot types. Customize other different plotting options.  For a more specific guide, read Esquisse official guide.">
+<meta itemprop="description" content="Quick {ggplot} module This module enables you to quickly upload datasets and make a {ggplot{blk}} in a second by using some functionalities from {Esquisse{blk}}.
+Upload data  Upload data   The first thing you come to this module is to upload a tabular data file. You can choose to use the example or upload your own. The example is just the iris data.  1.1. If you choose to upload, there will be a upload button where you need to choose your own file.">
 <meta itemprop="dateModified" content="2021-02-08T11:15:56-08:00" />
-<meta itemprop="wordCount" content="69">
+<meta itemprop="wordCount" content="197">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quick ggplot"/>
-<meta name="twitter:description" content="Quick {ggplot} module This module enables you to quickly upload datasets and make a {ggplot} in a second by using some functionalities from {Esquisse}.
-  Figure 8 Quick ggplot
- Provide a tabular data table by uploading or use example. Drag variables from into different ggplot aesthetic boxes to make a ggplot. Change to different plot types. Customize other different plotting options.  For a more specific guide, read Esquisse official guide."/>
+<meta name="twitter:description" content="Quick {ggplot} module This module enables you to quickly upload datasets and make a {ggplot{blk}} in a second by using some functionalities from {Esquisse{blk}}.
+Upload data  Upload data   The first thing you come to this module is to upload a tabular data file. You can choose to use the example or upload your own. The example is just the iris data.  1.1. If you choose to upload, there will be a upload button where you need to choose your own file."/>
 
 
 <script type="application/javascript">
@@ -617,6 +614,14 @@ if (!doNotTrack) {
         
           
           
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../../sps/adv_features/displaytabs/">Toggle tabs</a>
+        
+      
+      
+      
+        
+          
+          
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../../sps/adv_features/notification/">Notification system</a>
         
       
@@ -626,14 +631,6 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../../sps/adv_features/guide/">SPS Guide</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../../sps/adv_features/displaytabs/">Toggle tabs</a>
         
       
       
@@ -868,6 +865,21 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#quick-ggplot-module">Quick {ggplot} module</a>
+          <ul>
+            <li><a href="#upload-data">Upload data</a></li>
+            <li><a href="#make-a-plot">Make a plot</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
               </div>
@@ -915,10 +927,32 @@ if (!doNotTrack) {
     
 	       
 	<h2 id="quick-ggplot-module">Quick {ggplot} module</h2>
-<p>This module enables you to quickly upload datasets and make a {<a href="https://ggplot2.tidyverse.org/">ggplot</a>}
-in a second by using some functionalities from {<a href="https://dreamrs.github.io/esquisse/index.html">Esquisse</a>}.</p>
+<p>This module enables you to quickly upload datasets and make a {<a href="https://ggplot2.tidyverse.org/">ggplot{blk}</a>}
+in a second by using some functionalities from {<a href="https://dreamrs.github.io/esquisse/index.html">Esquisse{blk}</a>}.</p>
+<h3 id="upload-data">Upload data</h3>
+<center>
+<p><img src="../img/sps_quckgg_upload.png" alt="quickgg"></p>
+<caption>Upload data</caption>
+</center>
+<ol>
+<li>The first thing you come to this module is to upload a tabular data file. You
+can choose to use the example or upload your own. The example is just the <code>iris</code>
+data.
+<ul>
+<li>1.1. If you choose to upload, there will be a upload button where you need to
+choose your own file.</li>
+</ul>
+</li>
+<li>By default, it assumes you upload a &ldquo;.csv&rdquo; file with &ldquo;#&rdquo; as comments. If not
+you can choose the file delimiter and comment character.</li>
+<li>You can view your uploaded data and use the boxes below each column name to
+perform some filters, but you are not allowed to edit the data.</li>
+<li>If everything looks good, you can submit to proceed to the plot making panel.</li>
+</ol>
+<h3 id="make-a-plot">Make a plot</h3>
 <center>
 <p><img src="../img/sps_quickgg.jpg" alt="quickgg"></p>
+<caption>Make a plot</caption>
 </center>
 <p><strong>Figure 8</strong> Quick ggplot</p>
 <ol>
@@ -927,7 +961,8 @@ in a second by using some functionalities from {<a href="https://dreamrs.github.
 <li>Change to different plot types.</li>
 <li>Customize other different plotting options.</li>
 </ol>
-<p>For a more specific guide, read <a href="https://dreamrs.github.io/esquisse/articles/get-started.html">Esquisse official guide</a>.</p>
+<p>For a more specific guide, read
+<a href="https://dreamrs.github.io/esquisse/articles/get-started.html">Esquisse official guide{blk}</a>.</p>
 
 	
 	
@@ -1020,7 +1055,10 @@ in a second by using some functionalities from {<a href="https://dreamrs.github.
     }
   })();
 </script>
-<script src="../../../js/mathjax3.1.2.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -1038,6 +1076,7 @@ MathJax.Hub.Config({
     }
 });
 </script>
+
 
 
 

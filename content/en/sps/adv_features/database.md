@@ -32,9 +32,9 @@ spsInit(app_path = app_path, overwrite = TRUE, open_files = FALSE)
 
 
 ```
-## [SPS-DANGER] 2021-04-20 12:54:52 Done, Db created at '/tmp/RtmpOJVGEa/SPS_20210420/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:52 Key md5 0b4402aa760dff52851ca2cc0a46125f
-## [SPS-INFO] 2021-04-20 12:54:52 SPS project setup done!
+## [SPS-DANGER] 2021-04-22 15:45:04 Done, Db created at '/tmp/Rtmp3KQ3pG/SPS_20210422/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:04 Key md5 1d1f76c8eecddb382ee2db097d6edbe9
+## [SPS-INFO] 2021-04-22 15:45:04 SPS project setup done!
 ```
 
 You can see a database created on a SPS project initiation, you should see a message 
@@ -55,7 +55,7 @@ mydb <- spsDb$new()
 ```
 
 ```
-## [SPS-INFO] 2021-04-20 12:54:52 Created SPS database method container
+## [SPS-INFO] 2021-04-22 15:45:04 Created SPS database method container
 ```
 
 ### create new db
@@ -67,9 +67,9 @@ try(file.remove("config/sps.db"))
 ## [1] TRUE
 # create a new one
 mydb$createDb()
-## [SPS-INFO] 2021-04-20 12:54:52 Creating SPS db...
-## [SPS-DANGER] 2021-04-20 12:54:53 Done, Db created at 'config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:53 Key md5 64ebf9eaaecc16311b95fdb2a98d733c
+## [SPS-INFO] 2021-04-22 15:45:04 Creating SPS db...
+## [SPS-DANGER] 2021-04-22 15:45:04 Done, Db created at 'config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-22 15:45:04 Key md5 6306a50abcf3c7618566911a793b0405
 ```
 
 <p class="text-danger">If you create a new database, all information in the old database
@@ -84,7 +84,7 @@ mydb$queryValue("sps_meta")
 
 ```
 ##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ```
 
 ```r
@@ -94,7 +94,7 @@ mydb$queryValue("sps_raw")
 
 ```
 ##   info         value
-## 1  key blob[1.37 kB]
+## 1  key blob[1.36 kB]
 ```
 
 ```r
@@ -104,8 +104,8 @@ mydb$queryValue("sps_account")
 
 ```
 ##   account                                                             pass
-## 1   admin c8f48db9ec1688ed213aeb94c5cd81faf6cdfb825f1deb7274eac3419a203a02
-## 2    user aafcbc2569a9a7064e9c86889bb0d591fbccd292479027cdc7b6c015ddcdaa6f
+## 1   admin bef2094c429fa5b0ff7a37abc6bf8dd31c29fa2acd783a2303935d2b8664ea21
+## 2    user 12842a62c410af0f4b4dc866283a90f7b7c42c9d5ca0d0e1c812dca11021b052
 ##    role
 ## 1 admin
 ## 2  user
@@ -119,7 +119,7 @@ mydb$queryInsert("sps_meta", value = "'new1', '1'")
 ```
 
 ```
-## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+## [SPS-INFO] 2021-04-22 15:45:04 Inerted 1 rows
 ```
 
 Or pass in a vector:
@@ -129,7 +129,7 @@ mydb$queryInsert("sps_meta", value = c("'new2'", "'2'"))
 ```
 
 ```
-## [SPS-INFO] 2021-04-20 12:54:53 Inerted 1 rows
+## [SPS-INFO] 2021-04-22 15:45:04 Inerted 1 rows
 ```
 
 ```r
@@ -139,7 +139,7 @@ mydb$queryValue("sps_meta")
 
 ```
 ##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new1              1
 ## 3          new2              2
 ```
@@ -151,7 +151,7 @@ mydb$queryUpdate("sps_meta", value = '234', col = "value", WHERE = "info = 'new1
 ```
 
 ```
-## [SPS-INFO] 2021-04-20 12:54:53 Updated 1 rows
+## [SPS-INFO] 2021-04-22 15:45:04 Updated 1 rows
 ```
 
 ```r
@@ -161,7 +161,7 @@ mydb$queryValue("sps_meta")
 
 ```
 ##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new1            234
 ## 3          new2              2
 ```
@@ -173,7 +173,7 @@ mydb$queryDel("sps_meta", WHERE = "value = '234'")
 ```
 
 ```
-## [SPS-INFO] 2021-04-20 12:54:53 Deleted 1 rows
+## [SPS-INFO] 2021-04-22 15:45:05 Deleted 1 rows
 ```
 
 ```r
@@ -183,7 +183,7 @@ mydb$queryValue("sps_meta")
 
 ```
 ##            info          value
-## 1 creation_date 20210420125452
+## 1 creation_date 20210422154504
 ## 2          new2              2
 ```
 
@@ -195,8 +195,8 @@ Start by creating a class object
 
 ```r
 my_ecpt <- spsEncryption$new()
-## [SPS-INFO] 2021-04-20 12:54:53 Created SPS encryption method container
-## [SPS-INFO] 2021-04-20 12:54:53 Default SPS-db found and is working
+## [SPS-INFO] 2021-04-22 15:45:05 Created SPS encryption method container
+## [SPS-INFO] 2021-04-22 15:45:05 Default SPS-db found and is working
 ```
 
 ### Get current key
@@ -209,7 +209,7 @@ my_ecpt$keyGet()
 
 ```
 ## [2048-bit rsa private key]
-## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+## md5: 6306a50abcf3c7618566911a793b0405
 ```
 
 ```r
@@ -219,7 +219,7 @@ my_ecpt$keyGet()$pubkey
 
 ```
 ## [2048-bit rsa public key]
-## md5: 64ebf9eaaecc16311b95fdb2a98d733c
+## md5: 6306a50abcf3c7618566911a793b0405
 ```
 
 ### Change the encyption key
@@ -235,7 +235,7 @@ my_ecpt$keyChange()
 ```
 
 ```
-## [SPS-DANGER] 2021-04-20 12:54:53 
+## [SPS-DANGER] 2021-04-22 15:45:05 
 ## change this key will result all accounts' password failed to
 ## authenticate. You have to regenerate all password for all
 ## accounts. All encrypted file using the old key will fail to
@@ -251,7 +251,7 @@ my_ecpt$keyChange(confirm = TRUE)
 ```
 
 ```
-## [SPS-INFO] 2021-04-20 12:54:53 md5 8b5d140803e82ecf0e55b7fe24171c38
+## [SPS-INFO] 2021-04-22 15:45:05 md5 42e4b167ba388a9e797608eb4e466a18
 ```
 
 
@@ -283,4 +283,6 @@ readLines('test_decpt.txt')
 
 ## `spsAcount` class
 This class is discussed in details in the [Accounts, login and admin](../login).
+
+
 

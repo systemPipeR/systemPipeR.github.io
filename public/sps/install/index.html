@@ -617,6 +617,14 @@ if (!doNotTrack) {
         
           
           
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../sps/adv_features/displaytabs/">Toggle tabs</a>
+        
+      
+      
+      
+        
+          
+          
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../sps/adv_features/notification/">Notification system</a>
         
       
@@ -626,14 +634,6 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../sps/adv_features/guide/">SPS Guide</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../sps/adv_features/displaytabs/">Toggle tabs</a>
         
       
       
@@ -955,7 +955,7 @@ version.</p>
 <p>If you are on Linux, you may also need the following libraries <strong>before installing SPS</strong>.
 Different distributions
 may have different commands, but the following commands are examples for Ubuntu:</p>
-<pre><code>sudo apt-get install libcurl4-openssl-dev
+<pre><code class="language-bash">sudo apt-get install libcurl4-openssl-dev
 sudo apt-get install libv8-dev
 sudo apt-get install libxm12-dev
 sudo apt-get install libssl-dev
@@ -1053,7 +1053,10 @@ sudo apt-get install libssl-dev
     }
   })();
 </script>
-<script src="../../js/mathjax3.1.2.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -1071,6 +1074,7 @@ MathJax.Hub.Config({
     }
 });
 </script>
+
 
 
 

@@ -2,277 +2,146 @@
 title: "Notification system"
 linkTitle: "Notification system"
 type: docs
-weight: 3
+weight: 4
 ---
 *****
 
-## SPS notification broadcasting
+## SPS notification system
 
-In SPS, **tab** is the basic component of a functionality unit. For example, all the [Modules](/sps/modules/)
-in SPS are complex tabs with many small sub-tabs, the [Canvas](/sps/canvas/) is another independent tab providing 
-image editing features and an *user custom tab* is also a SPS tab.
+In SPS, there is a notification dropdown where developers can broadcast new messages 
+to users. The dropdown is located on the top-right corner.
 
-From the developer's view, all SPS tabs are [Shiny Modules](https://shiny.rstudio.com/articles/modules.html). 
+<center>
 
-To understand how SPS tabs work, we will demonstrate with a SPS project. For demo purpose, we are using the 
-`/tmp` folder but one should use a regular location instead of the temp in a  real 
-case. 
+![](../note_main.png)
+
+<caption>Notification Dropdown</caption>
+
+</center>
+
+<br>When a notification item is clicked, details of the notification will be displayed 
+in a modal.
+
+<center>
+
+![](../note_view.png)
+
+<caption>Notification Detail Moadal</caption>
+
+</center>
+
+## Official notification
+If you only use the original SPS, we will send out new notifications every time 
+we update the package or other important things that we want to inform you. 
+You should see the icon of the dropdown becomes.
+<i class="fa fa-exclamation-triangle"></i> + the message number. If there is no 
+message or you have clicked the dropdown, it will become <i class="fa fa-check"></i> + 0.
 
 
-```r
-suppressPackageStartupMessages(library(systemPipeShiny))
-spsInit(app_path = tempdir(), project_name = "tab_demo", overwrite = TRUE, change_wd = FALSE)
+## Custom notification
+If you do not want to receive the official notification or want to write your 
+own note to your users, first let us understand how it works.
+
+### Mechanism
+Every time when you run the `sps()` main function, it will look for a remote URL
+that stores the notification information in **[yaml{blk}](https://yaml.org/)** format.
+If this file can be successfully parsed, you will see the notification dropdown menu 
+on SPS UI, otherwise no dropdown displayed. 
+
+To define your own notification URL, you need to change the option `note_url` in 
+the `global.R` file. Read more about changing [SPS options](../config#app-options).
+The default value is a file on Github, which also can be used as your template to write custom 
+notification messages:
+
+[https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml{blk}](https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml)
+
+### Notification template
+If you download the link above, you should see something like this:
+
+```yaml
+############ Create remote messages to notify users in the app #################
+## When app starts, it will first try to load this file from online.
+## You should place this file somewhere publically reachable online, like Github.
+## This file should not be included in your app deployment.
+## Add the url of this file to the SPS option `note_url` in "global.R" file
+
+# type: one of 'package' or 'general', required
+# expire: note will be displayed before the date, required, YYYY-MM-DD format
+# title: string, required
+# icon: any font-awesome icon name, default is the "info-circle"
+# status: one of primary, success, info, warning, danger, default is "primary"
+# pkg_name: string, required if type == 'package', such as "systemPipeShiny"
+# version: string, required if type == 'package', such as "1.0.0"
+# message: string, optional, the text body of the notification. Be careful with indentations.
+- note:
+    type: general
+    pkg_name:
+    version:
+    title: Notification broadcasting
+    expire: 2099-01-01
+    icon:
+    status:
+    message: |
+        ## SPS notifications
+        What you are looking at is the SPS notification broadcasting system. It
+        display messages to your users by reading a remote `yaml` file stored
+        online. SPS will fetch the content of this file and translate it to different
+        notes you can see here. So you do not need to re-deploy the app every time
+        there is a new notification.
+        1. You can customize your own notifications by
+           using [this file as template](https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml).
+        2. After the modification, place this file in public accessible location, like
+           Github, do not inlcude this file in app deployment.
+        3. During app deployment, indicate the URL of this file in `global.R`
+           file, `note_url:` option.
 ```
 
-```
-## [SPS-INFO] 2021-04-12 11:52:55 Start to create a new SPS project
-```
+### Template details
+Most entries are easy-to-understand. Here are some key points.
 
-```
-## [SPS-INFO] 2021-04-12 11:52:55 Create project under /tmp/Rtmp4RU0eV/tab_demo
-```
+#### Indentation
+Indentation is **very important** in a yaml file. In the template, we use **4 spaces**
+as 1 level of indentation. 
 
-```
-## [SPS-INFO] 2021-04-12 11:52:55 Now copy files
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:55 Create SPS database
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:55 Created SPS database method container
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:55 Creating SPS db...
-```
-
-```
-## [SPS-DANGER] 2021-04-12 11:52:56 Done, Db created at '/tmp/Rtmp4RU0eV/tab_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:52:56 Key md5 2ece3a0746e0ae3b8079a4afdd3af522
-## [SPS-INFO] 2021-04-12 11:52:56 SPS project setup done!
-```
-
-```r
-## save project path 
-(sps_dir <- file.path(tempdir(), "tab_demo"))
-```
-
-```
-## [1] "/tmp/Rtmp4RU0eV/tab_demo"
-```
-
-To reproduce code locally, run the following chunk instead. 
+#### Notification start and end
+Always start with a `- note:` to define a notification item. After you finish typing 
+the message body, leave at least one line blank before starting another notification.
 
 
-```r
-library(systemPipeShiny)
-spsInit()
-sps_dir <- normalizePath(".")
-```
+#### `type`
+**general**: Use this type to create a general notification. It will ignore `pkg_name` 
+and `version` information. 
 
-## Tab registration
-In SPS, all tabs are controlled by the *config/tabs.csv* file. To see what kind of 
-tabs you have with current project. use the `spsTabInfo` function. It returns a tibble
-of current tab information. 
+**package**: A notification that is related to a package updates. This type of note will first 
+check if the user has installed the package (single one) with  a version that is 
+higher than the specified version number in 
+`pkg_name` and `version` entries. If so, the notification will **not be displayed**. 
+If not the user will see the notification before expiration date.
 
-
-```r
-spsTabInfo(app_path = sps_dir)
-```
-
-```
-## # A tibble: 11 x 8
-##    tab_id   display_label    type  type_sub image displayed tab_file_name plugin
-##    <chr>    <chr>            <chr> <chr>    <chr> <chr>     <chr>         <chr> 
-##  1 core_ab… About this App   core  ""       ""    1         No file for … "core"
-##  2 core_ca… Canvas           core  ""       ""    1         No file for … "core"
-##  3 core_we… Home             core  ""       ""    1         No file for … "core"
-##  4 core_ri… Internal use on… core  ""       ""    1         No file for … "core"
-##  5 core_top Top push bars    core  ""       ""    1         No file for … "core"
-##  6 module_… Module Main Page core  ""       ""    1         No file for … "core"
-##  7 wf       Workflow module  modu… ""       ""    1         No file for … "core"
-##  8 vs_rnas… RNAseq module    modu… ""       ""    1         No file for … "core"
-##  9 vs_esq   Quick ggplot mo… modu… ""       ""    1         No file for … "core"
-## 10 vs_main  custom tabs mai… core  ""       ""    1         No file for … "core"
-## 11 vs_exam… My custom plott… vs    "plot"   ""    1         tab_vs_examp… ""
-```
-
-- tab_id: A unique string ID
-- display_label: for type is "core" or "module", this is only some description, but for you own custom tabs, 
-this value will be used as a display tab name on left sidebar on SPS UI. 
-- type: tab category, "core", "module" and "vs" (visualization).
-- type_sub: more specific category, current only "plot" (plotting)
-- image: If this is an user custom tab, providing an image path will display the image in 
-visualization main tab gallery. If it not provided, a warning will be given on app 
-starts and an "No image" image will be used like the following:
-
-![vs_main](../vs_main.png)
-
-- displayed: Internal use only
-- tab_file_name: where the tab file is relative to the `R` folder. 
-- plugin: Internal use only
+#### `expire`
+The `expire` decides how long to show users the notification. If current date has 
+passed the date in `expire`, the notification will not be displayed. 
 
 
-##  Add a new custom tab 
-
-SPS provides a template to help developers to create a small SPS tab  that 
-1. The main purpose is to generate some plots
-2. can be loaded into SPS framework easily
-3. can interact with other SPS tabs (components), like the Canvas tab. 
-
-
-### Simple template
-Under current SPS version, users are able to add custom tabs with the `spsNewTab` function. 
-This function:
-1. creates the tab file.
-2. provides a nice template. 
-3. Helps you to register tab information to `tabs.csv`
-
-
-```r
-spsNewTab(tab_id = "vs_new", tab_displayname = "New tab demo", app_path = sps_dir)
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new.R
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-```
-
-```
-## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c("vs_new")`
-```
-
-If you are running the code locally, and are using Rstudio, the tab file will be opened 
-automatically for you. 
-
-By default, it uses the simple template, which contains the `spsEzUI` and  `spsEzServer` functions. 
-We have provided commented instructions on how to fill each argument. 
-
-#### UI
-
-```r
-spsEzUI(
-  desc = "xxx",
-  tab_title = "xxx",
-  plot_title = "xxx",
-  plot_control =  shiny::tagList(
-    xxx
-  )
-)
-```
-
-The only augment new users need to take some time to learn is adding `plot_control`.
-Developers need to add some Shiny UI components to let users control how the plotting is 
-done with interactive options. Basic use can be learned in 5 minutes on
-[Shiny website](https://shiny.rstudio.com/articles/basics.html) and [Shiny book](https://mastering-shiny.org/basic-ui.html)
-
-#### Server
-
-```r
-spsEzServer(
-    plot_code = {
-        # data passed from data loading is a reactiveValues object, data stored in `mydata$data`
-        plot_data <- mydata$data
-        # some validations, make sure users give you the right data format
-        spsValidate({
-            stopifnot(inherits(plot_data, "data.frame"))                        # require a dataframe
-            stopifnot(nrow(plot_data) > 1)                                      # has least one row
-            if (!all(c("Sepal.Length", "Sepal.Width") %in% colnames(plot_data)))# has two required columns
-                stop("Require column 'Sepal.Length' and 'Sepal.Width'")
-
-            TRUE # give it a TRUE if all checks passed.
-            },
-            verbose = FALSE # only show messages when fail
-        )
-        # actual plot code
-        ggplot2::ggplot(plot_data) +
-            ggplot2::geom_point(ggplot2::aes(x = Sepal.Length, y = Sepal.Width)) +
-            # grab user defined title from plot control by `input$+control_ID`,
-            # no need to add `ns()` on server end.
-            ggplot2::ggtitle(input$plot_title)
-    },
-    other_server_code = {}
-)
-```
-
-For the server code, users only need to focus on the plotting code. The only very important thing 
-developers need to remember is that the plotting data been passed to this function 
-is stored in a [reactiveValues](https://shiny.rstudio.com/reference/shiny/0.11/reactiveValues.html)
-object and it is called `mydata$data`. Usually we assign it to a new value so it can 
-be used easily downstream, like `plot_data <- mydata$data`.
-
-Some validation is recommended before reaching the plotting code. You would never know what 
-kind of dataset users upload. It is always good to check if users' uploads meet the 
-requirements. In SPS you can use the `spsValidate` function or use Shiny's default [validate](https://shiny.rstudio.com/reference/shiny/0.14/validate.html)
-function (`spsValidate` is discussed in [tools section](/sps/dev/server/)). 
-
-### Full template
-For some developers who already has experience with Shiny, and would like to make more 
-complex customization, using the full template enables you to change every detail on
-the new tab. Simply add the `template = "full"` argument.
-
-
-```r
-spsNewTab(
-  tab_id = "vs_new_full", 
-  tab_displayname = "New tab demo",
-  template = "full",
-  app_path = sps_dir)
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:56 Write to file /tmp/Rtmp4RU0eV/tab_demo/R/tab_vs_new_full.R
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:56 Now register your new tab to config/tab.csv
-```
-
-```
-## [SPS-SUCCESS] 2021-04-12 11:52:56 New tab created!
-## [SPS] 2021-04-12 11:52:56 To load this new tab: `sps(tabs = c("vs_new_full")`
-```
-You can see the full template is a lot longer than the simple template:
-
-```r
-simple_len <- R.utils::countLines(file.path(sps_dir, "R", "tab_vs_new.R"))
-full_len <- R.utils::countLines(file.path(sps_dir, "R", "tab_vs_new_full.R"))
-spsinfo(glue::glue("Simple template has {simple_len} lines"), TRUE)
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:56 Simple template has 66 lines
-```
-
-```r
-spsinfo(glue::glue("Full template has {full_len} lines"), TRUE)
-```
-
-```
-## [SPS-INFO] 2021-04-12 11:52:56 Full template has 281 lines
-```
+#### Message body
+Use `|` to start a new line and put the markdown format text body 
+in the next indentation level.
 
 
 
-In your *global.R*, scroll down to the bottom, you should see:
 
 
-```r
-sps_app <- sps(
-    tabs = c("data_example", "plot_example1", "plot_example2"),
-    server_expr = {
-        msg("Custom expression runs -- Hello World", "GREETING", "green")
-    }
-)
-```
 
-This is the SPS main function. You can load/unload tabs by providing tab IDs in `vstabs` argument, like
-`c("tab1", "tab2)`. Open *config/tabs.csv* or use `spsTabInfo()` to see what tabs IDs can be load and other
-tab information. Currently you can only load/unload visualization tabs, the key word `vs` under column "*type*";
-essential framework tabs(*core*) and workflow tabs (*wf*) are loaded automatically and these tabs cannot be modified.
+
+
+
+
+
+
+
+
+
+
+
+
+
