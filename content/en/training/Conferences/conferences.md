@@ -1,5 +1,5 @@
 ---
-title: "Conference"
+title: "Conferences"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
 date: "Last update: 23 April, 2021" 
 output:
