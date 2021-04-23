@@ -6,6 +6,8 @@ description: >
 type: docs
 ---
 
-Video Tutorials are coming soon…
-
+{{% pageinfo %}}
 Page under development.
+{{% /pageinfo %}}
+
+### Video Tutorials are coming soon…
