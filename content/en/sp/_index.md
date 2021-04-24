@@ -33,7 +33,7 @@ handles complex sample sets and experimental designs.
 To simplify the analysis
 of widely used NGS applications, the package provides pre-configured workflows
 and reporting templates for a wide range of NGS applications that are listed on 
-the [Workflow Collection](http://girke.bioinformatics.ucr.edu/systemPipeR/mydoc_wf_colletions.html) 
+the [Workflow Collection](https://systempipe.org/spr_wf/) 
 page of this site. Additional workflow templates will be provided in the future. _systemPipeR_
 accelerates the extraction of reproducible analysis results from NGS
 experiments. By combining the capabilities of many R/Bioconductor and
