@@ -1,0 +1,1251 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../favicons/android-192x192.png" sizes="192x192">
+
+<title>SPR Docker container | sysPipe</title><meta property="og:title" content="SPR Docker container" />
+<meta property="og:description" content="Guidelines from bioconductor_docker.
+ Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/sp/sp_docker/" />
+<meta property="og:site_name" content="sysPipe" />
+<meta itemprop="name" content="SPR Docker container">
+<meta itemprop="description" content="Guidelines from bioconductor_docker.
+ Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787).">
+
+<meta itemprop="wordCount" content="963">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPR Docker container"/>
+<meta name="twitter:description" content="Guidelines from bioconductor_docker.
+ Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../css/prism.css"/>
+
+
+<script src="../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../css/site.css"/>
+<script src="../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page line-numbers">
+    <header>
+     
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="../../">
+		<span class="font-weight-bold">sysPipe</span>
+	</a>
+	<row class="header-switch">
+	  	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
+        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
+      </div>
+    	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
+        <label class="custom-control-label" for="tocSwitch">toc</label>
+      </div>
+	</row>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/overview/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Overview
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/team/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Our Team
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/publications/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Publications
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/acknowledgement/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Acknowledgement
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/contact/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Contact
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../sp/" id="navbarDropdown" role="button">
+          	systemPipeR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeR Package
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/introduction/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/gettingstarted/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Getting Started
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/spr_run/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 How to run a Workflow
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/steps/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow steps overview
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/templates/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow Templates
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/sprinstall/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR detailed installation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sp/spt/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRTools
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spt/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Data Visualization
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sp/sprdata/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRdata
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/sprdata/systempiperdata/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Vignette
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/sprdata/newwf/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Rules
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Links
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPT GitHub
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../sps/" id="navbarDropdown" role="button">
+          	Shiny
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sps/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 SPS Documentation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Github
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../spr_wf" id="navbarDropdown" role="button">
+          	Workflows
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../spr_wf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Collection
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../training/" id="navbarDropdown" role="button">
+          	Training
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../training/conferences/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Conferences
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../training/presentations/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../training/videos/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Videos Tutorials
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../news/" id="navbarDropdown" role="button">
+          	News
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../news/release_3_12/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor 3.12
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="sp">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/spr/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spspr">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprintroduction" href="../../sp/spr/introduction/">Introduction</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprgettingstarted" href="../../sp/spr/gettingstarted/">Getting Started</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_run" href="../../sp/spr/spr_run/">How to run a Workflow</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsteps" href="../../sp/spr/steps/">Workflow steps overview</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprtemplates" href="../../sp/spr/templates/">Workflow Templates</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_funcs" href="../../sp/spr/spr_funcs/">Help Manual</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsprinstall" href="../../sp/spr/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/spt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeTools</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spspt">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsptsystempipetools" href="../../sp/spt/systempipetools/">Data Visualizations</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/sprdata/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsprdata">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatasystempiperdata" href="../../sp/sprdata/systempiperdata/">Workflow templates and sample data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatanewwf" href="../../sp/sprdata/newwf/">Rules to create a new Workflow Template</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsp_docker" href="../../sp/sp_docker/">SPR Docker container</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          
+          
+
+          
+
+          
+          
+              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+                
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/SP_docker.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
+    
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/SP_docker.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/SP_docker.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/SP_docker.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    
+      
+      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#running-the-systempiper-with-docker">Running the <code>systemPipeR</code> with Docker</a>
+      <ul>
+        <li><a href="#get-a-copy-of-the-public-docker-image">Get a copy of the public docker image</a></li>
+        <li><a href="#to-run-rstudio-server">To run RStudio Server:</a></li>
+        <li><a href="#to-run-r-from-the-command-line">To run R from the command line:</a></li>
+        <li><a href="#to-open-a-bash-shell-on-the-container">To open a Bash shell on the container:</a></li>
+      </ul>
+    </li>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#uninstall">Uninstall</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-hub-account">Docker Hub Account</a>
+      <ul>
+        <li><a href="#log-in-to-the-docker-hub-locally">Log in to the Docker Hub locally</a></li>
+      </ul>
+    </li>
+    <li><a href="#run-docker">Run Docker</a>
+      <ul>
+        <li><a href="#login-to-the-container">Login to the container</a></li>
+        <li><a href="#other-alternatives-to-run-the-container">Other alternatives to run the container</a>
+          <ul>
+            <li><a href="#to-run-rstudio-server-1">To run RStudio Server:</a></li>
+            <li><a href="#to-run-r-from-the-command-line-1">To run R from the command line:</a></li>
+            <li><a href="#to-open-a-bash-shell-on-the-container-1">To open a Bash shell on the container:</a></li>
+            <li><a href="#check-r-version-into-the-container">Check R Version into the container</a></li>
+          </ul>
+        </li>
+        <li><a href="#stop-docker">Stop Docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-your-first-repository-linkhttpsdocsdockercomdocker-hub">Create your first repository <a href="https://docs.docker.com/docker-hub/">Link</a></a>
+      <ul>
+        <li><a href="#create-a-repository">Create a repository:</a></li>
+        <li><a href="#build-and-push-a-container-image-to-docker-hub-from-your-computer">Build and push a container image to Docker Hub from your computer</a>
+          <ul>
+            <li><a href="#start-by-creating-a-dockerfile-to-specify-your-application">Start by creating a <em>Dockerfile</em> to specify your application</a></li>
+            <li><a href="#run-docker-build-to-build-your-docker-image">Run <code>docker build</code> to build your Docker image</a></li>
+            <li><a href="#run-docker-run-to-test-your-docker-image-locally">Run <code>docker run</code> to test your Docker image locally</a></li>
+            <li><a href="#run-docker-push-to-push-your-docker-image-to-docker-hub">Run <code>docker push</code> to push your Docker image to Docker Hub</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#make-changes-to-the-container-and-create-the-new-image">Make changes to the container and Create the new image</a></li>
+    <li><a href="#commands">Commands</a>
+      <ul>
+        <li><a href="#list-which-docker-machines-are-available-locally">List which docker machines are available locally</a></li>
+        <li><a href="#list-running-containers">List running containers</a></li>
+        <li><a href="#list-all-containers">List all containers</a></li>
+        <li><a href="#resume-a-stopped-container">Resume a stopped container</a></li>
+        <li><a href="#shell-into-a-running-container">Shell into a running container</a></li>
+        <li><a href="#stop-or-remove-a-cointainer">Stop OR remove a cointainer</a></li>
+        <li><a href="#remove-a-image">Remove a image</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-and-github-actions">Docker and GitHub Actions</a></li>
+    <li><a href="#common-problems">Common Problems</a></li>
+    <li><a href="#singularity-container">Singularity Container</a></li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+</nav>
+
+
+
+              </div>
+              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+                
+  
+
+                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../sp/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="../../sp/sp_docker/">SPR Docker container</a>
+</li>
+
+	</ol>
+</nav	>
+
+                
+<div class="td-content">
+	<h1>SPR Docker container</h1>
+    
+	       
+	<blockquote>
+<p>Guidelines from <a href="https://github.com/Bioconductor/bioconductor_docker">bioconductor_docker</a>.</p>
+</blockquote>
+<h1 id="running-the-systempiper-with-docker">Running the <code>systemPipeR</code> with Docker</h1>
+<h2 id="get-a-copy-of-the-public-docker-image">Get a copy of the public docker image</h2>
+<pre><code class="language-bash">docker pull systempipe/systempipe_docker:latest
+</code></pre>
+<h2 id="to-run-rstudio-server">To run RStudio Server:</h2>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 \
+        systempipe/systempipe_docker:latest
+</code></pre>
+<p>You can then open a web browser pointing to your docker host on
+port 8787.  If you&rsquo;re on Linux and using default settings, the docker
+host is <code>127.0.0.1</code> (or <code>localhost</code>, so the full URL to RStudio would
+be <code>http://localhost:8787)</code>. If you are on Mac or Windows and running
+<code>Docker Toolbox</code>, you can determine the docker host with the
+<code>docker-machine ip default</code> command.</p>
+<p>In the above command, <code>-e PASSWORD=</code> is setting the RStudio password
+and is required by the RStudio Docker image. It can be whatever you
+like except it cannot be <code>rstudio</code>. Log in to RStudio with the
+username <code>rstudio</code> and whatever password was specified, in this
+example <code>systemPipe</code>.</p>
+<h2 id="to-run-r-from-the-command-line">To run R from the command line:</h2>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest R
+</code></pre>
+<h2 id="to-open-a-bash-shell-on-the-container">To open a Bash shell on the container:</h2>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+</code></pre>
+<!-- # Full Documentation -->
+<!-- This tutorial shows how to create, access, run, build a Docker container. -->
+<!-- ## Table of Content -->
+<!-- 1. [Install](#Install) -->
+<!-- 2. [Docker Hub Account](#dockerHub) -->
+<!-- 3. [Log in to the Docker Hub](#login) -->
+<!-- 4. [Run Docker](#run) -->
+<!-- 5. [Create your first repository](#create) -->
+<!-- 6. [Make changes to the container and Create the new image](#changes) -->
+<!-- 7. [Commands](#commands) -->
+<!-- 8. [Docker and GitHub Actions](#github) -->
+<!-- 9. [Common Problems](#faq) -->
+<!-- 10. [Singularity Container](#singularity) -->
+<!-- 11. [Resources](#resources) -->
+<hr>
+<div id='Install'/>
+<h1 id="install">Install</h1>
+<p><strong>Prerequisites</strong>:
+<a href="https://docs.docker.com/installation/">Linux</a>
+<a href="http://docs.docker.com/installation/mac/">Mac</a>
+<a href="http://docs.docker.com/installation/windows/">Windows</a></p>
+<p>Instructions <a href="https://docs.docker.com/engine/install/ubuntu/">here</a> on how to install Docker Engine on Ubuntu.</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 
+## Verify that Docker Engine is installed correctly by running the hello-world image.
+sudo docker run hello-world
+</code></pre>
+<h2 id="uninstall">Uninstall</h2>
+<pre><code class="language-bash">sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre>
+<hr>
+<div id='dockerHUb'/>
+<h1 id="docker-hub-account">Docker Hub Account</h1>
+<p>To be able to share a custom image, please go to <a href="https://hub.docker.com">https://hub.docker.com</a> and
+create a free account.</p>
+<hr>
+<div id='login'/>
+<h2 id="log-in-to-the-docker-hub-locally">Log in to the Docker Hub locally</h2>
+<p>Login with your Docker ID to push and pull images from Docker Hub. If you don&rsquo;t
+have a Docker ID, head over to <a href="https://hub.docker.com">https://hub.docker.com</a> to create one.</p>
+<pre><code class="language-bash">docker login
+# Username: XXXX
+# Password: xxx
+# Login Succeeded
+</code></pre>
+<hr>
+<div id='run'/>
+<h1 id="run-docker">Run Docker</h1>
+<pre><code class="language-bash">docker run-dP systempipe/systempipe_docker:latest
+</code></pre>
+<p>Make sure the container is running:</p>
+<pre><code class="language-bash">docker ps
+# CONTAINER ID   IMAGE                                    COMMAND   CREATED         STATUS         PORTS                     # NAMES
+#5d007f66a7b3   systempipe/systempipe_docker:latest   &quot;/init&quot;   5 minutes ago   Up 5 minutes   0.0.0.0:49153-&gt;8787/tcp   determined_easle
+</code></pre>
+<h2 id="login-to-the-container">Login to the container</h2>
+<p>Please check the <code>NAMES</code> in this example, <code>determined_easle,</code> to login into the container.</p>
+<pre><code class="language-bash">docker exec -it determined_easle /bin/bash
+</code></pre>
+<h2 id="other-alternatives-to-run-the-container">Other alternatives to run the container</h2>
+<h3 id="to-run-rstudio-server-1">To run RStudio Server:</h3>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 \
+    systempipe/systempipe_docker:latest
+</code></pre>
+<h3 id="to-run-r-from-the-command-line-1">To run R from the command line:</h3>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest R
+</code></pre>
+<h3 id="to-open-a-bash-shell-on-the-container-1">To open a Bash shell on the container:</h3>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+</code></pre>
+<h3 id="check-r-version-into-the-container">Check R Version into the container</h3>
+<pre><code class="language-bash">R --version
+</code></pre>
+<h2 id="stop-docker">Stop Docker</h2>
+<pre><code class="language-bash">docker stop determined_easle
+</code></pre>
+<hr>
+<div id='create'/>
+<h1 id="create-your-first-repository-linkhttpsdocsdockercomdocker-hub">Create your first repository <a href="https://docs.docker.com/docker-hub/">Link</a></h1>
+<h2 id="create-a-repository">Create a repository:</h2>
+<ul>
+<li>Sign in to Docker Hub.</li>
+<li>Click Create a Repository on the Docker Hub welcome page:</li>
+<li>Name it <your-username>/my-repo.</li>
+<li>Click Create.</li>
+</ul>
+<h2 id="build-and-push-a-container-image-to-docker-hub-from-your-computer">Build and push a container image to Docker Hub from your computer</h2>
+<h3 id="start-by-creating-a-dockerfile-to-specify-your-application">Start by creating a <em>Dockerfile</em> to specify your application</h3>
+<pre><code class="language-bash">mkdir docker_test
+cd docker_test
+touch Dockerfile
+</code></pre>
+<pre><code class="language-bash"># Docker inheritance
+FROM systempipe/systempipe_docker:latest
+
+## Install BiocStyle
+RUN R -e 'BiocManager::install(&quot;BiocStyle&quot;)'
+
+# Install required Bioconductor package from devel version
+RUN R -e 'BiocManager::install(&quot;tgirke/systemPipeR&quot;)'
+RUN R -e 'BiocManager::install(&quot;tgirke/systemPipeRdata&quot;)'
+
+WORKDIR /home/rstudio/SPRojects
+
+COPY --chown=rstudio:rstudio . /home/rstudio/SPRojects
+
+# Metadata
+LABEL name=&quot;systempipe/systempipe_docker&quot; \
+      version=$BIOCONDUCTOR_DOCKER_systempipe \
+      url=&quot;https://github.com/systemPipeR/systempipe/systempipe_docker&quot; \
+      vendor=&quot;systemPipeR Project&quot; \
+      maintainer=&quot;email@gmail.com&quot; \
+      description=&quot;Bioconductor docker image containing the systemPipeR Project&quot; \
+      license=&quot;Artistic-2.0&quot;
+</code></pre>
+<h3 id="run-docker-build-to-build-your-docker-image">Run <code>docker build</code> to build your Docker image</h3>
+<pre><code class="language-bash">docker build -t systempipe/systempipe_docker . 
+</code></pre>
+<h3 id="run-docker-run-to-test-your-docker-image-locally">Run <code>docker run</code> to test your Docker image locally</h3>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
+</code></pre>
+<h3 id="run-docker-push-to-push-your-docker-image-to-docker-hub">Run <code>docker push</code> to push your Docker image to Docker Hub</h3>
+<pre><code class="language-bash">docker push systempipe/systempipe_docker
+</code></pre>
+<ul>
+<li>Your repository in Docker Hub should now display a new latest tag under <code>Tags</code></li>
+</ul>
+<hr>
+<div id='changes'/>
+<h1 id="make-changes-to-the-container-and-create-the-new-image">Make changes to the container and Create the new image</h1>
+<p>Create a folder, for example:</p>
+<pre><code class="language-bash">docker run -dP systempipe/systempipe_docker
+docker ps ## To check the NAME &lt;lucid_grothendieck&gt;
+docker exec -it lucid_grothendieck /bin/bash
+root@33c758eb1626:/# R
+</code></pre>
+<pre><code class="language-bash">setwd(&quot;home/rstudio/&quot;)
+systemPipeRdata::genWorkenvir(&quot;rnaseq&quot;)
+</code></pre>
+<pre><code class="language-bash">exit
+docker commit -m &quot;Added rnaseq template&quot; -a &quot;Dani Cassol&quot; lucid_grothendieck dcassol/systempipeworkshop2021:rnaseq
+docker push systempipe/systempipe_docker:rnaseq
+</code></pre>
+<p>Run the new image:</p>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnaseq
+</code></pre>
+<hr>
+<div id='commands'/>
+<h1 id="commands">Commands</h1>
+<h2 id="list-which-docker-machines-are-available-locally">List which docker machines are available locally</h2>
+<p><code>{bash, eval=FALSE}docker images</code></p>
+<h2 id="list-running-containers">List running containers</h2>
+<p><code>{bash, eval=FALSE}docker ps</code></p>
+<h2 id="list-all-containers">List all containers</h2>
+<p><code>{bash, eval=FALSE}docker ps -a</code></p>
+<h2 id="resume-a-stopped-container">Resume a stopped container</h2>
+<p><code>{bash, eval=FALSE}docker start &lt;CONTAINER ID&gt;</code></p>
+<h2 id="shell-into-a-running-container">Shell into a running container</h2>
+<p><code>{bash, eval=FALSE}docker exec -it &lt;CONTAINER ID&gt; /bin/bash</code></p>
+<h2 id="stop-or-remove-a-cointainer">Stop OR remove a cointainer</h2>
+<p><code>{bash, eval=FALSE}docker stop &lt;CONTAINER ID&gt;</code>
+<code>{bash, eval=FALSE}docker rm &lt;CONTAINER ID&gt;</code></p>
+<h2 id="remove-a-image">Remove a image</h2>
+<p><code>{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq</code></p>
+<hr>
+<div id='github'/>
+<h1 id="docker-and-github-actions">Docker and GitHub Actions</h1>
+<ol>
+<li>To create a new token, go to Docker Hub Settings</li>
+</ol>
+<p>1.1. Account Settings &raquo; Security &raquo; New Access Token
+1.2. Add Access Token Description &raquo; Create
+1.3. Copy the Access Token &raquo; Copy and Close</p>
+<ol start="2">
+<li>Go to the Repository at GitHub</li>
+</ol>
+<p>2.1. Settings &gt; Secrets &gt; New repository secret
+2.2. Create a new secret with the name <code>DOCKER_HUB_USERNAME</code> and your <code>Docker ID</code> as value
+2.3. Click at Add secret
+2.4. Create a new secret with the name <code>DOCKER_HUB_ACCESS_TOKEN</code> and your <code>Personal Access Token (PAT)</code> as value (generated in the previous step)</p>
+<ol start="3">
+<li>Set up the GitHub Actions workflow</li>
+</ol>
+<pre><code class="language-bash">    steps:
+    
+      - name: Checkout Repo 
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+</code></pre>
+<hr>
+<div id='faq'/>
+<h1 id="common-problems">Common Problems</h1>
+<pre><code class="language-bash">## Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/auth: dial unix /var/run/docker.sock: connect: permission denied
+</code></pre>
+<p>Solution:</p>
+<pre><code class="language-bash">sudo chmod 666 /var/run/docker.sock
+</code></pre>
+<hr>
+<div id='singularity'/>
+<h1 id="singularity-container">Singularity Container</h1>
+<p>Please download the Docker image of systemPipe, as follow:</p>
+<pre><code class="language-bash">singularity pull docker://systempipe/systempipe_docker:latest
+</code></pre>
+<p>You can also use the <code>build</code> command to download pre-built images from Docker.
+Unlike <code>pull</code>, <code>build</code> will convert the image to the latest Singularity image format after
+downloading it.</p>
+<pre><code class="language-bash">singularity build systempipe_docker_latest.sif docker://systempipe/systempipe_docker:latest
+</code></pre>
+<p>To run the container:</p>
+<pre><code class="language-bash">singularity shell systempipe_docker_latest.sif
+</code></pre>
+<hr>
+<div id='resources'/>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://www.mirantis.com/blog/how-do-i-create-a-new-docker-image-for-my-application/">Docker Run: How to create images from an application</a></li>
+<li><a href="https://docs.docker.com/docker-hub/">Docker Hub Quickstart</a></li>
+<li><a href="https://docs.docker.com/ci-cd/github-actions/">Configure GitHub Actions</a></li>
+<li><a href="https://sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images">Singularity</a></li>
+</ul>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
+</div>
+</div>
+
+
+              </main>
+          
+
+
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
+      <i class="fa fa-dna"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="../../about/">About systemPipe Project</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true }
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
