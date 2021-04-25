@@ -6,7 +6,7 @@ weight: 9
 ---
 
 SPS is not only a framework to run interactive workflow and visualize data, but 
-also a framework with a abundant developer tools for building Shiny apps, writing R markdowns,
+also a framework with abundant developer tools for building Shiny apps, writing R markdowns,
 integrating R-HTML and general R utilities. 
 
 These developer toolkits are distributed in supporting packages. If you like 
