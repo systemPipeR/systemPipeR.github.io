@@ -1,1093 +1,72 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-
-<link rel="shortcut icon" href="../../../../favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="../../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="../../../../favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="../../../../favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="../../../../favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="../../../../favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="../../../../favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="../../../../favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="../../../../favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="../../../../favicons/android-192x192.png" sizes="192x192">
-
-<title>UI components | sysPipe</title><meta property="og:title" content="UI components" />
-<meta property="og:description" content="load package To start to use spsComps, load it in your Shiny app file or Rmarkdown file
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../../favicons/android-192x192.png sizes=192x192><title>UI components | sysPipe</title><meta property="og:title" content="UI components"><meta property="og:description" content="load package To start to use spsComps, load it in your Shiny app file or Rmarkdown file
 library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  So you can see it depends on shiny and spsUtil. When you load it, there is no need to additionally load shiny or spsUtil.
-UI Components For most of the UI components, you can view them in the online Shiny demo." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/sps/dev/spscomps/ui/" />
-<meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" /><meta property="og:site_name" content="sysPipe" />
-<meta itemprop="name" content="UI components">
-<meta itemprop="description" content="load package To start to use spsComps, load it in your Shiny app file or Rmarkdown file
+UI Components For most of the UI components, you can view them in the online Shiny demo."><meta property="og:type" content="article"><meta property="og:url" content="/sps/dev/spscomps/ui/"><meta property="article:modified_time" content="2021-04-25T16:40:07-07:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="UI components"><meta itemprop=description content="load package To start to use spsComps, load it in your Shiny app file or Rmarkdown file
 library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  So you can see it depends on shiny and spsUtil. When you load it, there is no need to additionally load shiny or spsUtil.
-UI Components For most of the UI components, you can view them in the online Shiny demo.">
-<meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
-<meta itemprop="wordCount" content="622">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="UI components"/>
-<meta name="twitter:description" content="load package To start to use spsComps, load it in your Shiny app file or Rmarkdown file
+UI Components For most of the UI components, you can view them in the online Shiny demo."><meta itemprop=dateModified content="2021-04-25T16:40:07-07:00"><meta itemprop=wordCount content="622"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="UI components"><meta name=twitter:description content="load package To start to use spsComps, load it in your Shiny app file or Rmarkdown file
 library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  So you can see it depends on shiny and spsUtil. When you load it, there is no need to additionally load shiny or spsUtil.
-UI Components For most of the UI components, you can view them in the online Shiny demo."/>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-<link rel="preload" href="../../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
-
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-
-
-
-<link rel="stylesheet" href="../../../../css/prism.css"/>
-
-
-<script src="../../../../js/driver0.9.8.min.js"></script>
-<link rel="stylesheet" href="../../../../css/driver0.9.8.min.css"/>
-
-
-<link rel="stylesheet" href="../../../../css/site.css"/>
-<script src="../../../../js/site.js"></script>
-
-
-
-  </head>
-  <body class="td-page line-numbers">
-    <header>
-     
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-  <a class="navbar-brand" href="../../../../">
-		<span class="font-weight-bold">sysPipe</span>
-	</a>
-	<row class="header-switch">
-	  	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
-        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
-      </div>
-    	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
-        <label class="custom-control-label" for="tocSwitch">toc</label>
-      </div>
-	</row>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/overview/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Overview
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../sp/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/spr_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spt/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRTools
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spt/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Data Visualization
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sp/sprdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/sprdata/systempiperdata/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/sprdata/newwf/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Rules
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPT GitHub
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../sps/" id="navbarDropdown" role="button">
-          	Shiny
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sps/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 SPS Documentation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Github
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf/installwf/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 How to install Workflow
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf/newwf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Rules to create Workflow
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../training/" id="navbarDropdown" role="button">
-          	Training
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../training/conferences/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Conferences
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../training/presentations/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../training/videos/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../news/release_3_12/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-</div>
-</nav>
-
-    </header>
-    <div class="container-fluid td-outer">
-      <div class="td-main">
-        <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
-            
-
-
-
-
-<div id="td-sidebar-menu" class="td-sidebar__inner">
-  
-  <form class="td-sidebar__search d-flex align-items-center">
-    
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
-    </button>
-  </form>
-  
-  <nav class="collapse td-sidebar-nav" id="td-section-nav">
-    
-    
-    
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="sps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../../../sps/intro/">Introduction</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../../../sps/install/">Installation</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../../../sps/quick_start/">Quick start</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsmodules">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../../../sps/modules/workflow/">Workflow</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../../../sps/modules/rnaseq/">RNAseq</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../../../sps/modules/ggplot/">Quick ggplot</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../../../sps/canvas/">Canvas</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../../../sps/sps_funcs/">SPS Functions</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsadv_features">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../../../sps/adv_features/config/">Configuration</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../../../sps/adv_features/tabs/">Manage tabs</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresoverwritetabs" href="../../../../sps/adv_features/overwritetabs/">Overwrite tabs</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../../../sps/adv_features/displaytabs/">Toggle tabs</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../../../sps/adv_features/notification/">Notification system</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../../../sps/adv_features/guide/">SPS Guide</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresapp_security" href="../../../../sps/adv_features/app_security/">App security</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdatabase" href="../../../../sps/adv_features/database/">SPS database</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featureslogin" href="../../../../sps/adv_features/login/">Accounts, login and admin</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdebug" href="../../../../sps/adv_features/debug/">Debugging</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresother_customizations" href="../../../../sps/adv_features/other_customizations/">Other customizations</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../../../sps/deploy/">Deploy</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdev">
-      
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/spscomps/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">spsComps</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdevspscomps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsdevspscompsui" href="../../../../sps/dev/spscomps/ui/">UI components</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsserver" href="../../../../sps/dev/spscomps/server/">Server functions</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/drawer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsdevdrawer">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawershiny" href="../../../../sps/dev/drawer/shiny/">drawer in Shiny</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawerrmd" href="../../../../sps/dev/drawer/rmd/">drawer in Rmarkdown</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspsutil" href="../../../../sps/dev/spsutil/">spsUtil</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-  </nav>
-</div>
-
-
-
-
-          </div>
-          
-          
-
-          
-
-          
-          
-              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-                
-  
-  
-  
-  
-  
-  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-  
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
-    
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spscomps/ui.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spscomps/ui.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spscomps/ui.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    
-      
-      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-    
-
-  
-  
-  </div>
-
-
-
-
-
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#load-package">load package</a></li>
-        <li><a href="#ui-components">UI Components</a>
-          <ul>
-            <li><a href="#spsgotop"><code>spsGoTop</code></a></li>
-            <li><a href="#gallery"><code>gallery</code></a></li>
-            <li><a href="#logos">Logos</a>
-              <ul>
-                <li><a href="#a-single-one-with-hexlogo">a single one with <code>hexLogo</code></a></li>
-                <li><a href="#a-panel-of-logos-with-hexpanel">a panel of logos with <code>hexPanel</code></a></li>
-              </ul>
-            </li>
-            <li><a href="#buttons">Buttons</a>
-              <ul>
-                <li><a href="#some-colorful-buttons-hreftab">Some colorful buttons <code>hrefTab</code></a></li>
-                <li><a href="#a-table-colorful-buttons-hreftable">A table colorful buttons <code>hrefTable</code></a></li>
-              </ul>
-            </li>
-            <li><a href="#show-tips-with--bshoverpopover">show tips with  <code>bsHoverPopover</code></a>
-              <ul>
-                <li><a href="#on-a-button">On a button</a></li>
-                <li><a href="#on-a-link">On a link</a></li>
-                <li><a href="#on-a-plot">On a plot</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#other-components">Other components</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-              </div>
-              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-                
-  
-
-                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/">systemPipeShiny</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/dev/">Developer tools</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/dev/spscomps/">spsComps</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../../sps/dev/spscomps/ui/">UI components</a>
-</li>
-
-	</ol>
-</nav	>
-
-                
-<div class="td-content">
-	<h1>UI components</h1>
-    
-	       
-	<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/sps-gotop/js/sps_gotop.js"></script>
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<h2 id="load-package">load package</h2>
-<p>To start to use <code>spsComps</code>, load it in your Shiny app file or Rmarkdown file</p>
-<pre><code class="language-r">library(spsComps)
-</code></pre>
-<pre><code>## Loading required package: shiny
-</code></pre>
-<pre><code>## Loading required package: spsUtil
-</code></pre>
-<pre><code class="language-r">library(magrittr)
-</code></pre>
-<p>So you can see it depends on <code>shiny</code> and <code>spsUtil</code>. When you load it, there is no
-need to additionally load <code>shiny</code> or <code>spsUtil</code>.</p>
-<h2 id="ui-components">UI Components</h2>
-<p>For most of the UI components, you can view them in the <a href="https://lezhang.shinyapps.io/spsComps">online Shiny demo</a>.
-Here we just select a few to demonstrate how you can use them <strong>in a R markdown</strong>.</p>
-<h3 id="spsgotop"><code>spsGoTop</code></h3>
-<p>A go top button.</p>
-<pre><code class="language-r">spsGoTop()
-</code></pre>
-<div class="sps-gotop" id="gotop" style="right: 1rem;&#10;bottom: 10rem;&#10;fill: #337ab7;" data-toggle="tooltip" data-placement="left" title="Go Top" onclick="goTop()">
-          <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M526.60727968 10.90185116
-              a27.675 27.675 0 0 0-29.21455937 0
-              c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402
-              394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903
-              c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765
-              54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777
-              c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017
-              42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696
-              6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492
-              c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158
-              55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489
-              52.69160879-4.22606768a371.15156223 371.15156223 0 0 0
-              11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001
-              462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103
-              357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z">
-            </path>
-            <path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686
-              1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328
-              82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037
-              30.59548842-82.51086798 68.34111062z">
-            </path>
-          </svg>
-        </div>
-<p>It will not be display inline of the Rmd, just simply call it and maybe change the
+UI Components For most of the UI components, you can view them in the online Shiny demo."><link rel=preload href=../../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css as=style><link href=../../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><link rel=stylesheet href=../../../../css/prism.css><script src=../../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../../css/site.css><script src=../../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../../><span class=font-weight-bold>sysPipe</span></a>
+<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
+<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
+<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
+<a class=dropdown-item href=../../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
+<a class=dropdown-item href=../../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
+<a class=dropdown-item href=../../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
+<a class=dropdown-item href=../../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../sp/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../sp/spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
+<a class=dropdown-item href=../../../../sp/spr/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
+<a class=dropdown-item href=../../../../sp/spr/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
+<a class=dropdown-item href=../../../../sp/spr/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
+<a class=dropdown-item href=../../../../sp/spr/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
+<a class=dropdown-item href=../../../../sp/spr/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
+<a class=dropdown-item href=../../../../sp/spr/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
+<a class=dropdown-item href=../../../../sp/spr/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
+<a class=dropdown-item href=../../../../sp/spt/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRTools</a>
+<a class=dropdown-item href=../../../../sp/spt/ style=padding-left:2rem;font-weight:calc(3/4*500)>Data Visualization</a>
+<a class=dropdown-item href=../../../../sp/sprdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
+<a class=dropdown-item href=../../../../sp/sprdata/systempiperdata/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
+<a class=dropdown-item href=../../../../sp/sprdata/newwf/ style=padding-left:2rem;font-weight:calc(3/4*500)>Rules</a>
+<a class=dropdown-item href=../../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeTools style=padding-left:2rem;font-weight:calc(3/4*500)>SPT GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
+<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a>
+<a class=dropdown-item href=../../../../spr_wf/installwf/ style=padding-left:1rem;font-weight:calc(3/3*500)>How to install Workflow</a>
+<a class=dropdown-item href=../../../../spr_wf/newwf style=padding-left:1rem;font-weight:calc(3/3*500)>Rules to create Workflow</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../training/ id=navbarDropdown role=button>Training</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../training/conferences/ style=padding-left:1rem;font-weight:calc(3/3*500)>Conferences</a>
+<a class=dropdown-item href=../../../../training/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
+<a class=dropdown-item href=../../../../training/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a></li><ul><li class="collapse show" id=sps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsintro href=../../../../sps/intro/>Introduction</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsinstall href=../../../../sps/install/>Installation</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsquick_start href=../../../../sps/quick_start/>Quick start</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/modules/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a></li><ul><li class=collapse id=spsmodules><a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesworkflow href=../../../../sps/modules/workflow/>Workflow</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesrnaseq href=../../../../sps/modules/rnaseq/>RNAseq</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesggplot href=../../../../sps/modules/ggplot/>Quick ggplot</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spscanvas href=../../../../sps/canvas/>Canvas</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spssps_funcs href=../../../../sps/sps_funcs/>SPS Functions</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/adv_features/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a></li><ul><li class=collapse id=spsadv_features><a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresconfig href=../../../../sps/adv_features/config/>Configuration</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featurestabs href=../../../../sps/adv_features/tabs/>Manage tabs</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresoverwritetabs href=../../../../sps/adv_features/overwritetabs/>Overwrite tabs</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresdisplaytabs href=../../../../sps/adv_features/displaytabs/>Toggle tabs</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresnotification href=../../../../sps/adv_features/notification/>Notification system</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresguide href=../../../../sps/adv_features/guide/>SPS Guide</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresapp_security href=../../../../sps/adv_features/app_security/>App security</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresdatabase href=../../../../sps/adv_features/database/>SPS database</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featureslogin href=../../../../sps/adv_features/login/>Accounts, login and admin</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresdebug href=../../../../sps/adv_features/debug/>Debugging</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresother_customizations href=../../../../sps/adv_features/other_customizations/>Other customizations</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdeploy href=../../../../sps/deploy/>Deploy</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a></li><ul><li class="collapse show" id=spsdev><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/spscomps/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">spsComps</a></li><ul><li class="collapse show" id=spsdevspscomps><a class="td-sidebar-link td-sidebar-link__page active" id=m-spsdevspscompsui href=../../../../sps/dev/spscomps/ui/>UI components</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsserver href=../../../../sps/dev/spscomps/server/>Server functions</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/drawer/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a></li><ul><li class=collapse id=spsdevdrawer><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawershiny href=../../../../sps/dev/drawer/shiny/>drawer in Shiny</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawerrmd href=../../../../sps/dev/drawer/rmd/>drawer in Rmarkdown</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspsutil href=../../../../sps/dev/spsutil/>spsUtil</a></li></ul></ul></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd target=_blank class=source-link><i class="fa fa-code fa-fw"></i>View Rmd source</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spscomps/ui.md target=_blank><i class="fab fa-github fa-fw"></i>View on Github</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spscomps/ui.md target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spscomps/ui.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><ul><li><a href=#load-package>load package</a></li><li><a href=#ui-components>UI Components</a><ul><li><a href=#spsgotop><code>spsGoTop</code></a></li><li><a href=#gallery><code>gallery</code></a></li><li><a href=#logos>Logos</a><ul><li><a href=#a-single-one-with-hexlogo>a single one with <code>hexLogo</code></a></li><li><a href=#a-panel-of-logos-with-hexpanel>a panel of logos with <code>hexPanel</code></a></li></ul></li><li><a href=#buttons>Buttons</a><ul><li><a href=#some-colorful-buttons-hreftab>Some colorful buttons <code>hrefTab</code></a></li><li><a href=#a-table-colorful-buttons-hreftable>A table colorful buttons <code>hrefTable</code></a></li></ul></li><li><a href=#show-tips-with--bshoverpopover>show tips with <code>bsHoverPopover</code></a><ul><li><a href=#on-a-button>On a button</a></li><li><a href=#on-a-link>On a link</a></li><li><a href=#on-a-plot>On a plot</a></li></ul></li></ul></li><li><a href=#other-components>Other components</a></li></ul></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../../sps/>systemPipeShiny</a></li><li class=breadcrumb-item><a href=../../../../sps/dev/>Developer tools</a></li><li class=breadcrumb-item><a href=../../../../sps/dev/spscomps/>spsComps</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../../sps/dev/spscomps/ui/>UI components</a></li></ol></nav><div class=td-content><h1>UI components</h1><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/sps-gotop/js/sps_gotop.js></script><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><h2 id=load-package>load package</h2><p>To start to use <code>spsComps</code>, load it in your Shiny app file or Rmarkdown file</p><pre><code class=language-r>library(spsComps)
+</code></pre><pre><code>## Loading required package: shiny
+</code></pre><pre><code>## Loading required package: spsUtil
+</code></pre><pre><code class=language-r>library(magrittr)
+</code></pre><p>So you can see it depends on <code>shiny</code> and <code>spsUtil</code>. When you load it, there is no
+need to additionally load <code>shiny</code> or <code>spsUtil</code>.</p><h2 id=ui-components>UI Components</h2><p>For most of the UI components, you can view them in the <a href=https://lezhang.shinyapps.io/spsComps>online Shiny demo</a>.
+Here we just select a few to demonstrate how you can use them <strong>in a R markdown</strong>.</p><h3 id=spsgotop><code>spsGoTop</code></h3><p>A go top button.</p><pre><code class=language-r>spsGoTop()
+</code></pre><div class=sps-gotop id=gotop style=right:1rem;bottom:10rem;fill:#337ab7 data-toggle=tooltip data-placement=left title="Go Top" onclick=goTop()><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M526.60727968 10.90185116a27.675 27.675.0 00-29.21455937.0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001.0 005.36959153 69.94390903c1.00431239 6.55289093-.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723.0 0011.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375.0 00140.04691725 5.34970492 1866.36093723 1866.36093723.0 00140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223.0 0011.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001.0 005.36959269-69.943909c-.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974.0 11-187.89594924 61e-8 93.93749974 93.93749974.0 01187.89594924-61e-8z"/><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499.0 82.4922232-197.00623328 82.5015456-234.7518555.0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-.00932239-82.52019037 30.59548842-82.51086798 68.34111062z"/></svg></div><p>It will not be display inline of the Rmd, just simply call it and maybe change the
 style as you want. By default, a &ldquo;go to top&rdquo; button will be created on the <strong>bottom-right</strong>
-<strong>corner</strong>. Now scroll this page, and you should see it (the rocket button).</p>
-<h3 id="gallery"><code>gallery</code></h3>
-<pre><code class="language-r">texts &lt;- c(&quot;p1&quot;, &quot;p2&quot;, &quot;&quot;, &quot;p4&quot;, &quot;p5&quot;)
+<strong>corner</strong>. Now scroll this page, and you should see it (the rocket button).</p><h3 id=gallery><code>gallery</code></h3><pre><code class=language-r>texts &lt;- c(&quot;p1&quot;, &quot;p2&quot;, &quot;&quot;, &quot;p4&quot;, &quot;p5&quot;)
 hrefs &lt;- c(&quot;https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true&quot;,
            &quot;https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true&quot;,
            &quot;&quot;,
@@ -1103,149 +82,34 @@ gallery(
   enlarge = TRUE,
   enlarge_method = &quot;modal&quot;
 )
-</code></pre>
-<div id="gallery9813595" class="col sps-gallery" style="">
-<p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery9813595-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery "
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-1")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true"><p class="text-center h4">p1</p></a>
-</div> <div  id=gallery9813595-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery "
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-2")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true"><p class="text-center h4">p2</p></a>
-</div> <div  id=gallery9813595-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery gallery-nohover"
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-3")
-  >
-  <a ><p class="text-center h4">&nbsp;</p></a>
-</div> <div  id=gallery9813595-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery "
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-4")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true"><p class="text-center h4">p4</p></a>
-</div> <div  id=gallery9813595-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery "
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-5")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true"><p class="text-center h4">p5</p></a>
-</div></div>
-<!--SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<div id="sps-gallery-modal" class="gallery-modal" onclick="galModalClose()">
-<span class="gallery-modal-close">X</span>
-<img id="sps-gallery-modal-content" class="gallery-modal-content"/>
-<div class="gallery-caption"></div>
-</div>
-<!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery9813595")</script>
-</div>
-<p>You can show a gallery of plots you make in the Rmd and when people click it,
-it will be enlarged. You can also specify a link for each image.</p>
-<h3 id="logos">Logos</h3>
-<h4 id="a-single-one-with-hexlogo">a single one with <code>hexLogo</code></h4>
-<pre><code class="language-r">hexLogo(
+</code></pre><div id=gallery9813595 class="col sps-gallery"><p class="text-center h2" style=color:#0275d8>Gallery</p><div class=row style=margin:10px><div id=gallery9813595-1 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery9813595-1")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true"><p class="text-center h4">p1</p></a></div><div id=gallery9813595-2 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery9813595-2")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true"><p class="text-center h4">p2</p></a></div><div id=gallery9813595-3 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery gallery-nohover" height=300 width=400 style=width:100% onclick='galEnlarge("#gallery9813595-3")'>
+<a><p class="text-center h4">&nbsp;</p></a></div><div id=gallery9813595-4 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery9813595-4")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true"><p class="text-center h4">p4</p></a></div><div id=gallery9813595-5 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery9813595-5")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true"><p class="text-center h4">p5</p></a></div></div><div id=sps-gallery-modal class=gallery-modal onclick=galModalClose()><span class=gallery-modal-close>X</span>
+<img id=sps-gallery-modal-content class=gallery-modal-content><div class=gallery-caption></div></div><script>fixGalHeight("gallery9813595")</script></div><p>You can show a gallery of plots you make in the Rmd and when people click it,
+it will be enlarged. You can also specify a link for each image.</p><h3 id=logos>Logos</h3><h4 id=a-single-one-with-hexlogo>a single one with <code>hexLogo</code></h4><pre><code class=language-r>hexLogo(
     &quot;logo&quot;, &quot;Logo&quot;,
     hex_img = &quot;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&quot;,
     hex_link = &quot;https://www.google.com&quot;,
     footer = &quot;Footer&quot;,
     footer_link = &quot;https://www.google.com&quot;
 )
-</code></pre>
-<div id="logo" class="hex-container">
-  <span class="text-info">Logo</span><br>
-  <svg class="hex-box" viewBox="0 0 100 115" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="logo-hex" patternUnits="userSpaceOnUse" height="100%" width="100%">
-        <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
-      </pattern>
-    </defs>
-    <a href="https://www.google.com" target="_blank"><polygon class="hex" points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#logo-hex)" stroke="var(--primary)"stroke-width="2"/></a>
-    <text x=10 y=115><a class="powerby-link"href="https://www.google.com" target="_blank">Footer</a></text>
-  </svg>
-</div>
-<h4 id="a-panel-of-logos-with-hexpanel">a panel of logos with <code>hexPanel</code></h4>
-<pre><code class="language-r">hexPanel(
+</code></pre><div id=logo class=hex-container><span class=text-info>Logo</span><br><svg class="hex-box" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="logo-hex" patternUnits="userSpaceOnUse" height="100%" width="100%"><image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%"/></pattern></defs><a href="https://www.google.com" target="_blank"><polygon class="hex" points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#logo-hex)" stroke="var(--primary)" stroke-width="2"/></a><text x="10" y="115"><a class="powerby-link" href="https://www.google.com" target="_blank">Footer</a></text></svg></div><h4 id=a-panel-of-logos-with-hexpanel>a panel of logos with <code>hexPanel</code></h4><pre><code class=language-r>hexPanel(
     &quot;demo1&quot;, &quot;&quot; ,
     rep(&quot;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&quot;, 2)
 )
-</code></pre>
-<div class="row hex-panel">
-<h5 class="text-primary"></h5>
-<div class="hex-item"><div id="demo11" class="hex-container">
-  <svg class="hex-box" viewBox="0 0 100 115" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="demo11-hex" patternUnits="userSpaceOnUse" height="100%" width="100%">
-        <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
-      </pattern>
-    </defs>
-    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#demo11-hex)" stroke="var(--primary)"stroke-width="2"/>
-  </svg>
-</div></div>
-<div class="hex-item"><div id="demo12" class="hex-container">
-  <svg class="hex-box" viewBox="0 0 100 115" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="demo12-hex" patternUnits="userSpaceOnUse" height="100%" width="100%">
-        <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
-      </pattern>
-    </defs>
-    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#demo12-hex)" stroke="var(--primary)"stroke-width="2"/>
-  </svg>
-</div></div>
-</div>
-<h3 id="buttons">Buttons</h3>
-<h4 id="some-colorful-buttons-hreftab">Some colorful buttons <code>hrefTab</code></h4>
-<pre><code class="language-r">hrefTab(
+</code></pre><div class="row hex-panel"><h5 class=text-primary></h5><div class=hex-item><div id=demo11 class=hex-container><svg class="hex-box" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="demo11-hex" patternUnits="userSpaceOnUse" height="100%" width="100%"><image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%"/></pattern></defs><polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#demo11-hex)" stroke="var(--primary)" stroke-width="2"/></svg></div></div><div class=hex-item><div id=demo12 class=hex-container><svg class="hex-box" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="demo12-hex" patternUnits="userSpaceOnUse" height="100%" width="100%"><image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%"/></pattern></defs><polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#demo12-hex)" stroke="var(--primary)" stroke-width="2"/></svg></div></div></div><h3 id=buttons>Buttons</h3><h4 id=some-colorful-buttons-hreftab>Some colorful buttons <code>hrefTab</code></h4><pre><code class=language-r>hrefTab(
     title = &quot;Different background and text colors&quot;,
     label_texts = c(&quot;Go top&quot;, &quot;Disabled&quot;, &quot;Email me&quot;),
     hrefs = c(&quot;#&quot;, &quot;&quot;, &quot;mailto:xxx@abc.com&quot;),
     bg_colors = c(&quot;green&quot;, &quot;#eee&quot;, &quot;orange&quot;),
     text_colors = c(&quot;#caffc1&quot;, &quot;black&quot;, &quot;blue&quot;)
 )
-</code></pre>
-<div id="list-tab9250586" class="col">
-<p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
-<div><a
-  href="#"
-  class="href-button sps-tab-link "
-  style="background-color: green; color: #caffc1;"
- >
-  Go top
-</a>
- <a
-  href="javascript:null;"
-  class="href-button sps-tab-link nohover"
-  style="background-color: #eee; color: black;"
- >
-  Disabled
-</a>
- <a
-  href="mailto:xxx@abc.com"
-  class="href-button sps-tab-link "
-  style="background-color: orange; color: blue;"
- >
-  Email me
-</a>
-</div>
-</div>
-<h4 id="a-table-colorful-buttons-hreftable">A table colorful buttons <code>hrefTable</code></h4>
-<pre><code class="language-r">hrefTable(
+</code></pre><div id=list-tab9250586 class=col><p class=h4 style=color:#0275d8;text-align:left>Different background and text colors</p><div><a href=# class="href-button sps-tab-link" style=background-color:green;color:#caffc1>Go top</a>
+<a href=javascript:null; class="href-button sps-tab-link nohover" style=background-color:#eee;color:#000>Disabled</a>
+<a href=mailto:xxx@abc.com class="href-button sps-tab-link" style=background-color:orange;color:blue>Email me</a></div></div><h4 id=a-table-colorful-buttons-hreftable>A table colorful buttons <code>hrefTable</code></h4><pre><code class=language-r>hrefTable(
     title = &quot;Change button color and text color&quot;,
     item_titles = c(&quot;workflow 1&quot;, &quot;No links&quot;),
     item_labels = list(c(&quot;tab 1&quot;), c(&quot;tab 3&quot;, &quot;tab 4&quot;)),
@@ -1254,44 +118,8 @@ it will be enlarged. You can also specify a link for each image.</p>
     item_text_colors =  list(c(&quot;black&quot;), c(&quot;yellow&quot;, &quot;green&quot;)),
     style = &quot;display: table;&quot;
 )
-</code></pre>
-<table id="list-table6250655" class="table table-hover table-href table-striped" style="display: table;">
-<caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
-<thead>
-  <tr class="info">
-    <th>Category</th>
-    <th>Options</th>
-  </tr>
-</thead>
-<tbody>  <tr>
-    <td class="h4" style="color: #0275d8;">workflow 1</td>
-    <td><a
-  href="https://www.google.com/"
-  class="href-button  sps-tab-link"
-  style="background-color: blue; color: black;"
->
-  tab 1
-</a></td>
-  </tr>
-   <tr>
-    <td class="h4" style="color: #0275d8;">No links</td>
-    <td><a
-  href="javascript:null;"
-  class="href-button nohover sps-tab-link"
-  style="background-color: red; color: yellow;"
->
-  tab 3
-</a><a
-  href="javascript:null;"
-  class="href-button nohover sps-tab-link"
-  style="background-color: orange; color: green;"
->
-  tab 4
-</a></td>
-  </tr>
-</tbody>
-</table>
-<pre><code class="language-r">hrefTable(
+</code></pre><table id=list-table6250655 class="table table-hover table-href table-striped" style=display:table><caption class="text-center h2" style=color:#0275d8>Change button color and text color</caption><thead><tr class=info><th>Category</th><th>Options</th></tr></thead><tbody><tr><td class=h4 style=color:#0275d8>workflow 1</td><td><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:blue;color:#000>tab 1</a></td></tr><tr><td class=h4 style=color:#0275d8>No links</td><td><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:red;color:#ff0>tab 3
+</a><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:orange;color:green>tab 4</a></td></tr></tbody></table><pre><code class=language-r>hrefTable(
     title = &quot;Change row name colors and width&quot;,
     item_titles = c(&quot;Green&quot;, &quot;Red&quot;, &quot;Orange&quot;),
     item_labels = list(c(&quot;tab 1&quot;), c(&quot;tab 3&quot;, &quot;tab 4&quot;), c(&quot;tab 5&quot;, &quot;tab 6&quot;, &quot;tab 7&quot;)),
@@ -1303,206 +131,40 @@ it will be enlarged. You can also specify a link for each image.</p>
     item_title_colors = c(&quot;green&quot;, &quot;red&quot;, &quot;orange&quot;),
     style = &quot;display: table;&quot;
 )
-</code></pre>
-<table id="list-table2892511" class="table table-hover table-href table-striped" style="display: table;">
-<caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
-<thead>
-  <tr class="info">
-    <th>Category</th>
-    <th>Options</th>
-  </tr>
-</thead>
-<tbody>  <tr>
-    <td class="h4" style="color: green;">Green</td>
-    <td><a
-  href="https://www.google.com/"
-  class="href-button  sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 1
-</a></td>
-  </tr>
-   <tr>
-    <td class="h4" style="color: red;">Red</td>
-    <td><a
-  href="javascript:null;"
-  class="href-button nohover sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 3
-</a><a
-  href="javascript:null;"
-  class="href-button nohover sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 4
-</a></td>
-  </tr>
-   <tr>
-    <td class="h4" style="color: orange;">Orange</td>
-    <td><a
-  href="https://www.google.com/"
-  class="href-button  sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 5
-</a><a
-  href="https://www.google.com/"
-  class="href-button  sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 6
-</a><a
-  href="javascript:null;"
-  class="href-button nohover sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 7
-</a></td>
-  </tr>
-</tbody>
-</table>
-<p>The table caption is on top in Shiny but on bottom in Rmd. You may also want to
-add the <code>style = &quot;display: table;&quot;</code> in Rmd to make the table occupy full length of
-the document in R markdown.</p>
-<h3 id="show-tips-with--bshoverpopover">show tips with  <code>bsHoverPopover</code></h3>
-<p>Space in a document is valuable. Sometimes you do not want to explain too much in
+</code></pre><table id=list-table2892511 class="table table-hover table-href table-striped" style=display:table><caption class="text-center h2" style=color:#0275d8>Change row name colors and width</caption><thead><tr class=info><th>Category</th><th>Options</th></tr></thead><tbody><tr><td class=h4 style=color:green>Green</td><td><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:#337ab7;color:#fff>tab 1</a></td></tr><tr><td class=h4 style=color:red>Red</td><td><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:#337ab7;color:#fff>tab 3
+</a><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:#337ab7;color:#fff>tab 4</a></td></tr><tr><td class=h4 style=color:orange>Orange</td><td><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:#337ab7;color:#fff>tab 5
+</a><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:#337ab7;color:#fff>tab 6
+</a><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:#337ab7;color:#fff>tab 7</a></td></tr></tbody></table><p>The table caption is on top in Shiny but on bottom in Rmd. You may also want to
+add the <code>style = "display: table;"</code> in Rmd to make the table occupy full length of
+the document in R markdown.</p><h3 id=show-tips-with--bshoverpopover>show tips with <code>bsHoverPopover</code></h3><p>Space in a document is valuable. Sometimes you do not want to explain too much in
 the main text but still want to give readers some additional information. Use
-a popover to hide your additional text can be useful.</p>
-<h4 id="on-a-button">On a button</h4>
-<pre><code class="language-r">actionButton(&quot;a_btn&quot;, &quot;A button&quot;, class = &quot;btn-primary&quot;) %&gt;% 
+a popover to hide your additional text can be useful.</p><h4 id=on-a-button>On a button</h4><pre><code class=language-r>actionButton(&quot;a_btn&quot;, &quot;A button&quot;, class = &quot;btn-primary&quot;) %&gt;% 
    bsHoverPopover(
                 title = &quot;title a&quot;,
                 content = &quot;popover works on a button&quot;,
                 placement = &quot;bottom&quot;
     )
-</code></pre>
-<p><button class="btn btn-default action-button btn-primary" data-content="popover works on a button" data-placement="bottom" data-toggle="popover" id="a_btn" pop-toggle="hover" title="title a" type="button">A button</button></p>
-<h4 id="on-a-link">On a link</h4>
-<pre><code class="language-r">tags$a(href=&quot;mailto:xxx@abc.com&quot;, &quot;Email&quot;) %&gt;% 
+</code></pre><p><button class="btn btn-default action-button btn-primary" data-content="popover works on a button" data-placement=bottom data-toggle=popover id=a_btn pop-toggle=hover title="title a" type=button>A button</button></p><h4 id=on-a-link>On a link</h4><pre><code class=language-r>tags$a(href=&quot;mailto:xxx@abc.com&quot;, &quot;Email&quot;) %&gt;% 
    bsHoverPopover(
                 title = &quot;Email me&quot;,
                 content = &quot;popover works on a link&quot;,
                 placement = &quot;bottom&quot;
     )
-</code></pre>
-<p><a href="mailto:xxx@abc.com" title="Email me" data-toggle="popover" data-content="popover works on a link" data-placement="bottom" pop-toggle="hover">Email</a></p>
-<h4 id="on-a-plot">On a plot</h4>
-<pre><code class="language-r">png(&quot;random_plot.png&quot;)
+</code></pre><p><a href=mailto:xxx@abc.com title="Email me" data-toggle=popover data-content="popover works on a link" data-placement=bottom pop-toggle=hover>Email</a></p><h4 id=on-a-plot>On a plot</h4><pre><code class=language-r>png(&quot;random_plot.png&quot;)
 plot(1:10, 10:1)
 dev.off()
-</code></pre>
-<pre><code>## png 
+</code></pre><pre><code>## png 
 ##   2
-</code></pre>
-<pre><code class="language-r">tags$img(src = &quot;../random_plot.png&quot;) %&gt;% 
+</code></pre><pre><code class=language-r>tags$img(src = &quot;../random_plot.png&quot;) %&gt;% 
   bsHoverPopover(
               title = &quot;My plot&quot;,
               content = &quot;popover works on a plot&quot;,
               placement = &quot;right&quot;
   )
-</code></pre>
-<img src="../random_plot.png" title="My plot" data-toggle="popover" data-content="popover works on a plot" data-placement="right" pop-toggle="hover"/>
-<h2 id="other-components">Other components</h2>
-<p>Other components are either performed the best in a Shiny app or requires
-a server. Please see the <a href="https://lezhang.shinyapps.io/spsComps/">demo</a></p>
-
-	
-	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-16: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5e9129ad29c8960356962ae697b286a451f6a7c2">update in progress (5e9129a)</a>
-</div>
-</div>
-
-
-              </main>
-          
-
-
-        </div>
-      </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-        
-        
-        
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-<ul class="list-inline mb-0">
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
-      <i class="fab fa-github"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
-      <i class="fa fa-dna"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
-      <i class="fa fa-envelope"></i>
-    </a>
-  </li>
-  
-</ul>
-
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
-        
-	
-		<p class="mt-2"><a href="../../../../about/">About systemPipe Project</a></p>
-	
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script>
-  (function() {
-    var i, text, code, codes = document.getElementsByTagName('code');
-    for (i = 0; i < codes.length;) {
-      code = codes[i];
-      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-        text = code.textContent;
-        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
-          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
-          code.textContent = text;
-        }
-        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-            /^\$(.|\s)+\$$/.test(text) ||
-            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-          code.outerHTML = code.innerHTML;  
-          continue;
-        }
-      }
-      i++;
-    }
-  })();
-</script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<script type="text/x-mathjax-config">
+</code></pre><img src=../random_plot.png title="My plot" data-toggle=popover data-content="popover works on a plot" data-placement=right pop-toggle=hover><h2 id=other-components>Other components</h2><p>Other components are either performed the best in a Shiny app or requires
+a server. Please see the <a href=https://lezhang.shinyapps.io/spsComps/>demo</a></p><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-25: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/63e89d0bb142cb732b7bffe8492ac853a666135e>upload img (63e89d0)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipeR Project All Rights Reserved</small><p class=mt-2><a href=../../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
+if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
+i++;}})();</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script type=text/x-mathjax-config>
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -1518,25 +180,4 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<script src="../../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
-
-
-
-<script src='../../../../js/prism.js'></script>
-
-
-
-  </body>
-</html>
+</script><script src=../../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin=anonymous></script><script src=../../../../js/prism.js></script></body></html>
