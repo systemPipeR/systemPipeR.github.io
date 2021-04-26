@@ -22,9 +22,9 @@ spsInit(app_path = tempdir(), project_name = "config_demo", overwrite = TRUE, ch
 ```
 
 ```
-## [SPS-DANGER] 2021-04-20 12:54:47 Done, Db created at '/tmp/RtmpWm2i6b/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:47 Key md5 5ab87e1ba033149148b6b962e40049b6
-## [SPS-INFO] 2021-04-20 12:54:47 SPS project setup done!
+## [SPS-DANGER] 2021-04-25 19:43:24 Done, Db created at '/tmp/RtmphrNOOX/config_demo/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-25 19:43:24 Key md5 ee81377a81fdb757fbbbb6af38644756
+## [SPS-INFO] 2021-04-25 19:43:24 SPS project setup done!
 ```
 
 ```r
@@ -33,7 +33,7 @@ spsInit(app_path = tempdir(), project_name = "config_demo", overwrite = TRUE, ch
 ```
 
 ```
-## [1] "/tmp/RtmpWm2i6b/config_demo"
+## [1] "/tmp/RtmphrNOOX/config_demo"
 ```
 
 To reproduce code locally, run the following chunk instead. 
@@ -44,7 +44,6 @@ library(systemPipeShiny)
 spsInit()
 sps_dir <- normalizePath(".")
 ```
-
 
 <STYLE type='text/css' scoped>
 PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
@@ -128,10 +127,10 @@ spsOptDefaults(app_path = sps_dir)
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>local 
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>server 
 ## </span><span style='color: #0000BB;font-weight: bold;'>login_screen</span><span>:
-## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
-## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
 ## </span><span style='color: #0000BB;font-weight: bold;'>login_theme</span><span>:
-## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>vhelix 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>random 
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
 ## </span><span style='color: #0000BB;font-weight: bold;'>use_crayon</span><span>:
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
@@ -140,14 +139,14 @@ spsOptDefaults(app_path = sps_dir)
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
 ## </span><span style='color: #0000BB;font-weight: bold;'>admin_page</span><span>:
-## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
-## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
 ## </span><span style='color: #0000BB;font-weight: bold;'>admin_url</span><span>:
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>admin 
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
 ## </span><span style='color: #0000BB;font-weight: bold;'>warning_toast</span><span>:
-## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
-## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
 ## </span><span style='color: #0000BB;font-weight: bold;'>module_wf</span><span>:
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
@@ -175,6 +174,12 @@ spsOptDefaults(app_path = sps_dir)
 ## </span><span style='color: #0000BB;font-weight: bold;'>traceback</span><span>:
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
 ## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>is_demo</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>welcome_guide</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
 ## * means any value will be accepted
 </span></CODE></PRE>
 
@@ -186,9 +191,47 @@ spsOptions(app_path = sps_dir)
 ```
 
 <PRE class="fansi fansi-output"><CODE>## <span style='color: #00BB00;font-weight: bold;'>Current project option settings:</span><span> 
+## </span><span style='color: #0000BB;font-weight: bold;'>title</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>systemPipeShiny </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>title_logo</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>img/sps_small.png </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>mode</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>local </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>login_screen</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>FALSE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>login_theme</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>random </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>use_crayon</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
 ## </span><span style='color: #0000BB;font-weight: bold;'>verbose</span><span>:
 ##     </span><span style='color: #00BB00;font-weight: bold;'>FALSE </span><span>
-## </span><span style='color: #0000BB;font-weight: bold;'>use_crayon</span><span>:
+## </span><span style='color: #0000BB;font-weight: bold;'>admin_page</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>admin_url</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>admin </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>warning_toast</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>FALSE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>module_wf</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>module_rnaseq</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>module_ggplot</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_welcome</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_vs_main</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_canvas</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_about</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>note_url</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>traceback</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>FALSE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>is_demo</span><span>:
+##     </span><span style='color: #00BB00;font-weight: bold;'>FALSE </span><span>
+## </span><span style='color: #0000BB;font-weight: bold;'>welcome_guide</span><span>:
 ##     </span><span style='color: #00BB00;font-weight: bold;'>TRUE </span><span>
 ## ********
 ## Option legend:
@@ -220,7 +263,9 @@ options(sps = list(
     module_wf = TRUE,
     module_rnaseq = TRUE,
     module_ggplot = TRUE,
-    traceback = FALSE
+    traceback = FALSE,
+    is_demo = FALSE,
+    welcome_guide = TRUE
 ))
 ```
 
@@ -239,17 +284,19 @@ messages on console to tell you specifically what is wrong with your options.</p
 | login_theme     | login screen theme                | "random"| see details|
 | use_crayon      | colorful console message?         | TRUE    | FALSE     |
 | verbose         | more details for SPS functions?   | FALSE   | TRUE      |
-| admin_page      | enable admin page?                  | FALSE   | TRUE      |
+| admin_page      | enable admin page?                | FALSE   | TRUE      |
 | admin_url       | admin_page query url              | "admin" | any string|
 | warning_toast   | for internal test only            | TRUE    | FALSE     |
 | module_wf       | load workflow module?             | TRUE    | FALSE     |
 | module_rnaseq   | load RNAseq module?               | TRUE    | FALSE     |
 | module_ggplot   | load quick ggplot module?         | TRUE    | FALSE     |
 | tab_welcome     | load welcome tab?                 | TRUE    | FALSE     |  
-| tab_vs_main     | load custom visualization main tab?| TRUE    | FALSE     |  
+| tab_vs_main     | load custom visualization main tab?| TRUE   | FALSE     |  
 | tab_canvas      | load Canvas tab?                  | TRUE    | FALSE     |  
 | tab_about       | load about tab?                   | TRUE    | FALSE     | 
 | note_url        | SPS notification remote URL       | see code above| any URL| 
+| is_demo         | useful if deploy the app as a demo | FALSE  | TRUE      | 
+| welcome_guide   | enable the welcome guide          | TRUE    | FALSE     | 
 | app_path        | hidden, automatically added       | N.A.    | N.A.      |
 
 
@@ -269,6 +316,8 @@ messages on console to tell you specifically what is wrong with your options.</p
   tabs.
 - **tab_xx**: see [[Overwrite tabs](../overwritetabs)] for customizing core SPS default tabs.
 - **note_url**: see [[Notification system](../notification)] for customizing SPS notifications.
+- **is_demo**: see [[Workflow module](/sps/modules/workflow/#is_demo-option)].
+- **welcome_guide**: whether to enable the welcome guide on app start, see first image on [SPS guide](../guide).
 - **app_path**: a hidden option. This will be added after the app starts. If not specified in 
   `sps()`, use current working directory.
 
@@ -287,7 +336,7 @@ spsOption(opt = "mode")
 ```
 
 ```
-## [1] FALSE
+## [1] "local"
 ```
 To overwrite the "mode" option:
 
@@ -336,6 +385,128 @@ spsOption(opt = "random_opt", empty_is_false = FALSE)
 ```
 ## NULL
 ```
+
+## Add your own options
+SPS is very flexible which allows you to add your own options. To do so, you need 
+to edit the "`config/sps_options.yaml`" file under your project root. 
+
+You can use other options as templates to add more. There are two required entries:
+- `default`: will be used as default when you load SPS package.
+- `other`: Other valid options. If your user provided a value that is other than 
+  the `default` or the `other`, SPS will show warnings and use default instead. 
+  You can write `"*"` as the `other` value. It means any value will be accepted. 
+  SPS will skip to check `other` valid values for this option. 
+  
+Currently, the `default` value can only be length of 1 but `other` value can be a
+yaml array, which use `[]` to define: `[value1, value2, ...]`.
+
+For example, we can add some but opening the file with a text editor, here we do 
+it programmatically:
+
+```r
+new_options <- 
+'
+my_opt1:
+    default: true
+    other: [false]
+
+my_opt2:
+    default: "a"
+    other: ["*"]
+'
+write(x = new_options, file = file.path(sps_dir, "config", "sps_options.yaml"), append = TRUE)
+```
+
+
+Then we can use `spsOptDefaults` to check 
+
+```r
+spsOptDefaults(app_path = sps_dir)
+```
+
+<PRE class="fansi fansi-output"><CODE>## <span style='color: #0000BB;font-weight: bold;'>title</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>systemPipeShiny 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
+## </span><span style='color: #0000BB;font-weight: bold;'>title_logo</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>img/sps_small.png 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
+## </span><span style='color: #0000BB;font-weight: bold;'>mode</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>local 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>server 
+## </span><span style='color: #0000BB;font-weight: bold;'>login_screen</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>login_theme</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>random 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
+## </span><span style='color: #0000BB;font-weight: bold;'>use_crayon</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>verbose</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>admin_page</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>admin_url</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>admin 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
+## </span><span style='color: #0000BB;font-weight: bold;'>warning_toast</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>module_wf</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>module_rnaseq</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>module_ggplot</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_welcome</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_vs_main</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_canvas</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>tab_about</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>note_url</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
+## </span><span style='color: #0000BB;font-weight: bold;'>traceback</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>is_demo</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>FALSE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>TRUE 
+## </span><span style='color: #0000BB;font-weight: bold;'>welcome_guide</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>my_opt1</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>TRUE 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>FALSE 
+## </span><span style='color: #0000BB;font-weight: bold;'>my_opt2</span><span>:
+## </span><span style='color: #00BB00;font-weight: bold;'>    Default: </span><span>a 
+## </span><span style='color: #00BB00;font-weight: bold;'>    Other: </span><span>* 
+## * means any value will be accepted
+</span></CODE></PRE>
+
+You can see the `my_opt1` and `my_opt2` have been added to SPS options.
+
+
+
+
+
+
+
+
+
+
 
 
 

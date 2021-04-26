@@ -82,6 +82,9 @@ For the login required demos, the app account name is **"user"** password **"use
 
 For the admin panel login, account name **"admin"**, password **"admin"**.
 
+**Please DO NOT delete or change password when you are using the admin features.**
+_shinyapp.io_ will reset the app once a while, but this will affect other people 
+who are trying the demo simultaneously. 
 
 ## Other packages in systemPipeShiny
 

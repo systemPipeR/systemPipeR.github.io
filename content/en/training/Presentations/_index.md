@@ -11,7 +11,7 @@ type: docs
 <iframe width="900" height="600" src="https://systempipe.org/presentations/SPR/SPR_project.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-## [systemPipeRdata{blk}](http://bioconductor.org/packages/devel/bioc/html/systemPipeShiny.html)
+## [systemPipeShiny{blk}](http://bioconductor.org/packages/devel/bioc/html/systemPipeShiny.html)
 
 <iframe width="900" height="600" src="https://systempipe.org/presentations/SPS/SPS_intro.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

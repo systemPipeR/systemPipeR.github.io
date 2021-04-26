@@ -25,12 +25,12 @@
         &lt;h2 id=&#34;workflow-management&#34;&gt;Workflow management&lt;/h2&gt;
 &lt;p&gt;The workflow management module in &lt;code&gt;SPS&lt;/code&gt; allows one to modify or create the
 configuration files required for running data analysis workflows in
-&lt;a href=&#34;https://systempipe.org/docs/systemPipeR/&#34;&gt;systemPipeR&lt;/a&gt; (SPR). This includes
+&lt;a href=&#34;https://systempipe.org/sp/spr/&#34;&gt;systemPipeR&lt;/a&gt; (SPR). This includes
 three types of important files: a sample metadata (targets) file, a
 workflow file (in R Markdown format) defining the workflow steps, and workflow running
-files in &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language (CWL)&lt;/a&gt; format. In SPS, one can easily create
+files in &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language (CWL){blk}&lt;/a&gt; format. In SPS, one can easily create
 these files under the &amp;ldquo;Workflow Management&amp;rdquo; module, located in navigation bar
-on the left of the dashboard (&lt;a href=&#34;../../sps/quick_start/#launch-sps&#34;&gt;Fig2&lt;/a&gt;).&lt;/p&gt;
+on the &lt;a href=&#34;../../sps/quick_start/#launch-sps&#34;&gt;left of the dashboard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The current version of &lt;code&gt;SPS&lt;/code&gt; allows to:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;create a workflow environment;&lt;/li&gt;
@@ -57,7 +57,7 @@ step 1 should all turn green.&lt;/li&gt;
 &lt;h3 id=&#34;2-prepare-a-target-file&#34;&gt;2. Prepare a target file&lt;/h3&gt;
 &lt;p&gt;The targets file defines all input file paths and other sample information of
 analysis workflows. To better undertand the structure of this file, one can
-consult the &lt;a href=&#34;https://systempipe.org/docs/systemPipeR/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
+consult the &lt;a href=&#34;https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
 file&amp;rdquo;&lt;/a&gt;
 section in the SPR vignette. Essentially, this is the tabular file representation
 of the &lt;code&gt;colData&lt;/code&gt; slot in an &lt;code&gt;SummarizedExperiment&lt;/code&gt; object which stores sample
@@ -78,7 +78,7 @@ here. Leave it as default for other projects.&lt;/li&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;strong&gt;Figure 3. A.&lt;/strong&gt; Workflow Management - Targets File&lt;/p&gt;
 &lt;h3 id=&#34;3-prepare-a-workflow-file&#34;&gt;3. Prepare a workflow file&lt;/h3&gt;
-&lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/pages/pipelines_area/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/sp/spr/templates/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Your project workflow file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
@@ -140,6 +140,23 @@ code.&lt;/li&gt;
 &lt;li&gt;View any plot output. and send a copy of your current plot to SPS Canvas tab or
 download it.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;app-security&#34;&gt;App security&lt;/h2&gt;
+&lt;p&gt;Running the workflow may introduce some security concerns. Read &lt;a href=&#34;../../sps/adv_features/app_security/#the-workflow-module&#34;&gt;App Security&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;h2 id=&#34;is_demo-option&#34;&gt;&lt;code&gt;is_demo&lt;/code&gt; option&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;is_demo&lt;/code&gt; &lt;a href=&#34;../../sps/adv_features/config/#app-options&#34;&gt;option&lt;/a&gt; will impact the workflow
+module.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TRUE&lt;/code&gt;: you are not deploying the app for production purpose. It is just a show case.
+Under this option, users who are trying to create a workflow will be locked inside
+a temp directory and every time they start a new session, they will be assigned to
+a new temp directory. This is useful is many people want to try the app the same
+time, so they will have private different environment, and the temp directory will
+be removed afterwards.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FALSE&lt;/code&gt;: you are using the app on your own local computer or use it in a production
+environment. WF module will have &lt;strong&gt;full access&lt;/strong&gt; to the sever storage system and
+users can choose &lt;strong&gt;any place&lt;/strong&gt; they have permission to create the workflow session.&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>

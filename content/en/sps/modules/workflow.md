@@ -9,12 +9,12 @@ weight: 1
 
 The workflow management module in `SPS` allows one to modify or create the
 configuration files required for running data analysis workflows in
-[systemPipeR](https://systempipe.org/docs/systemPipeR/) (SPR). This includes
+[systemPipeR](https://systempipe.org/sp/spr/) (SPR). This includes
 three types of important files: a sample metadata (targets) file, a
 workflow file (in R Markdown format) defining the workflow steps, and workflow running 
-files in [Common Workflow Language (CWL)](https://www.commonwl.org/) format. In SPS, one can easily create
+files in [Common Workflow Language (CWL){blk}](https://www.commonwl.org/) format. In SPS, one can easily create
 these files under the "Workflow Management" module, located in navigation bar
-on the left of the dashboard ([Fig2](/sps/quick_start/#launch-sps)). 
+on the [left of the dashboard](/sps/quick_start/#launch-sps). 
 
 The current version of `SPS` allows to:
 
@@ -43,13 +43,13 @@ sequencing workflows.
 Clicking the pop-up will jump you to the step 2. The status tracker and banner for 
 step 1 should all turn green. 
 
-
 ### 2. Prepare a target file
+
 
 The targets file defines all input file paths and other sample information of
 analysis workflows. To better undertand the structure of this file, one can
 consult the ["Structure of targets
-file"](https://systempipe.org/docs/systemPipeR/#structure-of-targets-file)
+file"](https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file)
 section in the SPR vignette. Essentially, this is the tabular file representation
 of the `colData` slot in an `SummarizedExperiment` object which stores sample
 IDs and other meta information. 
@@ -75,7 +75,7 @@ here. Leave it as default for other projects.
 
 ### 3. Prepare a workflow file
 
-In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  [here](https://systempipe.org/pages/pipelines_area/).
+In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  [here](https://systempipe.org/sp/spr/templates/).
 
 Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):
 
@@ -152,3 +152,33 @@ code.
 5. Workflow running log.
 6. View any plot output. and send a copy of your current plot to SPS Canvas tab or 
 download it. 
+
+
+## App security 
+Running the workflow may introduce some security concerns. Read [App Security](/sps/adv_features/app_security/#the-workflow-module)
+for more details.
+
+## `is_demo` option
+The `is_demo` [option](/sps/adv_features/config/#app-options) will impact the workflow 
+module.
+- `TRUE`: you are not deploying the app for production purpose. It is just a show case.
+  Under this option, users who are trying to create a workflow will be locked inside 
+  a temp directory and every time they start a new session, they will be assigned to 
+  a new temp directory. This is useful is many people want to try the app the same 
+  time, so they will have private different environment, and the temp directory will 
+  be removed afterwards. 
+- `FALSE`: you are using the app on your own local computer or use it in a production 
+  environment. WF module will have **full access** to the sever storage system and 
+  users can choose **any place** they have permission to create the workflow session. 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+

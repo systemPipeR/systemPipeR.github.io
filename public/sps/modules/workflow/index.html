@@ -18,21 +18,21 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Workflow | sysPipe</title><meta property="og:title" content="Workflow" />
-<meta property="og:description" content="Workflow management The workflow management module in SPS allows one to modify or create the configuration files required for running data analysis workflows in systemPipeR (SPR). This includes three types of important files: a sample metadata (targets) file, a workflow file (in R Markdown format) defining the workflow steps, and workflow running files in Common Workflow Language (CWL) format. In SPS, one can easily create these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar on the left of the dashboard (Fig2)." />
+<meta property="og:description" content="Workflow management The workflow management module in SPS allows one to modify or create the configuration files required for running data analysis workflows in systemPipeR (SPR). This includes three types of important files: a sample metadata (targets) file, a workflow file (in R Markdown format) defining the workflow steps, and workflow running files in Common Workflow Language (CWL){blk} format. In SPS, one can easily create these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar on the left of the dashboard." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/modules/workflow/" />
 <meta property="article:modified_time" content="2021-02-08T11:15:56-08:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Workflow">
-<meta itemprop="description" content="Workflow management The workflow management module in SPS allows one to modify or create the configuration files required for running data analysis workflows in systemPipeR (SPR). This includes three types of important files: a sample metadata (targets) file, a workflow file (in R Markdown format) defining the workflow steps, and workflow running files in Common Workflow Language (CWL) format. In SPS, one can easily create these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar on the left of the dashboard (Fig2).">
+<meta itemprop="description" content="Workflow management The workflow management module in SPS allows one to modify or create the configuration files required for running data analysis workflows in systemPipeR (SPR). This includes three types of important files: a sample metadata (targets) file, a workflow file (in R Markdown format) defining the workflow steps, and workflow running files in Common Workflow Language (CWL){blk} format. In SPS, one can easily create these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar on the left of the dashboard.">
 <meta itemprop="dateModified" content="2021-02-08T11:15:56-08:00" />
-<meta itemprop="wordCount" content="1046">
+<meta itemprop="wordCount" content="1194">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Workflow"/>
-<meta name="twitter:description" content="Workflow management The workflow management module in SPS allows one to modify or create the configuration files required for running data analysis workflows in systemPipeR (SPR). This includes three types of important files: a sample metadata (targets) file, a workflow file (in R Markdown format) defining the workflow steps, and workflow running files in Common Workflow Language (CWL) format. In SPS, one can easily create these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar on the left of the dashboard (Fig2)."/>
+<meta name="twitter:description" content="Workflow management The workflow management module in SPS allows one to modify or create the configuration files required for running data analysis workflows in systemPipeR (SPR). This includes three types of important files: a sample metadata (targets) file, a workflow file (in R Markdown format) defining the workflow steps, and workflow running files in Common Workflow Language (CWL){blk} format. In SPS, one can easily create these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar on the left of the dashboard."/>
 
 
 <script type="application/javascript">
@@ -51,8 +51,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
-<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" as="style">
+<link href="../../../scss/main.min.4ca46c7779e12beaabf98a54574d3cfc6e8be930d2014b43de9cc43dac12f2e0.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -937,6 +937,8 @@ if (!doNotTrack) {
             <li><a href="#5-run-or-finish-workflow-preparation">5. Run or finish workflow preparation</a></li>
           </ul>
         </li>
+        <li><a href="#app-security">App security</a></li>
+        <li><a href="#is_demo-option"><code>is_demo</code> option</a></li>
       </ul>
     </li>
   </ul>
@@ -991,12 +993,12 @@ if (!doNotTrack) {
 	<h2 id="workflow-management">Workflow management</h2>
 <p>The workflow management module in <code>SPS</code> allows one to modify or create the
 configuration files required for running data analysis workflows in
-<a href="https://systempipe.org/docs/systemPipeR/">systemPipeR</a> (SPR). This includes
+<a href="https://systempipe.org/sp/spr/">systemPipeR</a> (SPR). This includes
 three types of important files: a sample metadata (targets) file, a
 workflow file (in R Markdown format) defining the workflow steps, and workflow running
-files in <a href="https://www.commonwl.org/">Common Workflow Language (CWL)</a> format. In SPS, one can easily create
+files in <a href="https://www.commonwl.org/">Common Workflow Language (CWL){blk}</a> format. In SPS, one can easily create
 these files under the &ldquo;Workflow Management&rdquo; module, located in navigation bar
-on the left of the dashboard (<a href="../../../sps/quick_start/#launch-sps">Fig2</a>).</p>
+on the <a href="../../../sps/quick_start/#launch-sps">left of the dashboard</a>.</p>
 <p>The current version of <code>SPS</code> allows to:</p>
 <ol>
 <li>create a workflow environment;</li>
@@ -1023,7 +1025,7 @@ step 1 should all turn green.</li>
 <h3 id="2-prepare-a-target-file">2. Prepare a target file</h3>
 <p>The targets file defines all input file paths and other sample information of
 analysis workflows. To better undertand the structure of this file, one can
-consult the <a href="https://systempipe.org/docs/systemPipeR/#structure-of-targets-file">&ldquo;Structure of targets
+consult the <a href="https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file">&ldquo;Structure of targets
 file&rdquo;</a>
 section in the SPR vignette. Essentially, this is the tabular file representation
 of the <code>colData</code> slot in an <code>SummarizedExperiment</code> object which stores sample
@@ -1044,7 +1046,7 @@ here. Leave it as default for other projects.</li>
 </center>
 <p><strong>Figure 3. A.</strong> Workflow Management - Targets File</p>
 <h3 id="3-prepare-a-workflow-file">3. Prepare a workflow file</h3>
-<p>In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  <a href="https://systempipe.org/pages/pipelines_area/">here</a>.</p>
+<p>In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  <a href="https://systempipe.org/sp/spr/templates/">here</a>.</p>
 <p>Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):</p>
 <ol>
 <li>Your project workflow file is loaded for you, but you can choose to upload a different one.</li>
@@ -1106,6 +1108,23 @@ code.</li>
 <li>View any plot output. and send a copy of your current plot to SPS Canvas tab or
 download it.</li>
 </ol>
+<h2 id="app-security">App security</h2>
+<p>Running the workflow may introduce some security concerns. Read <a href="../../../sps/adv_features/app_security/#the-workflow-module">App Security</a>
+for more details.</p>
+<h2 id="is_demo-option"><code>is_demo</code> option</h2>
+<p>The <code>is_demo</code> <a href="../../../sps/adv_features/config/#app-options">option</a> will impact the workflow
+module.</p>
+<ul>
+<li><code>TRUE</code>: you are not deploying the app for production purpose. It is just a show case.
+Under this option, users who are trying to create a workflow will be locked inside
+a temp directory and every time they start a new session, they will be assigned to
+a new temp directory. This is useful is many people want to try the app the same
+time, so they will have private different environment, and the temp directory will
+be removed afterwards.</li>
+<li><code>FALSE</code>: you are using the app on your own local computer or use it in a production
+environment. WF module will have <strong>full access</strong> to the sever storage system and
+users can choose <strong>any place</strong> they have permission to create the workflow session.</li>
+</ul>
 
 	
 	

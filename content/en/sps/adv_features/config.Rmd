@@ -30,7 +30,6 @@ spsInit()
 sps_dir <- normalizePath(".")
 ```
 
-
 ```{r echo=FALSE, results='asis'} 
 options(crayon.enabled = TRUE)
 old_hooks <- fansi::set_knit_hooks(knitr::knit_hooks, which = c("output", "message", "error", "warning"))
@@ -131,7 +130,9 @@ options(sps = list(
     module_wf = TRUE,
     module_rnaseq = TRUE,
     module_ggplot = TRUE,
-    traceback = FALSE
+    traceback = FALSE,
+    is_demo = FALSE,
+    welcome_guide = TRUE
 ))
 ```
 
@@ -150,17 +151,19 @@ messages on console to tell you specifically what is wrong with your options.</p
 | login_theme     | login screen theme                | "random"| see details|
 | use_crayon      | colorful console message?         | TRUE    | FALSE     |
 | verbose         | more details for SPS functions?   | FALSE   | TRUE      |
-| admin_page      | enable admin page?                  | FALSE   | TRUE      |
+| admin_page      | enable admin page?                | FALSE   | TRUE      |
 | admin_url       | admin_page query url              | "admin" | any string|
 | warning_toast   | for internal test only            | TRUE    | FALSE     |
 | module_wf       | load workflow module?             | TRUE    | FALSE     |
 | module_rnaseq   | load RNAseq module?               | TRUE    | FALSE     |
 | module_ggplot   | load quick ggplot module?         | TRUE    | FALSE     |
 | tab_welcome     | load welcome tab?                 | TRUE    | FALSE     |  
-| tab_vs_main     | load custom visualization main tab?| TRUE    | FALSE     |  
+| tab_vs_main     | load custom visualization main tab?| TRUE   | FALSE     |  
 | tab_canvas      | load Canvas tab?                  | TRUE    | FALSE     |  
 | tab_about       | load about tab?                   | TRUE    | FALSE     | 
 | note_url        | SPS notification remote URL       | see code above| any URL| 
+| is_demo         | useful if deploy the app as a demo | FALSE  | TRUE      | 
+| welcome_guide   | enable the welcome guide          | TRUE    | FALSE     | 
 | app_path        | hidden, automatically added       | N.A.    | N.A.      |
 
 
@@ -180,6 +183,8 @@ messages on console to tell you specifically what is wrong with your options.</p
   tabs.
 - **tab_xx**: see [[Overwrite tabs](../overwritetabs)] for customizing core SPS default tabs.
 - **note_url**: see [[Notification system](../notification)] for customizing SPS notifications.
+- **is_demo**: see [[Workflow module](/sps/modules/workflow/#is_demo-option)].
+- **welcome_guide**: whether to enable the welcome guide on app start, see first image on [SPS guide](../guide).
 - **app_path**: a hidden option. This will be added after the app starts. If not specified in 
   `sps()`, use current working directory.
 
@@ -226,6 +231,54 @@ to return the original value instead of `FALSE`
 ```{r}
 spsOption(opt = "random_opt", empty_is_false = FALSE)
 ```
+
+## Add your own options
+SPS is very flexible which allows you to add your own options. To do so, you need 
+to edit the "`config/sps_options.yaml`" file under your project root. 
+
+You can use other options as templates to add more. There are two required entries:
+- `default`: will be used as default when you load SPS package.
+- `other`: Other valid options. If your user provided a value that is other than 
+  the `default` or the `other`, SPS will show warnings and use default instead. 
+  You can write `"*"` as the `other` value. It means any value will be accepted. 
+  SPS will skip to check `other` valid values for this option. 
+  
+Currently, the `default` value can only be length of 1 but `other` value can be a
+yaml array, which use `[]` to define: `[value1, value2, ...]`.
+
+For example, we can add some but opening the file with a text editor, here we do 
+it programmatically:
+```{r}
+new_options <- 
+'
+my_opt1:
+    default: true
+    other: [false]
+
+my_opt2:
+    default: "a"
+    other: ["*"]
+'
+write(x = new_options, file = file.path(sps_dir, "config", "sps_options.yaml"), append = TRUE)
+```
+
+
+Then we can use `spsOptDefaults` to check 
+```{r}
+spsOptDefaults(app_path = sps_dir)
+```
+
+You can see the `my_opt1` and `my_opt2` have been added to SPS options.
+
+
+
+
+
+
+
+
+
+
 
 
 

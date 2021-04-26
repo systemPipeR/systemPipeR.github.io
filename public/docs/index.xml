@@ -129,14 +129,14 @@ case.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &amp;quot;config_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-20 12:54:47 Done, Db created at &#39;/tmp/RtmpWm2i6b/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-20 12:54:47 Key md5 5ab87e1ba033149148b6b962e40049b6
-## [SPS-INFO] 2021-04-20 12:54:47 SPS project setup done!
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-25 19:43:24 Done, Db created at &#39;/tmp/RtmphrNOOX/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-04-25 19:43:24 Key md5 ee81377a81fdb757fbbbb6af38644756
+## [SPS-INFO] 2021-04-25 19:43:24 SPS project setup done!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
 (sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;config_demo&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/RtmpWm2i6b/config_demo&amp;quot;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/RtmphrNOOX/config_demo&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
@@ -218,10 +218,10 @@ generally describe what each option is and valid values for options. Use functio
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;local 
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;server 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;vhelix 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;random 
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
@@ -230,14 +230,14 @@ generally describe what each option is and valid values for options. Use functio
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;admin 
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
@@ -265,15 +265,59 @@ generally describe what each option is and valid values for options. Use functio
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
 ## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
 ## * means any value will be accepted
 &lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;p&gt;After the app has started once, you can use &lt;code&gt;spsOptions()&lt;/code&gt; to see all current settings.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptions(app_path = sps_dir)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;Current project option settings:&lt;/span&gt;&lt;span&gt; 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;systemPipeShiny &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;img/sps_small.png &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;mode&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;local &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;random &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
 ## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
 ##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;admin &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;note_url&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;&lt;span&gt;:
+##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;&lt;span&gt;:
 ##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
 ## ********
 ## Option legend:
@@ -301,7 +345,9 @@ generally describe what each option is and valid values for options. Use functio
     module_wf = TRUE,
     module_rnaseq = TRUE,
     module_ggplot = TRUE,
-    traceback = FALSE
+    traceback = FALSE,
+    is_demo = FALSE,
+    welcome_guide = TRUE
 ))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p style=&#34;color:var(--danger)&#34;&gt;Note: Do not worry if you set some invalid values, on app start, `sps()` will check all SPS
@@ -432,6 +478,18 @@ messages on console to tell you specifically what is wrong with your options.&lt
 &lt;td&gt;any URL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;is_demo&lt;/td&gt;
+&lt;td&gt;useful if deploy the app as a demo&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;welcome_guide&lt;/td&gt;
+&lt;td&gt;enable the welcome guide&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;app_path&lt;/td&gt;
 &lt;td&gt;hidden, automatically added&lt;/td&gt;
 &lt;td&gt;N.A.&lt;/td&gt;
@@ -455,6 +513,8 @@ on console. See [&lt;a href=&#34;../debug&#34;&gt;Debugging&lt;/a&gt;]&lt;/li&gt
 tabs.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;tab_xx&lt;/strong&gt;: see [&lt;a href=&#34;../overwritetabs&#34;&gt;Overwrite tabs&lt;/a&gt;] for customizing core SPS default tabs.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;note_url&lt;/strong&gt;: see [&lt;a href=&#34;../notification&#34;&gt;Notification system&lt;/a&gt;] for customizing SPS notifications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;is_demo&lt;/strong&gt;: see [&lt;a href=&#34;../sps/modules/workflow/#is_demo-option&#34;&gt;Workflow module&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;welcome_guide&lt;/strong&gt;: whether to enable the welcome guide on app start, see first image on &lt;a href=&#34;../guide&#34;&gt;SPS guide&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;app_path&lt;/strong&gt;: a hidden option. This will be added after the app starts. If not specified in
 &lt;code&gt;sps()&lt;/code&gt;, use current working directory.&lt;/li&gt;
 &lt;/ul&gt;
@@ -466,7 +526,7 @@ is not recommended).&lt;/p&gt;
 option, use &lt;code&gt;spsOption(opt = &amp;quot;OPTION_NAME&amp;quot;, value = &amp;quot;NEW_VALUE&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;mode&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;local&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To overwrite the &amp;ldquo;mode&amp;rdquo; option:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(opt = &amp;quot;mode&amp;quot;, &amp;quot;local&amp;quot;)
@@ -495,6 +555,108 @@ to return the original value instead of &lt;code&gt;FALSE&lt;/code&gt;&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## NULL
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;add-your-own-options&#34;&gt;Add your own options&lt;/h2&gt;
+&lt;p&gt;SPS is very flexible which allows you to add your own options. To do so, you need
+to edit the &amp;ldquo;&lt;code&gt;config/sps_options.yaml&lt;/code&gt;&amp;rdquo; file under your project root.&lt;/p&gt;
+&lt;p&gt;You can use other options as templates to add more. There are two required entries:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;default&lt;/code&gt;: will be used as default when you load SPS package.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;other&lt;/code&gt;: Other valid options. If your user provided a value that is other than
+the &lt;code&gt;default&lt;/code&gt; or the &lt;code&gt;other&lt;/code&gt;, SPS will show warnings and use default instead.
+You can write &lt;code&gt;&amp;quot;*&amp;quot;&lt;/code&gt; as the &lt;code&gt;other&lt;/code&gt; value. It means any value will be accepted.
+SPS will skip to check &lt;code&gt;other&lt;/code&gt; valid values for this option.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Currently, the &lt;code&gt;default&lt;/code&gt; value can only be length of 1 but &lt;code&gt;other&lt;/code&gt; value can be a
+yaml array, which use &lt;code&gt;[]&lt;/code&gt; to define: &lt;code&gt;[value1, value2, ...]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For example, we can add some but opening the file with a text editor, here we do
+it programmatically:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_options &amp;lt;- 
+&#39;
+my_opt1:
+    default: true
+    other: [false]
+
+my_opt2:
+    default: &amp;quot;a&amp;quot;
+    other: [&amp;quot;*&amp;quot;]
+&#39;
+write(x = new_options, file = file.path(sps_dir, &amp;quot;config&amp;quot;, &amp;quot;sps_options.yaml&amp;quot;), append = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we can use &lt;code&gt;spsOptDefaults&lt;/code&gt; to check&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptDefaults(app_path = sps_dir)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;systemPipeShiny 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;img/sps_small.png 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;mode&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;local 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;server 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;random 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;admin 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;note_url&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;my_opt1&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;my_opt2&lt;/span&gt;&lt;span&gt;:
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;a 
+## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+## * means any value will be accepted
+&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;p&gt;You can see the &lt;code&gt;my_opt1&lt;/code&gt; and &lt;code&gt;my_opt2&lt;/code&gt; have been added to SPS options.&lt;/p&gt;
 
       </description>
     </item>
@@ -1108,7 +1270,7 @@ handles complex sample sets and experimental designs.&lt;/p&gt;
 &lt;p&gt;To simplify the analysis
 of widely used NGS applications, the package provides pre-configured workflows
 and reporting templates for a wide range of NGS applications that are listed on
-the &lt;a href=&#34;http://girke.bioinformatics.ucr.edu/systemPipeR/mydoc_wf_colletions.html&#34;&gt;Workflow Collection&lt;/a&gt;
+the &lt;a href=&#34;https://systempipe.org/spr_wf/&#34;&gt;Workflow Collection&lt;/a&gt;
 page of this site. Additional workflow templates will be provided in the future. &lt;em&gt;systemPipeR&lt;/em&gt;
 accelerates the extraction of reproducible analysis results from NGS
 experiments. By combining the capabilities of many R/Bioconductor and
@@ -1537,12 +1699,12 @@ a server. Please see the &lt;a href=&#34;https://lezhang.shinyapps.io/spsComps/&
         &lt;h2 id=&#34;workflow-management&#34;&gt;Workflow management&lt;/h2&gt;
 &lt;p&gt;The workflow management module in &lt;code&gt;SPS&lt;/code&gt; allows one to modify or create the
 configuration files required for running data analysis workflows in
-&lt;a href=&#34;https://systempipe.org/docs/systemPipeR/&#34;&gt;systemPipeR&lt;/a&gt; (SPR). This includes
+&lt;a href=&#34;https://systempipe.org/sp/spr/&#34;&gt;systemPipeR&lt;/a&gt; (SPR). This includes
 three types of important files: a sample metadata (targets) file, a
 workflow file (in R Markdown format) defining the workflow steps, and workflow running
-files in &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language (CWL)&lt;/a&gt; format. In SPS, one can easily create
+files in &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language (CWL){blk}&lt;/a&gt; format. In SPS, one can easily create
 these files under the &amp;ldquo;Workflow Management&amp;rdquo; module, located in navigation bar
-on the left of the dashboard (&lt;a href=&#34;../sps/quick_start/#launch-sps&#34;&gt;Fig2&lt;/a&gt;).&lt;/p&gt;
+on the &lt;a href=&#34;../sps/quick_start/#launch-sps&#34;&gt;left of the dashboard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The current version of &lt;code&gt;SPS&lt;/code&gt; allows to:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;create a workflow environment;&lt;/li&gt;
@@ -1569,7 +1731,7 @@ step 1 should all turn green.&lt;/li&gt;
 &lt;h3 id=&#34;2-prepare-a-target-file&#34;&gt;2. Prepare a target file&lt;/h3&gt;
 &lt;p&gt;The targets file defines all input file paths and other sample information of
 analysis workflows. To better undertand the structure of this file, one can
-consult the &lt;a href=&#34;https://systempipe.org/docs/systemPipeR/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
+consult the &lt;a href=&#34;https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
 file&amp;rdquo;&lt;/a&gt;
 section in the SPR vignette. Essentially, this is the tabular file representation
 of the &lt;code&gt;colData&lt;/code&gt; slot in an &lt;code&gt;SummarizedExperiment&lt;/code&gt; object which stores sample
@@ -1590,7 +1752,7 @@ here. Leave it as default for other projects.&lt;/li&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;strong&gt;Figure 3. A.&lt;/strong&gt; Workflow Management - Targets File&lt;/p&gt;
 &lt;h3 id=&#34;3-prepare-a-workflow-file&#34;&gt;3. Prepare a workflow file&lt;/h3&gt;
-&lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/pages/pipelines_area/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/sp/spr/templates/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Your project workflow file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
@@ -1652,6 +1814,23 @@ code.&lt;/li&gt;
 &lt;li&gt;View any plot output. and send a copy of your current plot to SPS Canvas tab or
 download it.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;app-security&#34;&gt;App security&lt;/h2&gt;
+&lt;p&gt;Running the workflow may introduce some security concerns. Read &lt;a href=&#34;../sps/adv_features/app_security/#the-workflow-module&#34;&gt;App Security&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;h2 id=&#34;is_demo-option&#34;&gt;&lt;code&gt;is_demo&lt;/code&gt; option&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;is_demo&lt;/code&gt; &lt;a href=&#34;../sps/adv_features/config/#app-options&#34;&gt;option&lt;/a&gt; will impact the workflow
+module.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TRUE&lt;/code&gt;: you are not deploying the app for production purpose. It is just a show case.
+Under this option, users who are trying to create a workflow will be locked inside
+a temp directory and every time they start a new session, they will be assigned to
+a new temp directory. This is useful is many people want to try the app the same
+time, so they will have private different environment, and the temp directory will
+be removed afterwards.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FALSE&lt;/code&gt;: you are using the app on your own local computer or use it in a production
+environment. WF module will have &lt;strong&gt;full access&lt;/strong&gt; to the sever storage system and
+users can choose &lt;strong&gt;any place&lt;/strong&gt; they have permission to create the workflow session.&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
@@ -6634,6 +6813,283 @@ For these cases, we recommend you:&lt;/p&gt;
     </item>
     
     <item>
+      <title>Sp: SPR Docker container</title>
+      <link>/sp/spr/sp_docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sp/spr/sp_docker/</guid>
+      <description>
+        
+        
+        &lt;blockquote&gt;
+&lt;p&gt;Guidelines from &lt;a href=&#34;https://github.com/Bioconductor/bioconductor_docker&#34;&gt;bioconductor_docker&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;running-the-systempiper-with-docker&#34;&gt;Running the &lt;code&gt;systemPipeR&lt;/code&gt; with Docker&lt;/h1&gt;
+&lt;h2 id=&#34;get-a-copy-of-the-public-docker-image&#34;&gt;Get a copy of the public docker image&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker pull systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-run-rstudio-server&#34;&gt;To run RStudio Server:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 \
+        systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can then open a web browser pointing to your docker host on
+port 8787.  If you&amp;rsquo;re on Linux and using default settings, the docker
+host is &lt;code&gt;127.0.0.1&lt;/code&gt; (or &lt;code&gt;localhost&lt;/code&gt;, so the full URL to RStudio would
+be &lt;code&gt;http://localhost:8787)&lt;/code&gt;. If you are on Mac or Windows and running
+&lt;code&gt;Docker Toolbox&lt;/code&gt;, you can determine the docker host with the
+&lt;code&gt;docker-machine ip default&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;In the above command, &lt;code&gt;-e PASSWORD=&lt;/code&gt; is setting the RStudio password
+and is required by the RStudio Docker image. It can be whatever you
+like except it cannot be &lt;code&gt;rstudio&lt;/code&gt;. Log in to RStudio with the
+username &lt;code&gt;rstudio&lt;/code&gt; and whatever password was specified, in this
+example &lt;code&gt;systemPipe&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;to-run-r-from-the-command-line&#34;&gt;To run R from the command line:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-open-a-bash-shell-on-the-container&#34;&gt;To open a Bash shell on the container:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- # Full Documentation --&gt;
+&lt;!-- This tutorial shows how to create, access, run, build a Docker container. --&gt;
+&lt;!-- ## Table of Content --&gt;
+&lt;!-- 1. [Install](#Install) --&gt;
+&lt;!-- 2. [Docker Hub Account](#dockerHub) --&gt;
+&lt;!-- 3. [Log in to the Docker Hub](#login) --&gt;
+&lt;!-- 4. [Run Docker](#run) --&gt;
+&lt;!-- 5. [Create your first repository](#create) --&gt;
+&lt;!-- 6. [Make changes to the container and Create the new image](#changes) --&gt;
+&lt;!-- 7. [Commands](#commands) --&gt;
+&lt;!-- 8. [Docker and GitHub Actions](#github) --&gt;
+&lt;!-- 9. [Common Problems](#faq) --&gt;
+&lt;!-- 10. [Singularity Container](#singularity) --&gt;
+&lt;!-- 11. [Resources](#resources) --&gt;
+&lt;hr&gt;
+&lt;div id=&#39;Install&#39;/&gt;
+&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;:
+&lt;a href=&#34;https://docs.docker.com/installation/&#34;&gt;Linux&lt;/a&gt;
+&lt;a href=&#34;http://docs.docker.com/installation/mac/&#34;&gt;Mac&lt;/a&gt;
+&lt;a href=&#34;http://docs.docker.com/installation/windows/&#34;&gt;Windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Instructions &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;here&lt;/a&gt; on how to install Docker Engine on Ubuntu.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  &amp;quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable&amp;quot; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 
+## Verify that Docker Engine is installed correctly by running the hello-world image.
+sudo docker run hello-world
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;uninstall&#34;&gt;Uninstall&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get remove docker docker-engine docker.io containerd runc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;dockerHUb&#39;/&gt;
+&lt;h1 id=&#34;docker-hub-account&#34;&gt;Docker Hub Account&lt;/h1&gt;
+&lt;p&gt;To be able to share a custom image, please go to &lt;a href=&#34;https://hub.docker.com&#34;&gt;https://hub.docker.com&lt;/a&gt; and
+create a free account.&lt;/p&gt;
+&lt;hr&gt;
+&lt;div id=&#39;login&#39;/&gt;
+&lt;h2 id=&#34;log-in-to-the-docker-hub-locally&#34;&gt;Log in to the Docker Hub locally&lt;/h2&gt;
+&lt;p&gt;Login with your Docker ID to push and pull images from Docker Hub. If you don&amp;rsquo;t
+have a Docker ID, head over to &lt;a href=&#34;https://hub.docker.com&#34;&gt;https://hub.docker.com&lt;/a&gt; to create one.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker login
+# Username: XXXX
+# Password: xxx
+# Login Succeeded
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;run&#39;/&gt;
+&lt;h1 id=&#34;run-docker&#34;&gt;Run Docker&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run-dP systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Make sure the container is running:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker ps
+# CONTAINER ID   IMAGE                                    COMMAND   CREATED         STATUS         PORTS                     # NAMES
+#5d007f66a7b3   systempipe/systempipe_docker:latest   &amp;quot;/init&amp;quot;   5 minutes ago   Up 5 minutes   0.0.0.0:49153-&amp;gt;8787/tcp   determined_easle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;login-to-the-container&#34;&gt;Login to the container&lt;/h2&gt;
+&lt;p&gt;Please check the &lt;code&gt;NAMES&lt;/code&gt; in this example, &lt;code&gt;determined_easle,&lt;/code&gt; to login into the container.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker exec -it determined_easle /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;other-alternatives-to-run-the-container&#34;&gt;Other alternatives to run the container&lt;/h2&gt;
+&lt;h3 id=&#34;to-run-rstudio-server-1&#34;&gt;To run RStudio Server:&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 \
+    systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;to-run-r-from-the-command-line-1&#34;&gt;To run R from the command line:&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;to-open-a-bash-shell-on-the-container-1&#34;&gt;To open a Bash shell on the container:&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;check-r-version-into-the-container&#34;&gt;Check R Version into the container&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;R --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;stop-docker&#34;&gt;Stop Docker&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker stop determined_easle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;create&#39;/&gt;
+&lt;h1 id=&#34;create-your-first-repository-linkhttpsdocsdockercomdocker-hub&#34;&gt;Create your first repository &lt;a href=&#34;https://docs.docker.com/docker-hub/&#34;&gt;Link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;create-a-repository&#34;&gt;Create a repository:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sign in to Docker Hub.&lt;/li&gt;
+&lt;li&gt;Click Create a Repository on the Docker Hub welcome page:&lt;/li&gt;
+&lt;li&gt;Name it &lt;your-username&gt;/my-repo.&lt;/li&gt;
+&lt;li&gt;Click Create.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;build-and-push-a-container-image-to-docker-hub-from-your-computer&#34;&gt;Build and push a container image to Docker Hub from your computer&lt;/h2&gt;
+&lt;h3 id=&#34;start-by-creating-a-dockerfile-to-specify-your-application&#34;&gt;Start by creating a &lt;em&gt;Dockerfile&lt;/em&gt; to specify your application&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir docker_test
+cd docker_test
+touch Dockerfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Docker inheritance
+FROM systempipe/systempipe_docker:latest
+
+## Install BiocStyle
+RUN R -e &#39;BiocManager::install(&amp;quot;BiocStyle&amp;quot;)&#39;
+
+# Install required Bioconductor package from devel version
+RUN R -e &#39;BiocManager::install(&amp;quot;tgirke/systemPipeR&amp;quot;)&#39;
+RUN R -e &#39;BiocManager::install(&amp;quot;tgirke/systemPipeRdata&amp;quot;)&#39;
+
+WORKDIR /home/rstudio/SPRojects
+
+COPY --chown=rstudio:rstudio . /home/rstudio/SPRojects
+
+# Metadata
+LABEL name=&amp;quot;systempipe/systempipe_docker&amp;quot; \
+      version=$BIOCONDUCTOR_DOCKER_systempipe \
+      url=&amp;quot;https://github.com/systemPipeR/systempipe/systempipe_docker&amp;quot; \
+      vendor=&amp;quot;systemPipeR Project&amp;quot; \
+      maintainer=&amp;quot;email@gmail.com&amp;quot; \
+      description=&amp;quot;Bioconductor docker image containing the systemPipeR Project&amp;quot; \
+      license=&amp;quot;Artistic-2.0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-docker-build-to-build-your-docker-image&#34;&gt;Run &lt;code&gt;docker build&lt;/code&gt; to build your Docker image&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker build -t systempipe/systempipe_docker . 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-docker-run-to-test-your-docker-image-locally&#34;&gt;Run &lt;code&gt;docker run&lt;/code&gt; to test your Docker image locally&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-docker-push-to-push-your-docker-image-to-docker-hub&#34;&gt;Run &lt;code&gt;docker push&lt;/code&gt; to push your Docker image to Docker Hub&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker push systempipe/systempipe_docker
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Your repository in Docker Hub should now display a new latest tag under &lt;code&gt;Tags&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div id=&#39;changes&#39;/&gt;
+&lt;h1 id=&#34;make-changes-to-the-container-and-create-the-new-image&#34;&gt;Make changes to the container and Create the new image&lt;/h1&gt;
+&lt;p&gt;Create a folder, for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -dP systempipe/systempipe_docker
+docker ps ## To check the NAME &amp;lt;lucid_grothendieck&amp;gt;
+docker exec -it lucid_grothendieck /bin/bash
+root@33c758eb1626:/# R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;setwd(&amp;quot;home/rstudio/&amp;quot;)
+systemPipeRdata::genWorkenvir(&amp;quot;rnaseq&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;exit
+docker commit -m &amp;quot;Added rnaseq template&amp;quot; -a &amp;quot;Dani Cassol&amp;quot; lucid_grothendieck dcassol/systempipeworkshop2021:rnaseq
+docker push systempipe/systempipe_docker:rnaseq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Run the new image:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnaseq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;commands&#39;/&gt;
+&lt;h1 id=&#34;commands&#34;&gt;Commands&lt;/h1&gt;
+&lt;h2 id=&#34;list-which-docker-machines-are-available-locally&#34;&gt;List which docker machines are available locally&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker images&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;list-running-containers&#34;&gt;List running containers&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker ps&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;list-all-containers&#34;&gt;List all containers&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker ps -a&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;resume-a-stopped-container&#34;&gt;Resume a stopped container&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker start &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;shell-into-a-running-container&#34;&gt;Shell into a running container&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker exec -it &amp;lt;CONTAINER ID&amp;gt; /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;stop-or-remove-a-cointainer&#34;&gt;Stop OR remove a cointainer&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker stop &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;
+&lt;code&gt;{bash, eval=FALSE}docker rm &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;remove-a-image&#34;&gt;Remove a image&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div id=&#39;github&#39;/&gt;
+&lt;h1 id=&#34;docker-and-github-actions&#34;&gt;Docker and GitHub Actions&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;To create a new token, go to Docker Hub Settings&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1.1. Account Settings &amp;raquo; Security &amp;raquo; New Access Token
+1.2. Add Access Token Description &amp;raquo; Create
+1.3. Copy the Access Token &amp;raquo; Copy and Close&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Go to the Repository at GitHub&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2.1. Settings &amp;gt; Secrets &amp;gt; New repository secret
+2.2. Create a new secret with the name &lt;code&gt;DOCKER_HUB_USERNAME&lt;/code&gt; and your &lt;code&gt;Docker ID&lt;/code&gt; as value
+2.3. Click at Add secret
+2.4. Create a new secret with the name &lt;code&gt;DOCKER_HUB_ACCESS_TOKEN&lt;/code&gt; and your &lt;code&gt;Personal Access Token (PAT)&lt;/code&gt; as value (generated in the previous step)&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Set up the GitHub Actions workflow&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    steps:
+    
+      - name: Checkout Repo 
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;faq&#39;/&gt;
+&lt;h1 id=&#34;common-problems&#34;&gt;Common Problems&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;## Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/auth: dial unix /var/run/docker.sock: connect: permission denied
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Solution:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo chmod 666 /var/run/docker.sock
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;singularity&#39;/&gt;
+&lt;h1 id=&#34;singularity-container&#34;&gt;Singularity Container&lt;/h1&gt;
+&lt;p&gt;Please download the Docker image of systemPipe, as follow:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;singularity pull docker://systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also use the &lt;code&gt;build&lt;/code&gt; command to download pre-built images from Docker.
+Unlike &lt;code&gt;pull&lt;/code&gt;, &lt;code&gt;build&lt;/code&gt; will convert the image to the latest Singularity image format after
+downloading it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;singularity build systempipe_docker_latest.sif docker://systempipe/systempipe_docker:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To run the container:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;singularity shell systempipe_docker_latest.sif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;div id=&#39;resources&#39;/&gt;
+&lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mirantis.com/blog/how-do-i-create-a-new-docker-image-for-my-application/&#34;&gt;Docker Run: How to create images from an application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/docker-hub/&#34;&gt;Docker Hub Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/ci-cd/github-actions/&#34;&gt;Configure GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images&#34;&gt;Singularity&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Sps: Deploy</title>
       <link>/sps/deploy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -6644,13 +7100,99 @@ For these cases, we recommend you:&lt;/p&gt;
         
         &lt;hr&gt;
 &lt;h2 id=&#34;how-to-deploy-the-application&#34;&gt;How to deploy the application&lt;/h2&gt;
-&lt;p&gt;Among several options of deployment of your &lt;code&gt;SPS&lt;/code&gt; custom application, here you can find the example of &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;shinyapps.io&lt;/a&gt;.
-To get started, it is required to create a &lt;em&gt;shinyapps.io&lt;/em&gt; account. Please follow this &lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;tutorial&lt;/a&gt;
-with all the instructions to create an account.
-&lt;code&gt;SPS&lt;/code&gt; project provides a ready-to-use file, &lt;code&gt;deploy.R&lt;/code&gt;, with the required information to configure ShinyApps account and deploy the application.&lt;/p&gt;
-&lt;p&gt;Once the account is set correctly, you can deploy it as soon as the project is created. It
-is recommended to create -&amp;gt; test/run -&amp;gt; deploy a Shiny app from Rstudio and follow
-&lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;this tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The easiest way to deploy SPS is &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;shinyapps.io{blk}&lt;/a&gt;.
+To get started, it is required to create a &lt;em&gt;shinyapps.io&lt;/em&gt; account. Please follow this &lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;tutorial{blk}&lt;/a&gt;
+with all the instructions to create an account. There are other ways to deploy, like
+AWS or Google Cloud with a custom Shiny server. There are a lot of tutorials to
+deploy the app other than &lt;em&gt;shinyapps.io&lt;/em&gt;. We only use &lt;em&gt;shinyapps.io&lt;/em&gt; as the example
+here to discuss how to deploy.&lt;/p&gt;
+&lt;h2 id=&#34;get-started&#34;&gt;Get started&lt;/h2&gt;
+&lt;p&gt;After you have created a &lt;code&gt;SPS&lt;/code&gt; project, it is in a deploy-ready state, which means
+you can deploy it as soon as you create the project.&lt;/p&gt;
+&lt;p&gt;We have created some important helper code in &lt;code&gt;deploy.R&lt;/code&gt; under the project root for you.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Read the &lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;tutorial{blk}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;After you have the accounts and token set up according to the tutorial, open
+&lt;code&gt;deploy.R&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If you have used Bioconductor packages (mostly likely yes, unless you do not use
+the default modules), run the options line in R console before deploy, which is this&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;options(repos = BiocManager::repositories())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you want to use develop version of Bioconductor packages (not recommended),
+uncomment following lines and follow the instructions in the file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# repos &amp;lt;- BiocManager::repositories()
+# devel &amp;lt;- &amp;quot;3.13&amp;quot;
+# repos[length(repos) + 1] &amp;lt;- paste0(&amp;quot;https://bioconductor.org/packages/&amp;quot;, devel, &amp;quot;/bioc&amp;quot;)
+# names(repos)[length(repos)] &amp;lt;- &amp;quot;BioC&amp;quot;
+# options(repos = repos)
+# getOption(&amp;quot;repos&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you wish &lt;em&gt;shinyapps.io&lt;/em&gt; to install &lt;a href=&#34;../sps/modules/&#34;&gt;SPS modules&lt;/a&gt;, copy and
+&lt;strong&gt;uncomment&lt;/strong&gt; following lines for the modules to &lt;code&gt;global.R&lt;/code&gt; file below the
+line &lt;code&gt;# load additional libraries that you want to use below&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## Workflow module
+# requireNamespace(&amp;quot;DOT&amp;quot;); requireNamespace(&amp;quot;networkD3&amp;quot;); requireNamespace(&amp;quot;pushbar&amp;quot;)
+# requireNamespace(&amp;quot;readr&amp;quot;); requireNamespace(&amp;quot;rhandsontable&amp;quot;); requireNamespace(&amp;quot;shinyTree&amp;quot;)
+# requireNamespace(&amp;quot;systemPipeR&amp;quot;); requireNamespace(&amp;quot;systemPipeRdata&amp;quot;); requireNamespace(&amp;quot;zip&amp;quot;)
+     
+## RNA-Seq module
+# requireNamespace(&amp;quot;DESeq2&amp;quot;); requireNamespace(&amp;quot;Rtsne&amp;quot;); requireNamespace(&amp;quot;SummarizedExperiment&amp;quot;)
+# requireNamespace(&amp;quot;UpSetR&amp;quot;); requireNamespace(&amp;quot;ape&amp;quot;); requireNamespace(&amp;quot;ggtree&amp;quot;)
+# requireNamespace(&amp;quot;glmpca&amp;quot;); requireNamespace(&amp;quot;pheatmap&amp;quot;); requireNamespace(&amp;quot;systemPipeR&amp;quot;)
+     
+## Quick ggplot module
+# requireNamespace(&amp;quot;esquisse&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The last section in &lt;code&gt;deploy.R&lt;/code&gt; is some helper code to set up the account and
+deploy the app programmatically. If you use the
+&lt;a href=&#34;https://shiny.rstudio.com/articles/shinyapps.html&#34;&gt;tutorial{blk}&lt;/a&gt;,
+there is no need to do this section.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Save your changes in the &lt;code&gt;global.R&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;deploy-in-rstudio&#34;&gt;Deploy in Rstudio&lt;/h2&gt;
+&lt;p&gt;We recommend you to deploy the app with Rstudio. If you have set up your &lt;em&gt;shinyapps.io&lt;/em&gt;
+account, we are ready to go.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/deploy.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;h3 id=&#34;a&#34;&gt;A&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Open &lt;code&gt;global.R&lt;/code&gt; in Rstudio, use the &amp;ldquo;Run App&amp;rdquo; button to make sure your app
+can be run without problems locally.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;options(repos = BiocManager::repositories())&lt;/code&gt; and other Bioconductor
+set up code as listed above.&lt;/li&gt;
+&lt;li&gt;Click the button next to &amp;ldquo;Run App&amp;rdquo; and choose &amp;ldquo;Publish Application&amp;hellip;&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;b&#34;&gt;B&lt;/h3&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;If you have set up your account correctly, you should see your account to the
+right panel.&lt;/li&gt;
+&lt;li&gt;Select all the files of your SPS project.&lt;/li&gt;
+&lt;li&gt;Change the app &amp;ldquo;Title&amp;rdquo; to what you want.&lt;/li&gt;
+&lt;li&gt;hit &amp;ldquo;Publish&amp;rdquo;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;ram-requirement&#34;&gt;RAM requirement&lt;/h2&gt;
+&lt;p&gt;If you wish to load the workflow and/or RNAseq module(s) on &lt;em&gt;shinyapps.io&lt;/em&gt;, you need
+at least &lt;strong&gt;2GB&lt;/strong&gt; of memory. Unfortunately, these 2 modules depend heavily on Bioconductor
+packages and these packages are not light-weighted. The max RAM for free account
+on &lt;em&gt;shinyapps.io&lt;/em&gt; is 1GB which means you either need to upgrade your account or
+use other server to deploy your app.&lt;/p&gt;
+&lt;p&gt;If you decide to not load these modules which will allow you to deploy the app
+with a free account, change the settings to unload these modules in
+&lt;a href=&#34;../sps/adv_features/config/#app-options&#34;&gt;app options&lt;/a&gt; in &lt;code&gt;global.R&lt;/code&gt;.&lt;/p&gt;
 
       </description>
     </item>
