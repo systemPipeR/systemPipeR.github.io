@@ -1,13 +1,7 @@
 ---
 title: "Conferences"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 23 April, 2021" 
-output:
-  BiocStyle::html_document:
-    toc_float: true
-    code_folding: show
-  BiocStyle::pdf_document: default
-fontsize: 14pt
+date: "Last update: 26 April, 2021" 
 type: docs
 weight: 1
 ---
@@ -15,6 +9,7 @@ weight: 1
 ## BioC2021
 
 + [BioC2021{blk}](https://bioc2021.bioconductor.org/)
+
 + systemPipe: Workflow and Visualization Toolkit - Workshop
     + [GitHub Material{blk}](https://github.com/systemPipeR/systemPipeWorkshop2021)
 
@@ -31,6 +26,8 @@ weight: 1
 + `systemPipeR's` New CWL Command-line Interface - Workshop
     + [GitHub Material{blk}](https://github.com/dcassol/BioC2019_Workshop/blob/master/workshop-sytemPipeR.md)
 
+[[ View Slides in Separate Browser Tab ]{blk}](https://systempipe.org/presentations/Bioc2019.html#/)
+
 <iframe width="900" height="600" src="https://systempipe.org/presentations/Bioc2019.html#/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Bioc2018
@@ -42,6 +39,8 @@ weight: 1
 ## Bioc2016
 
 + [BioC2016{blk}](https://bioc2019.bioconductor.org/)
+
+[[ View Slides in Separate Browser Tab ]{blk}](https://docs.google.com/presentation/d/175aup31LvnbIJUAvEEoSkpGsKgtBJ2RpQYd0Gs23dLo/embed?start=false&loop=false&delayms=60000&slide=id.p)
 
 <iframe width="900" height="600" src="https://docs.google.com/presentation/d/175aup31LvnbIJUAvEEoSkpGsKgtBJ2RpQYd0Gs23dLo/embed?start=false&loop=false&delayms=60000&slide=id.p" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -73,6 +72,6 @@ BiocManager::install("tgirke/systemPipeRdata", build_vignettes=TRUE, dependencie
 
 + [BioC2015{blk}](https://bioconductor.org/help/course-materials/2015/BioC2015/)
 
-+ [Slide Show Talk{blk}](https://systempipe.org/presentations/systemPipeRslides.html#1)
+[[ View Slides in Separate Browser Tab ]{blk}](https://systempipe.org/presentations/systemPipeRslides.html#1)
 
 <iframe width="900" height="600" src="https://systempipe.org/presentations/systemPipeRslides.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
