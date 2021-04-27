@@ -99,7 +99,7 @@ SPS RNAseq module provides 6 different plot options to cluster transformed count
 1. Change plot options to customize your plots. 
 2. Most plots are [Plotly](https://plotly.com) plots, which means you can interact 
 with these plots, like hiding/show groups, zoom in/out, etc. 
-3. All SPS plots are resizable. Dragging the bottom-right corner icon to resize your 
+3. All SPS plots are resizable. Drag the bottom-right corner icon to resize your 
 plot.
 4. Click "To canvas" to take a screenshot of current plot and edit it in `SPS Canvas`
 tab. Or clicking the down-arrow button to directly save current plot to a png or jpg. 
