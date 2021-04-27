@@ -23,12 +23,13 @@ url_pmid <- function(file, outfile) {
     ids <- sub(".*[PMCID: PMC]", "", bib)
     ids <- suppressWarnings(as.numeric(ids))
     ids <- na.omit(ids)
-    ids <- ids[nchar(ids) > 6]
-    url <- paste0("http://www.ncbi.nlm.nih.gov/pmc/articles/pmc", ids, "/") ## todo
+    ids <- unique(ids[nchar(ids) > 6])
+    url <- paste0("http://www.ncbi.nlm.nih.gov/pmc/articles/pmc", ids, "/")
     names(url) <- ids
+    # url <- unique(url)
     for (i in seq_along(url)) {
         id <- paste0("PMC", names(url)[i])
-        replace <- paste0("[", id, "](", url[i], ")")
+        replace <- paste0("[", id, "{blk}](", url[i], ")")
         bib <- gsub(id, replace, bib)
     }
     writeLines(bib, outfile)
