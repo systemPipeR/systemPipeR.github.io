@@ -66,7 +66,7 @@ be displayed in in app, like following:
 
 So the message on both UI and console is called **dual-end logging** in SPS. 
 
-#### Shiny off
+#### Server only
 Of course, if you do not want users to see the message, you can hide it by 
 `shiny = FALSE`, but the message will be still logged on R console. 
 Run the following on your own computer and watch the difference. 
