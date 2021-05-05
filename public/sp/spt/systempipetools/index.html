@@ -1,50 +1,919 @@
-<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../favicons/android-192x192.png sizes=192x192><title>Data Visualizations | sysPipe</title><meta property="og:title" content="Data Visualizations"><meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)."><meta property="og:type" content="article"><meta property="og:url" content="/sp/spt/systempipetools/"><meta property="article:modified_time" content="2021-04-29T19:35:58-07:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="Data Visualizations"><meta itemprop=description content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)."><meta itemprop=dateModified content="2021-04-29T19:35:58-07:00"><meta itemprop=wordCount content="1454"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Data Visualizations"><meta name=twitter:description content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)."><link rel=preload href=../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css as=style><link href=../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><link rel=stylesheet href=../../../css/prism.css><script src=../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../css/site.css><script src=../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../><span class=font-weight-bold>sysPipe</span></a>
-<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
-<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
-<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
-<a class=dropdown-item href=../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
-<a class=dropdown-item href=../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
-<a class=dropdown-item href=../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
-<a class=dropdown-item href=../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../sp/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../sp/spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
-<a class=dropdown-item href=../../../sp/spr/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
-<a class=dropdown-item href=../../../sp/spr/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
-<a class=dropdown-item href=../../../sp/spr/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
-<a class=dropdown-item href=../../../sp/spr/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
-<a class=dropdown-item href=../../../sp/spr/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
-<a class=dropdown-item href=../../../sp/spr/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
-<a class=dropdown-item href=../../../sp/spr/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
-<a class=dropdown-item href=../../../sp/spt/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRTools</a>
-<a class=dropdown-item href=../../../sp/spt/ style=padding-left:2rem;font-weight:calc(3/4*500)>Data Visualization</a>
-<a class=dropdown-item href=../../../sp/sprdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
-<a class=dropdown-item href=../../../sp/sprdata/systempiperdata/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
-<a class=dropdown-item href=../../../sp/sprdata/newwf/ style=padding-left:2rem;font-weight:calc(3/4*500)>Rules</a>
-<a class=dropdown-item href=../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeTools style=padding-left:2rem;font-weight:calc(3/4*500)>SPT GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
-<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a>
-<a class=dropdown-item href=../../../spr_wf/installwf/ style=padding-left:1rem;font-weight:calc(3/3*500)>How to install Workflow</a>
-<a class=dropdown-item href=../../../spr_wf/newwf style=padding-left:1rem;font-weight:calc(3/3*500)>Rules to create Workflow</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../training/ id=navbarDropdown role=button>Training</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../training/conferences/ style=padding-left:1rem;font-weight:calc(3/3*500)>Conferences</a>
-<a class=dropdown-item href=../../../training/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
-<a class=dropdown-item href=../../../training/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off>
-<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a></li><ul><li class="collapse show" id=sp><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/spr/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a></li><ul><li class=collapse id=spspr><a class="td-sidebar-link td-sidebar-link__page" id=m-spsprintroduction href=../../../sp/spr/introduction/>Introduction</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprgettingstarted href=../../../sp/spr/gettingstarted/>Getting Started</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprspr_run href=../../../sp/spr/spr_run/>How to run a Workflow</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsteps href=../../../sp/spr/steps/>Workflow steps overview</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprtemplates href=../../../sp/spr/templates/>Workflow Templates</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprspr_funcs href=../../../sp/spr/spr_funcs/>Help Manual</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsprinstall href=../../../sp/spr/sprinstall/>SPR detailed installation instructions</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsp_docker href=../../../sp/spr/sp_docker/>SPR Docker container</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/spt/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">systemPipeTools</a></li><ul><li class="collapse show" id=spspt><a class="td-sidebar-link td-sidebar-link__page active" id=m-spsptsystempipetools href=../../../sp/spt/systempipetools/>Data Visualizations</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/sprdata/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a></li><ul><li class=collapse id=spsprdata><a class="td-sidebar-link td-sidebar-link__page" id=m-spsprdatasystempiperdata href=../../../sp/sprdata/systempiperdata/>Workflow templates and sample data</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprdatanewwf href=../../../sp/sprdata/newwf/>Rules to create a new Workflow Template</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsp_docker href=../../../sp/sp_docker/>SPR Docker container</a></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/spt/systemPipeTools.Rmd target=_blank class=source-link><i class="fa fa-code fa-fw"></i>View Rmd source</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/spt/systemPipeTools.md target=_blank><i class="fab fa-github fa-fw"></i>View on Github</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/spt/systemPipeTools.md target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
-<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/spt/systemPipeTools.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><a href=#data-visualization-with-systempiper>Data Visualization with <code>systemPipeR</code></a><ul><li><a href=#metadata-and-reads-counting-information>Metadata and Reads Counting Information</a></li><li><a href=#data-transformation>Data Transformation</a></li><li><a href=#scatterplot>Scatterplot</a></li><li><a href=#hierarchical-clustering-dendrogram>Hierarchical Clustering Dendrogram</a></li><li><a href=#hierarchical-clustering-heatmap>Hierarchical Clustering HeatMap</a></li><li><a href=#principal-component-analysis>Principal Component Analysis</a></li><li><a href=#multidimensional-scaling-with-mdsplot>Multidimensional scaling with <code>MDSplot</code></a></li><li><a href=#dimension-reduction-with-glmplot>Dimension Reduction with <code>GLMplot</code></a></li><li><a href=#ma-plot>MA plot</a></li><li><a href=#t-distributed-stochastic-neighbor-embedding-with-tsneplot>t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></a></li><li><a href=#volcano-plot>Volcano plot</a></li></ul></li><li><a href=#version-information>Version information</a></li><li><a href=#funding>Funding</a></li><li><a href=#references>References</a></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../sp/>Documentation</a></li><li class=breadcrumb-item><a href=../../../sp/spt/>systemPipeTools</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../sp/spt/systempipetools/>Data Visualizations</a></li></ol></nav><div class=td-content><h1>Data Visualizations</h1><script src=../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js></script><script src=../../../rmarkdown-libs/jquery/jquery.min.js></script><link href=../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/datatables-binding/datatables.js></script><link href=../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css rel=stylesheet><link href=../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js></script><link href=../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js></script><link href=../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js></script><link href=../../../rmarkdown-libs/crosstalk/css/crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js></script><script src=../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js></script><script src=../../../rmarkdown-libs/plotly-binding/plotly.js></script><script src=../../../rmarkdown-libs/typedarray/typedarray.min.js></script><script src=../../../rmarkdown-libs/jquery/jquery.min.js></script><link href=../../../rmarkdown-libs/crosstalk/css/crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js></script><link href=../../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css rel=stylesheet><script src=../../../rmarkdown-libs/plotly-main/plotly-latest.min.js></script><style type=text/css>pre code{white-space:pre!important;overflow-x:scroll!important;word-break:keep-all!important;word-wrap:initial!important}</style><script type=text/javascript>document.addEventListener("DOMContentLoaded",function(){document.querySelector("h1").className="title";});</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",function(){var links=document.links;for(var i=0,linksLength=links.length;i<linksLength;i++)
-if(links[i].hostname!=window.location.hostname)
-links[i].target='_blank';});</script><h1 id=data-visualization-with-systempiper>Data Visualization with <code>systemPipeR</code></h1><p><em>systemPipeTools</em> package extends the widely used <em><a href=https://systempipe.org/>systemPipeR</a></em> (SPR) (H Backman and Girke 2016)
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.79.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
+
+<title>Data Visualizations | sysPipe</title><meta property="og:title" content="Data Visualizations" />
+<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/sp/spt/systempipetools/" />
+<meta property="article:modified_time" content="2021-04-26T10:05:30-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta itemprop="name" content="Data Visualizations">
+<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs).">
+<meta itemprop="dateModified" content="2021-04-26T10:05:30-07:00" />
+<meta itemprop="wordCount" content="1454">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data Visualizations"/>
+<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" as="style">
+<link href="../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../../css/prism.css"/>
+
+
+<script src="../../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../../css/site.css"/>
+<script src="../../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page line-numbers">
+    <header>
+     
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="../../../">
+		<span class="font-weight-bold">sysPipe</span>
+	</a>
+	<row class="header-switch">
+	  	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
+        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
+      </div>
+    	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
+        <label class="custom-control-label" for="tocSwitch">toc</label>
+      </div>
+	</row>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/overview/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Overview
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/team/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Our Team
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/publications/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Publications
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/acknowledgement/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Acknowledgement
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/contact/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Contact
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../sp/" id="navbarDropdown" role="button">
+          	systemPipeR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeR Package
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/introduction/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/gettingstarted/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Getting Started
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/spr_run/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 How to run a Workflow
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/steps/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow steps overview
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/templates/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow Templates
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/sprinstall/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR detailed installation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sp/spt/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRTools
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spt/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Data Visualization
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sp/sprdata/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRdata
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/sprdata/systempiperdata/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Vignette
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/sprdata/newwf/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Rules
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Links
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPT GitHub
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
+          	Shiny
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../sps/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 SPS Documentation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Github
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
+          	Workflows
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr_wf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Collection
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr_wf/installwf/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 How to install Workflow
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../spr_wf/newwf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Rules to create Workflow
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
+          	Training
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/conferences/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Conferences
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/presentations/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../training/videos/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Videos Tutorials
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
+          	News
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../news/release_3_12/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor 3.12
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="../../../offline-search-index.a75fdb0dce76ed257b230894f32f613a.json"
+  data-offline-search-base-href="../../../"
+  data-offline-search-max-results="10"
+>
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="../../../offline-search-index.a75fdb0dce76ed257b230894f32f613a.json"
+  data-offline-search-base-href="../../../"
+  data-offline-search-max-results="10"
+>
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sp/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="sp">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sp/spr/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spspr">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprintroduction" href="../../../sp/spr/introduction/">Introduction</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprgettingstarted" href="../../../sp/spr/gettingstarted/">Getting Started</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_run" href="../../../sp/spr/spr_run/">How to run a Workflow</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsteps" href="../../../sp/spr/steps/">Workflow steps overview</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprtemplates" href="../../../sp/spr/templates/">Workflow Templates</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_funcs" href="../../../sp/spr/spr_funcs/">Help Manual</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsprinstall" href="../../../sp/spr/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsp_docker" href="../../../sp/spr/sp_docker/">SPR Docker container</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sp/spt/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">systemPipeTools</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="spspt">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsptsystempipetools" href="../../../sp/spt/systempipetools/">Data Visualizations</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../sp/sprdata/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsprdata">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatasystempiperdata" href="../../../sp/sprdata/systempiperdata/">Workflow templates and sample data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatanewwf" href="../../../sp/sprdata/newwf/">Rules to create a new Workflow Template</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsp_docker" href="../../../sp/sp_docker/">SPR Docker container</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          
+          
+
+          
+
+          
+          
+              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+                
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/spt/systemPipeTools.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
+    
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/spt/systemPipeTools.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/spt/systemPipeTools.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/spt/systemPipeTools.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    
+      
+      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-visualization-with-systempiper">Data Visualization with <code>systemPipeR</code></a>
+      <ul>
+        <li><a href="#metadata-and-reads-counting-information">Metadata and Reads Counting Information</a></li>
+        <li><a href="#data-transformation">Data Transformation</a></li>
+        <li><a href="#scatterplot">Scatterplot</a></li>
+        <li><a href="#hierarchical-clustering-dendrogram">Hierarchical Clustering Dendrogram</a></li>
+        <li><a href="#hierarchical-clustering-heatmap">Hierarchical Clustering HeatMap</a></li>
+        <li><a href="#principal-component-analysis">Principal Component Analysis</a></li>
+        <li><a href="#multidimensional-scaling-with-mdsplot">Multidimensional scaling with <code>MDSplot</code></a></li>
+        <li><a href="#dimension-reduction-with-glmplot">Dimension Reduction with <code>GLMplot</code></a></li>
+        <li><a href="#ma-plot">MA plot</a></li>
+        <li><a href="#t-distributed-stochastic-neighbor-embedding-with-tsneplot">t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></a></li>
+        <li><a href="#volcano-plot">Volcano plot</a></li>
+      </ul>
+    </li>
+    <li><a href="#version-information">Version information</a></li>
+    <li><a href="#funding">Funding</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+              </div>
+              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+                
+  
+
+                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../sp/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../sp/spt/">systemPipeTools</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="../../../sp/spt/systempipetools/">Data Visualizations</a>
+</li>
+
+	</ol>
+</nav	>
+
+                
+<div class="td-content">
+	<h1>Data Visualizations</h1>
+    
+	       
+	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+<link href="../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../../../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<style type="text/css">
+pre code {
+white-space: pre !important;
+overflow-x: scroll !important;
+word-break: keep-all !important;
+word-wrap: initial !important;
+}
+</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector("h1").className = "title";
+});
+</script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i < linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = '_blank';
+});
+</script>
+<h1 id="data-visualization-with-systempiper">Data Visualization with <code>systemPipeR</code></h1>
+<p><em>systemPipeTools</em> package extends the widely used <em><a href="https://systempipe.org/">systemPipeR</a></em> (SPR) (H Backman and Girke 2016)
 workflow environment with enhanced toolkit for data visualization,
 including utilities to automate the analysis of differentially expressed genes (DEGs).
 <em>systemPipeTools</em> provides functions for data transformation and data exploration via
@@ -53,7 +922,14 @@ multidimensional scaling, generalized principal components, t-Distributed
 Stochastic Neighbor embedding (t-SNE), and MA and volcano plots.
 All these utilities can be integrated with the modular design of the <em>systemPipeR</em>
 environment that allows users to easily substitute any of these features and/or
-custom with alternatives.</p><h2 id=metadata-and-reads-counting-information>Metadata and Reads Counting Information</h2><p>The first step is importing the <code>targets</code> file and raw reads counting table.</p><ul><li>The <code>targets</code> file defines all FASTQ files and sample comparisons of the analysis workflow.</li><li>The raw reads counting table represents all the reads that map to gene (row) for each sample (columns).</li></ul><pre><code class=language-r>## Targets file
+custom with alternatives.</p>
+<h2 id="metadata-and-reads-counting-information">Metadata and Reads Counting Information</h2>
+<p>The first step is importing the <code>targets</code> file and raw reads counting table.</p>
+<ul>
+<li>The <code>targets</code> file defines all FASTQ files and sample comparisons of the analysis workflow.</li>
+<li>The raw reads counting table represents all the reads that map to gene (row) for each sample (columns).</li>
+</ul>
+<pre><code class="language-r">## Targets file
 targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
 targets &lt;- read.delim(targetspath, comment = &quot;#&quot;)
 cmp &lt;- systemPipeR::readComp(file = targetspath, format = &quot;matrix&quot;, delim = &quot;-&quot;)
@@ -61,16 +937,22 @@ cmp &lt;- systemPipeR::readComp(file = targetspath, format = &quot;matrix&quot;,
 countMatrixPath &lt;- system.file(&quot;extdata&quot;, &quot;countDFeByg.xls&quot;, package = &quot;systemPipeR&quot;)
 countMatrix &lt;- read.delim(countMatrixPath, row.names = 1)
 showDT(countMatrix)
-</code></pre><div id=htmlwidget-1 style=width:100%;height:auto class="datatables html-widget"></div><script type=application/json data-for=htmlwidget-1>{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["AT1G01010","AT1G01020","AT1G01030","AT1G01040","AT1G01050","AT1G01060","AT1G01070","AT1G01073","AT1G01080","AT1G01090","AT1G01100","AT1G01110","AT1G01115","AT2G01008","AT2G01021","AT2G01023","AT3G01010","AT3G01015","AT3G01020","AT3G01030","AT3G01040","AT3G01050","AT3G01060","AT3G01070","AT3G01080","AT3G01085","AT3G01090","AT3G01100","AT3G01120","AT3G01130","AT3G01140","AT3G01150","AT3G01160","AT3G01170","AT4G00005","AT4G00020","AT4G00026","AT4G00030","AT4G00040","AT4G00050","AT4G00060","AT4G00070","AT4G00080","AT4G00090","AT4G00100","AT4G00110","AT4G00120","AT4G00124","AT4G00130","AT4G00140","AT5G01010","AT5G01015","AT5G01020","AT5G01030","AT5G01040","AT5G01050","AT5G01060","AT5G01070","AT5G01075","AT5G01080","AT5G01090","AT5G01100","AT5G01110","AT5G01120","AT5G01130","AT5G01140","AT5G01150","AT5G01160","ATCG00020","ATCG00040","ATCG00050","ATCG00070","ATCG00080","ATCG00120","ATCG00130","ATCG00140","ATCG00150","ATCG00160","ATCG00170","ATCG00180","ATCG00190","ATCG00210","ATCG00220","ATCG00270","ATCG00280","ATCG00300","ATCG00330","ATCG00340","ATCG00350","ATCG00360","ATCG00380","ATCG00420","ATCG00430","ATCG00440","ATCG00470","ATCG00480","ATCG00490","ATCG00500","ATCG00510","ATMG00010","ATMG00030","ATMG00040","ATMG00050","ATMG00060","ATMG00070","ATMG00080","ATMG00090","ATMG00110","ATMG00120","ATMG00130","ATMG00140","ATMG00150","ATMG00160","ATMG00170","ATMG00180","ATMG00200"],[57,23,41,180,60,26,0,0,98,331,230,6,0,28,6267,0,0,0,0,0,93,31,235,0,30,0,70,38,709,54,0,37,33,33,0,4,19,69,61,12,48,0,0,21,186,22,0,0,6,8,143,16,87,31,49,4,0,0,1,0,17,162,2,0,0,0,0,28,1917,9,0,5,15,52,34,36,17,7,7,5,37,6,3,105,283,4,52,147,192,1,2,7,21,12,54,180,856,8,10,2,60,11,0,0,8,7,5,6,3,1,0,0,5,3,18,0],[244,93,98,684,127,264,0,0,379,1027,432,10,0,68,3061,14,0,0,0,0,454,121,801,8,29,0,274,132,2358,140,14,126,238,131,0,25,89,106,176,138,359,0,0,59,384,78,0,0,9,6,442,26,227,170,125,7,0,4,28,0,103,1002,26,2,0,0,0,124,1696,28,3,23,50,210,127,46,53,8,39,49,145,5,83,300,723,34,103,412,480,6,21,97,312,44,339,1191,1029,13,1,0,40,56,0,3,18,18,72,27,0,4,7,1,31,15,59,3],[201,69,73,522,102,59,2,0,179,779,516,11,0,61,7559,6,0,0,0,0,364,108,553,6,151,0,315,87,2031,149,4,186,123,161,0,6,60,255,189,20,162,0,0,89,402,75,0,0,32,30,542,11,184,91,179,5,0,0,9,0,41,754,6,0,0,0,0,119,970,10,1,14,13,113,37,60,22,3,14,22,49,1,5,165,293,5,56,222,191,6,8,18,45,12,92,369,793,4,5,0,79,38,0,4,5,20,30,7,0,0,0,0,25,5,44,1],[169,126,58,664,166,56,1,0,456,1343,458,5,0,33,2203,10,0,1,0,0,578,167,674,2,14,0,373,126,2222,131,39,170,329,212,0,66,75,121,147,117,381,0,0,88,432,147,0,0,4,11,646,17,207,219,103,3,0,0,23,0,121,1185,27,2,0,0,0,127,661,19,1,59,53,190,167,42,88,14,94,68,208,16,75,212,641,45,135,530,520,10,24,147,347,34,423,1501,871,10,1,7,35,50,0,3,47,31,120,34,14,1,5,0,72,17,62,4],[365,107,94,585,125,8,6,0,287,647,468,4,0,48,3125,0,0,0,0,0,375,104,226,5,56,0,334,100,1674,242,2,138,133,110,0,16,41,127,158,23,275,0,0,56,403,81,0,0,28,30,606,4,165,97,150,7,0,0,2,0,62,819,11,2,0,0,0,103,2258,12,0,23,34,160,74,44,26,12,22,32,95,10,25,126,403,10,50,313,366,4,10,26,36,24,102,403,977,2,15,2,43,45,0,2,19,16,25,13,0,1,2,3,26,14,24,1],[229,88,156,680,303,26,6,0,538,1831,849,17,0,53,1168,3,0,1,0,0,735,146,366,6,97,0,349,203,2310,254,0,380,126,296,0,49,43,193,282,19,406,0,0,138,966,131,0,0,16,21,1031,8,463,106,427,10,2,0,5,1,89,2267,41,4,0,0,0,238,1232,6,0,24,56,277,66,33,54,11,55,61,186,3,29,250,375,23,58,509,455,1,10,63,112,15,347,984,1161,10,2,3,35,39,0,7,21,19,41,15,1,3,2,1,46,13,58,3],[41,18,9,162,116,5,2,0,102,350,522,3,0,39,12653,0,0,0,0,0,46,43,8,0,15,0,92,28,780,84,14,45,51,51,0,5,56,73,102,63,70,0,0,42,360,42,0,0,3,7,230,15,153,22,2,0,0,0,11,0,23,24,6,0,0,0,0,60,1677,4,0,5,4,37,8,41,2,0,1,11,18,2,4,63,186,2,19,121,116,0,0,7,8,2,19,73,592,0,2,1,89,19,0,2,4,8,11,5,0,1,0,0,8,6,27,2],[38,25,13,163,180,2,4,0,211,524,634,3,0,38,12386,1,0,0,0,0,76,55,59,0,25,0,139,50,1217,116,14,95,80,54,0,11,66,124,114,45,119,3,0,66,440,40,0,0,2,13,334,58,221,27,2,0,0,0,11,0,36,99,8,0,0,0,0,76,1184,6,0,1,7,42,20,18,16,1,6,15,22,2,2,59,190,4,13,152,168,0,3,11,9,1,30,163,681,2,1,0,35,37,0,4,9,4,9,3,0,1,2,0,16,8,26,2],[152,20,8,249,139,0,5,0,79,323,926,5,0,97,9799,0,0,0,0,0,80,52,13,0,72,0,148,74,1176,160,21,67,92,73,0,11,93,157,185,151,122,0,0,78,656,48,0,0,3,20,461,2,260,57,11,0,0,0,8,0,39,188,4,0,0,0,0,83,1201,0,0,1,11,41,7,23,5,0,6,2,15,2,0,56,132,2,23,75,122,0,2,4,10,4,22,93,475,4,0,0,117,31,0,5,1,5,12,7,2,1,3,0,19,9,33,0],[46,5,6,66,37,0,2,0,42,140,183,2,0,23,10386,1,0,0,0,0,23,21,1,0,7,0,48,19,270,27,7,14,20,22,0,1,12,21,48,8,43,0,0,22,113,12,0,0,1,3,109,10,50,29,2,3,0,0,1,0,13,42,0,0,0,0,0,33,1261,4,0,2,3,42,15,26,4,0,4,5,4,6,1,65,138,9,17,106,126,2,4,6,4,0,12,54,749,6,1,0,30,4,0,0,0,2,3,1,0,0,0,0,2,0,7,0],[294,88,36,697,236,0,5,0,150,600,1333,1,0,82,9414,3,0,2,0,0,162,112,14,0,57,0,236,126,1737,341,15,126,178,132,0,23,146,209,317,158,210,0,0,191,1005,46,0,0,12,22,731,0,423,100,7,0,0,0,12,0,68,277,5,0,0,0,0,128,1192,1,0,2,9,52,9,28,8,3,1,7,22,2,3,83,172,4,25,112,112,1,0,11,14,6,29,110,446,2,4,3,101,56,0,5,10,9,20,14,0,1,1,0,36,9,44,2],[405,151,147,1060,679,4,13,0,551,1693,2401,16,0,112,3265,4,0,0,0,0,260,292,41,2,33,0,468,280,2768,376,50,299,278,112,0,36,175,337,471,169,463,2,0,334,1831,107,0,0,12,13,1229,53,903,127,12,3,0,0,32,0,168,146,33,0,0,0,0,266,398,6,0,4,11,75,26,18,18,3,17,11,67,2,3,71,176,7,28,163,186,2,7,18,23,4,52,345,493,0,4,0,43,88,0,8,25,18,39,14,4,11,4,0,54,20,53,2],[117,43,32,338,362,89,9,0,250,800,762,7,0,142,6908,6,0,0,0,0,143,53,103,0,27,0,257,128,1998,110,52,130,65,95,0,19,38,245,362,472,298,0,0,74,703,51,0,0,5,23,449,6,732,62,2,0,0,0,12,0,46,42,2,2,0,0,0,157,1406,8,0,11,6,51,13,9,5,0,5,13,28,2,2,100,126,2,2,128,194,1,3,12,30,2,63,270,445,2,0,0,64,6,0,1,9,18,6,7,0,0,5,1,21,7,25,1],[139,74,29,604,746,203,43,0,612,1662,1805,38,0,230,3676,2,0,0,0,0,131,211,178,4,34,0,390,194,1861,323,81,191,125,93,0,28,132,397,598,499,414,1,0,166,1319,117,0,0,11,29,861,65,1008,100,2,0,0,2,29,0,128,80,35,0,0,0,0,274,473,0,0,3,16,91,32,23,13,0,5,19,51,2,7,65,167,1,26,121,132,1,0,8,23,1,65,346,377,0,0,0,75,49,0,2,20,16,23,25,1,5,7,0,29,10,26,0],[132,33,12,360,194,118,8,0,78,281,761,4,0,85,11154,2,0,0,0,0,79,87,39,2,88,0,176,121,781,184,19,74,59,80,0,11,52,164,203,239,176,0,0,91,600,37,0,0,6,13,599,2,265,70,0,0,0,0,5,0,41,85,0,0,0,0,0,91,1136,0,0,6,11,34,12,38,10,0,2,9,9,2,2,48,135,3,15,88,108,1,0,2,6,3,25,82,429,2,0,0,114,23,0,5,6,4,10,2,0,4,0,0,16,6,17,0],[64,18,9,80,50,24,0,0,26,122,102,0,0,18,3301,0,0,0,0,0,34,25,6,0,13,0,32,24,219,51,13,20,26,19,0,1,13,22,37,12,48,0,0,20,106,10,0,0,1,2,121,1,95,21,2,0,0,0,3,0,14,33,0,0,0,0,0,38,1860,8,0,3,4,40,26,13,0,0,1,4,1,5,0,61,259,1,28,147,176,2,3,21,11,0,17,84,662,2,2,1,23,15,0,2,9,3,1,3,1,1,0,0,5,0,8,0],[230,43,70,203,214,62,9,0,78,391,627,0,0,100,9421,5,0,0,0,0,105,43,52,0,56,0,127,79,734,97,18,70,28,61,0,4,33,92,112,178,140,0,0,93,565,17,0,0,1,5,331,4,283,29,0,0,0,0,9,0,33,155,4,0,0,0,0,118,1336,0,0,8,4,27,5,8,8,6,2,10,7,1,4,52,112,1,10,81,106,1,0,8,19,3,37,140,440,2,2,0,66,10,0,7,7,5,13,7,0,3,6,1,16,0,28,2],[120,31,85,171,181,32,1,0,55,273,476,4,0,46,8486,2,0,0,0,0,55,24,24,0,33,0,76,45,291,98,12,42,39,29,0,4,26,57,69,59,62,0,0,51,362,17,0,0,1,5,207,3,195,28,1,0,0,0,4,0,17,67,3,0,0,0,0,86,1236,3,0,1,5,39,14,31,12,0,2,2,18,5,1,48,172,0,14,118,118,0,7,0,8,1,19,116,529,4,0,0,46,18,0,3,3,4,5,6,0,0,2,2,12,2,10,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>M1A<\/th>\n      <th>M1B<\/th>\n      <th>A1A<\/th>\n      <th>A1B<\/th>\n      <th>V1A<\/th>\n      <th>V1B<\/th>\n      <th>M6A<\/th>\n      <th>M6B<\/th>\n      <th>A6A<\/th>\n      <th>A6B<\/th>\n      <th>V6A<\/th>\n      <th>V6B<\/th>\n      <th>M12A<\/th>\n      <th>M12B<\/th>\n      <th>A12A<\/th>\n      <th>A12B<\/th>\n      <th>V12A<\/th>\n      <th>V12B<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><h2 id=data-transformation>Data Transformation</h2><p>For gene differential expression, raw counts are required, however for data
+</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["AT1G01010","AT1G01020","AT1G01030","AT1G01040","AT1G01050","AT1G01060","AT1G01070","AT1G01073","AT1G01080","AT1G01090","AT1G01100","AT1G01110","AT1G01115","AT2G01008","AT2G01021","AT2G01023","AT3G01010","AT3G01015","AT3G01020","AT3G01030","AT3G01040","AT3G01050","AT3G01060","AT3G01070","AT3G01080","AT3G01085","AT3G01090","AT3G01100","AT3G01120","AT3G01130","AT3G01140","AT3G01150","AT3G01160","AT3G01170","AT4G00005","AT4G00020","AT4G00026","AT4G00030","AT4G00040","AT4G00050","AT4G00060","AT4G00070","AT4G00080","AT4G00090","AT4G00100","AT4G00110","AT4G00120","AT4G00124","AT4G00130","AT4G00140","AT5G01010","AT5G01015","AT5G01020","AT5G01030","AT5G01040","AT5G01050","AT5G01060","AT5G01070","AT5G01075","AT5G01080","AT5G01090","AT5G01100","AT5G01110","AT5G01120","AT5G01130","AT5G01140","AT5G01150","AT5G01160","ATCG00020","ATCG00040","ATCG00050","ATCG00070","ATCG00080","ATCG00120","ATCG00130","ATCG00140","ATCG00150","ATCG00160","ATCG00170","ATCG00180","ATCG00190","ATCG00210","ATCG00220","ATCG00270","ATCG00280","ATCG00300","ATCG00330","ATCG00340","ATCG00350","ATCG00360","ATCG00380","ATCG00420","ATCG00430","ATCG00440","ATCG00470","ATCG00480","ATCG00490","ATCG00500","ATCG00510","ATMG00010","ATMG00030","ATMG00040","ATMG00050","ATMG00060","ATMG00070","ATMG00080","ATMG00090","ATMG00110","ATMG00120","ATMG00130","ATMG00140","ATMG00150","ATMG00160","ATMG00170","ATMG00180","ATMG00200"],[57,23,41,180,60,26,0,0,98,331,230,6,0,28,6267,0,0,0,0,0,93,31,235,0,30,0,70,38,709,54,0,37,33,33,0,4,19,69,61,12,48,0,0,21,186,22,0,0,6,8,143,16,87,31,49,4,0,0,1,0,17,162,2,0,0,0,0,28,1917,9,0,5,15,52,34,36,17,7,7,5,37,6,3,105,283,4,52,147,192,1,2,7,21,12,54,180,856,8,10,2,60,11,0,0,8,7,5,6,3,1,0,0,5,3,18,0],[244,93,98,684,127,264,0,0,379,1027,432,10,0,68,3061,14,0,0,0,0,454,121,801,8,29,0,274,132,2358,140,14,126,238,131,0,25,89,106,176,138,359,0,0,59,384,78,0,0,9,6,442,26,227,170,125,7,0,4,28,0,103,1002,26,2,0,0,0,124,1696,28,3,23,50,210,127,46,53,8,39,49,145,5,83,300,723,34,103,412,480,6,21,97,312,44,339,1191,1029,13,1,0,40,56,0,3,18,18,72,27,0,4,7,1,31,15,59,3],[201,69,73,522,102,59,2,0,179,779,516,11,0,61,7559,6,0,0,0,0,364,108,553,6,151,0,315,87,2031,149,4,186,123,161,0,6,60,255,189,20,162,0,0,89,402,75,0,0,32,30,542,11,184,91,179,5,0,0,9,0,41,754,6,0,0,0,0,119,970,10,1,14,13,113,37,60,22,3,14,22,49,1,5,165,293,5,56,222,191,6,8,18,45,12,92,369,793,4,5,0,79,38,0,4,5,20,30,7,0,0,0,0,25,5,44,1],[169,126,58,664,166,56,1,0,456,1343,458,5,0,33,2203,10,0,1,0,0,578,167,674,2,14,0,373,126,2222,131,39,170,329,212,0,66,75,121,147,117,381,0,0,88,432,147,0,0,4,11,646,17,207,219,103,3,0,0,23,0,121,1185,27,2,0,0,0,127,661,19,1,59,53,190,167,42,88,14,94,68,208,16,75,212,641,45,135,530,520,10,24,147,347,34,423,1501,871,10,1,7,35,50,0,3,47,31,120,34,14,1,5,0,72,17,62,4],[365,107,94,585,125,8,6,0,287,647,468,4,0,48,3125,0,0,0,0,0,375,104,226,5,56,0,334,100,1674,242,2,138,133,110,0,16,41,127,158,23,275,0,0,56,403,81,0,0,28,30,606,4,165,97,150,7,0,0,2,0,62,819,11,2,0,0,0,103,2258,12,0,23,34,160,74,44,26,12,22,32,95,10,25,126,403,10,50,313,366,4,10,26,36,24,102,403,977,2,15,2,43,45,0,2,19,16,25,13,0,1,2,3,26,14,24,1],[229,88,156,680,303,26,6,0,538,1831,849,17,0,53,1168,3,0,1,0,0,735,146,366,6,97,0,349,203,2310,254,0,380,126,296,0,49,43,193,282,19,406,0,0,138,966,131,0,0,16,21,1031,8,463,106,427,10,2,0,5,1,89,2267,41,4,0,0,0,238,1232,6,0,24,56,277,66,33,54,11,55,61,186,3,29,250,375,23,58,509,455,1,10,63,112,15,347,984,1161,10,2,3,35,39,0,7,21,19,41,15,1,3,2,1,46,13,58,3],[41,18,9,162,116,5,2,0,102,350,522,3,0,39,12653,0,0,0,0,0,46,43,8,0,15,0,92,28,780,84,14,45,51,51,0,5,56,73,102,63,70,0,0,42,360,42,0,0,3,7,230,15,153,22,2,0,0,0,11,0,23,24,6,0,0,0,0,60,1677,4,0,5,4,37,8,41,2,0,1,11,18,2,4,63,186,2,19,121,116,0,0,7,8,2,19,73,592,0,2,1,89,19,0,2,4,8,11,5,0,1,0,0,8,6,27,2],[38,25,13,163,180,2,4,0,211,524,634,3,0,38,12386,1,0,0,0,0,76,55,59,0,25,0,139,50,1217,116,14,95,80,54,0,11,66,124,114,45,119,3,0,66,440,40,0,0,2,13,334,58,221,27,2,0,0,0,11,0,36,99,8,0,0,0,0,76,1184,6,0,1,7,42,20,18,16,1,6,15,22,2,2,59,190,4,13,152,168,0,3,11,9,1,30,163,681,2,1,0,35,37,0,4,9,4,9,3,0,1,2,0,16,8,26,2],[152,20,8,249,139,0,5,0,79,323,926,5,0,97,9799,0,0,0,0,0,80,52,13,0,72,0,148,74,1176,160,21,67,92,73,0,11,93,157,185,151,122,0,0,78,656,48,0,0,3,20,461,2,260,57,11,0,0,0,8,0,39,188,4,0,0,0,0,83,1201,0,0,1,11,41,7,23,5,0,6,2,15,2,0,56,132,2,23,75,122,0,2,4,10,4,22,93,475,4,0,0,117,31,0,5,1,5,12,7,2,1,3,0,19,9,33,0],[46,5,6,66,37,0,2,0,42,140,183,2,0,23,10386,1,0,0,0,0,23,21,1,0,7,0,48,19,270,27,7,14,20,22,0,1,12,21,48,8,43,0,0,22,113,12,0,0,1,3,109,10,50,29,2,3,0,0,1,0,13,42,0,0,0,0,0,33,1261,4,0,2,3,42,15,26,4,0,4,5,4,6,1,65,138,9,17,106,126,2,4,6,4,0,12,54,749,6,1,0,30,4,0,0,0,2,3,1,0,0,0,0,2,0,7,0],[294,88,36,697,236,0,5,0,150,600,1333,1,0,82,9414,3,0,2,0,0,162,112,14,0,57,0,236,126,1737,341,15,126,178,132,0,23,146,209,317,158,210,0,0,191,1005,46,0,0,12,22,731,0,423,100,7,0,0,0,12,0,68,277,5,0,0,0,0,128,1192,1,0,2,9,52,9,28,8,3,1,7,22,2,3,83,172,4,25,112,112,1,0,11,14,6,29,110,446,2,4,3,101,56,0,5,10,9,20,14,0,1,1,0,36,9,44,2],[405,151,147,1060,679,4,13,0,551,1693,2401,16,0,112,3265,4,0,0,0,0,260,292,41,2,33,0,468,280,2768,376,50,299,278,112,0,36,175,337,471,169,463,2,0,334,1831,107,0,0,12,13,1229,53,903,127,12,3,0,0,32,0,168,146,33,0,0,0,0,266,398,6,0,4,11,75,26,18,18,3,17,11,67,2,3,71,176,7,28,163,186,2,7,18,23,4,52,345,493,0,4,0,43,88,0,8,25,18,39,14,4,11,4,0,54,20,53,2],[117,43,32,338,362,89,9,0,250,800,762,7,0,142,6908,6,0,0,0,0,143,53,103,0,27,0,257,128,1998,110,52,130,65,95,0,19,38,245,362,472,298,0,0,74,703,51,0,0,5,23,449,6,732,62,2,0,0,0,12,0,46,42,2,2,0,0,0,157,1406,8,0,11,6,51,13,9,5,0,5,13,28,2,2,100,126,2,2,128,194,1,3,12,30,2,63,270,445,2,0,0,64,6,0,1,9,18,6,7,0,0,5,1,21,7,25,1],[139,74,29,604,746,203,43,0,612,1662,1805,38,0,230,3676,2,0,0,0,0,131,211,178,4,34,0,390,194,1861,323,81,191,125,93,0,28,132,397,598,499,414,1,0,166,1319,117,0,0,11,29,861,65,1008,100,2,0,0,2,29,0,128,80,35,0,0,0,0,274,473,0,0,3,16,91,32,23,13,0,5,19,51,2,7,65,167,1,26,121,132,1,0,8,23,1,65,346,377,0,0,0,75,49,0,2,20,16,23,25,1,5,7,0,29,10,26,0],[132,33,12,360,194,118,8,0,78,281,761,4,0,85,11154,2,0,0,0,0,79,87,39,2,88,0,176,121,781,184,19,74,59,80,0,11,52,164,203,239,176,0,0,91,600,37,0,0,6,13,599,2,265,70,0,0,0,0,5,0,41,85,0,0,0,0,0,91,1136,0,0,6,11,34,12,38,10,0,2,9,9,2,2,48,135,3,15,88,108,1,0,2,6,3,25,82,429,2,0,0,114,23,0,5,6,4,10,2,0,4,0,0,16,6,17,0],[64,18,9,80,50,24,0,0,26,122,102,0,0,18,3301,0,0,0,0,0,34,25,6,0,13,0,32,24,219,51,13,20,26,19,0,1,13,22,37,12,48,0,0,20,106,10,0,0,1,2,121,1,95,21,2,0,0,0,3,0,14,33,0,0,0,0,0,38,1860,8,0,3,4,40,26,13,0,0,1,4,1,5,0,61,259,1,28,147,176,2,3,21,11,0,17,84,662,2,2,1,23,15,0,2,9,3,1,3,1,1,0,0,5,0,8,0],[230,43,70,203,214,62,9,0,78,391,627,0,0,100,9421,5,0,0,0,0,105,43,52,0,56,0,127,79,734,97,18,70,28,61,0,4,33,92,112,178,140,0,0,93,565,17,0,0,1,5,331,4,283,29,0,0,0,0,9,0,33,155,4,0,0,0,0,118,1336,0,0,8,4,27,5,8,8,6,2,10,7,1,4,52,112,1,10,81,106,1,0,8,19,3,37,140,440,2,2,0,66,10,0,7,7,5,13,7,0,3,6,1,16,0,28,2],[120,31,85,171,181,32,1,0,55,273,476,4,0,46,8486,2,0,0,0,0,55,24,24,0,33,0,76,45,291,98,12,42,39,29,0,4,26,57,69,59,62,0,0,51,362,17,0,0,1,5,207,3,195,28,1,0,0,0,4,0,17,67,3,0,0,0,0,86,1236,3,0,1,5,39,14,31,12,0,2,2,18,5,1,48,172,0,14,118,118,0,7,0,8,1,19,116,529,4,0,0,46,18,0,3,3,4,5,6,0,0,2,2,12,2,10,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>M1A<\/th>\n      <th>M1B<\/th>\n      <th>A1A<\/th>\n      <th>A1B<\/th>\n      <th>V1A<\/th>\n      <th>V1B<\/th>\n      <th>M6A<\/th>\n      <th>M6B<\/th>\n      <th>A6A<\/th>\n      <th>A6B<\/th>\n      <th>V6A<\/th>\n      <th>V6B<\/th>\n      <th>M12A<\/th>\n      <th>M12B<\/th>\n      <th>A12A<\/th>\n      <th>A12B<\/th>\n      <th>V12A<\/th>\n      <th>V12B<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<h2 id="data-transformation">Data Transformation</h2>
+<p>For gene differential expression, raw counts are required, however for data
 visualization or clustering, it can be useful to work with transformed count data.
 <code>exploreDDS</code> function is convenience wrapper to transform raw read counts using the
-<a href=@Love2014-sh><code>DESeq2</code></a> package transformations methods. The input file
+<a href="@Love2014-sh"><code>DESeq2</code></a> package transformations methods. The input file
 has to contain all the genes, not just differentially expressed ones. Supported
 methods include variance stabilizing transformation (<code>vst</code>) (Anders and Huber (2010)), and
-regularized-logarithm transformation or <code>rlog</code> (Love, Huber, and Anders (2014)).</p><pre><code class=language-r>exploredds &lt;- exploreDDS(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, 
+regularized-logarithm transformation or <code>rlog</code> (Love, Huber, and Anders (2014)).</p>
+<pre><code class="language-r">exploredds &lt;- exploreDDS(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, 
     transformationMethod = &quot;rlog&quot;)
 exploredds
-</code></pre><pre><code>## class: DESeqTransform 
+</code></pre>
+<pre><code>## class: DESeqTransform 
 ## dim: 116 18 
 ## metadata(1): version
 ## assays(1): ''
@@ -78,55 +960,109 @@ exploredds
 ## rowData names(51): baseMean baseVar ... dispFit rlogIntercept
 ## colnames(18): M1A M1B ... V12A V12B
 ## colData names(2): condition sizeFactor
-</code></pre><p>Users are strongly encouraged to consult the <a href=@Love2014-sh><code>DESeq2</code></a> vignette for
+</code></pre>
+<p>Users are strongly encouraged to consult the <a href="@Love2014-sh"><code>DESeq2</code></a> vignette for
 more detailed information on this topic and how to properly run <code>DESeq2</code> on data
-sets with more complex experimental designs.</p><h2 id=scatterplot>Scatterplot</h2><p>To decide which transformation to choose, we can visualize the transformation effect
-comparing two samples or a grid of all samples, as follows:</p><pre><code class=language-r>exploreDDSplot(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, samples = c(&quot;M12A&quot;, 
+sets with more complex experimental designs.</p>
+<h2 id="scatterplot">Scatterplot</h2>
+<p>To decide which transformation to choose, we can visualize the transformation effect
+comparing two samples or a grid of all samples, as follows:</p>
+<pre><code class="language-r">exploreDDSplot(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, samples = c(&quot;M12A&quot;, 
     &quot;M12A&quot;, &quot;A12A&quot;, &quot;A12A&quot;), scattermatrix = TRUE)
-</code></pre><pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png width=672></p><p>The scatterplots are created using the log2 transform normalized reads count,
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png" width="672" /></p>
+<p>The scatterplots are created using the log2 transform normalized reads count,
 variance stabilizing transformation (VST) (Anders and Huber (2010)), and
-regularized-logarithm transformation or <code>rlog</code> (Love, Huber, and Anders (2014)).</p><h2 id=hierarchical-clustering-dendrogram>Hierarchical Clustering Dendrogram</h2><p>The following computes the sample-wise correlation coefficients using the <code>stats::cor()</code>
+regularized-logarithm transformation or <code>rlog</code> (Love, Huber, and Anders (2014)).</p>
+<h2 id="hierarchical-clustering-dendrogram">Hierarchical Clustering Dendrogram</h2>
+<p>The following computes the sample-wise correlation coefficients using the <code>stats::cor()</code>
 function from the transformed expression values. After transformation to a
 distance matrix, hierarchical clustering is performed with the <code>stats::hclust</code>
-function and the result is plotted as a dendrogram, as follows:</p><pre><code class=language-r>hclustplot(exploredds, method = &quot;spearman&quot;)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png width=672></p><p>The function provides the utility to save the plot automatically.</p><h2 id=hierarchical-clustering-heatmap>Hierarchical Clustering HeatMap</h2><p>This function performs hierarchical clustering on the transformed expression
+function and the result is plotted as a dendrogram, as follows:</p>
+<pre><code class="language-r">hclustplot(exploredds, method = &quot;spearman&quot;)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="hierarchical-clustering-heatmap">Hierarchical Clustering HeatMap</h2>
+<p>This function performs hierarchical clustering on the transformed expression
 matrix generated within the <code>DESeq2</code> package. It uses, by default, a <code>Pearson</code>
 correlation-based distance measure and complete linkage for cluster join.
 If <code>samples</code> selected in the <code>clust</code> argument, it will be applied the <code>stats::dist()</code>
 function to the transformed count matrix to get sample-to-sample distances. Also,
-it is possible to generate the <code>pheatmap</code> or <code>plotly</code> plot format.</p><pre><code class=language-r>## Samples plot
+it is possible to generate the <code>pheatmap</code> or <code>plotly</code> plot format.</p>
+<pre><code class="language-r">## Samples plot
 heatMaplot(exploredds, clust = &quot;samples&quot;, plotly = TRUE)
-</code></pre><div id=htmlwidget-2 style=width:672px;height:480px class="plotly html-widget"></div><script type=application/json data-for=htmlwidget-2>{"x":{"visdat":{"34341250a552":["function () ","plotlyVisDat"]},"cur_data":"34341250a552","attrs":{"34341250a552":{"x":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"y":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"z":[[0,7.04650716301563,5.70678310405774,8.20976445672658,5.82667776225818,7.3279781790244,8.39986657356742,8.16733063204217,9.58637200173571,7.68841587215867,10.1640441508758,10.7676019921496,10.0039632569807,11.32498784981,9.8146750121175,7.74473230078491,9.45716343166999,7.95378561107353],[7.04650716301563,0,6.66154862259465,4.25865887783483,6.67960023884926,6.26668680998727,9.91630309634838,9.25451827523275,10.9564120825428,9.93575571094716,11.099388064366,10.6754670535994,9.90683653800534,10.9561298226477,10.7399675586854,9.18116169782986,9.77109863659917,9.40323019102986],[5.70678310405774,6.66154862259465,0,7.98994675562316,4.94593038167375,5.72836463615867,8.11235158724083,7.65256178153187,8.15065142907597,8.76007256265634,8.30988507282082,8.91309701678265,8.66629724080143,9.82426010379448,8.30870129249907,8.54268071001664,8.35323474316893,7.70897398227057],[8.20976445672658,4.25865887783483,7.98994675562316,0,6.99532785790822,6.43469620310431,10.4096764476556,9.51652950962973,11.1939050957909,10.4627147426448,11.1689702900908,10.546647320753,10.5708484745604,11.5547562063225,11.6160197603858,9.88406363111819,10.7020155017471,10.4675703563444],[5.82667776225818,6.67960023884926,4.94593038167375,6.99532785790822,0,4.8575131388009,8.46288752842871,8.0319315058583,8.726172089783,8.73161790330149,8.27286514155669,8.88152783442813,9.62675093908279,10.8109068917939,9.50867890759956,8.56129430593498,9.21166728284744,8.48571139105286],[7.3279781790244,6.26668680998727,5.72836463615867,6.43469620310431,4.8575131388009,0,10.051631844146,8.92833694901717,9.88801350128227,10.1968579735558,9.80606329541741,9.47694677716336,10.2032985748696,10.9502439173503,10.7118343889731,10.2485736407499,9.95124988126944,9.6455696901528],[8.39986657356742,9.91630309634838,8.11235158724083,10.4096764476556,8.46288752842871,10.051631844146,0,4.32289188181976,5.45401419571659,6.66929785847857,5.82333805363524,6.89960979808065,6.60846441830892,7.49378480640748,6.09490379797155,6.92856692552639,6.73658240504653,6.04084631483171],[8.16733063204217,9.25451827523275,7.65256178153187,9.51652950962973,8.0319315058583,8.92833694901717,4.32289188181976,0,5.86548263173596,6.92170483627566,6.43771467140554,5.936553276735,6.66918890392232,7.10201521498403,6.87338305585792,7.70858313971616,6.93977726065822,6.12205683109543],[9.58637200173571,10.9564120825428,8.15065142907597,11.1939050957909,8.726172089783,9.88801350128227,5.45401419571659,5.86548263173596,0,8.10337075683393,4.02970654063498,6.37598537189006,6.96355226928132,7.79890861008178,5.50539366529938,8.64913887544163,6.82883422186719,6.22801929982399],[7.68841587215867,9.93575571094716,8.76007256265634,10.4627147426448,8.73161790330149,10.1968579735558,6.66929785847857,6.92170483627566,8.10337075683393,0,9.22853479532283,10.1030591897721,9.35527845594351,11.0912154866989,8.92785474831708,6.32121021712703,9.14034499886722,7.20502415178336],[10.1640441508758,11.099388064366,8.30988507282082,11.1689702900908,8.27286514155669,9.80606329541741,5.82333805363524,6.43771467140554,4.02970654063498,9.22853479532283,0,5.40796455622463,7.23562402229216,8.05893271349359,5.83000947413891,8.94623155465764,6.52802367477244,6.94139936721835],[10.7676019921496,10.6754670535994,8.91309701678265,10.546647320753,8.88152783442813,9.47694677716336,6.89960979808065,5.936553276735,6.37598537189006,10.1030591897721,5.40796455622463,0,7.14309602773391,6.1610771391521,7.4911181113735,10.0381028337193,7.56298264238769,7.68916986877059],[10.0039632569807,9.90683653800534,8.66629724080143,10.5708484745604,9.62675093908279,10.2032985748696,6.60846441830892,6.66918890392232,6.96355226928132,9.35527845594351,7.23562402229216,7.14309602773391,0,5.69259437645614,5.58694500597765,8.50447659713418,5.53119139458227,6.33933832045536],[11.32498784981,10.9561298226477,9.82426010379448,11.5547562063225,10.8109068917939,10.9502439173503,7.49378480640748,7.10201521498403,7.79890861008178,11.0912154866989,8.05893271349359,6.1610771391521,5.69259437645614,0,6.42494730487994,10.5078546330517,7.19994521380774,7.82561653509729],[9.8146750121175,10.7399675586854,8.30870129249907,11.6160197603858,9.50867890759956,10.7118343889731,6.09490379797155,6.87338305585792,5.50539366529938,8.92785474831708,5.83000947413891,7.4911181113735,5.58694500597765,6.42494730487994,0,8.18110233128943,5.25899641633563,5.72577800197228],[7.74473230078491,9.18116169782986,8.54268071001664,9.88406363111819,8.56129430593498,10.2485736407499,6.92856692552639,7.70858313971616,8.64913887544163,6.32121021712703,8.94623155465764,10.0381028337193,8.50447659713418,10.5078546330517,8.18110233128943,0,7.99272460895717,6.58008064549415],[9.45716343166999,9.77109863659917,8.35323474316893,10.7020155017471,9.21166728284744,9.95124988126944,6.73658240504653,6.93977726065822,6.82883422186719,9.14034499886722,6.52802367477244,7.56298264238769,5.53119139458227,7.19994521380774,5.25899641633563,7.99272460895717,0,5.56397338345294],[7.95378561107353,9.40323019102986,7.70897398227057,10.4675703563444,8.48571139105286,9.6455696901528,6.04084631483171,6.12205683109543,6.22801929982399,7.20502415178336,6.94139936721835,7.68916986877059,6.33933832045536,7.82561653509729,5.72577800197228,6.58008064549415,5.56397338345294,0]],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"heatmap"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"y":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"z":[[0,7.04650716301563,5.70678310405774,8.20976445672658,5.82667776225818,7.3279781790244,8.39986657356742,8.16733063204217,9.58637200173571,7.68841587215867,10.1640441508758,10.7676019921496,10.0039632569807,11.32498784981,9.8146750121175,7.74473230078491,9.45716343166999,7.95378561107353],[7.04650716301563,0,6.66154862259465,4.25865887783483,6.67960023884926,6.26668680998727,9.91630309634838,9.25451827523275,10.9564120825428,9.93575571094716,11.099388064366,10.6754670535994,9.90683653800534,10.9561298226477,10.7399675586854,9.18116169782986,9.77109863659917,9.40323019102986],[5.70678310405774,6.66154862259465,0,7.98994675562316,4.94593038167375,5.72836463615867,8.11235158724083,7.65256178153187,8.15065142907597,8.76007256265634,8.30988507282082,8.91309701678265,8.66629724080143,9.82426010379448,8.30870129249907,8.54268071001664,8.35323474316893,7.70897398227057],[8.20976445672658,4.25865887783483,7.98994675562316,0,6.99532785790822,6.43469620310431,10.4096764476556,9.51652950962973,11.1939050957909,10.4627147426448,11.1689702900908,10.546647320753,10.5708484745604,11.5547562063225,11.6160197603858,9.88406363111819,10.7020155017471,10.4675703563444],[5.82667776225818,6.67960023884926,4.94593038167375,6.99532785790822,0,4.8575131388009,8.46288752842871,8.0319315058583,8.726172089783,8.73161790330149,8.27286514155669,8.88152783442813,9.62675093908279,10.8109068917939,9.50867890759956,8.56129430593498,9.21166728284744,8.48571139105286],[7.3279781790244,6.26668680998727,5.72836463615867,6.43469620310431,4.8575131388009,0,10.051631844146,8.92833694901717,9.88801350128227,10.1968579735558,9.80606329541741,9.47694677716336,10.2032985748696,10.9502439173503,10.7118343889731,10.2485736407499,9.95124988126944,9.6455696901528],[8.39986657356742,9.91630309634838,8.11235158724083,10.4096764476556,8.46288752842871,10.051631844146,0,4.32289188181976,5.45401419571659,6.66929785847857,5.82333805363524,6.89960979808065,6.60846441830892,7.49378480640748,6.09490379797155,6.92856692552639,6.73658240504653,6.04084631483171],[8.16733063204217,9.25451827523275,7.65256178153187,9.51652950962973,8.0319315058583,8.92833694901717,4.32289188181976,0,5.86548263173596,6.92170483627566,6.43771467140554,5.936553276735,6.66918890392232,7.10201521498403,6.87338305585792,7.70858313971616,6.93977726065822,6.12205683109543],[9.58637200173571,10.9564120825428,8.15065142907597,11.1939050957909,8.726172089783,9.88801350128227,5.45401419571659,5.86548263173596,0,8.10337075683393,4.02970654063498,6.37598537189006,6.96355226928132,7.79890861008178,5.50539366529938,8.64913887544163,6.82883422186719,6.22801929982399],[7.68841587215867,9.93575571094716,8.76007256265634,10.4627147426448,8.73161790330149,10.1968579735558,6.66929785847857,6.92170483627566,8.10337075683393,0,9.22853479532283,10.1030591897721,9.35527845594351,11.0912154866989,8.92785474831708,6.32121021712703,9.14034499886722,7.20502415178336],[10.1640441508758,11.099388064366,8.30988507282082,11.1689702900908,8.27286514155669,9.80606329541741,5.82333805363524,6.43771467140554,4.02970654063498,9.22853479532283,0,5.40796455622463,7.23562402229216,8.05893271349359,5.83000947413891,8.94623155465764,6.52802367477244,6.94139936721835],[10.7676019921496,10.6754670535994,8.91309701678265,10.546647320753,8.88152783442813,9.47694677716336,6.89960979808065,5.936553276735,6.37598537189006,10.1030591897721,5.40796455622463,0,7.14309602773391,6.1610771391521,7.4911181113735,10.0381028337193,7.56298264238769,7.68916986877059],[10.0039632569807,9.90683653800534,8.66629724080143,10.5708484745604,9.62675093908279,10.2032985748696,6.60846441830892,6.66918890392232,6.96355226928132,9.35527845594351,7.23562402229216,7.14309602773391,0,5.69259437645614,5.58694500597765,8.50447659713418,5.53119139458227,6.33933832045536],[11.32498784981,10.9561298226477,9.82426010379448,11.5547562063225,10.8109068917939,10.9502439173503,7.49378480640748,7.10201521498403,7.79890861008178,11.0912154866989,8.05893271349359,6.1610771391521,5.69259437645614,0,6.42494730487994,10.5078546330517,7.19994521380774,7.82561653509729],[9.8146750121175,10.7399675586854,8.30870129249907,11.6160197603858,9.50867890759956,10.7118343889731,6.09490379797155,6.87338305585792,5.50539366529938,8.92785474831708,5.83000947413891,7.4911181113735,5.58694500597765,6.42494730487994,0,8.18110233128943,5.25899641633563,5.72577800197228],[7.74473230078491,9.18116169782986,8.54268071001664,9.88406363111819,8.56129430593498,10.2485736407499,6.92856692552639,7.70858313971616,8.64913887544163,6.32121021712703,8.94623155465764,10.0381028337193,8.50447659713418,10.5078546330517,8.18110233128943,0,7.99272460895717,6.58008064549415],[9.45716343166999,9.77109863659917,8.35323474316893,10.7020155017471,9.21166728284744,9.95124988126944,6.73658240504653,6.93977726065822,6.82883422186719,9.14034499886722,6.52802367477244,7.56298264238769,5.53119139458227,7.19994521380774,5.25899641633563,7.99272460895717,0,5.56397338345294],[7.95378561107353,9.40323019102986,7.70897398227057,10.4675703563444,8.48571139105286,9.6455696901528,6.04084631483171,6.12205683109543,6.22801929982399,7.20502415178336,6.94139936721835,7.68916986877059,6.33933832045536,7.82561653509729,5.72577800197228,6.58008064549415,5.56397338345294,0]],"type":"heatmap","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><p>If <code>ind</code> selected in the <code>clust</code> argument, it is necessary to provide the list of
-differentially expressed genes for the <code>exploredds</code> subset.</p><pre><code class=language-r>## Individuals genes identified in DEG analysis DEG analysis with `systemPipeR`
+</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"34341250a552":["function () ","plotlyVisDat"]},"cur_data":"34341250a552","attrs":{"34341250a552":{"x":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"y":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"z":[[0,7.04650716301563,5.70678310405774,8.20976445672658,5.82667776225818,7.3279781790244,8.39986657356742,8.16733063204217,9.58637200173571,7.68841587215867,10.1640441508758,10.7676019921496,10.0039632569807,11.32498784981,9.8146750121175,7.74473230078491,9.45716343166999,7.95378561107353],[7.04650716301563,0,6.66154862259465,4.25865887783483,6.67960023884926,6.26668680998727,9.91630309634838,9.25451827523275,10.9564120825428,9.93575571094716,11.099388064366,10.6754670535994,9.90683653800534,10.9561298226477,10.7399675586854,9.18116169782986,9.77109863659917,9.40323019102986],[5.70678310405774,6.66154862259465,0,7.98994675562316,4.94593038167375,5.72836463615867,8.11235158724083,7.65256178153187,8.15065142907597,8.76007256265634,8.30988507282082,8.91309701678265,8.66629724080143,9.82426010379448,8.30870129249907,8.54268071001664,8.35323474316893,7.70897398227057],[8.20976445672658,4.25865887783483,7.98994675562316,0,6.99532785790822,6.43469620310431,10.4096764476556,9.51652950962973,11.1939050957909,10.4627147426448,11.1689702900908,10.546647320753,10.5708484745604,11.5547562063225,11.6160197603858,9.88406363111819,10.7020155017471,10.4675703563444],[5.82667776225818,6.67960023884926,4.94593038167375,6.99532785790822,0,4.8575131388009,8.46288752842871,8.0319315058583,8.726172089783,8.73161790330149,8.27286514155669,8.88152783442813,9.62675093908279,10.8109068917939,9.50867890759956,8.56129430593498,9.21166728284744,8.48571139105286],[7.3279781790244,6.26668680998727,5.72836463615867,6.43469620310431,4.8575131388009,0,10.051631844146,8.92833694901717,9.88801350128227,10.1968579735558,9.80606329541741,9.47694677716336,10.2032985748696,10.9502439173503,10.7118343889731,10.2485736407499,9.95124988126944,9.6455696901528],[8.39986657356742,9.91630309634838,8.11235158724083,10.4096764476556,8.46288752842871,10.051631844146,0,4.32289188181976,5.45401419571659,6.66929785847857,5.82333805363524,6.89960979808065,6.60846441830892,7.49378480640748,6.09490379797155,6.92856692552639,6.73658240504653,6.04084631483171],[8.16733063204217,9.25451827523275,7.65256178153187,9.51652950962973,8.0319315058583,8.92833694901717,4.32289188181976,0,5.86548263173596,6.92170483627566,6.43771467140554,5.936553276735,6.66918890392232,7.10201521498403,6.87338305585792,7.70858313971616,6.93977726065822,6.12205683109543],[9.58637200173571,10.9564120825428,8.15065142907597,11.1939050957909,8.726172089783,9.88801350128227,5.45401419571659,5.86548263173596,0,8.10337075683393,4.02970654063498,6.37598537189006,6.96355226928132,7.79890861008178,5.50539366529938,8.64913887544163,6.82883422186719,6.22801929982399],[7.68841587215867,9.93575571094716,8.76007256265634,10.4627147426448,8.73161790330149,10.1968579735558,6.66929785847857,6.92170483627566,8.10337075683393,0,9.22853479532283,10.1030591897721,9.35527845594351,11.0912154866989,8.92785474831708,6.32121021712703,9.14034499886722,7.20502415178336],[10.1640441508758,11.099388064366,8.30988507282082,11.1689702900908,8.27286514155669,9.80606329541741,5.82333805363524,6.43771467140554,4.02970654063498,9.22853479532283,0,5.40796455622463,7.23562402229216,8.05893271349359,5.83000947413891,8.94623155465764,6.52802367477244,6.94139936721835],[10.7676019921496,10.6754670535994,8.91309701678265,10.546647320753,8.88152783442813,9.47694677716336,6.89960979808065,5.936553276735,6.37598537189006,10.1030591897721,5.40796455622463,0,7.14309602773391,6.1610771391521,7.4911181113735,10.0381028337193,7.56298264238769,7.68916986877059],[10.0039632569807,9.90683653800534,8.66629724080143,10.5708484745604,9.62675093908279,10.2032985748696,6.60846441830892,6.66918890392232,6.96355226928132,9.35527845594351,7.23562402229216,7.14309602773391,0,5.69259437645614,5.58694500597765,8.50447659713418,5.53119139458227,6.33933832045536],[11.32498784981,10.9561298226477,9.82426010379448,11.5547562063225,10.8109068917939,10.9502439173503,7.49378480640748,7.10201521498403,7.79890861008178,11.0912154866989,8.05893271349359,6.1610771391521,5.69259437645614,0,6.42494730487994,10.5078546330517,7.19994521380774,7.82561653509729],[9.8146750121175,10.7399675586854,8.30870129249907,11.6160197603858,9.50867890759956,10.7118343889731,6.09490379797155,6.87338305585792,5.50539366529938,8.92785474831708,5.83000947413891,7.4911181113735,5.58694500597765,6.42494730487994,0,8.18110233128943,5.25899641633563,5.72577800197228],[7.74473230078491,9.18116169782986,8.54268071001664,9.88406363111819,8.56129430593498,10.2485736407499,6.92856692552639,7.70858313971616,8.64913887544163,6.32121021712703,8.94623155465764,10.0381028337193,8.50447659713418,10.5078546330517,8.18110233128943,0,7.99272460895717,6.58008064549415],[9.45716343166999,9.77109863659917,8.35323474316893,10.7020155017471,9.21166728284744,9.95124988126944,6.73658240504653,6.93977726065822,6.82883422186719,9.14034499886722,6.52802367477244,7.56298264238769,5.53119139458227,7.19994521380774,5.25899641633563,7.99272460895717,0,5.56397338345294],[7.95378561107353,9.40323019102986,7.70897398227057,10.4675703563444,8.48571139105286,9.6455696901528,6.04084631483171,6.12205683109543,6.22801929982399,7.20502415178336,6.94139936721835,7.68916986877059,6.33933832045536,7.82561653509729,5.72577800197228,6.58008064549415,5.56397338345294,0]],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"heatmap"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"y":["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],"z":[[0,7.04650716301563,5.70678310405774,8.20976445672658,5.82667776225818,7.3279781790244,8.39986657356742,8.16733063204217,9.58637200173571,7.68841587215867,10.1640441508758,10.7676019921496,10.0039632569807,11.32498784981,9.8146750121175,7.74473230078491,9.45716343166999,7.95378561107353],[7.04650716301563,0,6.66154862259465,4.25865887783483,6.67960023884926,6.26668680998727,9.91630309634838,9.25451827523275,10.9564120825428,9.93575571094716,11.099388064366,10.6754670535994,9.90683653800534,10.9561298226477,10.7399675586854,9.18116169782986,9.77109863659917,9.40323019102986],[5.70678310405774,6.66154862259465,0,7.98994675562316,4.94593038167375,5.72836463615867,8.11235158724083,7.65256178153187,8.15065142907597,8.76007256265634,8.30988507282082,8.91309701678265,8.66629724080143,9.82426010379448,8.30870129249907,8.54268071001664,8.35323474316893,7.70897398227057],[8.20976445672658,4.25865887783483,7.98994675562316,0,6.99532785790822,6.43469620310431,10.4096764476556,9.51652950962973,11.1939050957909,10.4627147426448,11.1689702900908,10.546647320753,10.5708484745604,11.5547562063225,11.6160197603858,9.88406363111819,10.7020155017471,10.4675703563444],[5.82667776225818,6.67960023884926,4.94593038167375,6.99532785790822,0,4.8575131388009,8.46288752842871,8.0319315058583,8.726172089783,8.73161790330149,8.27286514155669,8.88152783442813,9.62675093908279,10.8109068917939,9.50867890759956,8.56129430593498,9.21166728284744,8.48571139105286],[7.3279781790244,6.26668680998727,5.72836463615867,6.43469620310431,4.8575131388009,0,10.051631844146,8.92833694901717,9.88801350128227,10.1968579735558,9.80606329541741,9.47694677716336,10.2032985748696,10.9502439173503,10.7118343889731,10.2485736407499,9.95124988126944,9.6455696901528],[8.39986657356742,9.91630309634838,8.11235158724083,10.4096764476556,8.46288752842871,10.051631844146,0,4.32289188181976,5.45401419571659,6.66929785847857,5.82333805363524,6.89960979808065,6.60846441830892,7.49378480640748,6.09490379797155,6.92856692552639,6.73658240504653,6.04084631483171],[8.16733063204217,9.25451827523275,7.65256178153187,9.51652950962973,8.0319315058583,8.92833694901717,4.32289188181976,0,5.86548263173596,6.92170483627566,6.43771467140554,5.936553276735,6.66918890392232,7.10201521498403,6.87338305585792,7.70858313971616,6.93977726065822,6.12205683109543],[9.58637200173571,10.9564120825428,8.15065142907597,11.1939050957909,8.726172089783,9.88801350128227,5.45401419571659,5.86548263173596,0,8.10337075683393,4.02970654063498,6.37598537189006,6.96355226928132,7.79890861008178,5.50539366529938,8.64913887544163,6.82883422186719,6.22801929982399],[7.68841587215867,9.93575571094716,8.76007256265634,10.4627147426448,8.73161790330149,10.1968579735558,6.66929785847857,6.92170483627566,8.10337075683393,0,9.22853479532283,10.1030591897721,9.35527845594351,11.0912154866989,8.92785474831708,6.32121021712703,9.14034499886722,7.20502415178336],[10.1640441508758,11.099388064366,8.30988507282082,11.1689702900908,8.27286514155669,9.80606329541741,5.82333805363524,6.43771467140554,4.02970654063498,9.22853479532283,0,5.40796455622463,7.23562402229216,8.05893271349359,5.83000947413891,8.94623155465764,6.52802367477244,6.94139936721835],[10.7676019921496,10.6754670535994,8.91309701678265,10.546647320753,8.88152783442813,9.47694677716336,6.89960979808065,5.936553276735,6.37598537189006,10.1030591897721,5.40796455622463,0,7.14309602773391,6.1610771391521,7.4911181113735,10.0381028337193,7.56298264238769,7.68916986877059],[10.0039632569807,9.90683653800534,8.66629724080143,10.5708484745604,9.62675093908279,10.2032985748696,6.60846441830892,6.66918890392232,6.96355226928132,9.35527845594351,7.23562402229216,7.14309602773391,0,5.69259437645614,5.58694500597765,8.50447659713418,5.53119139458227,6.33933832045536],[11.32498784981,10.9561298226477,9.82426010379448,11.5547562063225,10.8109068917939,10.9502439173503,7.49378480640748,7.10201521498403,7.79890861008178,11.0912154866989,8.05893271349359,6.1610771391521,5.69259437645614,0,6.42494730487994,10.5078546330517,7.19994521380774,7.82561653509729],[9.8146750121175,10.7399675586854,8.30870129249907,11.6160197603858,9.50867890759956,10.7118343889731,6.09490379797155,6.87338305585792,5.50539366529938,8.92785474831708,5.83000947413891,7.4911181113735,5.58694500597765,6.42494730487994,0,8.18110233128943,5.25899641633563,5.72577800197228],[7.74473230078491,9.18116169782986,8.54268071001664,9.88406363111819,8.56129430593498,10.2485736407499,6.92856692552639,7.70858313971616,8.64913887544163,6.32121021712703,8.94623155465764,10.0381028337193,8.50447659713418,10.5078546330517,8.18110233128943,0,7.99272460895717,6.58008064549415],[9.45716343166999,9.77109863659917,8.35323474316893,10.7020155017471,9.21166728284744,9.95124988126944,6.73658240504653,6.93977726065822,6.82883422186719,9.14034499886722,6.52802367477244,7.56298264238769,5.53119139458227,7.19994521380774,5.25899641633563,7.99272460895717,0,5.56397338345294],[7.95378561107353,9.40323019102986,7.70897398227057,10.4675703563444,8.48571139105286,9.6455696901528,6.04084631483171,6.12205683109543,6.22801929982399,7.20502415178336,6.94139936721835,7.68916986877059,6.33933832045536,7.82561653509729,5.72577800197228,6.58008064549415,5.56397338345294,0]],"type":"heatmap","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>If <code>ind</code> selected in the <code>clust</code> argument, it is necessary to provide the list of
+differentially expressed genes for the <code>exploredds</code> subset.</p>
+<pre><code class="language-r">## Individuals genes identified in DEG analysis DEG analysis with `systemPipeR`
 degseqDF &lt;- systemPipeR::run_DESeq2(countDF = countMatrix, targets = targets, cmp = cmp[[1]], 
     independent = FALSE)
 DEG_list &lt;- systemPipeR::filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png width=672></p><pre><code class=language-r>### Plot
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png" width="672" /></p>
+<pre><code class="language-r">### Plot
 heatMaplot(exploredds, clust = &quot;ind&quot;, DEGlist = unique(as.character(unlist(DEG_list[[1]]))))
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png width=672></p><p>The function provides the utility to save the plot automatically.</p><h2 id=principal-component-analysis>Principal Component Analysis</h2><p>This function plots a Principal Component Analysis (PCA) from transformed expression
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="principal-component-analysis">Principal Component Analysis</h2>
+<p>This function plots a Principal Component Analysis (PCA) from transformed expression
 matrix. This plot shows samples variation based on the expression values and
-identifies batch effects.</p><pre><code class=language-r>PCAplot(exploredds, plotly = FALSE)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png width=672></p><p>The function provides the utility to save the plot automatically.</p><h2 id=multidimensional-scaling-with-mdsplot>Multidimensional scaling with <code>MDSplot</code></h2><p>This function computes and plots multidimensional scaling analysis for dimension
+identifies batch effects.</p>
+<pre><code class="language-r">PCAplot(exploredds, plotly = FALSE)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="multidimensional-scaling-with-mdsplot">Multidimensional scaling with <code>MDSplot</code></h2>
+<p>This function computes and plots multidimensional scaling analysis for dimension
 reduction of count expression matrix. Internally, it is applied the <code>stats::dist()</code>
-function to the transformed count matrix to get sample-to-sample distances.</p><pre><code class=language-r>MDSplot(exploredds, plotly = FALSE)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png width=672></p><p>The function provides the utility to save the plot automatically.</p><h2 id=dimension-reduction-with-glmplot>Dimension Reduction with <code>GLMplot</code></h2><p>This function computes and plots generalized principal components analysis for
-dimension reduction of count expression matrix.</p><pre><code class=language-r>exploredds_r &lt;- exploreDDS(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, 
+function to the transformed count matrix to get sample-to-sample distances.</p>
+<pre><code class="language-r">MDSplot(exploredds, plotly = FALSE)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="dimension-reduction-with-glmplot">Dimension Reduction with <code>GLMplot</code></h2>
+<p>This function computes and plots generalized principal components analysis for
+dimension reduction of count expression matrix.</p>
+<pre><code class="language-r">exploredds_r &lt;- exploreDDS(countMatrix, targets, cmp = cmp[[1]], preFilter = NULL, 
     transformationMethod = &quot;raw&quot;)
 GLMplot(exploredds_r, plotly = FALSE)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png width=672></p><p>The function provides the utility to save the plot automatically.</p><h2 id=ma-plot>MA plot</h2><p>This function plots log2 fold changes (y-axis) versus the mean of normalized
-counts (on the x-axis). Statistically significant features are colored.</p><pre><code class=language-r>MAplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png width=672></p><p>The function provides the utility to save the plot automatically.</p><h2 id=t-distributed-stochastic-neighbor-embedding-with-tsneplot>t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></h2><p>This function computes and plots t-Distributed Stochastic Neighbor embedding (t-SNE)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="ma-plot">MA plot</h2>
+<p>This function plots log2 fold changes (y-axis) versus the mean of normalized
+counts (on the x-axis). Statistically significant features are colored.</p>
+<pre><code class="language-r">MAplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png" width="672" /></p>
+<p>The function provides the utility to save the plot automatically.</p>
+<h2 id="t-distributed-stochastic-neighbor-embedding-with-tsneplot">t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></h2>
+<p>This function computes and plots t-Distributed Stochastic Neighbor embedding (t-SNE)
 analysis for unsupervised nonlinear dimensionality reduction of count expression
 matrix. Internally, it is applied the <code>Rtsne::Rtsne()</code> (Krijthe 2015) function, using the exact
-t-SNE computing with <code>theta=0.0</code>.</p><pre><code class=language-r>tSNEplot(countMatrix, targets, perplexity = 5)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png width=672></p><h2 id=volcano-plot>Volcano plot</h2><p>A simple function that shows statistical significance (<code>p-value</code>) versus magnitude
-of change (<code>log2 fold change</code>).</p><pre><code class=language-r>volcanoplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
-</code></pre><p><img src=../../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png width=672></p><h1 id=version-information>Version information</h1><pre><code class=language-r>sessionInfo()
-</code></pre><pre><code>## R Under development (unstable) (2021-02-04 r79940)
+t-SNE computing with <code>theta=0.0</code>.</p>
+<pre><code class="language-r">tSNEplot(countMatrix, targets, perplexity = 5)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png" width="672" /></p>
+<h2 id="volcano-plot">Volcano plot</h2>
+<p>A simple function that shows statistical significance (<code>p-value</code>) versus magnitude
+of change (<code>log2 fold change</code>).</p>
+<pre><code class="language-r">volcanoplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
+</code></pre>
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png" width="672" /></p>
+<h1 id="version-information">Version information</h1>
+<pre><code class="language-r">sessionInfo()
+</code></pre>
+<pre><code>## R Under development (unstable) (2021-02-04 r79940)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.2 LTS
 ## 
@@ -204,9 +1140,121 @@ of change (<code>log2 fold change</code>).</p><pre><code class=language-r>volcan
 ## [130] tidyr_1.1.3              DOT_0.1                  rmarkdown_2.7.12        
 ## [133] rvcheck_0.1.8            Rtsne_0.15               shiny_1.6.0             
 ## [136] restfulr_0.0.13
-</code></pre><h1 id=funding>Funding</h1><p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p><h1 id=references>References</h1><div id=refs class="references csl-bib-body hanging-indent"><div id=ref-Anders2010-tp class=csl-entry><p>Anders, Simon, and Wolfgang Huber. 2010. “Differential Expression Analysis for Sequence Count Data.” <em>Genome Biol.</em> 11 (10): R106.</p></div><div id=ref-H_Backman2016-bt class=csl-entry><p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class=nocase>systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href=https://doi.org/10.1186/s12859-016-1241-0>https://doi.org/10.1186/s12859-016-1241-0</a>.</p></div><div id=ref-Rtsne class=csl-entry><p>Krijthe, Jesse H. 2015. <em>Rtsne: T-Distributed Stochastic Neighbor Embedding Using Barnes-Hut Implementation</em>. <a href=https://github.com/jkrijthe/Rtsne>https://github.com/jkrijthe/Rtsne</a>.</p></div><div id=ref-Love2014-sh class=csl-entry><p>Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class=nocase>RNA-seq</span> Data with DESeq2.” <em>Genome Biol.</em> 15 (12): 550. <a href=https://doi.org/10.1186/s13059-014-0550-8>https://doi.org/10.1186/s13059-014-0550-8</a>.</p></div></div><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-29: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/e27337229e1298d8cd603a18c6f261352cd9c246>add img (e273372)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipeR Project All Rights Reserved</small><p class=mt-2><a href=../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
-if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
-i++;}})();</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script type=text/x-mathjax-config>
+</code></pre>
+<h1 id="funding">Funding</h1>
+<p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p>
+<h1 id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Anders2010-tp" class="csl-entry">
+<p>Anders, Simon, and Wolfgang Huber. 2010. “Differential Expression Analysis for Sequence Count Data.” <em>Genome Biol.</em> 11 (10): R106.</p>
+</div>
+<div id="ref-H_Backman2016-bt" class="csl-entry">
+<p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
+</div>
+<div id="ref-Rtsne" class="csl-entry">
+<p>Krijthe, Jesse H. 2015. <em>Rtsne: T-Distributed Stochastic Neighbor Embedding Using Barnes-Hut Implementation</em>. <a href="https://github.com/jkrijthe/Rtsne">https://github.com/jkrijthe/Rtsne</a>.</p>
+</div>
+<div id="ref-Love2014-sh" class="csl-entry">
+<p>Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” <em>Genome Biol.</em> 15 (12): 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.</p>
+</div>
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-26: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/7cf5004c3a58564cb91480753fb0e4df686f7588">fix images path; no_render (7cf5004c)</a>
+</div>
+</div>
+
+
+              </main>
+          
+
+
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
+      <i class="fa fa-dna"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -222,4 +1270,27 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script><script src=../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin=anonymous></script><script src=../../../js/prism.js></script></body></html>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../js/main.min.f820bfc507c3ebefe17f8881ec4ee10013f3b89ad9555a50acf9bb1771e6823f.js" integrity="sha256-&#43;CC/xQfD6&#43;/hf4iB7E7hABPzuJrZVVpQrPm7F3Hmgj8=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
