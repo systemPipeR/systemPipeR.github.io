@@ -35,8 +35,8 @@ url_pmid <- function(file, outfile) {
     writeLines(bib, outfile)
 }
 ## Usage:
-file <- "content/en/about/publications.Rmd"
-outfile <- "content/en/about/publications.Rmd"
+file <- "../content/en/about/publications.Rmd"
+outfile <- "../content/en/about/publications.Rmd"
 url_pmid(file, outfile)
 
 ###############################################
@@ -61,6 +61,6 @@ addbullet <- function(file, pattern, outfile) {
 
 #pattern <- "## Publications related to this project"
 pattern <- "### Journal publications"
-file <- "content/en/about/publications.Rmd"
-outfile <- "content/en/about/publications.Rmd"
+file <- "../content/en/about/publications.Rmd"
+outfile <- "../content/en/about/publications.Rmd"
 addbullet(file, pattern, outfile)
