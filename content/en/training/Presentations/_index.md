@@ -4,6 +4,7 @@ type: docs
 weight: 5
 description: >
 type: docs
+exclude_search: true
 ---
 
 ## [systemPipeR{blk}](http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html)

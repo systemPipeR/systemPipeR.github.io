@@ -4,6 +4,7 @@ linkTitle: "Contact"
 type: docs
 description: >
 weight: 5
+exclude_search: true
 ---
 
 <br><br/>

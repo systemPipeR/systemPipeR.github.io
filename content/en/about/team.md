@@ -4,6 +4,7 @@ linkTitle: "Our Team"
 type: docs
 description: >
 weight: 2
+exclude_search: true
 ---
 
 ## Principal Investigator (PI)

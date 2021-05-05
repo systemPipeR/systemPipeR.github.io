@@ -4,6 +4,7 @@ author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girk
 date: "Last update: 26 April, 2021" 
 type: docs
 weight: 1
+exclude_search: true
 ---
 
 ## BioC2021

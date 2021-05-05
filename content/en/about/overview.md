@@ -3,6 +3,7 @@ title: "systemPipe Workflow Environment"
 linkTitle: "Overview"
 weight: 1
 type: docs
+exclude_search: true
 ---
 
 {{% pageinfo %}}

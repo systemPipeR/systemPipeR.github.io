@@ -4,6 +4,7 @@ linkTitle: "Acknowledgement"
 type: docs
 description: >
 weight: 4
+exclude_search: true
 ---
 
 ## Acknowledgement
