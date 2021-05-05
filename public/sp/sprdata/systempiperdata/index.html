@@ -1,1048 +1,105 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.82.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-
-<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
-
-<title>Workflow templates and sample data | sysPipe</title><meta property="og:title" content="Workflow templates and sample data" />
-<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: the most recent version of this vignette can be found here.
-Note: if you use systemPipeR and systemPipeRdata in published research, please cite:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/sp/sprdata/systempiperdata/" /><meta property="article:section" content="sp" />
-
-<meta property="article:modified_time" content="2021-04-26T18:49:57-07:00" /><meta property="og:site_name" content="sysPipe" />
-
-<meta itemprop="name" content="Workflow templates and sample data">
-<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: the most recent version of this vignette can be found here.
-Note: if you use systemPipeR and systemPipeRdata in published research, please cite:">
-<meta itemprop="dateModified" content="2021-04-26T18:49:57-07:00" />
-<meta itemprop="wordCount" content="2054">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Workflow templates and sample data"/>
-<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: the most recent version of this vignette can be found here.
-Note: if you use systemPipeR and systemPipeRdata in published research, please cite:"/>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-<link rel="preload" href="../../../scss/main.min.2f1535fddc7c48431528a1616a5e764a7e2c2fec94c3c7c136de19bc8bc9fb92.css" as="style">
-<link href="../../../scss/main.min.2f1535fddc7c48431528a1616a5e764a7e2c2fec94c3c7c136de19bc8bc9fb92.css" rel="stylesheet" integrity="">
-
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-
-
-
-<link rel="stylesheet" href="../../../css/prism.css"/>
-
-
-<script src="../../../js/driver0.9.8.min.js"></script>
-<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
-
-
-<link rel="stylesheet" href="../../../css/site.css"/>
-<script src="../../../js/site.js"></script>
-
-
-
-  </head>
-  <body class="td-page line-numbers">
-    <header>
-     
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-  <a class="navbar-brand" href="../../../">
-		<span class="font-weight-bold">sysPipe</span>
-	</a>
-	<row class="header-switch">
-	  	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
-        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
-      </div>
-    	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
-        <label class="custom-control-label" for="tocSwitch">toc</label>
-      </div>
-	</row>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/overview/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Overview
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../sp/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/spr_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/spt/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRTools
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spt/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Data Visualization
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/systempiperdata/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/newwf/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Rules
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPT GitHub
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../sps/" id="navbarDropdown" role="button">
-          	Shiny
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sps/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 SPS Documentation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Github
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr_wf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr_wf/installwf/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 How to install Workflow
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr_wf/newwf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Rules to create Workflow
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../training/" id="navbarDropdown" role="button">
-          	Training
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../training/conferences/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Conferences
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../training/presentations/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../training/videos/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../news/release_3_12/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-</div>
-</nav>
-
-    </header>
-    <div class="container-fluid td-outer">
-      <div class="td-main">
-        <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
-            
-
-
-
-
-<div id="td-sidebar-menu" class="td-sidebar__inner">
-  
-  <form class="td-sidebar__search d-flex align-items-center">
-    
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
-
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
-    </button>
-  </form>
-  
-  <nav class="collapse td-sidebar-nav" id="td-section-nav">
-    
-    
-    
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sp/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="sp">
-      
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sp/spr/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spspr">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprintroduction" href="../../../sp/spr/introduction/">Introduction</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprgettingstarted" href="../../../sp/spr/gettingstarted/">Getting Started</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_run" href="../../../sp/spr/spr_run/">How to run a Workflow</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsteps" href="../../../sp/spr/steps/">Workflow steps overview</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprtemplates" href="../../../sp/spr/templates/">Workflow Templates</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_funcs" href="../../../sp/spr/spr_funcs/">Help Manual</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsprinstall" href="../../../sp/spr/sprinstall/">SPR detailed installation instructions</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsp_docker" href="../../../sp/spr/sp_docker/">SPR Docker container</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sp/spt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeTools</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spspt">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsptsystempipetools" href="../../../sp/spt/systempipetools/">Data Visualizations</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../sp/sprdata/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">systemPipeRdata</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsprdata">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsprdatasystempiperdata" href="../../../sp/sprdata/systempiperdata/">Workflow templates and sample data</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatanewwf" href="../../../sp/sprdata/newwf/">Rules to create a new Workflow Template</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsp_docker" href="../../../sp/sp_docker/">SPR Docker container</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-  </nav>
-</div>
-
-
-
-
-          </div>
-          
-          
-
-          
-
-          
-          
-              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-                
-  
-  
-  
-  
-  
-  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-  
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/sprdata/systemPipeRdata.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
-    
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/sprdata/systemPipeRdata.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/sprdata/systemPipeRdata.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/sprdata/systemPipeRdata.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    
-      
-      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-    
-
-  
-  
-  </div>
-
-
-
-
-
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#getting-started">Getting started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#loading-package-and-documentation">Loading package and documentation</a></li>
-        <li><a href="#starting-with-pre-configured-workflow-templates">Starting with pre-configured workflow templates</a></li>
-      </ul>
-    </li>
-    <li><a href="#workflow-templates-collection">Workflow templates collection</a>
-      <ul>
-        <li><a href="#download-a-specific-r-markdown-file">Download a specific R Markdown file</a></li>
-      </ul>
-    </li>
-    <li><a href="#dynamic-generation-of-workflow-template">Dynamic generation of workflow template</a></li>
-    <li><a href="#directory-structure">Directory Structure</a></li>
-    <li><a href="#run-workflows">Run workflows</a>
-      <ul>
-        <li><a href="#return-paths-to-sample-data">Return paths to sample data</a></li>
-      </ul>
-    </li>
-    <li><a href="#create-a-small-rna-seq-data">Create a small RNA-seq Data</a>
-      <ul>
-        <li><a href="#download-ncbi-data">Download NCBI data</a></li>
-        <li><a href="#create-targets-file">Create targets file</a></li>
-        <li><a href="#mapping">Mapping</a>
-          <ul>
-            <li><a href="#mapping-1">Mapping</a></li>
-          </ul>
-        </li>
-        <li><a href="#subset-reads-by-mapping-region">Subset reads by Mapping Region</a></li>
-        <li><a href="#subset-reads-by-genes-list">Subset reads by Genes List</a></li>
-      </ul>
-    </li>
-    <li><a href="#version-information">Version information</a></li>
-    <li><a href="#funding">Funding</a></li>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-
-
-
-              </div>
-              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-                
-  
-
-                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../sp/">Documentation</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../sp/sprdata/">systemPipeRdata</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../sp/sprdata/systempiperdata/">Workflow templates and sample data</a>
-</li>
-
-	</ol>
-</nav	>
-
-                
-<div class="td-content">
-	<h1>Workflow templates and sample data</h1>
-    
-	       
-	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/datatables-binding/datatables.js"></script>
-<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
-<link href="../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="../../../rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/datatables-binding/datatables.js"></script>
-<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
-<link href="../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<style type="text/css">
-pre code {
-white-space: pre !important;
-overflow-x: scroll !important;
-word-break: keep-all !important;
-word-wrap: initial !important;
-}
-</style>
-<!---
-- Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeRdata.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeRdata.Rmd', tangle=TRUE)"; Rscript -e "rmarkdown::render('systemPipeRdata.Rmd', c('BiocStyle::pdf_document'))"
--->
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelector("h1").className = "title";
-});
-</script>
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  var links = document.links;  
-  for (var i = 0, linksLength = links.length; i < linksLength; i++)
-    if (links[i].hostname != window.location.hostname)
-      links[i].target = '_blank';
-});
-</script>
-<p><strong>Note:</strong> the most recent version of this vignette can be found <a href="https://github.com/tgirke/systemPipeRdata/blob/master/vignettes/systemPipeRdata.Rmd">here</a>.</p>
-<p><strong>Note:</strong> if you use <em><code>systemPipeR</code></em> and <em><code>systemPipeRdata</code></em> in published research, please cite:</p>
-<p>Backman, T.W.H and Girke, T. (2016). <em>systemPipeR</em>: Workflow and Report Generation Environment. <em>BMC Bioinformatics</em>, 17: 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">10.1186/s12859-016-1241-0</a>.</p>
-<h1 id="introduction">Introduction</h1>
-<p><a href="https://github.com/tgirke/systemPipeRdata"><em><code>systemPipeRdata</code></em></a> is a helper package
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../favicons/android-192x192.png sizes=192x192><title>Workflow templates and sample data | sysPipe</title><meta property="og:title" content="Workflow templates and sample data"><meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: the most recent version of this vignette can be found here.
+Note: if you use systemPipeR and systemPipeRdata in published research, please cite:"><meta property="og:type" content="article"><meta property="og:url" content="/sp/sprdata/systempiperdata/"><meta property="article:modified_time" content="2021-04-29T19:35:58-07:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="Workflow templates and sample data"><meta itemprop=description content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: the most recent version of this vignette can be found here.
+Note: if you use systemPipeR and systemPipeRdata in published research, please cite:"><meta itemprop=dateModified content="2021-04-29T19:35:58-07:00"><meta itemprop=wordCount content="2054"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Workflow templates and sample data"><meta name=twitter:description content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Note: the most recent version of this vignette can be found here.
+Note: if you use systemPipeR and systemPipeRdata in published research, please cite:"><link rel=preload href=../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css as=style><link href=../../../scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><link rel=stylesheet href=../../../css/prism.css><script src=../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../css/site.css><script src=../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../><span class=font-weight-bold>sysPipe</span></a>
+<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
+<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
+<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
+<a class=dropdown-item href=../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
+<a class=dropdown-item href=../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
+<a class=dropdown-item href=../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
+<a class=dropdown-item href=../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../sp/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../sp/spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
+<a class=dropdown-item href=../../../sp/spr/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
+<a class=dropdown-item href=../../../sp/spr/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
+<a class=dropdown-item href=../../../sp/spr/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
+<a class=dropdown-item href=../../../sp/spr/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
+<a class=dropdown-item href=../../../sp/spr/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
+<a class=dropdown-item href=../../../sp/spr/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
+<a class=dropdown-item href=../../../sp/spr/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
+<a class=dropdown-item href=../../../sp/spt/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRTools</a>
+<a class=dropdown-item href=../../../sp/spt/ style=padding-left:2rem;font-weight:calc(3/4*500)>Data Visualization</a>
+<a class=dropdown-item href=../../../sp/sprdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
+<a class=dropdown-item href=../../../sp/sprdata/systempiperdata/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
+<a class=dropdown-item href=../../../sp/sprdata/newwf/ style=padding-left:2rem;font-weight:calc(3/4*500)>Rules</a>
+<a class=dropdown-item href=../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeTools style=padding-left:2rem;font-weight:calc(3/4*500)>SPT GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
+<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a>
+<a class=dropdown-item href=../../../spr_wf/installwf/ style=padding-left:1rem;font-weight:calc(3/3*500)>How to install Workflow</a>
+<a class=dropdown-item href=../../../spr_wf/newwf style=padding-left:1rem;font-weight:calc(3/3*500)>Rules to create Workflow</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../training/ id=navbarDropdown role=button>Training</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../training/conferences/ style=padding-left:1rem;font-weight:calc(3/3*500)>Conferences</a>
+<a class=dropdown-item href=../../../training/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
+<a class=dropdown-item href=../../../training/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete=off>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a></li><ul><li class="collapse show" id=sp><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/spr/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a></li><ul><li class=collapse id=spspr><a class="td-sidebar-link td-sidebar-link__page" id=m-spsprintroduction href=../../../sp/spr/introduction/>Introduction</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprgettingstarted href=../../../sp/spr/gettingstarted/>Getting Started</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprspr_run href=../../../sp/spr/spr_run/>How to run a Workflow</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsteps href=../../../sp/spr/steps/>Workflow steps overview</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprtemplates href=../../../sp/spr/templates/>Workflow Templates</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprspr_funcs href=../../../sp/spr/spr_funcs/>Help Manual</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsprinstall href=../../../sp/spr/sprinstall/>SPR detailed installation instructions</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsp_docker href=../../../sp/spr/sp_docker/>SPR Docker container</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/spt/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeTools</a></li><ul><li class=collapse id=spspt><a class="td-sidebar-link td-sidebar-link__page" id=m-spsptsystempipetools href=../../../sp/spt/systempipetools/>Data Visualizations</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../sp/sprdata/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">systemPipeRdata</a></li><ul><li class="collapse show" id=spsprdata><a class="td-sidebar-link td-sidebar-link__page active" id=m-spsprdatasystempiperdata href=../../../sp/sprdata/systempiperdata/>Workflow templates and sample data</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprdatanewwf href=../../../sp/sprdata/newwf/>Rules to create a new Workflow Template</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsp_docker href=../../../sp/sp_docker/>SPR Docker container</a></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/sprdata/systemPipeRdata.Rmd target=_blank class=source-link><i class="fa fa-code fa-fw"></i>View Rmd source</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/sprdata/systemPipeRdata.md target=_blank><i class="fab fa-github fa-fw"></i>View on Github</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/sprdata/systemPipeRdata.md target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/sprdata/systemPipeRdata.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#getting-started>Getting started</a><ul><li><a href=#installation>Installation</a></li><li><a href=#loading-package-and-documentation>Loading package and documentation</a></li><li><a href=#starting-with-pre-configured-workflow-templates>Starting with pre-configured workflow templates</a></li></ul></li><li><a href=#workflow-templates-collection>Workflow templates collection</a><ul><li><a href=#download-a-specific-r-markdown-file>Download a specific R Markdown file</a></li></ul></li><li><a href=#dynamic-generation-of-workflow-template>Dynamic generation of workflow template</a></li><li><a href=#directory-structure>Directory Structure</a></li><li><a href=#run-workflows>Run workflows</a><ul><li><a href=#return-paths-to-sample-data>Return paths to sample data</a></li></ul></li><li><a href=#create-a-small-rna-seq-data>Create a small RNA-seq Data</a><ul><li><a href=#download-ncbi-data>Download NCBI data</a></li><li><a href=#create-targets-file>Create targets file</a></li><li><a href=#mapping>Mapping</a><ul><li><a href=#mapping-1>Mapping</a></li></ul></li><li><a href=#subset-reads-by-mapping-region>Subset reads by Mapping Region</a></li><li><a href=#subset-reads-by-genes-list>Subset reads by Genes List</a></li></ul></li><li><a href=#version-information>Version information</a></li><li><a href=#funding>Funding</a></li><li><a href=#references>References</a></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../sp/>Documentation</a></li><li class=breadcrumb-item><a href=../../../sp/sprdata/>systemPipeRdata</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../sp/sprdata/systempiperdata/>Workflow templates and sample data</a></li></ol></nav><div class=td-content><h1>Workflow templates and sample data</h1><script src=../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js></script><script src=../../../rmarkdown-libs/jquery/jquery.min.js></script><link href=../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/datatables-binding/datatables.js></script><link href=../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css rel=stylesheet><link href=../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js></script><link href=../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js></script><link href=../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js></script><link href=../../../rmarkdown-libs/crosstalk/css/crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js></script><script src=../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js></script><script src=../../../rmarkdown-libs/jquery/jquery.min.js></script><link href=../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/datatables-binding/datatables.js></script><link href=../../../rmarkdown-libs/dt-core/css/jquery.dataTables.min.css rel=stylesheet><link href=../../../rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-core/js/jquery.dataTables.min.js></script><link href=../../../rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js></script><link href=../../../rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css rel=stylesheet><script src=../../../rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js></script><link href=../../../rmarkdown-libs/crosstalk/css/crosstalk.css rel=stylesheet><script src=../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js></script><style type=text/css>pre code{white-space:pre!important;overflow-x:scroll!important;word-break:keep-all!important;word-wrap:initial!important}</style><script type=text/javascript>document.addEventListener("DOMContentLoaded",function(){document.querySelector("h1").className="title";});</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",function(){var links=document.links;for(var i=0,linksLength=links.length;i<linksLength;i++)
+if(links[i].hostname!=window.location.hostname)
+links[i].target='_blank';});</script><p><strong>Note:</strong> the most recent version of this vignette can be found <a href=https://github.com/tgirke/systemPipeRdata/blob/master/vignettes/systemPipeRdata.Rmd>here</a>.</p><p><strong>Note:</strong> if you use <em><code>systemPipeR</code></em> and <em><code>systemPipeRdata</code></em> in published research, please cite:</p><p>Backman, T.W.H and Girke, T. (2016). <em>systemPipeR</em>: Workflow and Report Generation Environment. <em>BMC Bioinformatics</em>, 17: 388. <a href=https://doi.org/10.1186/s12859-016-1241-0>10.1186/s12859-016-1241-0</a>.</p><h1 id=introduction>Introduction</h1><p><a href=https://github.com/tgirke/systemPipeRdata><em><code>systemPipeRdata</code></em></a> is a helper package
 to generate with a single command workflow templates that are intended to be
-used by its parent package <a href="http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html"><em><code>systemPipeR</code></em></a> (H Backman and Girke 2016).
+used by its parent package <a href=http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html><em><code>systemPipeR</code></em></a> (H Backman and Girke 2016).
 The <em>systemPipeR</em> project provides a suite of R/Bioconductor packages for designing,
 building and running end-to-end analysis workflows on local machines, HPC clusters
-and cloud systems, while generating at the same time publication quality analysis reports.</p>
-<p>To test workflows quickly or design new ones from existing templates, users can
+and cloud systems, while generating at the same time publication quality analysis reports.</p><p>To test workflows quickly or design new ones from existing templates, users can
 generate with a single command workflow instances fully populated with sample data
 and parameter files required for running a chosen workflow.
 Pre-configured directory structure of the workflow environment and the sample data
-used by <em><code>systemPipeRdata</code></em> are described <a href="http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#load-sample-data-and-workflow-templates">here</a>.</p>
-<h1 id="getting-started">Getting started</h1>
-<h2 id="installation">Installation</h2>
-<p>The <em><code>systemPipeRdata</code></em> package is available at <a href="http://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html">Bioconductor</a> and can be installed from within R as follows:</p>
-<pre><code class="language-r">if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;)
+used by <em><code>systemPipeRdata</code></em> are described <a href=http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#load-sample-data-and-workflow-templates>here</a>.</p><h1 id=getting-started>Getting started</h1><h2 id=installation>Installation</h2><p>The <em><code>systemPipeRdata</code></em> package is available at <a href=http://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html>Bioconductor</a> and can be installed from within R as follows:</p><pre><code class=language-r>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;)
 BiocManager::install(&quot;systemPipeRdata&quot;)
-</code></pre>
-<p>Also, it is possible to install the development version from <a href="http://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html">Bioconductor</a>.</p>
-<pre><code class="language-r">BiocManager::install(&quot;systemPipeRdata&quot;, version = &quot;devel&quot;, build_vignettes = TRUE, 
+</code></pre><p>Also, it is possible to install the development version from <a href=http://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html>Bioconductor</a>.</p><pre><code class=language-r>BiocManager::install(&quot;systemPipeRdata&quot;, version = &quot;devel&quot;, build_vignettes = TRUE, 
     dependencies = TRUE)  # Installs Devel version from Bioconductor
-</code></pre>
-<h2 id="loading-package-and-documentation">Loading package and documentation</h2>
-<pre><code class="language-r">library(&quot;systemPipeRdata&quot;)  # Loads the package
-</code></pre>
-<pre><code class="language-r">library(help = &quot;systemPipeRdata&quot;)  # Lists package info
+</code></pre><h2 id=loading-package-and-documentation>Loading package and documentation</h2><pre><code class=language-r>library(&quot;systemPipeRdata&quot;)  # Loads the package
+</code></pre><pre><code class=language-r>library(help = &quot;systemPipeRdata&quot;)  # Lists package info
 vignette(&quot;systemPipeRdata&quot;)  # Opens vignette
-</code></pre>
-<h2 id="starting-with-pre-configured-workflow-templates">Starting with pre-configured workflow templates</h2>
-<p>Load one of the available workflows into your current working directory.
+</code></pre><h2 id=starting-with-pre-configured-workflow-templates>Starting with pre-configured workflow templates</h2><p>Load one of the available workflows into your current working directory.
 The following does this for the <em><code>varseq</code></em> workflow template. The name of the resulting
 workflow directory can be specified under the <em><code>mydirname</code></em> argument. The default <em><code>NULL</code></em>
 uses the name of the chosen workflow. An error is issued if a directory of the same
-name and path exists already.</p>
-<pre><code class="language-r">genWorkenvir(workflow = &quot;systemPipeR/SPvarseq&quot;, mydirname = &quot;varseq&quot;)
+name and path exists already.</p><pre><code class=language-r>genWorkenvir(workflow = &quot;systemPipeR/SPvarseq&quot;, mydirname = &quot;varseq&quot;)
 setwd(&quot;varseq&quot;)
-</code></pre>
-<p>On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.</p>
-<pre><code class="language-bash">$ Rscript -e &quot;systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname='varseq')&quot;
-</code></pre>
-<h1 id="workflow-templates-collection">Workflow templates collection</h1>
-<p>A collection of workflow templates are available, and it is possible to browse the
-current availability, as follows:</p>
-<pre><code class="language-r">availableWF(github = TRUE)
-</code></pre>
-<p>This function returns the list of workflow templates available within the package
-and <a href="https://github.com/systemPipeR">systemPipeR Organization</a> on GitHub. Each one
-listed template can be created as described above.</p>
-<p>The workflow template choose from Github will be installed as an R package, and
+</code></pre><p>On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.</p><pre><code class=language-bash>$ Rscript -e &quot;systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname='varseq')&quot;
+</code></pre><h1 id=workflow-templates-collection>Workflow templates collection</h1><p>A collection of workflow templates are available, and it is possible to browse the
+current availability, as follows:</p><pre><code class=language-r>availableWF(github = TRUE)
+</code></pre><p>This function returns the list of workflow templates available within the package
+and <a href=https://github.com/systemPipeR>systemPipeR Organization</a> on GitHub. Each one
+listed template can be created as described above.</p><p>The workflow template choose from Github will be installed as an R package, and
 also it creates the environment with all the settings and files to run the demo
-analysis.</p>
-<pre><code class="language-r">genWorkenvir(workflow=&quot;systemPipeR/SPrnaseq&quot;, mydirname=&quot;NULL&quot;)
+analysis.</p><pre><code class=language-r>genWorkenvir(workflow=&quot;systemPipeR/SPrnaseq&quot;, mydirname=&quot;NULL&quot;)
 setwd(&quot;SPrnaseq&quot;)
-</code></pre>
-<p>Besides, it is possible to choose different versions of the workflow template,
+</code></pre><p>Besides, it is possible to choose different versions of the workflow template,
 defined through other branches on the GitHub Repository. By default, the <em><code>master</code></em>
-branch is selected, however, it is possible to define a different branch with the <em><code>ref</code></em> argument.</p>
-<pre><code class="language-r">genWorkenvir(workflow=&quot;systemPipeR/SPrnaseq&quot;, ref = &quot;singleMachine&quot;)
+branch is selected, however, it is possible to define a different branch with the <em><code>ref</code></em> argument.</p><pre><code class=language-r>genWorkenvir(workflow=&quot;systemPipeR/SPrnaseq&quot;, ref = &quot;singleMachine&quot;)
 setwd(&quot;SPrnaseq&quot;)
-</code></pre>
-<h2 id="download-a-specific-r-markdown-file">Download a specific R Markdown file</h2>
-<p>Also, it is possible to download a specific workflow script for your analysis.
+</code></pre><h2 id=download-a-specific-r-markdown-file>Download a specific R Markdown file</h2><p>Also, it is possible to download a specific workflow script for your analysis.
 The URL can be specified under <em><code>url</code></em> argument and the R Markdown file name in
-the <em><code>urlname</code></em> argument. The default <em><code>NULL</code></em> copies the current version available in the chose template.</p>
-<pre><code class="language-r">genWorkenvir(workflow=&quot;systemPipeR/SPrnaseq&quot;, url = &quot;https://raw.githubusercontent.com/systemPipeR/systemPipeRNAseq/cluster/vignettes/systemPipeRNAseq.Rmd&quot;, 
+the <em><code>urlname</code></em> argument. The default <em><code>NULL</code></em> copies the current version available in the chose template.</p><pre><code class=language-r>genWorkenvir(workflow=&quot;systemPipeR/SPrnaseq&quot;, url = &quot;https://raw.githubusercontent.com/systemPipeR/systemPipeRNAseq/cluster/vignettes/systemPipeRNAseq.Rmd&quot;, 
              urlname = &quot;rnaseq_V-cluster.Rmd&quot;)
 setwd(&quot;rnaseq&quot;)
-</code></pre>
-<h1 id="dynamic-generation-of-workflow-template">Dynamic generation of workflow template</h1>
-<p>It is possible to create a new workflow structure from RStudio
-menu <code>File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; systemPipeR New WorkFlow</code>.
-This interactive option creates the same environment as demonstrated above.</p>
-<p><img src="results/rstudio.png" alt="">
-<strong>Figure 1:</strong> Selecting workflow template within RStudio.</p>
-<h1 id="directory-structure">Directory Structure</h1>
-<p>The workflow templates generated by <em><code>genWorkenvir</code></em> contain the following preconfigured directory structure:</p>
-<ul>
-<li><span style="color:green"><em><strong>workflow/</strong></em></span> (<em>e.g.</em> <em>rnaseq/</em>)
-<ul>
-<li>This is the root directory of the R session running the workflow.</li>
-<li>Run script ( <em>*.Rmd</em>) and sample annotation (<em>targets.txt</em>) files are located here.</li>
-<li>Note, this directory can have any name (<em>e.g.</em> <span style="color:green"><em><strong>rnaseq</strong></em></span>, <span style="color:green"><em><strong>varseq</strong></em></span>). Changing its name does not require any modifications in the run script(s).</li>
-<li><strong>Important subdirectories</strong>:
-<ul>
-<li><span style="color:green"><em><strong>param/</strong></em></span>
-<ul>
-<li>Stores non-CWL parameter files such as: <em>*.param</em>, <em>*.tmpl</em> and <em>*.run.sh</em>. These files are only required for backwards compatibility to run old workflows using the previous custom command-line interface.</li>
-<li><span style="color:green"><em><strong>param/cwl/</strong></em></span>: This subdirectory stores all the CWL parameter files. To organize workflows, each can have its own subdirectory, where all <code>CWL param</code> and <code>input.yml</code> files need to be in the same subdirectory.</li>
-</ul>
-</li>
-<li><span style="color:green"><em><strong>data/</strong></em> </span>
-<ul>
-<li>FASTQ files</li>
-<li>FASTA file of reference (<em>e.g.</em> reference genome)</li>
-<li>Annotation files</li>
-<li>etc.</li>
-</ul>
-</li>
-<li><span style="color:green"><em><strong>results/</strong></em></span>
-<ul>
-<li>Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files</li>
-<li>Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>Note</strong>: Directory names are indicated in <span style="color:grey"><em><strong>green</strong></em></span>.
+</code></pre><h1 id=dynamic-generation-of-workflow-template>Dynamic generation of workflow template</h1><p>It is possible to create a new workflow structure from RStudio
+menu <code>File -> New File -> R Markdown -> From Template -> systemPipeR New WorkFlow</code>.
+This interactive option creates the same environment as demonstrated above.</p><p><img src=results/rstudio.png alt>
+<strong>Figure 1:</strong> Selecting workflow template within RStudio.</p><h1 id=directory-structure>Directory Structure</h1><p>The workflow templates generated by <em><code>genWorkenvir</code></em> contain the following preconfigured directory structure:</p><ul><li><span style=color:green><em><strong>workflow/</strong></em></span> (<em>e.g.</em> <em>rnaseq/</em>)<ul><li>This is the root directory of the R session running the workflow.</li><li>Run script ( <em>*.Rmd</em>) and sample annotation (<em>targets.txt</em>) files are located here.</li><li>Note, this directory can have any name (<em>e.g.</em> <span style=color:green><em><strong>rnaseq</strong></em></span>, <span style=color:green><em><strong>varseq</strong></em></span>). Changing its name does not require any modifications in the run script(s).</li><li><strong>Important subdirectories</strong>:<ul><li><span style=color:green><em><strong>param/</strong></em></span><ul><li>Stores non-CWL parameter files such as: <em>*.param</em>, <em>*.tmpl</em> and <em>*.run.sh</em>. These files are only required for backwards compatibility to run old workflows using the previous custom command-line interface.</li><li><span style=color:green><em><strong>param/cwl/</strong></em></span>: This subdirectory stores all the CWL parameter files. To organize workflows, each can have its own subdirectory, where all <code>CWL param</code> and <code>input.yml</code> files need to be in the same subdirectory.</li></ul></li><li><span style=color:green><em><strong>data/</strong></em></span><ul><li>FASTQ files</li><li>FASTA file of reference (<em>e.g.</em> reference genome)</li><li>Annotation files</li><li>etc.</li></ul></li><li><span style=color:green><em><strong>results/</strong></em></span><ul><li>Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files</li><li>Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.</li></ul></li></ul></li></ul></li></ul><p><strong>Note</strong>: Directory names are indicated in <span style=color:grey><em><strong>green</strong></em></span>.
 Users can change this structure as needed, but need to adjust the code in their workflows
-accordingly.</p>
-<center>
-<img src="results/directory.png">
-</center>
-<p><strong>Figure 2:</strong> <em>systemPipeR’s</em> preconfigured directory structure.</p>
-<h1 id="run-workflows">Run workflows</h1>
-<p>Next, run from within R the chosen sample workflow by executing the code provided
+accordingly.</p><center><img src=results/directory.png></center><p><strong>Figure 2:</strong> <em>systemPipeR’s</em> preconfigured directory structure.</p><h1 id=run-workflows>Run workflows</h1><p>Next, run from within R the chosen sample workflow by executing the code provided
 in the corresponding <em><code>*.Rmd</code>* template file.
-Much more detailed information on running and customizing </em><code>systemPipeR</code>*<a href="http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html"></a>
-workflows is available in its overview vignette <a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">here</a>.
-This vignette can also be opened from R with the following command.</p>
-<pre><code class="language-r">library(&quot;systemPipeR&quot;)  # Loads systemPipeR which needs to be installed via BiocManager::install() from Bioconductor
-</code></pre>
-<pre><code class="language-r">vignette(&quot;systemPipeR&quot;, package = &quot;systemPipeR&quot;)
-</code></pre>
-<h2 id="return-paths-to-sample-data">Return paths to sample data</h2>
-<p>The location of the sample data provided by <em><code>systemPipeRdata</code></em> can be returned as a <em><code>list</code></em>.</p>
-<pre><code class="language-r">pathList()
-</code></pre>
-<pre><code>## $targets
+Much more detailed information on running and customizing </em><code>systemPipeR</code>*<a href=http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html></a>
+workflows is available in its overview vignette <a href=http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html>here</a>.
+This vignette can also be opened from R with the following command.</p><pre><code class=language-r>library(&quot;systemPipeR&quot;)  # Loads systemPipeR which needs to be installed via BiocManager::install() from Bioconductor
+</code></pre><pre><code class=language-r>vignette(&quot;systemPipeR&quot;, package = &quot;systemPipeR&quot;)
+</code></pre><h2 id=return-paths-to-sample-data>Return paths to sample data</h2><p>The location of the sample data provided by <em><code>systemPipeRdata</code></em> can be returned as a <em><code>list</code></em>.</p><pre><code class=language-r>pathList()
+</code></pre><pre><code>## $targets
 ## [1] &quot;/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/targets.txt&quot;
 ## 
 ## $targetsPE
@@ -1077,19 +134,12 @@ This vignette can also be opened from R with the following command.</p>
 ## 
 ## $new
 ## [1] &quot;/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/new/&quot;
-</code></pre>
-<h1 id="create-a-small-rna-seq-data">Create a small RNA-seq Data</h1>
-<h2 id="download-ncbi-data">Download NCBI data</h2>
-<p>The chosen data set <a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938"><code>SRP010938</code></a>
-obtains 18 paired-end (PE) read sets from <em>Arabidposis thaliana</em> (Howard et al. 2013).</p>
-<pre><code class="language-r">## https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP010938&amp;o=acc_s%3Aa
+</code></pre><h1 id=create-a-small-rna-seq-data>Create a small RNA-seq Data</h1><h2 id=download-ncbi-data>Download NCBI data</h2><p>The chosen data set <a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938"><code>SRP010938</code></a>
+obtains 18 paired-end (PE) read sets from <em>Arabidposis thaliana</em> (Howard et al. 2013).</p><pre><code class=language-r>## https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP010938&amp;o=acc_s%3Aa
 targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 targets &lt;- read.delim(targetspath, comment.char = &quot;#&quot;)
 systemPipeR::showDT(targets)
-</code></pre>
-<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<pre><code class="language-r">## Create a SYSargs2 object and populate all the command-line
+</code></pre><div id=htmlwidget-1 style=width:100%;height:auto class="datatables html-widget"></div><script type=application/json data-for=htmlwidget-1>{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><pre><code class=language-r>## Create a SYSargs2 object and populate all the command-line
 dir_path &lt;- system.file(&quot;extdata/cwl/fastq-dump&quot;, package = &quot;systemPipeR&quot;)
 WF &lt;- systemPipeR::loadWF(targets = targetspath, wf_file = &quot;fastq-dump.cwl&quot;, 
     input_file = &quot;fastq-dump.yml&quot;, dir_path = dir_path)
@@ -1098,17 +148,10 @@ WF &lt;- renderWF(WF, inputvars = c(FileName = &quot;_FASTQ_PATH1_&quot;,
 cmdlist(WF)
 output(WF)
 runCommandline(WF, make_bam = FALSE)
-</code></pre>
-<h2 id="create-targets-file">Create targets file</h2>
-<pre><code class="language-r">targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
+</code></pre><h2 id=create-targets-file>Create targets file</h2><pre><code class=language-r>targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targetsPE.txt&quot;, package = &quot;systemPipeR&quot;)
 targets &lt;- read.delim(targetspath, comment.char = &quot;#&quot;)
 systemPipeR::showDT(targets)
-</code></pre>
-<div id="htmlwidget-2" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<h2 id="mapping">Mapping</h2>
-<p>Build Index:</p>
-<pre><code class="language-r">idx &lt;- loadWF(targets = NULL, wf_file = &quot;hisat2-index.cwl&quot;, input_file = &quot;hisat2-index.yml&quot;, 
+</code></pre><div id=htmlwidget-2 style=width:100%;height:auto class="datatables html-widget"></div><script type=application/json data-for=htmlwidget-2>{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><h2 id=mapping>Mapping</h2><p>Build Index:</p><pre><code class=language-r>idx &lt;- loadWF(targets = NULL, wf_file = &quot;hisat2-index.cwl&quot;, input_file = &quot;hisat2-index.yml&quot;, 
     dir_path = &quot;param/cwl/hisat2/hisat2-idx/&quot;)
 idx &lt;- renderWF(idx)
 idx
@@ -1122,9 +165,7 @@ reg &lt;- clusterRun(idx, FUN = runCommandline, more.args = list(args = idx,
     resourceList = resources)
 getStatus(reg = reg)
 waitForJobs(reg = reg)
-</code></pre>
-<h3 id="mapping-1">Mapping</h3>
-<pre><code class="language-r">## Build WF
+</code></pre><h3 id=mapping-1>Mapping</h3><pre><code class=language-r>## Build WF
 align &lt;- loadWF(targets = targetspath, wf_file = &quot;hisat2-mapping-pe.cwl&quot;, 
     input_file = &quot;hisat2-mapping-pe.yml&quot;, dir_path = &quot;param/cwl/hisat2/hisat2-pe/&quot;)
 align &lt;- renderWF(align, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, 
@@ -1143,17 +184,11 @@ getStatus(reg = reg)
 waitForJobs(reg = reg)
 align &lt;- output_update(align, replace = TRUE, dir = FALSE, extension = c(&quot;.sam&quot;, 
     &quot;.bam&quot;))
-</code></pre>
-<h2 id="subset-reads-by-mapping-region">Subset reads by Mapping Region</h2>
-<p>To minimize processing time during testing, each FASTQ file has been subsetted to
+</code></pre><h2 id=subset-reads-by-mapping-region>Subset reads by Mapping Region</h2><p>To minimize processing time during testing, each FASTQ file has been subsetted to
 800-900 randomly sampled PE reads that map to the first 900 nucleotides
-of each chromosome of the <em>A. thalina</em> genome.</p>
-<pre><code class="language-r">getSubsetReads(align, MappingRegion = 1:900, sample_range = 800:900, 
+of each chromosome of the <em>A. thalina</em> genome.</p><pre><code class=language-r>getSubsetReads(align, MappingRegion = 1:900, sample_range = 800:900, 
     outdir = &quot;data/subset/&quot;, silent = FALSE)
-</code></pre>
-<h2 id="subset-reads-by-genes-list">Subset reads by Genes List</h2>
-<p>Select genes upregulated by DEG analysis with <em><code>DESeq2</code></em>.</p>
-<pre><code class="language-r">library(DESeq2)
+</code></pre><h2 id=subset-reads-by-genes-list>Subset reads by Genes List</h2><p>Select genes upregulated by DEG analysis with <em><code>DESeq2</code></em>.</p><pre><code class=language-r>library(DESeq2)
 targets &lt;- read.delim(targetspath, comment = &quot;#&quot;)
 cmp &lt;- readComp(file = targetspath, format = &quot;matrix&quot;, delim = &quot;-&quot;)
 cmp[[1]]
@@ -1165,14 +200,10 @@ degseqDF &lt;- run_DESeq2(countDF = countDFeByg, targets = targets,
 DEG_list &lt;- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, 
     FDR = 10))  ## filter
 list &lt;- unique(unlist(DEG_list$Up))
-</code></pre>
-<pre><code class="language-r">getSubsetReads(align, geneList = list, MappingRegion = NULL, 
+</code></pre><pre><code class=language-r>getSubsetReads(align, geneList = list, MappingRegion = NULL, 
     sample_range = NULL, outdir = &quot;data/subset/&quot;, silent = FALSE)
-</code></pre>
-<h1 id="version-information">Version information</h1>
-<pre><code class="language-r">sessionInfo()
-</code></pre>
-<pre><code>## R Under development (unstable) (2021-02-04 r79940)
+</code></pre><h1 id=version-information>Version information</h1><pre><code class=language-r>sessionInfo()
+</code></pre><pre><code>## R Under development (unstable) (2021-02-04 r79940)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.2 LTS
 ## 
@@ -1348,115 +379,9 @@ list &lt;- unique(unlist(DEG_list$Up))
 ## [150] shiny_1.6.0                
 ## [151] Biobase_2.51.0             
 ## [152] restfulr_0.0.13
-</code></pre>
-<h1 id="funding">Funding</h1>
-<p>This project was supported by funds from the National Institutes of Health (NIH) and the National Science Foundation (NSF).</p>
-<h1 id="references">References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-H_Backman2016-bt" class="csl-entry">
-<p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
-</div>
-<div id="ref-Howard2013-fq" class="csl-entry">
-<p>Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” <em>PLoS One</em> 8 (10): e74183. <a href="https://doi.org/10.1371/journal.pone.0074183">https://doi.org/10.1371/journal.pone.0074183</a>.</p>
-</div>
-</div>
-
-	
-	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-26: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/884ee0b5dfad156baf465745a3a560106c3d4b09">pg_build (884ee0b)</a>
-</div>
-</div>
-
-
-              </main>
-          
-
-
-        </div>
-      </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-        
-        
-        
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-<ul class="list-inline mb-0">
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
-      <i class="fab fa-github"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
-      <i class="fa fa-dna"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
-      <i class="fa fa-envelope"></i>
-    </a>
-  </li>
-  
-</ul>
-
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The systemPipeR Project All Rights Reserved</small>
-        
-	
-		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
-	
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script>
-  (function() {
-    var i, text, code, codes = document.getElementsByTagName('code');
-    for (i = 0; i < codes.length;) {
-      code = codes[i];
-      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-        text = code.textContent;
-        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
-          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
-          code.textContent = text;
-        }
-        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-            /^\$(.|\s)+\$$/.test(text) ||
-            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-          code.outerHTML = code.innerHTML;  
-          continue;
-        }
-      }
-      i++;
-    }
-  })();
-</script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<script type="text/x-mathjax-config">
+</code></pre><h1 id=funding>Funding</h1><p>This project was supported by funds from the National Institutes of Health (NIH) and the National Science Foundation (NSF).</p><h1 id=references>References</h1><div id=refs class="references csl-bib-body hanging-indent"><div id=ref-H_Backman2016-bt class=csl-entry><p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class=nocase>systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href=https://doi.org/10.1186/s12859-016-1241-0>https://doi.org/10.1186/s12859-016-1241-0</a>.</p></div><div id=ref-Howard2013-fq class=csl-entry><p>Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” <em>PLoS One</em> 8 (10): e74183. <a href=https://doi.org/10.1371/journal.pone.0074183>https://doi.org/10.1371/journal.pone.0074183</a>.</p></div></div><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-29: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/e27337229e1298d8cd603a18c6f261352cd9c246>add img (e273372)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipeR Project All Rights Reserved</small><p class=mt-2><a href=../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
+if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
+i++;}})();</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script type=text/x-mathjax-config>
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -1472,25 +397,4 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<script src="../../../js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
-
-
-
-<script src='../../../js/prism.js'></script>
-
-
-
-  </body>
-</html>
+</script><script src=../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin=anonymous></script><script src=../../../js/prism.js></script></body></html>
