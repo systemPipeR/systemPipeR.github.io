@@ -1,7 +1,7 @@
 ---
 title: "Getting Started" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 22 February, 2021" 
+date: "Last update: 05 May, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -370,16 +370,16 @@ cwlfiles(WF)
 ```
 
     ## $cwl
-    ## [1] "/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.cwl"
+    ## [1] "/home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.cwl"
     ## 
     ## $yml
-    ## [1] "/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.yml"
+    ## [1] "/home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.yml"
     ## 
     ## $steps
     ## [1] "hisat2-mapping-se"
     ## 
     ## $targets
-    ## [1] "/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/targets.txt"
+    ## [1] "/home/dcassol/src/R-devel/library/systemPipeR/extdata/targets.txt"
 
 ``` r
 inputvars(WF)
@@ -405,7 +405,7 @@ space restrictions, the CWL-centric approach is not covered by this tutorial.
 
 Current, *systemPipeR* provides the *`param`* file templates for third-party software tools. Please check the listed software tools.
 
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:80%; ">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -765,8 +765,8 @@ ones.
 sysargs(args)[1]
 ```
 
-    ##                                                                                                                                                                                                                                                                                                                                                            M1A 
-    ## "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/results/SRR446027_1.fastq.gz.tophat /home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/data/tair10.fasta ./data/SRR446027_1.fastq.gz "
+    ##                                                                                                                                                                                                                                                                                                                                                M1A 
+    ## "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/dcassol/danielac@ucr.edu/projects/SP/SPR_WF_org/systemPipeR.github.io_docsy/content/en/sp/spr/results/SRR446027_1.fastq.gz.tophat /home/dcassol/danielac@ucr.edu/projects/SP/SPR_WF_org/systemPipeR.github.io_docsy/content/en/sp/spr/data/tair10.fasta ./data/SRR446027_1.fastq.gz "
 
 ``` r
 modules(args)
@@ -784,8 +784,8 @@ cores(args)
 outpaths(args)[1]
 ```
 
-    ##                                                                                                                                                               M1A 
-    ## "/home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam"
+    ##                                                                                                                                                         M1A 
+    ## "/home/dcassol/danielac@ucr.edu/projects/SP/SPR_WF_org/systemPipeR.github.io_docsy/content/en/sp/spr/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam"
 
 The content of the *`param`* file can also be returned as JSON object as follows (requires *`rjson`* package).
 

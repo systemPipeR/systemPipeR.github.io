@@ -1,7 +1,7 @@
 ---
 title: "Workflow templates and sample data"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 18 April, 2021" 
+date: "Last update: 05 May, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -18,32 +18,6 @@ type: docs
 weight: 1
 ---
 
-<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
-<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="/rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
-<link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
-<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="/rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
-<link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 <style type="text/css">
 pre code {
 white-space: pre !important;
@@ -282,126 +256,6 @@ pathList()
     ## $new
     ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/new/"
 
-# Create a small RNA-seq Data
-
-## Download NCBI data
-
-The chosen data set [`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938)
-obtains 18 paired-end (PE) read sets from *Arabidposis thaliana* (Howard et al. 2013).
-
-``` r
-## https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP010938&o=acc_s%3Aa
-targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
-targets <- read.delim(targetspath, comment.char = "#")
-systemPipeR::showDT(targets)
-```
-
-<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-
-``` r
-## Create a SYSargs2 object and populate all the command-line
-dir_path <- system.file("extdata/cwl/fastq-dump", package = "systemPipeR")
-WF <- systemPipeR::loadWF(targets = targetspath, wf_file = "fastq-dump.cwl", 
-    input_file = "fastq-dump.yml", dir_path = dir_path)
-WF <- renderWF(WF, inputvars = c(FileName = "_FASTQ_PATH1_", 
-    SampleName = "_SampleName_"))
-cmdlist(WF)
-output(WF)
-runCommandline(WF, make_bam = FALSE)
-```
-
-## Create targets file
-
-``` r
-targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
-targets <- read.delim(targetspath, comment.char = "#")
-systemPipeR::showDT(targets)
-```
-
-<div id="htmlwidget-2" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"filter":"none","extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-
-## Mapping
-
-Build Index:
-
-``` r
-idx <- loadWF(targets = NULL, wf_file = "hisat2-index.cwl", input_file = "hisat2-index.yml", 
-    dir_path = "param/cwl/hisat2/hisat2-idx/")
-idx <- renderWF(idx)
-idx
-cmdlist(idx)
-
-library(batchtools)
-resources <- list(walltime = 1200, ntasks = 1, ncpus = 14, memory = 20480)
-reg <- clusterRun(idx, FUN = runCommandline, more.args = list(args = idx, 
-    dir = FALSE, make_bam = FALSE), conffile = ".batchtools.conf.R", 
-    template = "batchtools.slurm.tmpl", Njobs = 1, runid = "01", 
-    resourceList = resources)
-getStatus(reg = reg)
-waitForJobs(reg = reg)
-```
-
-### Mapping
-
-``` r
-## Build WF
-align <- loadWF(targets = targetspath, wf_file = "hisat2-mapping-pe.cwl", 
-    input_file = "hisat2-mapping-pe.yml", dir_path = "param/cwl/hisat2/hisat2-pe/")
-align <- renderWF(align, inputvars = c(FileName1 = "_FASTQ_PATH1_", 
-    FileName2 = "_FASTQ_PATH2_", SampleName = "_SampleName_"))
-align
-cmdlist(align)[1:2]
-output(align)[1:2]
-
-## Run
-library(batchtools)
-resources <- list(walltime = 1200, ntasks = 1, ncpus = 14, memory = 20480)
-reg <- clusterRun(align, FUN = runCommandline, more.args = list(args = align, 
-    dir = FALSE), conffile = ".batchtools.conf.R", template = "batchtools.slurm.tmpl", 
-    Njobs = 18, runid = "01", resourceList = resources)
-getStatus(reg = reg)
-waitForJobs(reg = reg)
-align <- output_update(align, replace = TRUE, dir = FALSE, extension = c(".sam", 
-    ".bam"))
-```
-
-## Subset reads by Mapping Region
-
-To minimize processing time during testing, each FASTQ file has been subsetted to
-800-900 randomly sampled PE reads that map to the first 900 nucleotides
-of each chromosome of the *A. thalina* genome.
-
-``` r
-getSubsetReads(align, MappingRegion = 1:900, sample_range = 800:900, 
-    outdir = "data/subset/", silent = FALSE)
-```
-
-## Subset reads by Genes List
-
-Select genes upregulated by DEG analysis with *`DESeq2`*.
-
-``` r
-library(DESeq2)
-targets <- read.delim(targetspath, comment = "#")
-cmp <- readComp(file = targetspath, format = "matrix", delim = "-")
-cmp[[1]]
-countDFeBygpath <- system.file("extdata", "countDFeByg.xls", 
-    package = "systemPipeR")
-countDFeByg <- read.delim(countDFeBygpath, row.names = 1)
-degseqDF <- run_DESeq2(countDF = countDFeByg, targets = targets, 
-    cmp = cmp[[1]], independent = FALSE)
-DEG_list <- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, 
-    FDR = 10))  ## filter
-list <- unique(unlist(DEG_list$Up))
-```
-
-``` r
-getSubsetReads(align, geneList = list, MappingRegion = NULL, 
-    sample_range = NULL, outdir = "data/subset/", silent = FALSE)
-```
-
 # Version information
 
 ``` r
@@ -429,161 +283,22 @@ sessionInfo()
     ## [6] methods   base     
     ## 
     ## other attached packages:
-    ## [1] systemPipeRdata_1.19.1 BiocStyle_2.19.2      
+    ## [1] systemPipeRdata_1.19.2 BiocStyle_2.19.2      
     ## 
     ## loaded via a namespace (and not attached):
-    ##   [1] backports_1.2.1            
-    ##   [2] BiocFileCache_1.99.5       
-    ##   [3] plyr_1.8.6                 
-    ##   [4] lazyeval_0.2.2             
-    ##   [5] splines_4.1.0              
-    ##   [6] crosstalk_1.1.1            
-    ##   [7] BiocParallel_1.25.5        
-    ##   [8] GenomeInfoDb_1.27.11       
-    ##   [9] ggplot2_3.3.3              
-    ##  [10] digest_0.6.27              
-    ##  [11] htmltools_0.5.1.1          
-    ##  [12] fansi_0.4.2                
-    ##  [13] magrittr_2.0.1             
-    ##  [14] checkmate_2.0.0            
-    ##  [15] memoise_2.0.0              
-    ##  [16] BSgenome_1.59.2            
-    ##  [17] base64url_1.4              
-    ##  [18] limma_3.47.12              
-    ##  [19] remotes_2.3.0              
-    ##  [20] Biostrings_2.59.2          
-    ##  [21] annotate_1.69.2            
-    ##  [22] matrixStats_0.58.0         
-    ##  [23] systemPipeR_1.25.12        
-    ##  [24] prettyunits_1.1.1          
-    ##  [25] jpeg_0.1-8.1               
-    ##  [26] colorspace_2.0-0           
-    ##  [27] blob_1.2.1                 
-    ##  [28] rappdirs_0.3.3             
-    ##  [29] ggrepel_0.9.1              
-    ##  [30] xfun_0.22                  
-    ##  [31] dplyr_1.0.5                
-    ##  [32] crayon_1.4.1               
-    ##  [33] RCurl_1.98-1.3             
-    ##  [34] jsonlite_1.7.2             
-    ##  [35] genefilter_1.73.1          
-    ##  [36] VariantAnnotation_1.37.1   
-    ##  [37] brew_1.0-6                 
-    ##  [38] survival_3.2-10            
-    ##  [39] ape_5.4-1                  
-    ##  [40] glue_1.4.2                 
-    ##  [41] gtable_0.3.0               
-    ##  [42] zlibbioc_1.37.0            
-    ##  [43] XVector_0.31.1             
-    ##  [44] DelayedArray_0.17.10       
-    ##  [45] V8_3.4.0                   
-    ##  [46] BiocGenerics_0.37.1        
-    ##  [47] scales_1.1.1               
-    ##  [48] pheatmap_1.0.12            
-    ##  [49] DBI_1.1.1                  
-    ##  [50] GGally_2.1.1               
-    ##  [51] edgeR_3.33.3               
-    ##  [52] Rcpp_1.0.6                 
-    ##  [53] viridisLite_0.4.0          
-    ##  [54] xtable_1.8-4               
-    ##  [55] progress_1.2.2             
-    ##  [56] tidytree_0.3.3             
-    ##  [57] bit_4.0.4                  
-    ##  [58] DT_0.18                    
-    ##  [59] rsvg_2.1                   
-    ##  [60] stats4_4.1.0               
-    ##  [61] htmlwidgets_1.5.3          
-    ##  [62] httr_1.4.2                 
-    ##  [63] RColorBrewer_1.1-2         
-    ##  [64] ellipsis_0.3.1             
-    ##  [65] pkgconfig_2.0.3            
-    ##  [66] reshape_0.8.8              
-    ##  [67] XML_3.99-0.6               
-    ##  [68] sass_0.3.1                 
-    ##  [69] dbplyr_2.1.1               
-    ##  [70] locfit_1.5-9.4             
-    ##  [71] utf8_1.2.1                 
-    ##  [72] later_1.1.0.1              
-    ##  [73] tidyselect_1.1.0           
-    ##  [74] rlang_0.4.10               
-    ##  [75] AnnotationDbi_1.53.1       
-    ##  [76] munsell_0.5.0              
-    ##  [77] tools_4.1.0                
-    ##  [78] cachem_1.0.4               
-    ##  [79] generics_0.1.0             
-    ##  [80] RSQLite_2.2.6              
-    ##  [81] evaluate_0.14              
-    ##  [82] stringr_1.4.0              
-    ##  [83] fastmap_1.1.0              
-    ##  [84] yaml_2.2.1                 
-    ##  [85] ggtree_2.5.2               
-    ##  [86] knitr_1.32                 
-    ##  [87] bit64_4.0.5                
-    ##  [88] purrr_0.3.4                
-    ##  [89] KEGGREST_1.31.1            
-    ##  [90] nlme_3.1-152               
-    ##  [91] mime_0.10                  
-    ##  [92] formatR_1.9                
-    ##  [93] aplot_0.0.6                
-    ##  [94] biomaRt_2.47.7             
-    ##  [95] compiler_4.1.0             
-    ##  [96] plotly_4.9.3               
-    ##  [97] filelock_1.0.2             
-    ##  [98] curl_4.3                   
-    ##  [99] png_0.1-7                  
-    ## [100] treeio_1.15.6              
-    ## [101] tibble_3.1.0               
-    ## [102] geneplotter_1.69.0         
-    ## [103] bslib_0.2.4                
-    ## [104] stringi_1.5.3              
-    ## [105] blogdown_1.3               
-    ## [106] GenomicFeatures_1.43.8     
-    ## [107] lattice_0.20-41            
-    ## [108] Matrix_1.3-2               
-    ## [109] glmpca_0.2.0               
-    ## [110] vctrs_0.3.7                
-    ## [111] pillar_1.6.0               
-    ## [112] lifecycle_1.0.0            
-    ## [113] BiocManager_1.30.12        
-    ## [114] jquerylib_0.1.3            
-    ## [115] data.table_1.14.0          
-    ## [116] bitops_1.0-6               
-    ## [117] httpuv_1.5.5               
-    ## [118] patchwork_1.1.1            
-    ## [119] rtracklayer_1.51.5         
-    ## [120] GenomicRanges_1.43.4       
-    ## [121] latticeExtra_0.6-29        
-    ## [122] hwriter_1.3.2              
-    ## [123] R6_2.5.0                   
-    ## [124] BiocIO_1.1.2               
-    ## [125] promises_1.2.0.1           
-    ## [126] ShortRead_1.49.2           
-    ## [127] bookdown_0.21              
-    ## [128] IRanges_2.25.8             
-    ## [129] codetools_0.2-18           
-    ## [130] MASS_7.3-53.1              
-    ## [131] assertthat_0.2.1           
-    ## [132] SummarizedExperiment_1.21.3
-    ## [133] DESeq2_1.31.18             
-    ## [134] rjson_0.2.20               
-    ## [135] withr_2.4.1                
-    ## [136] GenomicAlignments_1.27.2   
-    ## [137] batchtools_0.9.15          
-    ## [138] Rsamtools_2.7.2            
-    ## [139] S4Vectors_0.29.15          
-    ## [140] GenomeInfoDbData_1.2.4     
-    ## [141] parallel_4.1.0             
-    ## [142] hms_1.0.0                  
-    ## [143] grid_4.1.0                 
-    ## [144] tidyr_1.1.3                
-    ## [145] DOT_0.1                    
-    ## [146] rmarkdown_2.7              
-    ## [147] rvcheck_0.1.8              
-    ## [148] MatrixGenerics_1.3.1       
-    ## [149] Rtsne_0.15                 
-    ## [150] shiny_1.6.0                
-    ## [151] Biobase_2.51.0             
-    ## [152] restfulr_0.0.13
+    ##  [1] knitr_1.33          magrittr_2.0.1     
+    ##  [3] BiocGenerics_0.37.4 R6_2.5.0           
+    ##  [5] rlang_0.4.11        stringr_1.4.0      
+    ##  [7] tools_4.1.0         parallel_4.1.0     
+    ##  [9] xfun_0.22           jquerylib_0.1.4    
+    ## [11] htmltools_0.5.1.1   remotes_2.3.0      
+    ## [13] yaml_2.2.1          digest_0.6.27      
+    ## [15] bookdown_0.22       formatR_1.9        
+    ## [17] BiocManager_1.30.12 sass_0.3.1         
+    ## [19] codetools_0.2-18    evaluate_0.14      
+    ## [21] rmarkdown_2.7.12    blogdown_1.3       
+    ## [23] stringi_1.5.3       compiler_4.1.0     
+    ## [25] bslib_0.2.4         jsonlite_1.7.2
 
 # Funding
 
@@ -596,12 +311,6 @@ This project was supported by funds from the National Institutes of Health (NIH)
 <div id="ref-H_Backman2016-bt" class="csl-entry">
 
 H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
-
-</div>
-
-<div id="ref-Howard2013-fq" class="csl-entry">
-
-Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” *PLoS One* 8 (10): e74183. <https://doi.org/10.1371/journal.pone.0074183>.
 
 </div>
 
