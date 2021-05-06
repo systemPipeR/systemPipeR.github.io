@@ -487,16 +487,16 @@ here next &lt;em&gt;&lt;code&gt;SYSargs2&lt;/code&gt;&lt;/em&gt; instance (see F
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwlfiles(WF)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $cwl
-## [1] &amp;quot;/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.cwl&amp;quot;
+## [1] &amp;quot;/home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.cwl&amp;quot;
 ## 
 ## $yml
-## [1] &amp;quot;/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.yml&amp;quot;
+## [1] &amp;quot;/home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/hisat2/hisat2-se/hisat2-mapping-se.yml&amp;quot;
 ## 
 ## $steps
 ## [1] &amp;quot;hisat2-mapping-se&amp;quot;
 ## 
 ## $targets
-## [1] &amp;quot;/home/dcassol/src/R-4.0.3/library/systemPipeR/extdata/targets.txt&amp;quot;
+## [1] &amp;quot;/home/dcassol/src/R-devel/library/systemPipeR/extdata/targets.txt&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;inputvars(WF)
 &lt;/code&gt;&lt;/pre&gt;
@@ -517,7 +517,7 @@ all/most workflow steps with CWL workflow and parameter files. Due to time and
 space restrictions, the CWL-centric approach is not covered by this tutorial.&lt;/p&gt;
 &lt;h3 id=&#34;third-party-software-tools&#34;&gt;Third-party software tools&lt;/h3&gt;
 &lt;p&gt;Current, &lt;em&gt;systemPipeR&lt;/em&gt; provides the &lt;em&gt;&lt;code&gt;param&lt;/code&gt;&lt;/em&gt; file templates for third-party software tools. Please check the listed software tools.&lt;/p&gt;
-&lt;div style=&#34;border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:80%; &#34;&gt;
+&lt;div style=&#34;border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; &#34;&gt;
 &lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -858,8 +858,8 @@ of new command-line software or changing the parameter settings of existing
 ones.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sysargs(args)[1]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                                                                                                                                                                                                                                                                                                                                                            M1A 
-## &amp;quot;tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/results/SRR446027_1.fastq.gz.tophat /home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/data/tair10.fasta ./data/SRR446027_1.fastq.gz &amp;quot;
+&lt;pre&gt;&lt;code&gt;##                                                                                                                                                                                                                                                                                                                                                M1A 
+## &amp;quot;tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/dcassol/danielac@ucr.edu/projects/SP/SPR_WF_org/systemPipeR.github.io_docsy/content/en/sp/spr/results/SRR446027_1.fastq.gz.tophat /home/dcassol/danielac@ucr.edu/projects/SP/SPR_WF_org/systemPipeR.github.io_docsy/content/en/sp/spr/data/tair10.fasta ./data/SRR446027_1.fastq.gz &amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;modules(args)
 &lt;/code&gt;&lt;/pre&gt;
@@ -871,8 +871,8 @@ ones.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;outpaths(args)[1]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                                                                                                                                                               M1A 
-## &amp;quot;/home/dcassol/danielac@ucr.edu/projects/SPR_WF_org/systemPipeR.github.io_docsy/content/en/spr/systempiper/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam&amp;quot;
+&lt;pre&gt;&lt;code&gt;##                                                                                                                                                         M1A 
+## &amp;quot;/home/dcassol/danielac@ucr.edu/projects/SP/SPR_WF_org/systemPipeR.github.io_docsy/content/en/sp/spr/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The content of the &lt;em&gt;&lt;code&gt;param&lt;/code&gt;&lt;/em&gt; file can also be returned as JSON object as follows (requires &lt;em&gt;&lt;code&gt;rjson&lt;/code&gt;&lt;/em&gt; package).&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;systemArgs(sysma = parampath, mytargets = targetspath, type = &amp;quot;json&amp;quot;)
