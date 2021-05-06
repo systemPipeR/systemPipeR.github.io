@@ -1,7 +1,7 @@
 ---
 title: "Data Visualizations" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 26 April, 2021" 
+date: "Last update: 05 May, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
