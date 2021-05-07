@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interface to module system — moduleload • systemPipeR</title>
+<title>Interface to allow full use of the Environment Modules system for Unix — moduleload • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,15 @@
 
 
 
-<meta property="og:title" content="Interface to module system — moduleload" />
-<meta property="og:description" content="Functions to list and load software from a module system in R. The functions are
-the equivalent of module avail and module load on the Linux command-line, respectively." />
+<meta property="og:title" content="Interface to allow full use of the Environment Modules system for Unix — moduleload" />
+<meta property="og:description" content="The function module enables use of the Environment Modules system
+(http://modules.sourceforge.net/) from within the R environment.  By default
+the user's login shell environment (ie. bash -l) will be used to
+initialize the current session.  The module function can also; load or unload
+specific software, list all the loaded software within the current session, and
+list all the applications available for loading from the module system.
+Lastly, the module function can remove all loaded software from the current
+session." />
 
 
 
@@ -83,7 +89,7 @@ the equivalent of module avail and module load on the Linux command-line, respec
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
       </span>
     </div>
 
@@ -115,17 +121,24 @@ the equivalent of module avail and module load on the Linux command-line, respec
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Interface to module system</h1>
+    <h1>Interface to allow full use of the Environment Modules system for Unix</h1>
     
     <div class="hidden name"><code>moduleload.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Functions to list and load software from a module system in R. The functions are
-the equivalent of <code>module avail</code> and <code>module load</code> on the Linux command-line, respectively.</p>
+    <p>The function <code>module</code> enables use of the Environment Modules system
+(http://modules.sourceforge.net/) from within the R environment.  By default
+the user's login shell environment (ie. <code>bash -l</code>) will be used to
+initialize the current session.  The module function can also; load or unload
+specific software, list all the loaded software within the current session, and
+list all the applications available for loading from the module system.
+Lastly, the module function can remove all loaded software from the current
+session.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>moduleload</span><span class='op'>(</span><span class='va'>module_name</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>module</span><span class='op'>(</span><span class='va'>action_type</span>, module_name<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span>
+<span class='fu'>moduleload</span><span class='op'>(</span><span class='va'>module_name</span><span class='op'>)</span>
 <span class='fu'>moduleUnload</span><span class='op'>(</span><span class='va'>module_name</span><span class='op'>)</span>
 <span class='fu'>modulelist</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'>moduleAvail</span><span class='op'>(</span><span class='op'>)</span>
@@ -136,23 +149,39 @@ the equivalent of <code>module avail</code> and <code>module load</code> on the 
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>action_type</th>
+      <td><p>Name of the action to be executed as character vector. The following switches are accepted: <code>avail</code>, <code>list</code>, <code>init</code>, <code>load</code>, <code>unload</code>, and <code>clear</code>.</p></td>
+    </tr>
+    <tr>
       <th>module_name</th>
-      <td><p>Name of software to load character vector.</p></td>
+      <td><p>Name of software to load as character vector.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Tyler Backman and Thomas Girke</p>
+    <p>Tyler Backman, Jordan Hayes and Thomas Girke</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## List all software from module system</span>
+<span class='co'>## List all available software from the module system</span>
+<span class='va'>avail</span> <span class='op'>&lt;-</span> <span class='fu'>moduleAvail</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'>## List loaded software in the current session</span>
 <span class='fu'>modulelist</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='co'>## Examples for loading software from module system</span>
-<span class='fu'>moduleload</span><span class='op'>(</span>module<span class='op'>=</span><span class='st'>"bowtie2/2.0.6"</span>, envir<span class='op'>=</span><span class='st'>"PATH"</span><span class='op'>)</span>
-<span class='fu'>moduleload</span><span class='op'>(</span>module<span class='op'>=</span><span class='st'>"python"</span>, envir<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"PATH"</span>, <span class='st'>"LD_LIBRARY_PATH"</span>, <span class='st'>"PYTHONPATH"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'>## Example for loading a software into the shell environment</span>
+<span class='fu'>moduleload</span><span class='op'>(</span><span class='st'>"hisat2"</span><span class='op'>)</span> 
+<span class='fu'>moduleload</span><span class='op'>(</span><span class='fu'><a href='sysargs.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span><span class='op'>)</span> 
+
+<span class='co'>## Example for removing software from the shell environment</span>
+<span class='fu'>moduleUnload</span><span class='op'>(</span><span class='st'>"hisat2"</span><span class='op'>)</span>
+
+<span class='co'>## Clear all of the software from the shell's initialization files</span>
+<span class='fu'>moduleClear</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'>## List and load all the software loaded in users default login shell into the current session (default)</span>
+<span class='fu'>moduleInit</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

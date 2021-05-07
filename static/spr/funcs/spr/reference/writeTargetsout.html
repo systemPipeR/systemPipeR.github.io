@@ -91,7 +91,7 @@ remove it or set overwrite=TRUE." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
       </span>
     </div>
 
@@ -141,7 +141,7 @@ any existing files. If a file exists then the user has to explicitly
 remove it or set <code>overwrite=TRUE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>writeTargetsout</span><span class='op'>(</span><span class='va'>x</span>, file <span class='op'>=</span> <span class='st'>"default"</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, step <span class='op'>=</span> <span class='cn'>NULL</span>, new_col<span class='op'>=</span><span class='cn'>NULL</span>, new_col_output_index<span class='op'>=</span><span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>writeTargetsout</span><span class='op'>(</span><span class='va'>x</span>, file <span class='op'>=</span> <span class='st'>"default"</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, step <span class='op'>=</span> <span class='cn'>NULL</span>, new_col<span class='op'>=</span><span class='cn'>NULL</span>, new_col_output_index<span class='op'>=</span><span class='cn'>NULL</span>, remove<span class='op'>=</span><span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,6 +173,10 @@ remove it or set <code>overwrite=TRUE</code>.</p>
     <tr>
       <th>new_col_output_index</th>
       <td><p>A vector of numeric index positions of the file in <code>SYSargs2</code> class <code>output</code>. It requires <code>new_col</code> definition.</p></td>
+    </tr>
+    <tr>
+      <th>remove</th>
+      <td><p>To remove the original columns. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
     <p>The constructor function creates an <code>SYSargs2</code> S4 class object from three input files: a <code>CWL param</code> and <code>input</code> files, and one simple tabular files, a <code>targets</code> file. The latter is optional for workflow steps lacking input files. Also, the function creates and saves the<code>CWL param</code> files. The latest storages all the parameters required for running command-line software, following the standard and specification defined on <a href='https://www.commonwl.org/'>Common Workflow Language (CWL)</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>createWF</span><span class='op'>(</span>targets <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>commandLine</span>, results_path <span class='op'>=</span> <span class='st'>"./results"</span>, module_load <span class='op'>=</span> <span class='st'>"baseCommand"</span>, file <span class='op'>=</span> <span class='st'>"default"</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, cwlVersion <span class='op'>=</span> <span class='st'>"v1.0"</span>, class <span class='op'>=</span> <span class='st'>"CommandLineTool"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>createWF</span><span class='op'>(</span>targets <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>commandLine</span>, results_path <span class='op'>=</span> <span class='st'>"./results"</span>, module_load <span class='op'>=</span> <span class='st'>"baseCommand"</span>, file <span class='op'>=</span> <span class='st'>"default"</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, cwlVersion <span class='op'>=</span> <span class='st'>"v1.0"</span>, class <span class='op'>=</span> <span class='st'>"CommandLineTool"</span>, silent<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,6 +159,10 @@
     <tr>
       <th>class</th>
       <td><p>Names of Common Workflow Language Specification. The following switches are accepted: <code>CommandLineTool</code> and <code>Workflow</code>.</p></td>
+    </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></td>
     </tr>
     </table>
 
