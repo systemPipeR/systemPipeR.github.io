@@ -87,7 +87,7 @@ complex experimental designs." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@ on this topic and how to properly run <code>DESeq2</code> on data sets with more
 complex experimental designs.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>run_DESeq2</span><span class='op'>(</span><span class='va'>countDF</span>, <span class='va'>targets</span>, <span class='va'>cmp</span>, independent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>run_DESeq2</span><span class='op'>(</span><span class='va'>countDF</span>, <span class='va'>targets</span>, <span class='va'>cmp</span>, independent <span class='op'>=</span> <span class='cn'>FALSE</span>, lfcShrink<span class='op'>=</span><span class='cn'>FALSE</span>, type<span class='op'>=</span><span class='st'>"normal"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,6 +153,14 @@ complex experimental designs.</p>
     <tr>
       <th>independent</th>
       <td><p>If <code>independent=TRUE</code> then the <code>countDF</code> will be subsetted for each comparison. This behavior can be useful when working with samples from unrelated studies. For samples from the same or comparable studies, the setting <code>independent=FALSE</code> is usually preferred.</p></td>
+    </tr>
+    <tr>
+      <th>lfcShrink</th>
+      <td><p>logiacal. If <code>TRUE</code> adds shrunken log2 fold changes (LFC) to the object.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>please check <code><a href='https://rdrr.io/pkg/DESeq2/man/lfcShrink.html'>DESeq2::lfcShrink()</a></code> documentation. Available <code>character</code> alternatives: "apeglm"; "ashr"; "normal".</p></td>
     </tr>
     </table>
 
