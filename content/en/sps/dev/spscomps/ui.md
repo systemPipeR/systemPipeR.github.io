@@ -83,6 +83,10 @@ weight: 1
 <script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
 <link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
 
 <link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
 
@@ -169,46 +173,46 @@ gallery(
 )
 ```
 
-<div id="gallery2917503" class="col sps-gallery" style="">
+<div id="gallery7850842" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery2917503-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery7850842-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery2917503-1")
+    onclick=galEnlarge("#gallery7850842-1")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" ><p class="text-center h4 ">p1</p></a>
-</div> <div  id=gallery2917503-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7850842-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery2917503-2")
+    onclick=galEnlarge("#gallery7850842-2")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" ><p class="text-center h4 ">p2</p></a>
-</div> <div  id=gallery2917503-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7850842-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery2917503-3")
+    onclick=galEnlarge("#gallery7850842-3")
   >
   <a  ><p class="text-center h4 gallery-nohover">&nbsp;</p></a>
-</div> <div  id=gallery2917503-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7850842-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery2917503-4")
+    onclick=galEnlarge("#gallery7850842-4")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" ><p class="text-center h4 ">p4</p></a>
-</div> <div  id=gallery2917503-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery7850842-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery2917503-5")
+    onclick=galEnlarge("#gallery7850842-5")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" ><p class="text-center h4 ">p5</p></a>
 </div></div>
@@ -219,7 +223,7 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery2917503")</script>
+<script>fixGalHeight("gallery7850842")</script>
 </div>
 
 You can show a gallery of plots you make in the Rmd and when people click it,
@@ -303,7 +307,7 @@ hrefTab(
 )
 ```
 
-<div id="list-tab9709371" class="col">
+<div id="list-tab8821111" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
   href="#" 
@@ -343,7 +347,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table9981148" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table2920574" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -395,7 +399,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table7341719" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table5460883" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">
@@ -754,10 +758,10 @@ There are 12 different default loaders: “circle,” “dual-ring,” “facebo
 cssLoader(height = "100px")
 ```
 
-<div id="spsloader-857314629" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-725148396" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-857314629").prepend(chooseLoader("spsloader-857314629", "default", "", "#337ab7", "100px", "100px"));
+    $("#spsloader-725148396").prepend(chooseLoader("spsloader-725148396", "default", "", "#337ab7", "100px", "100px"));
   });
 </script>
 </div>
@@ -770,10 +774,10 @@ customize it:
 cssLoader(type = "grid", height = "150px", color = "orange")
 ```
 
-<div id="spsloader-481753296" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-679215348" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-481753296").prepend(chooseLoader("spsloader-481753296", "grid", "", "orange", "150px", "150px"));
+    $("#spsloader-679215348").prepend(chooseLoader("spsloader-679215348", "grid", "", "orange", "150px", "150px"));
   });
 </script>
 </div>
@@ -792,15 +796,43 @@ tags$button(
 ```
 
 <button>
-<i id="spsloader-369175824" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
+<i id="spsloader-273518694" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-369175824").prepend(chooseLoader("spsloader-369175824", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
+    $("#spsloader-273518694").prepend(chooseLoader("spsloader-273518694", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
   });
 </script>
 </i>
 A button
 </button>
+
+#### Your own loaders
+
+You can choose a gif to be a your loader
+
+``` r
+cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", height = "100px")
+```
+
+<div id="spsloader-527146983" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<script>
+  $(function(){
+    $("#spsloader-527146983").prepend(chooseLoader("spsloader-527146983", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
+  });
+</script>
+</div>
+
+``` r
+cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", height = "150px")
+```
+
+<div id="spsloader-923475816" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<script>
+  $(function(){
+    $("#spsloader-923475816").prepend(chooseLoader("spsloader-923475816", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
+  });
+</script>
+</div>
 
 ## Other components
 
