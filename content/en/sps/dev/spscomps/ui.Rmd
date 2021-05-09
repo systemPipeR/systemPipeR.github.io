@@ -4,6 +4,13 @@ linkTitle: "UI components"
 type: docs
 weight: 1
 ---
+## UI Components 
+For most of the UI components, you can view them in the [online Shiny demo{blk}](https://lezhang.shinyapps.io/spsComps).
+Most but **not all** UI components work in a Rmarkdown document. Here we demostrate 
+how you could use some of them in a Rmarkdown doc. The source code of this 
+document is on [Github{blk}](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd).
+
+
 
 ## load package
 To start to use `spsComps`, load it in your Shiny app file or Rmarkdown file 
@@ -16,11 +23,9 @@ library(magrittr)
 So you can see it depends on `shiny` and `spsUtil`. When you load it, there is no 
 need to additionally load `shiny` or `spsUtil`.
 
-## UI Components 
-For most of the UI components, you can view them in the [online Shiny demo](https://lezhang.shinyapps.io/spsComps).
-Here we just select a few to demonstrate how you can use them **in a R markdown**. 
 
-### `spsGoTop`
+
+## `spsGoTop`
 
 A go top button. 
 
@@ -33,7 +38,7 @@ style as you want. By default, a "go to top" button will be created on the **bot
 **corner**. Now scroll this page, and you should see it (the rocket button).
 
 
-### `gallery`
+## `gallery`
 
 ```{r}
 texts <- c("p1", "p2", "", "p4", "p5")
@@ -59,9 +64,9 @@ You can show a gallery of plots you make in the Rmd and when people click it,
 it will be enlarged. You can also specify a link for each image. 
 
 
-### Logos
+## Logos
 
-#### a single one with `hexLogo`
+### a single one with `hexLogo`
 
 ```{r}
 hexLogo(
@@ -73,7 +78,7 @@ hexLogo(
 )
 ```
 
-#### a panel of logos with `hexPanel`
+### a panel of logos with `hexPanel`
 ```{r}
 hexPanel(
     "demo1", "" ,
@@ -82,9 +87,9 @@ hexPanel(
 ```
 
 
-### Buttons
+## Buttons
 
-#### Some colorful buttons `hrefTab`
+### Some colorful buttons `hrefTab`
 
 ```{r}
 hrefTab(
@@ -98,7 +103,7 @@ hrefTab(
 ```
 
 
-#### A table colorful buttons `hrefTable`
+### A table colorful buttons `hrefTable`
 ```{r}
 hrefTable(
     title = "Change button color and text color",
@@ -128,13 +133,13 @@ add the `style = "display: table;"` in Rmd to make the table occupy full length 
 the document in R markdown. 
 
 
-### show tips with  `bsHoverPopover`
+## show tips with  `bsHoverPopover`
 
 Space in a document is valuable. Sometimes you do not want to explain too much in 
 the main text but still want to give readers some additional information. Use 
 a popover to hide your additional text can be useful. 
 
-#### On a button
+### On a button
 ```{r}
 actionButton("a_btn", "A button", class = "btn-primary") %>% 
    bsHoverPopover(
@@ -144,7 +149,7 @@ actionButton("a_btn", "A button", class = "btn-primary") %>%
     )
 ```
 
-#### On a link
+### On a link
 ```{r}
 tags$a(href="mailto:xxx@abc.com", "Email") %>% 
    bsHoverPopover(
@@ -155,7 +160,7 @@ tags$a(href="mailto:xxx@abc.com", "Email") %>%
 ```
 
 
-#### On a plot
+### On a plot
 ```{r}
 png("random_plot.png")
 plot(1:10, 10:1)
@@ -167,6 +172,159 @@ tags$img(src = "../random_plot.png") %>%
               placement = "right"
   )
 ```
+
+## Animations
+### `animateUI`
+
+Add animations to existing components with **`animateUI`**
+
+#### To buttons
+```{r}
+tags$button(id = "btn1", "random button")
+animateUI("btn1", animation = "ring")
+```
+
+#### To some text
+```{r}
+p(id = "mytext", class = "text-red", "some move text")
+animateUI("mytext", animation = "horizontal", speed = "fast")
+```
+
+#### On hover, move mouse on the red thumb
+```{r}
+tags$button(
+  id = "btn2",
+  icon(id = "myicon", "thumbs-o-up"),
+  style = "color: red; boarder: initial; border-color: transparent;"
+)
+animateUI("btn2", animation = "bounce", speed = "fast", hover = TRUE)
+```
+
+#### Inline animation
+You can add animations to inline Rmarkdown text by giving it a HTML tag and id, like 
+following: 
+
+```html
+some text some text <span id="some-text" style="display: inline-block">some text</span> some text some text
+```
+some text some text <span id="some-text" style="display: inline-block">some text</span> some text some text
+
+```{r}
+animateUI(selector = "some-text", animation = "ring")
+```
+
+**Most animations required the target tag to have CSS display "block" or "inline-block"**,
+you can append this by adding `style="display: inline-block"` to the tag as shown above 
+or check examples below. 
+
+*****
+
+### `animateAppend`
+
+Add animations with pipe `%>%` by **`animateAppend`**
+
+
+```{r}
+icon("home") %>%
+  animateAppend("ring")
+tags$p("Append animation", class = "text-primary", style="display: inline-block") %>%
+  animateAppend("pulse")
+```
+
+*****
+
+### `animateAppendNested`
+
+Apply multiple animations to the same component
+
+```{r}
+tags$b("Nested animations", class = "text-primary") %>%
+  animateAppendNested("ring") %>%
+  animateAppendNested("pulse") %>%
+  animateAppendNested("passing")
+tags$b("Nested animations display changed", class = "text-primary") %>%
+  animateAppendNested("ring") %>%
+  animateAppendNested("pulse", display = "block", style = "width: 30%")
+```
+
+*****
+
+### `animateIcon`
+Here is a convenient function that allows you to create font-awesome icons with 
+animations and customize, color, size, etc, an enhanced version of original 
+`shiny::icon` and can also be used in Rmarkdown.
+
+#### Default 
+Default is the same as original icon
+```{r}
+animateIcon("home")
+```
+
+#### Animation and color
+```{r}
+animateIcon(name = "home", animation = "horizontal", speed = "slow", color ="red")
+```
+
+#### Add to a button
+```{r}
+tags$button(animateIcon("spinner", "spin", "fast"), "A button")
+```
+
+#### on hover
+```{r}
+animateIcon(name = "wrench", animation = "wrench", hover = TRUE, color ="green")
+```
+
+#### Change size
+```{r}
+animateIcon("home", size = "xs")
+animateIcon("home", size = "sm")
+animateIcon("home", size = "lg")
+animateIcon("home", size = "2x")
+animateIcon("home", size = "3x")
+animateIcon("home", size = "5x")
+animateIcon("home", size = "7x")
+animateIcon("home", size = "10x")
+```
+
+*****
+
+## Loaders
+
+Add loaders to indicate busy status. Most cases, loaders are added by a backend 
+server to show the busy processing status and are removed when the process is done.
+Rmarkdown documents does not have a server, but you can still add some loaders.
+
+
+### `cssLoader`
+
+#### Default loaders
+There are 12 different default loaders: "circle", "dual-ring", "facebook", "heart",
+"ring", "roller", "default", "ellipsis", "grid", "hourglass", "ripple", "spinner".
+
+```{r}
+cssLoader(height = "100px")
+```
+
+<br>
+
+customize it:
+```{r}
+cssLoader(type = "grid", height = "150px", color = "orange")
+```
+
+<br>
+
+Add to a button:
+```{r}
+tags$button(
+  ## `inline = TRUE` is important if you want loader and
+  ## text in the same line.
+  cssLoader(is_icon = TRUE, inline = TRUE, color = "#3a7bd5"),
+  "A button"
+)
+```
+
 
 ## Other components
 

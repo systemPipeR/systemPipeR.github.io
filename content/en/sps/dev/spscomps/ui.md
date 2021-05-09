@@ -4,6 +4,7 @@ linkTitle: "UI components"
 type: docs
 weight: 1
 ---
+
 <link href="/rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/sps-gotop/js/sps_gotop.js"></script>
 <script src="/rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
@@ -21,40 +22,99 @@ weight: 1
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+\#\# UI Components
+For most of the UI components, you can view them in the [online Shiny demo{blk}](https://lezhang.shinyapps.io/spsComps).
+Most but **not all** UI components work in a Rmarkdown document. Here we demostrate
+how you could use some of them in a Rmarkdown doc. The source code of this
+document is on [Github{blk}](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd).
 
 ## load package
-To start to use `spsComps`, load it in your Shiny app file or Rmarkdown file 
 
+To start to use `spsComps`, load it in your Shiny app file or Rmarkdown file
 
-```r
+``` r
 library(spsComps)
 ```
 
-```
-## Loading required package: shiny
-```
+    ## Loading required package: shiny
 
-```
-## Loading required package: spsUtil
-```
+    ## Loading required package: spsUtil
 
-```r
+``` r
 library(magrittr)
 ```
 
-So you can see it depends on `shiny` and `spsUtil`. When you load it, there is no 
+So you can see it depends on `shiny` and `spsUtil`. When you load it, there is no
 need to additionally load `shiny` or `spsUtil`.
 
-## UI Components 
-For most of the UI components, you can view them in the [online Shiny demo](https://lezhang.shinyapps.io/spsComps).
-Here we just select a few to demonstrate how you can use them **in a R markdown**. 
+## `spsGoTop`
 
-### `spsGoTop`
+A go top button.
 
-A go top button. 
-
-
-```r
+``` r
 spsGoTop()
 ```
 
@@ -84,15 +144,13 @@ spsGoTop()
           </svg>
         </div>
 
-It will not be display inline of the Rmd, just simply call it and maybe change the 
-style as you want. By default, a "go to top" button will be created on the **bottom-right**
+It will not be display inline of the Rmd, just simply call it and maybe change the
+style as you want. By default, a “go to top” button will be created on the **bottom-right**
 **corner**. Now scroll this page, and you should see it (the rocket button).
 
+## `gallery`
 
-### `gallery`
-
-
-```r
+``` r
 texts <- c("p1", "p2", "", "p4", "p5")
 hrefs <- c("https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true",
            "https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true",
@@ -111,48 +169,48 @@ gallery(
 )
 ```
 
-<div id="gallery9813595" class="col sps-gallery" style="">
+<div id="gallery1872830" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery9813595-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery1872830-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
-    src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery "
+    src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-1")
+    onclick=galEnlarge("#gallery1872830-1")
   >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true"><p class="text-center h4">p1</p></a>
-</div> <div  id=gallery9813595-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+  <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" ><p class="text-center h4 ">p1</p></a>
+</div> <div  id=gallery1872830-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
-    src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery "
+    src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-2")
+    onclick=galEnlarge("#gallery1872830-2")
   >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true"><p class="text-center h4">p2</p></a>
-</div> <div  id=gallery9813595-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+  <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" ><p class="text-center h4 ">p2</p></a>
+</div> <div  id=gallery1872830-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
-    src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery gallery-nohover"
+    src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-3")
+    onclick=galEnlarge("#gallery1872830-3")
   >
-  <a ><p class="text-center h4">&nbsp;</p></a>
-</div> <div  id=gallery9813595-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+  <a  ><p class="text-center h4 gallery-nohover">&nbsp;</p></a>
+</div> <div  id=gallery1872830-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
-    src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery "
+    src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-4")
+    onclick=galEnlarge("#gallery1872830-4")
   >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true"><p class="text-center h4">p4</p></a>
-</div> <div  id=gallery9813595-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+  <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" ><p class="text-center h4 ">p4</p></a>
+</div> <div  id=gallery1872830-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
-    src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery "
+    src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery9813595-5")
+    onclick=galEnlarge("#gallery1872830-5")
   >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true"><p class="text-center h4">p5</p></a>
+  <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" ><p class="text-center h4 ">p5</p></a>
 </div></div>
 <!--SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
 <div id="sps-gallery-modal" class="gallery-modal" onclick="galModalClose()">
@@ -161,20 +219,17 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery9813595")</script>
+<script>fixGalHeight("gallery1872830")</script>
 </div>
 
+You can show a gallery of plots you make in the Rmd and when people click it,
+it will be enlarged. You can also specify a link for each image.
 
-You can show a gallery of plots you make in the Rmd and when people click it, 
-it will be enlarged. You can also specify a link for each image. 
+## Logos
 
+### a single one with `hexLogo`
 
-### Logos
-
-#### a single one with `hexLogo`
-
-
-```r
+``` r
 hexLogo(
     "logo", "Logo",
     hex_img = "https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg",
@@ -192,14 +247,14 @@ hexLogo(
         <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
       </pattern>
     </defs>
-    <a href="https://www.google.com" target="_blank"><polygon class="hex" points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#logo-hex)" stroke="var(--primary)"stroke-width="2"/></a>
+    <a href="https://www.google.com" ><polygon class="hex" points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#logo-hex)" stroke="var(--primary)"stroke-width="2"/></a>
     <text x=10 y=115><a class="powerby-link"href="https://www.google.com" target="_blank">Footer</a></text>
   </svg>
 </div>
 
-#### a panel of logos with `hexPanel`
+### a panel of logos with `hexPanel`
 
-```r
+``` r
 hexPanel(
     "demo1", "" ,
     rep("https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg", 2)
@@ -234,13 +289,11 @@ hexPanel(
 </div></div>
 </div>
 
+## Buttons
 
-### Buttons
+### Some colorful buttons `hrefTab`
 
-#### Some colorful buttons `hrefTab`
-
-
-```r
+``` r
 hrefTab(
     title = "Different background and text colors",
     label_texts = c("Go top", "Disabled", "Email me"),
@@ -250,24 +303,24 @@ hrefTab(
 )
 ```
 
-<div id="list-tab9250586" class="col">
+<div id="list-tab6143613" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
-  href="#"
+  href="#" 
   class="href-button sps-tab-link "
   style="background-color: green; color: #caffc1;"
  >
   Go top
 </a>
  <a
-  href="javascript:null;"
+  href="javascript:null;" 
   class="href-button sps-tab-link nohover"
   style="background-color: #eee; color: black;"
  >
   Disabled
 </a>
  <a
-  href="mailto:xxx@abc.com"
+  href="mailto:xxx@abc.com" 
   class="href-button sps-tab-link "
   style="background-color: orange; color: blue;"
  >
@@ -276,10 +329,9 @@ hrefTab(
 </div>
 </div>
 
+### A table colorful buttons `hrefTable`
 
-#### A table colorful buttons `hrefTable`
-
-```r
+``` r
 hrefTable(
     title = "Change button color and text color",
     item_titles = c("workflow 1", "No links"),
@@ -291,7 +343,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table6250655" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table2346973" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -302,7 +354,7 @@ hrefTable(
 <tbody>  <tr>
     <td class="h4" style="color: #0275d8;">workflow 1</td>
     <td><a
-  href="https://www.google.com/"
+  href="https://www.google.com/" 
   class="href-button  sps-tab-link"
   style="background-color: blue; color: black;"
 >
@@ -312,13 +364,13 @@ hrefTable(
    <tr>
     <td class="h4" style="color: #0275d8;">No links</td>
     <td><a
-  href="javascript:null;"
+  href="javascript:null;" 
   class="href-button nohover sps-tab-link"
   style="background-color: red; color: yellow;"
 >
   tab 3
 </a><a
-  href="javascript:null;"
+  href="javascript:null;" 
   class="href-button nohover sps-tab-link"
   style="background-color: orange; color: green;"
 >
@@ -328,7 +380,7 @@ hrefTable(
 </tbody>
 </table>
 
-```r
+``` r
 hrefTable(
     title = "Change row name colors and width",
     item_titles = c("Green", "Red", "Orange"),
@@ -343,7 +395,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table2892511" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table7826614" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">
@@ -354,7 +406,7 @@ hrefTable(
 <tbody>  <tr>
     <td class="h4" style="color: green;">Green</td>
     <td><a
-  href="https://www.google.com/"
+  href="https://www.google.com/" 
   class="href-button  sps-tab-link"
   style="background-color: #337ab7; color: white;"
 >
@@ -364,13 +416,13 @@ hrefTable(
    <tr>
     <td class="h4" style="color: red;">Red</td>
     <td><a
-  href="javascript:null;"
+  href="javascript:null;" 
   class="href-button nohover sps-tab-link"
   style="background-color: #337ab7; color: white;"
 >
   tab 3
 </a><a
-  href="javascript:null;"
+  href="javascript:null;" 
   class="href-button nohover sps-tab-link"
   style="background-color: #337ab7; color: white;"
 >
@@ -380,19 +432,19 @@ hrefTable(
    <tr>
     <td class="h4" style="color: orange;">Orange</td>
     <td><a
-  href="https://www.google.com/"
+  href="https://www.google.com/" 
   class="href-button  sps-tab-link"
   style="background-color: #337ab7; color: white;"
 >
   tab 5
 </a><a
-  href="https://www.google.com/"
+  href="https://www.google.com/" 
   class="href-button  sps-tab-link"
   style="background-color: #337ab7; color: white;"
 >
   tab 6
 </a><a
-  href="javascript:null;"
+  href="javascript:null;" 
   class="href-button nohover sps-tab-link"
   style="background-color: #337ab7; color: white;"
 >
@@ -402,20 +454,19 @@ hrefTable(
 </tbody>
 </table>
 
-The table caption is on top in Shiny but on bottom in Rmd. You may also want to 
-add the `style = "display: table;"` in Rmd to make the table occupy full length of 
-the document in R markdown. 
+The table caption is on top in Shiny but on bottom in Rmd. You may also want to
+add the `style = "display: table;"` in Rmd to make the table occupy full length of
+the document in R markdown.
 
+## show tips with `bsHoverPopover`
 
-### show tips with  `bsHoverPopover`
+Space in a document is valuable. Sometimes you do not want to explain too much in
+the main text but still want to give readers some additional information. Use
+a popover to hide your additional text can be useful.
 
-Space in a document is valuable. Sometimes you do not want to explain too much in 
-the main text but still want to give readers some additional information. Use 
-a popover to hide your additional text can be useful. 
+### On a button
 
-#### On a button
-
-```r
+``` r
 actionButton("a_btn", "A button", class = "btn-primary") %>% 
    bsHoverPopover(
                 title = "title a",
@@ -426,9 +477,9 @@ actionButton("a_btn", "A button", class = "btn-primary") %>%
 
 <button class="btn btn-default action-button btn-primary" data-content="popover works on a button" data-placement="bottom" data-toggle="popover" id="a_btn" pop-toggle="hover" title="title a" type="button">A button</button>
 
-#### On a link
+### On a link
 
-```r
+``` r
 tags$a(href="mailto:xxx@abc.com", "Email") %>% 
    bsHoverPopover(
                 title = "Email me",
@@ -439,21 +490,18 @@ tags$a(href="mailto:xxx@abc.com", "Email") %>%
 
 <a href="mailto:xxx@abc.com" title="Email me" data-toggle="popover" data-content="popover works on a link" data-placement="bottom" pop-toggle="hover">Email</a>
 
+### On a plot
 
-#### On a plot
-
-```r
+``` r
 png("random_plot.png")
 plot(1:10, 10:1)
 dev.off()
 ```
 
-```
-## png 
-##   2
-```
+    ## png 
+    ##   2
 
-```r
+``` r
 tags$img(src = "../random_plot.png") %>% 
   bsHoverPopover(
               title = "My plot",
@@ -464,7 +512,297 @@ tags$img(src = "../random_plot.png") %>%
 
 <img src="../random_plot.png" title="My plot" data-toggle="popover" data-content="popover works on a plot" data-placement="right" pop-toggle="hover"/>
 
+## Animations
+
+### `animateUI`
+
+Add animations to existing components with **`animateUI`**
+
+#### To buttons
+
+``` r
+tags$button(id = "btn1", "random button")
+```
+
+<button id="btn1">random button</button>
+
+``` r
+animateUI("btn1", animation = "ring")
+```
+
+<script>addSpsAnimation("#btn1", "sps-animation   faa-ring animated ")</script>
+
+#### To some text
+
+``` r
+p(id = "mytext", class = "text-red", "some move text")
+```
+
+<p id="mytext" class="text-red">some move text</p>
+
+``` r
+animateUI("mytext", animation = "horizontal", speed = "fast")
+```
+
+<script>addSpsAnimation("#mytext", "sps-animation   faa-horizontal animated faa-fast")</script>
+
+#### On hover, move mouse on the red thumb
+
+``` r
+tags$button(
+  id = "btn2",
+  icon(id = "myicon", "thumbs-o-up"),
+  style = "color: red; boarder: initial; border-color: transparent;"
+)
+```
+
+<button id="btn2" style="color: red; boarder: initial; border-color: transparent;">
+<i class="fa fa-thumbs-o-up" role="presentation" aria-label="thumbs-o-up icon" id="myicon"></i>
+</button>
+
+``` r
+animateUI("btn2", animation = "bounce", speed = "fast", hover = TRUE)
+```
+
+<script>addSpsAnimation("#btn2", "sps-animation   faa-bounce animated-hover faa-fast")</script>
+
+#### Inline animation
+
+You can add animations to inline Rmarkdown text by giving it a HTML tag and id, like
+following:
+
+``` html
+some text some text <span id="some-text" style="display: inline-block">some text</span> some text some text
+```
+
+some text some text <span id="some-text" style="display: inline-block">some text</span> some text some text
+
+``` r
+animateUI(selector = "some-text", animation = "ring")
+```
+
+<script>addSpsAnimation("#some-text", "sps-animation   faa-ring animated ")</script>
+
+**Most animations required the target tag to have CSS display “block” or “inline-block”**,
+you can append this by adding `style="display: inline-block"` to the tag as shown above
+or check examples below.
+
+------------------------------------------------------------------------
+
+### `animateAppend`
+
+Add animations with pipe `%>%` by **`animateAppend`**
+
+``` r
+icon("home") %>%
+  animateAppend("ring")
+```
+
+<i aria-label="home icon" class="fa fa-home sps-animation   faa-ring animated " role="presentation"></i>
+
+``` r
+tags$p("Append animation", class = "text-primary", style="display: inline-block") %>%
+  animateAppend("pulse")
+```
+
+<p class="text-primary sps-animation   faa-pulse animated " style="display: inline-block">Append animation</p>
+
+------------------------------------------------------------------------
+
+### `animateAppendNested`
+
+Apply multiple animations to the same component
+
+``` r
+tags$b("Nested animations", class = "text-primary") %>%
+  animateAppendNested("ring") %>%
+  animateAppendNested("pulse") %>%
+  animateAppendNested("passing")
+```
+
+<div style="display: inline-block;" class="sps-animation   faa-passing animated ">
+<div style="display: inline-block;" class="sps-animation   faa-pulse animated ">
+<div style="display: inline-block;" class="sps-animation   faa-ring animated ">
+<b class="text-primary">Nested animations</b>
+</div>
+</div>
+</div>
+
+``` r
+tags$b("Nested animations display changed", class = "text-primary") %>%
+  animateAppendNested("ring") %>%
+  animateAppendNested("pulse", display = "block", style = "width: 30%")
+```
+
+<div class="sps-animation   faa-pulse animated " style="display: block; width: 30%">
+<div style="display: inline-block;" class="sps-animation   faa-ring animated ">
+<b class="text-primary">Nested animations display changed</b>
+</div>
+</div>
+
+------------------------------------------------------------------------
+
+### `animateIcon`
+
+Here is a convenient function that allows you to create font-awesome icons with
+animations and customize, color, size, etc, an enhanced version of original
+`shiny::icon` and can also be used in Rmarkdown.
+
+#### Default
+
+Default is the same as original icon
+
+``` r
+animateIcon("home")
+```
+
+<i class="fa sps-animation fa-home   animated " style="color: ;"></i>
+
+#### Animation and color
+
+``` r
+animateIcon(name = "home", animation = "horizontal", speed = "slow", color ="red")
+```
+
+<i class="fa sps-animation fa-home  faa-horizontal animated faa-slow" style="color: red;"></i>
+
+#### Add to a button
+
+``` r
+tags$button(animateIcon("spinner", "spin", "fast"), "A button")
+```
+
+<button>
+<i class="fa sps-animation fa-spinner  faa-spin animated faa-fast" style="color: ;"></i>
+A button
+</button>
+
+#### on hover
+
+``` r
+animateIcon(name = "wrench", animation = "wrench", hover = TRUE, color ="green")
+```
+
+<i class="fa sps-animation fa-wrench  faa-wrench animated-hover " style="color: green;"></i>
+
+#### Change size
+
+``` r
+animateIcon("home", size = "xs")
+```
+
+<i class="fa sps-animation fa-home fa-xs  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "sm")
+```
+
+<i class="fa sps-animation fa-home fa-sm  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "lg")
+```
+
+<i class="fa sps-animation fa-home fa-lg  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "2x")
+```
+
+<i class="fa sps-animation fa-home fa-2x  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "3x")
+```
+
+<i class="fa sps-animation fa-home fa-3x  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "5x")
+```
+
+<i class="fa sps-animation fa-home fa-5x  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "7x")
+```
+
+<i class="fa sps-animation fa-home fa-7x  animated " style="color: ;"></i>
+
+``` r
+animateIcon("home", size = "10x")
+```
+
+<i class="fa sps-animation fa-home fa-10x  animated " style="color: ;"></i>
+
+------------------------------------------------------------------------
+
+## Loaders
+
+Add loaders to indicate busy status. Most cases, loaders are added by a backend
+server to show the busy processing status and are removed when the process is done.
+Rmarkdown documents does not have a server, but you can still add some loaders.
+
+### `cssLoader`
+
+#### Default loaders
+
+There are 12 different default loaders: “circle,” “dual-ring,” “facebook,” “heart,”
+“ring,” “roller,” “default,” “ellipsis,” “grid,” “hourglass,” “ripple,” “spinner.”
+
+``` r
+cssLoader(height = "100px")
+```
+
+<div id="spsloader-594362718" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<script>
+  $(function(){
+    $("#spsloader-594362718").prepend(chooseLoader("spsloader-594362718", "default", "", "#337ab7", "100px", "100px"));
+  });
+</script>
+</div>
+
+<br>
+
+customize it:
+
+``` r
+cssLoader(type = "grid", height = "150px", color = "orange")
+```
+
+<div id="spsloader-917283456" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<script>
+  $(function(){
+    $("#spsloader-917283456").prepend(chooseLoader("spsloader-917283456", "grid", "", "orange", "150px", "150px"));
+  });
+</script>
+</div>
+
+<br>
+
+Add to a button:
+
+``` r
+tags$button(
+  ## `inline = TRUE` is important if you want loader and
+  ## text in the same line.
+  cssLoader(is_icon = TRUE, inline = TRUE, color = "#3a7bd5"),
+  "A button"
+)
+```
+
+<button>
+<i id="spsloader-561273984" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
+<script>
+  $(function(){
+    $("#spsloader-561273984").prepend(chooseLoader("spsloader-561273984", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
+  });
+</script>
+</i>
+A button
+</button>
+
 ## Other components
 
-Other components are either performed the best in a Shiny app or requires 
+Other components are either performed the best in a Shiny app or requires
 a server. Please see the [demo](https://lezhang.shinyapps.io/spsComps/)
