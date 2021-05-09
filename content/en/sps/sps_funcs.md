@@ -20,13 +20,16 @@ click links below to go to the function reference manual of each package. Detail
 function usage, example code, and example running results are shown inside. 
 
 
-- [systemPipeShiny -- main package](/sps/funcs/sps/reference)
+|Package|Description|
+|---|---|
+|[systemPipeShiny](/sps/funcs/sps/reference)|main package|
+|[spsComps](/sps/funcs/spscomps/reference)|SPS components|
+|[drawer](/sps/funcs/drawer/reference)|image editing tool|
+|[spsUtil](/sps/funcs/spsutil/reference)|utility functions|
 
-- [spsComps -- SPS components](/sps/funcs/spscomps/reference)
-
-- [drawer -- image editing tool](/sps/funcs/drawer/reference)
-
-- [spsUtil -- utility functions ](/sps/funcs/spsutil/reference)
+<style>
+table {font-size: 1.5rem}
+</style>
 
 *****
 

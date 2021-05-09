@@ -5,14 +5,23 @@ type: docs
 weight: 1
 ---
 
-
 ## SPS Components package
 
 systemPipeShiny Components (spsComps) package is a collection of custom UI  and 
 server components that are used in SPS main framework. If you see a component 
 in SPS but want to outside the SPS framework, like in your own Shiny apps, 
-take a look at these components. Here is a **[online demo](https://lezhang.shinyapps.io/spsComps)**
-of these components. 
+take a look at these components. 
+
+## Demos
+
+| Demo | type | source code |
+|---|---|---|
+|[shiny{blk}](https://lezhang.shinyapps.io/spsComps)|shinyapps.io|[Github{blk}](https://github.com/lz100/spsComps/tree/master/examples/demo)|
+|[Rmd](https://systempipe.org/sps/dev/spscomps/ui/)|Rmarkdown rendered|[Raw{blk}](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd)|
+
+<style>
+table {font-size: 1.5rem}
+</style>
 
 ## Installation 
 
