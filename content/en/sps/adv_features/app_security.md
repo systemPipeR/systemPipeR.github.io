@@ -46,8 +46,7 @@ spsOption("mode")
 ## [1] "local"
 ```
 
-The most affected function is `dynamicFile` and its server side function `dynamicFileServer` 
-from the {[spsComps](/sps/dev/spscomps)} supporting package.
+The most affected function is `dynamicFile` and its server side function `dynamicFileServer`.
 
 Server:
 
