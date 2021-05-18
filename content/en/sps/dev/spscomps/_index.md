@@ -98,8 +98,20 @@ the [reference manuals](/sps/sps_funcs) for details of every function.
 
 #### Tooltips
 
-![tooltips](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/timeline.gif?raw=true)
+![tooltips](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/bstip.gif?raw=true)
 
+![tooltips](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/bstip.png?raw=true)
 
+#### Popovers
 
+![popovers](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/bspopover.gif?raw=true)
 
+![popovers](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/bspopover.png?raw=true)
+
+#### Colorful titles
+
+![spstitle](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/spstitle.png?raw=true)
+
+#### Colorful divider lines
+
+![spshr](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/spshr.png?raw=true)

@@ -176,46 +176,46 @@ gallery(
 )
 ```
 
-<div id="gallery8138739" class="col sps-gallery" style="">
+<div id="gallery6448598" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery8138739-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery6448598-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8138739-1")
+    onclick=galEnlarge("#gallery6448598-1")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" ><p class="text-center h4 ">p1</p></a>
-</div> <div  id=gallery8138739-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6448598-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8138739-2")
+    onclick=galEnlarge("#gallery6448598-2")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" ><p class="text-center h4 ">p2</p></a>
-</div> <div  id=gallery8138739-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6448598-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8138739-3")
+    onclick=galEnlarge("#gallery6448598-3")
   >
   <a  ><p class="text-center h4 gallery-nohover">&nbsp;</p></a>
-</div> <div  id=gallery8138739-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6448598-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8138739-4")
+    onclick=galEnlarge("#gallery6448598-4")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" ><p class="text-center h4 ">p4</p></a>
-</div> <div  id=gallery8138739-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6448598-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery8138739-5")
+    onclick=galEnlarge("#gallery6448598-5")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" ><p class="text-center h4 ">p5</p></a>
 </div></div>
@@ -226,7 +226,7 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery8138739")</script>
+<script>fixGalHeight("gallery6448598")</script>
 </div>
 
 You can show a gallery of plots you make in the Rmd and when people click it,
@@ -310,7 +310,7 @@ hrefTab(
 )
 ```
 
-<div id="list-tab7837588" class="col">
+<div id="list-tab8360116" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
   href="#" 
@@ -350,7 +350,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table4417985" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table4793772" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -402,7 +402,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table3722262" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table3903696" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">
@@ -707,10 +707,10 @@ There are 12 different default loaders: “circle,” “dual-ring,” “facebo
 cssLoader(height = "100px")
 ```
 
-<div id="spsloader-218965347" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-913278546" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-218965347").prepend(chooseLoader("spsloader-218965347", "default", "", "#337ab7", "100px", "100px"));
+    $("#spsloader-913278546").prepend(chooseLoader("spsloader-913278546", "default", "", "#337ab7", "100px", "100px"));
   });
 </script>
 </div>
@@ -723,10 +723,10 @@ customize it:
 cssLoader(type = "grid", height = "150px", color = "orange")
 ```
 
-<div id="spsloader-591483267" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-298435617" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-591483267").prepend(chooseLoader("spsloader-591483267", "grid", "", "orange", "150px", "150px"));
+    $("#spsloader-298435617").prepend(chooseLoader("spsloader-298435617", "grid", "", "orange", "150px", "150px"));
   });
 </script>
 </div>
@@ -745,10 +745,10 @@ tags$button(
 ```
 
 <button>
-<i id="spsloader-968713425" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
+<i id="spsloader-934216857" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-968713425").prepend(chooseLoader("spsloader-968713425", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
+    $("#spsloader-934216857").prepend(chooseLoader("spsloader-934216857", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
   });
 </script>
 </i>
@@ -763,10 +763,10 @@ You can choose a gif to be a your loader
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", height = "100px")
 ```
 
-<div id="spsloader-541369782" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-697124358" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-541369782").prepend(chooseLoader("spsloader-541369782", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
+    $("#spsloader-697124358").prepend(chooseLoader("spsloader-697124358", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
   });
 </script>
 </div>
@@ -775,10 +775,10 @@ cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/exa
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", height = "150px")
 ```
 
-<div id="spsloader-628354719" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-692571438" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-628354719").prepend(chooseLoader("spsloader-628354719", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
+    $("#spsloader-692571438").prepend(chooseLoader("spsloader-692571438", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
   });
 </script>
 </div>
@@ -792,11 +792,11 @@ actionButton("", "Tooltip on the left") %>%
  bsTooltip("Tooltip on the left", "left")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip37753234">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip51201388">
 Tooltip on the left
 <script>
 bsTooltip(
-  "bsTooltip37753234", "left", "Tooltip on the left", "black", "white",
+  "bsTooltip51201388", "left", "Tooltip on the left", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -807,11 +807,11 @@ actionButton("", "Tooltip on the top") %>%
  bsTooltip("Tooltip on the top", "top")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip50327526">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip75760883">
 Tooltip on the top
 <script>
 bsTooltip(
-  "bsTooltip50327526", "top", "Tooltip on the top", "black", "white",
+  "bsTooltip75760883", "top", "Tooltip on the top", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -822,11 +822,11 @@ actionButton("", "Tooltip on the right") %>%
  bsTooltip("Tooltip on the right", "right")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip23199929">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip87272588">
 Tooltip on the right
 <script>
 bsTooltip(
-  "bsTooltip23199929", "right", "Tooltip on the right", "black", "white",
+  "bsTooltip87272588", "right", "Tooltip on the right", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -837,11 +837,11 @@ actionButton("", "Tooltip on the bottom") %>%
  bsTooltip("Tooltip on the bottom", "bottom")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip11165386">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip19999567">
 Tooltip on the bottom
 <script>
 bsTooltip(
-  "bsTooltip11165386", "bottom", "Tooltip on the bottom", "black", "white",
+  "bsTooltip19999567", "bottom", "Tooltip on the bottom", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -854,11 +854,11 @@ actionButton("", "primary") %>%
   bsTip("primary", status = "primary")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip62927183">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip41302842">
 primary
 <script>
 bsTooltip(
-  "bsTooltip62927183", "top", "primary", "#0275d8", "white",
+  "bsTooltip41302842", "top", "primary", "#0275d8", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -869,11 +869,11 @@ actionButton("", "info") %>%
   bsTip("info", status = "info")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip67146633">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip17592348">
 info
 <script>
 bsTooltip(
-  "bsTooltip67146633", "top", "info", "#5bc0de", "white",
+  "bsTooltip17592348", "top", "info", "#5bc0de", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -884,11 +884,11 @@ actionButton("", "success") %>%
   bsTip("success", status = "success")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip30351553">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip70458981">
 success
 <script>
 bsTooltip(
-  "bsTooltip30351553", "top", "success", "#5cb85c", "white",
+  "bsTooltip70458981", "top", "success", "#5cb85c", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -899,11 +899,11 @@ actionButton("", "warning") %>%
   bsTip("warning", status = "warning")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip55575696">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip38241728">
 warning
 <script>
 bsTooltip(
-  "bsTooltip55575696", "top", "warning", "#f0ad4e", "white",
+  "bsTooltip38241728", "top", "warning", "#f0ad4e", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -914,11 +914,11 @@ actionButton("", "danger") %>%
   bsTip("danger", status = "danger")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip86351447">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip58127777">
 danger
 <script>
 bsTooltip(
-  "bsTooltip86351447", "top", "danger", "#d9534f", "white",
+  "bsTooltip58127777", "top", "danger", "#d9534f", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
