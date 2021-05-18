@@ -19,76 +19,81 @@ weight: 1
 <link href="/rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
 <link href="/rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
+<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-
-<link href="/rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 
 For most of the UI components, you can view them in the [online Shiny demo{blk}](https://lezhang.shinyapps.io/spsComps).
 Most but **not all** UI components work in a Rmarkdown document. Here we demostrate
@@ -104,8 +109,6 @@ library(spsComps)
 ```
 
     ## Loading required package: shiny
-
-    ## Loading required package: spsUtil
 
 ``` r
 library(magrittr)
@@ -173,46 +176,46 @@ gallery(
 )
 ```
 
-<div id="gallery7850842" class="col sps-gallery" style="">
+<div id="gallery8138739" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery7850842-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery8138739-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery7850842-1")
+    onclick=galEnlarge("#gallery8138739-1")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" ><p class="text-center h4 ">p1</p></a>
-</div> <div  id=gallery7850842-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery8138739-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery7850842-2")
+    onclick=galEnlarge("#gallery8138739-2")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" ><p class="text-center h4 ">p2</p></a>
-</div> <div  id=gallery7850842-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery8138739-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery7850842-3")
+    onclick=galEnlarge("#gallery8138739-3")
   >
   <a  ><p class="text-center h4 gallery-nohover">&nbsp;</p></a>
-</div> <div  id=gallery7850842-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery8138739-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery7850842-4")
+    onclick=galEnlarge("#gallery8138739-4")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" ><p class="text-center h4 ">p4</p></a>
-</div> <div  id=gallery7850842-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery8138739-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery7850842-5")
+    onclick=galEnlarge("#gallery8138739-5")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" ><p class="text-center h4 ">p5</p></a>
 </div></div>
@@ -223,7 +226,7 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery7850842")</script>
+<script>fixGalHeight("gallery8138739")</script>
 </div>
 
 You can show a gallery of plots you make in the Rmd and when people click it,
@@ -307,7 +310,7 @@ hrefTab(
 )
 ```
 
-<div id="list-tab8821111" class="col">
+<div id="list-tab7837588" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
   href="#" 
@@ -347,7 +350,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table2920574" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table4417985" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -399,7 +402,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table5460883" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table3722262" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">
@@ -461,60 +464,6 @@ hrefTable(
 The table caption is on top in Shiny but on bottom in Rmd. You may also want to
 add the `style = "display: table;"` in Rmd to make the table occupy full length of
 the document in R markdown.
-
-## show tips with `bsHoverPopover`
-
-Space in a document is valuable. Sometimes you do not want to explain too much in
-the main text but still want to give readers some additional information. Use
-a popover to hide your additional text can be useful.
-
-### On a button
-
-``` r
-actionButton("a_btn", "A button", class = "btn-primary") %>% 
-   bsHoverPopover(
-                title = "title a",
-                content = "popover works on a button",
-                placement = "bottom"
-    )
-```
-
-<button class="btn btn-default action-button btn-primary" data-content="popover works on a button" data-placement="bottom" data-toggle="popover" id="a_btn" pop-toggle="hover" title="title a" type="button">A button</button>
-
-### On a link
-
-``` r
-tags$a(href="mailto:xxx@abc.com", "Email") %>% 
-   bsHoverPopover(
-                title = "Email me",
-                content = "popover works on a link",
-                placement = "bottom"
-    )
-```
-
-<a href="mailto:xxx@abc.com" title="Email me" data-toggle="popover" data-content="popover works on a link" data-placement="bottom" pop-toggle="hover">Email</a>
-
-### On a plot
-
-``` r
-png("random_plot.png")
-plot(1:10, 10:1)
-dev.off()
-```
-
-    ## png 
-    ##   2
-
-``` r
-tags$img(src = "../random_plot.png") %>% 
-  bsHoverPopover(
-              title = "My plot",
-              content = "popover works on a plot",
-              placement = "right"
-  )
-```
-
-<img src="../random_plot.png" title="My plot" data-toggle="popover" data-content="popover works on a plot" data-placement="right" pop-toggle="hover"/>
 
 ## Animations
 
@@ -758,10 +707,10 @@ There are 12 different default loaders: “circle,” “dual-ring,” “facebo
 cssLoader(height = "100px")
 ```
 
-<div id="spsloader-725148396" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-218965347" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-725148396").prepend(chooseLoader("spsloader-725148396", "default", "", "#337ab7", "100px", "100px"));
+    $("#spsloader-218965347").prepend(chooseLoader("spsloader-218965347", "default", "", "#337ab7", "100px", "100px"));
   });
 </script>
 </div>
@@ -774,10 +723,10 @@ customize it:
 cssLoader(type = "grid", height = "150px", color = "orange")
 ```
 
-<div id="spsloader-679215348" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-591483267" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-679215348").prepend(chooseLoader("spsloader-679215348", "grid", "", "orange", "150px", "150px"));
+    $("#spsloader-591483267").prepend(chooseLoader("spsloader-591483267", "grid", "", "orange", "150px", "150px"));
   });
 </script>
 </div>
@@ -796,10 +745,10 @@ tags$button(
 ```
 
 <button>
-<i id="spsloader-273518694" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
+<i id="spsloader-968713425" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-273518694").prepend(chooseLoader("spsloader-273518694", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
+    $("#spsloader-968713425").prepend(chooseLoader("spsloader-968713425", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
   });
 </script>
 </i>
@@ -814,10 +763,10 @@ You can choose a gif to be a your loader
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", height = "100px")
 ```
 
-<div id="spsloader-527146983" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-541369782" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-527146983").prepend(chooseLoader("spsloader-527146983", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
+    $("#spsloader-541369782").prepend(chooseLoader("spsloader-541369782", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
   });
 </script>
 </div>
@@ -826,13 +775,236 @@ cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/exa
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", height = "150px")
 ```
 
-<div id="spsloader-923475816" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-628354719" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
   $(function(){
-    $("#spsloader-923475816").prepend(chooseLoader("spsloader-923475816", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
+    $("#spsloader-628354719").prepend(chooseLoader("spsloader-628354719", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
   });
 </script>
 </div>
+
+### `bsTooltip` and `bsTip`
+
+Add tooltips to the documents with `bsTooltip`
+
+``` r
+actionButton("", "Tooltip on the left") %>%
+ bsTooltip("Tooltip on the left", "left")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip37753234">
+Tooltip on the left
+<script>
+bsTooltip(
+  "bsTooltip37753234", "left", "Tooltip on the left", "black", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "Tooltip on the top") %>%
+ bsTooltip("Tooltip on the top", "top")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip50327526">
+Tooltip on the top
+<script>
+bsTooltip(
+  "bsTooltip50327526", "top", "Tooltip on the top", "black", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "Tooltip on the right") %>%
+ bsTooltip("Tooltip on the right", "right")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip23199929">
+Tooltip on the right
+<script>
+bsTooltip(
+  "bsTooltip23199929", "right", "Tooltip on the right", "black", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "Tooltip on the bottom") %>%
+ bsTooltip("Tooltip on the bottom", "bottom")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip11165386">
+Tooltip on the bottom
+<script>
+bsTooltip(
+  "bsTooltip11165386", "bottom", "Tooltip on the bottom", "black", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+or use the higher leveler convenient function `bsTip`
+
+``` r
+actionButton("", "primary") %>%
+  bsTip("primary", status = "primary")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip62927183">
+primary
+<script>
+bsTooltip(
+  "bsTooltip62927183", "top", "primary", "#0275d8", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "info") %>%
+  bsTip("info", status = "info")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip67146633">
+info
+<script>
+bsTooltip(
+  "bsTooltip67146633", "top", "info", "#5bc0de", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "success") %>%
+  bsTip("success", status = "success")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip30351553">
+success
+<script>
+bsTooltip(
+  "bsTooltip30351553", "top", "success", "#5cb85c", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "warning") %>%
+  bsTip("warning", status = "warning")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip55575696">
+warning
+<script>
+bsTooltip(
+  "bsTooltip55575696", "top", "warning", "#f0ad4e", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+``` r
+actionButton("", "danger") %>%
+  bsTip("danger", status = "danger")
+```
+
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip86351447">
+danger
+<script>
+bsTooltip(
+  "bsTooltip86351447", "top", "danger", "#d9534f", "white",
+  "12px", "hover focus", "400", "1", false
+)
+</script>
+</button>
+
+### Titles with `spsTitle`
+
+You can use {spsComps} to add colorful titles in Rmarkdown
+
+``` r
+spsTitle("primary", status = "primary")
+```
+
+<h2 style="color: #0275d8; opacity: 1; ">primary</h2>
+
+``` r
+spsTitle("info", status = "info")
+```
+
+<h2 style="color: #5bc0de; opacity: 1; ">info</h2>
+
+``` r
+spsTitle("success", status = "success")
+```
+
+<h2 style="color: #5cb85c; opacity: 1; ">success</h2>
+
+``` r
+spsTitle("warning", status = "warning")
+```
+
+<h2 style="color: #f0ad4e; opacity: 1; ">warning</h2>
+
+``` r
+spsTitle("danger", status = "danger")
+```
+
+<h2 style="color: #d9534f; opacity: 1; ">danger</h2>
+
+<br>
+
+Or you own colors
+
+``` r
+spsTitle("purple", other_color = "purple")
+```
+
+<h2 style="color: purple; opacity: 1; ">purple</h2>
+
+``` r
+spsTitle("pink", other_color = "pink")
+```
+
+<h2 style="color: pink; opacity: 1; ">pink</h2>
+
+### Add horizontal divider lines with `spsHr`
+
+``` r
+spsHr("info")
+```
+
+<hr style="border: 0.5px solid #5bc0de; opacity: 1"/>
+
+``` r
+spsHr("primary")
+```
+
+<hr style="border: 0.5px solid #0275d8; opacity: 1"/>
+
+``` r
+spsHr("success")
+```
+
+<hr style="border: 0.5px solid #5cb85c; opacity: 1"/>
+
+``` r
+spsHr("warning")
+```
+
+<hr style="border: 0.5px solid #f0ad4e; opacity: 1"/>
+
+``` r
+spsHr("danger")
+```
+
+<hr style="border: 0.5px solid #d9534f; opacity: 1"/>
 
 ## Other components
 

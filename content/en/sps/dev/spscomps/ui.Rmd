@@ -133,46 +133,6 @@ add the `style = "display: table;"` in Rmd to make the table occupy full length 
 the document in R markdown. 
 
 
-## show tips with  `bsHoverPopover`
-
-Space in a document is valuable. Sometimes you do not want to explain too much in 
-the main text but still want to give readers some additional information. Use 
-a popover to hide your additional text can be useful. 
-
-### On a button
-```{r}
-actionButton("a_btn", "A button", class = "btn-primary") %>% 
-   bsHoverPopover(
-                title = "title a",
-                content = "popover works on a button",
-                placement = "bottom"
-    )
-```
-
-### On a link
-```{r}
-tags$a(href="mailto:xxx@abc.com", "Email") %>% 
-   bsHoverPopover(
-                title = "Email me",
-                content = "popover works on a link",
-                placement = "bottom"
-    )
-```
-
-
-### On a plot
-```{r}
-png("random_plot.png")
-plot(1:10, 10:1)
-dev.off()
-tags$img(src = "../random_plot.png") %>% 
-  bsHoverPopover(
-              title = "My plot",
-              content = "popover works on a plot",
-              placement = "right"
-  )
-```
-
 ## Animations
 ### `animateUI`
 
@@ -331,6 +291,64 @@ You can choose a gif to be a your loader
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", height = "100px")
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", height = "150px")
 
+```
+
+### `bsTooltip` and `bsTip`
+
+Add tooltips to the documents with `bsTooltip`
+
+```{r}
+actionButton("", "Tooltip on the left") %>%
+ bsTooltip("Tooltip on the left", "left")
+actionButton("", "Tooltip on the top") %>%
+ bsTooltip("Tooltip on the top", "top")
+actionButton("", "Tooltip on the right") %>%
+ bsTooltip("Tooltip on the right", "right")
+actionButton("", "Tooltip on the bottom") %>%
+ bsTooltip("Tooltip on the bottom", "bottom")
+```
+
+or use the higher leveler convenient function `bsTip`
+```{r}
+actionButton("", "primary") %>%
+  bsTip("primary", status = "primary")
+actionButton("", "info") %>%
+  bsTip("info", status = "info")
+actionButton("", "success") %>%
+  bsTip("success", status = "success")
+actionButton("", "warning") %>%
+  bsTip("warning", status = "warning")
+actionButton("", "danger") %>%
+  bsTip("danger", status = "danger")
+```
+
+### Titles with `spsTitle`
+You can use {spsComps} to add colorful titles in Rmarkdown
+```{r}
+spsTitle("primary", status = "primary")
+spsTitle("info", status = "info")
+spsTitle("success", status = "success")
+spsTitle("warning", status = "warning")
+spsTitle("danger", status = "danger")
+```
+
+<br>
+
+Or you own colors
+```{r}
+spsTitle("purple", other_color = "purple")
+spsTitle("pink", other_color = "pink")
+```
+
+
+### Add horizontal divider lines with `spsHr`
+
+```{r}
+spsHr("info")
+spsHr("primary")
+spsHr("success")
+spsHr("warning")
+spsHr("danger")
 ```
 
 

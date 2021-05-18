@@ -96,8 +96,9 @@ the [reference manuals](/sps/sps_funcs) for details of every function.
 ![timeline](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/timeline.gif?raw=true)
 
 
+#### Tooltips
 
-
+![tooltips](https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/spscomps/timeline.gif?raw=true)
 
 
 
