@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.3</span>
       </span>
     </div>
 
@@ -131,13 +131,15 @@
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
-    <dt><code>sysconfig</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the config information for the project</p></dd>
-    <dt><code>codeSteps</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>code steps</code> of the workflow</p></dd>
-    <dt><code>stepsWF</code>:</dt><dd><p>Object of class <code>"numeric"</code> storing all the index steps levels in the workflow</p></dd>
-    <dt><code>dataWF</code>:</dt><dd><p>Object of class <code>"data.frame"</code> storing all the data steps in the workflow</p></dd>
-    <dt><code>SYSargs2_steps</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>SYSargs2</code> objects of the workflow</p></dd>
+    <dt><code>sprconfig</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the config information for the project</p></dd>
+    <dt><code>stepsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>SYSargs2</code> objects of the workflow</p></dd>
     <dt><code>statusWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the success and failure of each step in the workflow</p></dd>
-    <dt><code>projectWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the directories from the project</p></dd>
+    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the dependency steps in the workflow</p></dd>
+    <dt><code>projectWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>projectWF</code> information of the workflow</p></dd>
+    <dt><code>targetsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the targets files for each step in the workflow</p></dd>
+    <dt><code>SEobj</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the SummarizedExperiment objects in the workflow</p></dd>
+    <dt><code>outfiles</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the output files in the workflow</p></dd>
+    <dt><code>targets_connection</code>:</dt><dd><p>Object of class <code>"list"</code> storing all targets files connection in the workflow</p></dd>
   
 </dl>
 
@@ -146,21 +148,27 @@
     <p></p><dl>
     <dt>[</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", drop = "ANY")</code>: subsetting of class with bracket operator</p></dd>
     <dt>[[</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[&lt;-</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", value = "ANY")</code>: replacement method for SYSargs2 class</p></dd>
+    <dt>[[&lt;-</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", value = "ANY")</code>: replacement method for <code>SYSargsList</code> class</p></dd>
     <dt>$</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracting slots elements by name</p></dd>
-    <dt>codeSteps</dt><dd><p><code>signature(x = "SYSargsList")</code>: ...</p></dd>
     <dt>coerce</dt><dd><p><code>signature(from = "list", to = "SYSargsList")</code>: <code>as(list, "SYSargsList")</code></p></dd>
     <dt>coerce</dt><dd><p><code>signature(from = "SYSargsList", to = "list")</code>: <code>as(SYSargsList, "list")</code></p></dd>
-    <dt>length</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts number of <code>SYSargsList</code> objects</p></dd>
+    <dt>length</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts number of <code>SYSargs2</code> objects</p></dd>
     <dt>names</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts slot names</p></dd>
-    <dt>projectWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>projectWF</code> slot</p></dd>
     <dt>show</dt><dd><p><code>signature(object = "SYSargsList")</code>: summary view of <code>SYSargsList</code> steps</p></dd>
-    <dt>statusWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>statusWF</code> slot</p></dd>
-    <dt>dataWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>dataWF</code> slot</p></dd>
+    <dt>sprconfig</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>sprconfig</code> slot</p></dd>
     <dt>stepsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>stepsWF</code> slot</p></dd>
-    <dt>SYSargs2_steps</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>SYSargs2_steps</code> slot</p></dd>
+    <dt>statusWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>statusWF</code> slot</p></dd>
+    <dt>dependency</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>dependency</code> slot</p></dd>
+    <dt>projectWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>projectWF</code> slot</p></dd>
+    <dt>targetsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>targetsWF</code> slot</p></dd>
     <dt>sysargslist</dt><dd><p><code>signature(x = "SYSargsList")</code>: Coerce back to list <code>as(SYSargsList, "list")</code></p></dd>
-    <dt>sysconfig</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>sysconfig</code> slot</p></dd>
+    <dt>SEobj</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>SEobj</code> slot</p></dd>
+    <dt>cmdlist</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts data from <code>cmdlist</code> slot for each step</p></dd>
+    <dt>appendStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for append a step</p></dd>
+    <dt>appendStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for append a step</p></dd>
+    <dt>replaceStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for replace a step</p></dd>
+    <dt>renameStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for rename a step</p></dd>
+    <dt>yamlinput&lt;-</dt><dd><p><code>signature(x = "SYSargs2")</code>: replacement method for <code>yamlinput</code> slot for each step</p></dd>
   
 </dl>
 
@@ -176,12 +184,15 @@
 </div><div class='output co'>#&gt; Class "SYSargsList" [package "systemPipeR"]
 #&gt; 
 #&gt; Slots:
-#&gt;                                                                   
-#&gt; Name:       sysconfig      codeSteps        stepsWF         dataWF
-#&gt; Class:           list           list      character     data.frame
-#&gt;                                                    
-#&gt; Name:  SYSargs2_steps       statusWF      projectWF
-#&gt; Class:           list           list           list</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+#&gt;                                                                
+#&gt; Name:           sprconfig            stepsWF           statusWF
+#&gt; Class:               list               list               list
+#&gt;                                                                
+#&gt; Name:          dependency          projectWF          targetsWF
+#&gt; Class:               list               list               list
+#&gt;                                                                
+#&gt; Name:               SEobj           outfiles targets_connection
+#&gt; Class:               list               list               list</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>## Construct SYSargsList object from Rmd file</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tgirke/systemPipeRdata'>systemPipeRdata</a></span><span class='op'>)</span>
 <span class='va'>script</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/workflows/rnaseq"</span>, <span class='st'>"systemPipeRNAseq.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>

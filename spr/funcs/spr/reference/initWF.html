@@ -51,7 +51,7 @@ a storage folder for all the logs, and the output to stdout or stderr. This func
 also creates the SYSconfig.yml on the fly to register all the parameters of 
 the workflow. This function checks the project structure, which by default is:
 
-SYSproject/
+SPRproject/
 data/
 param/
 results/
@@ -100,7 +100,7 @@ The default structure of the project directories can be modified here." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.3</span>
       </span>
     </div>
 
@@ -149,7 +149,7 @@ a storage folder for all the logs, and the output to stdout or stderr. This func
 also creates the <code>SYSconfig.yml</code> on the fly to register all the parameters of 
 the workflow. This function checks the project structure, which by default is:</p>
 <ul>
-<li><p><code>SYSproject/</code></p><ul>
+<li><p><code>SPRproject/</code></p><ul>
 <li><p><code>data/</code></p></li>
 <li><p><code>param/</code></p></li>
 <li><p><code>results/</code></p></li>
@@ -159,38 +159,21 @@ the workflow. This function checks the project structure, which by default is:</
 <p>The default structure of the project directories can be modified here.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>initWF</span><span class='op'>(</span>sysconfig <span class='op'>=</span> <span class='cn'>NULL</span>, subProj <span class='op'>=</span> <span class='cn'>FALSE</span>, dir_str <span class='op'>=</span> <span class='st'>"level0"</span>, dirName <span class='op'>=</span> <span class='st'>"default"</span>, 
-<span class='va'>script</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>initWF</span><span class='op'>(</span>sprconfig <span class='op'>=</span> <span class='cn'>NULL</span>, script <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='fu'>initProject</span><span class='op'>(</span>projPath <span class='op'>=</span> <span class='st'>"./"</span>, data <span class='op'>=</span> <span class='st'>"data"</span>, param <span class='op'>=</span> <span class='st'>"param"</span>, results <span class='op'>=</span> <span class='st'>"results"</span>, 
-script <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, subProj <span class='op'>=</span> <span class='cn'>FALSE</span>, filename <span class='op'>=</span> <span class='st'>"SYSconfig.yml"</span>, 
-overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+script <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, filename <span class='op'>=</span> <span class='st'>"SPRconfig.yml"</span>, 
+overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, tempdir <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>SYSproject</span><span class='op'>(</span>projPath <span class='op'>=</span> <span class='st'>"./"</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, tempdir <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+<span class='fu'>SPRproject</span><span class='op'>(</span>projPath <span class='op'>=</span> <span class='st'>"./"</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, tempdir <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>sysconfig</th>
-      <td><p>a character vector of a full <code>sysconfig</code> file path name. Default is <code>NULL</code>, 
+      <th>sprconfig</th>
+      <td><p>a character vector of a full <code>sprconfig</code> file path name. Default is <code>NULL</code>, 
 which the function understand that the <code>Rmd</code> will be provide.</p></td>
-    </tr>
-    <tr>
-      <th>subProj</th>
-      <td><p>is set TRUE, the project will be initialized and a new directory will be generated,
-  at the same level as the current project, maintaining the directory structure.
-  It will create an empty <code>results</code> folder, coping the <code>param</code> from the 
-  current project, and creating a symbolic link for the <code>data</code> folder.</p></td>
-    </tr>
-    <tr>
-      <th>dir_str</th>
-      <td><p>if <code>subProj</code> is set TRUE, it will create a directory on the same level of
-  the current location.Default is <code>level0</code>.</p></td>
-    </tr>
-    <tr>
-      <th>dirName</th>
-      <td><p>if <code>subProj</code> is set TRUE, the directory name can be defined here.</p></td>
     </tr>
     <tr>
       <th>script</th>
@@ -246,7 +229,7 @@ and image/plot files.</p></td>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>SYSproject</code> function detects and creates the project directory to store all 
+    <p><code>SPRproject</code> function detects and creates the project directory to store all 
 the flat files from the workflow management. If <code>overwrite</code> is TRUE, the previous 
 folder will be deleted and replace for a new one. Also, the user can choose to store 
 all this information on a temporary folder, setting <code>tempdir</code> = TRUE.</p>
@@ -254,7 +237,7 @@ all this information on a temporary folder, setting <code>tempdir</code> = TRUE.
 structure on the path provide.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>SYSproject</code> will return a character vector containing the path name.
+    <p><code>SPRproject</code> will return a character vector containing the path name.
 <code>initProject</code> will return a list containing all the information in the 
   <code>sysconfig</code> file.
 <code>initWF</code> will return a <code>SYSargsList</code> object.</p>
@@ -272,8 +255,8 @@ structure on the path provide.</p>
 <span class='va'>script</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/workflows/rnaseq"</span>, <span class='st'>"systemPipeRNAseq.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>
 <span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 <span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>SYSconfig</span> <span class='op'>&lt;-</span> <span class='fu'>initProject</span><span class='op'>(</span>projPath<span class='op'>=</span><span class='va'>dir_path</span>, targets<span class='op'>=</span><span class='va'>targets</span>, script<span class='op'>=</span><span class='va'>script</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'>initWF</span><span class='op'>(</span>sysconfig <span class='op'>=</span><span class='st'>"SYSconfig.yml"</span><span class='op'>)</span>
+<span class='va'>SPRconfig</span> <span class='op'>&lt;-</span> <span class='fu'>initProject</span><span class='op'>(</span>projPath<span class='op'>=</span><span class='va'>dir_path</span>, targets<span class='op'>=</span><span class='va'>targets</span>, script<span class='op'>=</span><span class='va'>script</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'>initWF</span><span class='op'>(</span>sprconfig <span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_path</span>, <span class='st'>"SPRconfig.yml"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.25.15</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.3</span>
       </span>
     </div>
 
@@ -130,7 +130,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An object of the class <code>"list"</code> that stores data from each target <code>input</code> file, as <code><a href='sysargs2.html'>targets(WF)</a></code>.</p></td>
+      <td><p>An object of the class <code>"list"</code> that stores data from each target <code>input</code> file, as <code><a href='SYSargs2-class.html'>targets(WF)</a></code>.</p></td>
     </tr>
     </table>
 
@@ -158,45 +158,34 @@
 #&gt;    WF Steps:
 #&gt;       1. hisat2-mapping-se (rendered: TRUE)
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>targets.as.df</span><span class='op'>(</span><span class='fu'><a href='sysargs2.html'>targets</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;                       FileName SampleName Factor SampleLong Experiment
-#&gt; 1  ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A          1
-#&gt; 2  ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B          1
-#&gt; 3  ./data/SRR446029_1.fastq.gz        A1A     A1   Avr.1h.A          1
-#&gt; 4  ./data/SRR446030_1.fastq.gz        A1B     A1   Avr.1h.B          1
-#&gt; 5  ./data/SRR446031_1.fastq.gz        V1A     V1   Vir.1h.A          1
-#&gt; 6  ./data/SRR446032_1.fastq.gz        V1B     V1   Vir.1h.B          1
-#&gt; 7  ./data/SRR446033_1.fastq.gz        M6A     M6  Mock.6h.A          1
-#&gt; 8  ./data/SRR446034_1.fastq.gz        M6B     M6  Mock.6h.B          1
-#&gt; 9  ./data/SRR446035_1.fastq.gz        A6A     A6   Avr.6h.A          1
-#&gt; 10 ./data/SRR446036_1.fastq.gz        A6B     A6   Avr.6h.B          1
-#&gt; 11 ./data/SRR446037_1.fastq.gz        V6A     V6   Vir.6h.A          1
-#&gt; 12 ./data/SRR446038_1.fastq.gz        V6B     V6   Vir.6h.B          1
-#&gt; 13 ./data/SRR446039_1.fastq.gz       M12A    M12 Mock.12h.A          1
-#&gt; 14 ./data/SRR446040_1.fastq.gz       M12B    M12 Mock.12h.B          1
-#&gt; 15 ./data/SRR446041_1.fastq.gz       A12A    A12  Avr.12h.A          1
-#&gt; 16 ./data/SRR446042_1.fastq.gz       A12B    A12  Avr.12h.B          1
-#&gt; 17 ./data/SRR446043_1.fastq.gz       V12A    V12  Vir.12h.A          1
-#&gt; 18 ./data/SRR446044_1.fastq.gz       V12B    V12  Vir.12h.B          1
-#&gt;           Date
-#&gt; 1  23-Mar-2012
-#&gt; 2  23-Mar-2012
-#&gt; 3  23-Mar-2012
-#&gt; 4  23-Mar-2012
-#&gt; 5  23-Mar-2012
-#&gt; 6  23-Mar-2012
-#&gt; 7  23-Mar-2012
-#&gt; 8  23-Mar-2012
-#&gt; 9  23-Mar-2012
-#&gt; 10 23-Mar-2012
-#&gt; 11 23-Mar-2012
-#&gt; 12 23-Mar-2012
-#&gt; 13 23-Mar-2012
-#&gt; 14 23-Mar-2012
-#&gt; 15 23-Mar-2012
-#&gt; 16 23-Mar-2012
-#&gt; 17 23-Mar-2012
-#&gt; 18 23-Mar-2012</div></pre>
+#&gt; </div><div class='input'><span class='fu'>targets.as.df</span><span class='op'>(</span><span class='fu'><a href='SYSargs2-class.html'>targets</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; DataFrame with 18 rows and 6 columns
+#&gt;                   FileName  SampleName      Factor  SampleLong  Experiment
+#&gt;                &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt; 1   ./data/SRR446027_1.f..         M1A          M1   Mock.1h.A           1
+#&gt; 2   ./data/SRR446028_1.f..         M1B          M1   Mock.1h.B           1
+#&gt; 3   ./data/SRR446029_1.f..         A1A          A1    Avr.1h.A           1
+#&gt; 4   ./data/SRR446030_1.f..         A1B          A1    Avr.1h.B           1
+#&gt; 5   ./data/SRR446031_1.f..         V1A          V1    Vir.1h.A           1
+#&gt; ...                    ...         ...         ...         ...         ...
+#&gt; 14  ./data/SRR446040_1.f..        M12B         M12  Mock.12h.B           1
+#&gt; 15  ./data/SRR446041_1.f..        A12A         A12   Avr.12h.A           1
+#&gt; 16  ./data/SRR446042_1.f..        A12B         A12   Avr.12h.B           1
+#&gt; 17  ./data/SRR446043_1.f..        V12A         V12   Vir.12h.A           1
+#&gt; 18  ./data/SRR446044_1.f..        V12B         V12   Vir.12h.B           1
+#&gt;            Date
+#&gt;     &lt;character&gt;
+#&gt; 1   23-Mar-2012
+#&gt; 2   23-Mar-2012
+#&gt; 3   23-Mar-2012
+#&gt; 4   23-Mar-2012
+#&gt; 5   23-Mar-2012
+#&gt; ...         ...
+#&gt; 14  23-Mar-2012
+#&gt; 15  23-Mar-2012
+#&gt; 16  23-Mar-2012
+#&gt; 17  23-Mar-2012
+#&gt; 18  23-Mar-2012</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

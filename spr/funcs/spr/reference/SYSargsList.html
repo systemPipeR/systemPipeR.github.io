@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Graphviz Plot Workflow — plotWF • systemPipeR</title>
+<title>SYSargsList — SYSargsList • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Graphviz Plot Workflow — plotWF" />
-<meta property="og:description" content="Graphviz Plot Workflow" />
+<meta property="og:title" content="SYSargsList — SYSargsList" />
+<meta property="og:description" content="S4 class container for storing parameters of command-line- or R-based software. 
+SYSargsList instances are constructed by the SYSargsList function." />
 
 
 
@@ -114,62 +115,92 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Graphviz Plot Workflow</h1>
+    <h1>SYSargsList</h1>
     
-    <div class="hidden name"><code>plotWF.Rd</code></div>
+    <div class="hidden name"><code>SYSargsList.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Graphviz Plot Workflow</p>
+    <p>S4 class container for storing parameters of command-line- or R-based software. 
+<code>SYSargsList</code> instances are constructed by the <code>SYSargsList</code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plotWF</span><span class='op'>(</span><span class='va'>sysargslist</span>, plot_style <span class='op'>=</span> <span class='st'>"detect"</span>, out_type <span class='op'>=</span> <span class='st'>"html"</span>, out_path <span class='op'>=</span> <span class='st'>"default"</span>, height <span class='op'>=</span> <span class='cn'>NULL</span>, width <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>SYSargsList</span><span class='op'>(</span>args <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, dir_path <span class='op'>=</span> <span class='st'>"."</span>, inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, step_index <span class='op'>=</span> <span class='st'>"default"</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, restartProject <span class='op'>=</span> <span class='cn'>TRUE</span>, rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, dependency <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>sysargslist</th>
-      <td><p>data frame, the standard df generated from subsetRmd function</p></td>
+      <th>args</th>
+      <td><p><code>SYSargs2</code> object</p></td>
     </tr>
     <tr>
-      <th>plot_style</th>
-      <td><p>one of 'detect', 'none', 'linear'</p></td>
+      <th>targets</th>
+      <td><p>the path to <code>targets</code> file. The <code>targets</code> file can be either a simple tabular or yml file. Also, it is possible to assign <code>NULL</code> to run the pipeline without the 'targets' file. This can be useful for running specific workflows that do not require input files.</p></td>
     </tr>
     <tr>
-      <th>out_type</th>
-      <td><p>choose from 'html', 'svg', 'png'</p></td>
+      <th>wf_file</th>
+      <td><p>name and path to <code>CWL param</code> file.</p></td>
     </tr>
     <tr>
-      <th>out_path</th>
-      <td><p>string, path of output plot, only apply from svg or png</p></td>
+      <th>input_file</th>
+      <td><p>name and path to <code>input</code> file.</p></td>
     </tr>
     <tr>
-      <th>height</th>
-      <td><p>int, height of svg or png in pixels, default NULL, automatic</p></td>
+      <th>dir_path</th>
+      <td><p>full path to the directory with the <code>CWL param</code> and <code>input</code> files.</p></td>
     </tr>
     <tr>
-      <th>width</th>
-      <td><p>int, width of svg or png in pixels, default NULL, automatic</p></td>
+      <th>inputvars</th>
+      <td><p>variables list defined in the <code>input</code> file that matches the column names defined in the <code>targets</code> file.</p></td>
+    </tr>
+    <tr>
+      <th>step_index</th>
+      <td><p>character with the step index name.</p></td>
+    </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></td>
+    </tr>
+    <tr>
+      <th>restartProject</th>
+      <td><p>restart previous workflow run.</p></td>
+    </tr>
+    <tr>
+      <th>rm_targets_col</th>
+      <td><p>targets file colunms to be removed.</p></td>
+    </tr>
+    <tr>
+      <th>dependency</th>
+      <td><p>step previous dependency.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p><code>SYSargsList</code> object</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Le Zhang and Daniela Cassol</p>
+    <p>Daniela Cassol</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code>showClass("SYSargsList")</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Construct SYSargsList object from Rmd file</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tgirke/systemPipeRdata'>systemPipeRdata</a></span><span class='op'>)</span>
-<span class='va'>script</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/workflows/rnaseq"</span>, <span class='st'>"systemPipeRNAseq.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>SYSconfig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='initWF.html'>initProject</a></span><span class='op'>(</span>projPath<span class='op'>=</span><span class='va'>dir_path</span>, targets<span class='op'>=</span><span class='va'>targets</span>, script<span class='op'>=</span><span class='va'>script</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='initWF.html'>initWF</a></span><span class='op'>(</span>sysconfig <span class='op'>=</span><span class='st'>"SYSconfig.yml"</span><span class='op'>)</span>
-<span class='fu'>plotWF</span><span class='op'>(</span><span class='va'>sysargslist</span>, plot_style <span class='op'>=</span> <span class='st'>"none"</span>, out_type <span class='op'>=</span> <span class='st'>"png"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>SYSargsList</span><span class='op'>(</span>wf_file<span class='op'>=</span><span class='st'>"example.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"example_single.yml"</span>, dir_path <span class='op'>=</span> <span class='va'>dir_path</span><span class='op'>)</span>
+<span class='va'>sal</span>
+</div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Instance of 'SYSargsList':</span> 
+#&gt;     WF Steps:
+#&gt;        1. Step_1 (Status: Pending)
+#&gt;  </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $Step_1
+#&gt; $Step_1$defaultid
+#&gt; $Step_1$defaultid$example
+#&gt; [1] "echo Hello World! &gt; results/M1.txt"
+#&gt; 
+#&gt; 
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
