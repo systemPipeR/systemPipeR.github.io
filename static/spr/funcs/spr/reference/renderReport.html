@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.5</span>
       </span>
     </div>
 
@@ -160,8 +160,8 @@
 <span class='va'>script</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/workflows/rnaseq"</span>, <span class='st'>"systemPipeRNAseq.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>
 <span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 <span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>SYSconfig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='initWF.html'>initProject</a></span><span class='op'>(</span>projPath<span class='op'>=</span><span class='va'>dir_path</span>, targets<span class='op'>=</span><span class='va'>targets</span>, script<span class='op'>=</span><span class='va'>script</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='initWF.html'>initWF</a></span><span class='op'>(</span>sysconfig <span class='op'>=</span><span class='st'>"SYSconfig.yml"</span><span class='op'>)</span>
+<span class='va'>SYSconfig</span> <span class='op'>&lt;-</span> <span class='fu'>initProject</span><span class='op'>(</span>projPath<span class='op'>=</span><span class='va'>dir_path</span>, targets<span class='op'>=</span><span class='va'>targets</span>, script<span class='op'>=</span><span class='va'>script</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'>initWF</span><span class='op'>(</span>sysconfig <span class='op'>=</span><span class='st'>"SYSconfig.yml"</span><span class='op'>)</span>
 <span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='configWF.html'>configWF</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>sysargslist</span>, input_steps <span class='op'>=</span> <span class='st'>"1:3"</span><span class='op'>)</span>
 <span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runWF.html'>runWF</a></span><span class='op'>(</span>sysargslist <span class='op'>=</span> <span class='va'>sysargslist</span>, steps <span class='op'>=</span> <span class='st'>"ALL"</span><span class='op'>)</span>
 <span class='fu'>renderReport</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>sysargslist</span><span class='op'>)</span>

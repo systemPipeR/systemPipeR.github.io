@@ -83,7 +83,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.5</span>
       </span>
     </div>
 
@@ -125,7 +125,9 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <code>SYSargsList</code> instances are constructed by the <code>SYSargsList</code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>SYSargsList</span><span class='op'>(</span>args <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, dir_path <span class='op'>=</span> <span class='st'>"."</span>, inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, step_index <span class='op'>=</span> <span class='st'>"default"</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, restartProject <span class='op'>=</span> <span class='cn'>TRUE</span>, rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, dependency <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>SYSargsList</span><span class='op'>(</span>args <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, 
+dir_path <span class='op'>=</span> <span class='st'>"."</span>, inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, step_name <span class='op'>=</span> <span class='st'>"default"</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>,  
+rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, dependency <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,16 +157,12 @@ SYSargsList instances are constructed by the SYSargsList function." />
       <td><p>variables list defined in the <code>input</code> file that matches the column names defined in the <code>targets</code> file.</p></td>
     </tr>
     <tr>
-      <th>step_index</th>
+      <th>step_name</th>
       <td><p>character with the step index name.</p></td>
     </tr>
     <tr>
       <th>silent</th>
       <td><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></td>
-    </tr>
-    <tr>
-      <th>restartProject</th>
-      <td><p>restart previous workflow run.</p></td>
     </tr>
     <tr>
       <th>rm_targets_col</th>
@@ -192,11 +190,11 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='va'>sal</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Instance of 'SYSargsList':</span> 
 #&gt;     WF Steps:
-#&gt;        1. Step_1 (Status: Pending)
+#&gt;        1. Step_x (Status: Pending)
 #&gt;  </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $Step_1
-#&gt; $Step_1$defaultid
-#&gt; $Step_1$defaultid$example
+</div><div class='output co'>#&gt; $Step_x
+#&gt; $Step_x$defaultid
+#&gt; $Step_x$defaultid$example
 #&gt; [1] "echo Hello World! &gt; results/M1.txt"
 #&gt; 
 #&gt; 
