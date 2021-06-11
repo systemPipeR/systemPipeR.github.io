@@ -91,7 +91,7 @@ remove it or set overwrite=TRUE." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.5</span>
       </span>
     </div>
 
@@ -214,12 +214,12 @@ and the columns from <code><a href='sysargs.html'>targetsout(x)</a></code>.</p>
 <span class='co'>##########################################</span>
 <span class='co'>## Construct SYSargs2 object </span>
 <span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/hisat2/hisat2-se"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2-mapping-se.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
+<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, 
+                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
 <span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='renderWF.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>WF</span>
-</div><div class='output co'>#&gt; Instance of 'SYSargs2':
+</div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
 #&gt;    Slot names/accessors: 
 #&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
 #&gt;       modules: 1
@@ -229,12 +229,10 @@ and the columns from <code><a href='sysargs.html'>targetsout(x)</a></code>.</p>
 #&gt;    WF Steps:
 #&gt;       1. hisat2-mapping-se (rendered: TRUE)
 #&gt; 
-#&gt; </div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Write targets out file</span>
+#&gt; </div><div class='input'><span class='co'>## Write targets out file</span>
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>$</span><span class='va'>clt</span><span class='op'>)</span>
-<span class='fu'>writeTargetsout</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>WF</span>, file<span class='op'>=</span><span class='st'>"default"</span>, step<span class='op'>=</span><span class='fl'>1</span>, new_col<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sam_file"</span><span class='op'>)</span>, new_col_output_index<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>}</span>
+</div><div class='output co'>#&gt; [1] "hisat2-mapping-se.cwl"</div><div class='input'><span class='fu'>writeTargetsout</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>WF</span>, file<span class='op'>=</span><span class='st'>"default"</span>, step<span class='op'>=</span><span class='fl'>1</span>, new_col<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sam_file"</span><span class='op'>)</span>, new_col_output_index<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 	 Written content of 'targetsout(x)' to file: targets_hisat2-mapping-se.txt </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
