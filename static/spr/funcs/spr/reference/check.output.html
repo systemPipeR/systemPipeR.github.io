@@ -125,7 +125,7 @@ and how many files are missing." />
 and how many files are missing.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check.output</span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>check.output</span><span class='op'>(</span><span class='va'>args</span>, type<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,6 +133,10 @@ and how many files are missing.</p>
     <tr>
       <th>args</th>
       <td><p>object of class <code>SYSargs2</code> or <code>SYSargsList</code>.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>return object option. It can be <code>data.frame</code> or <code>list</code>.</p></td>
     </tr>
     </table>
 
@@ -155,12 +159,12 @@ and how many files are missing.</p>
 #&gt;       wf: 0, clt: 1, yamlinput: 7 (components)
 #&gt;       input: 18, output: 18
 #&gt;       cmdlist: 18
-#&gt;    WF Steps:
+#&gt;    Sub Steps:
 #&gt;       1. hisat2-mapping-se (rendered: TRUE)
 #&gt; 
 #&gt; </div><div class='input'>
 <span class='fu'>check.output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    Samples Existing_Files Missing_Files
+</div><div class='output co'>#&gt;    Targets Existing_Files Missing_Files
 #&gt; 1      M1A              0             1
 #&gt; 2      M1B              0             1
 #&gt; 3      A1A              0             1
