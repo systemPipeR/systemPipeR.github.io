@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.7</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="https://systempipe.org/spr/">
-    <span class="fa fa fa fa-home"></span>
+    <span class="fa fa-home"></span>
      
     SPR Home
   </a>
@@ -288,7 +288,7 @@ https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, PBS/Torque
 #&gt;    Slot names/accessors: 
 #&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
 #&gt;       modules: 1
-#&gt;       wf: 0, clt: 1, yamlinput: 7 (components)
+#&gt;       wf: 0, clt: 1, yamlinput: 7 (inputs)
 #&gt;       input: 18, output: 18
 #&gt;       cmdlist: 18
 #&gt;    Sub Steps:
@@ -297,7 +297,8 @@ https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, PBS/Torque
 #&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>modules</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>; <span class='fu'><a href='SYSargs2-class.html'>targets</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>; <span class='fu'><a href='SYSargs2-class.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>; <span class='fu'><a href='SYSargs2-class.html'>output</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "targets"       "targetsheader" "modules"       "wf"           
 #&gt;  [5] "clt"           "yamlinput"     "cmdlist"       "input"        
-#&gt;  [9] "output"        "cwlfiles"      "inputvars"     "cmdToCwl"     </div><div class='output co'>#&gt;        module1 
+#&gt;  [9] "output"        "files"         "inputvars"     "cmdToCwl"     
+#&gt; [13] "status"       </div><div class='output co'>#&gt;        module1 
 #&gt; "hisat2/2.1.0" </div><div class='output co'>#&gt; $M1A
 #&gt; $M1A$FileName
 #&gt; [1] "./data/SRR446027_1.fastq.gz"
