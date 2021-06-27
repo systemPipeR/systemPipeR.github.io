@@ -173,17 +173,6 @@ resulting count table files.</p>
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>##########################################</span>
-<span class='co'>## Examples with \code{SYSargs} object ##</span>
-<span class='co'>##########################################</span>
-<span class='co'>## Construct SYSargs object </span>
-<span class='co'>## SYSargs with paths to range data and count files</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='st'>"param/count_rangesets.param"</span>, mytargets<span class='op'>=</span><span class='st'>"targets_macs.txt"</span><span class='op'>)</span>
-
-<span class='co'>## Iterative read counting</span>
-<span class='va'>countDFnames</span> <span class='op'>&lt;-</span> <span class='fu'>countRangeset</span><span class='op'>(</span><span class='va'>bfl</span>, <span class='va'>args</span>, mode<span class='op'>=</span><span class='st'>"Union"</span>, ignore.strand<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='fu'><a href='writeTargetsout.html'>writeTargetsout</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"targets_countDF.txt"</span>, overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-
-<span class='co'>##########################################</span>
 <span class='co'>## Examples with \code{SYSargs2} object ##</span>
 <span class='co'>##########################################</span>
 <span class='co'>## Construct SYSargs2 object </span>
@@ -195,6 +184,17 @@ resulting count table files.</p>
 
 <span class='co'>## Iterative read counting</span>
 <span class='va'>countDFnames</span> <span class='op'>&lt;-</span> <span class='fu'>countRangeset</span><span class='op'>(</span><span class='va'>bfl</span>, <span class='va'>args</span>, mode<span class='op'>=</span><span class='st'>"Union"</span>, ignore.strand<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='co'>##########################################</span>
+<span class='co'>## Examples with \code{SYSargs} object ##</span>
+<span class='co'>##########################################</span>
+<span class='co'>## Construct SYSargs object </span>
+<span class='co'>## SYSargs with paths to range data and count files</span>
+<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='st'>"param/count_rangesets.param"</span>, mytargets<span class='op'>=</span><span class='st'>"targets_macs.txt"</span><span class='op'>)</span>
+
+<span class='co'>## Iterative read counting</span>
+<span class='va'>countDFnames</span> <span class='op'>&lt;-</span> <span class='fu'>countRangeset</span><span class='op'>(</span><span class='va'>bfl</span>, <span class='va'>args</span>, mode<span class='op'>=</span><span class='st'>"Union"</span>, ignore.strand<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='writeTargetsout.html'>writeTargetsout</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"targets_countDF.txt"</span>, overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

@@ -136,6 +136,7 @@
     <dt><code>rmdPath</code>:</dt><dd><p>Object of class <code>"character"</code> storing path from the rmdPath file.</p></dd>
     <dt><code>stepName</code>:</dt><dd><p>Object of class <code>"character"</code> storing Step Name.</p></dd>
     <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"character"</code> storing dependency steps.</p></dd>
+    <dt><code>status</code>:</dt><dd><p>Object of class <code>"list"</code> storing status steps.</p></dd>
   
 </dl>
 
@@ -147,11 +148,11 @@
     <dt>[[&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for LineWise class</p></dd>
     <dt>$</dt><dd><p><code>signature(x = "LineWise")</code>: extracting slots elements by name</p></dd>
     <dt>codeLine</dt><dd><p><code>signature(x = "LineWise")</code>: ...</p></dd>
-    
     <dt>coerce</dt><dd><p><code>signature(from = "LineWise", to = "list")</code>: <code>as(LineWise, "list")</code></p></dd>
     <dt>coerce</dt><dd><p><code>signature(from = "list", to = "LineWise")</code>: <code>as(list, "LineWise")</code></p></dd>
     <dt>length</dt><dd><p><code>signature(x = "LineWise")</code>: extracts number of R code lines</p></dd>
     <dt>linewise</dt><dd><p><code>signature(x = "LineWise")</code>: Coerce back to list <code>as(LineWise, "list")</code></p></dd>
+    <dt>status</dt><dd><p><code>signature(x = "LineWise")</code>: extracts status of the step</p></dd>
     <dt>names</dt><dd><p><code>signature(x = "LineWise")</code>: extracts slot names</p></dd>
     <dt>rmdPath</dt><dd><p><code>signature(x = "LineWise")</code>: extracts path of the Rmarkdown files</p></dd>
     <dt>show</dt><dd><p><code>signature(object = "LineWise")</code>: summary view of <code>LineWise</code> objects</p></dd>

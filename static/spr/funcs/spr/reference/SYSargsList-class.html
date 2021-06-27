@@ -131,15 +131,15 @@
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
-    <dt><code>sprconfig</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the config information for the project</p></dd>
     <dt><code>stepsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>SYSargs2</code> objects of the workflow</p></dd>
     <dt><code>statusWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the success and failure of each step in the workflow</p></dd>
-    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the dependency steps in the workflow</p></dd>
-    <dt><code>projectWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>projectWF</code> information of the workflow</p></dd>
     <dt><code>targetsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the targets files for each step in the workflow</p></dd>
-    <dt><code>SEobj</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the SummarizedExperiment objects in the workflow</p></dd>
     <dt><code>outfiles</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the output files in the workflow</p></dd>
+    <dt><code>SEobj</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the SummarizedExperiment objects in the workflow</p></dd>
+    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the dependency steps in the workflow</p></dd>
     <dt><code>targets_connection</code>:</dt><dd><p>Object of class <code>"list"</code> storing all targets files connection in the workflow</p></dd>
+    <dt><code>projectInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>projectInfo</code> information of the workflow</p></dd>
+    <dt><code>runInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>runInfo</code> information of the workflow</p></dd>
   
 </dl>
 
@@ -155,11 +155,11 @@
     <dt>length</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts number of <code>SYSargs2</code> objects</p></dd>
     <dt>names</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts slot names</p></dd>
     <dt>show</dt><dd><p><code>signature(object = "SYSargsList")</code>: summary view of <code>SYSargsList</code> steps</p></dd>
-    <dt>sprconfig</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>sprconfig</code> slot</p></dd>
     <dt>stepsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>stepsWF</code> slot</p></dd>
     <dt>statusWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>statusWF</code> slot</p></dd>
     <dt>dependency</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>dependency</code> slot</p></dd>
-    <dt>projectWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>projectWF</code> slot</p></dd>
+    <dt>projectInfo</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>projectInfo</code> slot</p></dd>
+    <dt>runInfo</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>runInfo</code> slot</p></dd>
     <dt>targetsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>targetsWF</code> slot</p></dd>
     <dt>sysargslist</dt><dd><p><code>signature(x = "SYSargsList")</code>: Coerce back to list <code>as(SYSargsList, "list")</code></p></dd>
     <dt>SEobj</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>SEobj</code> slot</p></dd>
@@ -192,15 +192,18 @@
 #&gt; Class:               list               list               list
 #&gt;                                                                
 #&gt; Name:  targets_connection        projectInfo            runInfo
-#&gt; Class:               list               list               list</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Construct SYSargsList object from Rmd file</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tgirke/systemPipeRdata'>systemPipeRdata</a></span><span class='op'>)</span>
-<span class='va'>script</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/workflows/rnaseq"</span>, <span class='st'>"systemPipeRNAseq.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>SYSconfig</span> <span class='op'>&lt;-</span> <span class='fu'>initProject</span><span class='op'>(</span>projPath<span class='op'>=</span><span class='va'>dir_path</span>, targets<span class='op'>=</span><span class='va'>targets</span>, script<span class='op'>=</span><span class='va'>script</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'>initWF</span><span class='op'>(</span>sysconfig <span class='op'>=</span><span class='st'>"SYSconfig.yml"</span><span class='op'>)</span>
-  <span class='op'>}</span>
+#&gt; Class:               list               list               list</div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>projPath <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Creating directory: /tmp/RtmpZhNpBc/data 
+#&gt; Creating directory: /tmp/RtmpZhNpBc/param 
+#&gt; Creating directory: /tmp/RtmpZhNpBc/results 
+#&gt; Creating directory '/tmp/RtmpZhNpBc/.SPRproject'
+#&gt; Creating file '/tmp/RtmpZhNpBc/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targetsPE.txt"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SYSargsList.html'>SYSargsList</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targetspath</span>, 
+                   step_name<span class='op'>=</span><span class='st'>"Quality"</span>,
+                   wf_file <span class='op'>=</span> <span class='st'>"trimmomatic/trimmomatic-pe.cwl"</span>, input_file <span class='op'>=</span> <span class='st'>"trimmomatic/trimmomatic-pe.yml"</span>,
+                   dir_path<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, 
+                                        package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span>,
+                   inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName1<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, FileName2<span class='op'>=</span><span class='st'>"_FASTQ_PATH2_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

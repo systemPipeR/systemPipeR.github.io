@@ -125,9 +125,10 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <code>SYSargsList</code> instances are constructed by the <code>SYSargsList</code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>SYSargsList</span><span class='op'>(</span>args <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, 
-dir_path <span class='op'>=</span> <span class='st'>"."</span>, inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, step_name <span class='op'>=</span> <span class='st'>"default"</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>,  
-rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, dependency <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>SYSargsList</span><span class='op'>(</span>args <span class='op'>=</span> <span class='cn'>NULL</span>, step_name <span class='op'>=</span> <span class='st'>"default"</span>, 
+            targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, dir_path <span class='op'>=</span> <span class='st'>"."</span>, 
+            inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, 
+            dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dependency <span class='op'>=</span> <span class='cn'>NULL</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,6 +136,10 @@ rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, dependenc
     <tr>
       <th>args</th>
       <td><p><code>SYSargs2</code> object</p></td>
+    </tr>
+    <tr>
+      <th>step_name</th>
+      <td><p>character with the step index name.</p></td>
     </tr>
     <tr>
       <th>targets</th>
@@ -157,20 +162,23 @@ rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, dependenc
       <td><p>variables list defined in the <code>input</code> file that matches the column names defined in the <code>targets</code> file.</p></td>
     </tr>
     <tr>
-      <th>step_name</th>
-      <td><p>character with the step index name.</p></td>
-    </tr>
-    <tr>
-      <th>silent</th>
-      <td><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></td>
-    </tr>
-    <tr>
       <th>rm_targets_col</th>
       <td><p>targets file colunms to be removed.</p></td>
     </tr>
     <tr>
+      <th>dir</th>
+      <td><p>This option allows creating an exclusive results folder for each step in the 
+  workflow and a sub-folder for each sample defined in the targets file. All the 
+  outputs and log files for the particular step will be created in the respective
+  folders. Default is <code>dir=TRUE</code>.</p></td>
+    </tr>
+    <tr>
       <th>dependency</th>
       <td><p>step previous dependency.</p></td>
+    </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></td>
     </tr>
     </table>
 
