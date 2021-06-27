@@ -140,9 +140,10 @@
     <dt><code>cmdlist</code>:</dt><dd><p>Object of class <code>"list"</code> storing all command-line used to execute external software</p></dd>
     <dt><code>input</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each target defined in <code>inputvars</code></p></dd>
     <dt><code>output</code>:</dt><dd><p>Object of class <code>"list"</code> paths to final outputs files</p></dd>
-    <dt><code>cwlfiles</code>:</dt><dd><p>Object of class <code>"list"</code> paths to <code>input</code> and <code>CWL param</code> files</p></dd>
+    <dt><code>files</code>:</dt><dd><p>Object of class <code>"list"</code> paths to <code>input</code> and <code>CWL param</code> files</p></dd>
     <dt><code>inputvars</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>inputvars</code></p></dd>
     <dt><code>cmdToCwl</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>cmdToCwl</code></p></dd>
+    <dt><code>status</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>status</code></p></dd>
   
 </dl>
 
@@ -156,7 +157,7 @@
     <dt>clt</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>clt</code> slot</p></dd>
     <dt>cmdlist</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>cmdlist</code> slot</p></dd>
     <dt>coerce</dt><dd><p><code>signature(from = "list", to = "SYSargs2")</code>: <code>as(list, "SYSargs2")</code></p></dd>
-    <dt>cwlfiles</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>cwlfiles</code> slot</p></dd>
+    <dt>files</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>files</code> slot</p></dd>
     <dt>infile1</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracting paths to first FASTQ file</p></dd>
     <dt>infile2</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracting paths to second FASTQ file if data is PE</p></dd>
     <dt>input</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>input</code> slot</p></dd>
@@ -172,6 +173,7 @@
     <dt>wf</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>wf</code> slot</p></dd>
     <dt>yamlinput</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>yamlinput</code> slot</p></dd>
     <dt>cmdToCwl</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>cmdToCwl</code> slot</p></dd>
+    <dt>status</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>status</code> slot</p></dd>
     <dt>yamlinput&lt;-</dt><dd><p><code>signature(x = "SYSargs2")</code>: replacement method for <code>yamlinput</code> slot</p></dd>
 	 
 </dl>
