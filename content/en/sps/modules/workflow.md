@@ -161,15 +161,15 @@ for more details.
 ## `is_demo` option
 The `is_demo` [option](/sps/adv_features/config/#app-options) will impact the workflow 
 module.
-- `TRUE`: you are not deploying the app for production purpose. It is just a show case.
+- `TRUE`: you are **not** deploying the app for production purpose. It is just a show case.
   Under this option, users who are trying to create a workflow will be locked inside 
   a temp directory and every time they start a new session, they will be assigned to 
-  a new temp directory. This is useful is many people want to try the app the same 
-  time, so they will have private different environment, and the temp directory will 
-  be removed afterwards. 
+  a new temp directory. This is useful if many people want to try the app the same 
+  time, so they will have different private environments, and the temp directory will 
+  be removed after the Shiny session is closed. 
 - `FALSE`: you are using the app on your own local computer or use it in a production 
   environment. WF module will have **full access** to the sever storage system and 
-  users can choose **any place** they have permission to create the workflow session. 
+  users can choose **any place** they have permissions to create the workflow session. 
   
   
   
