@@ -71,7 +71,7 @@ See what accounts you have
 ```{r}
 acc$accList()
 ```
-You can also listed passwords. They are SHA256 encrypted. 
+You can also list passwords. They are SHA256 encrypted. 
 ```{r collapse=TRUE}
 tibble::as_tibble(acc$accList(include_pass = TRUE))
 ```
