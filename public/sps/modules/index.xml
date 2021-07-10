@@ -124,15 +124,15 @@ for more details.&lt;/p>
 &lt;p>The &lt;code>is_demo&lt;/code> &lt;a href="../../sps/adv_features/config/#app-options">option&lt;/a> will impact the workflow
 module.&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>TRUE&lt;/code>: you are not deploying the app for production purpose. It is just a show case.
+&lt;li>&lt;code>TRUE&lt;/code>: you are &lt;strong>not&lt;/strong> deploying the app for production purpose. It is just a show case.
 Under this option, users who are trying to create a workflow will be locked inside
 a temp directory and every time they start a new session, they will be assigned to
-a new temp directory. This is useful is many people want to try the app the same
-time, so they will have private different environment, and the temp directory will
-be removed afterwards.&lt;/li>
+a new temp directory. This is useful if many people want to try the app the same
+time, so they will have different private environments, and the temp directory will
+be removed after the Shiny session is closed.&lt;/li>
 &lt;li>&lt;code>FALSE&lt;/code>: you are using the app on your own local computer or use it in a production
 environment. WF module will have &lt;strong>full access&lt;/strong> to the sever storage system and
-users can choose &lt;strong>any place&lt;/strong> they have permission to create the workflow session.&lt;/li>
+users can choose &lt;strong>any place&lt;/strong> they have permissions to create the workflow session.&lt;/li>
 &lt;/ul></description></item><item><title>Sps: RNAseq</title><link>/sps/modules/rnaseq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sps/modules/rnaseq/</guid><description>
 &lt;h2 id="rna-seq-module">RNA-Seq Module&lt;/h2>
 &lt;p>This is a module which takes a &lt;strong>raw count table&lt;/strong> to do normalization,
