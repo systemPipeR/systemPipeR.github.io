@@ -40,7 +40,17 @@
 
 
 <meta property="og:title" content="Class "SYSargs2" — SYSargs2-class" />
-<meta property="og:description" content="SYSargs2 class stores all the information and instructions needed for processing a set of input files with a specific command-line or a series of command-line within a workflow. The SYSargs2 S4 class object is created from the loadWorkflow and renderWF function, which populates all the command-line for each sample in each step of the particular workflow. Each sample level input/outfile operation uses its own SYSargs2 instance. The output of SYSargs2 define all the expected output files for each step in the workflow, which usually it is the sample input for the next step in an SYSargs2 instance. Between different instances, this connectivity is established by writing the subsetting output with the writeTargetsout function to a new targets file that serves as input to the next loadWorkflow and renderWF call. By chaining several SYSargs2 steps together one can construct complex workflows involving many sample-level input/output file operations with any combination of command-line or R-based software." />
+<meta property="og:description" content="SYSargs2 class stores all the information and instructions needed for 
+processing a set of input files with a specific command-line or a series of 
+command-line within a workflow. The SYSargs2 S4 class object is created 
+from the loadWF and renderWF function, which populates all the 
+command-line for each sample in each step of the particular workflow. Each sample 
+level input/outfile operation uses its own SYSargs2 instance. The output 
+of SYSargs2 define all the expected output files for each step in the 
+workflow, which usually it is the sample input for the next step in an SYSargs2
+instance. By chaining several SYSargs2 steps together one can construct 
+complex workflows involving many sample-level input/output file operations with 
+any combination of command-line or R-based software." />
 
 
 
@@ -82,7 +92,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -120,7 +130,17 @@
     </div>
 
     <div class="ref-description">
-    <p><code>SYSargs2 class</code> stores all the information and instructions needed for processing a set of input files with a specific command-line or a series of command-line within a workflow. The <code>SYSargs2</code> S4 class object is created from the <code>loadWorkflow</code> and <code>renderWF</code> function, which populates all the command-line for each sample in each step of the particular workflow. Each sample level input/outfile operation uses its own <code>SYSargs2</code> instance. The output of <code>SYSargs2</code> define all the expected output files for each step in the workflow, which usually it is the sample input for the next step in an <code>SYSargs2</code> instance. Between different instances, this connectivity is established by writing the subsetting output with the <code>writeTargetsout</code> function to a new targets file that serves as input to the next <code>loadWorkflow</code> and <code>renderWF</code> call. By chaining several <code>SYSargs2</code> steps together one can construct complex workflows involving many sample-level input/output file operations with any combination of command-line or R-based software.</p>
+    <p><code>SYSargs2 class</code> stores all the information and instructions needed for 
+processing a set of input files with a specific command-line or a series of 
+command-line within a workflow. The <code>SYSargs2</code> S4 class object is created 
+from the <code>loadWF</code> and <code>renderWF</code> function, which populates all the 
+command-line for each sample in each step of the particular workflow. Each sample 
+level input/outfile operation uses its own <code>SYSargs2</code> instance. The output 
+of <code>SYSargs2</code> define all the expected output files for each step in the 
+workflow, which usually it is the sample input for the next step in an <code>SYSargs2</code>
+instance. By chaining several <code>SYSargs2</code> steps together one can construct 
+complex workflows involving many sample-level input/output file operations with 
+any combination of command-line or R-based software.</p>
     </div>
 
 
@@ -134,13 +154,14 @@
     <dt><code>targets</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each sample from <code>targets</code> file</p></dd>
     <dt><code>targetsheader</code>:</dt><dd><p>Object of class <code>"list"</code> storing header/comment lines of targets file</p></dd>
     <dt><code>modules</code>:</dt><dd><p>Object of class <code>"list"</code> storing software versions from module system</p></dd>
-    <dt><code>wf</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from Workflow <code>CWL param</code> file</p></dd>
-    <dt><code>clt</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each CommandLineTool step in the Workflow or the single CommandLineTool <code>CWL param</code> file</p></dd>
-    <dt><code>yamlinput</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from <code>input</code> file</p></dd>
+    <dt><code>wf</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from Workflow <code>CWL parameters</code> file</p></dd>
+    <dt><code>clt</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>CommandLineTool</code>
+                        substep in the Workflow or the single codeCommandLineTool <code>CWL parameters</code> file</p></dd>
+    <dt><code>yamlinput</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from <code>input (*.yml)</code> file</p></dd>
     <dt><code>cmdlist</code>:</dt><dd><p>Object of class <code>"list"</code> storing all command-line used to execute external software</p></dd>
     <dt><code>input</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each target defined in <code>inputvars</code></p></dd>
     <dt><code>output</code>:</dt><dd><p>Object of class <code>"list"</code> paths to final outputs files</p></dd>
-    <dt><code>files</code>:</dt><dd><p>Object of class <code>"list"</code> paths to <code>input</code> and <code>CWL param</code> files</p></dd>
+    <dt><code>files</code>:</dt><dd><p>Object of class <code>"list"</code> paths to <code>input</code> and <code>CWL parameters</code> files</p></dd>
     <dt><code>inputvars</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>inputvars</code></p></dd>
     <dt><code>cmdToCwl</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>cmdToCwl</code></p></dd>
     <dt><code>status</code>:</dt><dd><p>Object of class <code>"list"</code> storing data from each <code>status</code></p></dd>
@@ -151,31 +172,43 @@
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     <p></p><dl>
-    <dt>[</dt><dd><p><code>signature(x = "SYSargs2")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[</dt><dd><p><code>signature(x = "SYSargs2", i = "ANY", j = "missing")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[&lt;-</dt><dd><p><code>signature(x = "SYSargs2")</code>: replacement method for SYSargs2 class</p></dd>
-    <dt>$</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracting slots elements by name</p></dd>
-    <dt>clt</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>clt</code> slot</p></dd>
-    <dt>cmdlist</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>cmdlist</code> slot</p></dd>
+    <dt>[</dt><dd><p>Subsetting of class with bracket operator.</p></dd>
+    <dt>[[</dt><dd><p>Subsetting of class with bracket operator.</p></dd>
+    <dt>[[&lt;-</dt><dd><p>Replacement method for <code>"SYSargs2"</code> class.</p></dd>
+    <dt>$</dt><dd><p>Extracting slots elements by name.</p></dd>
+    <dt>length</dt><dd><p>Extracts number of samples.</p></dd>
+    <dt>names</dt><dd><p>Extracts slot names.</p></dd>
+    <dt>show</dt><dd><p>Summary view of <code>SYSargs2</code> objects.</p></dd>
+
+    % Coerce
     <dt>coerce</dt><dd><p><code>signature(from = "list", to = "SYSargs2")</code>: <code>as(list, "SYSargs2")</code></p></dd>
-    <dt>files</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>files</code> slot</p></dd>
-    <dt>infile1</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracting paths to first FASTQ file</p></dd>
-    <dt>infile2</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracting paths to second FASTQ file if data is PE</p></dd>
-    <dt>input</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>input</code> slot</p></dd>
-    <dt>inputvars</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>inputvars</code> slot</p></dd>
-    <dt>length</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts number of samples</p></dd>
-    <dt>modules</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>modules</code> slot</p></dd>
-    <dt>names</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts slot names</p></dd>
-    <dt>output</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>cmdlist</code> slot</p></dd>
-    <dt>show</dt><dd><p><code>signature(object = "SYSargs2")</code>: summary view of <code>SYSargs2</code> objects</p></dd>
-    <dt>sysargs2</dt><dd><p><code>signature(x = "SYSargs2")</code>: Coerce back to list <code>as(SYSargs2, "list")</code></p></dd>
-    <dt>targets</dt><dd><p><code>signature(x = "SYSargs2")</code>: extract data from <code>targets</code> slot</p></dd>
-    <dt>targetsheader</dt><dd><p><code>signature(x = "SYSargs2")</code>: extracts data from <code>targetsheader</code> slot</p></dd>
-    <dt>wf</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>wf</code> slot</p></dd>
-    <dt>yamlinput</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>yamlinput</code> slot</p></dd>
-    <dt>cmdToCwl</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>cmdToCwl</code> slot</p></dd>
-    <dt>status</dt><dd><p><code>signature(x = "SYSargs2")</code>:  extracts data from <code>status</code> slot</p></dd>
-    <dt>yamlinput&lt;-</dt><dd><p><code>signature(x = "SYSargs2")</code>: replacement method for <code>yamlinput</code> slot</p></dd>
+    <dt>coerce</dt><dd><p><code>signature(from = "SYSargs2", to = "list")</code><code>as(SYSargs2, "list")</code></p></dd>
+    <dt>coerce</dt><dd><p><code>signature(from = "SYSargs2", to = "DataFrame")</code>: <code>as(x, "DataFrame")</code>; for targets slot.</p></dd>
+    <dt>sysargs2</dt><dd><p>Coerce back to list <code>as(SYSargs2, "list")</code></p></dd>
+    
+    % Accessors
+    <dt>targets</dt><dd><p>Extract data from <code>targets</code> slot.</p></dd>
+    <dt>targetsheader</dt><dd><p>Extracts data from <code>targetsheader</code> slot.</p></dd>
+    <dt>modules</dt><dd><p>Extracts data from <code>modules</code> slot.</p></dd>
+    <dt>wf</dt><dd><p>Extracts data from <code>wf</code> slot.</p></dd>
+    <dt>clt</dt><dd><p>Extracts data from <code>clt</code> slot.</p></dd>
+    <dt>yamlinput</dt><dd><p>Extracts data from <code>yamlinput</code> slot.</p></dd>
+    <dt>cmdlist</dt><dd><p>Extracts data from <code>cmdlist</code> slot.</p></dd>
+    <dt>input</dt><dd><p>Extracts data from <code>input</code> slot.</p></dd>
+    <dt>output</dt><dd><p>Extracts data from <code>cmdlist</code> slot.</p></dd>
+    <dt>files</dt><dd><p>Extracts data from <code>files</code> slot.</p></dd>
+    <dt>inputvars</dt><dd><p>Extracts data from <code>inputvars</code> slot.</p></dd>
+    <dt>cmdToCwl</dt><dd><p>Extracts data from <code>cmdToCwl</code> slot.</p></dd>
+    <dt>status</dt><dd><p>Extracts data from <code>status</code> slot.</p></dd>
+    
+    % Methods
+    <dt>infile1</dt><dd><p>extracting paths to first FASTQ file.</p></dd>
+    <dt>infile2</dt><dd><p>extracting paths to second FASTQ file if data is PE.</p></dd>
+    <dt>baseCommand</dt><dd><p>Extracts baseCommand from command-line used to execute external software.</p></dd>
+    <dt>SampleName</dt><dd><p>Extracts all samples names.</p></dd>
+
+        % Replacement
+    <dt>yamlinput&lt;-</dt><dd><p>Replacement method for <code>yamlinput</code> slot input.</p></dd>
 	 
 </dl>
 
@@ -184,7 +217,7 @@
     <p>Daniela Cassol and Thomas Girke</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>loadWorkflow</code> and <code>renderWF</code> and <code>runCommandline</code> and <code>clusterRun</code></p></div>
+    <div class='dont-index'><p><code>loadWF</code> and <code>renderWF</code> and <code>runCommandline</code> and <code>clusterRun</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"SYSargs2"</span><span class='op'>)</span>
@@ -204,180 +237,199 @@
 #&gt; Name:             status internal_outfiles
 #&gt; Class:              list              list</div><div class='input'>
 <span class='co'>## Construct SYSargs2 object from CWl param, CWL input, and targets files </span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 <span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='renderWF.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targetspath</span>, 
+                  wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, 
+                  input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
+                  dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
+<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>WF</span>
 </div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
 #&gt;    Slot names/accessors: 
-#&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
-#&gt;       modules: 1
-#&gt;       wf: 0, clt: 1, yamlinput: 7 (inputs)
-#&gt;       input: 18, output: 18
-#&gt;       cmdlist: 18
+#&gt;       targets: 3 (M1...M3), targetsheader: 1 (lines)
+#&gt;       modules: 0
+#&gt;       wf: 1, clt: 1, yamlinput: 3 (inputs)
+#&gt;       input: 3, output: 3
+#&gt;       cmdlist: 3
 #&gt;    Sub Steps:
-#&gt;       1. hisat2-mapping-se (rendered: TRUE)
+#&gt;       1. echo (rendered: TRUE)
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>modules</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>; <span class='fu'>targets</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>; <span class='fu'>cmdlist</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>; <span class='fu'>output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+#&gt; </div><div class='input'>
+<span class='co'>## Methods</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "targets"           "targetsheader"     "modules"          
 #&gt;  [4] "wf"                "clt"               "yamlinput"        
 #&gt;  [7] "cmdlist"           "input"             "output"           
 #&gt; [10] "files"             "inputvars"         "cmdToCwl"         
-#&gt; [13] "status"            "internal_outfiles"</div><div class='output co'>#&gt;        module1 
-#&gt; "hisat2/2.1.0" </div><div class='output co'>#&gt; $M1A
-#&gt; $M1A$FileName
-#&gt; [1] "./data/SRR446027_1.fastq.gz"
+#&gt; [13] "status"            "internal_outfiles"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 3</div><div class='input'><span class='fu'><a href='SYSargsList.html'>baseCommand</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "echo"</div><div class='input'><span class='fu'><a href='SYSargsList.html'>SampleName</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "M1" "M2" "M3"</div><div class='input'>
+<span class='co'>## Accessors</span>
+<span class='fu'>targets</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $M1
+#&gt; $M1$Message
+#&gt; [1] "Hello World!"
 #&gt; 
-#&gt; $M1A$SampleName
-#&gt; [1] "M1A"
-#&gt; 
-#&gt; $M1A$Factor
+#&gt; $M1$SampleName
 #&gt; [1] "M1"
 #&gt; 
-#&gt; $M1A$SampleLong
-#&gt; [1] "Mock.1h.A"
 #&gt; 
-#&gt; $M1A$Experiment
-#&gt; [1] 1
+#&gt; $M2
+#&gt; $M2$Message
+#&gt; [1] "Hello USA!"
 #&gt; 
-#&gt; $M1A$Date
-#&gt; [1] "23-Mar-2012"
-#&gt; 
-#&gt; </div><div class='output co'>#&gt; $M1A
-#&gt; $M1A$`hisat2-mapping-se`
-#&gt; [1] "hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4"
+#&gt; $M2$SampleName
+#&gt; [1] "M2"
 #&gt; 
 #&gt; 
-#&gt; $M1B
-#&gt; $M1B$`hisat2-mapping-se`
-#&gt; [1] "hisat2 -S ./results/M1B.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446028_1.fastq.gz --threads 4"
+#&gt; $M3
+#&gt; $M3$Message
+#&gt; [1] "Hello Bioconcudctor!"
 #&gt; 
-#&gt; </div><div class='output co'>#&gt; $M1A
-#&gt; $M1A$`hisat2-mapping-se`
-#&gt; [1] "./results/M1A.sam"
+#&gt; $M3$SampleName
+#&gt; [1] "M3"
 #&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='SYSargsList.html'>targetsheader</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $targetsheader
+#&gt; [1] "# Project ID: SPR Example"
+#&gt; </div><div class='input'><span class='fu'>modules</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; character(0)</div><div class='input'><span class='fu'><a href='SYSargsList.html'>yamlinput</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $message
+#&gt; [1] "_STRING_"
 #&gt; 
-#&gt; $M1B
-#&gt; $M1B$`hisat2-mapping-se`
-#&gt; [1] "./results/M1B.sam"
+#&gt; $SampleName
+#&gt; [1] "_SAMPLE_"
 #&gt; 
+#&gt; $results_path
+#&gt; $results_path$class
+#&gt; [1] "Directory"
 #&gt; 
-#&gt; $A1A
-#&gt; $A1A$`hisat2-mapping-se`
-#&gt; [1] "./results/A1A.sam"
+#&gt; $results_path$path
+#&gt; [1] "./results"
 #&gt; 
-#&gt; 
-#&gt; $A1B
-#&gt; $A1B$`hisat2-mapping-se`
-#&gt; [1] "./results/A1B.sam"
-#&gt; 
-#&gt; 
-#&gt; $V1A
-#&gt; $V1A$`hisat2-mapping-se`
-#&gt; [1] "./results/V1A.sam"
-#&gt; 
-#&gt; 
-#&gt; $V1B
-#&gt; $V1B$`hisat2-mapping-se`
-#&gt; [1] "./results/V1B.sam"
+#&gt; </div><div class='input'><span class='fu'><a href='SYSargsList.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $M1
+#&gt; $M1$echo
+#&gt; [1] "echo Hello World! &gt; results/M1.txt"
 #&gt; 
 #&gt; 
-#&gt; $M6A
-#&gt; $M6A$`hisat2-mapping-se`
-#&gt; [1] "./results/M6A.sam"
+#&gt; $M2
+#&gt; $M2$echo
+#&gt; [1] "echo Hello USA! &gt; results/M2.txt"
 #&gt; 
 #&gt; 
-#&gt; $M6B
-#&gt; $M6B$`hisat2-mapping-se`
-#&gt; [1] "./results/M6B.sam"
+#&gt; $M3
+#&gt; $M3$echo
+#&gt; [1] "echo Hello Bioconcudctor! &gt; results/M3.txt"
+#&gt; 
+#&gt; </div><div class='input'><span class='fu'>input</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $M1
+#&gt; $M1$Message
+#&gt; [1] "Hello World!"
+#&gt; 
+#&gt; $M1$SampleName
+#&gt; [1] "M1"
 #&gt; 
 #&gt; 
-#&gt; $A6A
-#&gt; $A6A$`hisat2-mapping-se`
-#&gt; [1] "./results/A6A.sam"
+#&gt; $M2
+#&gt; $M2$Message
+#&gt; [1] "Hello USA!"
+#&gt; 
+#&gt; $M2$SampleName
+#&gt; [1] "M2"
 #&gt; 
 #&gt; 
-#&gt; $A6B
-#&gt; $A6B$`hisat2-mapping-se`
-#&gt; [1] "./results/A6B.sam"
+#&gt; $M3
+#&gt; $M3$Message
+#&gt; [1] "Hello Bioconcudctor!"
+#&gt; 
+#&gt; $M3$SampleName
+#&gt; [1] "M3"
+#&gt; 
+#&gt; </div><div class='input'><span class='fu'>output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $M1
+#&gt; $M1$echo
+#&gt; [1] "results/M1.txt"
 #&gt; 
 #&gt; 
-#&gt; $V6A
-#&gt; $V6A$`hisat2-mapping-se`
-#&gt; [1] "./results/V6A.sam"
+#&gt; $M2
+#&gt; $M2$echo
+#&gt; [1] "results/M2.txt"
 #&gt; 
 #&gt; 
-#&gt; $V6B
-#&gt; $V6B$`hisat2-mapping-se`
-#&gt; [1] "./results/V6B.sam"
+#&gt; $M3
+#&gt; $M3$echo
+#&gt; [1] "results/M3.txt"
 #&gt; 
+#&gt; </div><div class='input'><span class='fu'>files</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $cwl
+#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/workflow_example.cwl"
 #&gt; 
-#&gt; $M12A
-#&gt; $M12A$`hisat2-mapping-se`
-#&gt; [1] "./results/M12A.sam"
+#&gt; $yml
+#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.yml"
 #&gt; 
+#&gt; $dir_path
+#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl"
 #&gt; 
-#&gt; $M12B
-#&gt; $M12B$`hisat2-mapping-se`
-#&gt; [1] "./results/M12B.sam"
+#&gt; $steps
+#&gt; [1] "echo"
 #&gt; 
+#&gt; $cltpaths
+#&gt;                                                                          example 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.cwl" 
 #&gt; 
-#&gt; $A12A
-#&gt; $A12A$`hisat2-mapping-se`
-#&gt; [1] "./results/A12A.sam"
+#&gt; $output_names
+#&gt; example/example.cwl 
+#&gt;            "string" 
 #&gt; 
+#&gt; $targets
+#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt"
+#&gt; </div><div class='input'><span class='fu'>inputvars</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $Message
+#&gt; [1] "_STRING_"
 #&gt; 
-#&gt; $A12B
-#&gt; $A12B$`hisat2-mapping-se`
-#&gt; [1] "./results/A12B.sam"
+#&gt; $SampleName
+#&gt; [1] "_SAMPLE_"
+#&gt; </div><div class='input'><span class='fu'>cmdToCwl</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; list()</div><div class='input'><span class='fu'>status</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $status.summary
+#&gt; [1] "Pending"
 #&gt; 
+#&gt; $status.completed
+#&gt;   Targets Total_Files Existing_Files Missing_Files    echo
+#&gt; 1      M1           1              0             1 Pending
+#&gt; 2      M2           1              0             1 Pending
+#&gt; 3      M3           1              0             1 Pending
 #&gt; 
-#&gt; $V12A
-#&gt; $V12A$`hisat2-mapping-se`
-#&gt; [1] "./results/V12A.sam"
-#&gt; 
-#&gt; 
-#&gt; $V12B
-#&gt; $V12B$`hisat2-mapping-se`
-#&gt; [1] "./results/V12B.sam"
-#&gt; 
+#&gt; $status.time
+#&gt; data frame with 0 columns and 0 rows
 #&gt; </div><div class='input'>
 <span class='co'>## The subsetting operator '[' allows to select specific command-line</span>
-<span class='fu'>cmdlist</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>
-</div><div class='output co'>#&gt; $M1A
-#&gt; $M1A$`hisat2-mapping-se`
-#&gt; [1] "hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4"
-#&gt; 
-#&gt; 
-#&gt; $M1B
-#&gt; $M1B$`hisat2-mapping-se`
-#&gt; [1] "hisat2 -S ./results/M1B.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446028_1.fastq.gz --threads 4"
-#&gt; 
+<span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='va'>WF</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>
+
+<span class='co'>## Execute SYSargs2 on single machine</span>
+<span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span><span class='va'>WF2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |===================================                                   |  50%  |                                                                              |======================================================================| 100%
+#&gt; <span style='color: #0000BB;'>---- Summary ----</span> 
+#&gt;   Targets Total_Files Existing_Files Missing_Files    echo
+#&gt; 1      M1           1              1             0 Success
+#&gt; 2      M2           1              1             0 Success
 #&gt; </div><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Execute SYSargs2 on single machine</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>WF</span><span class='op'>)</span>
-
 <span class='co'>## Execute SYSargs2 on multiple machines of a compute cluster. The following</span>
 <span class='co'>## example uses the conf and template files for the Slurm scheduler. Please </span>
 <span class='co'>## read the instructions on how to obtain the corresponding files for other schedulers.  </span>
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fl'>4</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
-<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>args</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
+<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, 
+                  template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>2</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
 
 <span class='co'>## Monitor progress of submitted jobs</span>
 <span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
 
-<span class='co'>## Updates the path in the object \code{output(WF)}</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='output_update.html'>output_update</a></span><span class='op'>(</span><span class='va'>WF</span>, dir<span class='op'>=</span><span class='cn'>FALSE</span>, replace<span class='op'>=</span><span class='cn'>TRUE</span>, extension<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>".sam"</span>, <span class='st'>".bam"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'>## Alignment stats</span>
-<span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='alignStats.html'>alignStats</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span> 
-<span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>read_statsDF</span><span class='op'>[</span><span class='va'>targets</span><span class='op'>$</span><span class='va'>FileName</span>,<span class='op'>]</span>, <span class='va'>targets</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>, row.names<span class='op'>=</span><span class='cn'>FALSE</span>, quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

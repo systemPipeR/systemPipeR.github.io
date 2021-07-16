@@ -83,7 +83,7 @@ function from the GenomicAlignments package. The resulting count tables are dire
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -180,7 +180,7 @@ resulting count table files.</p>
 <span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/count_rangesets"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 <span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWF</a></span><span class='op'>(</span>targets <span class='op'>=</span> <span class='st'>"targets_macs.txt"</span>, wf_file <span class='op'>=</span> <span class='st'>"count_rangesets.cwl"</span>, 
     input_file <span class='op'>=</span> <span class='st'>"count_rangesets.yml"</span>, dir_path <span class='op'>=</span> <span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='renderWF.html'>renderWF</a></span><span class='op'>(</span><span class='va'>args</span>, inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName <span class='op'>=</span> <span class='st'>"_FASTQ_PATH1_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>args</span>, inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName <span class='op'>=</span> <span class='st'>"_FASTQ_PATH1_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>## Iterative read counting</span>
 <span class='va'>countDFnames</span> <span class='op'>&lt;-</span> <span class='fu'>countRangeset</span><span class='op'>(</span><span class='va'>bfl</span>, <span class='va'>args</span>, mode<span class='op'>=</span><span class='st'>"Union"</span>, ignore.strand<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>

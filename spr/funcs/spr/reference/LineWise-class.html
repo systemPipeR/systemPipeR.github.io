@@ -40,7 +40,13 @@
 
 
 <meta property="og:title" content="Class "LineWise" — LineWise-class" />
-<meta property="og:description" content="LineWise class stores all the R chunk from a RMarkdown file." />
+<meta property="og:description" content="S4 class container for storing R-based code for a workflow step.
+LineWise class instances are constructed by the LineWise function, 
+based on the R-based code, step name, and dependency tree. 
+When the container is built from the R Markdown, using importWF
+function, two other slots are populated: codeChunkStart and rmdPath.
+codeChunkStart will store the first line of each R chunk, and rmdPath
+will store the R Markdown file path." />
 
 
 
@@ -82,7 +88,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -120,10 +126,49 @@
     </div>
 
     <div class="ref-description">
-    <p><code>LineWise class</code> stores all the R chunk from a RMarkdown file.</p>
+    <p>S4 class container for storing R-based code for a workflow step.
+<code>LineWise class</code> instances are constructed by the <code>LineWise</code> function, 
+based on the R-based code, step name, and dependency tree. 
+When the container is built from the R Markdown, using <code><a href='importWF.html'>importWF</a></code>
+function, two other slots are populated: <code>codeChunkStart</code> and <code>rmdPath</code>.
+<code>codeChunkStart</code> will store the first line of each R chunk, and <code>rmdPath</code>
+will store the R Markdown file path.</p>
     </div>
 
+    <pre class="usage"><span class='co'>## Constructor</span>
 
+<span class='fu'>LineWise</span><span class='op'>(</span><span class='va'>code</span>, step_name<span class='op'>=</span><span class='st'>"default"</span>, codeChunkStart<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span><span class='op'>(</span><span class='op'>)</span>, rmdPath<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, 
+        dependency<span class='op'>=</span><span class='cn'>NA</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>code</th>
+      <td><p>R code separated either by a semi-colon (<code>\;</code>), or by a newline, and 
+  enclosed by braces (<code>{ }</code>).</p></td>
+    </tr>
+    <tr>
+      <th>codeChunkStart</th>
+      <td><p>integer. R Markdown code chunk line start. This element will be populated when
+  the object is built by <code><a href='importWF.html'>importWF</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>rmdPath</th>
+      <td><p>character. Path of R Markdown file used by <code><a href='importWF.html'>importWF</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>step_name</th>
+      <td><p>character. Step name needs to be unique and is required when appending this
+  step to the workflow.</p></td>
+    </tr>
+    <tr>
+      <th>dependency</th>
+      <td><p>logical or character. Dependency tree, required when appending this step to 
+  the workflow. Character name of a previous step in the workflow. 
+  Default is <code>NA</code>.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="objects-from-the-class"><a class="anchor" href="#objects-from-the-class"></a>Objects from the Class</h2>
 
@@ -131,34 +176,56 @@
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
-    <dt><code>codeLine</code>:</dt><dd><p>Object of class <code>"character"</code> storing data from Rc chunk.</p></dd>
-    <dt><code>codeChunkStart</code>:</dt><dd><p>Object of class <code>"interger"</code> storing Start line from the rmdPath file.</p></dd>
-    <dt><code>rmdPath</code>:</dt><dd><p>Object of class <code>"character"</code> storing path from the rmdPath file.</p></dd>
-    <dt><code>stepName</code>:</dt><dd><p>Object of class <code>"character"</code> storing Step Name.</p></dd>
-    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"character"</code> storing dependency steps.</p></dd>
+    <dt><code>codeLine</code>:</dt><dd><p>Object of class <code>"expression"</code> storing R-based code.</p></dd>
+    <dt><code>codeChunkStart</code>:</dt><dd><p>Object of class <code>"interger"</code> storing start 
+                                line from the <code>rmdPath</code> file, when the LineWise is 
+                                built from R Markdown.</p></dd>
+    <dt><code>rmdPath</code>:</dt><dd><p>Object of class <code>"character"</code> storing path from the R Markdown file.</p></dd>
+    <dt><code>stepName</code>:</dt><dd><p>Object of class <code>"character"</code> storing step name.</p></dd>
+    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing dependency tree.</p></dd>
     <dt><code>status</code>:</dt><dd><p>Object of class <code>"list"</code> storing status steps.</p></dd>
+    <dt><code>files</code>:</dt><dd><p>Object of class <code>"list"</code> storing file path containing
+                        stdout and stderr after running the R-based code.</p></dd>
   
 </dl>
 
-    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
+    <h2 class="hasAnchor" id="functions-and-methods"><a class="anchor" href="#functions-and-methods"></a>Functions and Methods</h2>
 
-    <p></p><dl>
-    <dt>[</dt><dd><p><code>signature(x = "LineWise")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[</dt><dd><p><code>signature(x = "LineWise", i = "ANY", j = "missing")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for LineWise class</p></dd>
-    <dt>$</dt><dd><p><code>signature(x = "LineWise")</code>: extracting slots elements by name</p></dd>
-    <dt>codeLine</dt><dd><p><code>signature(x = "LineWise")</code>: ...</p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "LineWise", to = "list")</code>: <code>as(LineWise, "list")</code></p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "LineWise")</code>: <code>as(list, "LineWise")</code></p></dd>
-    <dt>length</dt><dd><p><code>signature(x = "LineWise")</code>: extracts number of R code lines</p></dd>
-    <dt>linewise</dt><dd><p><code>signature(x = "LineWise")</code>: Coerce back to list <code>as(LineWise, "list")</code></p></dd>
-    <dt>status</dt><dd><p><code>signature(x = "LineWise")</code>: extracts status of the step</p></dd>
-    <dt>names</dt><dd><p><code>signature(x = "LineWise")</code>: extracts slot names</p></dd>
-    <dt>rmdPath</dt><dd><p><code>signature(x = "LineWise")</code>: extracts path of the Rmarkdown files</p></dd>
-    <dt>show</dt><dd><p><code>signature(object = "LineWise")</code>: summary view of <code>LineWise</code> objects</p></dd>
-    <dt>appendCodeLine&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for append a code line</p></dd>
-    <dt>replaceCodeLine&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for replace a code line</p></dd>
-	 
+    <p>See 'Usage' for details on invocation.</p>  
+<p>Constructor:</p><dl>
+    <dt>LineWise:</dt><dd><p>Returns a <code>LineWise</code> object.</p></dd>
+  
+</dl>
+
+<p>Accessors:</p><dl>
+    % Accessors
+    <dt>codeLine</dt><dd><p>Printing method for the <code>CodeLine</code> slot.</p></dd>
+    <dt>codeChunkStart</dt><dd><p>Extract start line of the R Markdown R chunk.</p></dd>
+    <dt>rmdPath</dt><dd><p>Extract Rmarkdown file path.</p></dd>
+    <dt>stepName</dt><dd><p>Extract the step name.</p></dd>
+    <dt>dependency</dt><dd><p>Extract the dependency tree.</p></dd>
+    <dt>status</dt><dd><p>Extract status of the step.</p></dd>
+    <dt>files</dt><dd><p>Extract log file path storing stdout and stderr after running step.</p></dd>
+    % Replacement
+    <dt>appendCodeLine&lt;-</dt><dd><p>Replacement method for append a R code line.</p></dd>
+    <dt>replaceCodeLine&lt;-</dt><dd><p>Replacement method for replace a R code line.</p></dd>
+ 
+</dl>
+ 
+<p>Methods:</p><dl>
+    % General
+    <dt>[</dt><dd><p>Return a new <code>LineWise</code> object made of the selected R code lines.</p></dd>
+    <dt>[[</dt><dd><p>Extract the slot information from <code>LineWine</code> object.</p></dd>
+    <dt>[[&lt;-</dt><dd><p>Replacement method for <code>LineWine</code> slots.</p></dd>
+    <dt>$</dt><dd><p>Extract slots elements by name.</p></dd>
+    <dt>length</dt><dd><p>Extract number of R-based code lines.</p></dd>
+    <dt>names</dt><dd><p>Extract slot names.</p></dd>
+    <dt>show</dt><dd><p>Summary view of <code>LineWise</code> elements.</p></dd>
+    % Coerce
+    <dt>coerce</dt><dd><p><code>signature(from = "LineWise", to = "list")</code><code>as(LineWise, "list")</code></p></dd>
+    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "LineWise")</code><code>as(list, "LineWise")</code></p></dd>
+    <dt>linewise</dt><dd><p>Coerce back to list <code>as(LineWise, "list")</code></p></dd>
+ 
 </dl>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
@@ -166,7 +233,7 @@
     <p>Daniela Cassol</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='SYSargsList-class.html'>SYSargsList</a></code></p></div>
+    <div class='dont-index'><p><code><a href='SYSargsList.html'>SYSargsList</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"LineWise"</span><span class='op'>)</span>
@@ -176,9 +243,81 @@
 #&gt;                                                                   
 #&gt; Name:        codeLine codeChunkStart        rmdPath       stepName
 #&gt; Class:     expression        integer      character      character
-#&gt;                                     
-#&gt; Name:      dependency         status
-#&gt; Class:           list           list</div></pre>
+#&gt;                                                    
+#&gt; Name:      dependency         status          files
+#&gt; Class:           list           list           list</div><div class='input'><span class='va'>lw</span> <span class='op'>&lt;-</span> <span class='fu'>LineWise</span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
+              <span class='va'>log_out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
+              <span class='op'>}</span>,
+              step_name <span class='op'>=</span> <span class='st'>"R_log"</span><span class='op'>)</span>
+
+<span class='fu'><a href='SYSargsList.html'>codeLine</a></span><span class='op'>(</span><span class='va'>lw</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 2.30258509299405</div><div class='input'>
+<span class='co'>## ImportWF option</span>
+<span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/spr_simple_lw.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Creating directory: /home/runner/work/systemPipeR/systemPipeR/docs/reference/data 
+#&gt; Creating directory: /home/runner/work/systemPipeR/systemPipeR/docs/reference/param 
+#&gt; Creating directory: /home/runner/work/systemPipeR/systemPipeR/docs/reference/results 
+#&gt; Creating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
+#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='co'># file_path &lt;- "../inst/extdata/spr_simple_lw.Rmd"</span>
+<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 25, 34</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'firstStep' 
+#&gt; Now importing step 'secondStep' 
+#&gt; </span></div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runWF.html'>runWF</a></span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='background-color: #BB00BB;'>Running Step: firstStep</span> 
+#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
+#&gt; <span style='color: #0000BB;'>Step Status: Success 
+#&gt; </span><span style='background-color: #BB00BB;'>Running Step: secondStep</span> 
+#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
+#&gt; <span style='color: #0000BB;'>Step Status: Success 
+#&gt; </span></div><div class='input'><span class='va'>lw2</span> <span class='op'>&lt;-</span> <span class='va'>sal</span><span class='op'>$</span><span class='va'>stepsWF</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
+<span class='va'>lw2</span>
+</div><div class='output co'>#&gt; <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span>
+#&gt;     Code Chunk length: 3</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "codeLine"       "codeChunkStart" "rmdPath"        "stepName"      
+#&gt; [5] "dependency"     "status"         "files"         </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 3</div><div class='input'>
+<span class='co'>## Accessors</span>
+<span class='fu'><a href='SYSargsList.html'>codeLine</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; setosa &lt;- read.delim("results/setosa.csv", sep = ",")
+#&gt; versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")
+#&gt; virginica &lt;- read.delim("results/virginica.csv", sep = ",")</div><div class='input'><span class='fu'>codeChunkStart</span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 34</div><div class='input'><span class='fu'>rmdPath</span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd"</div><div class='input'><span class='fu'><a href='SYSargsList.html'>stepName</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "secondStep"</div><div class='input'><span class='fu'><a href='SYSargsList.html'>dependency</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $secondStep
+#&gt; [1] "firstStep"
+#&gt; </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>status</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $status.summary
+#&gt; [1] "Success"
+#&gt; 
+#&gt; $status.completed
+#&gt;         Step  Status
+#&gt; 1 secondStep Success
+#&gt; 
+#&gt; $status.time
+#&gt;         Step          time_start            time_end
+#&gt; 1 secondStep 2021-07-16 02:02:40 2021-07-16 02:02:40
+#&gt; </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>files</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $log
+#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/_logWF_Jul162021_0202"
+#&gt; </div><div class='input'>
+<span class='co'>## Replacement</span>
+<span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>lw2</span>, after <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"log &lt;- log(10)"</span>
+<span class='fu'><a href='SYSargsList.html'>codeLine</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; log &lt;- log(10)
+#&gt; setosa &lt;- read.delim("results/setosa.csv", sep = ",")
+#&gt; versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")
+#&gt; virginica &lt;- read.delim("results/virginica.csv", sep = ",")</div><div class='input'><span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>lw2</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"plot(iris)"</span>
+<span class='fu'><a href='SYSargsList.html'>codeLine</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; plot(iris)
+#&gt; setosa &lt;- read.delim("results/setosa.csv", sep = ",")
+#&gt; versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")
+#&gt; virginica &lt;- read.delim("results/virginica.csv", sep = ",")</div><div class='input'>
+<span class='co'>## Coerce</span>
+<span class='va'>lw2</span> <span class='op'>&lt;-</span> <span class='fu'>linewise</span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span> <span class='co'>## OR lw2 &lt;- as(lw2, "list") </span>
+<span class='va'>lw2</span> <span class='op'>&lt;-</span> <span class='fu'>as</span><span class='op'>(</span><span class='va'>lw2</span>, <span class='st'>"LineWise"</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
