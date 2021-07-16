@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import RMarkdown file as workflow — importWF • systemPipeR</title>
+<title>Import R Markdown file as workflow — importWF • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,11 @@
 
 
 
-<meta property="og:title" content="Import RMarkdown file as workflow — importWF" />
-<meta property="og:description" content="Import RMarkdown file as workflow" />
+<meta property="og:title" content="Import R Markdown file as workflow — importWF" />
+<meta property="og:description" content="Import R Markdown file as workflow. Each R code chunk will be set as a step in the 
+workflow. This operation requires a few extra settings on the R Markdown chunk
+options, to include a particular code chunk in the workflow analysis. Please check 
+Details." />
 
 
 
@@ -82,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -114,45 +117,58 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import RMarkdown file as workflow</h1>
+    <h1>Import R Markdown file as workflow</h1>
     
     <div class="hidden name"><code>importWF.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Import RMarkdown file as workflow</p>
+    <p>Import R Markdown file as workflow. Each R code chunk will be set as a step in the 
+workflow. This operation requires a few extra settings on the R Markdown chunk
+options, to include a particular code chunk in the workflow analysis. Please check 
+<code>Details</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>importWF</span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span>, ignore_eval <span class='op'>=</span> <span class='cn'>TRUE</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>importWF</span><span class='op'>(</span><span class='va'>sysargs</span>, <span class='va'>file_path</span>, ignore_eval <span class='op'>=</span> <span class='cn'>TRUE</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>sal</th>
-      <td><p>SYSargsList empty object</p></td>
+      <th>sysargs</th>
+      <td><p><code><a href='SYSargsList.html'>SYSargsList</a></code> empty object. More information on <code>Details</code>.</p></td>
     </tr>
     <tr>
       <th>file_path</th>
-      <td><p>string, file path of the workflow file</p></td>
+      <td><p>string, file path of the workflow file.</p></td>
     </tr>
     <tr>
       <th>ignore_eval</th>
-      <td><p>logical, treat all R chunks' `eval` option as `TRUE` in workflow Rmd file even if some chunks have `eval=FALSE`</p></td>
+      <td><p>logical, treat all R chunks' <code>eval</code> option as <code>TRUE</code> in workflow 
+  <code>Rmd</code> file even if some chunks have <code>eval=FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p>logical, print out verbose message while function running</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments to pass on to <code><a href='SPRproject.html'>SPRproject()</a></code>.</p></td>
+      <td><p>logical, print out verbose message while function running.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame</p>
+    <p><code>importWF</code> will return an <code>SYSargsList</code> object.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>To include a particular code chunk from the R Markdown file in the workflow 
+analysis, please use the following code chunk options:</p>
+<p>- <code>spr = 'r'</code>: for code chunks with R code lines;
+  - <code>spr = 'sysargs'</code>: for code chunks with an `SYSargsList` object;
+  - <code>spr.dep = &lt;StepName&gt;</code>: for specify the previous dependency. If this options
+  is not found, it will automaticly add the previous step.</p>
+<p>For <code>spr = 'sysargs'</code>, the last object assigned needs to be the 
+<code><a href='SYSargsList.html'>SYSargsList</a></code>.
+If the <code>spr</code> flag is not found, the R chunk will not be included in the workflow.</p>
+<p>It is required to start a project using <code><a href='SPRproject.html'>SPRproject()</a></code> function, and use the 
+object to populate the steps from R Markdown file.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Le Zhang and Daniela Cassol</p>
@@ -161,10 +177,13 @@
     <div class='dont-index'><p><code><a href='SYSargsList.html'>SYSargsList</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tgirke/systemPipeRdata'>systemPipeRdata</a></span><span class='op'>)</span>
-<span class='va'>rmdpath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/workflows/rnaseq"</span>, <span class='st'>"systemPipeRNAseq.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>
-<span class='co'>#importWF(rmdpath)</span>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/spr_simple_lw.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Creating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
+#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>importWF</span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 25, 34</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'firstStep' 
+#&gt; Now importing step 'secondStep' 
+#&gt; </span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

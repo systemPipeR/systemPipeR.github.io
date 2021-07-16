@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Collect information about the third-party software — tryCL • systemPipeR</title>
+<title>Collect information about the third-party software — tryCMD • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Collect information about the third-party software — tryCL" />
+<meta property="og:title" content="Collect information about the third-party software — tryCMD" />
 <meta property="og:description" content="Function to check if third-party software or utility is installed and set in the PATH." />
 
 
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -116,14 +116,14 @@
     <div class="page-header">
     <h1>Collect information about the third-party software</h1>
     
-    <div class="hidden name"><code>tryCL.Rd</code></div>
+    <div class="hidden name"><code>tryCMD.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Function to check if third-party software or utility is installed and set in the PATH.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tryCL</span><span class='op'>(</span><span class='va'>command</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>tryCMD</span><span class='op'>(</span><span class='va'>command</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,10 +145,10 @@
     <p>Danela Cassol</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>tryCL</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"R"</span><span class='op'>)</span> 
-<span class='fu'>tryCL</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"blastp"</span><span class='op'>)</span> 
-<span class='fu'>tryCL</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"hisat2"</span><span class='op'>)</span> 
+    <pre class="examples"><div class='input'><span class='fu'>tryCMD</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"R"</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; [1] "All set up, proceed!"</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>tryCMD</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"blastp"</span><span class='op'>)</span> 
+<span class='fu'>tryCMD</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"hisat2"</span><span class='op'>)</span> 
   <span class='op'>}</span>
 </div></pre>
   </div>

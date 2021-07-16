@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert targets list to data.frame — targets.as.df • systemPipeR</title>
+<title>Convert targets to list or data.frame — targets.as.df • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Convert targets list to data.frame — targets.as.df" />
-<meta property="og:description" content="Convert list, which stores data from each target input file to data.frame object." />
+<meta property="og:title" content="Convert targets to list or data.frame — targets.as.df" />
+<meta property="og:description" content="Convert targets files to list or data.frame object." />
 
 
 
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -114,51 +114,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert targets list to data.frame</h1>
+    <h1>Convert targets to list or data.frame</h1>
     
     <div class="hidden name"><code>targets.as.df.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Convert <code>list</code>, which stores data from each target <code>input</code> file to <code>data.frame</code> object.</p>
+    <p>Convert targets files to <code>list</code> or <code>data.frame</code> object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>targets.as.df</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>targets.as.df</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'>targets.as.list</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An object of the class <code>"list"</code> that stores data from each target <code>input</code> file, as <code><a href='SYSargs2-class.html'>targets(WF)</a></code>.</p></td>
+      <td><p>An object of the class <code>"list"</code> or <code>"data.frame"</code> that stores data 
+  from each target file, as <code><a href='SYSargs2-class.html'>targets(WF)</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>data.frame</code> containing all the <code>input</code> file information.</p>
+    <p><code>data.frame</code> or <code>list</code> containing all the <code>targets</code> file information.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code>showClass("SYSargs2")</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Daniela Cassol and Thomas Girke</p>
+    <p>Daniela Cassol</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='renderWF.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>WF</span>
-</div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
-#&gt;    Slot names/accessors: 
-#&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
-#&gt;       modules: 1
-#&gt;       wf: 0, clt: 1, yamlinput: 7 (inputs)
-#&gt;       input: 18, output: 18
-#&gt;       cmdlist: 18
-#&gt;    Sub Steps:
-#&gt;       1. hisat2-mapping-se (rendered: TRUE)
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>targets.as.df</span><span class='op'>(</span><span class='fu'><a href='SYSargs2-class.html'>targets</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.delim</a></span><span class='op'>(</span><span class='va'>targetspath</span>, comment.char <span class='op'>=</span> <span class='st'>"#"</span><span class='op'>)</span>
+<span class='va'>targetslist</span> <span class='op'>&lt;-</span> <span class='fu'>targets.as.list</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
+<span class='fu'>targets.as.df</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>targetslist</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;                       FileName SampleName Factor SampleLong Experiment
 #&gt; 1  ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A          1
 #&gt; 2  ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B          1

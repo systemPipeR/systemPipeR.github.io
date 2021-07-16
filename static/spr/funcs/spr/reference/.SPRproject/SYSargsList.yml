@@ -1,11 +1,73 @@
-stepsWF: []
-statusWF: []
-targetsWF: []
-outfiles: []
+stepsWF:
+  firstStep: |
+    codeLine: mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)),
+      file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    codeChunkStart: 25
+    rmdPath: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd
+    stepName: firstStep
+    dependency:
+      firstStep: .na
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: firstStep
+        status.summary: Pending
+      status.time: {}
+    files: []
+  secondStep: |
+    codeLine:
+    - setosa <- read.delim("results/setosa.csv", sep = ",")
+    - versicolor <- read.delim("results/versicolor.csv", sep = ",")
+    - virginica <- read.delim("results/virginica.csv", sep = ",")
+    codeChunkStart: 34
+    rmdPath: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd
+    stepName: secondStep
+    dependency:
+      secondStep: firstStep
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: secondStep
+        status.summary: Pending
+      status.time: {}
+    files: []
+statusWF:
+  firstStep: |
+    firstStep:
+      status.summary: Pending
+      status.completed:
+        Step: firstStep
+        status.summary: Pending
+      status.time: {}
+  secondStep: |
+    secondStep:
+      status.summary: Pending
+      status.completed:
+        Step: secondStep
+        status.summary: Pending
+      status.time: {}
+targetsWF:
+  firstStep: |
+    {}
+  secondStep: |
+    {}
+outfiles:
+  firstStep: |
+    {}
+  secondStep: |
+    {}
 SEobj: |
   []
-dependency: []
-targets_connection: []
+dependency:
+  firstStep: |
+    firstStep: .na
+  secondStep: |
+    secondStep: firstStep
+targets_connection:
+  firstStep: |
+    firstStep: ~
+  secondStep: |
+    secondStep: ~
 projectInfo: |
   project: /home/runner/work/systemPipeR/systemPipeR/docs/reference
   data: /home/runner/work/systemPipeR/systemPipeR/docs/reference/data
@@ -13,5 +75,7 @@ projectInfo: |
   results: /home/runner/work/systemPipeR/systemPipeR/docs/reference/results
   logsDir: /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject
   sysargslist: /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml
+  rmd_file: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd
 runInfo: |
-  ~
+  firstStep: no
+  secondStep: no

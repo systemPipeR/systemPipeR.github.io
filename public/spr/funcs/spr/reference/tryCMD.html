@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LineWise — LineWise • systemPipeR</title>
+<title>Collect information about the third-party software — tryCMD • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="LineWise — LineWise" />
-<meta property="og:description" content="S4 class container for storing parameters of R-based software." />
+<meta property="og:title" content="Collect information about the third-party software — tryCMD" />
+<meta property="og:description" content="Function to check if third-party software or utility is installed and set in the PATH." />
 
 
 
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
 
@@ -114,64 +114,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LineWise</h1>
+    <h1>Collect information about the third-party software</h1>
     
-    <div class="hidden name"><code>LineWise.Rd</code></div>
+    <div class="hidden name"><code>tryCMD.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>S4 class container for storing parameters of R-based software.</p>
+    <p>Function to check if third-party software or utility is installed and set in the PATH.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>LineWise</span><span class='op'>(</span><span class='va'>code</span>, step_name<span class='op'>=</span><span class='st'>"default"</span>, codeChunkStart<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span><span class='op'>(</span><span class='op'>)</span>, rmdPath<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, 
-        dependency<span class='op'>=</span><span class='cn'>NA</span>, status <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>tryCMD</span><span class='op'>(</span><span class='va'>command</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>code</th>
-      <td><p>R code</p></td>
-    </tr>
-    <tr>
-      <th>codeChunkStart</th>
-      <td><p>R Markdown line start</p></td>
-    </tr>
-    <tr>
-      <th>rmdPath</th>
-      <td><p>path of R Markdown file</p></td>
-    </tr>
-    <tr>
-      <th>step_name</th>
-      <td><p>Step Name</p></td>
-    </tr>
-    <tr>
-      <th>dependency</th>
-      <td><p>dependency</p></td>
-    </tr>
-    <tr>
-      <th>status</th>
-      <td><p>status</p></td>
+      <th>command</th>
+      <td><p>a character vector containing the command line name to be tested.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>LineWise</code> object</p>
+    <p>It will return a positive message if the software is set on the PATH or an error message if the software is not set it.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Please note that not necessary the software is not installed if the message indicates an error,  but it has not been exported on the current PATH.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Daniela Cassol</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code>showClass("LineWise")</code></p></div>
+    <p>Danela Cassol</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>LineWise</span><span class='op'>(</span><span class='op'>{</span>
-          <span class='fl'>1</span><span class='op'>+</span><span class='fl'>1</span>
-          <span class='op'>}</span>,
-          step_name<span class='op'>=</span><span class='st'>"NewStep"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span>
-#&gt;     Code Chunk length: 1</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>tryCMD</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"R"</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; [1] "All set up, proceed!"</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>tryCMD</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"blastp"</span><span class='op'>)</span> 
+<span class='fu'>tryCMD</span><span class='op'>(</span>command<span class='op'>=</span><span class='st'>"hisat2"</span><span class='op'>)</span> 
+  <span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
