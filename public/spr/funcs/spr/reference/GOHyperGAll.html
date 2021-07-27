@@ -42,11 +42,12 @@
 <meta property="og:title" content="GO term enrichment analysis for large numbers of gene sets — GOHyperGAll" />
 <meta property="og:description" content="To test a sample population of genes for over-representation of GO terms, the
 core function GOHyperGAll computes for all nodes in the three GO networks
-(BP, CC and MF) an enrichment test based on the hypergeometric distribution and returns the corresponding raw and
-Bonferroni corrected p-values. Subsequently, a filter function supports GO Slim
-analyses using default or custom GO Slim categories. Several convenience functions
-are provided to process large numbers of gene sets (e.g. clusters from partitioning
-results) and to visualize the results.
+(BP, CC and MF) an enrichment test based on the hypergeometric distribution and 
+returns the corresponding raw and Bonferroni corrected p-values. 
+Subsequently, a filter function supports GO Slim analyses using default or 
+custom GO Slim categories. Several convenience functions are provided to process
+large numbers of gene sets (e.g. clusters from partitioning results) and to 
+visualize the results.
 Note: GOHyperGAll provides similar utilities as the GOHyperG
 function in the GOstats package. The main difference is that
 GOHyperGAll simplifies processing of large numbers of gene sets, as well
@@ -92,7 +93,7 @@ as the usage of custom array-to-gene and gene-to-GO mappings." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -132,11 +133,12 @@ as the usage of custom array-to-gene and gene-to-GO mappings." />
     <div class="ref-description">
     <p>To test a sample population of genes for over-representation of GO terms, the
 core function <code>GOHyperGAll</code> computes for all nodes in the three GO networks
-(BP, CC and MF) an enrichment test based on the hypergeometric distribution and returns the corresponding raw and
-Bonferroni corrected p-values. Subsequently, a filter function supports GO Slim
-analyses using default or custom GO Slim categories. Several convenience functions
-are provided to process large numbers of gene sets (e.g. clusters from partitioning
-results) and to visualize the results.</p>
+(BP, CC and MF) an enrichment test based on the hypergeometric distribution and 
+returns the corresponding raw and Bonferroni corrected p-values. 
+Subsequently, a filter function supports GO Slim analyses using default or 
+custom GO Slim categories. Several convenience functions are provided to process
+large numbers of gene sets (e.g. clusters from partitioning results) and to 
+visualize the results.</p>
 <p>Note: <code>GOHyperGAll</code> provides similar utilities as the <code>GOHyperG</code>
 function in the <code>GOstats</code> package. The main difference is that
 <code>GOHyperGAll</code> simplifies processing of large numbers of gene sets, as well
@@ -144,19 +146,23 @@ as the usage of custom array-to-gene and gene-to-GO mappings.</p>
     </div>
 
     <pre class="usage"><span class='co'>## Generate gene-to-GO mappings and store as catDB object </span>
-<span class='fu'>makeCATdb</span><span class='op'>(</span><span class='va'>myfile</span>, lib <span class='op'>=</span> <span class='cn'>NULL</span>, org <span class='op'>=</span> <span class='st'>""</span>, colno <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, idconv <span class='op'>=</span> <span class='cn'>NULL</span>, rootUK<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'>makeCATdb</span><span class='op'>(</span><span class='va'>myfile</span>, lib <span class='op'>=</span> <span class='cn'>NULL</span>, org <span class='op'>=</span> <span class='st'>""</span>, colno <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, idconv <span class='op'>=</span> <span class='cn'>NULL</span>, 
+            rootUK<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='co'>## Enrichment function</span>
 <span class='fu'>GOHyperGAll</span><span class='op'>(</span><span class='va'>catdb</span>, gocat <span class='op'>=</span> <span class='st'>"MF"</span>, <span class='va'>sample</span>, Nannot <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 
 <span class='co'>## GO slim analysis</span>
-<span class='fu'>GOHyperGAll_Subset</span><span class='op'>(</span><span class='va'>catdb</span>, <span class='va'>GOHyperGAll_result</span>, sample <span class='op'>=</span> <span class='va'>test_sample</span>, type <span class='op'>=</span> <span class='st'>"goSlim"</span>, <span class='va'>myslimv</span><span class='op'>)</span>
+<span class='fu'>GOHyperGAll_Subset</span><span class='op'>(</span><span class='va'>catdb</span>, <span class='va'>GOHyperGAll_result</span>, sample <span class='op'>=</span> <span class='va'>test_sample</span>, 
+            type <span class='op'>=</span> <span class='st'>"goSlim"</span>, <span class='va'>myslimv</span><span class='op'>)</span>
 
 <span class='co'>## Reduce GO term redundancy </span>
 <span class='fu'>GOHyperGAll_Simplify</span><span class='op'>(</span><span class='va'>GOHyperGAll_result</span>, gocat <span class='op'>=</span> <span class='st'>"MF"</span>, cutoff <span class='op'>=</span> <span class='fl'>0.001</span>, correct <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'>## Batch analysis of many gene sets</span>
-<span class='fu'>GOCluster_Report</span><span class='op'>(</span><span class='va'>catdb</span>, <span class='va'>setlist</span>, id_type <span class='op'>=</span> <span class='st'>"affy"</span>, method <span class='op'>=</span> <span class='st'>"all"</span>, CLSZ <span class='op'>=</span> <span class='fl'>10</span>, cutoff <span class='op'>=</span> <span class='fl'>0.001</span>, gocats <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"MF"</span>, <span class='st'>"BP"</span>, <span class='st'>"CC"</span><span class='op'>)</span>, myslimv <span class='op'>=</span> <span class='st'>"default"</span>, correct <span class='op'>=</span> <span class='cn'>TRUE</span>, recordSpecGO <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>GOCluster_Report</span><span class='op'>(</span><span class='va'>catdb</span>, <span class='va'>setlist</span>, id_type <span class='op'>=</span> <span class='st'>"affy"</span>, method <span class='op'>=</span> <span class='st'>"all"</span>, CLSZ <span class='op'>=</span> <span class='fl'>10</span>, 
+            cutoff <span class='op'>=</span> <span class='fl'>0.001</span>, gocats <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"MF"</span>, <span class='st'>"BP"</span>, <span class='st'>"CC"</span><span class='op'>)</span>, myslimv <span class='op'>=</span> <span class='st'>"default"</span>,
+            correct <span class='op'>=</span> <span class='cn'>TRUE</span>, recordSpecGO <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'>## Bar plot of GOCluster_Report results</span>
 <span class='fu'>goBarplot</span><span class='op'>(</span><span class='va'>GOBatchResult</span>, <span class='va'>gocat</span><span class='op'>)</span></pre>

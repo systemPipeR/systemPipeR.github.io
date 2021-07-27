@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
     <p>After executing all the command-lines by the <code>runCommadline</code> function, the output files can be created in specific directories rather then <code>results</code> in a particular directory. Also, the <code>runCommadline</code> function allows converting the SAM file outputs to sorted and indexed BAM files. Thus, the <code>output_update</code> function allows updating the location of these files in the output of the <code>SYSargs2</code>  object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>output_update</span><span class='op'>(</span><span class='va'>args</span>, dir <span class='op'>=</span> <span class='cn'>FALSE</span>, dir.name <span class='op'>=</span> <span class='cn'>NULL</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, extension <span class='op'>=</span> <span class='cn'>NULL</span>, make_bam<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>output_update</span><span class='op'>(</span><span class='va'>args</span>, dir <span class='op'>=</span> <span class='cn'>FALSE</span>, dir.name <span class='op'>=</span> <span class='cn'>NULL</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, extension <span class='op'>=</span> <span class='cn'>NULL</span>, make_bam<span class='op'>=</span><span class='cn'>FALSE</span>, del_sam<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,6 +151,10 @@
     <tr>
       <th>make_bam</th>
       <td><p>Auto detects SAM file outputs and update them on the <code>SYSargs2</code> object for sorted and indexed BAM files. Default is <code>make_bam=FALSE</code>. This argument should be used in integration with <code>runCommandline</code> function.</p></td>
+    </tr>
+    <tr>
+      <th>del_sam</th>
+      <td><p>This option allows deleting the SAM files created when the <code>make_BAM</code> converts the SAM files to sorted and indexed BAM files. Default is <code>del_sam=TRUE</code>.</p></td>
     </tr>
     </table>
 

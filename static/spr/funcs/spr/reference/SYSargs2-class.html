@@ -92,7 +92,7 @@ any combination of command-line or R-based software." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -365,10 +365,10 @@ any combination of command-line or R-based software.</p>
 #&gt; 
 #&gt; </div><div class='input'><span class='fu'>files</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $cwl
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/workflow_example.cwl"
+#&gt; [1] "example/workflow_example.cwl"
 #&gt; 
 #&gt; $yml
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.yml"
+#&gt; [1] "example/example.yml"
 #&gt; 
 #&gt; $dir_path
 #&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl"
@@ -406,17 +406,13 @@ any combination of command-line or R-based software.</p>
 #&gt; $status.time
 #&gt; data frame with 0 columns and 0 rows
 #&gt; </div><div class='input'>
-<span class='co'>## The subsetting operator '[' allows to select specific command-line</span>
+<span class='co'>## The subsetting operator '[' allows to select specific command-line/sample</span>
 <span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='va'>WF</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>
 
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>## Execute SYSargs2 on single machine</span>
 <span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span><span class='va'>WF2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |===================================                                   |  50%  |                                                                              |======================================================================| 100%
-#&gt; <span style='color: #0000BB;'>---- Summary ----</span> 
-#&gt;   Targets Total_Files Existing_Files Missing_Files    echo
-#&gt; 1      M1           1              1             0 Success
-#&gt; 2      M2           1              1             0 Success
-#&gt; </div><div class='input'>
+<span class='op'>}</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>## Execute SYSargs2 on multiple machines of a compute cluster. The following</span>
 <span class='co'>## example uses the conf and template files for the Slurm scheduler. Please </span>

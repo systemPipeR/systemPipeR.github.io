@@ -88,7 +88,7 @@ will store the R Markdown file path." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@ will store the R Markdown file path.</p>
     <pre class="usage"><span class='co'>## Constructor</span>
 
 <span class='fu'>LineWise</span><span class='op'>(</span><span class='va'>code</span>, step_name<span class='op'>=</span><span class='st'>"default"</span>, codeChunkStart<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span><span class='op'>(</span><span class='op'>)</span>, rmdPath<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, 
-        dependency<span class='op'>=</span><span class='cn'>NA</span><span class='op'>)</span></pre>
+        dependency<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,9 +164,9 @@ will store the R Markdown file path.</p>
     </tr>
     <tr>
       <th>dependency</th>
-      <td><p>logical or character. Dependency tree, required when appending this step to 
+      <td><p>character. Dependency tree, required when appending this step to 
   the workflow. Character name of a previous step in the workflow. 
-  Default is <code>NA</code>.</p></td>
+  Default is empty string <code>""</code>.</p></td>
     </tr>
     </table>
 
@@ -266,10 +266,10 @@ will store the R Markdown file path.</p>
 #&gt; </span></div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runWF.html'>runWF</a></span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='background-color: #BB00BB;'>Running Step: firstStep</span> 
 #&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
-#&gt; <span style='color: #0000BB;'>Step Status: Success 
+#&gt; <span style='background-color: #00BB00;'>Step Status: Success 
 #&gt; </span><span style='background-color: #BB00BB;'>Running Step: secondStep</span> 
 #&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
-#&gt; <span style='color: #0000BB;'>Step Status: Success 
+#&gt; <span style='background-color: #00BB00;'>Step Status: Success 
 #&gt; </span></div><div class='input'><span class='va'>lw2</span> <span class='op'>&lt;-</span> <span class='va'>sal</span><span class='op'>$</span><span class='va'>stepsWF</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
 <span class='va'>lw2</span>
 </div><div class='output co'>#&gt; <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span>
@@ -297,10 +297,10 @@ will store the R Markdown file path.</p>
 #&gt; 
 #&gt; $status.time
 #&gt;         Step          time_start            time_end
-#&gt; 1 secondStep 2021-07-16 02:02:40 2021-07-16 02:02:40
+#&gt; 1 secondStep 2021-07-27 02:20:58 2021-07-27 02:20:58
 #&gt; </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>files</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $log
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/_logWF_Jul162021_0202"
+#&gt; [1] ".SPRproject/_logWF_Jul272021_0220"
 #&gt; </div><div class='input'>
 <span class='co'>## Replacement</span>
 <span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>lw2</span>, after <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"log &lt;- log(10)"</span>

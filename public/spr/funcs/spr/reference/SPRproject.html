@@ -41,18 +41,16 @@
 
 <meta property="og:title" content="Workflow Project Initiation — SPRproject" />
 <meta property="og:description" content="Function to construct SYSargsList workflow control environment (S4 object). 
-This function creates the directory structure, with it is not available on the 
-fly to register all the parameters of the workflow.
-This function checks the project structure, which by default is:
+This function creates and checks the directory structure. If the expected directories
+are not available, it is possible to create those. 
+The project directory structure expected is:
 
 SPRproject/
 data/
 param/
 results/
 
-
-
-The default structure of the project directories can be modified here." />
+The project working directory default structure of the project directories can be modified here." />
 
 
 
@@ -94,7 +92,7 @@ The default structure of the project directories can be modified here." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -133,23 +131,23 @@ The default structure of the project directories can be modified here." />
 
     <div class="ref-description">
     <p>Function to construct <code>SYSargsList</code> workflow control environment (S4 object). 
-This function creates the directory structure, with it is not available on the 
-fly to register all the parameters of the workflow.
-This function checks the project structure, which by default is:</p>
+This function creates and checks the directory structure. If the expected directories
+are not available, it is possible to create those. 
+The project directory structure expected is:</p>
 <ul>
 <li><p><code>SPRproject/</code></p><ul>
 <li><p><code>data/</code></p></li>
 <li><p><code>param/</code></p></li>
 <li><p><code>results/</code></p></li>
 </ul></li>
-</ul>
-
-<p>The default structure of the project directories can be modified here.</p>
+</ul><p>The project working directory default structure of the project directories can be modified here.</p>
     </div>
 
     <pre class="usage"><span class='fu'>SPRproject</span><span class='op'>(</span>projPath <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='st'>"data"</span>, param <span class='op'>=</span> <span class='st'>"param"</span>, results <span class='op'>=</span> <span class='st'>"results"</span>,
-                      logs.dir<span class='op'>=</span> <span class='st'>".SPRproject"</span>, sys.file<span class='op'>=</span><span class='st'>".SPRproject/SYSargsList.yml"</span>, 
-                      envir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span><span class='op'>(</span><span class='op'>)</span>, restart <span class='op'>=</span> <span class='cn'>FALSE</span>, load.envir <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                      logs.dir<span class='op'>=</span> <span class='st'>".SPRproject"</span>, sys.file<span class='op'>=</span><span class='st'>"SYSargsList.yml"</span>, 
+                      envir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span><span class='op'>(</span><span class='op'>)</span>, 
+                      restart <span class='op'>=</span> <span class='cn'>FALSE</span>, resume<span class='op'>=</span><span class='cn'>FALSE</span>, 
+                      load.envir <span class='op'>=</span> <span class='cn'>FALSE</span>,
                       overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -192,7 +190,13 @@ and image/plot files.</p></td>
     </tr>
     <tr>
       <th>restart</th>
-      <td><p>if set to TRUE, existing SYSargsList save in the directory will be used to restart the 
+      <td><p>if set to TRUE, existing <code>SYSargsList</code> save in the directory will be used to restart the 
+  workflow. This option requires <code>overwrite=TRUE</code>. 
+  All the log will be deleted.</p></td>
+    </tr>
+    <tr>
+      <th>resume</th>
+      <td><p>if set to TRUE, existing SYSargsList save in the directory will be used to resume the 
   workflow.</p></td>
     </tr>
     <tr>
@@ -222,11 +226,14 @@ and image/plot files.</p></td>
     <div class='dont-index'><p>See also as <code>SYSargsList-class</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Construct SYSargsList object from Rmd file</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tgirke/systemPipeRdata'>systemPipeRdata</a></span><span class='op'>)</span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>SPRproject</span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Creating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
-#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>sal</span>
+    <pre class="examples"><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>SPRproject</span><span class='op'>(</span>projPath <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Creating directory: /tmp/Rtmp8Jw5TC/data 
+#&gt; Creating directory: /tmp/Rtmp8Jw5TC/param 
+#&gt; Creating directory: /tmp/Rtmp8Jw5TC/results 
+#&gt; Creating directory '/tmp/Rtmp8Jw5TC/.SPRproject'
+#&gt; Creating file '/tmp/Rtmp8Jw5TC/.SPRproject/SYSargsList.yml'</div><div class='output co'>#&gt; <span class='message'>Your current working directory is different from the directory chosen for the Project Workflow.</span>
+#&gt; <span class='message'>For accurate location of the files and running the Workflow, please set the working directory to </span>
+#&gt; <span class='message'>'setwd(/tmp/Rtmp8Jw5TC)'</span></div><div class='input'><span class='va'>sal</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Instance of 'SYSargsList':</span> 
 #&gt;  No workflow steps added </div></pre>
   </div>

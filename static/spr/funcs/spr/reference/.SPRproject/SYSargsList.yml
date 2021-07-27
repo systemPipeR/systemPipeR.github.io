@@ -1,81 +1,214 @@
 stepsWF:
-  firstStep: |
-    codeLine: mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)),
-      file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
-    codeChunkStart: 25
-    rmdPath: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd
-    stepName: firstStep
-    dependency:
-      firstStep: .na
+  echo: |
+    targets:
+      M1:
+        Message: Hello World!
+        SampleName: M1
+      M2:
+        Message: Hello USA!
+        SampleName: M2
+      M3:
+        Message: Hello Bioconcudctor!
+        SampleName: M3
+    targetsheader:
+      targetsheader: '# Project ID: SPR Example'
+    modules: []
+    wf:
+      class: Workflow
+      cwlVersion: v1.0
+      inputs:
+        message: string
+        SampleName: string
+        results_path: Directory
+      outputs:
+        string:
+          outputSource: echo/string
+          type: stdout
+      steps:
+        echo:
+          in:
+            message: message
+            SampleName: SampleName
+            results_path: results_path
+          out: '[string]'
+          run: example/example.cwl
+    clt:
+      example/example.cwl:
+        cwlVersion: v1.0
+        class: CommandLineTool
+        baseCommand: echo
+        inputs:
+          message:
+            type: string
+            inputBinding:
+              position: 1
+          SampleName:
+            type: string
+          results_path:
+            type: Directory
+        outputs:
+          string:
+            type: stdout
+        stdout: $(inputs.results_path.basename)/$(inputs.SampleName).txt
+    yamlinput:
+      message: _STRING_
+      SampleName: _SAMPLE_
+      results_path:
+        class: Directory
+        path: ./results
+    cmdlist:
+      M1:
+        echo: echo Hello World! > results/M1.txt
+      M2:
+        echo: echo Hello USA! > results/M2.txt
+      M3:
+        echo: echo Hello Bioconcudctor! > results/M3.txt
+    input:
+      M1:
+        Message: Hello World!
+        SampleName: M1
+      M2:
+        Message: Hello USA!
+        SampleName: M2
+      M3:
+        Message: Hello Bioconcudctor!
+        SampleName: M3
+    output:
+      M1:
+        echo: results/M1.txt
+      M2:
+        echo: results/M2.txt
+      M3:
+        echo: results/M3.txt
+    files:
+      cwl: example/workflow_example.cwl
+      yml: example/example.yml
+      dir_path: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl
+      steps: echo
+      cltpaths: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.cwl
+      output_names: string
+      targets: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt
+    inputvars:
+      Message: _STRING_
+      SampleName: _SAMPLE_
+    cmdToCwl: []
     status:
       status.summary: Pending
       status.completed:
-        Step: firstStep
-        status.summary: Pending
+        Targets:
+        - M1
+        - M2
+        - M3
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        echo:
+        - Pending
+        - Pending
+        - Pending
       status.time: {}
-    files: []
-  secondStep: |
-    codeLine:
-    - setosa <- read.delim("results/setosa.csv", sep = ",")
-    - versicolor <- read.delim("results/versicolor.csv", sep = ",")
-    - virginica <- read.delim("results/virginica.csv", sep = ",")
-    codeChunkStart: 34
-    rmdPath: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd
-    stepName: secondStep
+    internal_outfiles:
+      M1:
+        echo: results/M1.txt
+      M2:
+        echo: results/M2.txt
+      M3:
+        echo: results/M3.txt
+  R_read: |
+    codeLine: hello <- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))
+    codeChunkStart: []
+    rmdPath: []
+    stepName: R_read
     dependency:
-      secondStep: firstStep
+      R_read: echo
     status:
       status.summary: Pending
       status.completed:
-        Step: secondStep
+        Step: R_read
         status.summary: Pending
       status.time: {}
     files: []
 statusWF:
-  firstStep: |
-    firstStep:
+  echo: |
+    echo:
       status.summary: Pending
       status.completed:
-        Step: firstStep
-        status.summary: Pending
+        Targets:
+        - M1
+        - M2
+        - M3
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        echo:
+        - Pending
+        - Pending
+        - Pending
       status.time: {}
-  secondStep: |
-    secondStep:
+  R_read: |
+    R_read:
       status.summary: Pending
       status.completed:
-        Step: secondStep
+        Step: R_read
         status.summary: Pending
       status.time: {}
 targetsWF:
-  firstStep: |
-    {}
-  secondStep: |
+  echo: |
+    Message:
+    - Hello World!
+    - Hello USA!
+    - Hello Bioconcudctor!
+    SampleName:
+    - M1
+    - M2
+    - M3
+  R_read: |
     {}
 outfiles:
-  firstStep: |
-    {}
-  secondStep: |
+  echo: |
+    string:
+    - results/M1.txt
+    - results/M2.txt
+    - results/M3.txt
+  R_read: |
     {}
 SEobj: |
   []
 dependency:
-  firstStep: |
-    firstStep: .na
-  secondStep: |
-    secondStep: firstStep
+  echo: |
+    echo: ''
+  R_read: |
+    R_read: echo
 targets_connection:
-  firstStep: |
-    firstStep: ~
-  secondStep: |
-    secondStep: ~
+  echo: |
+    echo: ~
+  R_read: |
+    R_read: ~
 projectInfo: |
   project: /home/runner/work/systemPipeR/systemPipeR/docs/reference
-  data: /home/runner/work/systemPipeR/systemPipeR/docs/reference/data
-  param: /home/runner/work/systemPipeR/systemPipeR/docs/reference/param
-  results: /home/runner/work/systemPipeR/systemPipeR/docs/reference/results
-  logsDir: /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject
-  sysargslist: /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml
-  rmd_file: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd
+  data: data
+  param: param
+  results: results
+  logsDir: .SPRproject
+  sysargslist: .SPRproject/SYSargsList.yml
 runInfo: |
-  firstStep: no
-  secondStep: no
+  echo: yes
+  R_read: no

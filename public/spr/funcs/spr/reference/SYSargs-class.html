@@ -96,7 +96,7 @@ software." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -459,8 +459,10 @@ software.</p>
 <span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span><span class='op'>)</span>
 
 <span class='co'>## Execute SYSargs on multiple machines  </span>
-<span class='va'>qsubargs</span> <span class='op'>&lt;-</span> <span class='fu'>getQsubargs</span><span class='op'>(</span>queue<span class='op'>=</span><span class='st'>"batch"</span>, Nnodes<span class='op'>=</span><span class='st'>"nodes=1"</span>, cores<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, memory<span class='op'>=</span><span class='st'>"mem=10gb"</span>, time<span class='op'>=</span><span class='st'>"walltime=20:00:00"</span><span class='op'>)</span>
-<span class='fu'>qsubRun</span><span class='op'>(</span>appfct<span class='op'>=</span><span class='st'>"runCommandline(args=args)"</span>, appargs<span class='op'>=</span><span class='va'>args</span>, qsubargs<span class='op'>=</span><span class='va'>qsubargs</span>, Nqsubs<span class='op'>=</span><span class='fl'>1</span>, submitdir<span class='op'>=</span><span class='st'>"results"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>qsubargs</span> <span class='op'>&lt;-</span> <span class='fu'>getQsubargs</span><span class='op'>(</span>queue<span class='op'>=</span><span class='st'>"batch"</span>, Nnodes<span class='op'>=</span><span class='st'>"nodes=1"</span>, cores<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, 
+                        memory<span class='op'>=</span><span class='st'>"mem=10gb"</span>, time<span class='op'>=</span><span class='st'>"walltime=20:00:00"</span><span class='op'>)</span>
+<span class='fu'>qsubRun</span><span class='op'>(</span>appfct<span class='op'>=</span><span class='st'>"runCommandline(args=args)"</span>, appargs<span class='op'>=</span><span class='va'>args</span>, qsubargs<span class='op'>=</span><span class='va'>qsubargs</span>, 
+        Nqsubs<span class='op'>=</span><span class='fl'>1</span>, submitdir<span class='op'>=</span><span class='st'>"results"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 
 <span class='co'>## Write outpaths to new targets file for next SYSargs step</span>
 <span class='fu'><a href='writeTargetsout.html'>writeTargetsout</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"default"</span><span class='op'>)</span>

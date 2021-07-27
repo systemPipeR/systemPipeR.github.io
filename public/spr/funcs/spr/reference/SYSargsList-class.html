@@ -41,7 +41,6 @@
 
 <meta property="og:title" content="Class "SYSargsList" — SYSargsList" />
 <meta property="og:description" content="S4 class container for storing parameters and information of command-line- or R-based workflow.
-S4 class container for storing parameters of command-line- or R-based software. 
 SYSargsList instances are constructed by the SYSargsList function." />
 
 
@@ -84,7 +83,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -123,8 +122,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
 
     <div class="ref-description">
     <p>S4 class container for storing parameters and information of command-line- or R-based workflow.</p>
-<p>S4 class container for storing parameters of command-line- or R-based software. 
-<code>SYSargsList</code> instances are constructed by the <code>SYSargsList</code> function.</p>
+<p><code>SYSargsList</code> instances are constructed by the <code>SYSargsList</code> function.</p>
     </div>
 
     <pre class="usage"><span class='co'>## Constructor</span>
@@ -132,7 +130,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='fu'>SYSargsList</span><span class='op'>(</span>sysargs <span class='op'>=</span> <span class='cn'>NULL</span>, step_name <span class='op'>=</span> <span class='st'>"default"</span>, 
             targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, dir_path <span class='op'>=</span> <span class='st'>"."</span>, 
             inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, 
-            dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dependency <span class='op'>=</span> <span class='cn'>NA</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+            dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dependency <span class='op'>=</span> <span class='st'>""</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='co'>## Accessors</span>
 
@@ -154,7 +152,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='fu'>yamlinput</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 <span class='fu'>cmdlist</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 <span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
-<span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>list</span>, <span class='va'>new.env</span><span class='op'>)</span>
+<span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>x</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
 <span class='co'>## Subset Methods</span>
@@ -162,7 +160,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='fu'>subset</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 <span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span>, <span class='st'>"targetsWF"</span><span class='op'>)</span>, column <span class='op'>=</span> <span class='fl'>1</span>, names <span class='op'>=</span> <span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>updateColumn</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span>, <span class='va'>df</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span>, <span class='st'>"targetsWF"</span><span class='op'>)</span><span class='op'>)</span>
+
 
 <span class='co'>## Replacement</span>
 
@@ -172,14 +170,15 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='fu'>renameStep</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
 <span class='fu'>yamlinput</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>paramName</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
 <span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>x</span>, after <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
-<span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>line</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span></pre>
+<span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>line</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
+<span class='fu'>updateColumn</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span>, <span class='st'>"targetsWF"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>sysargs</th>
-      <td><p><code>SYSargs2</code> object</p></td>
+      <td><p><code>SYSargs2</code> object.</p></td>
     </tr>
     <tr>
       <th>step_name</th>
@@ -191,15 +190,15 @@ SYSargsList instances are constructed by the SYSargsList function." />
     </tr>
     <tr>
       <th>wf_file</th>
-      <td><p>name and path to <code>CWL param</code> file.</p></td>
+      <td><p>name and path to <code>CWL parameters</code> file.</p></td>
     </tr>
     <tr>
       <th>input_file</th>
-      <td><p>name and path to <code>input</code> file.</p></td>
+      <td><p>name and path to <code>input parameters</code> file.</p></td>
     </tr>
     <tr>
       <th>dir_path</th>
-      <td><p>full path to the directory with the <code>CWL param</code> and <code>input</code> files.</p></td>
+      <td><p>full path to the directory with the <code>CWL parameters</code> and <code>input</code> files.</p></td>
     </tr>
     <tr>
       <th>inputvars</th>
@@ -212,13 +211,14 @@ SYSargsList instances are constructed by the SYSargsList function." />
     <tr>
       <th>dir</th>
       <td><p>This option allows creating an exclusive results folder for each step in the 
-  workflow and a sub-folder for each sample defined in the targets file. All the 
-  outputs and log files for the particular step will be created in the respective
-  folders. Default is <code>dir=TRUE</code>.</p></td>
+  workflow. All the outfiles and log files for the particular step will be created 
+  in the respective folders. Default is <code>dir=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>dependency</th>
-      <td><p>step previous dependency.</p></td>
+      <td><p>character. Dependency tree, required when appending this step to 
+  the workflow. Character name of a previous step in the workflow. 
+  Default is empty string <code>""</code>.</p></td>
     </tr>
     <tr>
       <th>silent</th>
@@ -230,31 +230,27 @@ SYSargsList instances are constructed by the SYSargsList function." />
     </tr>
     <tr>
       <th>step</th>
-      <td><p>a</p></td>
+      <td><p>character or numeric. Step name or index.</p></td>
     </tr>
     <tr>
       <th>list</th>
-      <td><p>a</p></td>
+      <td><p>a character vector naming objects to be copyied from the enviroment.</p></td>
     </tr>
     <tr>
       <th>new.env</th>
-      <td><p>a</p></td>
+      <td><p>An environment to copy to. Default is <code><a href='https://rdrr.io/r/base/environment.html'>globalenv()</a></code>.</p></td>
     </tr>
     <tr>
       <th>position</th>
-      <td><p>a</p></td>
+      <td><p>character. Options are <code>"outfiles" or "targetsWF"</code> slots.</p></td>
     </tr>
     <tr>
       <th>column</th>
-      <td><p>a</p></td>
+      <td><p>character or numeric. Which column will be replaces from the position argument.</p></td>
     </tr>
     <tr>
       <th>names</th>
-      <td><p>a</p></td>
-    </tr>
-    <tr>
-      <th>df</th>
-      <td><p>a</p></td>
+      <td><p>character vector. Names of the new column.</p></td>
     </tr>
     <tr>
       <th>after</th>
@@ -271,7 +267,12 @@ SYSargsList instances are constructed by the SYSargsList function." />
     <tr>
       <th>value</th>
       <td><p>object containing the values to be replaced to x. Values may be of the same 
-  class as the orginal values.</p></td>
+  class as the orginal values. For <code>updateColumn&lt;-</code>a dataframe that must have
+  the same rows as the modifying dataframe.
+  However, if there is no column in the original dataframe. This new df will replace 
+  the empty one. If there is a non-empty dataframe, any existing columns with the 
+  same name as this new df will be replaced. Any columns that do not exist in the 
+  original column but this new df will be added to the original data.frame.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -337,15 +338,19 @@ SYSargsList instances are constructed by the SYSargsList function." />
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Creating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
-#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, 
+                            package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 
 <span class='co'>## Constructor and `appendStep&lt;-`</span>
 <span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'>SYSargsList</span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, 
                                targets<span class='op'>=</span><span class='va'>targetspath</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>,
-                               wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
-                               dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,
-                               inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
+                               wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, 
+                               input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
+                               dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, 
+                               package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,
+                               inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>,
+                               SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
+                               
 <span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
                             <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, <span class='st'>'outfiles'</span><span class='op'>)</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>yaml</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/yaml/man/read_yaml.html'>read_yaml</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
                             <span class='op'>}</span>, 
@@ -410,7 +415,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; </div><div class='input'><span class='fu'>SEobj</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; list()</div><div class='input'><span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $echo
-#&gt; [1] NA
+#&gt; [1] ""
 #&gt; 
 #&gt; $R_read
 #&gt; [1] "echo"
@@ -419,22 +424,22 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference"
 #&gt; 
 #&gt; $data
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/data"
+#&gt; [1] "data"
 #&gt; 
 #&gt; $param
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/param"
+#&gt; [1] "param"
 #&gt; 
 #&gt; $results
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results"
+#&gt; [1] "results"
 #&gt; 
 #&gt; $logsDir
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject"
+#&gt; [1] ".SPRproject"
 #&gt; 
 #&gt; $sysargslist
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml"
+#&gt; [1] ".SPRproject/SYSargsList.yml"
 #&gt; </div><div class='input'><span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $env
-#&gt; &lt;environment: 0x55e72b3cde60&gt;
+#&gt; &lt;environment: 0x55c7562b4960&gt;
 #&gt; 
 #&gt; $directory
 #&gt; $directory$echo
@@ -447,7 +452,9 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='co'>## Methods</span>
 
 <span class='fu'>baseCommand</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
-</div><div class='output co'>#&gt; [1] "echo"</div><div class='input'><span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='st'>"echo"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $echo
+#&gt; [1] "echo"
+#&gt; </div><div class='input'><span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='st'>"echo"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "M1" "M2" "M3"</div><div class='input'><span class='fu'>stepName</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "echo"   "R_read"</div><div class='input'><span class='fu'>targetsheader</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
 </div><div class='output co'>#&gt; $targetsheader
@@ -481,17 +488,21 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; </div><div class='input'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_read</span>
 #&gt;     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</div><div class='input'><span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>sal</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x55e72b3cde60&gt;
+</div><div class='output co'>#&gt; &lt;environment: 0x55c7562b4960&gt;
 #&gt; Copying to 'new.env': </div><div class='input'><span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x55e72b3cde60&gt;
+</div><div class='output co'>#&gt; &lt;environment: 0x55c7562b4960&gt;
 #&gt; character(0)</div><div class='input'>
 <span class='co'>## Subset Methods</span>
 
 <span class='va'>sal_sub</span> <span class='op'>&lt;-</span> <span class='fu'>subset</span><span class='op'>(</span><span class='va'>sal</span>, subset_steps<span class='op'>=</span><span class='fl'>1</span>, input_targets<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, keep_steps <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='va'>targetsIn</span> <span class='op'>&lt;-</span> <span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>updateColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, df<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>targetsIn</span><span class='op'>)</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"targetsWF"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>## Replacement</span>
+<span class='fu'>renameStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span>
+<span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span>
+<span class='fu'>updateColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"targetsWF"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>targetsIn</span><span class='op'>)</span>
 <span class='fu'>targetsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
+</div><div class='output co'>#&gt; $new_echo
 #&gt; DataFrame with 3 rows and 2 columns
 #&gt;                Message  SampleName
 #&gt;            &lt;character&gt; &lt;character&gt;
@@ -507,9 +518,6 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; M2 results/M2.txt
 #&gt; M3 results/M3.txt
 #&gt; </div><div class='input'>
-<span class='co'>## Replacement</span>
-<span class='fu'>renameStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span>
-<span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span>
 <span class='fu'>replaceStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
                             <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='st'>"Printing a new message"</span>
                             <span class='op'>}</span>, 
