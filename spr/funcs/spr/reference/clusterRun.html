@@ -40,7 +40,13 @@
 
 
 <meta property="og:title" content="Submit command-line tools to cluster — clusterRun" />
-<meta property="og:description" content="Submits non-R command-line software to queueing/scheduling systems of compute clusters using run specifications defined by functions similar to runCommandline. clusterRun can be used with most queueing systems since it is based on utilities from the batchtools package which supports the use of template files (*.tmpl) for defining the run parameters of the different schedulers. The path to the *.tmpl file needs to be specified in a conf file provided under the conffile argument." />
+<meta property="og:description" content="Submits non-R command-line software to queueing/scheduling systems of compute 
+clusters using run specifications defined by functions similar to 
+runCommandline. clusterRun can be used with most queueing systems 
+since it is based on utilities from the batchtools package which supports 
+the use of template files (*.tmpl) for defining the run parameters of 
+the different schedulers. The path to the *.tmpl file needs to be 
+specified in a conf file provided under the conffile argument." />
 
 
 
@@ -82,7 +88,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -120,10 +126,23 @@
     </div>
 
     <div class="ref-description">
-    <p>Submits non-R command-line software to queueing/scheduling systems of compute clusters using run specifications defined by functions similar to <code>runCommandline</code>. <code>clusterRun</code> can be used with most queueing systems since it is based on utilities from the <code>batchtools</code> package which supports the use of template files (<code>*.tmpl</code>) for defining the run parameters of the different schedulers. The path to the <code>*.tmpl</code> file needs to be specified in a conf file provided under the <code>conffile</code> argument.</p>
+    <p>Submits non-R command-line software to queueing/scheduling systems of compute 
+clusters using run specifications defined by functions similar to 
+<code>runCommandline</code>. <code>clusterRun</code> can be used with most queueing systems 
+since it is based on utilities from the <code>batchtools</code> package which supports 
+the use of template files (<code>*.tmpl</code>) for defining the run parameters of 
+the different schedulers. The path to the <code>*.tmpl</code> file needs to be 
+specified in a conf file provided under the <code>conffile</code> argument.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clusterRun</span><span class='op'>(</span><span class='va'>args</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>args</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, conffile <span class='op'>=</span> <span class='st'>".batchtools.conf.R"</span>, template <span class='op'>=</span> <span class='st'>"batchtools.slurm.tmpl"</span>, <span class='va'>Njobs</span>, runid <span class='op'>=</span> <span class='st'>"01"</span>, <span class='va'>resourceList</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>clusterRun</span><span class='op'>(</span><span class='va'>args</span>, 
+            FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, 
+            more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>args</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, 
+            conffile <span class='op'>=</span> <span class='st'>".batchtools.conf.R"</span>, 
+            template <span class='op'>=</span> <span class='st'>"batchtools.slurm.tmpl"</span>, 
+            <span class='va'>Njobs</span>, 
+            runid <span class='op'>=</span> <span class='st'>"01"</span>, 
+            <span class='va'>resourceList</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,47 +153,67 @@
     </tr>
     <tr>
       <th>FUN</th>
-      <td><p>Accepts functions such as <code><a href='runCommandline.html'>runCommandline(args, ...)</a></code> where the <code>args</code> argument is mandatory and needs to be of class <code>SYSargs</code> or <code>SYSargs2</code>.</p></td>
+      <td><p>Accepts functions such as <code><a href='runCommandline.html'>runCommandline(args, ...)</a></code> where the 
+	<code>args</code> argument is mandatory and needs to be of class <code>SYSargs</code> 
+	or <code>SYSargs2</code>.</p></td>
     </tr>
     <tr>
       <th>more.args</th>
-      <td><p>Object of class <code>list</code>, which provides the arguments that control the <code>FUN</code> function.</p></td>
+      <td><p>Object of class <code>list</code>, which provides the arguments that control the 
+  <code>FUN</code> function.</p></td>
     </tr>
     <tr>
       <th>conffile</th>
-      <td><p>Path to conf file (default location <code>./.batchtools.conf.R</code>). This file contains in its simplest form just one command, such as this line for the Slurm scheduler: <code>cluster.functions &lt;- makeClusterFunctionsSlurm(template="batchtools.slurm.tmpl")</code>. For more detailed information visit this page: https://mllg.github.io/batchtools/index.html</p></td>
+      <td><p>Path to conf file (default location <code>./.batchtools.conf.R</code>). This file 
+	contains in its simplest form just one command, such as this line for the 
+	Slurm scheduler: <code>cluster.functions &lt;- makeClusterFunctionsSlurm(template="batchtools.slurm.tmpl")</code>. 
+	For more detailed information visit this page: https://mllg.github.io/batchtools/index.html</p></td>
     </tr>
     <tr>
       <th>template</th>
-      <td><p>The template files for a specific queueing/scheduling systems can be downloaded from here: 
-https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, PBS/Torque, and Sun Grid Engine (SGE) templates are provided.</p></td>
+      <td><p>The template files for a specific queueing/scheduling systems can be 
+	downloaded from here: 
+https://github.com/mllg/batchtools/tree/master/inst/templates. 
+Slurm, PBS/Torque, and Sun Grid Engine (SGE) templates are provided.</p></td>
     </tr>
     <tr>
       <th>Njobs</th>
-      <td><p>Interger defining the number of cluster jobs. For instance, if <code>args</code> contains 18 command-line jobs and <code>Njobs=9</code>, then the function will distribute them accross 9 cluster jobs each running 2 command-line jobs. To increase the number of CPU cores used by each process, one can do this under the corresonding argument of the command-line tool, e.g. <code>-p</code> argument for Tophat.</p></td>
+      <td><p>Interger defining the number of cluster jobs. For instance, if <code>args</code> 
+	contains 18 command-line jobs and <code>Njobs=9</code>, then the function will
+	distribute them accross 9 cluster jobs each running 2 command-line jobs. 
+	To increase the number of CPU cores used by each process, one can do this 
+	under the corresonding argument of the command-line tool, e.g. <code>-p</code> 
+	argument for Tophat.</p></td>
     </tr>
     <tr>
       <th>runid</th>
-      <td><p>Run identifier used for log file to track system call commands. Default is <code>"01"</code>.</p></td>
+      <td><p>Run identifier used for log file to track system call commands. 
+	Default is <code>"01"</code>.</p></td>
     </tr>
     <tr>
       <th>resourceList</th>
-      <td><p><code>List</code> for reserving for each cluster job sufficient computing resources including memory (Megabyte), number of nodes, CPU cores, walltime (minutes), etc. For more details, one can consult the template file for each queueing/scheduling system.</p></td>
+      <td><p><code>List</code> for reserving for each cluster job sufficient computing resources
+	including memory (Megabyte), number of nodes, CPU cores, walltime (minutes),
+	etc. For more details, one can consult the template file for each 
+	queueing/scheduling system.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Object of class <code>Registry</code>, as well as files and directories created by the executed command-line tools.</p>
+    <p>Object of class <code>Registry</code>, as well as files and directories 
+created by the executed command-line tools.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>For more details on <code>batchtools</code>, please consult the following page: https://github.com/mllg/batchtools/</p>
+    <p>For more details on <code>batchtools</code>, please consult the following 
+page: https://github.com/mllg/batchtools/</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Daniela Cassol and Thomas Girke</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>clusterRun</code> replaces the older functions <code>getQsubargs</code> and <code>qsubRun</code>.</p></div>
+    <div class='dont-index'><p><code>clusterRun</code> replaces the older functions <code>getQsubargs</code> 
+	and <code>qsubRun</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>#########################################</span>
@@ -267,7 +306,12 @@ https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, PBS/Torque
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
-<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'>clusterRun</span><span class='op'>(</span><span class='va'>args</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>args</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
+<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'>clusterRun</span><span class='op'>(</span><span class='va'>args</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, 
+                    more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>args</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, 
+                    conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, 
+                    template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, 
+                    Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, 
+                    resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
 
 <span class='co'>## Monitor progress of submitted jobs</span>
 <span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
@@ -425,7 +469,11 @@ https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, PBS/Torque
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fl'>4</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
-<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'>clusterRun</span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>WF</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
+<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'>clusterRun</span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, 
+                    more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>WF</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+                    conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, 
+                    template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>,
+                    Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
 
 <span class='co'>## Monitor progress of submitted jobs</span>
 <span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
@@ -436,7 +484,8 @@ https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, PBS/Torque
 <span class='co'>## Alignment stats</span>
 <span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='alignStats.html'>alignStats</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span> 
 <span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>read_statsDF</span><span class='op'>[</span><span class='va'>targets</span><span class='op'>$</span><span class='va'>FileName</span>,<span class='op'>]</span>, <span class='va'>targets</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>, row.names<span class='op'>=</span><span class='cn'>FALSE</span>, quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>, row.names<span class='op'>=</span><span class='cn'>FALSE</span>, 
+                quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>createParamFiles — createParamFiles • systemPipeR</title>
+<title>createParam — createParam • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="createParamFiles — createParamFiles" />
+<meta property="og:title" content="createParam — createParam" />
 <meta property="og:description" content="The constructor function creates an SYSargs2 S4 class object from 
 command-line string. Also, the function creates and saves the CWL param files. 
 The latest storages all the parameters required for running command-line software,
@@ -85,7 +85,7 @@ following the standard and specification defined on Common Workflow Language (CW
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@ following the standard and specification defined on Common Workflow Language (CW
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>createParamFiles</h1>
+    <h1>createParam</h1>
     
     <div class="hidden name"><code>createParamFiles.Rd</code></div>
     </div>
@@ -131,8 +131,8 @@ following the standard and specification defined on Common Workflow Language (CW
 
     <pre class="usage"><span class='fu'>createParamFiles</span><span class='op'>(</span><span class='va'>commandline</span>, cwlVersion <span class='op'>=</span> <span class='st'>"v1.1"</span>, class <span class='op'>=</span> <span class='st'>"CommandLineTool"</span>,
                   results_path <span class='op'>=</span> <span class='st'>"./results"</span>, module_load <span class='op'>=</span> <span class='st'>"baseCommand"</span>, 
-                  file <span class='op'>=</span> <span class='st'>"default"</span>, writeParamFiles <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, 
-                  silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+                  file <span class='op'>=</span> <span class='st'>"default"</span>, writeParamFiles <span class='op'>=</span> <span class='cn'>TRUE</span>, confirm <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
                   
 <span class='fu'>writeParamFiles</span><span class='op'>(</span><span class='va'>sysargs</span>, file <span class='op'>=</span> <span class='st'>"default"</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
@@ -141,15 +141,18 @@ following the standard and specification defined on Common Workflow Language (CW
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>commandline</th>
-      <td><p>string. Original command-line to create the CWL files from. Please see <code>Details</code> for more information.</p></td>
+      <td><p>string. Original command-line to create the CWL files from. Please see 
+  <code>Details</code> for more information.</p></td>
     </tr>
     <tr>
       <th>cwlVersion</th>
-      <td><p>string. The version of the Common Workflow Language. More information here: https://www.commonwl.org/.</p></td>
+      <td><p>string. The version of the Common Workflow Language. More information 
+  here: https://www.commonwl.org/.</p></td>
     </tr>
     <tr>
       <th>class</th>
-      <td><p>character. Name of Common Workflow Language Description class. The following is accepted: <code>CommandLineTool</code>.</p></td>
+      <td><p>character. Name of Common Workflow Language Description class. The following 
+  is accepted: <code>CommandLineTool</code>.</p></td>
     </tr>
     <tr>
       <th>results_path</th>
@@ -157,57 +160,70 @@ following the standard and specification defined on Common Workflow Language (CW
     </tr>
     <tr>
       <th>module_load</th>
-      <td><p>string, Name of software to load by Environment Modules system. Default is "baseCommand", which creates a subfolder and two files: *.cwl and *.yml at ./param/cwl/.</p></td>
+      <td><p>string, Name of software to load by Environment Modules system. Default is 
+  "baseCommand", which creates a subfolder and two files: *.cwl and *.yml 
+  at <code>./param/cwl/</code>.</p></td>
     </tr>
     <tr>
       <th>file</th>
       <td><p>character. Name and path of output files. If set to "default" then the name of 
-  the output files will have the pattern <code>&lt;software&gt;.cwl</code> and <code>&lt;software&gt;.yml</code>, 
-  where &lt;software&gt; will be what <code><a href='SYSargsList.html'>baseCommand(x)</a></code> returns, when <code>x</code> is an 
-  object of class <code>SYSargs2</code>. 
+  the output files will have the pattern <code>&lt;software&gt;.cwl</code> and 
+  <code>&lt;software&gt;.yml</code>, where &lt;software&gt; will be what <code><a href='SYSargsList.html'>baseCommand(x)</a></code> 
+  returns, when <code>x</code> is an object of class <code>SYSargs2</code>. 
   Also, it creates a subfolder at <code>./param/cwl/</code> with name &lt;software&gt;.</p></td>
     </tr>
     <tr>
       <th>writeParamFiles</th>
-      <td><p>logical. If set to TRUE, it will write to file the content of the CWL files:<code>*.cwl</code> and <code>*.yml</code>.
-  Default is <code>FALSE</code>.</p></td>
+      <td><p>logical. If set to TRUE, it will write to file the content of the CWL 
+  files:<code>*.cwl</code> and <code>*.yml</code>. Default is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>confirm</th>
+      <td><p>If set to <code>FALSE</code> and in an interactive section, it will prompt a question to 
+  proceed or not.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>logical. If set to TRUE, existing files of the same name will be overwritten. Default is <code>FALSE</code>.</p></td>
+      <td><p>logical. If set to TRUE, existing files of the same name will be overwritten.
+   Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>silent</th>
-      <td><p>logical. If set to TRUE, all messages returned by the function will be suppressed. Default is <code>FALSE</code>.</p></td>
+      <td><p>logical. If set to TRUE, all messages returned by the function will be 
+  suppressed. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>sysargs</th>
-      <td><p>Object of class <code>SYSargs2</code>. Output from the <code>createParamFiles</code> function.</p></td>
+      <td><p>Object of class <code>SYSargs2</code>. Output from the <code>createParamFiles</code> 
+  function.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>- First line of the command-line object will be treated as the <code>baseCommand</code>;</p>
+    <p>- First line of the command-line object will be treated as the 
+<code>baseCommand</code>;</p>
 <p>- For argument lines (starting from the second line), any word before the first 
-  space with leading `-` or `--` in each will be treated as a prefix, like <code>-S</code> or 
-  <code>--min</code>. Any line without this first word will be treated as no prefix;</p>  
+  space with leading `-` or `--` in each will be treated as a prefix, like 
+  <code>-S</code> or <code>--min</code>. Any line without this first word will be treated 
+  as no prefix;</p>  
 <p>- All defaults are placed inside <code>&lt;...&gt;</code>;</p>
-<p>- First argument is the input argument type. <code>F</code> for "File", <code>int</code> for integer, 
-  <code>string</code> for string;</p>  
-<p>- Optional: use the keyword <code>out</code> followed the type with a <code>,</code> comma separation to 
-  indicate if this argument is also a CWL output;</p>  
-<p>- Then, use <code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code> to separate keywords and default values, any non-space value after the <code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code>
-  will be treated as the default value;</p>  
-<p>- If any argument has no default value, just a flag, like <code>--verbose</code>, there no need to 
-  add any <code>&lt;...&gt;</code>.</p>  
+<p>- First argument is the input argument type. <code>F</code> for "File", <code>int</code> 
+  for integer, <code>string</code> for string;</p>  
+<p>- Optional: use the keyword <code>out</code> followed the type with a <code>,</code> comma 
+  separation to indicate if this argument is also a CWL output;</p>  
+<p>- Then, use <code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code> to separate keywords and default values, any non-space 
+  value after the <code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code> will be treated as the default value;</p>  
+<p>- If any argument has no default value, just a flag, like <code>--verbose</code>, 
+  there no need to add any <code>&lt;...&gt;</code>.</p>  
 <p>- The <code>\</code> is not required, however for consistency it is recommended to add.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>SYSargs2</code> object</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>For more details on <code>CWL</code>, please consult the following page: https://www.commonwl.org/</p>
+    <p>For more details on <code>CWL</code>, please consult the following 
+page: https://www.commonwl.org/</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Le Zhang and Daniela Cassol</p>
@@ -235,7 +251,7 @@ hisat2 \
     -U &lt;F: ./data/SRR446027_1.fastq.gz&gt; \
     --verbose
 "</span>
-<span class='va'>cmd</span> <span class='op'>&lt;-</span> <span class='fu'>createParamFiles</span><span class='op'>(</span><span class='va'>command</span><span class='op'>)</span>
+<span class='va'>cmd</span> <span class='op'>&lt;-</span> <span class='fu'>createParam</span><span class='op'>(</span><span class='va'>command</span>, writeParamFiles<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='background-color: #0000BB;'>*****BaseCommand*****
 #&gt; </span>hisat2 
 #&gt; <span style='background-color: #0000BB;'>*****Inputs*****

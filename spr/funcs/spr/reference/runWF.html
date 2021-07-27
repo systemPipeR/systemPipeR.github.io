@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
     <p>Function to execute all the code list specified in SYSargsList object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>runWF</span><span class='op'>(</span><span class='va'>sysargs</span>, force <span class='op'>=</span> <span class='cn'>FALSE</span>, saveEnv <span class='op'>=</span> <span class='cn'>TRUE</span>, warning.stop <span class='op'>=</span>
+    <pre class="usage"><span class='fu'>runWF</span><span class='op'>(</span><span class='va'>sysargs</span>, steps <span class='op'>=</span> <span class='cn'>NULL</span>, force <span class='op'>=</span> <span class='cn'>FALSE</span>, saveEnv <span class='op'>=</span> <span class='cn'>TRUE</span>, warning.stop <span class='op'>=</span>
                  <span class='cn'>FALSE</span>, error.stop <span class='op'>=</span> <span class='cn'>TRUE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -132,6 +132,11 @@
     <tr>
       <th>sysargs</th>
       <td><p>object of class <code>SYSargsList</code>.</p></td>
+    </tr>
+    <tr>
+      <th>steps</th>
+      <td><p>character or numeric. Step name or index. If <code>NULL</code>, all the step will be 
+  executed.</p></td>
     </tr>
     <tr>
       <th>force</th>
@@ -170,10 +175,22 @@
     <div class='dont-index'><p>See also as <code>SYSargsList-class</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Construct SYSargsList object from Rmd file</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tgirke/systemPipeRdata'>systemPipeRdata</a></span><span class='op'>)</span>
-<span class='va'>sysargslist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='co'>## Construct SYSargsList object from Rmd file</span>
+<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+
+<span class='co'>## Constructor and `appendStep&lt;-`</span>
+<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SYSargsList.html'>SYSargsList</a></span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, 
+                               targets<span class='op'>=</span><span class='va'>targetspath</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>,
+                               wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
+                               dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,
+                               inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
+                            <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fu'><a href='SYSargsList.html'>getColumn</a></span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, <span class='st'>'outfiles'</span><span class='op'>)</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>yaml</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/yaml/man/read_yaml.html'>read_yaml</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+                            <span class='op'>}</span>, 
+                            step_name <span class='op'>=</span> <span class='st'>"R_read"</span>, 
+                            dependency <span class='op'>=</span> <span class='st'>"echo"</span><span class='op'>)</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>runWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
