@@ -4,7 +4,7 @@ The life version of this page is available [here](https://systempipe.org/).
 
 ### systemPipeR package status <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeR.png" align="right" height="129" />
 
-[![platforms](http://www.bioconductor.org/shields/availability/3.12/systemPipeR.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html#archives)
+[![platforms](https://www.bioconductor.org/shields/availability/release/systemPipeR.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html#archives)
 [![rank](http://www.bioconductor.org/shields/downloads/devel/systemPipeR.svg)](http://bioconductor.org/packages/stats/bioc/systemPipeR/)
 [![posts](http://www.bioconductor.org/shields/posts/systemPipeR.svg)](https://support.bioconductor.org/t/systempiper/)
 [![Bioc](http://www.bioconductor.org/shields/years-in-bioc/systemPipeR.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html#since)
@@ -18,7 +18,7 @@ The life version of this page is available [here](https://systempipe.org/).
 
 ### systemPipeShiny package status <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeShiny.png" align="right" height="129" />
 
-[![platforms](http://www.bioconductor.org/shields/availability/3.12/systemPipeShiny.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeShiny.html#archives)
+[![platforms](https://www.bioconductor.org/shields/availability/release/systemPipeShiny.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeShiny.html#archives)
 [![rank](http://www.bioconductor.org/shields/downloads/devel/systemPipeShiny.svg)](http://bioconductor.org/packages/stats/bioc/systemPipeShiny/)
 [![posts](http://www.bioconductor.org/shields/posts/systemPipeShiny.svg)](https://support.bioconductor.org/t/systemPipeShiny/)
 [![Bioc](http://www.bioconductor.org/shields/years-in-bioc/systemPipeShiny.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeShiny.html#since)
