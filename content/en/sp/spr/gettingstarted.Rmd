@@ -133,7 +133,7 @@ workflows accordingly.
         + Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.
 
 ```{r dir, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "*systemPipeR's* preconfigured directory structure."}
-knitr::include_graphics(system.file("extdata/images", "spr_project.png", package = "systemPipeR"))  
+knitr::include_graphics("spr_project.png")  
 ```
 
 The following parameter files are included in each workflow template:
@@ -231,7 +231,7 @@ connection, providing security that all the samples will be managed efficiently
 and reproducibly.
 
 ```{r targetsFig, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users."}
-knitr::include_graphics(system.file("extdata/images", "targets_con.png", package = "systemPipeR"))  
+knitr::include_graphics( "targets_con.png")  
 ```
 
 ## Structure of the new parameters files

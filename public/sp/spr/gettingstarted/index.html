@@ -21,11 +21,11 @@
 <meta property="og:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Getting Started Installation systemPipeR environment can be installed from the R console using the BiocManager::install command. The associated data package systemPipeRdata can be installed the same way." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spr/gettingstarted/" />
-<meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-08-06T17:01:17-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Getting Started">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Getting Started Installation systemPipeR environment can be installed from the R console using the BiocManager::install command. The associated data package systemPipeRdata can be installed the same way.">
-
-<meta itemprop="wordCount" content="1398">
+<meta itemprop="dateModified" content="2021-08-06T17:01:17-07:00" />
+<meta itemprop="wordCount" content="1425">
 
 
 
@@ -516,7 +516,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.8db49a379a5f27f53262410cd2ba8aea.json"
+  data-offline-search-index-json-src="../../../offline-search-index.1805321fc9fbc07b959c43d6128eb87e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -548,7 +548,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.8db49a379a5f27f53262410cd2ba8aea.json"
+  data-offline-search-index-json-src="../../../offline-search-index.1805321fc9fbc07b959c43d6128eb87e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1039,7 +1039,7 @@ workflows accordingly.</p>
 </li>
 </ul>
 <div class="figure" style="text-align: center">
-<p><img src="../../../home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/images/spr_project.png" alt="*systemPipeR's* preconfigured directory structure." width="100%" /></p>
+<p><img src="spr_project.png" alt="*systemPipeR's* preconfigured directory structure." width="100%" /></p>
 <p class="caption">
 Figure 1: *systemPipeR’s* preconfigured directory structure.
 </p>
@@ -1144,7 +1144,7 @@ among the steps in the workflow.
 connection, providing security that all the samples will be managed efficiently
 and reproducibly.</p>
 <div class="figure" style="text-align: center">
-<p><img src="../../../home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/images/targets_con.png" alt="_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users." width="100%" /></p>
+<p><img src="targets_con.png" alt="_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users." width="100%" /></p>
 <p class="caption">
 Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. *`systemPipeR`* (C) manages this connectivity among the steps automatically for the users.
 </p>
@@ -1152,16 +1152,21 @@ Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files b
 <h2 id="structure-of-the-new-parameters-files">Structure of the new parameters files</h2>
 <p>The parameters and configuration required for running command-line software are
 provided by the widely used community standard <a href="https://www.commonwl.org/">Common Workflow Language</a> (CWL)
-(<strong>Amstutz2016-ka?</strong>), which describes parameters analysis workflows in a generic
+(Amstutz et al. 2016), which describes parameters analysis workflows in a generic
 and reproducible manner. For R-based workflow steps, param files are not required.
 For a complete overview of the CWL syntax, please see the <a href="#cwl">section</a> below.
 Also, we have a dedicated section explain how to <em><code>systemPipeR</code></em> establish the
 connection between the CWL parameters files and the targets files. Please see <a href="#cwl_targets">here</a>.</p>
 <h2 id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Amstutz2016-ka" class="csl-entry">
+<p>Amstutz, Peter, Michael R Crusoe, Nebojša Tijanić, Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, et al. 2016. “Common Workflow Language, V1.0,” July. <a href="https://doi.org/10.6084/m9.figshare.3115156.v2">https://doi.org/10.6084/m9.figshare.3115156.v2</a>.</p>
+</div>
+</div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-08-06: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/171d9df8abf1a78505ba0074e8e0bd08f191f34b">no_render (171d9df8)</a>
 </div>
 </div>
 
