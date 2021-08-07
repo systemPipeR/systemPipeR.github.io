@@ -290,7 +290,7 @@ workflows accordingly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;../../home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/images/spr_project.png&#34; alt=&#34;*systemPipeR&#39;s* preconfigured directory structure.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;spr_project.png&#34; alt=&#34;*systemPipeR&#39;s* preconfigured directory structure.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: *systemPipeR’s* preconfigured directory structure.
 &lt;/p&gt;
@@ -395,7 +395,7 @@ among the steps in the workflow.
 connection, providing security that all the samples will be managed efficiently
 and reproducibly.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;../../home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/images/targets_con.png&#34; alt=&#34;_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;targets_con.png&#34; alt=&#34;_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. *`systemPipeR`* (C) manages this connectivity among the steps automatically for the users.
 &lt;/p&gt;
@@ -403,12 +403,17 @@ Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files b
 &lt;h2 id=&#34;structure-of-the-new-parameters-files&#34;&gt;Structure of the new parameters files&lt;/h2&gt;
 &lt;p&gt;The parameters and configuration required for running command-line software are
 provided by the widely used community standard &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language&lt;/a&gt; (CWL)
-(&lt;strong&gt;Amstutz2016-ka?&lt;/strong&gt;), which describes parameters analysis workflows in a generic
+(Amstutz et al. 2016), which describes parameters analysis workflows in a generic
 and reproducible manner. For R-based workflow steps, param files are not required.
 For a complete overview of the CWL syntax, please see the &lt;a href=&#34;#cwl&#34;&gt;section&lt;/a&gt; below.
 Also, we have a dedicated section explain how to &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt; establish the
 connection between the CWL parameters files and the targets files. Please see &lt;a href=&#34;#cwl_targets&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
+&lt;div id=&#34;ref-Amstutz2016-ka&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Amstutz, Peter, Michael R Crusoe, Nebojša Tijanić, Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, et al. 2016. “Common Workflow Language, V1.0,” July. &lt;a href=&#34;https://doi.org/10.6084/m9.figshare.3115156.v2&#34;&gt;https://doi.org/10.6084/m9.figshare.3115156.v2&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
       </description>
     </item>
