@@ -1,7 +1,7 @@
 ---
 title: "How to run a Workflow" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 22 February, 2021" 
+date: "Last update: 06 August, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -20,6 +20,11 @@ type: docs
 weight: 3
 ---
 
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="/rmarkdown-libs/plotwf/plotwf.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotwf/viz.js"></script>
+<script src="/rmarkdown-libs/plotwf/full.render.js"></script>
+<script src="/rmarkdown-libs/plotwf-binding/plotwf.js"></script>
 <!--
 - Compile from command-line
 Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
@@ -38,133 +43,1425 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-# How to run a Workflow
+# Project initialization
 
-This tutorial introduces the basic ideas and tools needed to build a specific workflow from preconfigured templates.
-
-## Load sample data and workflow templates
-
-``` r
-library(systemPipeRdata)
-genWorkenvir(workflow = "rnaseq")
-setwd("rnaseq")
-```
-
-## Setup and Requirements
-
-To go through this tutorial, you need the following software installed:
-
--   R/&gt;=3.6.2
--   systemPipeR R package (version 1.22)
--   Hisat2/2.1.0
-
-If you desire to build your pipeline with any different software, make sure to have the respective software installed and configured in your PATH. To make sure if the configuration is right, you always can test as follow:
+To create a Workflow within *`systemPipeR`*, we can start by defining an empty
+container and checking the directory structure:
 
 ``` r
-tryCL(command = "hisat2")  ## 'All set up, proceed!'
+sal <- SPRproject(projPath = tempdir())
 ```
 
-## Project Initialization
+    ## Creating directory: /tmp/RtmpzxxPO5/data 
+    ## Creating directory: /tmp/RtmpzxxPO5/param 
+    ## Creating directory: /tmp/RtmpzxxPO5/results 
+    ## Creating directory '/tmp/RtmpzxxPO5/.SPRproject'
+    ## Creating file '/tmp/RtmpzxxPO5/.SPRproject/SYSargsList.yml'
 
-The Project management structure is essential, especially for reproducibility and efficiency in the analysis. Here we show how to construct an instance of this S4 object class by the *`initWF`* function. The object of class *`SYSarsgsList`* storing all the configuration information for the project and allows management and control at a high level.
+    ## Your current working directory is different from the directory chosen for the Project Workflow.
+    ## For accurate location of the files and running the Workflow, please set the working directory to 
+    ## 'setwd(/tmp/RtmpzxxPO5)'
+
+Internally, `SPRproject` function will create a hidden folder called `.SPRproject`,
+by default, to store all the log files.
+A `YAML` file, here called `SYSargsList.yml`, has been created, which initially
+contains the basic location of the project structure; however, every time the
+workflow object `sal` is updated in R, the new information will also be store in this
+flat-file database for easy recovery.
+If you desire different names for the logs folder and the `YAML` file, these can
+be modified as follows:
 
 ``` r
-script <- "systemPipeRNAseq.Rmd"
-targetspath <- "targets.txt"
-sysargslist <- initWF(script = script, targets = targetspath)
+sal <- SPRproject(logs.dir = ".SPRproject", sys.file = ".SPRproject/SYSargsList.yml")
 ```
 
-## Project Initialization in a Temporary Directory
+Also, this function will check and/or create the basic folder structure if missing,
+which means `data`, `param`, and `results` folder, as described [here](#dir).
+If the user wants to use a different names for these directories, can be specified
+as follows:
 
 ``` r
-library(systemPipeRdata)
-script <- system.file("extdata/workflows/rnaseq", "systemPipeRNAseq.Rmd", package = "systemPipeRdata")
-targets <- system.file("extdata", "targets.txt", package = "systemPipeR")
-dir_path <- tempdir()
-SYSconfig <- initProject(projPath = dir_path, targets = targets, script = script, 
-    overwrite = TRUE)
-sysargslist_temp <- initWF(sysconfig = "SYSconfig.yml")
+sal <- SPRproject(data = "data", param = "param", results = "results")
 ```
 
-## Configuration and run of the project
+It is possible to separate all the R objects created within the workflow analysis
+from the current environment. `SPRproject` function provides the option to create
+a new environment, and in this way, it is not overwriting any object you may want
+to have at your current section.
 
 ``` r
-sysargslist <- configWF(x = sysargslist, input_steps = "1:3")
-sysargslist <- runWF(sysargslist = sysargslist, steps = "ALL")
-sysargslist <- runWF(sysargslist = sysargslist, steps = "1:2")
+sal <- SPRproject(envir = new.env())
 ```
 
-## How to Use Pipes with *systemPipeR*
-
-At first encounter, you may wonder whether an operator such as *%&gt;%* can really be all that beneficial; but as you may notice, it semantically changes your code in a way that makes it more intuitive to both read and write.
-
-Consider the following example, in which the steps are the initialization, configuration and running the entire workflow.
+In this stage, the object `sal` is a empty container, except for the project information. The project information can be accessed by the `projectInfo` method:
 
 ``` r
-library(systemPipeR)
-sysargslist <- initWF(script = "systemPipeRNAseq.Rmd", overwrite = T) %>% configWF(input_steps = "1:3") %>% 
-    runWF(steps = "1:2")
+sal
 ```
 
-## How to run the workflow on a cluster
-
-This section of the tutorial provides an introduction to the usage of the *systemPipeR* features on a cluster.
-
-Now open the R markdown script `*.Rmd`in your R IDE (\_e.g.\_vim-r or RStudio) and run the workflow as outlined below. If you work under Vim-R-Tmux, the following command sequence will connect the user in an
-interactive session with a node on the cluster. The code of the `Rmd`
-script can then be sent from Vim on the login (head) node to an open R session running
-on the corresponding computer node. This is important since Tmux sessions
-should not be run on the computer nodes.
+    ## Instance of 'SYSargsList': 
+    ##  No workflow steps added
 
 ``` r
-q("no")  # closes R session on head node
+projectInfo(sal)
 ```
 
-``` bash
-srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 2:00:00 --pty bash -l
-module load R/3.4.2
-R
-```
+    ## $project
+    ## [1] "/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr"
+    ## 
+    ## $data
+    ## [1] "data"
+    ## 
+    ## $param
+    ## [1] "param"
+    ## 
+    ## $results
+    ## [1] "results"
+    ## 
+    ## $logsDir
+    ## [1] ".SPRproject"
+    ## 
+    ## $sysargslist
+    ## [1] ".SPRproject/SYSargsList.yml"
 
-Now check whether your R session is running on a computer node of the cluster and not on a head node.
+Also, the `length` function will return how many steps this workflow contains and
+in this case it is empty, as follow:
 
 ``` r
-system("hostname")  # should return name of a compute node starting with i or c 
-getwd()  # checks current working directory of R session
-dir()  # returns content of current working directory
+length(sal)
 ```
 
-### Parallelization on clusters
+    ## [1] 0
 
-Alternatively, the computation can be greatly accelerated by processing many files
+# Workflow Design
+
+*`systemPipeR`* workflows can be designed and built from start to finish with a
+single command, importing from an R Markdown file or stepwise in interactive
+mode from the R console.
+In the [next section](#appendstep), we will demonstrate how to build the workflow in an
+interactive mode, and in the [following section](#importWF), we will show how to build from a
+file.
+
+New workflows are constructed, or existing ones modified, by connecting each
+step via `appendStep` method. Each `SYSargsList` instance contains instructions
+needed for processing a set of input files with a specific command-line or R
+software, as well as the paths to the corresponding outfiles generated by a
+particular tool/step.
+
+To build R code based step, the constructor function `Linewise` is used.
+For more details about this S4 class container, see [here](#linewise).
+
+## Build workflow interactive
+
+This tutorial shows a very simple example for describing and explaining all main
+features available within systemPipeR to design, build, manage, run, and
+visualize the workflow. In summary, we are exporting a dataset to multiple
+files, compressing and decompressing each one of the files, and importing to R,
+and finally performing a statistical analysis.
+
+In the previous section, we initialize the project by building the `sal` object.
+Until this moment, the container has no steps:
+
+``` r
+sal
+```
+
+    ## Instance of 'SYSargsList': 
+    ##  No workflow steps added
+
+Next, we need to populate the object created with the first step in the
+workflow.
+
+### Adding the first step
+
+The first step is R code based, and we are splitting the `iris` dataset by `Species`
+and for each `Species` will be saved on file. Please note that this code will
+not be executed now; it is just store in the container for further execution.
+
+This constructor function requires the `step_name` and the R-based code under
+the `code` argument.
+The R code should be enclosed by braces (`{}`) and separated by a new line.
+
+``` r
+appendStep(sal) <- LineWise(code = {
+    mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results",
+        paste0(names(split(iris, factor(iris$Species))), ".csv")))
+}, step_name = "export_iris")
+```
+
+For a brief overview of the workflow, we can check the object as follows:
+
+``` r
+sal
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ## 
+
+Also, for printing and double-check the R code in the step, we can use the
+`codeLine` method:
+
+``` r
+codeLine(sal)
+```
+
+    ## export_iris
+    ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+
+### Adding more steps
+
+Next, an example of how to compress the exported files using
+[`gzip`](https://www.gnu.org/software/gzip/) command-line.
+
+The constructor function creates an `SYSargsList` S4 class object using data from
+three input files:
+
+    - CWL command-line specification file (`wf_file` argument);
+    - Input variables (`input_file` argument);
+    - Targets file (`targets` argument).
+
+In CWL, files with the extension `.cwl` define the parameters of a chosen
+command-line step or workflow, while files with the extension `.yml` define the
+input variables of command-line steps.
+
+The `targets` file is optional for workflow steps lacking `input` files. The connection
+between `input` variables and the `targets` file is defined under the `inputvars`
+argument. It is required a `named vector`, where each element name needs to match
+with column names in the `targets` file, and the value must match the names of
+the `input` variables defined in the `*.yml` files (see Figure <a href="#fig:sprCWL"><strong>??</strong></a>).
+
+A detailed description of the dynamic between `input` variables and `targets`
+files can be found [here](#cwl_targets).
+In addition, the CWL syntax overview can be found [here](#cwl).
+
+Besides all the data form `targets`, `wf_file`, `input_file` and `dir_path` arguments,
+`SYSargsList` constructor function options include:
+
+-   `step_name`: a unique *name* for the step. This is not mandatory; however,
+    it is highly recommended. If no name is provided, a default `step_x`, where
+    `x` reflects the step index, will be added.
+-   `dir`: this option allows creating an exclusive subdirectory for the step
+    in the workflow. All the outfiles and log files for this particular step will
+    be generated in the respective folders.
+-   `dependency`: after the first step, all the additional steps appended to
+    the workflow require the information of the dependency tree.
+
+The `appendStep<-` method is used to append a new step in the workflow.
+
+``` r
+targetspath <- system.file("extdata/cwl/gunzip", "targets_gunzip.txt", package = "systemPipeR")
+appendStep(sal) <- SYSargsList(step_name = "gzip", targets = targetspath, dir = TRUE,
+    wf_file = "gunzip/workflow_gzip.cwl", input_file = "gunzip/gzip.yml", dir_path = system.file("extdata/cwl",
+        package = "systemPipeR"), inputvars = c(FileName = "_FILE_PATH_", SampleName = "_SampleName_"),
+    dependency = "export_iris")
+```
+
+Note: This will not work if the `gzip` is not available on your system
+(installed and exported to PATH) and may only work on Windows systems using PowerShell.
+
+For a overview of the workflow, we can check the object as follows:
+
+``` r
+sal
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ##        2. gzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gzip
+    ##              cmdlist: 3 | Pending: 3
+    ## 
+
+Note that we have two steps, and it is expected three files from the second step.
+Also, the workflow status is *Pending*, which means the workflow object is
+rendered in R; however, we did not execute the workflow yet.
+In addition to this summary, it can be observed this step has three command lines.
+
+For more details about the command-line rendered for each target file, it can be
+checked as follows:
+
+``` r
+cmdlist(sal, step = "gzip")
+```
+
+    ## $gzip
+    ## $gzip$SE
+    ## $gzip$SE$gzip
+    ## [1] "gzip -c  results/setosa.csv > results/SE.csv.gz"
+    ## 
+    ## 
+    ## $gzip$VE
+    ## $gzip$VE$gzip
+    ## [1] "gzip -c  results/versicolor.csv > results/VE.csv.gz"
+    ## 
+    ## 
+    ## $gzip$VI
+    ## $gzip$VI$gzip
+    ## [1] "gzip -c  results/virginica.csv > results/VI.csv.gz"
+
+#### Using the `outfiles` for the next step
+
+For building this step, all the previous procedures are being used to append the
+next step. However, here, we can observe power features that build the
+connectivity between steps in the workflow.
+
+In this example, we would like to use the outfiles from *gzip* Step, as
+input from the next step, which is the *gunzip*. In this case, let’s look at the
+outfiles from the first step:
+
+``` r
+outfiles(sal)
+```
+
+    ## $export_iris
+    ## DataFrame with 0 rows and 0 columns
+    ## 
+    ## $gzip
+    ## DataFrame with 3 rows and 1 column
+    ##           gzip_file
+    ##         <character>
+    ## 1 results/SE.csv.gz
+    ## 2 results/VE.csv.gz
+    ## 3 results/VI.csv.gz
+
+The column we want to use is “gzip\_file.” For the argument `targets` in the
+`SYSargsList` function, it should provide the name of the correspondent step in
+the Workflow and which `outfiles` you would like to be incorporated in the next
+step.
+The argument `inputvars` allows the connectivity between `outfiles` and the
+new `targets` file. Here, the name of the previous `outfiles` should be provided
+it. Please note that all `outfiles` column names must be unique.
+
+It is possible to keep all the original columns from the `targets` files or remove
+some columns for a clean `targets` file.
+The argument `rm_targets_col` provides this flexibility, where it is possible to
+specify the names of the columns that should be removed. If no names are passing
+here, the new columns will be appended.
+
+``` r
+appendStep(sal) <- SYSargsList(step_name = "gunzip", targets = "gzip", dir = TRUE,
+    wf_file = "gunzip/workflow_gunzip.cwl", input_file = "gunzip/gunzip.yml", dir_path = system.file("extdata/cwl",
+        package = "systemPipeR"), inputvars = c(gzip_file = "_FILE_PATH_", SampleName = "_SampleName_"),
+    rm_targets_col = "FileName", dependency = "gzip")
+```
+
+We can check the targets automatically create for this step,
+based on the previous `outfiles`:
+
+``` r
+targetsWF(sal[3])
+```
+
+    ## $gunzip
+    ## DataFrame with 3 rows and 2 columns
+    ##           gzip_file  SampleName
+    ##         <character> <character>
+    ## 1 results/SE.csv.gz          SE
+    ## 2 results/VE.csv.gz          VE
+    ## 3 results/VI.csv.gz          VI
+
+We can also check all the expected `outfiles` for this particular step, as follows:
+
+``` r
+outfiles(sal[3])
+```
+
+    ## $gunzip
+    ## DataFrame with 3 rows and 1 column
+    ##      gunzip_file
+    ##      <character>
+    ## 1 results/SE.csv
+    ## 2 results/VE.csv
+    ## 3 results/VI.csv
+
+Now, we can observe that the third step has been added and contains one substep.
+
+``` r
+sal
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ##        2. gzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        3. gunzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          3.1. gunzip
+    ##              cmdlist: 3 | Pending: 3
+    ## 
+
+In addition, we can access all the command lines for each one of the substeps.
+
+``` r
+cmdlist(sal["gzip"], targets = 1)
+```
+
+    ## $gzip
+    ## $gzip$SE
+    ## $gzip$SE$gzip
+    ## [1] "gzip -c  results/setosa.csv > results/SE.csv.gz"
+
+#### Getting data from a workflow instance
+
+The final step in this simple workflow is an R code step. For that, we are using
+the `LineWise` constructor function as demonstrated above.
+
+One interesting feature showed here is the `getColumn` method that allows
+extracting the information for a workflow instance. Those files can be used in
+an R code, as demonstrated below.
+
+``` r
+getColumn(sal, step = "gunzip", "outfiles")
+```
+
+    ##               SE               VE               VI 
+    ## "results/SE.csv" "results/VE.csv" "results/VI.csv"
+
+``` r
+appendStep(sal) <- LineWise(code = {
+    df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x,
+        sep = ",")[-1])
+    df <- do.call(rbind, df)
+    stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4],
+        2, sd)))
+    stats$species <- rownames(stats)
+
+    plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) +
+        ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) +
+        ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd),
+            width = 0.2, position = ggplot2::position_dodge(0.9))
+}, step_name = "iris_stats", dependency = "gzip")
+```
+
+## Build workflow from a {R Markdown}
+
+The precisely same workflow can be created by importing the steps from an
+R Markdown file.
+As demonstrated above, it is required to initialize the project with `SPRproject` function.
+
+`importWF` function will scan and import all the R chunk from the R Markdown file
+and build all the workflow instances. Then, each R chuck in the file will be
+converted in a workflow step.
+
+``` r
+sal_rmd <- SPRproject(logs.dir = ".SPRproject_rmd")
+```
+
+    ## Creating directory '/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr/.SPRproject_rmd'
+    ## Creating file '/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr/.SPRproject_rmd/SYSargsList.yml'
+
+``` r
+sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.Rmd",
+    package = "systemPipeR"))
+```
+
+    ## Reading Rmd file
+
+    ## 
+    ##  ---- Actions ----
+
+    ## Checking chunk SPR option
+
+    ## Ignore non-SPR chunks: 17
+
+    ## Checking chunk eval values
+
+    ## Resolve step names
+
+    ## Check duplicated step names
+
+    ## Checking chunk dependencies
+
+    ## Use the previous step as dependency for steps without 'spr.dep' options: 27
+
+    ## Parse chunk code
+
+    ## ---- Succes! Create output ----
+
+    ## Now importing step 'export_iris' 
+    ## Now importing step 'gzip' 
+    ## Now importing step 'gunzip' 
+    ## Now importing step 'stats'
+
+Let’s explore the workflow to check the steps:
+
+``` r
+stepsWF(sal_rmd)
+```
+
+    ## $export_iris
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 1
+    ## 
+    ## $gzip
+    ## Instance of 'SYSargs2':
+    ##    Slot names/accessors: 
+    ##       targets: 3 (SE...VI), targetsheader: 1 (lines)
+    ##       modules: 0
+    ##       wf: 1, clt: 1, yamlinput: 4 (inputs)
+    ##       input: 3, output: 3
+    ##       cmdlist: 3
+    ##    Sub Steps:
+    ##       1. gzip (rendered: TRUE)
+    ## 
+    ## 
+    ## 
+    ## $gunzip
+    ## Instance of 'SYSargs2':
+    ##    Slot names/accessors: 
+    ##       targets: 3 (SE...VI), targetsheader: 1 (lines)
+    ##       modules: 0
+    ##       wf: 1, clt: 1, yamlinput: 4 (inputs)
+    ##       input: 3, output: 3
+    ##       cmdlist: 3
+    ##    Sub Steps:
+    ##       1. gunzip (rendered: TRUE)
+    ## 
+    ## 
+    ## 
+    ## $stats
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 5
+
+``` r
+dependency(sal_rmd)
+```
+
+    ## $export_iris
+    ## [1] ""
+    ## 
+    ## $gzip
+    ## [1] "export_iris"
+    ## 
+    ## $gunzip
+    ## [1] "gzip"
+    ## 
+    ## $stats
+    ## [1] "gunzip"
+
+``` r
+codeLine(sal_rmd)
+```
+
+    ## gzip AND gunzip step have been dropped because it is not a LineWise object.
+
+    ## export_iris
+    ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    ## stats
+    ##     df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
+    ##     df <- do.call(rbind, df)
+    ##     stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
+    ##     stats$species <- rownames(stats)
+    ##     plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
+
+``` r
+targetsWF(sal_rmd)
+```
+
+    ## $export_iris
+    ## DataFrame with 0 rows and 0 columns
+    ## 
+    ## $gzip
+    ## DataFrame with 3 rows and 2 columns
+    ##                 FileName  SampleName
+    ##              <character> <character>
+    ## 1     results/setosa.csv          SE
+    ## 2 results/versicolor.csv          VE
+    ## 3  results/virginica.csv          VI
+    ## 
+    ## $gunzip
+    ## DataFrame with 3 rows and 2 columns
+    ##           gzip_file  SampleName
+    ##         <character> <character>
+    ## 1 results/SE.csv.gz          SE
+    ## 2 results/VE.csv.gz          VE
+    ## 3 results/VI.csv.gz          VI
+    ## 
+    ## $stats
+    ## DataFrame with 0 rows and 0 columns
+
+### Rules to create the R Markdown to import as workflow
+
+To include a particular code chunk from the R Markdown file in the workflow
+analysis, please use the following code chunk options:
+
+    -   `spr='r'`: for code chunks with R code lines;
+    -   `spr='sysargs'`: for code chunks with an `SYSargsList` object;
+    -   `spr.dep=<StepName>`: for specify the previous dependency.
+
+For example:
+
+> *\`\`\`{r step\_1, eval=TRUE, spr=‘r,’ spr.dep=‘step\_0’}*
+
+> *\`\`\`{r step\_2, eval=TRUE, spr=‘sysargs,’ spr.dep=‘step\_1’}*
+
+For `spr = 'sysargs'`, the last object assigned must to be the `SYSargsList`, for example:
+
+``` r
+targetspath <- system.file("extdata/cwl/example/targets_example.txt", package = "systemPipeR")
+HW_mul <- SYSargsList(step_name = "Example", targets = targetspath, wf_file = "example/example.cwl",
+    input_file = "example/example.yml", dir_path = system.file("extdata/cwl", package = "systemPipeR"),
+    inputvars = c(Message = "_STRING_", SampleName = "_SAMPLE_"))
+```
+
+Also, note that all the required files or objects to generate one particular
+command-line step must be defined in a R code chunk imported.
+The motivation for this is that when R Markdown files are imported, the
+`spr = 'sysargs'` R chunk will be evaluated and stored in the workflow control
+class as the `SYSargsList` object, while the R code based (`spr = 'r'`) is not
+evaluated, and until the workflow is executed it will be store as an expression.
+
+# Running the workflow
+
+For running the workflow, `runWF` function will execute all the command lines
+store in the workflow container.
+
+``` r
+sal <- runWF(sal)
+```
+
+This essential function allows the user to choose one or multiple steps to be
+executed using the `steps` argument. However, it is necessary to follow the
+workflow dependency graph. If a selected step depends on a previous step(s) that
+was not executed, the execution will fail.
+
+``` r
+sal <- runWF(sal, steps = c(1, 3))
+```
+
+Also, it allows forcing the execution of the steps, even if the status of the
+step is `'Success'` and all the expected `outfiles` exists.
+Another feature of the `runWF` function is ignoring all the warnings
+and errors and running the workflow by the arguments `warning.stop` and
+`error.stop`, respectively.
+
+``` r
+sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = TRUE)
+```
+
+When the project was initialized by `SPRproject` function, it was created an
+environment for all objects created during the workflow execution. This
+environment can be accessed as follows:
+
+``` r
+viewEnvir(sal)
+```
+
+The workflow execution allows to save this environment for future recovery:
+
+``` r
+sal <- runWF(sal, saveEnv = TRUE)
+```
+
+## Workflow status
+
+To check the summary of the workflow, we can use:
+
+``` r
+sal
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ##        2. gzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        3. gunzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          3.1. gunzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        4. iris_stats --> Status: Pending
+    ## 
+
+To access more details about the workflow instances, we can use the `statusWF` method:
+
+``` r
+statusWF(sal)
+```
+
+    ## $export_iris
+    ## DataFrame with 1 row and 2 columns
+    ##          Step status.summary
+    ##   <character>    <character>
+    ## 1 export_iris        Pending
+    ## 
+    ## $gzip
+    ## DataFrame with 3 rows and 5 columns
+    ##       Targets Total_Files Existing_Files Missing_Files     gzip
+    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
+    ## 1          SE           1              0             1  Pending
+    ## 2          VE           1              0             1  Pending
+    ## 3          VI           1              0             1  Pending
+    ## 
+    ## $gunzip
+    ## DataFrame with 3 rows and 5 columns
+    ##       Targets Total_Files Existing_Files Missing_Files   gunzip
+    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
+    ## 1          SE           1              0             1  Pending
+    ## 2          VE           1              0             1  Pending
+    ## 3          VI           1              0             1  Pending
+    ## 
+    ## $iris_stats
+    ## DataFrame with 1 row and 2 columns
+    ##          Step status.summary
+    ##   <character>    <character>
+    ## 1  iris_stats        Pending
+
+## Parallelization on clusters
+
+This section of the tutorial provides an introduction to the usage of the
+*`systemPipeR`* features on a cluster.
+
+The computation can be greatly accelerated by processing many files
 in parallel using several compute nodes of a cluster, where a scheduling/queuing
-system is used for load balancing. For this the *`clusterRun`* function submits
+system is used for load balancing. For this the `clusterRun` function submits
 the computing requests to the scheduler using the run specifications
-defined by *`runCommandline`*.
+defined by `runWF`.
 
-To avoid over-subscription of CPU cores on the compute nodes, the value from
-*`yamlinput(args)['thread']`* is passed on to the submission command, here *`ncpus`*
-in the *`resources`* list object. The number of independent parallel cluster
-processes is defined under the *`Njobs`* argument. The following example will run
-18 processes in parallel using for each 4 CPU cores. If the resources available
-on a cluster allow running all 18 processes at the same time then the shown sample
-submission will utilize in total 72 CPU cores. Note, *`clusterRun`* can be used
+A named list provides the computational resources. By default, it can be defined
+the upper time limit in minutes for jobs before they get killed by the scheduler,
+memory limit in Mb, number of `CPUs`, and number of tasks.
+
+The number of independent parallel cluster processes is defined under the
+`Njobs` argument. The following example will run one process in parallel using
+for each 4 CPU cores. If the resources available on a cluster allow running all
+the processes simultaneously, then the shown sample submission will utilize in
+total four CPU cores (`NJobs * ncpus`). Note, `clusterRun` can be used
 with most queueing systems as it is based on utilities from the *`batchtools`*
 package which supports the use of template files (*`*.tmpl`*) for defining the
 run parameters of different schedulers. To run the following code, one needs to
-have both a conf file (see *`.batchtools.conf.R`* samples [here](https://mllg.github.io/batchtools/))
+have both a `conf file` (see *`.batchtools.conf.R`* samples [here](https://mllg.github.io/batchtools/))
 and a template file (see *`*.tmpl`* samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates))
 for the queueing available on a system. The following example uses the sample
-conf and template files for the Slurm scheduler provided by this package.
+`conf` and `template` files for the `Slurm` scheduler provided by this package.
 
 ``` r
 library(batchtools)
 resources <- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg <- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE, 
-    dir = FALSE), conffile = ".batchtools.conf.R", template = "batchtools.slurm.tmpl", 
-    Njobs = 18, runid = "01", resourceList = resources)
-getStatus(reg = reg)
-waitForJobs(reg = reg)
+sal <- clusterRun(sal, FUN = runWF, more.args = list(), conffile = ".batchtools.conf.R",
+    template = "batchtools.slurm.tmpl", Njobs = 1, runid = "01", resourceList = resources)
 ```
+
+Note: The example is submitting the jog to `short` partition. If you desire to
+use a different partition, please adjust accordingly (`batchtools.slurm.tmpl`).
+
+# Visualize workflow
+
+*`systemPipeR`* workflows instances can be visualized with the `plotWF` function.
+
+This function will make a plot of selected workflow instance and the following
+information is displayed on the plot:
+
+    - Workflow structure (dependency graphs between different steps); 
+    - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`; 
+    - Sample status and statistics; 
+    - Workflow timing: running duration time. 
+
+If no argument is provided, the basic plot will automatically detect width,
+height, layout, plot method, branches, *etc*.
+
+``` r
+plotWF(sal, show_legend = TRUE, width = "80%", rstudio = TRUE)
+```
+
+<div id="htmlwidget-1" style="width:80%;height:480px;" class="plotwf html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"dot":"digraph {\n    node[fontsize=20];\n    subgraph {\n        node[color=\"dodgerblue\"];\n        export_iris -> gzip -> iris_stats[color=\"dodgerblue\"]\n   }\n    gzip -> gunzip\n    \n    export_iris[label=<<b><font color=\"black\">export_iris<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step export_iris: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    gzip[label=<<b><font color=\"black\">gzip<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">3<\/font><\/b>; <font color=\"black\">0s<\/font>> , style=\"rounded\", shape=\"box\"  tooltip=\"step gzip: 0 samples passed; 0 samples have warnings; 0 samples have errors; 3 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    gunzip[label=<<b><font color=\"black\">gunzip<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">3<\/font><\/b>; <font color=\"black\">0s<\/font>> , style=\"rounded\", shape=\"box\"  tooltip=\"step gunzip: 0 samples passed; 0 samples have warnings; 0 samples have errors; 3 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    iris_stats[label=<<b><font color=\"black\">iris_stats<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step iris_stats: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    subgraph cluster_legend {\n        rankdir=TB;\n        color=\"#EEEEEE\";\n        style=filled;\n        node [style=filled];\n        {rank=same; R_step; Sysargs_step; Main_branch}\n        Main_branch -> Sysargs_step -> R_step[color=\"#EEEEEE\"]\n        Main_branch[label=\"Main branch\" color=\"dodgerblue\", style=\"filled\", fillcolor=white];   Sysargs_step ->step_state[color=\"#EEEEEE\"];\n        step_state[style=\"filled\", shape=\"box\" color=white, label =<\n            <table>\n            <tr><td><b>Step Colors<\/b><\/td><\/tr>\n            <tr><td><font color=\"black\">Pending steps<\/font>; <font color=\"#5cb85c\">Successful steps<\/font>; <font color=\"#d9534f\">Failed steps<\/font><\/td><\/tr>\n            <tr><td><b>Targets Files / Code Chunk <\/b><\/td><\/tr><tr><td><font color=\"#5cb85c\">0 (pass) <\/font> | <font color=\"#f0ad4e\">0 (warning) <\/font> | <font color=\"#d9534f\">0 (error) <\/font> | <font color=\"blue\">0 (total)<\/font>; Duration<\/td><\/tr><\/table>\n            >];\n        label=\"Legends\";\n        fontsize = 30;\n        Sysargs_step[label=\"Sysargs step\" style=\"rounded, filled\", shape=\"box\", fillcolor=white];\n        R_step[label=\"R step\" style=\"rounded, filled\", fillcolor=white];\n    }\n\n}\n","plotid":"sprwf-48365271","responsive":true,"width":"80%","height":null,"plot_method":"renderSVGElement","rmd":true,"msg":""},"evals":[],"jsHooks":[]}</script>
+
+For more details about the `plotWF` function, please see [here](#plotWF).
+
+# Technical report
+
+*`systemPipeR`* compiles all the workflow execution logs in one central location,
+making it easier to check any standard output (`stdout`) or standard error
+(`stderr`) for any command-line tools used on the workflow or the R code `stdout`.
+Also, the workflow plot is appended at the beginning of the report, making it
+easier to click on the respective step.
+
+``` r
+sal <- renderLogs(sal)
+```
+
+# Exported the workflow
+
+*`systemPipeR`* workflow management system allows to translate and export the
+workflow build interactively to R Markdown format or an executable bash script.
+This feature advances the reusability of the workflow, as well as the flexibility
+for workflow execution.
+
+## R Markdown file
+
+`sal2rmd` function takes an `SYSargsList` workflow container and translates it to
+SPR workflow template R markdown format. This file can be imported with the
+`importWF` function, as demonstrated above.
+
+``` r
+sal2rmd(sal)
+```
+
+## Bash script
+
+`sal2bash` function takes an `SYSargsList` workflow container and translates
+it to an executable bash script, so one can run the workflow without loading
+`SPR` or using an R console.
+
+``` r
+sal2bash(sal)
+```
+
+It will be generated on the project root an executable bash script, called by
+default the `spr_wf.sh`. Also, a directory `./spr_wf` will be created and store
+all the R scripts based on the workflow steps. Please note that this function will
+“collapse” adjacent R steps into one file as much as possible.
+
+# Project Resume and Restart
+
+If you desire to resume or restart a project that has been initialized in the past,
+`SPRproject` function allows this operation.
+
+With the resume option, it is possible to load the `SYSargsList` object in R and
+resume the analysis. Please, make sure to provide the `logs.dir` location, and the
+corresponded `YAML` file name.
+The current working directory needs to be in the project root directory.
+
+``` r
+sal <- SPRproject(resume = TRUE, logs.dir = ".SPRproject", sys.file = ".SPRproject/SYSargsList.yml")
+```
+
+If you choose to save the environment in the last analysis, you can recover all
+the files created in that particular section. `SPRproject` function allows this
+with `load.envir` argument. Please note that the environment was saved only with
+you run the workflow in the last section (`runWF()`).
+
+``` r
+sal <- SPRproject(resume = TRUE, load.envir = TRUE)
+```
+
+After loading the workflow at your current section, you can check the objects
+created in the old environment and decide if it is necessary to copy them to the
+current environment.
+
+``` r
+viewEnvir(sal)
+copyEnvir(sal, list = "plot", new.env = globalenv())
+```
+
+This option will keep all previous logs in the folder; however, if you desire to
+clean the execution history and restart the workflow, the `restart=TRUE` option
+can be used.
+
+``` r
+sal <- SPRproject(restart = TRUE, overwrite = TRUE, load.envir = FALSE)
+```
+
+The last and more drastic option from `SYSproject` function is to overwrite the
+logs and the workflow. This option will delete the hidden folder and the
+information on the `SYSargsList.yml` files. This will not delete any parameter
+file nor any results it was created in previous runs. Please use with caution.
+
+``` r
+sal <- SPRproject(overwrite = TRUE)
+```
+
+# Exploring workflow instances
+
+*`systemPipeR`* provide several accessor methods and useful functions to explore
+`SYSargsList` workflow object.
+
+## Accessor Methods
+
+Several accessor methods are available that are named after the slot names of
+the `SYSargsList` workflow object.
+
+``` r
+names(sal)
+```
+
+    ## [1] "stepsWF"            "statusWF"           "targetsWF"         
+    ## [4] "outfiles"           "SEobj"              "dependency"        
+    ## [7] "targets_connection" "projectInfo"        "runInfo"
+
+-   Check the length of the workflow:
+
+``` r
+length(sal)
+```
+
+    ## [1] 4
+
+-   Check the steps of the workflow:
+
+``` r
+stepsWF(sal)
+```
+
+    ## $export_iris
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 1
+    ## 
+    ## $gzip
+    ## Instance of 'SYSargs2':
+    ##    Slot names/accessors: 
+    ##       targets: 3 (SE...VI), targetsheader: 1 (lines)
+    ##       modules: 0
+    ##       wf: 1, clt: 1, yamlinput: 4 (inputs)
+    ##       input: 3, output: 3
+    ##       cmdlist: 3
+    ##    Sub Steps:
+    ##       1. gzip (rendered: TRUE)
+    ## 
+    ## 
+    ## 
+    ## $gunzip
+    ## Instance of 'SYSargs2':
+    ##    Slot names/accessors: 
+    ##       targets: 3 (SE...VI), targetsheader: 1 (lines)
+    ##       modules: 0
+    ##       wf: 1, clt: 1, yamlinput: 4 (inputs)
+    ##       input: 3, output: 3
+    ##       cmdlist: 3
+    ##    Sub Steps:
+    ##       1. gunzip (rendered: TRUE)
+    ## 
+    ## 
+    ## 
+    ## $iris_stats
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 5
+
+-   Checking the command-line for each target sample:
+
+`cmdlist()` method printing the system commands for running command-line
+software as specified by a given `*.cwl` file combined with the paths to the
+input samples (*e.g.* FASTQ files) provided by a `targets` file. The example below
+shows the `cmdlist()` output for running `gzip` and `gunzip` on the first sample.
+Evaluating the output of `cmdlist()` can be very helpful for designing
+and debugging `*.cwl` files of new command-line software or changing the
+parameter settings of existing ones.
+
+``` r
+cmdlist(sal, step = c(2, 3), targets = 1)
+```
+
+    ## $gzip
+    ## $gzip$SE
+    ## $gzip$SE$gzip
+    ## [1] "gzip -c  results/setosa.csv > results/SE.csv.gz"
+    ## 
+    ## 
+    ## 
+    ## $gunzip
+    ## $gunzip$SE
+    ## $gunzip$SE$gunzip
+    ## [1] "gunzip -c  results/SE.csv.gz > results/SE.csv"
+
+-   Check the workflow status:
+
+``` r
+statusWF(sal)
+```
+
+    ## $export_iris
+    ## DataFrame with 1 row and 2 columns
+    ##          Step status.summary
+    ##   <character>    <character>
+    ## 1 export_iris        Pending
+    ## 
+    ## $gzip
+    ## DataFrame with 3 rows and 5 columns
+    ##       Targets Total_Files Existing_Files Missing_Files     gzip
+    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
+    ## 1          SE           1              0             1  Pending
+    ## 2          VE           1              0             1  Pending
+    ## 3          VI           1              0             1  Pending
+    ## 
+    ## $gunzip
+    ## DataFrame with 3 rows and 5 columns
+    ##       Targets Total_Files Existing_Files Missing_Files   gunzip
+    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
+    ## 1          SE           1              0             1  Pending
+    ## 2          VE           1              0             1  Pending
+    ## 3          VI           1              0             1  Pending
+    ## 
+    ## $iris_stats
+    ## DataFrame with 1 row and 2 columns
+    ##          Step status.summary
+    ##   <character>    <character>
+    ## 1  iris_stats        Pending
+
+-   Check the workflow targets files:
+
+``` r
+targetsWF(sal[2])
+```
+
+    ## $gzip
+    ## DataFrame with 3 rows and 2 columns
+    ##                 FileName  SampleName
+    ##              <character> <character>
+    ## 1     results/setosa.csv          SE
+    ## 2 results/versicolor.csv          VE
+    ## 3  results/virginica.csv          VI
+
+-   Checking the expected outfiles files:
+
+The `outfiles` components of `SYSargsList` define the expected outfiles files
+for each step in the workflow, some of which are the input for the next workflow step.
+
+``` r
+outfiles(sal[2])
+```
+
+    ## $gzip
+    ## DataFrame with 3 rows and 1 column
+    ##           gzip_file
+    ##         <character>
+    ## 1 results/SE.csv.gz
+    ## 2 results/VE.csv.gz
+    ## 3 results/VI.csv.gz
+
+-   Check the workflow dependencies:
+
+``` r
+dependency(sal)
+```
+
+    ## $export_iris
+    ## [1] ""
+    ## 
+    ## $gzip
+    ## [1] "export_iris"
+    ## 
+    ## $gunzip
+    ## [1] "gzip"
+    ## 
+    ## $iris_stats
+    ## [1] "gzip"
+
+-   Check the sample comparisons:
+
+Sample comparisons are defined in the header lines of the `targets` file
+starting with ‘`# <CMP>`.’ This information can be accessed as follows:
+
+``` r
+targetsheader(sal, step = "Quality")
+```
+
+-   Get the workflow steps names:
+
+``` r
+stepName(sal)
+```
+
+    ## [1] "export_iris" "gzip"        "gunzip"      "iris_stats"
+
+-   Get the Sample Id for on particular step:
+
+``` r
+SampleName(sal, step = "gzip")
+```
+
+    ## [1] "SE" "VE" "VI"
+
+``` r
+SampleName(sal, step = "iris_stats")
+```
+
+    ## This step doesn't contain multiple samples.
+
+-   Get the `outfiles` or `targets` column files:
+
+``` r
+getColumn(sal, "outfiles", step = "gzip", column = "gzip_file")
+```
+
+    ##                  SE                  VE                  VI 
+    ## "results/SE.csv.gz" "results/VE.csv.gz" "results/VI.csv.gz"
+
+``` r
+getColumn(sal, "targetsWF", step = "gzip", column = "FileName")
+```
+
+    ##                       SE                       VE                       VI 
+    ##     "results/setosa.csv" "results/versicolor.csv"  "results/virginica.csv"
+
+-   Get the R code for a `LineWise` step:
+
+``` r
+codeLine(sal, step = "export_iris")
+```
+
+    ## export_iris
+    ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+
+-   View all the objects in the running environment:
+
+``` r
+viewEnvir(sal)
+```
+
+    ## <environment: 0x55bbae3bc680>
+    ## character(0)
+
+-   Copy one or multiple objects from the running environment to a new environment:
+
+``` r
+copyEnvir(sal, list = c("plot"), new.env = globalenv(), silent = FALSE)
+```
+
+    ## <environment: 0x55bbae3bc680>
+    ## Copying to 'new.env': 
+    ## plot
+
+-   Accessing the `*.yml` data
+
+``` r
+yamlinput(sal, step = "gzip")
+```
+
+    ## $file
+    ## $file$class
+    ## [1] "File"
+    ## 
+    ## $file$path
+    ## [1] "_FILE_PATH_"
+    ## 
+    ## 
+    ## $SampleName
+    ## [1] "_SampleName_"
+    ## 
+    ## $ext
+    ## [1] "csv.gz"
+    ## 
+    ## $results_path
+    ## $results_path$class
+    ## [1] "Directory"
+    ## 
+    ## $results_path$path
+    ## [1] "./results"
+
+## Subsetting the workflow details
+
+-   The `SYSargsList` class and its subsetting operator `[`:
+
+``` r
+sal[1]
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ## 
+
+``` r
+sal[1:3]
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ##        2. gzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        3. gunzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          3.1. gunzip
+    ##              cmdlist: 3 | Pending: 3
+    ## 
+
+``` r
+sal[c(1, 3)]
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ##        2. gunzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gunzip
+    ##              cmdlist: 3 | Pending: 3
+    ## 
+
+-   The `SYSargsList` class and its subsetting by steps and input samples:
+
+``` r
+sal_sub <- subset(sal, subset_steps = c(2, 3), input_targets = ("SE"), keep_steps = TRUE)
+stepsWF(sal_sub)
+```
+
+    ## $export_iris
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 1
+    ## 
+    ## $gzip
+    ## Instance of 'SYSargs2':
+    ##    Slot names/accessors: 
+    ##       targets: 1 (SE...SE), targetsheader: 1 (lines)
+    ##       modules: 0
+    ##       wf: 1, clt: 1, yamlinput: 4 (inputs)
+    ##       input: 1, output: 1
+    ##       cmdlist: 1
+    ##    Sub Steps:
+    ##       1. gzip (rendered: TRUE)
+    ## 
+    ## 
+    ## 
+    ## $gunzip
+    ## Instance of 'SYSargs2':
+    ##    Slot names/accessors: 
+    ##       targets: 1 (SE...SE), targetsheader: 1 (lines)
+    ##       modules: 0
+    ##       wf: 1, clt: 1, yamlinput: 4 (inputs)
+    ##       input: 1, output: 1
+    ##       cmdlist: 1
+    ##    Sub Steps:
+    ##       1. gunzip (rendered: TRUE)
+    ## 
+    ## 
+    ## 
+    ## $iris_stats
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 5
+
+``` r
+targetsWF(sal_sub)
+```
+
+    ## $export_iris
+    ## DataFrame with 0 rows and 0 columns
+    ## 
+    ## $gzip
+    ## DataFrame with 1 row and 2 columns
+    ##             FileName  SampleName
+    ##          <character> <character>
+    ## 1 results/setosa.csv          SE
+    ## 
+    ## $gunzip
+    ## DataFrame with 1 row and 2 columns
+    ##           gzip_file  SampleName
+    ##         <character> <character>
+    ## 1 results/SE.csv.gz          SE
+    ## 
+    ## $iris_stats
+    ## DataFrame with 0 rows and 0 columns
+
+``` r
+outfiles(sal_sub)
+```
+
+    ## $export_iris
+    ## DataFrame with 0 rows and 0 columns
+    ## 
+    ## $gzip
+    ## DataFrame with 1 row and 1 column
+    ##           gzip_file
+    ##         <character>
+    ## 1 results/SE.csv.gz
+    ## 
+    ## $gunzip
+    ## DataFrame with 1 row and 1 column
+    ##      gunzip_file
+    ##      <character>
+    ## 1 results/SE.csv
+    ## 
+    ## $iris_stats
+    ## DataFrame with 0 rows and 0 columns
+
+-   The `SYSargsList` class and its operator `+`
+
+``` r
+sal[1] + sal[2] + sal[3]
+```
+
+## Replacement Methods
+
+-   Update a `input` parameter in the workflow
+
+``` r
+sal_c <- sal
+## check values
+yamlinput(sal_c, step = "gzip")
+```
+
+    ## $file
+    ## $file$class
+    ## [1] "File"
+    ## 
+    ## $file$path
+    ## [1] "_FILE_PATH_"
+    ## 
+    ## 
+    ## $SampleName
+    ## [1] "_SampleName_"
+    ## 
+    ## $ext
+    ## [1] "csv.gz"
+    ## 
+    ## $results_path
+    ## $results_path$class
+    ## [1] "Directory"
+    ## 
+    ## $results_path$path
+    ## [1] "./results"
+
+``` r
+## check on command-line
+cmdlist(sal_c, step = "gzip", targets = 1)
+```
+
+    ## $gzip
+    ## $gzip$SE
+    ## $gzip$SE$gzip
+    ## [1] "gzip -c  results/setosa.csv > results/SE.csv.gz"
+
+``` r
+## Replace
+yamlinput(sal_c, step = "gzip", paramName = "ext") <- "txt.gz"
+
+## check NEW values
+yamlinput(sal_c, step = "gzip")
+```
+
+    ## $file
+    ## $file$class
+    ## [1] "File"
+    ## 
+    ## $file$path
+    ## [1] "_FILE_PATH_"
+    ## 
+    ## 
+    ## $SampleName
+    ## [1] "_SampleName_"
+    ## 
+    ## $ext
+    ## [1] "txt.gz"
+    ## 
+    ## $results_path
+    ## $results_path$class
+    ## [1] "Directory"
+    ## 
+    ## $results_path$path
+    ## [1] "./results"
+
+``` r
+## Check on command-line
+cmdlist(sal_c, step = "gzip", targets = 1)
+```
+
+    ## $gzip
+    ## $gzip$SE
+    ## $gzip$SE$gzip
+    ## [1] "gzip -c  results/setosa.csv > results/SE.txt.gz"
+
+-   Append and Replacement methods for R Code Steps
+
+``` r
+appendCodeLine(sal_c, step = "export_iris", after = 1) <- "log_cal_100 <- log(100)"
+codeLine(sal_c, step = "export_iris")
+```
+
+    ## export_iris
+    ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    ##     log_cal_100 <- log(100)
+
+``` r
+replaceCodeLine(sal_c, step = "export_iris", line = 2) <- LineWise(code = {
+    log_cal_100 <- log(50)
+})
+codeLine(sal_c, step = 1)
+```
+
+    ## export_iris
+    ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    ##     3.91202300542815
+
+For more details about the `LineWise` class, please see [below](#linewise).
+
+-   Rename a Step
+
+``` r
+renameStep(sal_c, step = 1) <- "newStep"
+renameStep(sal_c, c(1, 2)) <- c("newStep2", "newIndex")
+sal_c
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. newStep2 --> Status: Pending
+    ##        2. newIndex --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        3. gunzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          3.1. gunzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        4. iris_stats --> Status: Pending
+    ## 
+
+``` r
+names(outfiles(sal_c))
+```
+
+    ## [1] "newStep2"   "newIndex"   "gunzip"     "iris_stats"
+
+``` r
+names(targetsWF(sal_c))
+```
+
+    ## [1] "newStep2"   "newIndex"   "gunzip"     "iris_stats"
+
+``` r
+dependency(sal_c)
+```
+
+    ## $newStep2
+    ## [1] ""
+    ## 
+    ## $newIndex
+    ## [1] "newStep2"
+    ## 
+    ## $gunzip
+    ## [1] "newIndex"
+    ## 
+    ## $iris_stats
+    ## [1] "newIndex"
+
+-   Replace a Step
+
+``` r
+sal_test <- sal[c(1, 2)]
+replaceStep(sal_test, step = 1, step_name = "gunzip") <- sal[3]
+sal_test
+```
+
+Note: Please use this method with attention, because it can disrupt all
+the dependency graphs.
+
+-   Removing a Step
+
+``` r
+sal_test <- sal[-2]
+sal_test
+```
+
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. export_iris --> Status: Pending
+    ##        2. gunzip --> Status: Pending 
+    ##            Total Files: 3 | Existing: 0 | Missing: 3 
+    ##          2.1. gunzip
+    ##              cmdlist: 3 | Pending: 3
+    ##        3. iris_stats --> Status: Pending
+    ## 
 
 # References

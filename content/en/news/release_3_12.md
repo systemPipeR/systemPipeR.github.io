@@ -3,9 +3,10 @@ title: "Bioconductor 3.12"
 linkTitle: "Bioconductor 3.12"
 type: docs
 description: >
+weight: 2
 ---
 
-# *systemPipeR* 1.24 is available
+## *systemPipeR* 1.24 is available
 
 ![image](SYS_WF.png) 
 

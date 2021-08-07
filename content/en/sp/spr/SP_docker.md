@@ -1,7 +1,7 @@
 ---
 title: "SPR Docker container" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 25 April, 2021" 
+date: "Last update: 06 August, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -80,6 +80,7 @@ docker run -it --user rstudio systempipe/systempipe_docker:latest bash
 * * *
 <div id='Install'/>
 
+
 # Install
 
 **Prerequisites**: 
@@ -89,8 +90,7 @@ docker run -it --user rstudio systempipe/systempipe_docker:latest bash
 
 Instructions [here](https://docs.docker.com/engine/install/ubuntu/) on how to install Docker Engine on Ubuntu.
 
-
-```bash
+```
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
@@ -110,8 +110,7 @@ sudo docker run hello-world
  
 ## Uninstall
 
-
-```bash
+```
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 * * *
@@ -130,8 +129,7 @@ create a free account.
 Login with your Docker ID to push and pull images from Docker Hub. If you don't
 have a Docker ID, head over to https://hub.docker.com to create one.
 
-
-```bash
+```
 docker login
 # Username: XXXX
 # Password: xxx
@@ -143,14 +141,12 @@ docker login
 
 # Run Docker 
 
-
-```bash
+```
 docker run-dP systempipe/systempipe_docker:latest
 ```
 
 Make sure the container is running:
-
-```bash
+```
 docker ps
 # CONTAINER ID   IMAGE                                    COMMAND   CREATED         STATUS         PORTS                     # NAMES
 #5d007f66a7b3   systempipe/systempipe_docker:latest   "/init"   5 minutes ago   Up 5 minutes   0.0.0.0:49153->8787/tcp   determined_easle
@@ -160,8 +156,7 @@ docker ps
 
 Please check the `NAMES` in this example, `determined_easle,` to login into the container.
 
-
-```bash
+```
 docker exec -it determined_easle /bin/bash
 ```
 
@@ -169,36 +164,31 @@ docker exec -it determined_easle /bin/bash
 
 ### To run RStudio Server:
 
-
-```bash
+```
 docker run -e PASSWORD=systemPipe -p 8787:8787 \
     systempipe/systempipe_docker:latest
 ```
 
 ### To run R from the command line:
 
-
-```bash
+```
 docker run -it --user rstudio systempipe/systempipe_docker:latest R
 ```
 
 ### To open a Bash shell on the container:
 
-
-```bash
+```
 docker run -it --user rstudio systempipe/systempipe_docker:latest bash
 ```
 
 ### Check R Version into the container 
 
-
-```bash
+```
 R --version
 ```
 ## Stop Docker
 
-
-```bash
+```
 docker stop determined_easle
 ```
 
@@ -218,15 +208,13 @@ docker stop determined_easle
 
 ### Start by creating a *Dockerfile* to specify your application
 
-
-```bash
+```
 mkdir docker_test
 cd docker_test
 touch Dockerfile
 ```
 
-
-```bash
+```
 # Docker inheritance
 FROM systempipe/systempipe_docker:latest
 
@@ -253,22 +241,19 @@ LABEL name="systempipe/systempipe_docker" \
 
 ### Run `docker build` to build your Docker image
 
-
-```bash
+```
 docker build -t systempipe/systempipe_docker . 
 ```
 
 ### Run `docker run` to test your Docker image locally
 
-
-```bash
+```
 docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
 ```
 
 ### Run `docker push` to push your Docker image to Docker Hub
 
-
-```bash
+```
 docker push systempipe/systempipe_docker
 ```
 
@@ -280,22 +265,19 @@ docker push systempipe/systempipe_docker
 # Make changes to the container and Create the new image
 
 Create a folder, for example:
-
-```bash
+```
 docker run -dP systempipe/systempipe_docker
 docker ps ## To check the NAME <lucid_grothendieck>
 docker exec -it lucid_grothendieck /bin/bash
 root@33c758eb1626:/# R
 ```
 
-
-```bash
+```r
 setwd("home/rstudio/")
 systemPipeRdata::genWorkenvir("rnaseq")
 ```
 
-
-```bash
+```
 exit
 docker commit -m "Added rnaseq template" -a "Dani Cassol" lucid_grothendieck dcassol/systempipeworkshop2021:rnaseq
 docker push systempipe/systempipe_docker:rnaseq
@@ -303,8 +285,7 @@ docker push systempipe/systempipe_docker:rnaseq
 
 Run the new image:
 
-
-```bash
+```
 docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnaseq
 ```
 
@@ -314,26 +295,26 @@ docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnas
 # Commands
 
 ## List which docker machines are available locally
-```{bash, eval=FALSE}docker images```
+```docker images```
 
 ## List running containers
-```{bash, eval=FALSE}docker ps```
+```docker ps```
 
 ## List all containers
-```{bash, eval=FALSE}docker ps -a```
+```docker ps -a```
 
 ## Resume a stopped container
-```{bash, eval=FALSE}docker start <CONTAINER ID>```
+```docker start <CONTAINER ID>```
 
 ## Shell into a running container
-```{bash, eval=FALSE}docker exec -it <CONTAINER ID> /bin/bash```
+```docker exec -it <CONTAINER ID> /bin/bash```
 
 ## Stop OR remove a cointainer
-```{bash, eval=FALSE}docker stop <CONTAINER ID>```
-```{bash, eval=FALSE}docker rm <CONTAINER ID>```
+```docker stop <CONTAINER ID>```
+```docker rm <CONTAINER ID>```
 
 ## Remove a image
-```{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq```
+```docker rmi dcassol/systempipeworkshop2021:rnaseq```
 
 * * *
 <div id='github'/>
@@ -355,8 +336,7 @@ docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnas
 
 3. Set up the GitHub Actions workflow
 
-
-```bash
+```
     steps:
     
       - name: Checkout Repo 
@@ -375,11 +355,9 @@ docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnas
 
 # Common Problems
 
-
-```bash
+```
 ## Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/auth: dial unix /var/run/docker.sock: connect: permission denied
 ```
-
 Solution:
 
 ```bash

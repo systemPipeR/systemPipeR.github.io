@@ -7,3 +7,5 @@ if(interactive()){
   blogdown::serve_site()
 }
 cat("Done\n")
+Sys.setenv(`_R_CHECK_LENGTH_1_LOGIC2_`='false')
+Sys.setenv(`_R_CHECK_LENGTH_1_CONDITION_`='false')
