@@ -54,7 +54,7 @@ sequencing workflows.&lt;/li&gt;
 Clicking the pop-up will jump you to the step 2. The status tracker and banner for
 step 1 should all turn green.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;2-prepare-a-target-file&#34;&gt;2. Prepare a target file&lt;/h3&gt;
+&lt;h3 id=&#34;2-prepare-the-targets-file&#34;&gt;2. Prepare the targets file&lt;/h3&gt;
 &lt;p&gt;The targets file defines all input file paths and other sample information of
 analysis workflows. To better undertand the structure of this file, one can
 consult the &lt;a href=&#34;https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
@@ -67,11 +67,11 @@ files using RNA-Seq as an example (Fig.3 A):&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Your project targets file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
 &lt;li&gt;You can edit, right click to add/remove rows/columns (The first row is treated as column names).&lt;/li&gt;
-&lt;li&gt;SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a &amp;ldquo;#&amp;rdquo;. Header is only useful for RNA-Seq workflow in current SPR. You can define sample comparison groups
+&lt;li&gt;SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a &amp;ldquo;#&amp;rdquo;. Header is useful for workflows with DEG analysis in current SPR. You can define sample comparison groups
 here. Leave it as default for other projects.&lt;/li&gt;
 &lt;li&gt;The section on the left provides sample statistics and information whether files exist inside the workflow project&amp;rsquo;s &lt;code&gt;data&lt;/code&gt; directory. Choose any column you want from the dropdown to check and watch the statistics bar change in this section.&lt;/li&gt;
 &lt;li&gt;statistic status bar.&lt;/li&gt;
-&lt;li&gt;Clicking on &amp;ldquo;Add to task&amp;rdquo; can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click &amp;ldquo;save&amp;rdquo; to download it and later use in a SPR project.&lt;/li&gt;
+&lt;li&gt;Clicking on &amp;ldquo;Add to task&amp;rdquo; can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click &amp;ldquo;save&amp;rdquo; to download it and later use in other SPR projects.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../img/sps_ui_target.jpg&#34; alt=&#34;wf_targets&#34;&gt;&lt;/p&gt;
@@ -81,17 +81,110 @@ here. Leave it as default for other projects.&lt;/li&gt;
 &lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/sp/spr/templates/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Your project workflow file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
-&lt;li&gt;The workflow structure is displayed in a tree-leaf-like plot.&lt;/li&gt;
-&lt;li&gt;Check all steps in the workflow that you want to include. You can skip (uncheck) some steps but it may cause the workflow to fail. Read more SPR instructions before do so.&lt;/li&gt;
-&lt;li&gt;Clicking on the &amp;ldquo;Plot steps&amp;rdquo; will show a flow chart of what the step execution orders will be when you run the workflow in SPR.&lt;/li&gt;
-&lt;li&gt;Clicking &amp;ldquo;Report preview&amp;rdquo; generates a preview of what the final report will look like for current RNAseq workflow (hidden in Fig 3.B), but in the preview, no code is evaluated.&lt;/li&gt;
-&lt;li&gt;If you are satisfied with your workflow file, click &amp;ldquo;Add to task&amp;rdquo; to save your workflow file.&lt;/li&gt;
+&lt;li&gt;The left panal is the workflow designer. All steps from the template from your
+choosen workflow will be displayed here. The arrows indicates the execution order
+of the entire workflow.&lt;/li&gt;
+&lt;li&gt;All the steps are draggable. Drag and place steps to a different place to change the
+order. Note: if you change the order, it may break the dependency. SPS will check
+this for you. After changing orders, steps marked in pink mean these steps are
+broken. You need to fix the dependency before you can save it.&lt;/li&gt;
+&lt;li&gt;To config a step, such as, changing name, fixing dependency. Click the &lt;i class=&#34;fa fa-cog&#34;&gt;&lt;/i&gt;
+button next to each step, a modal will show up and you can make changes there.&lt;/li&gt;
+&lt;li&gt;To add a step, click the &lt;i class=&#34;fa fa-plus&#34;&gt;&lt;/i&gt; button. There, you will have
+more options to choose which will be explained in the next figure.&lt;/li&gt;
+&lt;li&gt;History is enabled in this designer, you can undo &lt;i class=&#34;fa fa-undo&#34;&gt;&lt;/i&gt;
+or redo&lt;i class=&#34;fa fa-redo&#34;&gt;&lt;/i&gt; anytime you want.
+Current SPS stores max 100 steps of history for you.&lt;/li&gt;
+&lt;li&gt;To delete a step, simply drag it to the trash can.&lt;/li&gt;
+&lt;li&gt;After you are done with all edits, click here to save the workflow so we can
+run or download it in the next major step.&lt;/li&gt;
+&lt;li&gt;On the right side is the workflow dependency plot. This plot shows how each
+step is connected and the &lt;strong&gt;expected&lt;/strong&gt; execution order. It does not mean the
+the workflow will be run in the same order. The order is determined by the order
+you have in the left-side designer.&lt;/li&gt;
+&lt;li&gt;Enlarge the left or right panel. If you have a small monitor screen, this can help.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_ui_wf.jpg&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../img/sps_ui_wf.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.1&lt;/strong&gt; Workflow Management - Workflow Designer&lt;/p&gt;
 &lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.&lt;/strong&gt; Workflow Management - Workflow File&lt;/p&gt;
+&lt;h4 id=&#34;r-step-and-sysargs-step&#34;&gt;R step and sysArgs step&lt;/h4&gt;
+&lt;p&gt;On the designer there are two types of workflow steps. One is R step, which only
+has R code. Then it is the time to run these R steps, they will be run in the same
+R session as the Shiny app and in a separate environment different than your global
+environment. In other words, all R steps are in &lt;strong&gt;the same environment&lt;/strong&gt;, they can communicate
+with each other, meaning you can define a variable in one step and use it in other
+R steps.&lt;/p&gt;
+&lt;p&gt;sysArgs steps, on the other hand, is different, as its name suggest, it will invoke
+system commands (like bash) when run. Details of how to create these steps will be
+discussed on &lt;em&gt;Fig 3.B.5&lt;/em&gt;, &lt;em&gt;Fig 3.B.6&lt;/em&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;view-and-modify-steps&#34;&gt;View and modify steps&lt;/h4&gt;
+&lt;p&gt;Current SPS allows users to view some basic information of R steps like, step name,
+select dependency(ies). Besides, users are welcome to change the R code they want
+in the second sub-tab (Fig 3.B.2).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/wf_config_r.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.2&lt;/strong&gt; Workflow Management - config R&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;Modification of sysArgs steps is limited to step name and dependency. However, this
+kind steps will provide more information to view, like the files that were used to
+create this step, raw commandline code
+that will be run, targets (metadata) and output dataframes. This information
+is distributed in different subtabs (Fig 3.B.3).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/wf_config_sys.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.3&lt;/strong&gt; Workflow Management - config sysArgs&lt;/p&gt;
+&lt;/center&gt;
+&lt;h4 id=&#34;create-a-new-step&#34;&gt;Create a new step&lt;/h4&gt;
+&lt;p&gt;After clicking the &lt;i class=&#34;fa fa-plus&#34;&gt;&lt;/i&gt; button in Fig 3.B.1, you would need
+to choose whether to create an R or sysArgs step (Figure 3. B.5).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/wf_new_choose.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.5&lt;/strong&gt; Workflow Management - Choose new step type&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Create a new R step&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Create a new R step is simple. In the modal, type the step name, R code,
+and select dependency (Fig 3. B.6).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/wf_new_r.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.6&lt;/strong&gt; Workflow Management - New R step&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;strong&gt;Create a new sysArgs step&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Basic info for sysArgs step is simialr to R step  (Fig 3. B.7).&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/wf_new_sys1.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.7&lt;/strong&gt; Workflow Management - New sysArgs step&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;To generate some commandline line, there are three items need to be prepared:
+&lt;strong&gt;targets&lt;/strong&gt;, &lt;strong&gt;CWL file&lt;/strong&gt;, &lt;strong&gt;CWL yaml file&lt;/strong&gt; (Fig.3. B.8).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;targets: metadata that will populate the basecommand sample-wisely. Columns in
+targets will be injected into CWL yaml and then, yaml file will replace variables   in parsed CWL base command.&lt;/li&gt;
+&lt;li&gt;CWL file: provide the base command.&lt;/li&gt;
+&lt;li&gt;CWL yaml file: provides CWL variables.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Choose the targets source. Targets in SPR workflow steps can come from either a
+fresh file or inherit from a previous sysArg step(s) (output from a previous
+step can become input of the next(s)).&lt;/li&gt;
+&lt;li&gt;If you choose from a previous step(s), select the steps from here. If a new
+file, upload here.&lt;/li&gt;
+&lt;li&gt;Then, the targets or inherited targets table is displayed here for you to take a
+look. Later we will use these column to replace CWL yaml variables.&lt;/li&gt;
+&lt;li&gt;Choose the CWL and CWL yaml file you want to use. All &lt;code&gt;.cwl&lt;/code&gt; and &lt;code&gt;.yaml&lt;/code&gt; or &lt;code&gt;.yml&lt;/code&gt;
+files inside your workflow project &lt;code&gt;param/cwl&lt;/code&gt; folder will be listed here. You
+could drop more of these files you want to this folder. They will become aviable
+the next time you create a new step.&lt;/li&gt;
+&lt;li&gt;If you have all the three items, you can start to use which column from the targets
+to replace each CWL yaml variables.&lt;/li&gt;
+&lt;li&gt;Try to parse the command, see if the results is as what you expect. If not, try to
+change options above and try again.&lt;/li&gt;
+&lt;li&gt;If everything looks fine, save and create the step.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../img/wf_new_sys2.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3. B.8&lt;/strong&gt; Workflow Management - New sysArgs step&lt;/p&gt;
+&lt;/center&gt;
 &lt;h3 id=&#34;4-prepare-cwl-files-optional&#34;&gt;4. Prepare CWL files (optional)&lt;/h3&gt;
 &lt;p&gt;In the new version of SPR, all individual system workflow steps are called by the
 CWL files. Each SPR workflow has a set of CWL files and normally users do not need

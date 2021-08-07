@@ -33,6 +33,7 @@ The current version of `SPS` allows to:
 
 **Figure 3. A.** Workflow Management - Targets File
 
+
 1. In the workflow module, read the instructions and choose step 1. Step 1 should be 
 automatically opened for you on start.
 2. Choose a folder where you want to create the workflow environment.
@@ -43,7 +44,7 @@ sequencing workflows.
 Clicking the pop-up will jump you to the step 2. The status tracker and banner for 
 step 1 should all turn green. 
 
-### 2. Prepare a target file
+### 2. Prepare the targets file
 
 
 The targets file defines all input file paths and other sample information of
@@ -59,11 +60,11 @@ files using RNA-Seq as an example (Fig.3 A):
 
 1. Your project targets file is loaded for you, but you can choose to upload a different one.
 2. You can edit, right click to add/remove rows/columns (The first row is treated as column names).
-3. SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a "#". Header is only useful for RNA-Seq workflow in current SPR. You can define sample comparison groups 
+3. SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a "#". Header is useful for workflows with DEG analysis in current SPR. You can define sample comparison groups 
 here. Leave it as default for other projects. 
 4. The section on the left provides sample statistics and information whether files exist inside the workflow project's `data` directory. Choose any column you want from the dropdown to check and watch the statistics bar change in this section.
 5. statistic status bar. 
-6. Clicking on "Add to task" can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click "save" to download it and later use in a SPR project. 
+6. Clicking on "Add to task" can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click "save" to download it and later use in other SPR projects. 
 
 <center>
 
@@ -79,20 +80,136 @@ In SPR, workflows are defined in Rmarkdown files, you can read details and obtai
 
 Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):
 
-1. Your project workflow file is loaded for you, but you can choose to upload a different one.
-2. The workflow structure is displayed in a tree-leaf-like plot. 
-3. Check all steps in the workflow that you want to include. You can skip (uncheck) some steps but it may cause the workflow to fail. Read more SPR instructions before do so. 
-4. Clicking on the "Plot steps" will show a flow chart of what the step execution orders will be when you run the workflow in SPR. 
-5. Clicking "Report preview" generates a preview of what the final report will look like for current RNAseq workflow (hidden in Fig 3.B), but in the preview, no code is evaluated.
-6. If you are satisfied with your workflow file, click "Add to task" to save your workflow file.
+1. The left panal is the workflow designer. All steps from the template from your 
+   choosen workflow will be displayed here. The arrows indicates the execution order
+   of the entire workflow.
+2. All the steps are draggable. Drag and place steps to a different place to change the 
+   order. Note: if you change the order, it may break the dependency. SPS will check 
+   this for you. After changing orders, steps marked in pink mean these steps are 
+   broken. You need to fix the dependency before you can save it.
+3. To config a step, such as, changing name, fixing dependency. Click the <i class="fa fa-cog"></i>
+   button next to each step, a modal will show up and you can make changes there.
+4. To add a step, click the <i class="fa fa-plus"></i> button. There, you will have 
+   more options to choose which will be explained in the next figure. 
+5. History is enabled in this designer, you can undo <i class="fa fa-undo"></i>
+   or redo<i class="fa fa-redo"></i> anytime you want. 
+   Current SPS stores max 100 steps of history for you.
+6. To delete a step, simply drag it to the trash can. 
+7. After you are done with all edits, click here to save the workflow so we can 
+   run or download it in the next major step. 
+8. On the right side is the workflow dependency plot. This plot shows how each 
+   step is connected and the **expected** execution order. It does not mean the 
+   the workflow will be run in the same order. The order is determined by the order 
+   you have in the left-side designer. 
+9. Enlarge the left or right panel. If you have a small monitor screen, this can help. 
 
 <center>
 
-![wf_wf](../img/sps_ui_wf.jpg)
+![wf_wf](../img/sps_ui_wf.png)
 
+**Figure 3. B.1** Workflow Management - Workflow Designer
 </center>
 
-**Figure 3. B.** Workflow Management - Workflow File
+#### R step and sysArgs step
+On the designer there are two types of workflow steps. One is R step, which only 
+has R code. Then it is the time to run these R steps, they will be run in the same 
+R session as the Shiny app and in a separate environment different than your global
+environment. In other words, all R steps are in **the same environment**, they can communicate 
+with each other, meaning you can define a variable in one step and use it in other 
+R steps.
+
+sysArgs steps, on the other hand, is different, as its name suggest, it will invoke 
+system commands (like bash) when run. Details of how to create these steps will be 
+discussed on _Fig 3.B.5_, _Fig 3.B.6_.
+
+#### View and modify steps
+
+Current SPS allows users to view some basic information of R steps like, step name,
+select dependency(ies). Besides, users are welcome to change the R code they want 
+in the second sub-tab (Fig 3.B.2).
+<center>
+
+![wf_wf](../img/wf_config_r.png)
+
+**Figure 3. B.2** Workflow Management - config R
+</center>
+
+Modification of sysArgs steps is limited to step name and dependency. However, this 
+kind steps will provide more information to view, like the files that were used to 
+create this step, raw commandline code 
+that will be run, targets (metadata) and output dataframes. This information 
+is distributed in different subtabs (Fig 3.B.3).
+<center>
+
+![wf_wf](../img/wf_config_sys.png)
+
+**Figure 3. B.3** Workflow Management - config sysArgs
+</center>
+
+#### Create a new step
+After clicking the <i class="fa fa-plus"></i> button in Fig 3.B.1, you would need 
+to choose whether to create an R or sysArgs step (Figure 3. B.5). 
+
+<center>
+
+![wf_wf](../img/wf_new_choose.png)
+
+**Figure 3. B.5** Workflow Management - Choose new step type
+</center>
+
+**Create a new R step**
+
+Create a new R step is simple. In the modal, type the step name, R code, 
+and select dependency (Fig 3. B.6). 
+<center>
+
+![wf_wf](../img/wf_new_r.png)
+
+**Figure 3. B.6** Workflow Management - New R step
+</center>
+
+**Create a new sysArgs step**
+
+Basic info for sysArgs step is simialr to R step  (Fig 3. B.7). 
+<center>
+
+![wf_wf](../img/wf_new_sys1.png)
+
+**Figure 3. B.7** Workflow Management - New sysArgs step
+</center>
+
+To generate some commandline line, there are three items need to be prepared:
+**targets**, **CWL file**, **CWL yaml file** (Fig.3. B.8).
+
+- targets: metadata that will populate the basecommand sample-wisely. Columns in 
+  targets will be injected into CWL yaml and then, yaml file will replace variables   in parsed CWL base command. 
+- CWL file: provide the base command. 
+- CWL yaml file: provides CWL variables.
+
+1. Choose the targets source. Targets in SPR workflow steps can come from either a 
+   fresh file or inherit from a previous sysArg step(s) (output from a previous 
+   step can become input of the next(s)).
+2. If you choose from a previous step(s), select the steps from here. If a new
+   file, upload here.
+3. Then, the targets or inherited targets table is displayed here for you to take a 
+   look. Later we will use these column to replace CWL yaml variables.
+4. Choose the CWL and CWL yaml file you want to use. All `.cwl` and `.yaml` or `.yml`
+   files inside your workflow project `param/cwl` folder will be listed here. You 
+   could drop more of these files you want to this folder. They will become aviable 
+   the next time you create a new step.
+5. If you have all the three items, you can start to use which column from the targets 
+   to replace each CWL yaml variables.
+6. Try to parse the command, see if the results is as what you expect. If not, try to 
+   change options above and try again.
+7. If everything looks fine, save and create the step. 
+
+<center>
+
+![wf_wf](../img/wf_new_sys2.png)
+
+**Figure 3. B.8** Workflow Management - New sysArgs step
+</center>
+
 
 ### 4. Prepare CWL files (optional)
 
