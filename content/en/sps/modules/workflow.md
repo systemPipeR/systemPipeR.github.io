@@ -74,7 +74,7 @@ here. Leave it as default for other projects.
 
 **Figure 3. A.** Workflow Management - Targets File
 
-### 3. Prepare a workflow file
+### 3. Prepare a workflow object
 
 In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  [here](https://systempipe.org/sp/spr/templates/).
 
