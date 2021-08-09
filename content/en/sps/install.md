@@ -55,10 +55,12 @@ Different distributions
 may have different commands, but the following commands are examples for Ubuntu:
 
 ```bash
-sudo apt-get install libcurl4-openssl-dev
-sudo apt-get install libv8-dev
-sudo apt-get install libxm12-dev
-sudo apt-get install libssl-dev
+sudo apt-get install -y libicu-dev
+sudo apt-get install -y pandoc
+sudo apt-get install -y zlib1g-dev
+sudo apt-get install -y libcurl4-openssl-dev
+sudo apt-get install -y libssl-dev      
+sudo apt-get install -y make
 ```
 
 On other Linux distributions, the install commands may be slightly different. 
