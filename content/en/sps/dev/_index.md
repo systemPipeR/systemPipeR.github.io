@@ -26,7 +26,7 @@ modern package manager {[pak](https://github.com/r-lib/pak)} to install packages
 
 ```r
 if(!requireNamespace("pak", quietly = TRUE))
-  install.packages("pak")
+  install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
 ```
 
 
