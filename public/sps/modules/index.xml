@@ -1,433 +1,378 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>sysPipe – Modules</title>
-    <link>/sps/modules/</link>
-    <description>Recent content in Modules on sysPipe</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="/sps/modules/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Sps: Workflow</title>
-      <link>/sps/modules/workflow/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/sps/modules/workflow/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;workflow-management&#34;&gt;Workflow management&lt;/h2&gt;
-&lt;p&gt;The workflow management module in &lt;code&gt;SPS&lt;/code&gt; allows one to modify or create the
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sysPipe – Modules</title><link>/sps/modules/</link><description>Recent content in Modules on sysPipe</description><generator>Hugo -- gohugo.io</generator><atom:link href="/sps/modules/index.xml" rel="self" type="application/rss+xml"/><item><title>Sps: Workflow</title><link>/sps/modules/workflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sps/modules/workflow/</guid><description>
+&lt;h2 id="workflow-management">Workflow management&lt;/h2>
+&lt;p>The workflow management module in &lt;code>SPS&lt;/code> allows one to modify or create the
 configuration files required for running data analysis workflows in
-&lt;a href=&#34;https://systempipe.org/sp/spr/&#34;&gt;systemPipeR&lt;/a&gt; (SPR). This includes
+&lt;a href="https://systempipe.org/sp/spr/">systemPipeR&lt;/a> (SPR). This includes
 three types of important files: a sample metadata (targets) file, a
 workflow file (in R Markdown format) defining the workflow steps, and workflow running
-files in &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;Common Workflow Language (CWL){blk}&lt;/a&gt; format. In SPS, one can easily create
+files in &lt;a href="https://www.commonwl.org/">Common Workflow Language (CWL){blk}&lt;/a> format. In SPS, one can easily create
 these files under the &amp;ldquo;Workflow Management&amp;rdquo; module, located in navigation bar
-on the &lt;a href=&#34;../../sps/quick_start/#launch-sps&#34;&gt;left of the dashboard&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The current version of &lt;code&gt;SPS&lt;/code&gt; allows to:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;create a workflow environment;&lt;/li&gt;
-&lt;li&gt;create and/or check the format of targets / workflow / CWL files;&lt;/li&gt;
-&lt;li&gt;download the prepared workflow files to run elsewhere, like a cluster;&lt;/li&gt;
-&lt;li&gt;directly execute the workflow from SPS.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;1-setup-a-workflow&#34;&gt;1. setup a workflow&lt;/h3&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_wf_setup.jpg&#34; alt=&#34;wf_setup&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. A.&lt;/strong&gt; Workflow Management - Targets File&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;In the workflow module, read the instructions and choose step 1. Step 1 should be
-automatically opened for you on start.&lt;/li&gt;
-&lt;li&gt;Choose a folder where you want to create the workflow environment.&lt;/li&gt;
-&lt;li&gt;Choose a workflow template. These are SPR workflows and mainly are next-generation
-sequencing workflows.&lt;/li&gt;
-&lt;li&gt;Click &amp;ldquo;Gen workflow&amp;rdquo; to create the workflow project.&lt;/li&gt;
-&lt;li&gt;You should see a pop-up saying about the project path and other information.
+on the &lt;a href="../../sps/quick_start/#launch-sps">left of the dashboard&lt;/a>.&lt;/p>
+&lt;p>The current version of &lt;code>SPS&lt;/code> allows to:&lt;/p>
+&lt;ol>
+&lt;li>create a workflow environment;&lt;/li>
+&lt;li>create and/or check the format of targets / workflow / CWL files;&lt;/li>
+&lt;li>download the prepared workflow files to run elsewhere, like a cluster;&lt;/li>
+&lt;li>directly execute the workflow from SPS.&lt;/li>
+&lt;/ol>
+&lt;h3 id="1-setup-a-workflow">1. setup a workflow&lt;/h3>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_wf_setup.jpg" alt="wf_setup">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 3. A.&lt;/strong> Workflow Management - Targets File&lt;/p>
+&lt;ol>
+&lt;li>In the workflow module, read the instructions and choose step 1. Step 1 should be
+automatically opened for you on start.&lt;/li>
+&lt;li>Choose a folder where you want to create the workflow environment.&lt;/li>
+&lt;li>Choose a workflow template. These are SPR workflows and mainly are next-generation
+sequencing workflows.&lt;/li>
+&lt;li>Click &amp;ldquo;Gen workflow&amp;rdquo; to create the workflow project.&lt;/li>
+&lt;li>You should see a pop-up saying about the project path and other information.
 Clicking the pop-up will jump you to the step 2. The status tracker and banner for
-step 1 should all turn green.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;2-prepare-the-targets-file&#34;&gt;2. Prepare the targets file&lt;/h3&gt;
-&lt;p&gt;The targets file defines all input file paths and other sample information of
+step 1 should all turn green.&lt;/li>
+&lt;/ol>
+&lt;h3 id="2-prepare-the-targets-file">2. Prepare the targets file&lt;/h3>
+&lt;p>The targets file defines all input file paths and other sample information of
 analysis workflows. To better undertand the structure of this file, one can
-consult the &lt;a href=&#34;https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file&#34;&gt;&amp;ldquo;Structure of targets
-file&amp;rdquo;&lt;/a&gt;
+consult the &lt;a href="https://systempipe.org/sp/spr/gettingstarted/#structure-of-targets-file">&amp;ldquo;Structure of targets
+file&amp;rdquo;&lt;/a>
 section in the SPR vignette. Essentially, this is the tabular file representation
-of the &lt;code&gt;colData&lt;/code&gt; slot in an &lt;code&gt;SummarizedExperiment&lt;/code&gt; object which stores sample
-IDs and other meta information.&lt;/p&gt;
-&lt;p&gt;The following step-by-step instructions explain how to create and/or modify targets
-files using RNA-Seq as an example (Fig.3 A):&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Your project targets file is loaded for you, but you can choose to upload a different one.&lt;/li&gt;
-&lt;li&gt;You can edit, right click to add/remove rows/columns (The first row is treated as column names).&lt;/li&gt;
-&lt;li&gt;SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a &amp;ldquo;#&amp;rdquo;. Header is useful for workflows with DEG analysis in current SPR. You can define sample comparison groups
-here. Leave it as default for other projects.&lt;/li&gt;
-&lt;li&gt;The section on the left provides sample statistics and information whether files exist inside the workflow project&amp;rsquo;s &lt;code&gt;data&lt;/code&gt; directory. Choose any column you want from the dropdown to check and watch the statistics bar change in this section.&lt;/li&gt;
-&lt;li&gt;statistic status bar.&lt;/li&gt;
-&lt;li&gt;Clicking on &amp;ldquo;Add to task&amp;rdquo; can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click &amp;ldquo;save&amp;rdquo; to download it and later use in other SPR projects.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_ui_target.jpg&#34; alt=&#34;wf_targets&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. A.&lt;/strong&gt; Workflow Management - Targets File&lt;/p&gt;
-&lt;h3 id=&#34;3-prepare-a-workflow-file&#34;&gt;3. Prepare a workflow file&lt;/h3&gt;
-&lt;p&gt;In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them  &lt;a href=&#34;https://systempipe.org/sp/spr/templates/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The left panal is the workflow designer. All steps from the template from your
+of the &lt;code>colData&lt;/code> slot in an &lt;code>SummarizedExperiment&lt;/code> object which stores sample
+IDs and other meta information.&lt;/p>
+&lt;p>The following step-by-step instructions explain how to create and/or modify targets
+files using RNA-Seq as an example (Fig.3 A):&lt;/p>
+&lt;ol>
+&lt;li>Your project targets file is loaded for you, but you can choose to upload a different one.&lt;/li>
+&lt;li>You can edit, right click to add/remove rows/columns (The first row is treated as column names).&lt;/li>
+&lt;li>SPR target file includes a header block, that can also be edited in the SPS app. Each headers needs to start with a &amp;ldquo;#&amp;rdquo;. Header is useful for workflows with DEG analysis in current SPR. You can define sample comparison groups
+here. Leave it as default for other projects.&lt;/li>
+&lt;li>The section on the left provides sample statistics and information whether files exist inside the workflow project&amp;rsquo;s &lt;code>data&lt;/code> directory. Choose any column you want from the dropdown to check and watch the statistics bar change in this section.&lt;/li>
+&lt;li>statistic status bar.&lt;/li>
+&lt;li>Clicking on &amp;ldquo;Add to task&amp;rdquo; can help you to check if your target file has any formatting problem. You should see a green success pop-up if everything is right. Now your target file is ready and you can click &amp;ldquo;save&amp;rdquo; to download it and later use in other SPR projects.&lt;/li>
+&lt;/ol>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_ui_target.jpg" alt="wf_targets">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 3. A.&lt;/strong> Workflow Management - Targets File&lt;/p>
+&lt;h3 id="3-prepare-a-workflow-object">3. Prepare a workflow object&lt;/h3>
+&lt;p>In SPR, workflows are defined in Rmarkdown files, you can read details and obtain them &lt;a href="https://systempipe.org/sp/spr/templates/">here&lt;/a>.&lt;/p>
+&lt;p>Now let us follow the order below to see how SPS helps you to prepare a workflow file for a RNAseq project (Fig.3 B):&lt;/p>
+&lt;ol>
+&lt;li>The left panal is the workflow designer. All steps from the template from your
 choosen workflow will be displayed here. The arrows indicates the execution order
-of the entire workflow.&lt;/li&gt;
-&lt;li&gt;All the steps are draggable. Drag and place steps to a different place to change the
+of the entire workflow.&lt;/li>
+&lt;li>All the steps are draggable. Drag and place steps to a different place to change the
 order. Note: if you change the order, it may break the dependency. SPS will check
 this for you. After changing orders, steps marked in pink mean these steps are
-broken. You need to fix the dependency before you can save it.&lt;/li&gt;
-&lt;li&gt;To config a step, such as, changing name, fixing dependency. Click the &lt;i class=&#34;fa fa-cog&#34;&gt;&lt;/i&gt;
-button next to each step, a modal will show up and you can make changes there.&lt;/li&gt;
-&lt;li&gt;To add a step, click the &lt;i class=&#34;fa fa-plus&#34;&gt;&lt;/i&gt; button. There, you will have
-more options to choose which will be explained in the next figure.&lt;/li&gt;
-&lt;li&gt;History is enabled in this designer, you can undo &lt;i class=&#34;fa fa-undo&#34;&gt;&lt;/i&gt;
-or redo&lt;i class=&#34;fa fa-redo&#34;&gt;&lt;/i&gt; anytime you want.
-Current SPS stores max 100 steps of history for you.&lt;/li&gt;
-&lt;li&gt;To delete a step, simply drag it to the trash can.&lt;/li&gt;
-&lt;li&gt;After you are done with all edits, click here to save the workflow so we can
-run or download it in the next major step.&lt;/li&gt;
-&lt;li&gt;On the right side is the workflow dependency plot. This plot shows how each
-step is connected and the &lt;strong&gt;expected&lt;/strong&gt; execution order. It does not mean the
+broken. You need to fix the dependency before you can save it.&lt;/li>
+&lt;li>To config a step, such as, changing name, fixing dependency. Click the &lt;i class="fa fa-cog">&lt;/i>
+button next to each step, a modal will show up and you can make changes there.&lt;/li>
+&lt;li>To add a step, click the &lt;i class="fa fa-plus">&lt;/i> button. There, you will have
+more options to choose which will be explained in the next figure.&lt;/li>
+&lt;li>History is enabled in this designer, you can undo &lt;i class="fa fa-undo">&lt;/i>
+or redo&lt;i class="fa fa-redo">&lt;/i> anytime you want.
+Current SPS stores max 100 steps of history for you.&lt;/li>
+&lt;li>To delete a step, simply drag it to the trash can.&lt;/li>
+&lt;li>After you are done with all edits, click here to save the workflow so we can
+run or download it in the next major step.&lt;/li>
+&lt;li>On the right side is the workflow dependency plot. This plot shows how each
+step is connected and the &lt;strong>expected&lt;/strong> execution order. It does not mean the
 the workflow will be run in the same order. The order is determined by the order
-you have in the left-side designer.&lt;/li&gt;
-&lt;li&gt;Enlarge the left or right panel. If you have a small monitor screen, this can help.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_ui_wf.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.1&lt;/strong&gt; Workflow Management - Workflow Designer&lt;/p&gt;
-&lt;/center&gt;
-&lt;h4 id=&#34;r-step-and-sysargs-step&#34;&gt;R step and sysArgs step&lt;/h4&gt;
-&lt;p&gt;On the designer there are two types of workflow steps. One is R step, which only
+you have in the left-side designer.&lt;/li>
+&lt;li>Enlarge the left or right panel. If you have a small monitor screen, this can help.&lt;/li>
+&lt;/ol>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_ui_wf.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.1&lt;/strong> Workflow Management - Workflow Designer&lt;/p>
+&lt;/center>
+&lt;h4 id="r-step-and-sysargs-step">R step and sysArgs step&lt;/h4>
+&lt;p>On the designer there are two types of workflow steps. One is R step, which only
 has R code. Then it is the time to run these R steps, they will be run in the same
 R session as the Shiny app and in a separate environment different than your global
-environment. In other words, all R steps are in &lt;strong&gt;the same environment&lt;/strong&gt;, they can communicate
+environment. In other words, all R steps are in &lt;strong>the same environment&lt;/strong>, they can communicate
 with each other, meaning you can define a variable in one step and use it in other
-R steps.&lt;/p&gt;
-&lt;p&gt;sysArgs steps, on the other hand, is different, as its name suggest, it will invoke
+R steps.&lt;/p>
+&lt;p>sysArgs steps, on the other hand, is different, as its name suggest, it will invoke
 system commands (like bash) when run. Details of how to create these steps will be
-discussed on &lt;em&gt;Fig 3.B.5&lt;/em&gt;, &lt;em&gt;Fig 3.B.6&lt;/em&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;view-and-modify-steps&#34;&gt;View and modify steps&lt;/h4&gt;
-&lt;p&gt;Current SPS allows users to view some basic information of R steps like, step name,
+discussed on &lt;em>Fig 3.B.5&lt;/em>, &lt;em>Fig 3.B.6&lt;/em>.&lt;/p>
+&lt;h4 id="view-and-modify-steps">View and modify steps&lt;/h4>
+&lt;p>Current SPS allows users to view some basic information of R steps like, step name,
 select dependency(ies). Besides, users are welcome to change the R code they want
-in the second sub-tab (Fig 3.B.2).&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/wf_config_r.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.2&lt;/strong&gt; Workflow Management - config R&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;Modification of sysArgs steps is limited to step name and dependency. However, this
+in the second sub-tab (Fig 3.B.2).&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/wf_config_r.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.2&lt;/strong> Workflow Management - config R&lt;/p>
+&lt;/center>
+&lt;p>Modification of sysArgs steps is limited to step name and dependency. However, this
 kind steps will provide more information to view, like the files that were used to
 create this step, raw commandline code
 that will be run, targets (metadata) and output dataframes. This information
-is distributed in different subtabs (Fig 3.B.3).&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/wf_config_sys.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.3&lt;/strong&gt; Workflow Management - config sysArgs&lt;/p&gt;
-&lt;/center&gt;
-&lt;h4 id=&#34;create-a-new-step&#34;&gt;Create a new step&lt;/h4&gt;
-&lt;p&gt;After clicking the &lt;i class=&#34;fa fa-plus&#34;&gt;&lt;/i&gt; button in Fig 3.B.1, you would need
-to choose whether to create an R or sysArgs step (Figure 3. B.5).&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/wf_new_choose.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.5&lt;/strong&gt; Workflow Management - Choose new step type&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Create a new R step&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Create a new R step is simple. In the modal, type the step name, R code,
-and select dependency (Fig 3. B.6).&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/wf_new_r.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.6&lt;/strong&gt; Workflow Management - New R step&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Create a new sysArgs step&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Basic info for sysArgs step is simialr to R step  (Fig 3. B.7).&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/wf_new_sys1.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.7&lt;/strong&gt; Workflow Management - New sysArgs step&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;To generate some commandline line, there are three items need to be prepared:
-&lt;strong&gt;targets&lt;/strong&gt;, &lt;strong&gt;CWL file&lt;/strong&gt;, &lt;strong&gt;CWL yaml file&lt;/strong&gt; (Fig.3. B.8).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;targets: metadata that will populate the basecommand sample-wisely. Columns in
-targets will be injected into CWL yaml and then, yaml file will replace variables   in parsed CWL base command.&lt;/li&gt;
-&lt;li&gt;CWL file: provide the base command.&lt;/li&gt;
-&lt;li&gt;CWL yaml file: provides CWL variables.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;Choose the targets source. Targets in SPR workflow steps can come from either a
+is distributed in different subtabs (Fig 3.B.3).&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/wf_config_sys.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.3&lt;/strong> Workflow Management - config sysArgs&lt;/p>
+&lt;/center>
+&lt;h4 id="create-a-new-step">Create a new step&lt;/h4>
+&lt;p>After clicking the &lt;i class="fa fa-plus">&lt;/i> button in Fig 3.B.1, you would need
+to choose whether to create an R or sysArgs step (Figure 3. B.5).&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/wf_new_choose.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.5&lt;/strong> Workflow Management - Choose new step type&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Create a new R step&lt;/strong>&lt;/p>
+&lt;p>Create a new R step is simple. In the modal, type the step name, R code,
+and select dependency (Fig 3. B.6).&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/wf_new_r.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.6&lt;/strong> Workflow Management - New R step&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Create a new sysArgs step&lt;/strong>&lt;/p>
+&lt;p>Basic info for sysArgs step is simialr to R step (Fig 3. B.7).&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/wf_new_sys1.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.7&lt;/strong> Workflow Management - New sysArgs step&lt;/p>
+&lt;/center>
+&lt;p>To generate some commandline line, there are three items need to be prepared:
+&lt;strong>targets&lt;/strong>, &lt;strong>CWL file&lt;/strong>, &lt;strong>CWL yaml file&lt;/strong> (Fig.3. B.8).&lt;/p>
+&lt;ul>
+&lt;li>targets: metadata that will populate the basecommand sample-wisely. Columns in
+targets will be injected into CWL yaml and then, yaml file will replace variables in parsed CWL base command.&lt;/li>
+&lt;li>CWL file: provide the base command.&lt;/li>
+&lt;li>CWL yaml file: provides CWL variables.&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Choose the targets source. Targets in SPR workflow steps can come from either a
 fresh file or inherit from a previous sysArg step(s) (output from a previous
-step can become input of the next(s)).&lt;/li&gt;
-&lt;li&gt;If you choose from a previous step(s), select the steps from here. If a new
-file, upload here.&lt;/li&gt;
-&lt;li&gt;Then, the targets or inherited targets table is displayed here for you to take a
-look. Later we will use these column to replace CWL yaml variables.&lt;/li&gt;
-&lt;li&gt;Choose the CWL and CWL yaml file you want to use. All &lt;code&gt;.cwl&lt;/code&gt; and &lt;code&gt;.yaml&lt;/code&gt; or &lt;code&gt;.yml&lt;/code&gt;
-files inside your workflow project &lt;code&gt;param/cwl&lt;/code&gt; folder will be listed here. You
+step can become input of the next(s)).&lt;/li>
+&lt;li>If you choose from a previous step(s), select the steps from here. If a new
+file, upload here.&lt;/li>
+&lt;li>Then, the targets or inherited targets table is displayed here for you to take a
+look. Later we will use these column to replace CWL yaml variables.&lt;/li>
+&lt;li>Choose the CWL and CWL yaml file you want to use. All &lt;code>.cwl&lt;/code> and &lt;code>.yaml&lt;/code> or &lt;code>.yml&lt;/code>
+files inside your workflow project &lt;code>param/cwl&lt;/code> folder will be listed here. You
 could drop more of these files you want to this folder. They will become aviable
-the next time you create a new step.&lt;/li&gt;
-&lt;li&gt;If you have all the three items, you can start to use which column from the targets
-to replace each CWL yaml variables.&lt;/li&gt;
-&lt;li&gt;Try to parse the command, see if the results is as what you expect. If not, try to
-change options above and try again.&lt;/li&gt;
-&lt;li&gt;If everything looks fine, save and create the step.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/wf_new_sys2.png&#34; alt=&#34;wf_wf&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. B.8&lt;/strong&gt; Workflow Management - New sysArgs step&lt;/p&gt;
-&lt;/center&gt;
-&lt;h3 id=&#34;4-prepare-cwl-files-optional&#34;&gt;4. Prepare CWL files (optional)&lt;/h3&gt;
-&lt;p&gt;In the new version of SPR, all individual system workflow steps are called by the
+the next time you create a new step.&lt;/li>
+&lt;li>If you have all the three items, you can start to use which column from the targets
+to replace each CWL yaml variables.&lt;/li>
+&lt;li>Try to parse the command, see if the results is as what you expect. If not, try to
+change options above and try again.&lt;/li>
+&lt;li>If everything looks fine, save and create the step.&lt;/li>
+&lt;/ol>
+&lt;center>
+&lt;p>&lt;img src="../img/wf_new_sys2.png" alt="wf_wf">&lt;/p>
+&lt;p>&lt;strong>Figure 3. B.8&lt;/strong> Workflow Management - New sysArgs step&lt;/p>
+&lt;/center>
+&lt;h3 id="4-prepare-cwl-files-optional">4. Prepare CWL files (optional)&lt;/h3>
+&lt;p>In the new version of SPR, all individual system workflow steps are called by the
 CWL files. Each SPR workflow has a set of CWL files and normally users do not need
 to make any change. In case you want to learn more about CWL and create some new
-CWL files, Step 4 is a good place to practice.&lt;/p&gt;
-&lt;p&gt;To run a CWL step in SPR, 3 files are required:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;targets: to determine how many samples will be run and sample names.&lt;/li&gt;
-&lt;li&gt;CWL running file: can be translated to bash code;&lt;/li&gt;
-&lt;li&gt;CWL input: variables to inject into the running file&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;SPR is the parser between R and CWL by injecting sample information from targets
-to &lt;code&gt;CWL input&lt;/code&gt; file and then CWL parser translates it to bash code.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Most people are not familiar this part, so read instructions carefully.&lt;/li&gt;
-&lt;li&gt;Your project targets has been loaded for you, and an example CWL running and input
-for &lt;strong&gt;hisat2&lt;/strong&gt; is also loaded for you. Directly parse the code. See what commandline
-code you get.&lt;/li&gt;
-&lt;li&gt;Change the targets injecting column, and parse again, see what has changed.&lt;/li&gt;
-&lt;li&gt;You can edit the CWL running and input files&lt;/li&gt;
-&lt;li&gt;Try to parse the new file and see what has changed.&lt;/li&gt;
-&lt;li&gt;If new CWL files has been created, you can edit workflow Rmd files by adding your
-new steps.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_wf_cwl.jpg&#34; alt=&#34;wf_cwl&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 3. C.&lt;/strong&gt; Workflow Management - CWL File&lt;/p&gt;
-&lt;h3 id=&#34;5-run-or-finish-workflow-preparation&#34;&gt;5. Run or finish workflow preparation&lt;/h3&gt;
-&lt;p&gt;Up until this step, congratulations, the workflow is prepared. You can choose to
-download the workflow project files as a bundle or continue to run the workflow.&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_wf_run.jpg&#34; alt=&#34;wf_cwl&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 4.A.B&lt;/strong&gt; Workflow Runner&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;On step 5 you can choose to download the prepared workflow or directly run the
+CWL files, Step 4 is a good place to practice.&lt;/p>
+&lt;p>To run a CWL step in SPR, 3 files are required:&lt;/p>
+&lt;ul>
+&lt;li>targets: to determine how many samples will be run and sample names.&lt;/li>
+&lt;li>CWL running file: can be translated to bash code;&lt;/li>
+&lt;li>CWL input: variables to inject into the running file&lt;/li>
+&lt;/ul>
+&lt;p>SPR is the parser between R and CWL by injecting sample information from targets
+to &lt;code>CWL input&lt;/code> file and then CWL parser translates it to bash code.&lt;/p>
+&lt;ol>
+&lt;li>Most people are not familiar this part, so read instructions carefully.&lt;/li>
+&lt;li>Your project targets has been loaded for you, and an example CWL running and input
+for &lt;strong>hisat2&lt;/strong> is also loaded for you. Directly parse the code. See what commandline
+code you get.&lt;/li>
+&lt;li>Change the targets injecting column, and parse again, see what has changed.&lt;/li>
+&lt;li>You can edit the CWL running and input files&lt;/li>
+&lt;li>Try to parse the new file and see what has changed.&lt;/li>
+&lt;li>If new CWL files has been created, you can edit workflow Rmd files by adding your
+new steps.&lt;/li>
+&lt;/ol>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_wf_cwl.jpg" alt="wf_cwl">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 3. C.&lt;/strong> Workflow Management - CWL File&lt;/p>
+&lt;h3 id="5-run-or-finish-workflow-preparation">5. Run or finish workflow preparation&lt;/h3>
+&lt;p>Up until this step, congratulations, the workflow is prepared. You can choose to
+download the workflow project files as a bundle or continue to run the workflow.&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_wf_run.jpg" alt="wf_cwl">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 4.A.B&lt;/strong> Workflow Runner&lt;/p>
+&lt;ol>
+&lt;li>On step 5 you can choose to download the prepared workflow or directly run the
 workflow. However, if you do not have the required commandline tools, workflow will
-most likely fail. Make sure you system has these tools (&lt;a href=&#34;http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#261_Third-party_software_tools&#34;&gt;Read about these tools&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;Open up the runner. It is a &amp;ldquo;Rstudio-like&amp;rdquo; interface.&lt;/li&gt;
-&lt;li&gt;Code editor. Required workflow running code is pre-entered for you. You can simply
+most likely fail. Make sure you system has these tools (&lt;a href="http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#261_Third-party_software_tools">Read about these tools&lt;/a>).&lt;/li>
+&lt;li>Open up the runner. It is a &amp;ldquo;Rstudio-like&amp;rdquo; interface.&lt;/li>
+&lt;li>Code editor. Required workflow running code is pre-entered for you. You can simply
 hit &amp;ldquo;Run&amp;rdquo; to start. Of course, you can delete the default code and run random R
-code.&lt;/li&gt;
-&lt;li&gt;Output R console.&lt;/li&gt;
-&lt;li&gt;Workflow running log.&lt;/li&gt;
-&lt;li&gt;View any plot output. and send a copy of your current plot to SPS Canvas tab or
-download it.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;app-security&#34;&gt;App security&lt;/h2&gt;
-&lt;p&gt;Running the workflow may introduce some security concerns. Read &lt;a href=&#34;../../sps/adv_features/app_security/#the-workflow-module&#34;&gt;App Security&lt;/a&gt;
-for more details.&lt;/p&gt;
-&lt;h2 id=&#34;is_demo-option&#34;&gt;&lt;code&gt;is_demo&lt;/code&gt; option&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;is_demo&lt;/code&gt; &lt;a href=&#34;../../sps/adv_features/config/#app-options&#34;&gt;option&lt;/a&gt; will impact the workflow
-module.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;TRUE&lt;/code&gt;: you are &lt;strong&gt;not&lt;/strong&gt; deploying the app for production purpose. It is just a show case.
+code.&lt;/li>
+&lt;li>Output R console.&lt;/li>
+&lt;li>Workflow running log.&lt;/li>
+&lt;li>View any plot output. and send a copy of your current plot to SPS Canvas tab or
+download it.&lt;/li>
+&lt;/ol>
+&lt;h2 id="app-security">App security&lt;/h2>
+&lt;p>Running the workflow may introduce some security concerns. Read &lt;a href="../../sps/adv_features/app_security/#the-workflow-module">App Security&lt;/a>
+for more details.&lt;/p>
+&lt;h2 id="is_demo-option">&lt;code>is_demo&lt;/code> option&lt;/h2>
+&lt;p>The &lt;code>is_demo&lt;/code> &lt;a href="../../sps/adv_features/config/#app-options">option&lt;/a> will impact the workflow
+module.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>TRUE&lt;/code>: you are &lt;strong>not&lt;/strong> deploying the app for production purpose. It is just a show case.
 Under this option, users who are trying to create a workflow will be locked inside
 a temp directory and every time they start a new session, they will be assigned to
 a new temp directory. This is useful if many people want to try the app the same
 time, so they will have different private environments, and the temp directory will
-be removed after the Shiny session is closed.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;FALSE&lt;/code&gt;: you are using the app on your own local computer or use it in a production
-environment. WF module will have &lt;strong&gt;full access&lt;/strong&gt; to the sever storage system and
-users can choose &lt;strong&gt;any place&lt;/strong&gt; they have permissions to create the workflow session.&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Sps: RNAseq</title>
-      <link>/sps/modules/rnaseq/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/sps/modules/rnaseq/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;rna-seq-module&#34;&gt;RNA-Seq Module&lt;/h2&gt;
-&lt;p&gt;This is a module which takes a &lt;strong&gt;raw count table&lt;/strong&gt; to do normalization,
+be removed after the Shiny session is closed.&lt;/li>
+&lt;li>&lt;code>FALSE&lt;/code>: you are using the app on your own local computer or use it in a production
+environment. WF module will have &lt;strong>full access&lt;/strong> to the sever storage system and
+users can choose &lt;strong>any place&lt;/strong> they have permissions to create the workflow session.&lt;/li>
+&lt;/ul></description></item><item><title>Sps: RNAseq</title><link>/sps/modules/rnaseq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sps/modules/rnaseq/</guid><description>
+&lt;h2 id="rna-seq-module">RNA-Seq Module&lt;/h2>
+&lt;p>This is a module which takes a &lt;strong>raw count table&lt;/strong> to do normalization,
 Differential gene expression (DEG) analysis, and finally helps users to generate
-different plots to visualize the results.&lt;/p&gt;
-&lt;h3 id=&#34;prepare-metadata-and-count-table&#34;&gt;Prepare metadata and count table&lt;/h3&gt;
-&lt;p&gt;To start, we require two files, the metadata file (targets) and a raw count table (Fig. 5).&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_rna_data.jpg&#34; alt=&#34;rna_data&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 5&lt;/strong&gt; RNAseq&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;This is the RNAseq module UI when you first click it. All sub-tabs are disbled
-at the beginning. Other tabs will enabled as you proceed with different options.&lt;/li&gt;
-&lt;li&gt;First, we need a metadata file to tell SPS what samples and conditions to use.
+different plots to visualize the results.&lt;/p>
+&lt;h3 id="prepare-metadata-and-count-table">Prepare metadata and count table&lt;/h3>
+&lt;p>To start, we require two files, the metadata file (targets) and a raw count table (Fig. 5).&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_rna_data.jpg" alt="rna_data">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 5&lt;/strong> RNAseq&lt;/p>
+&lt;ol>
+&lt;li>This is the RNAseq module UI when you first click it. All sub-tabs are disbled
+at the beginning. Other tabs will enabled as you proceed with different options.&lt;/li>
+&lt;li>First, we need a metadata file to tell SPS what samples and conditions to use.
 Here, we use the metadata file from SPR, which is also known as &amp;ldquo;targets&amp;rdquo; file.
 If you are not familiar with the targets file, we suggest to use the workflow module
 step 2 to practice creating and checking the format. You can also use the example to
-see how it looks like.&lt;/li&gt;
-&lt;li&gt;The loaded targets table is display here. You can use the box below each column
+see how it looks like.&lt;/li>
+&lt;li>The loaded targets table is display here. You can use the box below each column
 name to filter what samples to include/exclude. Only the &amp;ldquo;SampleName&amp;rdquo; and &amp;ldquo;Factor&amp;rdquo;
-columns are used, other columns are ignored. &lt;code&gt;SampleName&lt;/code&gt; should be a unique character
-string without space for each row.  &lt;code&gt;Factor&lt;/code&gt; is the experiment design factors, or
-conditions, or treatments.&lt;/li&gt;
-&lt;li&gt;If you want to DEG analysis, DEG comparison groups are defined in the targets
-file header.&lt;/li&gt;
-&lt;li&gt;The header will be parsed into comparison groups which contain individual comparisons.
-If the parsed comparison is not what you want, edit the header lines and reupload.&lt;/li&gt;
-&lt;li&gt;If everything is expected, confirm to use this table.&lt;/li&gt;
-&lt;li&gt;You should see the progress timeline of step 1 becomes green if your targets
-and header pass the format checking.&lt;/li&gt;
-&lt;li&gt;(Not on  figure) Similarly, use example or upload a count table and confirm to use it.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Note: For the count table, the first column will be used as gene names. Other column
+columns are used, other columns are ignored. &lt;code>SampleName&lt;/code> should be a unique character
+string without space for each row. &lt;code>Factor&lt;/code> is the experiment design factors, or
+conditions, or treatments.&lt;/li>
+&lt;li>If you want to DEG analysis, DEG comparison groups are defined in the targets
+file header.&lt;/li>
+&lt;li>The header will be parsed into comparison groups which contain individual comparisons.
+If the parsed comparison is not what you want, edit the header lines and reupload.&lt;/li>
+&lt;li>If everything is expected, confirm to use this table.&lt;/li>
+&lt;li>You should see the progress timeline of step 1 becomes green if your targets
+and header pass the format checking.&lt;/li>
+&lt;li>(Not on figure) Similarly, use example or upload a count table and confirm to use it.&lt;/li>
+&lt;/ol>
+&lt;p>Note: For the count table, the first column will be used as gene names. Other column
 names will be treated as sample names, and values in these columns are treated as
-raw counts. Make sure columns except the first one are &lt;strong&gt;numeric&lt;/strong&gt;, and replace &lt;code&gt;NA&lt;/code&gt;
-with &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Upon successfully confirm targets and count table, you should see the &amp;ldquo;Normalize Data&amp;rdquo;
+raw counts. Make sure columns except the first one are &lt;strong>numeric&lt;/strong>, and replace &lt;code>NA&lt;/code>
+with &lt;code>0&lt;/code>.&lt;/p>
+&lt;p>Upon successfully confirm targets and count table, you should see the &amp;ldquo;Normalize Data&amp;rdquo;
 subtab is enabled. You can click on the top navigation or click the pop-up for the next
-step.&lt;/p&gt;
-&lt;h3 id=&#34;process-raw-count&#34;&gt;Process raw count&lt;/h3&gt;
-&lt;p&gt;If this UI is displayed, that means your targets and count table are accepted by
-SPS (Fig 6). On this sub-tab, you can choose:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Transform your count data with &amp;ldquo;raw&amp;rdquo;, &amp;ldquo;rlog&amp;rdquo; or &amp;ldquo;VST&amp;rdquo; and visualize the results
-in other sub-tabs.&lt;/li&gt;
-&lt;li&gt;Do DEG analysis.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;These two options are independent.&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_rna_norm.jpg&#34; alt=&#34;rna_norm&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 6&lt;/strong&gt; RNAseq Normalization&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;At step 1 panel, choose how SPS can help you, count transformation or DEG analysis.
-The former will jump you to step 2, latter will jump to step 3.&lt;/li&gt;
-&lt;li&gt;There are many options. If you are not clear, hover your mouse on the option,
-and some tips will show up.&lt;/li&gt;
-&lt;li&gt;To start data transformation or DEG analysis.&lt;/li&gt;
-&lt;li&gt;A gallery of different plot options will show up when the data process is done.&lt;/li&gt;
-&lt;li&gt;When the data process is done, you can download results from the right side panel.
-Check all items you want and SPS will help you to zip it into one file to download.&lt;/li&gt;
-&lt;li&gt;If at least one item is checked, downloading is enabled.&lt;/li&gt;
-&lt;li&gt;Progress timeline will also change upon successful data process.&lt;/li&gt;
-&lt;li&gt;Different visualization options will be enabled depending on the data process options.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;plot-options&#34;&gt;Plot options&lt;/h3&gt;
-&lt;p&gt;SPS RNAseq module provides 6 different plot options to cluster transformed count table.&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_rna_plot.jpg&#34; alt=&#34;rna_plot&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 6&lt;/strong&gt; RNAseq plots&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Change plot options to customize your plots.&lt;/li&gt;
-&lt;li&gt;Most plots are &lt;a href=&#34;https://plotly.com&#34;&gt;Plotly&lt;/a&gt; plots, which means you can interact
-with these plots, like hiding/show groups, zoom in/out, etc.&lt;/li&gt;
-&lt;li&gt;All SPS plots are resizable. Drag the bottom-right corner icon to resize your
-plot.&lt;/li&gt;
-&lt;li&gt;Click &amp;ldquo;To canvas&amp;rdquo; to take a screenshot of current plot and edit it in &lt;code&gt;SPS Canvas&lt;/code&gt;
-tab. Or clicking the down-arrow button to directly save current plot to a png or jpg.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;deg-report&#34;&gt;DEG report&lt;/h3&gt;
-&lt;p&gt;This is a special sub-tab designed to filter and visualize DEG results. This sub-tab
-can be accessed once the DEG is calculated on the &amp;ldquo;Normalize Data&amp;rdquo; sub-tab.&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_rna_deg.jpg&#34; alt=&#34;rna_deg&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 7&lt;/strong&gt; RNAseq DEG&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;DEG summary plot. You can view what are the DEG results across different comparision
-groups.&lt;/li&gt;
-&lt;li&gt;Switch to view a ggplot friendly table. Different from the table you could download from
-&amp;ldquo;Normalize Data&amp;rdquo; subtab, this DEG table is rearranged so you can easily make a ggplot from it.&lt;/li&gt;
-&lt;li&gt;You can change the filter settings here, so DEGs will be re-filtered and you do not need
-to go back to &amp;ldquo;Normalize Data&amp;rdquo; subtab to recalculate DEG.&lt;/li&gt;
-&lt;li&gt;DEG plotting options. Choose from a volcano plot, an upset plot (intersection),
-a MA plot or a heatmap.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;interact-with-other-bioconductor-packages&#34;&gt;Interact with other bioconductor packages.&lt;/h3&gt;
-&lt;h4 id=&#34;locally&#34;&gt;Locally&lt;/h4&gt;
-&lt;p&gt;If you are familiar with R and want to continue other analysis after these, simple stop SPS:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;After count transformation, there is a &lt;code&gt;spsRNA_trans&lt;/code&gt; object stored in your R
-environment. &lt;code&gt;raw&lt;/code&gt; method gives you a normalized count table. Other two methods
-give you a &lt;code&gt;DESeq2&lt;/code&gt; class object. You can use it for other analysis.&lt;/li&gt;
-&lt;li&gt;After DEG analysis,  SPS stores a global object called &lt;code&gt;spsDEG.&lt;/code&gt;
-It is a &lt;code&gt;summerizedExperiment&lt;/code&gt; object which has all individual tables from all
-DEG comparisons. You can use it for other downstream analysis.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;remotely&#34;&gt;Remotely&lt;/h4&gt;
-&lt;p&gt;If you are using SPS from a remote server, you can choose to download results from
-&amp;ldquo;Normalize Data&amp;rdquo; sub-tab. Choose results in tabular format or &lt;code&gt;summerizedExperiment&lt;/code&gt;
-format which is saved in a &lt;code&gt;.rds&lt;/code&gt; file.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Sps: Quick ggplot</title>
-      <link>/sps/modules/ggplot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/sps/modules/ggplot/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;quick-ggplot-module&#34;&gt;Quick {ggplot} module&lt;/h2&gt;
-&lt;p&gt;This module enables you to quickly upload datasets and make a {&lt;a href=&#34;https://ggplot2.tidyverse.org/&#34;&gt;ggplot{blk}&lt;/a&gt;}
-in a second by using some functionalities from {&lt;a href=&#34;https://dreamrs.github.io/esquisse/index.html&#34;&gt;Esquisse{blk}&lt;/a&gt;}.&lt;/p&gt;
-&lt;h3 id=&#34;upload-data&#34;&gt;Upload data&lt;/h3&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_quckgg_upload.png&#34; alt=&#34;quickgg&#34;&gt;&lt;/p&gt;
-&lt;caption&gt;Upload data&lt;/caption&gt;
-&lt;/center&gt;
-&lt;ol&gt;
-&lt;li&gt;The first thing you come to this module is to upload a tabular data file. You
-can choose to use the example or upload your own. The example is just the &lt;code&gt;iris&lt;/code&gt;
+step.&lt;/p>
+&lt;h3 id="process-raw-count">Process raw count&lt;/h3>
+&lt;p>If this UI is displayed, that means your targets and count table are accepted by
+SPS (Fig 6). On this sub-tab, you can choose:&lt;/p>
+&lt;ol>
+&lt;li>Transform your count data with &amp;ldquo;raw&amp;rdquo;, &amp;ldquo;rlog&amp;rdquo; or &amp;ldquo;VST&amp;rdquo; and visualize the results
+in other sub-tabs.&lt;/li>
+&lt;li>Do DEG analysis.&lt;/li>
+&lt;/ol>
+&lt;p>These two options are independent.&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_rna_norm.jpg" alt="rna_norm">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 6&lt;/strong> RNAseq Normalization&lt;/p>
+&lt;ol>
+&lt;li>At step 1 panel, choose how SPS can help you, count transformation or DEG analysis.
+The former will jump you to step 2, latter will jump to step 3.&lt;/li>
+&lt;li>There are many options. If you are not clear, hover your mouse on the option,
+and some tips will show up.&lt;/li>
+&lt;li>To start data transformation or DEG analysis.&lt;/li>
+&lt;li>A gallery of different plot options will show up when the data process is done.&lt;/li>
+&lt;li>When the data process is done, you can download results from the right side panel.
+Check all items you want and SPS will help you to zip it into one file to download.&lt;/li>
+&lt;li>If at least one item is checked, downloading is enabled.&lt;/li>
+&lt;li>Progress timeline will also change upon successful data process.&lt;/li>
+&lt;li>Different visualization options will be enabled depending on the data process options.&lt;/li>
+&lt;/ol>
+&lt;h3 id="plot-options">Plot options&lt;/h3>
+&lt;p>SPS RNAseq module provides 6 different plot options to cluster transformed count table.&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_rna_plot.jpg" alt="rna_plot">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 6&lt;/strong> RNAseq plots&lt;/p>
+&lt;ol>
+&lt;li>Change plot options to customize your plots.&lt;/li>
+&lt;li>Most plots are &lt;a href="https://plotly.com">Plotly&lt;/a> plots, which means you can interact
+with these plots, like hiding/show groups, zoom in/out, etc.&lt;/li>
+&lt;li>All SPS plots are resizable. Drag the bottom-right corner icon to resize your
+plot.&lt;/li>
+&lt;li>Click &amp;ldquo;To canvas&amp;rdquo; to take a screenshot of current plot and edit it in &lt;code>SPS Canvas&lt;/code>
+tab. Or clicking the down-arrow button to directly save current plot to a png or jpg.&lt;/li>
+&lt;/ol>
+&lt;h3 id="deg-report">DEG report&lt;/h3>
+&lt;p>This is a special sub-tab designed to filter and visualize DEG results. This sub-tab
+can be accessed once the DEG is calculated on the &amp;ldquo;Normalize Data&amp;rdquo; sub-tab.&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_rna_deg.jpg" alt="rna_deg">&lt;/p>
+&lt;/center>
+&lt;p>&lt;strong>Figure 7&lt;/strong> RNAseq DEG&lt;/p>
+&lt;ol>
+&lt;li>DEG summary plot. You can view what are the DEG results across different comparision
+groups.&lt;/li>
+&lt;li>Switch to view a ggplot friendly table. Different from the table you could download from
+&amp;ldquo;Normalize Data&amp;rdquo; subtab, this DEG table is rearranged so you can easily make a ggplot from it.&lt;/li>
+&lt;li>You can change the filter settings here, so DEGs will be re-filtered and you do not need
+to go back to &amp;ldquo;Normalize Data&amp;rdquo; subtab to recalculate DEG.&lt;/li>
+&lt;li>DEG plotting options. Choose from a volcano plot, an upset plot (intersection),
+a MA plot or a heatmap.&lt;/li>
+&lt;/ol>
+&lt;h3 id="interact-with-other-bioconductor-packages">Interact with other bioconductor packages.&lt;/h3>
+&lt;h4 id="locally">Locally&lt;/h4>
+&lt;p>If you are familiar with R and want to continue other analysis after these, simple stop SPS:&lt;/p>
+&lt;ol>
+&lt;li>After count transformation, there is a &lt;code>spsRNA_trans&lt;/code> object stored in your R
+environment. &lt;code>raw&lt;/code> method gives you a normalized count table. Other two methods
+give you a &lt;code>DESeq2&lt;/code> class object. You can use it for other analysis.&lt;/li>
+&lt;li>After DEG analysis, SPS stores a global object called &lt;code>spsDEG.&lt;/code>
+It is a &lt;code>summerizedExperiment&lt;/code> object which has all individual tables from all
+DEG comparisons. You can use it for other downstream analysis.&lt;/li>
+&lt;/ol>
+&lt;h4 id="remotely">Remotely&lt;/h4>
+&lt;p>If you are using SPS from a remote server, you can choose to download results from
+&amp;ldquo;Normalize Data&amp;rdquo; sub-tab. Choose results in tabular format or &lt;code>summerizedExperiment&lt;/code>
+format which is saved in a &lt;code>.rds&lt;/code> file.&lt;/p></description></item><item><title>Sps: Quick ggplot</title><link>/sps/modules/ggplot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sps/modules/ggplot/</guid><description>
+&lt;h2 id="quick-ggplot-module">Quick {ggplot} module&lt;/h2>
+&lt;p>This module enables you to quickly upload datasets and make a {&lt;a href="https://ggplot2.tidyverse.org/">ggplot{blk}&lt;/a>}
+in a second by using some functionalities from {&lt;a href="https://dreamrs.github.io/esquisse/index.html">Esquisse{blk}&lt;/a>}.&lt;/p>
+&lt;h3 id="upload-data">Upload data&lt;/h3>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_quckgg_upload.png" alt="quickgg">&lt;/p>
+&lt;caption>Upload data&lt;/caption>
+&lt;/center>
+&lt;ol>
+&lt;li>The first thing you come to this module is to upload a tabular data file. You
+can choose to use the example or upload your own. The example is just the &lt;code>iris&lt;/code>
 data.
-&lt;ul&gt;
-&lt;li&gt;1.1. If you choose to upload, there will be a upload button where you need to
-choose your own file.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;By default, it assumes you upload a &amp;ldquo;.csv&amp;rdquo; file with &amp;ldquo;#&amp;rdquo; as comments. If not
-you can choose the file delimiter and comment character.&lt;/li&gt;
-&lt;li&gt;You can view your uploaded data and use the boxes below each column name to
-perform some filters, but you are not allowed to edit the data.&lt;/li&gt;
-&lt;li&gt;If everything looks good, you can submit to proceed to the plot making panel.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;make-a-plot&#34;&gt;Make a plot&lt;/h3&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../img/sps_quickgg.jpg&#34; alt=&#34;quickgg&#34;&gt;&lt;/p&gt;
-&lt;caption&gt;Make a plot&lt;/caption&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;strong&gt;Figure 8&lt;/strong&gt; Quick ggplot&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Provide a tabular data table by uploading or use example.&lt;/li&gt;
-&lt;li&gt;Drag variables from into different ggplot aesthetic boxes to make a ggplot.&lt;/li&gt;
-&lt;li&gt;Change to different plot types.&lt;/li&gt;
-&lt;li&gt;Customize other different plotting options.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;For a more specific guide, read
-&lt;a href=&#34;https://dreamrs.github.io/esquisse/articles/get-started.html&#34;&gt;Esquisse official guide{blk}&lt;/a&gt;.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;ul>
+&lt;li>1.1. If you choose to upload, there will be a upload button where you need to
+choose your own file.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>By default, it assumes you upload a &amp;ldquo;.csv&amp;rdquo; file with &amp;ldquo;#&amp;rdquo; as comments. If not
+you can choose the file delimiter and comment character.&lt;/li>
+&lt;li>You can view your uploaded data and use the boxes below each column name to
+perform some filters, but you are not allowed to edit the data.&lt;/li>
+&lt;li>If everything looks good, you can submit to proceed to the plot making panel.&lt;/li>
+&lt;/ol>
+&lt;h3 id="make-a-plot">Make a plot&lt;/h3>
+&lt;center>
+&lt;p>&lt;img src="../img/sps_quickgg.jpg" alt="quickgg">&lt;/p>
+&lt;caption>Make a plot&lt;/caption>
+&lt;/center>
+&lt;p>&lt;strong>Figure 8&lt;/strong> Quick ggplot&lt;/p>
+&lt;ol>
+&lt;li>Provide a tabular data table by uploading or use example.&lt;/li>
+&lt;li>Drag variables from into different ggplot aesthetic boxes to make a ggplot.&lt;/li>
+&lt;li>Change to different plot types.&lt;/li>
+&lt;li>Customize other different plotting options.&lt;/li>
+&lt;/ol>
+&lt;p>For a more specific guide, read
+&lt;a href="https://dreamrs.github.io/esquisse/articles/get-started.html">Esquisse official guide{blk}&lt;/a>.&lt;/p></description></item></channel></rss>
