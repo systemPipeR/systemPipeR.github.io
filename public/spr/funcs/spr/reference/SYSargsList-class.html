@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Class "SYSargsList" — SYSargsList" />
-<meta property="og:description" content="S4 class container for storing parameters and information of command-line- or R-based workflow.
+<meta property="og:description" content="S4 class container for storing parameters and information of command-line- or 
+R-based workflow.
 SYSargsList instances are constructed by the SYSargsList function." />
 
 
@@ -83,7 +84,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.26</span>
       </span>
     </div>
 
@@ -121,7 +122,8 @@ SYSargsList instances are constructed by the SYSargsList function." />
     </div>
 
     <div class="ref-description">
-    <p>S4 class container for storing parameters and information of command-line- or R-based workflow.</p>
+    <p>S4 class container for storing parameters and information of command-line- or 
+R-based workflow.</p>
 <p><code>SYSargsList</code> instances are constructed by the <code>SYSargsList</code> function.</p>
     </div>
 
@@ -129,8 +131,13 @@ SYSargsList instances are constructed by the SYSargsList function." />
 
 <span class='fu'>SYSargsList</span><span class='op'>(</span>sysargs <span class='op'>=</span> <span class='cn'>NULL</span>, step_name <span class='op'>=</span> <span class='st'>"default"</span>, 
             targets <span class='op'>=</span> <span class='cn'>NULL</span>, wf_file <span class='op'>=</span> <span class='cn'>NULL</span>, input_file <span class='op'>=</span> <span class='cn'>NULL</span>, dir_path <span class='op'>=</span> <span class='st'>"."</span>, 
+            id <span class='op'>=</span> <span class='st'>"SampleName"</span>,
             inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, 
-            dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dependency <span class='op'>=</span> <span class='st'>""</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+            dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dependency <span class='op'>=</span> <span class='st'>""</span>, 
+            run_step <span class='op'>=</span> <span class='st'>"mandatory"</span>,
+            run_session <span class='op'>=</span> <span class='st'>"rsession"</span>,
+            silent <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+            projPath <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"projPath"</span>, <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>## Accessors</span>
 
@@ -138,7 +145,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='fu'>statusWF</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 <span class='fu'>targetsWF</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 <span class='fu'>outfiles</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-<span class='fu'>SEobj</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'>SE</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 <span class='fu'>dependency</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 <span class='fu'>projectInfo</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 <span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
@@ -158,7 +165,8 @@ SYSargsList instances are constructed by the SYSargsList function." />
 <span class='co'>## Subset Methods</span>
 
 <span class='fu'>subset</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
-<span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span>, <span class='st'>"targetsWF"</span><span class='op'>)</span>, column <span class='op'>=</span> <span class='fl'>1</span>, names <span class='op'>=</span> <span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span>, <span class='st'>"targetsWF"</span><span class='op'>)</span>, column <span class='op'>=</span> <span class='fl'>1</span>, 
+          names <span class='op'>=</span> <span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>step</span><span class='op'>)</span><span class='op'>)</span>
 
 
 
@@ -186,7 +194,10 @@ SYSargsList instances are constructed by the SYSargsList function." />
     </tr>
     <tr>
       <th>targets</th>
-      <td><p>the path to <code>targets</code> file. The <code>targets</code> file can be either a simple tabular or yml file. Also, it is possible to assign <code>NULL</code> to run the pipeline without the 'targets' file. This can be useful for running specific workflows that do not require input files.</p></td>
+      <td><p>the path to <code>targets</code> file. The <code>targets</code> file can be either a simple 
+  tabular or yml file. Also, it is possible to assign <code>NULL</code> to run the 
+  pipeline without the 'targets' file. This can be useful for running specific 
+  workflows that do not require input files.</p></td>
     </tr>
     <tr>
       <th>wf_file</th>
@@ -198,11 +209,18 @@ SYSargsList instances are constructed by the SYSargsList function." />
     </tr>
     <tr>
       <th>dir_path</th>
-      <td><p>full path to the directory with the <code>CWL parameters</code> and <code>input</code> files.</p></td>
+      <td><p>full path to the directory with the <code>CWL parameters</code> and <code>input</code> 
+  files.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>A column from <code>targets</code> file, which will be used as an id for each one
+  of the samples. It is required to be unique.</p></td>
     </tr>
     <tr>
       <th>inputvars</th>
-      <td><p>variables list defined in the <code>input</code> file that matches the column names defined in the <code>targets</code> file.</p></td>
+      <td><p>variables list defined in the <code>input</code> file that matches the column names 
+  defined in the <code>targets</code> file.</p></td>
     </tr>
     <tr>
       <th>rm_targets_col</th>
@@ -211,8 +229,8 @@ SYSargsList instances are constructed by the SYSargsList function." />
     <tr>
       <th>dir</th>
       <td><p>This option allows creating an exclusive results folder for each step in the 
-  workflow. All the outfiles and log files for the particular step will be created 
-  in the respective folders. Default is <code>dir=TRUE</code>.</p></td>
+  workflow. All the outfiles and log files for the particular step will be 
+  created in the respective folders. Default is <code>dir=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>dependency</th>
@@ -221,8 +239,20 @@ SYSargsList instances are constructed by the SYSargsList function." />
   Default is empty string <code>""</code>.</p></td>
     </tr>
     <tr>
+      <th>run_step</th>
+      <td><p>character. If the step has "mandatory" or "optional" flag for the execution.</p></td>
+    </tr>
+    <tr>
+      <th>run_session</th>
+      <td><p>character. If the step has "rsession" or "cluster" flag for the execution.</p></td>
+    </tr>
+    <tr>
       <th>silent</th>
       <td><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></td>
+    </tr>
+    <tr>
+      <th>projPath</th>
+      <td><p>a character vector of a full project path name. Default is the current path.</p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -267,12 +297,13 @@ SYSargsList instances are constructed by the SYSargsList function." />
     <tr>
       <th>value</th>
       <td><p>object containing the values to be replaced to x. Values may be of the same 
-  class as the orginal values. For <code>updateColumn&lt;-</code>a dataframe that must have
-  the same rows as the modifying dataframe.
-  However, if there is no column in the original dataframe. This new df will replace 
-  the empty one. If there is a non-empty dataframe, any existing columns with the 
-  same name as this new df will be replaced. Any columns that do not exist in the 
-  original column but this new df will be added to the original data.frame.</p></td>
+  class as the orginal values. For <code>updateColumn&lt;-</code>a dataframe that must 
+  have the same rows as the modifying dataframe.
+  However, if there is no column in the original dataframe. This new df will 
+  replace the empty one. If there is a non-empty dataframe, any existing 
+  columns with the same name as this new df will be replaced. Any columns 
+  that do not exist in the original column but this new df will be added to 
+  the original <code>data.frame</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -287,45 +318,79 @@ SYSargsList instances are constructed by the SYSargsList function." />
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
-    <dt><code>stepsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>SYSargs2</code> objects of the workflow</p></dd>
-    <dt><code>statusWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the success and failure of each step in the workflow</p></dd>
-    <dt><code>targetsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the targets files for each step in the workflow</p></dd>
-    <dt><code>outfiles</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the output files in the workflow</p></dd>
-    <dt><code>SEobj</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the SummarizedExperiment objects in the workflow</p></dd>
-    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the dependency steps in the workflow</p></dd>
-    <dt><code>targets_connection</code>:</dt><dd><p>Object of class <code>"list"</code> storing all targets files connection in the workflow</p></dd>
-    <dt><code>projectInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>projectInfo</code> information of the workflow</p></dd>
-    <dt><code>runInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the <code>runInfo</code> information of the workflow</p></dd>
+    <dt><code>stepsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    <code>SYSargs2</code> objects of the workflow</p></dd>
+    <dt><code>statusWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    success and failure of each step in the workflow</p></dd>
+    <dt><code>targetsWF</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    targets files for each step in the workflow</p></dd>
+    <dt><code>outfiles</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    output files in the workflow</p></dd>
+    <dt><code>SE</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    <code>SummarizedExperiment</code> objects in the workflow</p></dd>
+    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    dependency steps in the workflow</p></dd>
+    <dt><code>targets_connection</code>:</dt><dd><p>Object of class <code>"list"</code> storing all 
+    targets files connection in the workflow</p></dd>
+    <dt><code>projectInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the 
+    <code>projectInfo</code> information of the workflow</p></dd>
+    <dt><code>runInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the
+    <code>runInfo</code> information of the workflow</p></dd>
   
 </dl>
 
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     <p></p><dl>
-    <dt>[</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", drop = "ANY")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY")</code>: subsetting of class with bracket operator</p></dd>
-    <dt>[[&lt;-</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", value = "ANY")</code>: replacement method for <code>SYSargsList</code> class</p></dd>
-    <dt>$</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracting slots elements by name</p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "SYSargsList")</code>: <code>as(list, "SYSargsList")</code></p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "SYSargsList", to = "list")</code>: <code>as(SYSargsList, "list")</code></p></dd>
-    <dt>length</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts number of <code>SYSargs2</code> objects</p></dd>
+    <dt>[</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", drop = "ANY")</code>: 
+              subsetting of class with bracket operator</p></dd>
+    <dt>[[</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY")</code>:
+              subsetting of class with bracket operator</p></dd>
+    <dt>[[&lt;-</dt><dd><p><code>signature(x = "SYSargsList", i = "ANY", j = "ANY", value = "ANY")</code>: 
+              replacement method for <code>SYSargsList</code> class</p></dd>
+    <dt>$</dt><dd><p><code>signature(x = "SYSargsList")</code>: 
+              extracting slots elements by name</p></dd>
+    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "SYSargsList")</code>:
+              <code>as(list, "SYSargsList")</code></p></dd>
+    <dt>coerce</dt><dd><p><code>signature(from = "SYSargsList", to = "list")</code>: 
+              <code>as(SYSargsList, "list")</code></p></dd>
+    <dt>length</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts number of 
+              <code>SYSargs2</code> objects</p></dd>
     <dt>names</dt><dd><p><code>signature(x = "SYSargsList")</code>: extracts slot names</p></dd>
-    <dt>show</dt><dd><p><code>signature(object = "SYSargsList")</code>: summary view of <code>SYSargsList</code> steps</p></dd>
-    <dt>stepsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>stepsWF</code> slot</p></dd>
-    <dt>statusWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>statusWF</code> slot</p></dd>
-    <dt>dependency</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>dependency</code> slot</p></dd>
-    <dt>projectInfo</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>projectInfo</code> slot</p></dd>
-    <dt>runInfo</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>runInfo</code> slot</p></dd>
-    <dt>targetsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>targetsWF</code> slot</p></dd>
-    <dt>sysargslist</dt><dd><p><code>signature(x = "SYSargsList")</code>: Coerce back to list <code>as(SYSargsList, "list")</code></p></dd>
-    <dt>SEobj</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from <code>SEobj</code> slot</p></dd>
-    <dt>cmdlist</dt><dd><p><code>signature(x = "SYSargsList", sample=NULL)</code>: extracts data from <code>cmdlist</code> slot for each step</p></dd>
-    <dt>appendStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for append a step</p></dd>
-    <dt>appendStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for append a step</p></dd>
-    <dt>replaceStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for replace a step</p></dd>
-    <dt>renameStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for rename a step</p></dd>
-    <dt>yamlinput&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for <code>yamlinput</code> slot for each step</p></dd>
-    <dt>dependency&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: replacement method for <code>dependency</code> slot for each step</p></dd>
+    <dt>show</dt><dd><p><code>signature(object = "SYSargsList")</code>: summary view of 
+              <code>SYSargsList</code> steps</p></dd>
+    <dt>stepsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from 
+              <code>stepsWF</code> slot</p></dd>
+    <dt>statusWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from 
+              <code>statusWF</code> slot</p></dd>
+    <dt>dependency</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from 
+              <code>dependency</code> slot</p></dd>
+    <dt>projectInfo</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from
+              <code>projectInfo</code> slot</p></dd>
+    <dt>runInfo</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from
+              <code>runInfo</code> slot</p></dd>
+    <dt>targetsWF</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from 
+              <code>targetsWF</code> slot</p></dd>
+    <dt>sysargslist</dt><dd><p><code>signature(x = "SYSargsList")</code>: Coerce back to 
+              list <code>as(SYSargsList, "list")</code></p></dd>
+    <dt>SE</dt><dd><p><code>signature(x = "SYSargsList")</code>: extract data from 
+              <code>SE</code> slot</p></dd>
+    <dt>cmdlist</dt><dd><p><code>signature(x = "SYSargsList", sample=NULL)</code>: 
+              extracts data from <code>cmdlist</code> slot for each step</p></dd>
+    <dt>appendStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>:
+              replacement method for append a step</p></dd>
+    <dt>appendStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: 
+              replacement method for append a step</p></dd>
+    <dt>replaceStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>:
+              replacement method for replace a step</p></dd>
+    <dt>renameStep&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: 
+              replacement method for rename a step</p></dd>
+    <dt>yamlinput&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: 
+              replacement method for <code>yamlinput</code> slot for each step</p></dd>
+    <dt>dependency&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>: 
+              replacement method for <code>dependency</code> slot for each step</p></dd>
+    <dt>updateStatus&lt;-</dt><dd><p><code>signature(x = "SYSargsList")</code>:
+              updateStatus method for update a step status</p></dd>
   
 </dl>
 
@@ -338,7 +403,8 @@ SYSargsList instances are constructed by the SYSargsList function." />
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, 
+</div><div class='output co'>#&gt; Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
+#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, 
                             package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
 
 <span class='co'>## Constructor and `appendStep&lt;-`</span>
@@ -395,9 +461,9 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; DataFrame with 3 rows and 2 columns
 #&gt;                Message  SampleName
 #&gt;            &lt;character&gt; &lt;character&gt;
-#&gt; 1         Hello World!          M1
-#&gt; 2           Hello USA!          M2
-#&gt; 3 Hello Bioconcudctor!          M3
+#&gt; M1        Hello World!          M1
+#&gt; M2          Hello USA!          M2
+#&gt; M3 Hello Bioconductor!          M3
 #&gt; 
 #&gt; $R_read
 #&gt; DataFrame with 0 rows and 0 columns
@@ -412,8 +478,20 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; 
 #&gt; $R_read
 #&gt; DataFrame with 0 rows and 0 columns
-#&gt; </div><div class='input'><span class='fu'>SEobj</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; list()</div><div class='input'><span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
+#&gt; </div><div class='input'><span class='fu'>SE</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $echo
+#&gt; class: SummarizedExperiment 
+#&gt; dim: 0 3 
+#&gt; metadata(1): targetsheader
+#&gt; assays(0):
+#&gt; rownames: NULL
+#&gt; rowData names(0):
+#&gt; colnames(3): M1 M2 M3
+#&gt; colData names(2): Message SampleName
+#&gt; 
+#&gt; $R_read
+#&gt; NULL
+#&gt; </div><div class='input'><span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $echo
 #&gt; [1] ""
 #&gt; 
@@ -439,14 +517,30 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; [1] ".SPRproject/SYSargsList.yml"
 #&gt; </div><div class='input'><span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $env
-#&gt; &lt;environment: 0x55c7562b4960&gt;
+#&gt; &lt;environment: 0x55b69fabf628&gt;
 #&gt; 
-#&gt; $directory
-#&gt; $directory$echo
+#&gt; $runOption
+#&gt; $runOption$echo
+#&gt; $runOption$echo$directory
 #&gt; [1] TRUE
 #&gt; 
-#&gt; $directory$R_read
+#&gt; $runOption$echo$run_step
+#&gt; [1] "mandatory"
+#&gt; 
+#&gt; $runOption$echo$run_session
+#&gt; [1] "rsession"
+#&gt; 
+#&gt; 
+#&gt; $runOption$R_read
+#&gt; $runOption$R_read$directory
 #&gt; [1] FALSE
+#&gt; 
+#&gt; $runOption$R_read$run_step
+#&gt; [1] "mandatory"
+#&gt; 
+#&gt; $runOption$R_read$run_session
+#&gt; [1] "rsession"
+#&gt; 
 #&gt; 
 #&gt; </div><div class='input'>
 <span class='co'>## Methods</span>
@@ -488,9 +582,9 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; </div><div class='input'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_read</span>
 #&gt;     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</div><div class='input'><span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>sal</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x55c7562b4960&gt;
+</div><div class='output co'>#&gt; &lt;environment: 0x55b69fabf628&gt;
 #&gt; Copying to 'new.env': </div><div class='input'><span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x55c7562b4960&gt;
+</div><div class='output co'>#&gt; &lt;environment: 0x55b69fabf628&gt;
 #&gt; character(0)</div><div class='input'>
 <span class='co'>## Subset Methods</span>
 
@@ -506,9 +600,9 @@ SYSargsList instances are constructed by the SYSargsList function." />
 #&gt; DataFrame with 3 rows and 2 columns
 #&gt;                Message  SampleName
 #&gt;            &lt;character&gt; &lt;character&gt;
-#&gt; 1         Hello World!          M1
-#&gt; 2           Hello USA!          M2
-#&gt; 3 Hello Bioconcudctor!          M3
+#&gt; M1        Hello World!          M1
+#&gt; M2          Hello USA!          M2
+#&gt; M3 Hello Bioconductor!          M3
 #&gt; 
 #&gt; $R_read
 #&gt; DataFrame with 3 rows and 1 column
@@ -523,12 +617,15 @@ SYSargsList instances are constructed by the SYSargsList function." />
                             <span class='op'>}</span>, 
                             step_name <span class='op'>=</span> <span class='st'>"R_hello"</span>, 
                             dependency <span class='op'>=</span> <span class='st'>"new_echo"</span><span class='op'>)</span>
-<span class='co'>#yamlinput(sal, step=1, paramName="results_path") &lt;- list(results_path=list(class="Directory", path="./data"))</span>
+<span class='co'>#yamlinput(sal, step=1, paramName="results_path") &lt;- list(results_path=list(</span>
+<span class='co'>#                                            class="Directory", path="./data"))</span>
 <span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, after <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"log &lt;- log(10)"</span>
 <span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_hello</span>
 #&gt;     log &lt;- log(10)
-#&gt;     hello &lt;- "Printing a new message"</div><div class='input'><span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, line<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span>  <span class='st'>"log &lt;- log(50)"</span>
+#&gt;     hello &lt;- "Printing a new message"</div><div class='input'><span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, line<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
+                            <span class='va'>log</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span>
+                            <span class='op'>}</span><span class='op'>)</span>
 <span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_hello</span>
 #&gt;     log &lt;- log(50)

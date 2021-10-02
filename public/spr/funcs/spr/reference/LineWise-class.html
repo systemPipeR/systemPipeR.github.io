@@ -88,7 +88,7 @@ will store the R Markdown file path." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.26</span>
       </span>
     </div>
 
@@ -137,8 +137,10 @@ will store the R Markdown file path.</p>
 
     <pre class="usage"><span class='co'>## Constructor</span>
 
-<span class='fu'>LineWise</span><span class='op'>(</span><span class='va'>code</span>, step_name<span class='op'>=</span><span class='st'>"default"</span>, codeChunkStart<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span><span class='op'>(</span><span class='op'>)</span>, rmdPath<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, 
-        dependency<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span></pre>
+<span class='fu'>LineWise</span><span class='op'>(</span><span class='va'>code</span>, step_name <span class='op'>=</span> <span class='st'>"default"</span>, codeChunkStart <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span><span class='op'>(</span><span class='op'>)</span>, 
+            rmdPath <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, dependency<span class='op'>=</span><span class='st'>""</span>, 
+            run_step <span class='op'>=</span> <span class='st'>"mandatory"</span>,
+            run_session <span class='op'>=</span> <span class='st'>"rsession"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,6 +170,14 @@ will store the R Markdown file path.</p>
   the workflow. Character name of a previous step in the workflow. 
   Default is empty string <code>""</code>.</p></td>
     </tr>
+    <tr>
+      <th>run_step</th>
+      <td><p>character. If the step has "mandatory" or "optional" flag for the execution.</p></td>
+    </tr>
+    <tr>
+      <th>run_session</th>
+      <td><p>character. If the step has "rsession" or "cluster" flag for the execution.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="objects-from-the-class"><a class="anchor" href="#objects-from-the-class"></a>Objects from the Class</h2>
@@ -176,16 +186,20 @@ will store the R Markdown file path.</p>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
-    <dt><code>codeLine</code>:</dt><dd><p>Object of class <code>"expression"</code> storing R-based code.</p></dd>
+    <dt><code>codeLine</code>:</dt><dd><p>Object of class <code>"expression"</code> storing R-based 
+    code.</p></dd>
     <dt><code>codeChunkStart</code>:</dt><dd><p>Object of class <code>"interger"</code> storing start 
-                                line from the <code>rmdPath</code> file, when the LineWise is 
-                                built from R Markdown.</p></dd>
-    <dt><code>rmdPath</code>:</dt><dd><p>Object of class <code>"character"</code> storing path from the R Markdown file.</p></dd>
+                                line from the <code>rmdPath</code> file, when the 
+                                <code>"LineWise"</code> is built from R Markdown.</p></dd>
     <dt><code>stepName</code>:</dt><dd><p>Object of class <code>"character"</code> storing step name.</p></dd>
-    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing dependency tree.</p></dd>
+    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"list"</code> storing dependency 
+                             tree.</p></dd>
     <dt><code>status</code>:</dt><dd><p>Object of class <code>"list"</code> storing status steps.</p></dd>
-    <dt><code>files</code>:</dt><dd><p>Object of class <code>"list"</code> storing file path containing
+    <dt><code>files</code>:</dt><dd><p>Object of class <code>"list"</code> storing file for
+                          R Markdown file and the file  containing
                         stdout and stderr after running the R-based code.</p></dd>
+    <dt><code>runInfo</code>:</dt><dd><p>Object of class <code>"list"</code> storing all the
+                            <code>runInfo</code> information of the workflow</p></dd>
   
 </dl>
 
@@ -241,10 +255,10 @@ will store the R Markdown file path.</p>
 #&gt; 
 #&gt; Slots:
 #&gt;                                                                   
-#&gt; Name:        codeLine codeChunkStart        rmdPath       stepName
-#&gt; Class:     expression        integer      character      character
+#&gt; Name:        codeLine codeChunkStart       stepName     dependency
+#&gt; Class:     expression        integer      character           list
 #&gt;                                                    
-#&gt; Name:      dependency         status          files
+#&gt; Name:          status          files        runInfo
 #&gt; Class:           list           list           list</div><div class='input'><span class='va'>lw</span> <span class='op'>&lt;-</span> <span class='fu'>LineWise</span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
               <span class='va'>log_out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
               <span class='op'>}</span>,
@@ -261,7 +275,8 @@ will store the R Markdown file path.</p>
 #&gt; Creating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
 #&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='co'># file_path &lt;- "../inst/extdata/spr_simple_lw.Rmd"</span>
 <span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 25, 34</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'firstStep' 
+</div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'></span>
+#&gt; <span class='message'> ---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.req option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.ses option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 25, 34</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'firstStep' 
 #&gt; Now importing step 'secondStep' 
 #&gt; </span></div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runWF.html'>runWF</a></span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='background-color: #BB00BB;'>Running Step: firstStep</span> 
@@ -274,8 +289,8 @@ will store the R Markdown file path.</p>
 <span class='va'>lw2</span>
 </div><div class='output co'>#&gt; <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span>
 #&gt;     Code Chunk length: 3</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "codeLine"       "codeChunkStart" "rmdPath"        "stepName"      
-#&gt; [5] "dependency"     "status"         "files"         </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "codeLine"       "codeChunkStart" "stepName"       "dependency"    
+#&gt; [5] "status"         "files"          "runInfo"       </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 3</div><div class='input'>
 <span class='co'>## Accessors</span>
 <span class='fu'><a href='SYSargsList.html'>codeLine</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
@@ -283,7 +298,7 @@ will store the R Markdown file path.</p>
 #&gt; versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")
 #&gt; virginica &lt;- read.delim("results/virginica.csv", sep = ",")</div><div class='input'><span class='fu'>codeChunkStart</span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 34</div><div class='input'><span class='fu'>rmdPath</span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/spr_simple_lw.Rmd"</div><div class='input'><span class='fu'><a href='SYSargsList.html'>stepName</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'><a href='SYSargsList.html'>stepName</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "secondStep"</div><div class='input'><span class='fu'><a href='SYSargsList.html'>dependency</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $secondStep
 #&gt; [1] "firstStep"
@@ -297,10 +312,10 @@ will store the R Markdown file path.</p>
 #&gt; 
 #&gt; $status.time
 #&gt;         Step          time_start            time_end
-#&gt; 1 secondStep 2021-07-27 02:20:58 2021-07-27 02:20:58
+#&gt; 1 secondStep 2021-10-02 02:11:27 2021-10-02 02:11:27
 #&gt; </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>files</a></span><span class='op'>(</span><span class='va'>lw2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $log
-#&gt; [1] ".SPRproject/_logWF_Jul272021_0220"
+#&gt; [1] ".SPRproject/Rsteps/_logRstep_secondStep_Oct022021_021127"
 #&gt; </div><div class='input'>
 <span class='co'>## Replacement</span>
 <span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>lw2</span>, after <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"log &lt;- log(10)"</span>

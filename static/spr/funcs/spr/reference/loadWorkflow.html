@@ -103,7 +103,7 @@ check more details from SYSargsList-class class." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.26</span>
       </span>
     </div>
 
@@ -165,7 +165,7 @@ this connectivity is established by <code>`appendStep&lt;-`</code> method. Pleas
 check more details from <code><a href='SYSargsList.html'>SYSargsList-class</a></code> class.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>loadWorkflow</span><span class='op'>(</span>targets <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>wf_file</span>, <span class='va'>input_file</span>, dir_path <span class='op'>=</span> <span class='st'>"param/cwl"</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>loadWorkflow</span><span class='op'>(</span>targets <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>wf_file</span>, <span class='va'>input_file</span>, dir_path <span class='op'>=</span> <span class='st'>"param/cwl"</span>, id <span class='op'>=</span> <span class='st'>"SampleName"</span><span class='op'>)</span>
 
 <span class='fu'>renderWF</span><span class='op'>(</span><span class='va'>WF</span>, inputvars <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
@@ -194,6 +194,11 @@ check more details from <code><a href='SYSargsList.html'>SYSargsList-class</a></
       <th>dir_path</th>
       <td><p>path to the <code>parameters</code> directory with the <code>wf_file</code> and <code>input_file</code> files.
   It is recommended to keep both files in the same directory.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>A column from <code>targets</code> file, which will be used as an id for each one
+    of the samples. It is required to be unique.</p></td>
     </tr>
     <tr>
       <th>WF</th>

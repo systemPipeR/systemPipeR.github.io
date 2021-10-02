@@ -84,7 +84,7 @@ well as the number of primary alignments in the corresponding BAM files." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.26</span>
       </span>
     </div>
 
@@ -127,14 +127,24 @@ total number of reads in the FASTQ files, the number of total alignments, as
 well as the number of primary alignments in the corresponding BAM files.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>alignStats</span><span class='op'>(</span><span class='va'>args</span>, output_index <span class='op'>=</span> <span class='fl'>1</span>, subset<span class='op'>=</span><span class='st'>"FileName1"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>alignStats</span><span class='op'>(</span><span class='va'>args</span>, <span class='va'>fqpaths</span>, pairEnd <span class='op'>=</span> <span class='cn'>TRUE</span>, output_index <span class='op'>=</span> <span class='fl'>1</span>, subset<span class='op'>=</span><span class='st'>"FileName1"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>args</th>
-      <td><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code>.</p></td>
+      <td><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code> or <code>named character</code> 
+	with BAM files PATH and the names should be the sampleID.</p></td>
+    </tr>
+    <tr>
+      <th>fqpaths</th>
+      <td><p><code>named vector</code> with raw FASTQ files PATH and the names should be the sampleID. 
+  Required when <code><a href='https://rdrr.io/r/base/class.html'>class(args)</a></code> is "character".</p></td>
+    </tr>
+    <tr>
+      <th>pairEnd</th>
+      <td><p>logical. For pair-end libraries, select <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>output_index</th>

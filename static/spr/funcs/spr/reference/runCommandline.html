@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Execute SYSargs and SYSargs2 — runCommandline" />
-<meta property="og:description" content="Function to execute system parameters specified in SYSargs and SYSargs2 object." />
+<meta property="og:description" content="Function to execute system parameters specified in SYSargs 
+and SYSargs2 object." />
 
 
 
@@ -82,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.26</span>
       </span>
     </div>
 
@@ -120,10 +121,12 @@
     </div>
 
     <div class="ref-description">
-    <p>Function to execute system parameters specified in <code>SYSargs</code> and <code>SYSargs2</code> object.</p>
+    <p>Function to execute system parameters specified in <code>SYSargs</code> 
+and <code>SYSargs2</code> object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>runCommandline</span><span class='op'>(</span><span class='va'>args</span>, runid <span class='op'>=</span> <span class='st'>"01"</span>, make_bam <span class='op'>=</span> <span class='cn'>FALSE</span>, del_sam<span class='op'>=</span><span class='cn'>TRUE</span>, dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dir.name <span class='op'>=</span> <span class='cn'>NULL</span>, force<span class='op'>=</span><span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>runCommandline</span><span class='op'>(</span><span class='va'>args</span>, runid <span class='op'>=</span> <span class='st'>"01"</span>, make_bam <span class='op'>=</span> <span class='cn'>FALSE</span>, del_sam<span class='op'>=</span><span class='cn'>TRUE</span>, dir <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+                dir.name <span class='op'>=</span> <span class='cn'>NULL</span>, force<span class='op'>=</span><span class='cn'>FALSE</span>, input_targets <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,27 +137,44 @@
     </tr>
     <tr>
       <th>runid</th>
-      <td><p>Run identifier used for log file to track system call commands. Default is <code>"01"</code>.</p></td>
+      <td><p>Run identifier used for log file to track system call commands. 
+    Default is <code>"01"</code>.</p></td>
     </tr>
     <tr>
       <th>make_bam</th>
-      <td><p>Auto detects SAM file outputs and converts them to sorted and indexed BAM files. Default is <code>make_bam=FALSE</code>.</p></td>
+      <td><p>Auto-detects SAM file outputs and converts them to sorted and indexed BAM 
+    files. Default is <code>make_bam=FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>del_sam</th>
-      <td><p>This option allows deleting the SAM files created when the <code>make_BAM</code> converts the SAM files to sorted and indexed BAM files. Default is <code>del_sam=TRUE</code>.</p></td>
+      <td><p>This option allows deleting the SAM files created when the <code>make_BAM</code> 
+    converts the SAM files to sorted and indexed BAM files. 
+    Default is <code>del_sam=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>dir</th>
-      <td><p>This option allows creating an exclusive results folder for each step in the workflow and a sub-folder for each sample defined in the <code>targets</code> file. All the outputs and log files for the particular step will be created in the respective folders. Default is <code>dir=TRUE</code>. Option available only for an object of class <code>SYSargs2</code>.</p></td>
+      <td><p>This option allows creating an exclusive results folder for each step in the 
+    workflow and a sub-folder for each sample defined in the <code>targets</code> file. 
+    All the outputs and log files for the particular step will be created in the 
+    respective folders. Default is <code>dir=TRUE</code>. Option available only for an 
+    object of class <code>SYSargs2</code>.</p></td>
     </tr>
     <tr>
       <th>dir.name</th>
-      <td><p>Name of the workflow directory. Default is <code>dir.name=FALSE</code>. Note: This argument is required when the <code>dir=TRUE</code>.</p></td>
+      <td><p>Name of the workflow directory. Default is <code>dir.name=FALSE</code>. Note: This 
+   argument is required when the <code>dir=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>force</th>
-      <td><p>Internally, the function checks if the expected <code>output</code> files exist, and it skips the command lines when the respective files exist. If the argument <code>force</code> is set to <code>TRUE</code>, the command line will be executed and the files overwrite. Default is <code>force=FALSE</code>.</p></td>
+      <td><p>Internally, the function checks if the expected <code>output</code> files exist, 
+   and it skips the command lines when the respective files exist. If the 
+   argument <code>force</code> is set to <code>TRUE</code>, the command line will be 
+   executed and the files overwrite. Default is <code>force=FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>input_targets</th>
+      <td><p>This option allows the selection of each sample that should be executed. 
+    Default is <code>NULL</code>, in which all the samples will be executed.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -164,116 +184,16 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Output files, their paths can be obtained with <code><a href='sysargs.html'>outpaths()</a></code> from <code>SYSargs</code> container or <code><a href='SYSargs2-class.html'>output()</a></code> from <code>SYSargs2</code>. In addition, a <code>character vector</code> is returned containing the same paths.</p>
+    <p>Output files, their paths can be obtained with <code><a href='sysargs.html'>outpaths()</a></code> from 
+    <code>SYSargs</code> container or <code><a href='SYSargs2-class.html'>output()</a></code> from <code>SYSargs2</code>. 
+    In addition, a <code>character vector</code> is returned containing the same
+    paths.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Daniela Cassol and Thomas Girke</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>#########################################</span>
-<span class='co'>## Examples with \code{SYSargs} object ##</span>
-<span class='co'>#########################################</span>
-<span class='co'>## Construct SYSargs object from param and targets files </span>
-<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"hisat2.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span></div><div class='input'><span class='va'>args</span>
-</div><div class='output co'>#&gt; An instance of 'SYSargs' for running 'hisat2' on 18 samples </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargs2-class.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>outpaths</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>sysargs</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "targetsin"     "targetsout"    "targetsheader" "modules"      
-#&gt;  [5] "software"      "cores"         "other"         "reference"    
-#&gt;  [9] "results"       "infile1"       "infile2"       "outfile1"     
-#&gt; [13] "sysargs"       "outpaths"     </div><div class='output co'>#&gt; [1] "hisat2/2.1.0"</div><div class='output co'>#&gt; [1] 4</div><div class='output co'>#&gt;                                                                                               M1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               M1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               A1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               A1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               V1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               V1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               M6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               M6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               A6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               A6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               V6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                               V6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                              M12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                              M12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                              A12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                              A12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                              V12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.hisat.bam" 
-#&gt;                                                                                              V12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.hisat.bam" </div><div class='output co'>#&gt;                                                                                                                                                                                                                                                                      M1A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446027_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      M1B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446028_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      A1A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446029_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      A1B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446030_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      V1A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446031_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      V1B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446032_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      M6A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446033_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      M6B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446034_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      A6A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446035_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      A6B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446036_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      V6A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446037_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                      V6B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446038_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                     M12A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446039_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                     M12B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446040_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                     A12A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446041_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                     A12B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446042_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                     V12A 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446043_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                                     V12B 
-#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446044_1.fastq.gz " </div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Execute SYSargs on single machine</span>
-<span class='fu'>runCommandline</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span><span class='op'>)</span>
-
-<span class='co'>## Execute SYSargs on multiple machines of a compute cluster. </span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-<span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
-<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>args</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
-
-<span class='co'>## Monitor progress of submitted jobs</span>
-<span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='fu'><a href='sysargs.html'>outpaths</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'>## Alignment stats</span>
-<span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='alignStats.html'>alignStats</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span> 
-<span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>read_statsDF</span><span class='op'>[</span><span class='va'>targets</span><span class='op'>$</span><span class='va'>FileName</span>,<span class='op'>]</span>, <span class='va'>targets</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>, row.names<span class='op'>=</span><span class='cn'>FALSE</span>, quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='co'>##########################################</span>
+    <pre class="examples"><div class='input'><span class='co'>##########################################</span>
 <span class='co'>## Examples with \code{SYSargs2} object ##</span>
 <span class='co'>##########################################</span>
 <span class='co'>## Construct SYSargs2 object from CWl param, CWL input, and targets files </span>
@@ -422,10 +342,15 @@
 <span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'>runCommandline</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>WF</span><span class='op'>)</span>
 
 <span class='co'>## Execute SYSargs on multiple machines of a compute cluster. </span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, 
+            package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, 
+            package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
 <span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fl'>4</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
-<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>WF</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
+<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, 
+        more.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>args <span class='op'>=</span> <span class='va'>WF</span>, make_bam <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, 
+        conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>,
+        Njobs<span class='op'>=</span><span class='fl'>18</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
 
 <span class='co'>## Monitor progress of submitted jobs</span>
 <span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
@@ -436,7 +361,114 @@
 <span class='co'>## Alignment stats</span>
 <span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='alignStats.html'>alignStats</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span> 
 <span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>read_statsDF</span><span class='op'>[</span><span class='va'>targets</span><span class='op'>$</span><span class='va'>FileName</span>,<span class='op'>]</span>, <span class='va'>targets</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>, row.names<span class='op'>=</span><span class='cn'>FALSE</span>, quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>,
+            row.names<span class='op'>=</span><span class='cn'>FALSE</span>, quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='co'>#########################################</span>
+<span class='co'>## Examples with \code{SYSargs} object ##</span>
+<span class='co'>#########################################</span>
+<span class='co'>## Construct SYSargs object from param and targets files </span>
+<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"hisat2.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
+<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span></div><div class='input'><span class='va'>args</span>
+</div><div class='output co'>#&gt; An instance of 'SYSargs' for running 'hisat2' on 18 samples </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargs2-class.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>outpaths</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>sysargs</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "targetsin"     "targetsout"    "targetsheader" "modules"      
+#&gt;  [5] "software"      "cores"         "other"         "reference"    
+#&gt;  [9] "results"       "infile1"       "infile2"       "outfile1"     
+#&gt; [13] "sysargs"       "outpaths"     </div><div class='output co'>#&gt; [1] "hisat2/2.1.0"</div><div class='output co'>#&gt; [1] 4</div><div class='output co'>#&gt;                                                                                               M1A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               M1B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               A1A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               A1B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               V1A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               V1B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               M6A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               M6B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               A6A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               A6B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               V6A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                               V6B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                              M12A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                              M12B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                              A12A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                              A12B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                              V12A 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.hisat.bam" 
+#&gt;                                                                                              V12B 
+#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.hisat.bam" </div><div class='output co'>#&gt;                                                                                                                                                                                                                                                                      M1A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446027_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      M1B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446028_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      A1A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446029_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      A1B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446030_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      V1A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446031_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      V1B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446032_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      M6A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446033_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      M6B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446034_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      A6A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446035_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      A6B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446036_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      V6A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446037_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                      V6B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446038_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                     M12A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446039_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                     M12B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446040_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                     A12A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446041_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                     A12B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446042_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                     V12A 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446043_1.fastq.gz " 
+#&gt;                                                                                                                                                                                                                                                                     V12B 
+#&gt; "hisat2 -p 4 -k 1 --min-intronlen 30 --max-intronlen 3000 -S /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.hisat.sam /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta -U ./data/SRR446044_1.fastq.gz " </div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='co'>## Execute SYSargs on single machine</span>
+<span class='fu'>runCommandline</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span><span class='op'>)</span>
+
+<span class='co'>## Execute SYSargs on multiple machines of a compute cluster. </span>
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
+<span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
+<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>args</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, 
+                    template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>18</span>, 
+                    runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
+
+<span class='co'>## Monitor progress of submitted jobs</span>
+<span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='fu'><a href='sysargs.html'>outpaths</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>## Alignment stats</span>
+<span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='alignStats.html'>alignStats</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span> 
+<span class='va'>read_statsDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>read_statsDF</span><span class='op'>[</span><span class='va'>targets</span><span class='op'>$</span><span class='va'>FileName</span>,<span class='op'>]</span>, <span class='va'>targets</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>read_statsDF</span>, <span class='st'>"results/alignStats.xls"</span>, row.names<span class='op'>=</span><span class='cn'>FALSE</span>, 
+            quote<span class='op'>=</span><span class='cn'>FALSE</span>, sep<span class='op'>=</span><span class='st'>"\t"</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

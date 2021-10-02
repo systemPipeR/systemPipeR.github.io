@@ -86,7 +86,7 @@ and vennlist contains the Venn intersect vectors." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.26</span>
       </span>
     </div>
 
@@ -191,13 +191,13 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "setlist"          "intersectmatrix"  "complexitylevels" "vennlist"        </div><div class='input'><span class='fu'><a href='overLapper.html'>setlist</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $A
-#&gt;  [1] "l" "s" "q" "j" "z" "m" "p" "g" "d" "a" "c" "y" "x" "f" "k" "o" "w" "h"
+#&gt;  [1] "m" "p" "g" "u" "d" "a" "c" "x" "q" "f" "k" "l" "s" "y" "j" "h" "r" "w"
 #&gt; 
 #&gt; $B
-#&gt;  [1] "v" "q" "l" "t" "o" "r" "x" "j" "c" "d" "m" "f" "n" "b" "i" "e"
+#&gt;  [1] "l" "t" "o" "r" "z" "u" "j" "c" "d" "m" "f" "n" "b" "i" "e" "s"
 #&gt; 
 #&gt; $C
-#&gt;  [1] "s" "r" "e" "j" "l" "d" "z" "q" "w" "i" "p" "t" "y" "o" "c" "m" "v" "a" "g"
+#&gt;  [1] "r" "e" "j" "l" "d" "s" "t" "q" "x" "i" "p" "u" "z" "o" "c" "m" "w" "a" "g"
 #&gt; [20] "h"
 #&gt; 
 #&gt; $D
@@ -222,18 +222,18 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; l 1 1 1 1 1
 #&gt; m 1 1 1 0 1
 #&gt; n 0 1 0 1 0
-#&gt; o 1 1 1 1 1
+#&gt; o 0 1 1 1 1
 #&gt; p 1 0 1 0 1
-#&gt; q 1 1 1 1 1
-#&gt; r 0 1 1 1 1
-#&gt; s 1 0 1 1 0
+#&gt; q 1 0 1 1 1
+#&gt; r 1 1 1 1 1
+#&gt; s 1 1 1 1 0
 #&gt; t 0 1 1 1 1
-#&gt; u 0 0 0 1 1
-#&gt; v 0 1 1 1 1
+#&gt; u 1 1 1 1 1
+#&gt; v 0 0 0 1 1
 #&gt; w 1 0 1 1 0
-#&gt; x 1 1 0 1 1
-#&gt; y 1 0 1 1 1
-#&gt; z 1 0 1 1 1</div><div class='input'><span class='fu'><a href='overLapper.html'>complexitylevels</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
+#&gt; x 1 0 1 1 1
+#&gt; y 1 0 0 1 1
+#&gt; z 0 1 1 1 1</div><div class='input'><span class='fu'><a href='overLapper.html'>complexitylevels</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 5</div><div class='input'><span class='fu'><a href='overLapper.html'>vennlist</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $A
 #&gt; character(0)
@@ -278,7 +278,7 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; character(0)
 #&gt; 
 #&gt; $D_E
-#&gt; [1] "u"
+#&gt; [1] "v"
 #&gt; 
 #&gt; $A_B_C
 #&gt; character(0)
@@ -290,13 +290,13 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; [1] "f"
 #&gt; 
 #&gt; $A_C_D
-#&gt; [1] "g" "h" "s" "w"
+#&gt; [1] "g" "h" "w"
 #&gt; 
 #&gt; $A_C_E
 #&gt; [1] "p"
 #&gt; 
 #&gt; $A_D_E
-#&gt; [1] "k"
+#&gt; [1] "k" "y"
 #&gt; 
 #&gt; $B_C_D
 #&gt; [1] "e" "i"
@@ -311,34 +311,34 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; character(0)
 #&gt; 
 #&gt; $A_B_C_D
-#&gt; [1] "c"
+#&gt; [1] "c" "s"
 #&gt; 
 #&gt; $A_B_C_E
 #&gt; [1] "d" "m"
 #&gt; 
 #&gt; $A_B_D_E
-#&gt; [1] "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_C_D_E
-#&gt; [1] "a" "y" "z"
+#&gt; [1] "a" "q" "x"
 #&gt; 
 #&gt; $B_C_D_E
-#&gt; [1] "r" "t" "v"
+#&gt; [1] "o" "t" "z"
 #&gt; 
 #&gt; $A_B_C_D_E
-#&gt; [1] "j" "l" "o" "q"
+#&gt; [1] "j" "l" "r" "u"
 #&gt; </div><div class='input'>
 <span class='co'>## Coerce VENNset/INTERSECTset object to list</span>
 <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $setlist
 #&gt; $setlist$A
-#&gt;  [1] "l" "s" "q" "j" "z" "m" "p" "g" "d" "a" "c" "y" "x" "f" "k" "o" "w" "h"
+#&gt;  [1] "m" "p" "g" "u" "d" "a" "c" "x" "q" "f" "k" "l" "s" "y" "j" "h" "r" "w"
 #&gt; 
 #&gt; $setlist$B
-#&gt;  [1] "v" "q" "l" "t" "o" "r" "x" "j" "c" "d" "m" "f" "n" "b" "i" "e"
+#&gt;  [1] "l" "t" "o" "r" "z" "u" "j" "c" "d" "m" "f" "n" "b" "i" "e" "s"
 #&gt; 
 #&gt; $setlist$C
-#&gt;  [1] "s" "r" "e" "j" "l" "d" "z" "q" "w" "i" "p" "t" "y" "o" "c" "m" "v" "a" "g"
+#&gt;  [1] "r" "e" "j" "l" "d" "s" "t" "q" "x" "i" "p" "u" "z" "o" "c" "m" "w" "a" "g"
 #&gt; [20] "h"
 #&gt; 
 #&gt; $setlist$D
@@ -365,18 +365,18 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; l 1 1 1 1 1
 #&gt; m 1 1 1 0 1
 #&gt; n 0 1 0 1 0
-#&gt; o 1 1 1 1 1
+#&gt; o 0 1 1 1 1
 #&gt; p 1 0 1 0 1
-#&gt; q 1 1 1 1 1
-#&gt; r 0 1 1 1 1
-#&gt; s 1 0 1 1 0
+#&gt; q 1 0 1 1 1
+#&gt; r 1 1 1 1 1
+#&gt; s 1 1 1 1 0
 #&gt; t 0 1 1 1 1
-#&gt; u 0 0 0 1 1
-#&gt; v 0 1 1 1 1
+#&gt; u 1 1 1 1 1
+#&gt; v 0 0 0 1 1
 #&gt; w 1 0 1 1 0
-#&gt; x 1 1 0 1 1
-#&gt; y 1 0 1 1 1
-#&gt; z 1 0 1 1 1
+#&gt; x 1 0 1 1 1
+#&gt; y 1 0 0 1 1
+#&gt; z 0 1 1 1 1
 #&gt; 
 #&gt; $complexitylevels
 #&gt;  [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 5
@@ -425,7 +425,7 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$D_E
-#&gt; [1] "u"
+#&gt; [1] "v"
 #&gt; 
 #&gt; $vennlist$A_B_C
 #&gt; character(0)
@@ -437,13 +437,13 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; [1] "f"
 #&gt; 
 #&gt; $vennlist$A_C_D
-#&gt; [1] "g" "h" "s" "w"
+#&gt; [1] "g" "h" "w"
 #&gt; 
 #&gt; $vennlist$A_C_E
 #&gt; [1] "p"
 #&gt; 
 #&gt; $vennlist$A_D_E
-#&gt; [1] "k"
+#&gt; [1] "k" "y"
 #&gt; 
 #&gt; $vennlist$B_C_D
 #&gt; [1] "e" "i"
@@ -458,22 +458,22 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_C_D
-#&gt; [1] "c"
+#&gt; [1] "c" "s"
 #&gt; 
 #&gt; $vennlist$A_B_C_E
 #&gt; [1] "d" "m"
 #&gt; 
 #&gt; $vennlist$A_B_D_E
-#&gt; [1] "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_C_D_E
-#&gt; [1] "a" "y" "z"
+#&gt; [1] "a" "q" "x"
 #&gt; 
 #&gt; $vennlist$B_C_D_E
-#&gt; [1] "r" "t" "v"
+#&gt; [1] "o" "t" "z"
 #&gt; 
 #&gt; $vennlist$A_B_C_D_E
-#&gt; [1] "j" "l" "o" "q"
+#&gt; [1] "j" "l" "r" "u"
 #&gt; 
 #&gt; </div></pre>
   </div>

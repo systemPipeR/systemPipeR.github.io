@@ -8,7 +8,7 @@ stepsWF:
         Message: Hello USA!
         SampleName: M2
       M3:
-        Message: Hello Bioconcudctor!
+        Message: Hello Bioconductor!
         SampleName: M3
     targetsheader:
       targetsheader: '# Project ID: SPR Example'
@@ -62,7 +62,7 @@ stepsWF:
       M2:
         echo: echo Hello USA! > results/M2.txt
       M3:
-        echo: echo Hello Bioconcudctor! > results/M3.txt
+        echo: echo Hello Bioconductor! > results/M3.txt
     input:
       M1:
         Message: Hello World!
@@ -71,7 +71,7 @@ stepsWF:
         Message: Hello USA!
         SampleName: M2
       M3:
-        Message: Hello Bioconcudctor!
+        Message: Hello Bioconductor!
         SampleName: M3
     output:
       M1:
@@ -87,7 +87,8 @@ stepsWF:
       steps: echo
       cltpaths: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.cwl
       output_names: string
-      targets: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt
+      targets: home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt
+      id: SampleName
     inputvars:
       Message: _STRING_
       SampleName: _SAMPLE_
@@ -126,7 +127,6 @@ stepsWF:
   R_read: |
     codeLine: hello <- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))
     codeChunkStart: []
-    rmdPath: []
     stepName: R_read
     dependency:
       R_read: echo
@@ -136,7 +136,14 @@ stepsWF:
         Step: R_read
         status.summary: Pending
       status.time: {}
-    files: []
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        R_read:
+          directory: no
+          run_step: mandatory
+          run_session: rsession
 statusWF:
   echo: |
     echo:
@@ -175,7 +182,7 @@ targetsWF:
     Message:
     - Hello World!
     - Hello USA!
-    - Hello Bioconcudctor!
+    - Hello Bioconductor!
     SampleName:
     - M1
     - M2
@@ -190,8 +197,12 @@ outfiles:
     - results/M3.txt
   R_read: |
     {}
-SEobj: |
-  []
+SE:
+  echo: |
+    dir.path: .SPRproject/SE
+    dir.name: echo
+  R_read: |
+    R_read: ~
 dependency:
   echo: |
     echo: ''
@@ -210,5 +221,11 @@ projectInfo: |
   logsDir: .SPRproject
   sysargslist: .SPRproject/SYSargsList.yml
 runInfo: |
-  echo: yes
-  R_read: no
+  echo:
+    directory: yes
+    run_step: mandatory
+    run_session: rsession
+  R_read:
+    directory: no
+    run_step: mandatory
+    run_session: rsession
