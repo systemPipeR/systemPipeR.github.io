@@ -21,7 +21,7 @@ This is a workflow template.
 # Workflow Steps
 
 ## step1 export_iris
-```{r export_iris, eval=FALSE, spr='r', spr.dep=''}
+```{r export_iris, eval=FALSE, spr='r'}
 mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
 run_session=rsession
 ```
