@@ -83,7 +83,7 @@ template Rmarkdown format." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.30</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.32</span>
       </span>
     </div>
 
@@ -144,19 +144,19 @@ template Rmarkdown format.</p>
     </tr>
     <tr>
       <th>rmd_title</th>
-      <td><p>string, title of the Rmd</p></td>
+      <td><p>string, title of the Rmd.</p></td>
     </tr>
     <tr>
       <th>rmd_author</th>
-      <td><p>string, author(s) of the Rmd, put all authors in a single character string</p></td>
+      <td><p>string, author(s) of the Rmd, put all authors in a single character string.</p></td>
     </tr>
     <tr>
       <th>rmd_date</th>
-      <td><p>string, date header of Rmd</p></td>
+      <td><p>string, date header of Rmd.</p></td>
     </tr>
     <tr>
       <th>rmd_output</th>
-      <td><p>string, output format of Rmd, used in header</p></td>
+      <td><p>string, output format of Rmd, used in header.</p></td>
     </tr>
     <tr>
       <th>desc</th>
@@ -167,8 +167,8 @@ template Rmarkdown format.</p>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p>bool, open verbose mode? This will show you more information as 
-  the function runs</p></td>
+      <td><p>logical. If <code>TRUE</code> will show you more information as 
+  the function runs.</p></td>
     </tr>
     </table>
 
@@ -185,12 +185,13 @@ template Rmarkdown format.</p>
 </div><div class='output co'>#&gt; Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
 #&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'></span>
-#&gt; <span class='message'> ---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.req option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.ses option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 27</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'export_iris' 
+#&gt; <span class='message'> ---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.req option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.ses option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 25, 37</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'load_library' 
+#&gt; Now importing step 'export_iris' 
 #&gt; Now importing step 'gzip' 
 #&gt; Now importing step 'gunzip' 
 #&gt; Now importing step 'stats' 
 #&gt; </span></div><div class='input'><span class='fu'>sal2rmd</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>sal2rmd starts, pre-checks...</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Open spr_template.Rmd to write</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Write Rmd header and description</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 1 export_iris</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 2 gzip</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 3 gunzip</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 4 stats</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00; font-weight: bold;'>Success! File created at spr_template.Rmd</span></span></div></pre>
+</div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>sal2rmd starts, pre-checks...</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Open spr_template.Rmd to write</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Write Rmd header and description</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 1 load_library</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 2 export_iris</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 3 gzip</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 4 gunzip</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB; font-weight: bold;'>Now writing step 5 stats</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00; font-weight: bold;'>Success! File created at spr_template.Rmd</span></span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
