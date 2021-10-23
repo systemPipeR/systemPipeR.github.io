@@ -84,7 +84,7 @@ Venn comparisons with the same number of label sets in a single Venn diagram." /
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.30</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.32</span>
       </span>
     </div>
 
@@ -278,53 +278,53 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 </div><div class='output co'>#&gt; [1] "setlist"          "intersectmatrix"  "complexitylevels" "vennlist"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>interset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "setlist"          "intersectmatrix"  "complexitylevels" "intersectlist"   </div><div class='input'><span class='fu'><a href='overLapper.html'>setlist</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $A
-#&gt;  [1] "k" "i" "g" "x" "l" "r" "t" "w" "n" "y" "d" "o" "e" "s" "j" "b" "u" "z"
+#&gt;  [1] "u" "b" "x" "e" "t" "c" "d" "a" "s" "h" "g" "m" "y" "r" "o" "i" "j" "z"
 #&gt; 
 #&gt; $B
-#&gt;  [1] "x" "e" "t" "c" "d" "a" "u" "s" "h" "b" "z" "p" "i" "j" "k" "w"
+#&gt;  [1] "k" "n" "j" "t" "h" "e" "m" "z" "a" "y" "q" "p" "i" "v" "c" "b"
 #&gt; 
 #&gt; $C
-#&gt;  [1] "k" "n" "j" "t" "h" "e" "m" "z" "a" "y" "q" "p" "i" "v" "c" "b" "d" "u" "l"
-#&gt; [20] "r"
+#&gt;  [1] "t" "e" "s" "a" "w" "o" "x" "c" "q" "v" "h" "d" "f" "m" "j" "b" "r" "g" "p"
+#&gt; [20] "u"
 #&gt; 
 #&gt; $D
-#&gt;  [1] "a" "o" "s" "t" "c" "q" "z" "m" "n" "b" "w" "l" "g" "d" "r" "v" "p" "y" "k"
-#&gt; [20] "x" "f" "h"
+#&gt;  [1] "w" "l" "c" "q" "s" "n" "g" "t" "o" "u" "r" "x" "b" "f" "a" "d" "v" "k" "m"
+#&gt; [20] "p" "h" "y"
 #&gt; 
 #&gt; $E
-#&gt;  [1] "b" "v" "a" "l" "t" "g" "d" "k" "n" "p" "u" "x" "r" "s" "m" "f" "j" "i"
+#&gt;  [1] "n" "k" "v" "j" "y" "b" "i" "q" "x" "a" "c" "p" "w" "t" "e" "h" "o" "s"
 #&gt; 
 #&gt; $F
-#&gt;  [1] "b" "y" "i" "q" "k" "a" "s" "c" "p" "j" "x" "e" "h" "t" "l" "u" "f" "r" "z"
-#&gt; [20] "d" "g" "n"
+#&gt;  [1] "n" "f" "r" "l" "y" "p" "d" "i" "g" "u" "w" "b" "c" "k" "j" "t" "v" "s" "o"
+#&gt; [20] "x" "q" "e"
 #&gt; </div><div class='input'><span class='fu'><a href='overLapper.html'>intersectmatrix</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   A B C D E F
-#&gt; a 0 1 1 1 1 1
+#&gt; a 1 1 1 1 1 0
 #&gt; b 1 1 1 1 1 1
-#&gt; c 0 1 1 1 0 1
-#&gt; d 1 1 1 1 1 1
-#&gt; e 1 1 1 0 0 1
-#&gt; f 0 0 0 1 1 1
-#&gt; g 1 0 0 1 1 1
-#&gt; h 0 1 1 1 0 1
-#&gt; i 1 1 1 0 1 1
+#&gt; c 1 1 1 1 1 1
+#&gt; d 1 0 1 1 0 1
+#&gt; e 1 1 1 0 1 1
+#&gt; f 0 0 1 1 0 1
+#&gt; g 1 0 1 1 0 1
+#&gt; h 1 1 1 1 1 0
+#&gt; i 1 1 0 0 1 1
 #&gt; j 1 1 1 0 1 1
-#&gt; k 1 1 1 1 1 1
-#&gt; l 1 0 1 1 1 1
-#&gt; m 0 0 1 1 1 0
-#&gt; n 1 0 1 1 1 1
-#&gt; o 1 0 0 1 0 0
+#&gt; k 0 1 0 1 1 1
+#&gt; l 0 0 0 1 0 1
+#&gt; m 1 1 1 1 0 0
+#&gt; n 0 1 0 1 1 1
+#&gt; o 1 0 1 1 1 1
 #&gt; p 0 1 1 1 1 1
-#&gt; q 0 0 1 1 0 1
-#&gt; r 1 0 1 1 1 1
-#&gt; s 1 1 0 1 1 1
+#&gt; q 0 1 1 1 1 1
+#&gt; r 1 0 1 1 0 1
+#&gt; s 1 0 1 1 1 1
 #&gt; t 1 1 1 1 1 1
-#&gt; u 1 1 1 0 1 1
-#&gt; v 0 0 1 1 1 0
-#&gt; w 1 1 0 1 0 0
-#&gt; x 1 1 0 1 1 1
-#&gt; y 1 0 1 1 0 1
-#&gt; z 1 1 1 1 0 1</div><div class='input'><span class='fu'><a href='overLapper.html'>complexitylevels</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
+#&gt; u 1 0 1 1 0 1
+#&gt; v 0 1 1 1 1 1
+#&gt; w 0 0 1 1 1 1
+#&gt; x 1 0 1 1 1 1
+#&gt; y 1 1 0 1 1 1
+#&gt; z 1 1 0 0 0 0</div><div class='input'><span class='fu'><a href='overLapper.html'>complexitylevels</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
 #&gt; [39] 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 6</div><div class='input'><span class='fu'><a href='overLapper.html'>vennlist</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $A
@@ -346,421 +346,421 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; character(0)
 #&gt; 
 #&gt; $A_B
-#&gt; character(0)
-#&gt; 
-#&gt; $A_C
-#&gt; character(0)
-#&gt; 
-#&gt; $A_D
-#&gt; [1] "o"
-#&gt; 
-#&gt; $A_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_F
-#&gt; character(0)
-#&gt; 
-#&gt; $B_C
-#&gt; character(0)
-#&gt; 
-#&gt; $B_D
-#&gt; character(0)
-#&gt; 
-#&gt; $B_E
-#&gt; character(0)
-#&gt; 
-#&gt; $B_F
-#&gt; character(0)
-#&gt; 
-#&gt; $C_D
-#&gt; character(0)
-#&gt; 
-#&gt; $C_E
-#&gt; character(0)
-#&gt; 
-#&gt; $C_F
-#&gt; character(0)
-#&gt; 
-#&gt; $D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $D_F
-#&gt; character(0)
-#&gt; 
-#&gt; $E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_C
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_D
-#&gt; [1] "w"
-#&gt; 
-#&gt; $A_B_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_C_D
-#&gt; character(0)
-#&gt; 
-#&gt; $A_C_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_C_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_D_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $B_C_D
-#&gt; character(0)
-#&gt; 
-#&gt; $B_C_E
-#&gt; character(0)
-#&gt; 
-#&gt; $B_C_F
-#&gt; character(0)
-#&gt; 
-#&gt; $B_D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $B_D_F
-#&gt; character(0)
-#&gt; 
-#&gt; $B_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $C_D_E
-#&gt; [1] "m" "v"
-#&gt; 
-#&gt; $C_D_F
-#&gt; [1] "q"
-#&gt; 
-#&gt; $C_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $D_E_F
-#&gt; [1] "f"
-#&gt; 
-#&gt; $A_B_C_D
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_C_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_C_F
-#&gt; [1] "e"
-#&gt; 
-#&gt; $A_B_D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_D_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_C_D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_C_D_F
-#&gt; [1] "y"
-#&gt; 
-#&gt; $A_C_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_D_E_F
-#&gt; [1] "g"
-#&gt; 
-#&gt; $B_C_D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $B_C_D_F
-#&gt; [1] "c" "h"
-#&gt; 
-#&gt; $B_C_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $B_D_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $C_D_E_F
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_C_D_E
-#&gt; character(0)
-#&gt; 
-#&gt; $A_B_C_D_F
 #&gt; [1] "z"
 #&gt; 
-#&gt; $A_B_C_E_F
-#&gt; [1] "i" "j" "u"
-#&gt; 
-#&gt; $A_B_D_E_F
-#&gt; [1] "s" "x"
-#&gt; 
-#&gt; $A_C_D_E_F
-#&gt; [1] "l" "n" "r"
-#&gt; 
-#&gt; $B_C_D_E_F
-#&gt; [1] "a" "p"
-#&gt; 
-#&gt; $A_B_C_D_E_F
-#&gt; [1] "b" "d" "k" "t"
-#&gt; </div><div class='input'><span class='fu'><a href='overLapper.html'>intersectlist</a></span><span class='op'>(</span><span class='va'>interset</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $A
-#&gt;  [1] "b" "d" "e" "g" "i" "j" "k" "l" "n" "o" "r" "s" "t" "u" "w" "x" "y" "z"
-#&gt; 
-#&gt; $B
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "s" "t" "u" "w" "x" "z"
-#&gt; 
-#&gt; $C
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "l" "m" "n" "p" "q" "r" "t" "u" "v" "y"
-#&gt; [20] "z"
-#&gt; 
-#&gt; $D
-#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "v" "w"
-#&gt; [20] "x" "y" "z"
-#&gt; 
-#&gt; $E
-#&gt;  [1] "a" "b" "d" "f" "g" "i" "j" "k" "l" "m" "n" "p" "r" "s" "t" "u" "v" "x"
-#&gt; 
-#&gt; $F
-#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "n" "p" "q" "r" "s" "t" "u"
-#&gt; [20] "x" "y" "z"
-#&gt; 
-#&gt; $A_B
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "s" "t" "u" "w" "x" "z"
-#&gt; 
 #&gt; $A_C
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "l" "n" "r" "t" "u" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_D
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "o" "r" "s" "t" "w" "x" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_E
-#&gt;  [1] "b" "d" "g" "i" "j" "k" "l" "n" "r" "s" "t" "u" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_F
-#&gt;  [1] "b" "d" "e" "g" "i" "j" "k" "l" "n" "r" "s" "t" "u" "x" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "t" "u" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_D
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "p" "s" "t" "w" "x" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_E
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "p" "s" "t" "u" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_F
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "s" "t" "u" "x" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $C_D
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "l" "m" "n" "p" "q" "r" "t" "v" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $C_E
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "l" "m" "n" "p" "r" "t" "u" "v"
+#&gt; character(0)
 #&gt; 
 #&gt; $C_F
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "l" "n" "p" "q" "r" "t" "u" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $D_E
-#&gt;  [1] "a" "b" "d" "f" "g" "k" "l" "m" "n" "p" "r" "s" "t" "v" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $D_F
-#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "k" "l" "n" "p" "q" "r" "s" "t" "x" "y" "z"
+#&gt; [1] "l"
 #&gt; 
 #&gt; $E_F
-#&gt;  [1] "a" "b" "d" "f" "g" "i" "j" "k" "l" "n" "p" "r" "s" "t" "u" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_C
-#&gt; [1] "b" "d" "e" "i" "j" "k" "t" "u" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_D
-#&gt; [1] "b" "d" "k" "s" "t" "w" "x" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_E
-#&gt; [1] "b" "d" "i" "j" "k" "s" "t" "u" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_F
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "s" "t" "u" "x" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_C_D
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_C_E
-#&gt;  [1] "b" "d" "i" "j" "k" "l" "n" "r" "t" "u"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_C_F
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "l" "n" "r" "t" "u" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_D_E
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "r" "s" "t" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_D_F
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "r" "s" "t" "x" "y" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_E_F
-#&gt;  [1] "b" "d" "g" "i" "j" "k" "l" "n" "r" "s" "t" "u" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C_D
-#&gt; [1] "a" "b" "c" "d" "h" "k" "p" "t" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C_E
-#&gt; [1] "a" "b" "d" "i" "j" "k" "p" "t" "u"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C_F
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "t" "u" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_D_E
-#&gt; [1] "a" "b" "d" "k" "p" "s" "t" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_D_F
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "p" "s" "t" "x" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_E_F
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "p" "s" "t" "u" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $C_D_E
-#&gt;  [1] "a" "b" "d" "k" "l" "m" "n" "p" "r" "t" "v"
+#&gt; character(0)
 #&gt; 
 #&gt; $C_D_F
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "l" "n" "p" "q" "r" "t" "y" "z"
+#&gt; [1] "f"
 #&gt; 
 #&gt; $C_E_F
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "l" "n" "p" "r" "t" "u"
+#&gt; character(0)
 #&gt; 
 #&gt; $D_E_F
-#&gt;  [1] "a" "b" "d" "f" "g" "k" "l" "n" "p" "r" "s" "t" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_C_D
-#&gt; [1] "b" "d" "k" "t" "z"
+#&gt; [1] "m"
 #&gt; 
 #&gt; $A_B_C_E
-#&gt; [1] "b" "d" "i" "j" "k" "t" "u"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_C_F
-#&gt; [1] "b" "d" "e" "i" "j" "k" "t" "u" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_D_E
-#&gt; [1] "b" "d" "k" "s" "t" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_D_F
-#&gt; [1] "b" "d" "k" "s" "t" "x" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_E_F
-#&gt; [1] "b" "d" "i" "j" "k" "s" "t" "u" "x"
+#&gt; [1] "i"
 #&gt; 
 #&gt; $A_C_D_E
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_C_D_F
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t" "y" "z"
+#&gt; [1] "d" "g" "r" "u"
 #&gt; 
 #&gt; $A_C_E_F
-#&gt;  [1] "b" "d" "i" "j" "k" "l" "n" "r" "t" "u"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_D_E_F
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "r" "s" "t" "x"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C_D_E
-#&gt; [1] "a" "b" "d" "k" "p" "t"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C_D_F
-#&gt; [1] "a" "b" "c" "d" "h" "k" "p" "t" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_C_E_F
-#&gt; [1] "a" "b" "d" "i" "j" "k" "p" "t" "u"
+#&gt; character(0)
 #&gt; 
 #&gt; $B_D_E_F
-#&gt; [1] "a" "b" "d" "k" "p" "s" "t" "x"
+#&gt; [1] "k" "n"
 #&gt; 
 #&gt; $C_D_E_F
-#&gt; [1] "a" "b" "d" "k" "l" "n" "p" "r" "t"
+#&gt; [1] "w"
 #&gt; 
 #&gt; $A_B_C_D_E
-#&gt; [1] "b" "d" "k" "t"
+#&gt; [1] "a" "h"
 #&gt; 
 #&gt; $A_B_C_D_F
-#&gt; [1] "b" "d" "k" "t" "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $A_B_C_E_F
-#&gt; [1] "b" "d" "i" "j" "k" "t" "u"
+#&gt; [1] "e" "j"
 #&gt; 
 #&gt; $A_B_D_E_F
-#&gt; [1] "b" "d" "k" "s" "t" "x"
+#&gt; [1] "y"
 #&gt; 
 #&gt; $A_C_D_E_F
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t"
+#&gt; [1] "o" "s" "x"
 #&gt; 
 #&gt; $B_C_D_E_F
-#&gt; [1] "a" "b" "d" "k" "p" "t"
+#&gt; [1] "p" "q" "v"
 #&gt; 
 #&gt; $A_B_C_D_E_F
-#&gt; [1] "b" "d" "k" "t"
+#&gt; [1] "b" "c" "t"
+#&gt; </div><div class='input'><span class='fu'><a href='overLapper.html'>intersectlist</a></span><span class='op'>(</span><span class='va'>interset</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $A
+#&gt;  [1] "a" "b" "c" "d" "e" "g" "h" "i" "j" "m" "o" "r" "s" "t" "u" "x" "y" "z"
+#&gt; 
+#&gt; $B
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "k" "m" "n" "p" "q" "t" "v" "y" "z"
+#&gt; 
+#&gt; $C
+#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "j" "m" "o" "p" "q" "r" "s" "t" "u" "v" "w"
+#&gt; [20] "x"
+#&gt; 
+#&gt; $D
+#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+#&gt; [20] "w" "x" "y"
+#&gt; 
+#&gt; $E
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
+#&gt; 
+#&gt; $F
+#&gt;  [1] "b" "c" "d" "e" "f" "g" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+#&gt; [20] "w" "x" "y"
+#&gt; 
+#&gt; $A_B
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "m" "t" "y" "z"
+#&gt; 
+#&gt; $A_C
+#&gt;  [1] "a" "b" "c" "d" "e" "g" "h" "j" "m" "o" "r" "s" "t" "u" "x"
+#&gt; 
+#&gt; $A_D
+#&gt;  [1] "a" "b" "c" "d" "g" "h" "m" "o" "r" "s" "t" "u" "x" "y"
+#&gt; 
+#&gt; $A_E
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "o" "s" "t" "x" "y"
+#&gt; 
+#&gt; $A_F
+#&gt;  [1] "b" "c" "d" "e" "g" "i" "j" "o" "r" "s" "t" "u" "x" "y"
+#&gt; 
+#&gt; $B_C
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "m" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_D
+#&gt;  [1] "a" "b" "c" "h" "k" "m" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $B_E
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "k" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $B_F
+#&gt;  [1] "b" "c" "e" "i" "j" "k" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $C_D
+#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "m" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
+#&gt; 
+#&gt; $C_E
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "o" "p" "q" "s" "t" "v" "w" "x"
+#&gt; 
+#&gt; $C_F
+#&gt;  [1] "b" "c" "d" "e" "f" "g" "j" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
+#&gt; 
+#&gt; $D_E
+#&gt;  [1] "a" "b" "c" "h" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
+#&gt; 
+#&gt; $D_F
+#&gt;  [1] "b" "c" "d" "f" "g" "k" "l" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y"
+#&gt; 
+#&gt; $E_F
+#&gt;  [1] "b" "c" "e" "i" "j" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
+#&gt; 
+#&gt; $A_B_C
+#&gt; [1] "a" "b" "c" "e" "h" "j" "m" "t"
+#&gt; 
+#&gt; $A_B_D
+#&gt; [1] "a" "b" "c" "h" "m" "t" "y"
+#&gt; 
+#&gt; $A_B_E
+#&gt; [1] "a" "b" "c" "e" "h" "i" "j" "t" "y"
+#&gt; 
+#&gt; $A_B_F
+#&gt; [1] "b" "c" "e" "i" "j" "t" "y"
+#&gt; 
+#&gt; $A_C_D
+#&gt;  [1] "a" "b" "c" "d" "g" "h" "m" "o" "r" "s" "t" "u" "x"
+#&gt; 
+#&gt; $A_C_E
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "o" "s" "t" "x"
+#&gt; 
+#&gt; $A_C_F
+#&gt;  [1] "b" "c" "d" "e" "g" "j" "o" "r" "s" "t" "u" "x"
+#&gt; 
+#&gt; $A_D_E
+#&gt; [1] "a" "b" "c" "h" "o" "s" "t" "x" "y"
+#&gt; 
+#&gt; $A_D_F
+#&gt;  [1] "b" "c" "d" "g" "o" "r" "s" "t" "u" "x" "y"
+#&gt; 
+#&gt; $A_E_F
+#&gt;  [1] "b" "c" "e" "i" "j" "o" "s" "t" "x" "y"
+#&gt; 
+#&gt; $B_C_D
+#&gt; [1] "a" "b" "c" "h" "m" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_C_E
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_C_F
+#&gt; [1] "b" "c" "e" "j" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_D_E
+#&gt;  [1] "a" "b" "c" "h" "k" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $B_D_F
+#&gt; [1] "b" "c" "k" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $B_E_F
+#&gt;  [1] "b" "c" "e" "i" "j" "k" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $C_D_E
+#&gt;  [1] "a" "b" "c" "h" "o" "p" "q" "s" "t" "v" "w" "x"
+#&gt; 
+#&gt; $C_D_F
+#&gt;  [1] "b" "c" "d" "f" "g" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
+#&gt; 
+#&gt; $C_E_F
+#&gt;  [1] "b" "c" "e" "j" "o" "p" "q" "s" "t" "v" "w" "x"
+#&gt; 
+#&gt; $D_E_F
+#&gt;  [1] "b" "c" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
+#&gt; 
+#&gt; $A_B_C_D
+#&gt; [1] "a" "b" "c" "h" "m" "t"
+#&gt; 
+#&gt; $A_B_C_E
+#&gt; [1] "a" "b" "c" "e" "h" "j" "t"
+#&gt; 
+#&gt; $A_B_C_F
+#&gt; [1] "b" "c" "e" "j" "t"
+#&gt; 
+#&gt; $A_B_D_E
+#&gt; [1] "a" "b" "c" "h" "t" "y"
+#&gt; 
+#&gt; $A_B_D_F
+#&gt; [1] "b" "c" "t" "y"
+#&gt; 
+#&gt; $A_B_E_F
+#&gt; [1] "b" "c" "e" "i" "j" "t" "y"
+#&gt; 
+#&gt; $A_C_D_E
+#&gt; [1] "a" "b" "c" "h" "o" "s" "t" "x"
+#&gt; 
+#&gt; $A_C_D_F
+#&gt;  [1] "b" "c" "d" "g" "o" "r" "s" "t" "u" "x"
+#&gt; 
+#&gt; $A_C_E_F
+#&gt; [1] "b" "c" "e" "j" "o" "s" "t" "x"
+#&gt; 
+#&gt; $A_D_E_F
+#&gt; [1] "b" "c" "o" "s" "t" "x" "y"
+#&gt; 
+#&gt; $B_C_D_E
+#&gt; [1] "a" "b" "c" "h" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_C_D_F
+#&gt; [1] "b" "c" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_C_E_F
+#&gt; [1] "b" "c" "e" "j" "p" "q" "t" "v"
+#&gt; 
+#&gt; $B_D_E_F
+#&gt; [1] "b" "c" "k" "n" "p" "q" "t" "v" "y"
+#&gt; 
+#&gt; $C_D_E_F
+#&gt;  [1] "b" "c" "o" "p" "q" "s" "t" "v" "w" "x"
+#&gt; 
+#&gt; $A_B_C_D_E
+#&gt; [1] "a" "b" "c" "h" "t"
+#&gt; 
+#&gt; $A_B_C_D_F
+#&gt; [1] "b" "c" "t"
+#&gt; 
+#&gt; $A_B_C_E_F
+#&gt; [1] "b" "c" "e" "j" "t"
+#&gt; 
+#&gt; $A_B_D_E_F
+#&gt; [1] "b" "c" "t" "y"
+#&gt; 
+#&gt; $A_C_D_E_F
+#&gt; [1] "b" "c" "o" "s" "t" "x"
+#&gt; 
+#&gt; $B_C_D_E_F
+#&gt; [1] "b" "c" "p" "q" "t" "v"
+#&gt; 
+#&gt; $A_B_C_D_E_F
+#&gt; [1] "b" "c" "t"
 #&gt; </div><div class='input'>
 <span class='co'>## Coerce VENNset/INTERSECTset object to list</span>
 <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span><span class='op'>(</span><span class='va'>vennset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $setlist
 #&gt; $setlist$A
-#&gt;  [1] "k" "i" "g" "x" "l" "r" "t" "w" "n" "y" "d" "o" "e" "s" "j" "b" "u" "z"
+#&gt;  [1] "u" "b" "x" "e" "t" "c" "d" "a" "s" "h" "g" "m" "y" "r" "o" "i" "j" "z"
 #&gt; 
 #&gt; $setlist$B
-#&gt;  [1] "x" "e" "t" "c" "d" "a" "u" "s" "h" "b" "z" "p" "i" "j" "k" "w"
+#&gt;  [1] "k" "n" "j" "t" "h" "e" "m" "z" "a" "y" "q" "p" "i" "v" "c" "b"
 #&gt; 
 #&gt; $setlist$C
-#&gt;  [1] "k" "n" "j" "t" "h" "e" "m" "z" "a" "y" "q" "p" "i" "v" "c" "b" "d" "u" "l"
-#&gt; [20] "r"
+#&gt;  [1] "t" "e" "s" "a" "w" "o" "x" "c" "q" "v" "h" "d" "f" "m" "j" "b" "r" "g" "p"
+#&gt; [20] "u"
 #&gt; 
 #&gt; $setlist$D
-#&gt;  [1] "a" "o" "s" "t" "c" "q" "z" "m" "n" "b" "w" "l" "g" "d" "r" "v" "p" "y" "k"
-#&gt; [20] "x" "f" "h"
+#&gt;  [1] "w" "l" "c" "q" "s" "n" "g" "t" "o" "u" "r" "x" "b" "f" "a" "d" "v" "k" "m"
+#&gt; [20] "p" "h" "y"
 #&gt; 
 #&gt; $setlist$E
-#&gt;  [1] "b" "v" "a" "l" "t" "g" "d" "k" "n" "p" "u" "x" "r" "s" "m" "f" "j" "i"
+#&gt;  [1] "n" "k" "v" "j" "y" "b" "i" "q" "x" "a" "c" "p" "w" "t" "e" "h" "o" "s"
 #&gt; 
 #&gt; $setlist$F
-#&gt;  [1] "b" "y" "i" "q" "k" "a" "s" "c" "p" "j" "x" "e" "h" "t" "l" "u" "f" "r" "z"
-#&gt; [20] "d" "g" "n"
+#&gt;  [1] "n" "f" "r" "l" "y" "p" "d" "i" "g" "u" "w" "b" "c" "k" "j" "t" "v" "s" "o"
+#&gt; [20] "x" "q" "e"
 #&gt; 
 #&gt; 
 #&gt; $intersectmatrix
 #&gt;   A B C D E F
-#&gt; a 0 1 1 1 1 1
+#&gt; a 1 1 1 1 1 0
 #&gt; b 1 1 1 1 1 1
-#&gt; c 0 1 1 1 0 1
-#&gt; d 1 1 1 1 1 1
-#&gt; e 1 1 1 0 0 1
-#&gt; f 0 0 0 1 1 1
-#&gt; g 1 0 0 1 1 1
-#&gt; h 0 1 1 1 0 1
-#&gt; i 1 1 1 0 1 1
+#&gt; c 1 1 1 1 1 1
+#&gt; d 1 0 1 1 0 1
+#&gt; e 1 1 1 0 1 1
+#&gt; f 0 0 1 1 0 1
+#&gt; g 1 0 1 1 0 1
+#&gt; h 1 1 1 1 1 0
+#&gt; i 1 1 0 0 1 1
 #&gt; j 1 1 1 0 1 1
-#&gt; k 1 1 1 1 1 1
-#&gt; l 1 0 1 1 1 1
-#&gt; m 0 0 1 1 1 0
-#&gt; n 1 0 1 1 1 1
-#&gt; o 1 0 0 1 0 0
+#&gt; k 0 1 0 1 1 1
+#&gt; l 0 0 0 1 0 1
+#&gt; m 1 1 1 1 0 0
+#&gt; n 0 1 0 1 1 1
+#&gt; o 1 0 1 1 1 1
 #&gt; p 0 1 1 1 1 1
-#&gt; q 0 0 1 1 0 1
-#&gt; r 1 0 1 1 1 1
-#&gt; s 1 1 0 1 1 1
+#&gt; q 0 1 1 1 1 1
+#&gt; r 1 0 1 1 0 1
+#&gt; s 1 0 1 1 1 1
 #&gt; t 1 1 1 1 1 1
-#&gt; u 1 1 1 0 1 1
-#&gt; v 0 0 1 1 1 0
-#&gt; w 1 1 0 1 0 0
-#&gt; x 1 1 0 1 1 1
-#&gt; y 1 0 1 1 0 1
-#&gt; z 1 1 1 1 0 1
+#&gt; u 1 0 1 1 0 1
+#&gt; v 0 1 1 1 1 1
+#&gt; w 0 0 1 1 1 1
+#&gt; x 1 0 1 1 1 1
+#&gt; y 1 1 0 1 1 1
+#&gt; z 1 1 0 0 0 0
 #&gt; 
 #&gt; $complexitylevels
 #&gt;  [1] 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -786,13 +786,13 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B
-#&gt; character(0)
+#&gt; [1] "z"
 #&gt; 
 #&gt; $vennlist$A_C
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_D
-#&gt; [1] "o"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_E
 #&gt; character(0)
@@ -825,7 +825,7 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$D_F
-#&gt; character(0)
+#&gt; [1] "l"
 #&gt; 
 #&gt; $vennlist$E_F
 #&gt; character(0)
@@ -834,7 +834,7 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_D
-#&gt; [1] "w"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_E
 #&gt; character(0)
@@ -879,25 +879,25 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$C_D_E
-#&gt; [1] "m" "v"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$C_D_F
-#&gt; [1] "q"
+#&gt; [1] "f"
 #&gt; 
 #&gt; $vennlist$C_E_F
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$D_E_F
-#&gt; [1] "f"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_C_D
-#&gt; character(0)
+#&gt; [1] "m"
 #&gt; 
 #&gt; $vennlist$A_B_C_E
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_C_F
-#&gt; [1] "e"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_D_E
 #&gt; character(0)
@@ -906,108 +906,108 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_E_F
-#&gt; character(0)
+#&gt; [1] "i"
 #&gt; 
 #&gt; $vennlist$A_C_D_E
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_C_D_F
-#&gt; [1] "y"
+#&gt; [1] "d" "g" "r" "u"
 #&gt; 
 #&gt; $vennlist$A_C_E_F
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_D_E_F
-#&gt; [1] "g"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$B_C_D_E
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$B_C_D_F
-#&gt; [1] "c" "h"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$B_C_E_F
 #&gt; character(0)
 #&gt; 
 #&gt; $vennlist$B_D_E_F
-#&gt; character(0)
+#&gt; [1] "k" "n"
 #&gt; 
 #&gt; $vennlist$C_D_E_F
-#&gt; character(0)
+#&gt; [1] "w"
 #&gt; 
 #&gt; $vennlist$A_B_C_D_E
-#&gt; character(0)
+#&gt; [1] "a" "h"
 #&gt; 
 #&gt; $vennlist$A_B_C_D_F
-#&gt; [1] "z"
+#&gt; character(0)
 #&gt; 
 #&gt; $vennlist$A_B_C_E_F
-#&gt; [1] "i" "j" "u"
+#&gt; [1] "e" "j"
 #&gt; 
 #&gt; $vennlist$A_B_D_E_F
-#&gt; [1] "s" "x"
+#&gt; [1] "y"
 #&gt; 
 #&gt; $vennlist$A_C_D_E_F
-#&gt; [1] "l" "n" "r"
+#&gt; [1] "o" "s" "x"
 #&gt; 
 #&gt; $vennlist$B_C_D_E_F
-#&gt; [1] "a" "p"
+#&gt; [1] "p" "q" "v"
 #&gt; 
 #&gt; $vennlist$A_B_C_D_E_F
-#&gt; [1] "b" "d" "k" "t"
+#&gt; [1] "b" "c" "t"
 #&gt; 
 #&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span><span class='op'>(</span><span class='va'>interset</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $setlist
 #&gt; $setlist$A
-#&gt;  [1] "k" "i" "g" "x" "l" "r" "t" "w" "n" "y" "d" "o" "e" "s" "j" "b" "u" "z"
+#&gt;  [1] "u" "b" "x" "e" "t" "c" "d" "a" "s" "h" "g" "m" "y" "r" "o" "i" "j" "z"
 #&gt; 
 #&gt; $setlist$B
-#&gt;  [1] "x" "e" "t" "c" "d" "a" "u" "s" "h" "b" "z" "p" "i" "j" "k" "w"
+#&gt;  [1] "k" "n" "j" "t" "h" "e" "m" "z" "a" "y" "q" "p" "i" "v" "c" "b"
 #&gt; 
 #&gt; $setlist$C
-#&gt;  [1] "k" "n" "j" "t" "h" "e" "m" "z" "a" "y" "q" "p" "i" "v" "c" "b" "d" "u" "l"
-#&gt; [20] "r"
+#&gt;  [1] "t" "e" "s" "a" "w" "o" "x" "c" "q" "v" "h" "d" "f" "m" "j" "b" "r" "g" "p"
+#&gt; [20] "u"
 #&gt; 
 #&gt; $setlist$D
-#&gt;  [1] "a" "o" "s" "t" "c" "q" "z" "m" "n" "b" "w" "l" "g" "d" "r" "v" "p" "y" "k"
-#&gt; [20] "x" "f" "h"
+#&gt;  [1] "w" "l" "c" "q" "s" "n" "g" "t" "o" "u" "r" "x" "b" "f" "a" "d" "v" "k" "m"
+#&gt; [20] "p" "h" "y"
 #&gt; 
 #&gt; $setlist$E
-#&gt;  [1] "b" "v" "a" "l" "t" "g" "d" "k" "n" "p" "u" "x" "r" "s" "m" "f" "j" "i"
+#&gt;  [1] "n" "k" "v" "j" "y" "b" "i" "q" "x" "a" "c" "p" "w" "t" "e" "h" "o" "s"
 #&gt; 
 #&gt; $setlist$F
-#&gt;  [1] "b" "y" "i" "q" "k" "a" "s" "c" "p" "j" "x" "e" "h" "t" "l" "u" "f" "r" "z"
-#&gt; [20] "d" "g" "n"
+#&gt;  [1] "n" "f" "r" "l" "y" "p" "d" "i" "g" "u" "w" "b" "c" "k" "j" "t" "v" "s" "o"
+#&gt; [20] "x" "q" "e"
 #&gt; 
 #&gt; 
 #&gt; $intersectmatrix
 #&gt;   A B C D E F
-#&gt; a 0 1 1 1 1 1
+#&gt; a 1 1 1 1 1 0
 #&gt; b 1 1 1 1 1 1
-#&gt; c 0 1 1 1 0 1
-#&gt; d 1 1 1 1 1 1
-#&gt; e 1 1 1 0 0 1
-#&gt; f 0 0 0 1 1 1
-#&gt; g 1 0 0 1 1 1
-#&gt; h 0 1 1 1 0 1
-#&gt; i 1 1 1 0 1 1
+#&gt; c 1 1 1 1 1 1
+#&gt; d 1 0 1 1 0 1
+#&gt; e 1 1 1 0 1 1
+#&gt; f 0 0 1 1 0 1
+#&gt; g 1 0 1 1 0 1
+#&gt; h 1 1 1 1 1 0
+#&gt; i 1 1 0 0 1 1
 #&gt; j 1 1 1 0 1 1
-#&gt; k 1 1 1 1 1 1
-#&gt; l 1 0 1 1 1 1
-#&gt; m 0 0 1 1 1 0
-#&gt; n 1 0 1 1 1 1
-#&gt; o 1 0 0 1 0 0
+#&gt; k 0 1 0 1 1 1
+#&gt; l 0 0 0 1 0 1
+#&gt; m 1 1 1 1 0 0
+#&gt; n 0 1 0 1 1 1
+#&gt; o 1 0 1 1 1 1
 #&gt; p 0 1 1 1 1 1
-#&gt; q 0 0 1 1 0 1
-#&gt; r 1 0 1 1 1 1
-#&gt; s 1 1 0 1 1 1
+#&gt; q 0 1 1 1 1 1
+#&gt; r 1 0 1 1 0 1
+#&gt; s 1 0 1 1 1 1
 #&gt; t 1 1 1 1 1 1
-#&gt; u 1 1 1 0 1 1
-#&gt; v 0 0 1 1 1 0
-#&gt; w 1 1 0 1 0 0
-#&gt; x 1 1 0 1 1 1
-#&gt; y 1 0 1 1 0 1
-#&gt; z 1 1 1 1 0 1
+#&gt; u 1 0 1 1 0 1
+#&gt; v 0 1 1 1 1 1
+#&gt; w 0 0 1 1 1 1
+#&gt; x 1 0 1 1 1 1
+#&gt; y 1 1 0 1 1 1
+#&gt; z 1 1 0 0 0 0
 #&gt; 
 #&gt; $complexitylevels
 #&gt;  [1] 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -1015,196 +1015,196 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
 #&gt; 
 #&gt; $intersectlist
 #&gt; $intersectlist$A
-#&gt;  [1] "b" "d" "e" "g" "i" "j" "k" "l" "n" "o" "r" "s" "t" "u" "w" "x" "y" "z"
+#&gt;  [1] "a" "b" "c" "d" "e" "g" "h" "i" "j" "m" "o" "r" "s" "t" "u" "x" "y" "z"
 #&gt; 
 #&gt; $intersectlist$B
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "s" "t" "u" "w" "x" "z"
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "k" "m" "n" "p" "q" "t" "v" "y" "z"
 #&gt; 
 #&gt; $intersectlist$C
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "l" "m" "n" "p" "q" "r" "t" "u" "v" "y"
-#&gt; [20] "z"
+#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "j" "m" "o" "p" "q" "r" "s" "t" "u" "v" "w"
+#&gt; [20] "x"
 #&gt; 
 #&gt; $intersectlist$D
-#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "v" "w"
-#&gt; [20] "x" "y" "z"
+#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+#&gt; [20] "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$E
-#&gt;  [1] "a" "b" "d" "f" "g" "i" "j" "k" "l" "m" "n" "p" "r" "s" "t" "u" "v" "x"
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$F
-#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "n" "p" "q" "r" "s" "t" "u"
-#&gt; [20] "x" "y" "z"
+#&gt;  [1] "b" "c" "d" "e" "f" "g" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+#&gt; [20] "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_B
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "s" "t" "u" "w" "x" "z"
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "m" "t" "y" "z"
 #&gt; 
 #&gt; $intersectlist$A_C
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "l" "n" "r" "t" "u" "y" "z"
+#&gt;  [1] "a" "b" "c" "d" "e" "g" "h" "j" "m" "o" "r" "s" "t" "u" "x"
 #&gt; 
 #&gt; $intersectlist$A_D
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "o" "r" "s" "t" "w" "x" "y" "z"
+#&gt;  [1] "a" "b" "c" "d" "g" "h" "m" "o" "r" "s" "t" "u" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_E
-#&gt;  [1] "b" "d" "g" "i" "j" "k" "l" "n" "r" "s" "t" "u" "x"
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "o" "s" "t" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_F
-#&gt;  [1] "b" "d" "e" "g" "i" "j" "k" "l" "n" "r" "s" "t" "u" "x" "y" "z"
+#&gt;  [1] "b" "c" "d" "e" "g" "i" "j" "o" "r" "s" "t" "u" "x" "y"
 #&gt; 
 #&gt; $intersectlist$B_C
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "t" "u" "z"
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "m" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_D
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "p" "s" "t" "w" "x" "z"
+#&gt;  [1] "a" "b" "c" "h" "k" "m" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$B_E
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "p" "s" "t" "u" "x"
+#&gt;  [1] "a" "b" "c" "e" "h" "i" "j" "k" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$B_F
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "s" "t" "u" "x" "z"
+#&gt;  [1] "b" "c" "e" "i" "j" "k" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$C_D
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "l" "m" "n" "p" "q" "r" "t" "v" "y" "z"
+#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "m" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$C_E
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "l" "m" "n" "p" "r" "t" "u" "v"
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "o" "p" "q" "s" "t" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$C_F
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "l" "n" "p" "q" "r" "t" "u" "y" "z"
+#&gt;  [1] "b" "c" "d" "e" "f" "g" "j" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$D_E
-#&gt;  [1] "a" "b" "d" "f" "g" "k" "l" "m" "n" "p" "r" "s" "t" "v" "x"
+#&gt;  [1] "a" "b" "c" "h" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$D_F
-#&gt;  [1] "a" "b" "c" "d" "f" "g" "h" "k" "l" "n" "p" "q" "r" "s" "t" "x" "y" "z"
+#&gt;  [1] "b" "c" "d" "f" "g" "k" "l" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$E_F
-#&gt;  [1] "a" "b" "d" "f" "g" "i" "j" "k" "l" "n" "p" "r" "s" "t" "u" "x"
+#&gt;  [1] "b" "c" "e" "i" "j" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_B_C
-#&gt; [1] "b" "d" "e" "i" "j" "k" "t" "u" "z"
+#&gt; [1] "a" "b" "c" "e" "h" "j" "m" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_D
-#&gt; [1] "b" "d" "k" "s" "t" "w" "x" "z"
+#&gt; [1] "a" "b" "c" "h" "m" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_B_E
-#&gt; [1] "b" "d" "i" "j" "k" "s" "t" "u" "x"
+#&gt; [1] "a" "b" "c" "e" "h" "i" "j" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_B_F
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "s" "t" "u" "x" "z"
+#&gt; [1] "b" "c" "e" "i" "j" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_C_D
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t" "y" "z"
+#&gt;  [1] "a" "b" "c" "d" "g" "h" "m" "o" "r" "s" "t" "u" "x"
 #&gt; 
 #&gt; $intersectlist$A_C_E
-#&gt;  [1] "b" "d" "i" "j" "k" "l" "n" "r" "t" "u"
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "o" "s" "t" "x"
 #&gt; 
 #&gt; $intersectlist$A_C_F
-#&gt;  [1] "b" "d" "e" "i" "j" "k" "l" "n" "r" "t" "u" "y" "z"
+#&gt;  [1] "b" "c" "d" "e" "g" "j" "o" "r" "s" "t" "u" "x"
 #&gt; 
 #&gt; $intersectlist$A_D_E
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "r" "s" "t" "x"
+#&gt; [1] "a" "b" "c" "h" "o" "s" "t" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_D_F
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "r" "s" "t" "x" "y" "z"
+#&gt;  [1] "b" "c" "d" "g" "o" "r" "s" "t" "u" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_E_F
-#&gt;  [1] "b" "d" "g" "i" "j" "k" "l" "n" "r" "s" "t" "u" "x"
+#&gt;  [1] "b" "c" "e" "i" "j" "o" "s" "t" "x" "y"
 #&gt; 
 #&gt; $intersectlist$B_C_D
-#&gt; [1] "a" "b" "c" "d" "h" "k" "p" "t" "z"
+#&gt; [1] "a" "b" "c" "h" "m" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_C_E
-#&gt; [1] "a" "b" "d" "i" "j" "k" "p" "t" "u"
+#&gt;  [1] "a" "b" "c" "e" "h" "j" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_C_F
-#&gt;  [1] "a" "b" "c" "d" "e" "h" "i" "j" "k" "p" "t" "u" "z"
+#&gt; [1] "b" "c" "e" "j" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_D_E
-#&gt; [1] "a" "b" "d" "k" "p" "s" "t" "x"
+#&gt;  [1] "a" "b" "c" "h" "k" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$B_D_F
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "p" "s" "t" "x" "z"
+#&gt; [1] "b" "c" "k" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$B_E_F
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "p" "s" "t" "u" "x"
+#&gt;  [1] "b" "c" "e" "i" "j" "k" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$C_D_E
-#&gt;  [1] "a" "b" "d" "k" "l" "m" "n" "p" "r" "t" "v"
+#&gt;  [1] "a" "b" "c" "h" "o" "p" "q" "s" "t" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$C_D_F
-#&gt;  [1] "a" "b" "c" "d" "h" "k" "l" "n" "p" "q" "r" "t" "y" "z"
+#&gt;  [1] "b" "c" "d" "f" "g" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$C_E_F
-#&gt;  [1] "a" "b" "d" "i" "j" "k" "l" "n" "p" "r" "t" "u"
+#&gt;  [1] "b" "c" "e" "j" "o" "p" "q" "s" "t" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$D_E_F
-#&gt;  [1] "a" "b" "d" "f" "g" "k" "l" "n" "p" "r" "s" "t" "x"
+#&gt;  [1] "b" "c" "k" "n" "o" "p" "q" "s" "t" "v" "w" "x" "y"
 #&gt; 
 #&gt; $intersectlist$A_B_C_D
-#&gt; [1] "b" "d" "k" "t" "z"
+#&gt; [1] "a" "b" "c" "h" "m" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_C_E
-#&gt; [1] "b" "d" "i" "j" "k" "t" "u"
+#&gt; [1] "a" "b" "c" "e" "h" "j" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_C_F
-#&gt; [1] "b" "d" "e" "i" "j" "k" "t" "u" "z"
+#&gt; [1] "b" "c" "e" "j" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_D_E
-#&gt; [1] "b" "d" "k" "s" "t" "x"
+#&gt; [1] "a" "b" "c" "h" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_B_D_F
-#&gt; [1] "b" "d" "k" "s" "t" "x" "z"
+#&gt; [1] "b" "c" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_B_E_F
-#&gt; [1] "b" "d" "i" "j" "k" "s" "t" "u" "x"
+#&gt; [1] "b" "c" "e" "i" "j" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_C_D_E
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t"
+#&gt; [1] "a" "b" "c" "h" "o" "s" "t" "x"
 #&gt; 
 #&gt; $intersectlist$A_C_D_F
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t" "y" "z"
+#&gt;  [1] "b" "c" "d" "g" "o" "r" "s" "t" "u" "x"
 #&gt; 
 #&gt; $intersectlist$A_C_E_F
-#&gt;  [1] "b" "d" "i" "j" "k" "l" "n" "r" "t" "u"
+#&gt; [1] "b" "c" "e" "j" "o" "s" "t" "x"
 #&gt; 
 #&gt; $intersectlist$A_D_E_F
-#&gt;  [1] "b" "d" "g" "k" "l" "n" "r" "s" "t" "x"
+#&gt; [1] "b" "c" "o" "s" "t" "x" "y"
 #&gt; 
 #&gt; $intersectlist$B_C_D_E
-#&gt; [1] "a" "b" "d" "k" "p" "t"
+#&gt; [1] "a" "b" "c" "h" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_C_D_F
-#&gt; [1] "a" "b" "c" "d" "h" "k" "p" "t" "z"
+#&gt; [1] "b" "c" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_C_E_F
-#&gt; [1] "a" "b" "d" "i" "j" "k" "p" "t" "u"
+#&gt; [1] "b" "c" "e" "j" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$B_D_E_F
-#&gt; [1] "a" "b" "d" "k" "p" "s" "t" "x"
+#&gt; [1] "b" "c" "k" "n" "p" "q" "t" "v" "y"
 #&gt; 
 #&gt; $intersectlist$C_D_E_F
-#&gt; [1] "a" "b" "d" "k" "l" "n" "p" "r" "t"
+#&gt;  [1] "b" "c" "o" "p" "q" "s" "t" "v" "w" "x"
 #&gt; 
 #&gt; $intersectlist$A_B_C_D_E
-#&gt; [1] "b" "d" "k" "t"
+#&gt; [1] "a" "b" "c" "h" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_C_D_F
-#&gt; [1] "b" "d" "k" "t" "z"
+#&gt; [1] "b" "c" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_C_E_F
-#&gt; [1] "b" "d" "i" "j" "k" "t" "u"
+#&gt; [1] "b" "c" "e" "j" "t"
 #&gt; 
 #&gt; $intersectlist$A_B_D_E_F
-#&gt; [1] "b" "d" "k" "s" "t" "x"
+#&gt; [1] "b" "c" "t" "y"
 #&gt; 
 #&gt; $intersectlist$A_C_D_E_F
-#&gt; [1] "b" "d" "k" "l" "n" "r" "t"
+#&gt; [1] "b" "c" "o" "s" "t" "x"
 #&gt; 
 #&gt; $intersectlist$B_C_D_E_F
-#&gt; [1] "a" "b" "d" "k" "p" "t"
+#&gt; [1] "b" "c" "p" "q" "t" "v"
 #&gt; 
 #&gt; $intersectlist$A_B_C_D_E_F
-#&gt; [1] "b" "d" "k" "t"
+#&gt; [1] "b" "c" "t"
 #&gt; 
 #&gt; </div><div class='input'>
 <span class='co'>## Pairwise intersect matrix and heatmap</span>
@@ -1213,43 +1213,43 @@ site: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Venn-Diagra
     <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>setlist</span><span class='op'>[[</span><span class='va'>x</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%in%</span> <span class='va'>setlist</span><span class='op'>[[</span><span class='va'>y</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>olMA</span>
 </div><div class='output co'>#&gt;    A  B  C  D  E  F
-#&gt; A 18 12 13 14 13 16
-#&gt; B 12 16 13 12 11 15
-#&gt; C 13 13 20 16 14 18
-#&gt; D 14 12 16 22 15 18
-#&gt; E 13 11 14 15 18 16
-#&gt; F 16 15 18 18 16 22</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/heatmap.html'>heatmap</a></span><span class='op'>(</span><span class='va'>olMA</span>, Rowv<span class='op'>=</span><span class='cn'>NA</span>, Colv<span class='op'>=</span><span class='cn'>NA</span><span class='op'>)</span>
+#&gt; A 18 11 15 14 12 14
+#&gt; B 11 16 11 12 14 12
+#&gt; C 15 11 20 18 14 17
+#&gt; D 14 12 18 22 15 19
+#&gt; E 12 14 14 15 18 16
+#&gt; F 14 12 17 19 16 22</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/heatmap.html'>heatmap</a></span><span class='op'>(</span><span class='va'>olMA</span>, Rowv<span class='op'>=</span><span class='cn'>NA</span>, Colv<span class='op'>=</span><span class='cn'>NA</span><span class='op'>)</span>
 </div><div class='img'><img src='vennPlot-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Presence-absence matrices for large numbers of sample sets</span>
 <span class='va'>interset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='overLapper.html'>overLapper</a></span><span class='op'>(</span>setlist<span class='op'>=</span><span class='va'>setlist</span>, type<span class='op'>=</span><span class='st'>"intersects"</span>, complexity<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 <span class='op'>(</span><span class='va'>paMA</span> <span class='op'>&lt;-</span> <span class='fu'><a href='overLapper.html'>intersectmatrix</a></span><span class='op'>(</span><span class='va'>interset</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   A B C D E F
-#&gt; a 0 1 1 1 1 1
+#&gt; a 1 1 1 1 1 0
 #&gt; b 1 1 1 1 1 1
-#&gt; c 0 1 1 1 0 1
-#&gt; d 1 1 1 1 1 1
-#&gt; e 1 1 1 0 0 1
-#&gt; f 0 0 0 1 1 1
-#&gt; g 1 0 0 1 1 1
-#&gt; h 0 1 1 1 0 1
-#&gt; i 1 1 1 0 1 1
+#&gt; c 1 1 1 1 1 1
+#&gt; d 1 0 1 1 0 1
+#&gt; e 1 1 1 0 1 1
+#&gt; f 0 0 1 1 0 1
+#&gt; g 1 0 1 1 0 1
+#&gt; h 1 1 1 1 1 0
+#&gt; i 1 1 0 0 1 1
 #&gt; j 1 1 1 0 1 1
-#&gt; k 1 1 1 1 1 1
-#&gt; l 1 0 1 1 1 1
-#&gt; m 0 0 1 1 1 0
-#&gt; n 1 0 1 1 1 1
-#&gt; o 1 0 0 1 0 0
+#&gt; k 0 1 0 1 1 1
+#&gt; l 0 0 0 1 0 1
+#&gt; m 1 1 1 1 0 0
+#&gt; n 0 1 0 1 1 1
+#&gt; o 1 0 1 1 1 1
 #&gt; p 0 1 1 1 1 1
-#&gt; q 0 0 1 1 0 1
-#&gt; r 1 0 1 1 1 1
-#&gt; s 1 1 0 1 1 1
+#&gt; q 0 1 1 1 1 1
+#&gt; r 1 0 1 1 0 1
+#&gt; s 1 0 1 1 1 1
 #&gt; t 1 1 1 1 1 1
-#&gt; u 1 1 1 0 1 1
-#&gt; v 0 0 1 1 1 0
-#&gt; w 1 1 0 1 0 0
-#&gt; x 1 1 0 1 1 1
-#&gt; y 1 0 1 1 0 1
-#&gt; z 1 1 1 1 0 1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/heatmap.html'>heatmap</a></span><span class='op'>(</span><span class='va'>paMA</span>, Rowv<span class='op'>=</span><span class='cn'>NA</span>, Colv<span class='op'>=</span><span class='cn'>NA</span>, col<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"white"</span>, <span class='st'>"gray"</span><span class='op'>)</span><span class='op'>)</span> 
+#&gt; u 1 0 1 1 0 1
+#&gt; v 0 1 1 1 1 1
+#&gt; w 0 0 1 1 1 1
+#&gt; x 1 0 1 1 1 1
+#&gt; y 1 1 0 1 1 1
+#&gt; z 1 1 0 0 0 0</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/heatmap.html'>heatmap</a></span><span class='op'>(</span><span class='va'>paMA</span>, Rowv<span class='op'>=</span><span class='cn'>NA</span>, Colv<span class='op'>=</span><span class='cn'>NA</span>, col<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"white"</span>, <span class='st'>"gray"</span><span class='op'>)</span><span class='op'>)</span> 
 </div><div class='img'><img src='vennPlot-9.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.30</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.32</span>
       </span>
     </div>
 
@@ -136,12 +136,12 @@
     </tr>
     <tr>
       <th>type</th>
-      <td><p>The R Markdown output format to convert to. Default is <code>"ALL"</code>.The option 
-  	can be the name of a format (e.g. <code>"pdf_document"</code> or <code>"html_document"</code>).</p></td>
+      <td><p>The R Markdown output format to convert to. The option 
+  can be the name of a format (e.g. <code>"pdf_document"</code> or <code>"html_document"</code>).</p></td>
     </tr>
     <tr>
       <th>fileName</th>
-      <td><p>haracter string naming a file output. Default is <code>"logs_&lt;date&gt;.Rmd"</code>.</p></td>
+      <td><p>character string naming a file output. Default is <code>"logs_&lt;date&gt;.Rmd"</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
@@ -158,7 +158,7 @@
     <p>It will return an <code>SYSargsList</code> updated.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Daniela Cassol and Thomas Girke</p>
+    <p>Daniela Cassol</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>See also as <code>SYSargsList-class</code>.</p></div>
@@ -180,11 +180,22 @@
                             <span class='op'>}</span>, 
                             step_name <span class='op'>=</span> <span class='st'>"R_read"</span>, 
                             dependency <span class='op'>=</span> <span class='st'>"echo"</span><span class='op'>)</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runWF.html'>runWF</a></span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>renderLogs</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+</div><div class='output co'>#&gt; <span style='background-color: #BB00BB;'>Running Step: echo</span> 
+#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |=======================                                               |  33%  |                                                                              |===============================================                       |  67%  |                                                                              |======================================================================| 100%
+#&gt; <span style='color: #0000BB;'>---- Summary ----</span> 
+#&gt;   Targets Total_Files Existing_Files Missing_Files    echo
+#&gt; 1      M1           1              1             0 Success
+#&gt; 2      M2           1              1             0 Success
+#&gt; 3      M3           1              1             0 Success
+#&gt; 
+#&gt; <span style='background-color: #00BB00;'>Step Status: Success 
+#&gt; </span><span style='background-color: #BB00BB;'>Running Step: R_read</span> 
+#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
+#&gt; <span style='background-color: #00BB00;'>Step Status: Success 
+#&gt; </span></div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>renderLogs</span><span class='op'>(</span><span class='va'>sal</span>, open_file <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Written content of 'Report' to file: 
+#&gt;  logs_Oct232021_0206.html </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

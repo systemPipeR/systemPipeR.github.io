@@ -84,7 +84,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.30</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.32</span>
       </span>
     </div>
 
@@ -517,7 +517,7 @@ R-based workflow.</p>
 #&gt; [1] ".SPRproject/SYSargsList.yml"
 #&gt; </div><div class='input'><span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $env
-#&gt; &lt;environment: 0x556ab497a598&gt;
+#&gt; &lt;environment: 0x55ac083ad6d0&gt;
 #&gt; 
 #&gt; $runOption
 #&gt; $runOption$echo
@@ -582,9 +582,9 @@ R-based workflow.</p>
 #&gt; </div><div class='input'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
 </div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_read</span>
 #&gt;     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</div><div class='input'><span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>sal</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x556ab497a598&gt;
+</div><div class='output co'>#&gt; &lt;environment: 0x55ac083ad6d0&gt;
 #&gt; Copying to 'new.env': </div><div class='input'><span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x556ab497a598&gt;
+</div><div class='output co'>#&gt; &lt;environment: 0x55ac083ad6d0&gt;
 #&gt; character(0)</div><div class='input'>
 <span class='co'>## Subset Methods</span>
 

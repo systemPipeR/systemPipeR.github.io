@@ -14,54 +14,85 @@ package: systemPipeR
 fontsize: 14pt
 ---
 
-# About this template 
+# About this Report 
 
 This is a workflow template.
 
 # Workflow Steps
 
-## step1 export_iris
-```{r export_iris, eval=FALSE, spr='r'}
-mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
-run_session=rsession
+# Step1 load_library
+```{r load_library, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='rsession'}
+appendStep(sal) <- LineWise(code={
+    library(systemPipeR)
+    },
+    step_name = 'load_library',
+    dependency = NA,
+    run_step = c('mandatory'),
+    run_session = c('rsession'))
 ```
 
 
-## step2 gzip
-```{r gzip, eval=FALSE, spr='sysargs', spr.dep='export_iris'}
+# Step2 export_iris
+```{r export_iris, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='rsession'}
+appendStep(sal) <- LineWise(code={
+    mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    },
+    step_name = 'export_iris',
+    dependency = NA,
+    run_step = c('mandatory'),
+    run_session = c('rsession'))
+```
+
+
+# Step3 gzip
+```{r gzip, eval=FALSE, spr='sysargs', spr.dep='export_iris', spr.req='mandatory', spr.ses='rsession'}
 appendStep(sal) <- SYSargsList(
-    targets = "home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/gunzip/targets_gunzip.txt",
+    targets = "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/gunzip/targets_gunzip.txt",
     dir_path="/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl",
     wf_file="gunzip/workflow_gzip.cwl",
     input_file="gunzip/gzip.yml",
     inputvars = c( FileName="_FILE_PATH_", SampleName="_SampleName_" ),
-    dir=TRUE
+    rm_targets_col = NULL,
+    step_name = 'gzip',
+    dependency = c('export_iris'),
+    dir=TRUE,
+    run_step = c('mandatory'),
+    run_session = c('rsession')
 )
 ```
 
 
-## step3 gunzip
-```{r gunzip, eval=FALSE, spr='sysargs', spr.dep='gzip'}
+# Step4 gunzip
+```{r gunzip, eval=FALSE, spr='sysargs', spr.dep='gzip', spr.req='mandatory', spr.ses='rsession'}
 appendStep(sal) <- SYSargsList(
     targets = c("gzip"),
     dir_path="/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl",
     wf_file="gunzip/workflow_gunzip.cwl",
     input_file="gunzip/gunzip.yml",
     inputvars = c( gzip_file="_FILE_PATH_", SampleName="_SampleName_" ),
-c(" FileName "),
-    dir=TRUE
+    rm_targets_col = c(" FileName "),
+    step_name = 'gunzip',
+    dependency = c('gzip'),
+    dir=TRUE,
+    run_step = c('mandatory'),
+    run_session = c('rsession')
 )
 ```
 
 
-## step4 stats
-```{r stats, eval=FALSE, spr='r', spr.dep='gunzip'}
-df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
-df <- do.call(rbind, df)
-stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
-stats$species <- rownames(stats)
-plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
-run_session=rsession
+# Step5 stats
+```{r stats, eval=FALSE, spr='r', spr.dep='gunzip', spr.req='mandatory', spr.ses='rsession'}
+appendStep(sal) <- LineWise(code={
+    df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
+    df <- do.call(rbind, df)
+    stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
+    stats$species <- rownames(stats)
+    plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
+    },
+    step_name = 'stats',
+    dependency = c('gunzip'),
+    run_step = c('mandatory'),
+    run_session = c('rsession'))
 ```
 
 
