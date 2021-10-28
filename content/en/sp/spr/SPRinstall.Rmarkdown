@@ -16,7 +16,7 @@ bibliography: bibtex_install.bib
 editor_options: 
   chunk_output_type: console
 type: docs
-weight: 7
+weight: 8
 ---
 
 ```{css, echo=FALSE}
@@ -48,11 +48,10 @@ suppressPackageStartupMessages({
 })
 ```
 
-# 
-
 ## `systemPipeR` Installation 
 
-To install the `systemPipeR` package [@H_Backman2016-bt], please use the _`BiocManager::install`_ command:
+To install the `systemPipeR` package [@H_Backman2016-bt], please use 
+the _`BiocManager::install`_ command:
 
 ```{r spr_install, eval=FALSE}
 if (!requireNamespace("BiocManager", quietly=TRUE))
@@ -61,57 +60,34 @@ BiocManager::install("systemPipeR")
 ```
 
 To obtain the most recent updates immediately, one can install it directly from
-[github](https://github.com/tgirke/systemPipeR) as follow:
+[GitHub](https://github.com/tgirke/systemPipeR) as follow:
 
 ```{r spr_install_gh, eval=FALSE}
 if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
-BiocManager::install("tgirke/systemPipeR", build_vignettes=TRUE, dependencies=TRUE)
+BiocManager::install("tgirke/systemPipeR", dependencies=TRUE)
 ```
 
 ## Third-party software tools in *`SPR`*
 
-This guide provides detailed installation instructions for the software tools used within `systemPipeR` package. This guide provides the instruction for a Linux system.
+Current, *systemPipeR* provides the _`param`_ file templates for third-party 
+software tools. Please check the listed software tools. 
 
-### BWA
-
-[Burrow-Wheeler Aligner (BWA)](https://github.com/lh3/bwa) for short-read alignment [@Li2013-sw].
-
-```{bash bwa, eval=FALSE}
-git clone https://github.com/lh3/bwa.git
-cd bwa
-make
-vim ~/.bashrc ## Open the Bash shell script 
-export PATH=$PATH:/path/to/bwa ## "/path/to/bwa" is an example! Replace with real PATH
-source ~/.bashrc
-bwa ## Test if the installation was successful
-```
-
-Note: In some systems, `~/.bash_profile` is used in place of `~/.bashrc`.
-
-More information about how to set an enviroment variable [here](https://en.wikipedia.org/wiki/Environment_variable).
-
-### BLAST
-
-Please check the [BLAST Command Line Applications User Manual](https://www.ncbi.nlm.nih.gov/books/NBK279671/) to 
-find the installation introduction for your system environment. 
-
-Download the latest version from [here](https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/), as the following example:
-
-```{bash blast, eval=FALSE}
-wget https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.11.0+-x64-linux.tar.gz
-tar zxvpf ncbi-blast-2.11.0+-x64-linux.tar.gz ncbi-blast-2.11.0+/
-cd ncbi-blast-2.11.0+/
-export PATH=$PATH:/path/to//ncbi-blast-2.11.0+/bin ## "/path/to/ncbi-blast-2.11.0+" is an example! Replace with real PATH
-```
-
-### Cutadapt
-
-Please check the [Cutadapt Manual](https://cutadapt.readthedocs.io/en/stable/installation.html) to 
-find the installation introduction for your system environment. 
-
-```{bash Cutadapt, eval=FALSE}
-sudo apt install cutadapt
+```{r table_tools, echo=FALSE, message=FALSE}
+library(magrittr)
+SPR_software <- system.file("extdata", "SPR_software.csv", package = "systemPipeR")
+software <- read.delim(SPR_software, sep = ",", comment.char = "#")
+colors <- colorRampPalette((c("darkseagreen", "indianred1")))(length(unique(software$Category)))
+id <- as.numeric(c((unique(software$Category))))
+software %>%
+  dplyr::mutate(Step = kableExtra::cell_spec(Step, color = "white", bold = TRUE,
+    background = factor(Category, id, colors)
+  )) %>%
+   dplyr::select(Tool, Description, Step) %>%
+  dplyr::arrange(Tool) %>% 
+  kableExtra::kable(escape = FALSE, align = "c", col.names = c("Tool Name",	"Description", "Step")) %>%
+  kableExtra::kable_styling(c("striped", "hover", "condensed"), full_width = TRUE) %>%
+  kableExtra::scroll_box(width = "100%", height = "500px")
 ```
 
 ## References

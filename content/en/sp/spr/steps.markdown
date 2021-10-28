@@ -1,7 +1,7 @@
 ---
 title: "Workflow steps overview"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 20 April, 2021"
+date: "Last update: 28 October, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -14,7 +14,7 @@ vignette: |
   %\VignetteEngine{knitr::rmarkdown}
 fontsize: 14pt
 bibliography: bibtex.bib
-editor_options:
+editor_options: 
   chunk_output_type: console
 type: docs
 weight: 4
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
-  var links = document.links;
+  var links = document.links;  
   for (var i = 0, linksLength = links.length; i < linksLength; i++)
     if (links[i].hostname != window.location.hostname)
       links[i].target = '_blank';
@@ -95,7 +95,7 @@ output(trim)[1:2]
 ```
 
 ``` r
-preprocessReads(args = trim, Fct = "trimLRPatterns(Rpattern='GCCCGGGTAA',
+preprocessReads(args = trim, Fct = "trimLRPatterns(Rpattern='GCCCGGGTAA', 
                 subject=fq)",
     batchsize = 1e+05, overwrite = TRUE, compress = TRUE)
 ```
@@ -155,7 +155,7 @@ The following *`seeFastq`* and *`seeFastqPlot`* functions generate and plot a se
 useful quality statistics for a set of FASTQ files including per cycle quality
 box plots, base proportions, base-level quality trends, relative k-mer
 diversity, length and occurrence distribution of reads, number of reads above
-quality cutoffs and mean quality distribution.
+quality cutoffs and mean quality distribution.  
 The function *`seeFastq`* computes the quality statistics and stores the results in a
 relatively small list object that can be saved to disk with *`save()`* and
 reloaded with *`load()`* for later plotting. The argument *`klength`* specifies the
@@ -175,7 +175,7 @@ dev.off()
 
 <div align="center">
 
-**Figure 5:** FASTQ quality report
+**Figure 1:** FASTQ quality report
 
 </div>
 
@@ -242,13 +242,13 @@ args
 ```
 
     ## Instance of 'SYSargs2':
-    ##    Slot names/accessors:
+    ##    Slot names/accessors: 
     ##       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
     ##       modules: 1
-    ##       wf: 0, clt: 1, yamlinput: 7 (components)
+    ##       wf: 0, clt: 1, yamlinput: 7 (inputs)
     ##       input: 18, output: 18
     ##       cmdlist: 18
-    ##    WF Steps:
+    ##    Sub Steps:
     ##       1. hisat2-mapping-se (rendered: TRUE)
 
 ``` r
@@ -258,8 +258,8 @@ cmdlist(args)[1:2]
     ## $M1A
     ## $M1A$`hisat2-mapping-se`
     ## [1] "hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4"
-    ##
-    ##
+    ## 
+    ## 
     ## $M1B
     ## $M1B$`hisat2-mapping-se`
     ## [1] "hisat2 -S ./results/M1B.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446028_1.fastq.gz --threads 4"
@@ -271,8 +271,8 @@ output(args)[1:2]
     ## $M1A
     ## $M1A$`hisat2-mapping-se`
     ## [1] "./results/M1A.sam"
-    ##
-    ##
+    ## 
+    ## 
     ## $M1B
     ## $M1B$`hisat2-mapping-se`
     ## [1] "./results/M1B.sam"
@@ -280,24 +280,24 @@ output(args)[1:2]
 Subsetting *`SYSargs2`* class slots for each workflow step.
 
 ``` r
-subsetWF(args, slot = "input", subset = "FileName")[1:2]  ## Subsetting the input files for this particular workflow
+subsetWF(args, slot = "input", subset = "FileName")[1:2]  ## Subsetting the input files for this particular workflow 
 ```
 
-    ##                           M1A                           M1B
+    ##                           M1A                           M1B 
     ## "./data/SRR446027_1.fastq.gz" "./data/SRR446028_1.fastq.gz"
 
 ``` r
-subsetWF(args, slot = "output", subset = 1, index = 1)[1:2]  ## Subsetting the output files for one particular step in the workflow
+subsetWF(args, slot = "output", subset = 1, index = 1)[1:2]  ## Subsetting the output files for one particular step in the workflow 
 ```
 
-    ##                 M1A                 M1B
+    ##                 M1A                 M1B 
     ## "./results/M1A.sam" "./results/M1B.sam"
 
 ``` r
-subsetWF(args, slot = "step", subset = 1)[1]  ## Subsetting the command-lines for one particular step in the workflow
+subsetWF(args, slot = "step", subset = 1)[1]  ## Subsetting the command-lines for one particular step in the workflow 
 ```
 
-    ##                                                                                                                                               M1A
+    ##                                                                                                                                               M1A 
     ## "hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4"
 
 ``` r
@@ -306,7 +306,7 @@ subsetWF(args, slot = "output", subset = 1, index = 1, delete = TRUE)[1]  ## DEL
 
     ## The subset cannot be deleted: no such file
 
-    ##                 M1A
+    ##                 M1A 
     ## "./results/M1A.sam"
 
 Build `Hisat2` index.
@@ -338,7 +338,7 @@ step. When these options are used, the output location will be updated by defaul
 and can be assigned to the same object.
 
 ``` r
-runCommandline(args, make_bam = FALSE)  ## generates alignments and writes *.sam files to ./results folder
+runCommandline(args, make_bam = FALSE)  ## generates alignments and writes *.sam files to ./results folder 
 args <- runCommandline(args, make_bam = TRUE)  ## same as above but writes files and converts *.sam files to sorted and indexed BAM files. Assigning the new extention of the output files to the object args.
 ```
 
@@ -689,8 +689,8 @@ registered()
 counteByg <- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode = "Union",
     ignore.strand = TRUE, inter.feature = TRUE, singleEnd = TRUE))
 
-# Note: for strand-specific RNA-Seq set 'ignore.strand=FALSE' and for PE data set
-# 'singleEnd=FALSE'
+# Note: for strand-specific RNA-Seq set 'ignore.strand=FALSE' and for PE data
+# set 'singleEnd=FALSE'
 countDFeByg <- sapply(seq(along = counteByg), function(x) assays(counteByg[[x]])$counts)
 rownames(countDFeByg) <- names(rowRanges(counteByg[[1]]))
 colnames(countDFeByg) <- names(bfl)
@@ -779,7 +779,7 @@ library(batchtools)
 f <- function(x) {
     library(systemPipeR)
     targets <- system.file("extdata", "targets.txt", package = "systemPipeR")
-    dir_path <- "param/cwl/hisat2/hisat2-se"  ## TODO: replace path to system.file
+    dir_path <- "param/cwl/hisat2/hisat2-se"  ## TODO: replace path to system.file 
     args <- loadWorkflow(targets = targets, wf_file = "hisat2-mapping-se.cwl", input_file = "hisat2-mapping-se.yml",
         dir_path = dir_path)
     args <- renderWF(args, inputvars = c(FileName = "_FASTQ_PATH1_", SampleName = "_SampleName_"))
@@ -836,11 +836,15 @@ plot.phylo(as.phylo(hc), type = "p", edge.col = 4, edge.width = 3, show.node.lab
     no.margin = TRUE)
 ```
 
-<img src="/en/spr/systempiper/steps_files/figure-html/sample_tree_rlog-1.png" width="672" />
+<img src="/en/sp/spr/steps_files/figure-html/sample_tree_rlog-1.png" width="672" />
+
+<center>
+<img src="fastqReport.png">
+</center>
 
 <div align="center">
 
-**Figure 6:** Correlation dendrogram of samples for *`rlog`* values.
+**Figure 2:** Correlation dendrogram of samples for *`rlog`* values.
 
 </div>
 
@@ -876,13 +880,13 @@ cmp <- readComp(file = targetspath, format = "matrix", delim = "-")
 cmp[[1]]
 ```
 
-    ##       [,1]  [,2]
-    ##  [1,] "M1"  "A1"
-    ##  [2,] "M1"  "V1"
-    ##  [3,] "A1"  "V1"
-    ##  [4,] "M6"  "A6"
-    ##  [5,] "M6"  "V6"
-    ##  [6,] "A6"  "V6"
+    ##       [,1]  [,2] 
+    ##  [1,] "M1"  "A1" 
+    ##  [2,] "M1"  "V1" 
+    ##  [3,] "A1"  "V1" 
+    ##  [4,] "M6"  "A6" 
+    ##  [5,] "M6"  "V6" 
+    ##  [6,] "A6"  "V6" 
     ##  [7,] "M12" "A12"
     ##  [8,] "M12" "V12"
     ##  [9,] "A12" "V12"
@@ -894,6 +898,8 @@ edgeDF <- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]], in
     mdsplot = "")
 ```
 
+    ## Loading required namespace: edgeR
+
     ## Disp = 0.21829 , BCV = 0.4672
 
 Filter and plot DEG results for up and down-regulated genes. Because of the small size of the toy data set used by this vignette, the *FDR* value has been set to a relatively high threshold (here 10%). More commonly used *FDR* cutoffs are 1% or 5%. The definition of ‘*up*’ and ‘*down*’ is given in the corresponding help file. To open it, type *`?filterDEGs`* in the R console.
@@ -902,7 +908,7 @@ Filter and plot DEG results for up and down-regulated genes. Because of the smal
 DEG_list <- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 ```
 
-<img src="/en/spr/systempiper/steps_files/figure-html/edger_deg_counts-1.png" width="672" />
+<img src="/en/sp/spr/steps_files/figure-html/edger_deg_counts-1.png" width="672" />
 
 <div align="center">
 
@@ -952,7 +958,7 @@ Filter and plot DEG results for up and down-regulated genes.
 DEG_list2 <- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 ```
 
-<img src="/en/spr/systempiper/steps_files/figure-html/deseq2_deg_counts-1.png" width="672" />
+<img src="/en/sp/spr/steps_files/figure-html/deseq2_deg_counts-1.png" width="672" />
 
 <div align="center">
 
@@ -973,7 +979,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = "", mysub = "", colmode = 2, cco
     "red"))
 ```
 
-<img src="/en/spr/systempiper/steps_files/figure-html/vennplot-1.png" width="672" />
+<img src="/en/sp/spr/steps_files/figure-html/vennplot-1.png" width="672" />
 
 <div align="center">
 

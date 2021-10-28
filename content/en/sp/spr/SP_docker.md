@@ -1,7 +1,7 @@
 ---
 title: "SPR Docker container" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 06 August, 2021" 
+date: "Last update: 28 October, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -10,7 +10,7 @@ output:
 package: systemPipeR
 fontsize: 14pt
 type: docs
-weight: 8
+weight: 10
 ---
 
 > Guidelines from [bioconductor_docker](https://github.com/Bioconductor/bioconductor_docker).

@@ -2,7 +2,7 @@
 title: "Help Manual"
 linkTitle: "Help Manual"
 type: docs
-weight: 6
+weight: 9
 ---
 
 ***** 
