@@ -2278,9 +2278,6 @@ plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = 4, edge.width 
     no.margin = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_files/figure-html/sample_tree_rlog-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;center&gt;
-&lt;img src=&#34;fastqReport.png&#34;&gt;
-&lt;/center&gt;
 &lt;div align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 2:&lt;/strong&gt; Correlation dendrogram of samples for &lt;em&gt;&lt;code&gt;rlog&lt;/code&gt;&lt;/em&gt; values.&lt;/p&gt;
 &lt;/div&gt;
@@ -2333,7 +2330,7 @@ edgeDF &amp;lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_files/figure-html/edger_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div align=&#34;center&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Figure 7:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 3:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;names(DEG_list)
@@ -2367,7 +2364,7 @@ on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_files/figure-html/deseq2_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div align=&#34;center&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Figure 8:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 4:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;venn-diagrams&#34;&gt;Venn Diagrams&lt;/h2&gt;
@@ -2379,7 +2376,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = &amp;quot;&amp;quot;, mysub = &a
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_files/figure-html/vennplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div align=&#34;center&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Figure 9:&lt;/strong&gt; Venn Diagram for 4 Up and Down DEG Sets.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 5:&lt;/strong&gt; Venn Diagram for 4 Up and Down DEG Sets.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;go-term-enrichment-analysis-of-degs&#34;&gt;GO term enrichment analysis of DEGs&lt;/h2&gt;
@@ -2440,7 +2437,7 @@ goBarplot(gos, gocat = &amp;quot;CC&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;GOslimbarplotMF.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;div align=&#34;center&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Figure 10:&lt;/strong&gt; GO Slim Barplot for MF Ontology.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 6:&lt;/strong&gt; GO Slim Barplot for MF Ontology.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;clustering-and-heat-maps&#34;&gt;Clustering and heat maps&lt;/h2&gt;
@@ -2457,7 +2454,7 @@ dev.off()
 &lt;img src=&#34;heatmap1.png&#34;&gt;
 &lt;/center&gt;
 &lt;div align=&#34;center&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Figure 11:&lt;/strong&gt; Heat map with hierarchical clustering dendrograms of DEGs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 7:&lt;/strong&gt; Heat map with hierarchical clustering dendrograms of DEGs.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;

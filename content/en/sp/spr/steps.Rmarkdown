@@ -741,7 +741,6 @@ hc <- hclust(dist(1-d))
 plot.phylo(as.phylo(hc), type="p", edge.col=4, edge.width=3, show.node.label=TRUE, no.margin=TRUE)
 ```
 
-<center><img src="fastqReport.png"></center>
 <div align="center">**Figure 2:** Correlation dendrogram of samples for _`rlog`_ values. </div></br>
 
 Alternatively, the clustering can be performed with _`RPKM`_ normalized expression values. In combination with Spearman correlation the results of the two clustering methods are often relatively similar. 
@@ -782,7 +781,7 @@ Filter and plot DEG results for up and down-regulated genes. Because of the smal
 DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=10))
 ```
 
-<div align="center">**Figure 7:** Up and down regulated DEGs identified by _`edgeR`_. </div></br>
+<div align="center">**Figure 3:** Up and down regulated DEGs identified by _`edgeR`_. </div></br>
 
 ```{r edger_deg_stats, eval=TRUE}
 names(DEG_list)
@@ -809,7 +808,7 @@ Filter and plot DEG results for up and down-regulated genes.
 DEG_list2 <- filterDEGs(degDF=degseqDF, filter=c(Fold=2, FDR=10))
 ```
 
-<div align="center">**Figure 8:** Up and down regulated DEGs identified by _`DESeq2`_. </div></br>
+<div align="center">**Figure 4:** Up and down regulated DEGs identified by _`DESeq2`_. </div></br>
 
 ## Venn Diagrams
 
@@ -821,7 +820,7 @@ vennsetdown <- overLapper(DEG_list$Down[6:9], type="vennsets")
 vennPlot(list(vennsetup, vennsetdown), mymain="", mysub="", colmode=2, ccol=c("blue", "red"))
 ```
 
-<div align="center">**Figure 9:** Venn Diagram for 4 Up and Down DEG Sets. </div></br>
+<div align="center">**Figure 5:** Venn Diagram for 4 Up and Down DEG Sets. </div></br>
 
 ## GO term enrichment analysis of DEGs
 
@@ -879,7 +878,7 @@ goBarplot(gos, gocat="CC")
 ```
 
 ![](GOslimbarplotMF.png)
-<div align="center">**Figure 10:** GO Slim Barplot for MF Ontology.</div></br>
+<div align="center">**Figure 6:** GO Slim Barplot for MF Ontology.</div></br>
 
 
 ## Clustering and heat maps
@@ -897,6 +896,6 @@ dev.off()
 ```
 
 <center><img src="heatmap1.png"></center>
-<div align="center">**Figure 11:** Heat map with hierarchical clustering dendrograms of DEGs.</div></br>
+<div align="center">**Figure 7:** Heat map with hierarchical clustering dendrograms of DEGs.</div></br>
 
 # References

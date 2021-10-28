@@ -838,10 +838,6 @@ plot.phylo(as.phylo(hc), type = "p", edge.col = 4, edge.width = 3, show.node.lab
 
 <img src="/en/sp/spr/steps_files/figure-html/sample_tree_rlog-1.png" width="672" />
 
-<center>
-<img src="fastqReport.png">
-</center>
-
 <div align="center">
 
 **Figure 2:** Correlation dendrogram of samples for *`rlog`* values.
@@ -912,7 +908,7 @@ DEG_list <- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 
 <div align="center">
 
-**Figure 7:** Up and down regulated DEGs identified by *`edgeR`*.
+**Figure 3:** Up and down regulated DEGs identified by *`edgeR`*.
 
 </div>
 
@@ -962,7 +958,7 @@ DEG_list2 <- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 
 <div align="center">
 
-**Figure 8:** Up and down regulated DEGs identified by *`DESeq2`*.
+**Figure 4:** Up and down regulated DEGs identified by *`DESeq2`*.
 
 </div>
 
@@ -983,7 +979,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = "", mysub = "", colmode = 2, cco
 
 <div align="center">
 
-**Figure 9:** Venn Diagram for 4 Up and Down DEG Sets.
+**Figure 5:** Venn Diagram for 4 Up and Down DEG Sets.
 
 </div>
 
@@ -1062,7 +1058,7 @@ goBarplot(gos, gocat = "CC")
 
 <div align="center">
 
-**Figure 10:** GO Slim Barplot for MF Ontology.
+**Figure 6:** GO Slim Barplot for MF Ontology.
 
 </div>
 
@@ -1088,7 +1084,7 @@ dev.off()
 
 <div align="center">
 
-**Figure 11:** Heat map with hierarchical clustering dendrograms of DEGs.
+**Figure 7:** Heat map with hierarchical clustering dendrograms of DEGs.
 
 </div>
 
