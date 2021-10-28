@@ -21,10 +21,10 @@
 <meta property="og:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spr/steps/" />
-<meta property="article:modified_time" content="2021-04-26T10:05:30-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-10-28T13:41:53-07:00" /><meta property="og:site_name" content="sysPipe" />
 <meta itemprop="name" content="Workflow steps overview">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Define environment settings and samples A typical workflow starts with generating the expected working environment containing the proper directory structure, input files, and parameter settings. To simplify this task, one can load one of the existing NGS workflows templates provided by systemPipeRdata into the current working directory.">
-<meta itemprop="dateModified" content="2021-04-26T10:05:30-07:00" />
+<meta itemprop="dateModified" content="2021-10-28T13:41:53-07:00" />
 <meta itemprop="wordCount" content="5408">
 
 
@@ -230,9 +230,19 @@ if (!doNotTrack) {
                 
               
               
-              <a class="dropdown-item" href="../../../sp/spr/spr_funcs/"
+              <a class="dropdown-item" href="../../../sp/spr/cwl_syntax/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
+                 CWL syntax
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/cwl_and_spr/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR and CWL
               </a>
           	
           	  
@@ -261,6 +271,16 @@ if (!doNotTrack) {
               <a class="dropdown-item" href="../../../sp/spt/"
               style="padding-left: 2rem; font-weight: calc(3/4*500)">
                  Data Visualization
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../sp/spr/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
               </a>
           	
           	  
@@ -516,7 +536,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.832c3775e1b4aa33da233554cb9cc81d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a27377dce846ec069f6d13ce96c94d0d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -548,7 +568,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.832c3775e1b4aa33da233554cb9cc81d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a27377dce846ec069f6d13ce96c94d0d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1583,9 +1603,6 @@ plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = 4, edge.width = 3, sho
     no.margin = TRUE)
 </code></pre>
 <p><img src="../../../en/sp/spr/steps_files/figure-html/sample_tree_rlog-1.png" width="672" /></p>
-<center>
-<img src="fastqReport.png">
-</center>
 <div align="center">
 <p><strong>Figure 2:</strong> Correlation dendrogram of samples for <em><code>rlog</code></em> values.</p>
 </div>
@@ -1638,7 +1655,7 @@ edgeDF &lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
 </code></pre>
 <p><img src="../../../en/sp/spr/steps_files/figure-html/edger_deg_counts-1.png" width="672" /></p>
 <div align="center">
-<p><strong>Figure 7:</strong> Up and down regulated DEGs identified by <em><code>edgeR</code></em>.</p>
+<p><strong>Figure 3:</strong> Up and down regulated DEGs identified by <em><code>edgeR</code></em>.</p>
 </div>
 </br>
 <pre><code class="language-r">names(DEG_list)
@@ -1672,7 +1689,7 @@ on data sets with more complex experimental designs.</p>
 </code></pre>
 <p><img src="../../../en/sp/spr/steps_files/figure-html/deseq2_deg_counts-1.png" width="672" /></p>
 <div align="center">
-<p><strong>Figure 8:</strong> Up and down regulated DEGs identified by <em><code>DESeq2</code></em>.</p>
+<p><strong>Figure 4:</strong> Up and down regulated DEGs identified by <em><code>DESeq2</code></em>.</p>
 </div>
 </br>
 <h2 id="venn-diagrams">Venn Diagrams</h2>
@@ -1684,7 +1701,7 @@ vennPlot(list(vennsetup, vennsetdown), mymain = &quot;&quot;, mysub = &quot;&quo
 </code></pre>
 <p><img src="../../../en/sp/spr/steps_files/figure-html/vennplot-1.png" width="672" /></p>
 <div align="center">
-<p><strong>Figure 9:</strong> Venn Diagram for 4 Up and Down DEG Sets.</p>
+<p><strong>Figure 5:</strong> Venn Diagram for 4 Up and Down DEG Sets.</p>
 </div>
 </br>
 <h2 id="go-term-enrichment-analysis-of-degs">GO term enrichment analysis of DEGs</h2>
@@ -1745,7 +1762,7 @@ goBarplot(gos, gocat = &quot;CC&quot;)
 </code></pre>
 <p><img src="GOslimbarplotMF.png" alt=""></p>
 <div align="center">
-<p><strong>Figure 10:</strong> GO Slim Barplot for MF Ontology.</p>
+<p><strong>Figure 6:</strong> GO Slim Barplot for MF Ontology.</p>
 </div>
 </br>
 <h2 id="clustering-and-heat-maps">Clustering and heat maps</h2>
@@ -1762,7 +1779,7 @@ dev.off()
 <img src="heatmap1.png">
 </center>
 <div align="center">
-<p><strong>Figure 11:</strong> Heat map with hierarchical clustering dendrograms of DEGs.</p>
+<p><strong>Figure 7:</strong> Heat map with hierarchical clustering dendrograms of DEGs.</p>
 </div>
 </br>
 <h1 id="references">References</h1>
@@ -1792,7 +1809,7 @@ dev.off()
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-26: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/7cf5004c3a58564cb91480753fb0e4df686f7588">fix images path; no_render (7cf5004c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-10-28: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/84b68a98e7b5fcd4b6e2e7414b08dbab76828e9e">no_render (84b68a98)</a>
 </div>
 </div>
 
