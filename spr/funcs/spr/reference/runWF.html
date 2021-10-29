@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.32</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
       </span>
     </div>
 
@@ -123,8 +123,10 @@
     <p>Function to execute all the code list specified in SYSargsList object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>runWF</span><span class='op'>(</span><span class='va'>sysargs</span>, steps <span class='op'>=</span> <span class='cn'>NULL</span>, force <span class='op'>=</span> <span class='cn'>FALSE</span>, saveEnv <span class='op'>=</span> <span class='cn'>TRUE</span>, warning.stop <span class='op'>=</span>
-                 <span class='cn'>FALSE</span>, error.stop <span class='op'>=</span> <span class='cn'>TRUE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>runWF</span><span class='op'>(</span><span class='va'>sysargs</span>, steps <span class='op'>=</span> <span class='cn'>NULL</span>, targets <span class='op'>=</span> <span class='cn'>NULL</span>,
+                  force <span class='op'>=</span> <span class='cn'>FALSE</span>, saveEnv <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                  run_step <span class='op'>=</span> <span class='st'>"ALL"</span>, ignore.dep <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                  warning.stop <span class='op'>=</span> <span class='cn'>FALSE</span>, error.stop <span class='op'>=</span> <span class='cn'>TRUE</span>, silent <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,16 +137,36 @@
     </tr>
     <tr>
       <th>steps</th>
-      <td><p>character or numeric. Step name or index. If <code>NULL</code>, all the step will be 
-  executed.</p></td>
+      <td><p>character or numeric. Step name or index. If <code>NULL</code>, all the steps
+    will be executed.</p></td>
+    </tr>
+    <tr>
+      <th>targets</th>
+      <td><p>This option allows selecting which targets file and, by consequence which 
+    command line will be executed for each <code>SYSargs2</code> class step.
+    Default is <code>NULL</code>, in which all command lines will be executed.</p></td>
     </tr>
     <tr>
       <th>force</th>
-      <td><p>Internally, the function checks if the expected <code>output</code> files exist, and it skips the command lines when the respective files exist. If the argument <code>force</code> is set to <code>TRUE</code>, the command line will be executed and the files overwrite. Default is <code>force=FALSE</code>.</p></td>
+      <td><p>Internally, the option checks if the expected <code>output</code> files exist, 
+    and it skips the command lines when the respective files exist. 
+    If the argument <code>force</code> is set to <code>TRUE</code>, the command line will 
+    be executed and the files overwrite. Default is <code>force=FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>saveEnv</th>
-      <td><p>If set to <code>TRUE</code>, the environment will be saved to an RDS file.</p></td>
+      <td><p>If set to <code>TRUE</code>, the environment will be saved to an RDS file. 
+    To check the RDS file location, please use 
+    <code>projectInfo(sysargs)[["envir"]]</code>.</p></td>
+    </tr>
+    <tr>
+      <th>run_step</th>
+      <td><p>character. If the step has "mandatory" or "optional" flag for the execution.
+    When <code>ALL</code>, all the steps will be executed.</p></td>
+    </tr>
+    <tr>
+      <th>ignore.dep</th>
+      <td><p>logical. This option allow to igonore the dependency tree, when <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>warning.stop</th>

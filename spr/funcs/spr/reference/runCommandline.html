@@ -83,7 +83,7 @@ and SYSargs2 object." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.32</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
       </span>
     </div>
 
@@ -162,19 +162,20 @@ and <code>SYSargs2</code> object.</p>
     <tr>
       <th>dir.name</th>
       <td><p>Name of the workflow directory. Default is <code>dir.name=FALSE</code>. Note: This 
-   argument is required when the <code>dir=TRUE</code>.</p></td>
+    argument is required when the <code>dir=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>force</th>
       <td><p>Internally, the function checks if the expected <code>output</code> files exist, 
-   and it skips the command lines when the respective files exist. If the 
-   argument <code>force</code> is set to <code>TRUE</code>, the command line will be 
-   executed and the files overwrite. Default is <code>force=FALSE</code>.</p></td>
+    and it skips the command lines when the respective files exist. If the 
+    argument <code>force</code> is set to <code>TRUE</code>, the command line will be 
+    executed and the files overwrite. Default is <code>force=FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>input_targets</th>
-      <td><p>This option allows the selection of each sample that should be executed. 
-    Default is <code>NULL</code>, in which all the samples will be executed.</p></td>
+      <td><p>This option allows selecting which targets file and, by consequence which
+    command line will be executed. Default is <code>NULL</code>, in which all command 
+    lines will be executed.</p></td>
     </tr>
     <tr>
       <th>...</th>

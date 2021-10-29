@@ -94,7 +94,7 @@ appendStep(sal) <- SYSargsList(
 
 ## Import data to R and perform statistical analysis and visualization 
 
-```{r stats, eval=FALSE, spr='r', spr.dep='gunzip', spr.req='mandatory', spr.ses='rsession'}
+```{r stats, eval=FALSE, spr='r', spr.dep='gunzip', spr.req='optional', spr.ses='rsession'}
 appendStep(sal) <- LineWise(code={
     df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
     df <- do.call(rbind, df)
@@ -104,7 +104,7 @@ appendStep(sal) <- LineWise(code={
     },
     step_name = 'stats',
     dependency = c('gunzip'),
-    run_step = c('mandatory'),
+    run_step = c('optional'),
     run_session = c('rsession'))
 ```
 
