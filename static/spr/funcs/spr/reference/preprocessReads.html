@@ -84,7 +84,7 @@ package to stream through large files in a memory-efficient manner." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -127,7 +127,10 @@ files. The function uses the <code>FastqStreamer</code> function from the <code>
 package to stream through large files in a memory-efficient manner.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>preprocessReads</span><span class='op'>(</span><span class='va'>args</span>, <span class='va'>Fct</span>, batchsize <span class='op'>=</span> <span class='fl'>1e+05</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>preprocessReads</span><span class='op'>(</span>args <span class='op'>=</span> <span class='cn'>NULL</span>,
+                FileName1 <span class='op'>=</span> <span class='cn'>NULL</span>, FileName2 <span class='op'>=</span> <span class='cn'>NULL</span>, 
+                outfile1 <span class='op'>=</span> <span class='cn'>NULL</span>, outfile2 <span class='op'>=</span> <span class='cn'>NULL</span>, 
+                <span class='va'>Fct</span>, batchsize <span class='op'>=</span> <span class='fl'>100000</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,6 +138,22 @@ package to stream through large files in a memory-efficient manner.</p>
     <tr>
       <th>args</th>
       <td><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code>.</p></td>
+    </tr>
+    <tr>
+      <th>FileName1</th>
+      <td><p>Path to input forward fastq file. Defaul is <code>NULL</code>.</p></td>
+    </tr>
+    <tr>
+      <th>FileName2</th>
+      <td><p>Path to input reverse fastq file. Defaul is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>outfile1</th>
+      <td><p>Path to output forward fastq file. Defaul is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>outfile2</th>
+      <td><p>Path to output reverse fastq file. Defaul is <code>NULL</code></p></td>
     </tr>
     <tr>
       <th>Fct</th>
@@ -159,7 +178,7 @@ function.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Writes to files in FASTQ format. Their names are specified by <code><a href='sysargs.html'>outpaths(args)</a></code>.</p>
+    <p>Writes to files in FASTQ format. Their names are specified by <code>outpaths(args)</code>.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Thomas Girke</p>
@@ -168,22 +187,36 @@ function.</p></td>
     <div class='dont-index'><p>FastqStreamer</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Preprocessing of single-end reads</span>
-<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"trim.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span></div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>preprocessReads</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span>, Fct<span class='op'>=</span><span class='st'>"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class='op'>=</span><span class='fl'>100000</span>, overwrite<span class='op'>=</span><span class='cn'>TRUE</span>, compress<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='co'>## Preprocessing of paired-end reads</span>
-<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"trimPE.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targetsPE.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_2.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_2.fastq.gz": No such file or directory</span></div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>preprocessReads</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span>, Fct<span class='op'>=</span><span class='st'>"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class='op'>=</span><span class='fl'>100000</span>, overwrite<span class='op'>=</span><span class='cn'>TRUE</span>, compress<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'>## Preprocessing of single-end reads</span></span>
+<span class='r-in'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/preprocessReads/trim-se"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>trim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targetspath</span>, wf_file<span class='op'>=</span><span class='st'>"trim-se.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"trim-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>trim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>trim</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'>preprocessReads</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>trim</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, Fct<span class='op'>=</span><span class='st'>"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class='op'>=</span><span class='fl'>100000</span>, overwrite<span class='op'>=</span><span class='cn'>TRUE</span>, compress<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Preprocessing of paired-end reads</span></span>
+<span class='r-in'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/preprocessReads/trim-pe"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targetsPE.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>trim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targetspath</span>, wf_file<span class='op'>=</span><span class='st'>"trim-pe.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"trim-pe.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>trim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>trim</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span>FileName1<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, FileName2<span class='op'>=</span><span class='st'>"_FASTQ_PATH2_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>trim</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Slot names/accessors: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       modules: 0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       wf: 0, clt: 1, yamlinput: 6 (inputs)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       input: 18, output: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       cmdlist: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sub Steps:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1. trim-pe (rendered: TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'>preprocessReads</span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>trim</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, Fct<span class='op'>=</span><span class='st'>"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class='op'>=</span><span class='fl'>100000</span>, overwrite<span class='op'>=</span><span class='cn'>TRUE</span>, compress<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

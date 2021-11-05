@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -189,18 +189,34 @@
     <p>Le Zhang and Daniela Cassol</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/spr_simple_wf.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
-#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'></span>
-#&gt; <span class='message'> ---- Actions ----</span></span></div><div class='output co'>#&gt; <span class='message'>Checking chunk SPR option</span></div><div class='output co'>#&gt; <span class='message'>Ignore non-SPR chunks: 17</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.req option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk spr.ses option</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk eval values</span></div><div class='output co'>#&gt; <span class='message'>Resolve step names</span></div><div class='output co'>#&gt; <span class='message'>Check duplicated step names</span></div><div class='output co'>#&gt; <span class='message'>Checking chunk dependencies</span></div><div class='output co'>#&gt; <span class='message'>Use the previous step as dependency for steps without 'spr.dep' options: 25, 37</span></div><div class='output co'>#&gt; <span class='message'>Parse chunk code</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #0000BB;'>---- Succes! Create output ----</span></span></div><div class='output co'>#&gt; <span style='color: #0000BB; font-weight: bold;'>Now importing step 'load_library' 
-#&gt; Now importing step 'export_iris' 
-#&gt; Now importing step 'gzip' 
-#&gt; Now importing step 'gunzip' 
-#&gt; Now importing step 'stats' 
-#&gt; </span></div><div class='input'><span class='fu'>sal2bash</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00; font-weight: bold;'>Success: Make sure the script 'spr_wf.sh' and directory ./spr_bash is there before executing.</span></span></div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/spr_simple_wf.Rmd"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
+<span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, <span class='va'>file_path</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB; font-weight: bold;'>Reading Rmd file</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'> ---- Actions ----</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Checking chunk SPR option</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Ignore non-SPR chunks: 17</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Checking chunk spr.req option</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Checking chunk spr.ses option</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Checking chunk eval values</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Resolve step names</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Check duplicated step names</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Checking chunk dependencies</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Use the previous step as dependency for steps without 'spr.dep' options: 25, 37</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Parse chunk code</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>---- Succes! Create output ----</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB; font-weight: bold;'>Now importing step 'load_library' </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB; font-weight: bold;'>Now importing step 'export_iris' </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB; font-weight: bold;'>Now importing step 'gzip' </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB; font-weight: bold;'>Now importing step 'gunzip' </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB; font-weight: bold;'>Now importing step 'stats' </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>sal2bash</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Success: Make sure the script 'spr_wf.sh' and directory ./spr_bash is there before executing.</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

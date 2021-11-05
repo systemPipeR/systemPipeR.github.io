@@ -85,7 +85,7 @@ following the standard and specification defined on Common Workflow Language (CW
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -168,7 +168,7 @@ following the standard and specification defined on Common Workflow Language (CW
       <th>file</th>
       <td><p>character. Name and path of output files. If set to "default" then the name of 
   the output files will have the pattern <code>&lt;software&gt;.cwl</code> and 
-  <code>&lt;software&gt;.yml</code>, where &lt;software&gt; will be what <code><a href='SYSargsList.html'>baseCommand(x)</a></code> 
+  <code>&lt;software&gt;.yml</code>, where &lt;software&gt; will be what <code>baseCommand(x)</code> 
   returns, when <code>x</code> is an object of class <code>SYSargs2</code>. 
   Also, it creates a subfolder at <code>./param/cwl/</code> with name &lt;software&gt;.</p></td>
     </tr>
@@ -212,8 +212,8 @@ following the standard and specification defined on Common Workflow Language (CW
   for integer, <code>string</code> for string;</p>  
 <p>- Optional: use the keyword <code>out</code> followed the type with a <code>,</code> comma 
   separation to indicate if this argument is also a CWL output;</p>  
-<p>- Then, use <code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code> to separate keywords and default values, any non-space 
-  value after the <code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code> will be treated as the default value;</p>  
+<p>- Then, use <code>:</code> to separate keywords and default values, any non-space 
+  value after the <code>:</code> will be treated as the default value;</p>  
 <p>- If any argument has no default value, just a flag, like <code>--verbose</code>, 
   there no need to add any <code>&lt;...&gt;</code>.</p>  
 <p>- The <code>\</code> is not required, however for consistency it is recommended to add.</p>
@@ -240,64 +240,66 @@ page: https://www.commonwl.org/</p>
 <code>showClass("SYSargs2")</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>command</span> <span class='op'>&lt;-</span> <span class='st'>"
-hisat2 \
-    -S &lt;F, out: ./results/M1A.sam&gt; \
-    -x &lt;F: ./data/tair10.fasta&gt; \
-    -k &lt;int: 1&gt; \
-    -min-intronlen &lt;int: 30&gt; \
-    -max-intronlen &lt;int: 3000&gt; \
-    -threads &lt;int: 4&gt; \
-    -U &lt;F: ./data/SRR446027_1.fastq.gz&gt; \
-    --verbose
-"</span>
-<span class='va'>cmd</span> <span class='op'>&lt;-</span> <span class='fu'>createParam</span><span class='op'>(</span><span class='va'>command</span>, writeParamFiles<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='background-color: #0000BB;'>*****BaseCommand*****
-#&gt; </span>hisat2 
-#&gt; <span style='background-color: #0000BB;'>*****Inputs*****
-#&gt; </span>S:
-#&gt;     type: File
-#&gt;     preF: -S
-#&gt;     yml: ./results/M1A.sam
-#&gt; x:
-#&gt;     type: File
-#&gt;     preF: -x
-#&gt;     yml: ./data/tair10.fasta
-#&gt; k:
-#&gt;     type: int
-#&gt;     preF: -k
-#&gt;     yml: 1
-#&gt; min-intronlen:
-#&gt;     type: int
-#&gt;     preF: -min-intronlen
-#&gt;     yml: 30
-#&gt; max-intronlen:
-#&gt;     type: int
-#&gt;     preF: -max-intronlen
-#&gt;     yml: 3000
-#&gt; threads:
-#&gt;     type: int
-#&gt;     preF: -threads
-#&gt;     yml: 4
-#&gt; U:
-#&gt;     type: File
-#&gt;     preF: -U
-#&gt;     yml: ./data/SRR446027_1.fastq.gz
-#&gt; verbose:
-#&gt;     type: 
-#&gt;     preF: --verbose
-#&gt;     yml: 
-#&gt; <span style='background-color: #0000BB;'>*****Outputs*****
-#&gt; </span>output1:
-#&gt;     type: File
-#&gt;     value: ./results/M1A.sam
-#&gt; <span style='background-color: #0000BB;'>*****Parsed raw command line*****
-#&gt; </span>hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz --verbose  </div><div class='input'><span class='fu'><a href='SYSargsList.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>cmd</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $defaultid
-#&gt; $defaultid$hisat2
-#&gt; [1] "hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz --verbose "
-#&gt; 
-#&gt; </div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>command</span> <span class='op'>&lt;-</span> <span class='st'>"</span>
+<span class='r-in'>hisat2 \</span>
+<span class='r-in'>    -S &lt;F, out: ./results/M1A.sam&gt; \</span>
+<span class='r-in'>    -x &lt;F: ./data/tair10.fasta&gt; \</span>
+<span class='r-in'>    -k &lt;int: 1&gt; \</span>
+<span class='r-in'>    -min-intronlen &lt;int: 30&gt; \</span>
+<span class='r-in'>    -max-intronlen &lt;int: 3000&gt; \</span>
+<span class='r-in'>    -threads &lt;int: 4&gt; \</span>
+<span class='r-in'>    -U &lt;F: ./data/SRR446027_1.fastq.gz&gt; \</span>
+<span class='r-in'>    --verbose</span>
+<span class='r-in'>"</span></span>
+<span class='r-in'><span class='va'>cmd</span> <span class='op'>&lt;-</span> <span class='fu'>createParam</span><span class='op'>(</span><span class='va'>command</span>, writeParamFiles<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='background-color: #0000BB;'>*****BaseCommand*****</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hisat2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='background-color: #0000BB;'>*****Inputs*****</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> S:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: File</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -S</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: ./results/M1A.sam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> x:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: File</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -x</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: ./data/tair10.fasta</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> k:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: int</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -k</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> min-intronlen:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: int</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -min-intronlen</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: 30</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> max-intronlen:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: int</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -max-intronlen</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: 3000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> threads:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: int</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -threads</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> U:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: File</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: -U</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: ./data/SRR446027_1.fastq.gz</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> verbose:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     preF: --verbose</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     yml: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='background-color: #0000BB;'>*****Outputs*****</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> output1:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     type: File</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     value: ./results/M1A.sam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='background-color: #0000BB;'>*****Parsed raw command line*****</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz --verbose  </span>
+<span class='r-in'><span class='fu'><a href='SYSargsList.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>cmd</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $defaultid</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $defaultid$hisat2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz --verbose "</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

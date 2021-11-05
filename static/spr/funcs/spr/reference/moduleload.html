@@ -89,7 +89,7 @@ session." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -163,27 +163,27 @@ session.</p>
     <p>Tyler Backman, Jordan Hayes and Thomas Girke</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## List all available software from the module system</span>
-<span class='va'>avail</span> <span class='op'>&lt;-</span> <span class='fu'>moduleAvail</span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='co'>## List loaded software in the current session</span>
-<span class='fu'>modulelist</span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='co'>## Example for loading a software into the shell environment</span>
-<span class='fu'>moduleload</span><span class='op'>(</span><span class='st'>"hisat2"</span><span class='op'>)</span> 
-<span class='fu'>moduleload</span><span class='op'>(</span><span class='fu'><a href='SYSargs2-class.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span><span class='op'>)</span> 
-
-<span class='co'>## Example for removing software from the shell environment</span>
-<span class='fu'>moduleUnload</span><span class='op'>(</span><span class='st'>"hisat2"</span><span class='op'>)</span>
-
-<span class='co'>## Clear all of the software from the shell's initialization files</span>
-<span class='fu'>moduleClear</span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='co'>## List and load all the software loaded in users default login shell into the current session (default)</span>
-<span class='fu'>moduleInit</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## List all available software from the module system</span></span>
+<span class='r-in'><span class='va'>avail</span> <span class='op'>&lt;-</span> <span class='fu'>moduleAvail</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## List loaded software in the current session</span></span>
+<span class='r-in'><span class='fu'>modulelist</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Example for loading a software into the shell environment</span></span>
+<span class='r-in'><span class='fu'>moduleload</span><span class='op'>(</span><span class='st'>"hisat2"</span><span class='op'>)</span> </span>
+<span class='r-in'><span class='fu'>moduleload</span><span class='op'>(</span><span class='fu'><a href='SYSargs2-class.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Example for removing software from the shell environment</span></span>
+<span class='r-in'><span class='fu'>moduleUnload</span><span class='op'>(</span><span class='st'>"hisat2"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Clear all of the software from the shell's initialization files</span></span>
+<span class='r-in'><span class='fu'>moduleClear</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## List and load all the software loaded in users default login shell into the current session (default)</span></span>
+<span class='r-in'><span class='fu'>moduleInit</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

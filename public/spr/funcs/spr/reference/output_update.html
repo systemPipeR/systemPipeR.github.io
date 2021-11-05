@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -169,124 +169,126 @@
     <div class='dont-index'><p>To check directory name in the <code>input</code> file: <code>yamlinput(WF)$results_path$path</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Construct SYSargs2 object from CWl param, CWL input, and targets files </span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>WF</span>
-</div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
-#&gt;    Slot names/accessors: 
-#&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
-#&gt;       modules: 1
-#&gt;       wf: 0, clt: 1, yamlinput: 7 (inputs)
-#&gt;       input: 18, output: 18
-#&gt;       cmdlist: 18
-#&gt;    Sub Steps:
-#&gt;       1. hisat2-mapping-se (rendered: TRUE)
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'><a href='SYSargs2-class.html'>output</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $M1A
-#&gt; $M1A$`hisat2-mapping-se`
-#&gt; [1] "./results/M1A.sam"
-#&gt; 
-#&gt; 
-#&gt; $M1B
-#&gt; $M1B$`hisat2-mapping-se`
-#&gt; [1] "./results/M1B.sam"
-#&gt; 
-#&gt; 
-#&gt; $A1A
-#&gt; $A1A$`hisat2-mapping-se`
-#&gt; [1] "./results/A1A.sam"
-#&gt; 
-#&gt; 
-#&gt; $A1B
-#&gt; $A1B$`hisat2-mapping-se`
-#&gt; [1] "./results/A1B.sam"
-#&gt; 
-#&gt; 
-#&gt; $V1A
-#&gt; $V1A$`hisat2-mapping-se`
-#&gt; [1] "./results/V1A.sam"
-#&gt; 
-#&gt; 
-#&gt; $V1B
-#&gt; $V1B$`hisat2-mapping-se`
-#&gt; [1] "./results/V1B.sam"
-#&gt; 
-#&gt; 
-#&gt; $M6A
-#&gt; $M6A$`hisat2-mapping-se`
-#&gt; [1] "./results/M6A.sam"
-#&gt; 
-#&gt; 
-#&gt; $M6B
-#&gt; $M6B$`hisat2-mapping-se`
-#&gt; [1] "./results/M6B.sam"
-#&gt; 
-#&gt; 
-#&gt; $A6A
-#&gt; $A6A$`hisat2-mapping-se`
-#&gt; [1] "./results/A6A.sam"
-#&gt; 
-#&gt; 
-#&gt; $A6B
-#&gt; $A6B$`hisat2-mapping-se`
-#&gt; [1] "./results/A6B.sam"
-#&gt; 
-#&gt; 
-#&gt; $V6A
-#&gt; $V6A$`hisat2-mapping-se`
-#&gt; [1] "./results/V6A.sam"
-#&gt; 
-#&gt; 
-#&gt; $V6B
-#&gt; $V6B$`hisat2-mapping-se`
-#&gt; [1] "./results/V6B.sam"
-#&gt; 
-#&gt; 
-#&gt; $M12A
-#&gt; $M12A$`hisat2-mapping-se`
-#&gt; [1] "./results/M12A.sam"
-#&gt; 
-#&gt; 
-#&gt; $M12B
-#&gt; $M12B$`hisat2-mapping-se`
-#&gt; [1] "./results/M12B.sam"
-#&gt; 
-#&gt; 
-#&gt; $A12A
-#&gt; $A12A$`hisat2-mapping-se`
-#&gt; [1] "./results/A12A.sam"
-#&gt; 
-#&gt; 
-#&gt; $A12B
-#&gt; $A12B$`hisat2-mapping-se`
-#&gt; [1] "./results/A12B.sam"
-#&gt; 
-#&gt; 
-#&gt; $V12A
-#&gt; $V12A$`hisat2-mapping-se`
-#&gt; [1] "./results/V12A.sam"
-#&gt; 
-#&gt; 
-#&gt; $V12B
-#&gt; $V12B$`hisat2-mapping-se`
-#&gt; [1] "./results/V12B.sam"
-#&gt; 
-#&gt; </div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>WF</span>, make_bam<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='co'>## Output paths update</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'>output_update</span><span class='op'>(</span><span class='va'>WF</span>, dir<span class='op'>=</span><span class='cn'>FALSE</span>, replace<span class='op'>=</span><span class='cn'>TRUE</span>, extension<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>".sam"</span>, <span class='st'>".bam"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>WF</span>, make_bam<span class='op'>=</span><span class='cn'>TRUE</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='co'>## Output paths update</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'>output_update</span><span class='op'>(</span><span class='va'>WF</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>, replace<span class='op'>=</span><span class='cn'>TRUE</span>, extension<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>".sam"</span>, <span class='st'>".bam"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'>## Construct SYSargs2 object from CWl param, CWL input, and targets files </span></span>
+<span class='r-in'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, </span>
+<span class='r-in'>                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Slot names/accessors: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       modules: 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       wf: 0, clt: 1, yamlinput: 7 (inputs)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       input: 18, output: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       cmdlist: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sub Steps:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1. hisat2-mapping-se (rendered: TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'><a href='SYSargs2-class.html'>output</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/M1A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/M1B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A1A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A1A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/A1A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A1B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A1B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/A1B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V1A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V1A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/V1A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V1B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V1B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/V1B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M6A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M6A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/M6A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M6B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M6B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/M6B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A6A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A6A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/A6A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A6B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A6B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/A6B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V6A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V6A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/V6A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V6B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V6B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/V6B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M12A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M12A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/M12A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M12B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M12B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/M12B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A12A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A12A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/A12A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A12B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $A12B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/A12B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V12A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V12A$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/V12A.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V12B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $V12B$`hisat2-mapping-se`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results/V12B.sam"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>WF</span>, make_bam<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## Output paths update</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'>output_update</span><span class='op'>(</span><span class='va'>WF</span>, dir<span class='op'>=</span><span class='cn'>FALSE</span>, replace<span class='op'>=</span><span class='cn'>TRUE</span>, extension<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span><span class='st'>".sam"</span>, <span class='st'>".bam"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>WF</span>, make_bam<span class='op'>=</span><span class='cn'>TRUE</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## Output paths update</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'>output_update</span><span class='op'>(</span><span class='va'>WF</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>, replace<span class='op'>=</span><span class='cn'>TRUE</span>, extension<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span><span class='st'>".sam"</span>, <span class='st'>".bam"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

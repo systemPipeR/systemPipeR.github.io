@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -134,7 +134,7 @@
     </tr>
     <tr>
       <th>filter</th>
-      <td><p>Named vector with filter cutoffs of format <code><a href='https://rdrr.io/r/base/c.html'>c(Fold=2, FDR=1)</a></code> where <code>Fold</code> refers to the fold change cutoff (unlogged) and <code>FDR</code> to the p-value cutoff.</p></td>
+      <td><p>Named vector with filter cutoffs of format <code>c(Fold=2, FDR=1)</code> where <code>Fold</code> refers to the fold change cutoff (unlogged) and <code>FDR</code> to the p-value cutoff.</p></td>
     </tr>
     <tr>
       <th>plot</th>
@@ -179,27 +179,32 @@ pronounced changes or higher absolute logFC values.</p>
     <div class='dont-index'><p><code>run_edgeR</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.delim</a></span><span class='op'>(</span><span class='va'>targetspath</span>, comment.char <span class='op'>=</span> <span class='st'>"#"</span><span class='op'>)</span>
-<span class='va'>cmp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='readComp.html'>readComp</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='va'>targetspath</span>, format<span class='op'>=</span><span class='st'>"matrix"</span>, delim<span class='op'>=</span><span class='st'>"-"</span><span class='op'>)</span>
-<span class='va'>countfile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"countDFeByg.xls"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>countDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.delim</a></span><span class='op'>(</span><span class='va'>countfile</span>, row.names<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
-<span class='va'>edgeDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_edgeR.html'>run_edgeR</a></span><span class='op'>(</span>countDF<span class='op'>=</span><span class='va'>countDF</span>, targets<span class='op'>=</span><span class='va'>targets</span>, cmp<span class='op'>=</span><span class='va'>cmp</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, independent<span class='op'>=</span><span class='cn'>FALSE</span>, mdsplot<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: edgeR</span></div><div class='output co'>#&gt; Disp = 0.21829 , BCV = 0.4672 </div><div class='input'><span class='va'>pval</span> <span class='op'>&lt;-</span> <span class='va'>edgeDF</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grep</a></span><span class='op'>(</span><span class='st'>"_FDR$"</span>, <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>edgeDF</span><span class='op'>)</span><span class='op'>)</span>, drop<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>]</span>
-<span class='va'>fold</span> <span class='op'>&lt;-</span> <span class='va'>edgeDF</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grep</a></span><span class='op'>(</span><span class='st'>"_logFC$"</span>, <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>edgeDF</span><span class='op'>)</span><span class='op'>)</span>, drop<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>]</span>
-<span class='va'>DEG_list</span> <span class='op'>&lt;-</span> <span class='fu'>filterDEGs</span><span class='op'>(</span>degDF<span class='op'>=</span><span class='va'>edgeDF</span>, filter<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Fold<span class='op'>=</span><span class='fl'>2</span>, FDR<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='filterDEGs-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>DEG_list</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "UporDown" "Up"       "Down"     "Summary" </div><div class='input'><span class='va'>DEG_list</span><span class='op'>$</span><span class='va'>Summary</span>
-</div><div class='output co'>#&gt;         Comparisons Counts_Up_or_Down Counts_Up Counts_Down
-#&gt; M1-A1         M1-A1                 0         0           0
-#&gt; M1-V1         M1-V1                 1         1           0
-#&gt; A1-V1         A1-V1                 1         1           0
-#&gt; M6-A6         M6-A6                 0         0           0
-#&gt; M6-V6         M6-V6                 1         0           1
-#&gt; A6-V6         A6-V6                 2         1           1
-#&gt; M12-A12     M12-A12                 4         2           2
-#&gt; M12-V12     M12-V12                 2         0           2
-#&gt; A12-V12     A12-V12                 1         0           1</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.delim</a></span><span class='op'>(</span><span class='va'>targetspath</span>, comment.char <span class='op'>=</span> <span class='st'>"#"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>cmp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='readComp.html'>readComp</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='va'>targetspath</span>, format<span class='op'>=</span><span class='st'>"matrix"</span>, delim<span class='op'>=</span><span class='st'>"-"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>countfile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"countDFeByg.xls"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>countDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.delim</a></span><span class='op'>(</span><span class='va'>countfile</span>, row.names<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>edgeDF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_edgeR.html'>run_edgeR</a></span><span class='op'>(</span>countDF<span class='op'>=</span><span class='va'>countDF</span>, targets<span class='op'>=</span><span class='va'>targets</span>, cmp<span class='op'>=</span><span class='va'>cmp</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, independent<span class='op'>=</span><span class='cn'>FALSE</span>, mdsplot<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required namespace: edgeR</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Disp = 0.21829 , BCV = 0.4672 </span>
+<span class='r-in'><span class='va'>pval</span> <span class='op'>&lt;-</span> <span class='va'>edgeDF</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/pkg/BiocGenerics/man/grep.html'>grep</a></span><span class='op'>(</span><span class='st'>"_FDR$"</span>, <span class='fu'><a href='https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>edgeDF</span><span class='op'>)</span><span class='op'>)</span>, drop<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>]</span></span>
+<span class='r-in'><span class='va'>fold</span> <span class='op'>&lt;-</span> <span class='va'>edgeDF</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/pkg/BiocGenerics/man/grep.html'>grep</a></span><span class='op'>(</span><span class='st'>"_logFC$"</span>, <span class='fu'><a href='https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>edgeDF</span><span class='op'>)</span><span class='op'>)</span>, drop<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>]</span></span>
+<span class='r-in'><span class='va'>DEG_list</span> <span class='op'>&lt;-</span> <span class='fu'>filterDEGs</span><span class='op'>(</span>degDF<span class='op'>=</span><span class='va'>edgeDF</span>, filter<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span>Fold<span class='op'>=</span><span class='fl'>2</span>, FDR<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='filterDEGs-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>DEG_list</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "UporDown" "Up"       "Down"     "Summary" </span>
+<span class='r-in'><span class='va'>DEG_list</span><span class='op'>$</span><span class='va'>Summary</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         Comparisons Counts_Up_or_Down Counts_Up Counts_Down</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M1-A1         M1-A1                 0         0           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M1-V1         M1-V1                 1         1           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A1-V1         A1-V1                 1         1           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M6-A6         M6-A6                 0         0           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M6-V6         M6-V6                 1         0           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A6-V6         A6-V6                 2         1           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M12-A12     M12-A12                 4         2           2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M12-V12     M12-V12                 2         0           2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A12-V12     A12-V12                 1         0           1</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

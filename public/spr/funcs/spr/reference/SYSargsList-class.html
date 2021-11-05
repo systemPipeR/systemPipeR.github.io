@@ -84,7 +84,7 @@ SYSargsList instances are constructed by the SYSargsList function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -135,7 +135,7 @@ R-based workflow.</p>
             inputvars <span class='op'>=</span> <span class='cn'>NULL</span>, rm_targets_col <span class='op'>=</span> <span class='cn'>NULL</span>, 
             dir <span class='op'>=</span> <span class='cn'>TRUE</span>, dependency <span class='op'>=</span> <span class='cn'>NA</span>, 
             run_step <span class='op'>=</span> <span class='st'>"mandatory"</span>,
-            run_session <span class='op'>=</span> <span class='st'>"rsession"</span>,
+            run_session <span class='op'>=</span> <span class='st'>"local"</span>,
             silent <span class='op'>=</span> <span class='cn'>FALSE</span>, 
             projPath <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"projPath"</span>, <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
@@ -244,7 +244,7 @@ R-based workflow.</p>
     </tr>
     <tr>
       <th>run_session</th>
-      <td><p>character. If the step has "rsession" or "cluster" flag for the execution.</p></td>
+      <td><p>character. If the step has "local" or "remote" flag for the execution.</p></td>
     </tr>
     <tr>
       <th>silent</th>
@@ -402,234 +402,255 @@ R-based workflow.</p>
     <div class='dont-index'><p><code>SYSargs2</code>, <code>LineWise</code>, and <code>SPRproject</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
-#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, 
-                            package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-
-<span class='co'>## Constructor and `appendStep&lt;-`</span>
-<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'>SYSargsList</span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, 
-                               targets<span class='op'>=</span><span class='va'>targetspath</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>,
-                               wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, 
-                               input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
-                               dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, 
-                               package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,
-                               inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>,
-                               SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
-                               
-<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
-                            <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, <span class='st'>'outfiles'</span><span class='op'>)</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>yaml</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/yaml/man/read_yaml.html'>read_yaml</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
-                            <span class='op'>}</span>, 
-                            step_name <span class='op'>=</span> <span class='st'>"R_read"</span>, 
-                            dependency <span class='op'>=</span> <span class='st'>"echo"</span><span class='op'>)</span>
-                   
-<span class='co'>## Accessors</span>
-
-<span class='fu'>stepsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
-#&gt;    Slot names/accessors: 
-#&gt;       targets: 3 (M1...M3), targetsheader: 1 (lines)
-#&gt;       modules: 0
-#&gt;       wf: 1, clt: 1, yamlinput: 3 (inputs)
-#&gt;       input: 3, output: 3
-#&gt;       cmdlist: 3
-#&gt;    Sub Steps:
-#&gt;       1. echo (rendered: TRUE)
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; $R_read
-#&gt; <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span>
-#&gt;     Code Chunk length: 1
-#&gt; </div><div class='input'><span class='fu'>statusWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; DataFrame with 3 rows and 5 columns
-#&gt;       Targets Total_Files Existing_Files Missing_Files     echo
-#&gt;   &lt;character&gt;   &lt;numeric&gt;      &lt;numeric&gt;     &lt;numeric&gt; &lt;factor&gt;
-#&gt; 1          M1           1              0             1  Pending
-#&gt; 2          M2           1              0             1  Pending
-#&gt; 3          M3           1              0             1  Pending
-#&gt; 
-#&gt; $R_read
-#&gt; DataFrame with 1 row and 2 columns
-#&gt;          Step status.summary
-#&gt;   &lt;character&gt;    &lt;character&gt;
-#&gt; 1      R_read        Pending
-#&gt; </div><div class='input'><span class='fu'>targetsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; DataFrame with 3 rows and 2 columns
-#&gt;                Message  SampleName
-#&gt;            &lt;character&gt; &lt;character&gt;
-#&gt; M1        Hello World!          M1
-#&gt; M2          Hello USA!          M2
-#&gt; M3 Hello Bioconductor!          M3
-#&gt; 
-#&gt; $R_read
-#&gt; DataFrame with 0 rows and 0 columns
-#&gt; </div><div class='input'><span class='fu'>outfiles</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; DataFrame with 3 rows and 1 column
-#&gt;           string
-#&gt;      &lt;character&gt;
-#&gt; 1 results/M1.txt
-#&gt; 2 results/M2.txt
-#&gt; 3 results/M3.txt
-#&gt; 
-#&gt; $R_read
-#&gt; DataFrame with 0 rows and 0 columns
-#&gt; </div><div class='input'><span class='fu'>SE</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; class: SummarizedExperiment 
-#&gt; dim: 0 3 
-#&gt; metadata(1): targetsheader
-#&gt; assays(0):
-#&gt; rownames: NULL
-#&gt; rowData names(0):
-#&gt; colnames(3): M1 M2 M3
-#&gt; colData names(2): Message SampleName
-#&gt; 
-#&gt; $R_read
-#&gt; NULL
-#&gt; </div><div class='input'><span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; [1] NA
-#&gt; 
-#&gt; $R_read
-#&gt; [1] "echo"
-#&gt; </div><div class='input'><span class='fu'>projectInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $project
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference"
-#&gt; 
-#&gt; $data
-#&gt; [1] "data"
-#&gt; 
-#&gt; $param
-#&gt; [1] "param"
-#&gt; 
-#&gt; $results
-#&gt; [1] "results"
-#&gt; 
-#&gt; $logsDir
-#&gt; [1] ".SPRproject"
-#&gt; 
-#&gt; $sysargslist
-#&gt; [1] ".SPRproject/SYSargsList.yml"
-#&gt; </div><div class='input'><span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $env
-#&gt; &lt;environment: 0x56365988b0f8&gt;
-#&gt; 
-#&gt; $runOption
-#&gt; $runOption$echo
-#&gt; $runOption$echo$directory
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $runOption$echo$run_step
-#&gt; [1] "mandatory"
-#&gt; 
-#&gt; $runOption$echo$run_session
-#&gt; [1] "rsession"
-#&gt; 
-#&gt; 
-#&gt; $runOption$R_read
-#&gt; $runOption$R_read$directory
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $runOption$R_read$run_step
-#&gt; [1] "mandatory"
-#&gt; 
-#&gt; $runOption$R_read$run_session
-#&gt; [1] "rsession"
-#&gt; 
-#&gt; 
-#&gt; </div><div class='input'>
-<span class='co'>## Methods</span>
-
-<span class='fu'>baseCommand</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; [1] "echo"
-#&gt; </div><div class='input'><span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='st'>"echo"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "M1" "M2" "M3"</div><div class='input'><span class='fu'>stepName</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "echo"   "R_read"</div><div class='input'><span class='fu'>targetsheader</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
-</div><div class='output co'>#&gt; $targetsheader
-#&gt; [1] "# Project ID: SPR Example"
-#&gt; </div><div class='input'><span class='fu'>yamlinput</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
-</div><div class='output co'>#&gt; $message
-#&gt; [1] "_STRING_"
-#&gt; 
-#&gt; $SampleName
-#&gt; [1] "_SAMPLE_"
-#&gt; 
-#&gt; $results_path
-#&gt; $results_path$class
-#&gt; [1] "Directory"
-#&gt; 
-#&gt; $results_path$path
-#&gt; [1] "./results"
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>cmdlist</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, targets<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
-</div><div class='output co'>#&gt; $echo
-#&gt; $echo$M1
-#&gt; $echo$M1$echo
-#&gt; [1] "echo Hello World! &gt; results/M1.txt"
-#&gt; 
-#&gt; 
-#&gt; $echo$M2
-#&gt; $echo$M2$echo
-#&gt; [1] "echo Hello USA! &gt; results/M2.txt"
-#&gt; 
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span>
-</div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_read</span>
-#&gt;     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</div><div class='input'><span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>sal</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x56365988b0f8&gt;
-#&gt; Copying to 'new.env': </div><div class='input'><span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;environment: 0x56365988b0f8&gt;
-#&gt; character(0)</div><div class='input'>
-<span class='co'>## Subset Methods</span>
-
-<span class='va'>sal_sub</span> <span class='op'>&lt;-</span> <span class='fu'>subset</span><span class='op'>(</span><span class='va'>sal</span>, subset_steps<span class='op'>=</span><span class='fl'>1</span>, input_targets<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, keep_steps <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>targetsIn</span> <span class='op'>&lt;-</span> <span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'>## Replacement</span>
-<span class='fu'>renameStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span>
-<span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span>
-<span class='fu'>updateColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"targetsWF"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>targetsIn</span><span class='op'>)</span>
-<span class='fu'>targetsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $new_echo
-#&gt; DataFrame with 3 rows and 2 columns
-#&gt;                Message  SampleName
-#&gt;            &lt;character&gt; &lt;character&gt;
-#&gt; M1        Hello World!          M1
-#&gt; M2          Hello USA!          M2
-#&gt; M3 Hello Bioconductor!          M3
-#&gt; 
-#&gt; $R_read
-#&gt; DataFrame with 3 rows and 1 column
-#&gt;         targetsIn
-#&gt;       &lt;character&gt;
-#&gt; M1 results/M1.txt
-#&gt; M2 results/M2.txt
-#&gt; M3 results/M3.txt
-#&gt; </div><div class='input'>
-<span class='fu'>replaceStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
-                            <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='st'>"Printing a new message"</span>
-                            <span class='op'>}</span>, 
-                            step_name <span class='op'>=</span> <span class='st'>"R_hello"</span>, 
-                            dependency <span class='op'>=</span> <span class='st'>"new_echo"</span><span class='op'>)</span>
-<span class='co'>#yamlinput(sal, step=1, paramName="results_path") &lt;- list(results_path=list(</span>
-<span class='co'>#                                            class="Directory", path="./data"))</span>
-<span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, after <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"log &lt;- log(10)"</span>
-<span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_hello</span>
-#&gt;     log &lt;- log(10)
-#&gt;     hello &lt;- "Printing a new message"</div><div class='input'><span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, line<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span>
-                            <span class='va'>log</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span>
-                            <span class='op'>}</span><span class='op'>)</span>
-<span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #0000BB;'>R_hello</span>
-#&gt;     log &lt;- log(50)
-#&gt;     hello &lt;- "Printing a new message"</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
+<span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, </span>
+<span class='r-in'>                            package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Constructor and `appendStep&lt;-`</span></span>
+<span class='r-in'><span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'>SYSargsList</span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, </span>
+<span class='r-in'>                               targets<span class='op'>=</span><span class='va'>targetspath</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span class='r-in'>                               wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, </span>
+<span class='r-in'>                               input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, </span>
+<span class='r-in'>                               dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, </span>
+<span class='r-in'>                               package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,</span>
+<span class='r-in'>                               inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>,</span>
+<span class='r-in'>                               SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'>                               </span>
+<span class='r-in'><span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span></span>
+<span class='r-in'>                            <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, <span class='st'>'outfiles'</span><span class='op'>)</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>yaml</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/yaml/man/read_yaml.html'>read_yaml</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'>                            <span class='op'>}</span>, </span>
+<span class='r-in'>                            step_name <span class='op'>=</span> <span class='st'>"R_read"</span>, </span>
+<span class='r-in'>                            dependency <span class='op'>=</span> <span class='st'>"echo"</span><span class='op'>)</span></span>
+<span class='r-in'>                   </span>
+<span class='r-in'><span class='co'>## Accessors</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>stepsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Slot names/accessors: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       targets: 3 (M1...M3), targetsheader: 1 (lines)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       modules: 0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       wf: 1, clt: 1, yamlinput: 3 (inputs)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       input: 3, output: 3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       cmdlist: 3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sub Steps:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1. echo (rendered: TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     Code Chunk length: 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>statusWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 3 rows and 5 columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Targets Total_Files Existing_Files Missing_Files     echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   &lt;character&gt;   &lt;numeric&gt;      &lt;numeric&gt;     &lt;numeric&gt; &lt;factor&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1          M1           1              0             1  Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2          M2           1              0             1  Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3          M3           1              0             1  Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 1 row and 2 columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          Step status.summary</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   &lt;character&gt;    &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      R_read        Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>targetsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 3 rows and 2 columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                Message  SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M1        Hello World!          M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M2          Hello USA!          M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M3 Hello Bioconductor!          M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 0 rows and 0 columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>outfiles</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 3 rows and 1 column</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           string</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 results/M1.txt</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 results/M2.txt</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 results/M3.txt</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 0 rows and 0 columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>SE</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> class: SummarizedExperiment </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> dim: 0 3 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> metadata(1): targetsheader</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> assays(0):</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> rownames: NULL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> rowData names(0):</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> colnames(3): M1 M2 M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> colData names(2): Message SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> NULL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>projectInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $project</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "data"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $param</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "param"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "results"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $logsDir</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] ".SPRproject"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $sysargslist</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] ".SPRproject/SYSargsList.yml"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $env</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562676a40e28&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$echo$directory</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$echo$run_step</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$echo$run_session</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$R_read$directory</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$R_read$run_step</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$R_read$run_session</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Methods</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>baseCommand</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>SampleName</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='st'>"echo"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M1" "M2" "M3"</span>
+<span class='r-in'><span class='fu'>stepName</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo"   "R_read"</span>
+<span class='r-in'><span class='fu'>targetsheader</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $targetsheader</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "# Project ID: SPR Example"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>yamlinput</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "_STRING_"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "_SAMPLE_"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results_path</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results_path$class</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Directory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results_path$path</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>cmdlist</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, targets<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo$M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo$M1$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo Hello World! &gt; results/M1.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo$M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo$M2$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo Hello USA! &gt; results/M2.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='co'>## SYSargs2 step</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>R_read</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</span>
+<span class='r-in'><span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>sal</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562676a40e28&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Copying to 'new.env': </span>
+<span class='r-in'><span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562676a40e28&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Subset Methods</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>sal_sub</span> <span class='op'>&lt;-</span> <span class='fu'>subset</span><span class='op'>(</span><span class='va'>sal</span>, subset_steps<span class='op'>=</span><span class='fl'>1</span>, input_targets<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, keep_steps <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targetsIn</span> <span class='op'>&lt;-</span> <span class='fu'>getColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"outfiles"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Replacement</span></span>
+<span class='r-in'><span class='fu'>renameStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span></span>
+<span class='r-in'><span class='fu'>dependency</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"new_echo"</span></span>
+<span class='r-in'><span class='fu'>updateColumn</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"targetsWF"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>targetsIn</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>targetsWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $new_echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 3 rows and 2 columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                Message  SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M1        Hello World!          M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M2          Hello USA!          M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M3 Hello Bioconductor!          M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 3 rows and 1 column</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         targetsIn</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M1 results/M1.txt</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M2 results/M2.txt</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M3 results/M3.txt</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>replaceStep</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span></span>
+<span class='r-in'>                            <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='st'>"Printing a new message"</span></span>
+<span class='r-in'>                            <span class='op'>}</span>, </span>
+<span class='r-in'>                            step_name <span class='op'>=</span> <span class='st'>"R_hello"</span>, </span>
+<span class='r-in'>                            dependency <span class='op'>=</span> <span class='st'>"new_echo"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>#yamlinput(sal, step=1, paramName="results_path") &lt;- list(results_path=list(</span></span>
+<span class='r-in'><span class='co'>#                                            class="Directory", path="./data"))</span></span>
+<span class='r-in'><span class='fu'>appendCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, after <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"log &lt;- log(10)"</span></span>
+<span class='r-in'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>R_hello</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     log &lt;- log(10)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     hello &lt;- "Printing a new message"</span>
+<span class='r-in'><span class='fu'>replaceCodeLine</span><span class='op'>(</span><span class='va'>sal</span>, step<span class='op'>=</span><span class='fl'>2</span>, line<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LineWise-class.html'>LineWise</a></span><span class='op'>(</span>code <span class='op'>=</span> <span class='op'>{</span></span>
+<span class='r-in'>                            <span class='va'>log</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span></span>
+<span class='r-in'>                            <span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>codeLine</span><span class='op'>(</span><span class='va'>sal</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>R_hello</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     log &lt;- log(50)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     hello &lt;- "Printing a new message"</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

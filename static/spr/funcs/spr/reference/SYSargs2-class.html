@@ -92,7 +92,7 @@ any combination of command-line or R-based software." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -220,217 +220,234 @@ any combination of command-line or R-based software.</p>
     <div class='dont-index'><p><code>loadWF</code> and <code>renderWF</code> and <code>runCommandline</code> and <code>clusterRun</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"SYSargs2"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Class "SYSargs2" [package "systemPipeR"]
-#&gt; 
-#&gt; Slots:
-#&gt;                                                                               
-#&gt; Name:            targets     targetsheader           modules                wf
-#&gt; Class:              list              list              list              list
-#&gt;                                                                               
-#&gt; Name:                clt         yamlinput           cmdlist             input
-#&gt; Class:              list              list              list              list
-#&gt;                                                                               
-#&gt; Name:             output             files         inputvars          cmdToCwl
-#&gt; Class:              list              list              list              list
-#&gt;                                           
-#&gt; Name:             status internal_outfiles
-#&gt; Class:              list              list</div><div class='input'>
-<span class='co'>## Construct SYSargs2 object from CWl param, CWL input, and targets files </span>
-<span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targetspath</span>, 
-                  wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
-                  dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>WF</span>
-</div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
-#&gt;    Slot names/accessors: 
-#&gt;       targets: 3 (M1...M3), targetsheader: 1 (lines)
-#&gt;       modules: 0
-#&gt;       wf: 1, clt: 1, yamlinput: 3 (inputs)
-#&gt;       input: 3, output: 3
-#&gt;       cmdlist: 3
-#&gt;    Sub Steps:
-#&gt;       1. echo (rendered: TRUE)
-#&gt; 
-#&gt; </div><div class='input'>
-<span class='co'>## Methods</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "targets"           "targetsheader"     "modules"          
-#&gt;  [4] "wf"                "clt"               "yamlinput"        
-#&gt;  [7] "cmdlist"           "input"             "output"           
-#&gt; [10] "files"             "inputvars"         "cmdToCwl"         
-#&gt; [13] "status"            "internal_outfiles"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 3</div><div class='input'><span class='fu'><a href='SYSargsList.html'>baseCommand</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "echo"</div><div class='input'><span class='fu'><a href='SYSargsList.html'>SampleName</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "M1" "M2" "M3"</div><div class='input'>
-<span class='co'>## Accessors</span>
-<span class='fu'>targets</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $M1
-#&gt; $M1$Message
-#&gt; [1] "Hello World!"
-#&gt; 
-#&gt; $M1$SampleName
-#&gt; [1] "M1"
-#&gt; 
-#&gt; 
-#&gt; $M2
-#&gt; $M2$Message
-#&gt; [1] "Hello USA!"
-#&gt; 
-#&gt; $M2$SampleName
-#&gt; [1] "M2"
-#&gt; 
-#&gt; 
-#&gt; $M3
-#&gt; $M3$Message
-#&gt; [1] "Hello Bioconductor!"
-#&gt; 
-#&gt; $M3$SampleName
-#&gt; [1] "M3"
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'><a href='SYSargsList.html'>targetsheader</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $targetsheader
-#&gt; [1] "# Project ID: SPR Example"
-#&gt; </div><div class='input'><span class='fu'>modules</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; character(0)</div><div class='input'><span class='fu'><a href='SYSargsList.html'>yamlinput</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $message
-#&gt; [1] "_STRING_"
-#&gt; 
-#&gt; $SampleName
-#&gt; [1] "_SAMPLE_"
-#&gt; 
-#&gt; $results_path
-#&gt; $results_path$class
-#&gt; [1] "Directory"
-#&gt; 
-#&gt; $results_path$path
-#&gt; [1] "./results"
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'><a href='SYSargsList.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $M1
-#&gt; $M1$echo
-#&gt; [1] "echo Hello World! &gt; results/M1.txt"
-#&gt; 
-#&gt; 
-#&gt; $M2
-#&gt; $M2$echo
-#&gt; [1] "echo Hello USA! &gt; results/M2.txt"
-#&gt; 
-#&gt; 
-#&gt; $M3
-#&gt; $M3$echo
-#&gt; [1] "echo Hello Bioconductor! &gt; results/M3.txt"
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>input</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $M1
-#&gt; $M1$Message
-#&gt; [1] "Hello World!"
-#&gt; 
-#&gt; $M1$SampleName
-#&gt; [1] "M1"
-#&gt; 
-#&gt; 
-#&gt; $M2
-#&gt; $M2$Message
-#&gt; [1] "Hello USA!"
-#&gt; 
-#&gt; $M2$SampleName
-#&gt; [1] "M2"
-#&gt; 
-#&gt; 
-#&gt; $M3
-#&gt; $M3$Message
-#&gt; [1] "Hello Bioconductor!"
-#&gt; 
-#&gt; $M3$SampleName
-#&gt; [1] "M3"
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $M1
-#&gt; $M1$echo
-#&gt; [1] "results/M1.txt"
-#&gt; 
-#&gt; 
-#&gt; $M2
-#&gt; $M2$echo
-#&gt; [1] "results/M2.txt"
-#&gt; 
-#&gt; 
-#&gt; $M3
-#&gt; $M3$echo
-#&gt; [1] "results/M3.txt"
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>files</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $cwl
-#&gt; [1] "example/workflow_example.cwl"
-#&gt; 
-#&gt; $yml
-#&gt; [1] "example/example.yml"
-#&gt; 
-#&gt; $dir_path
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl"
-#&gt; 
-#&gt; $steps
-#&gt; [1] "echo"
-#&gt; 
-#&gt; $cltpaths
-#&gt;                                                                          example 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.cwl" 
-#&gt; 
-#&gt; $output_names
-#&gt; example/example.cwl 
-#&gt;            "string" 
-#&gt; 
-#&gt; $targets
-#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt"
-#&gt; 
-#&gt; $id
-#&gt; [1] "SampleName"
-#&gt; </div><div class='input'><span class='fu'>inputvars</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $Message
-#&gt; [1] "_STRING_"
-#&gt; 
-#&gt; $SampleName
-#&gt; [1] "_SAMPLE_"
-#&gt; </div><div class='input'><span class='fu'>cmdToCwl</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; list()</div><div class='input'><span class='fu'>status</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $status.summary
-#&gt; [1] "Pending"
-#&gt; 
-#&gt; $status.completed
-#&gt;   Targets Total_Files Existing_Files Missing_Files    echo
-#&gt; 1      M1           1              0             1 Pending
-#&gt; 2      M2           1              0             1 Pending
-#&gt; 3      M3           1              0             1 Pending
-#&gt; 
-#&gt; $status.time
-#&gt; data frame with 0 columns and 0 rows
-#&gt; </div><div class='input'>
-<span class='co'>## The subsetting operator '[' allows to select specific command-line/sample</span>
-<span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='va'>WF</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>
-
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Execute SYSargs2 on single machine</span>
-<span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span><span class='va'>WF2</span><span class='op'>)</span>
-<span class='op'>}</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Execute SYSargs2 on multiple machines of a compute cluster. The following</span>
-<span class='co'>## example uses the conf and template files for the Slurm scheduler. Please </span>
-<span class='co'>## read the instructions on how to obtain the corresponding files for other schedulers.  </span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-<span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fl'>4</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> 
-<span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, 
-                  template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>2</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span>
-
-<span class='co'>## Monitor progress of submitted jobs</span>
-<span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span>
-
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"SYSargs2"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class "SYSargs2" [package "systemPipeR"]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Slots:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:            targets     targetsheader           modules                wf</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:              list              list              list              list</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:                clt         yamlinput           cmdlist             input</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:              list              list              list              list</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:             output             files         inputvars          cmdToCwl</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:              list              list              list              list</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:             status internal_outfiles</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:              list              list</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Construct SYSargs2 object from CWl param, CWL input, and targets files </span></span>
+<span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targetspath</span>, </span>
+<span class='r-in'>                  wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, </span>
+<span class='r-in'>                  input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, </span>
+<span class='r-in'>                  dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Slot names/accessors: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       targets: 3 (M1...M3), targetsheader: 1 (lines)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       modules: 0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       wf: 1, clt: 1, yamlinput: 3 (inputs)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       input: 3, output: 3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       cmdlist: 3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sub Steps:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1. echo (rendered: TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Methods</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "targets"           "targetsheader"     "modules"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "wf"                "clt"               "yamlinput"        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "cmdlist"           "input"             "output"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "files"             "inputvars"         "cmdToCwl"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "status"            "internal_outfiles"</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 3</span>
+<span class='r-in'><span class='fu'><a href='SYSargsList.html'>baseCommand</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo"</span>
+<span class='r-in'><span class='fu'><a href='SYSargsList.html'>SampleName</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M1" "M2" "M3"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Accessors</span></span>
+<span class='r-in'><span class='fu'>targets</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1$Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hello World!"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1$SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M1"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2$Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hello USA!"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2$SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M2"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3$Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hello Bioconductor!"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3$SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M3"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'><a href='SYSargsList.html'>targetsheader</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $targetsheader</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "# Project ID: SPR Example"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>modules</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-in'><span class='fu'><a href='SYSargsList.html'>yamlinput</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "_STRING_"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "_SAMPLE_"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results_path</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results_path$class</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Directory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $results_path$path</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "./results"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'><a href='SYSargsList.html'>cmdlist</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo Hello World! &gt; results/M1.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo Hello USA! &gt; results/M2.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo Hello Bioconductor! &gt; results/M3.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>input</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1$Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hello World!"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1$SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M1"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2$Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hello USA!"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2$SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M2"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3$Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hello Bioconductor!"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3$SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M3"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M1$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "results/M1.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M2$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "results/M2.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $M3$echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "results/M3.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>files</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $cwl</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "example/workflow_example.cwl"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $yml</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "example/example.yml"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $dir_path</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $steps</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "echo"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $cltpaths</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                          example </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.cwl" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $output_names</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> example/example.cwl </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            "string" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $targets</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $id</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "SampleName"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>inputvars</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $Message</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "_STRING_"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $SampleName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "_SAMPLE_"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>cmdToCwl</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> list()</span>
+<span class='r-in'><span class='fu'>status</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $status.summary</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Pending"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $status.completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Targets Total_Files Existing_Files Missing_Files    echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      M1           1              0             1 Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      M2           1              0             1 Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      M3           1              0             1 Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $status.time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## The subsetting operator '[' allows to select specific command-line/sample</span></span>
+<span class='r-in'><span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='va'>WF</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Execute SYSargs2 on single machine</span></span>
+<span class='r-in'><span class='va'>WF2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span><span class='va'>WF2</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Execute SYSargs2 on multiple machines of a compute cluster. The following</span></span>
+<span class='r-in'><span class='co'>## example uses the conf and template files for the Slurm scheduler. Please </span></span>
+<span class='r-in'><span class='co'>## read the instructions on how to obtain the corresponding files for other schedulers.  </span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>".batchtools.conf.R"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"batchtools.slurm.tmpl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>resources</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>walltime<span class='op'>=</span><span class='fl'>120</span>, ntasks<span class='op'>=</span><span class='fl'>1</span>, ncpus<span class='op'>=</span><span class='fl'>4</span>, memory<span class='op'>=</span><span class='fl'>1024</span><span class='op'>)</span> </span>
+<span class='r-in'><span class='va'>reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='clusterRun.html'>clusterRun</a></span><span class='op'>(</span><span class='va'>WF</span>, FUN <span class='op'>=</span> <span class='va'>runCommandline</span>, conffile<span class='op'>=</span><span class='st'>".batchtools.conf.R"</span>, </span>
+<span class='r-in'>                  template<span class='op'>=</span><span class='st'>"batchtools.slurm.tmpl"</span>, Njobs<span class='op'>=</span><span class='fl'>2</span>, runid<span class='op'>=</span><span class='st'>"01"</span>, resourceList<span class='op'>=</span><span class='va'>resources</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Monitor progress of submitted jobs</span></span>
+<span class='r-in'><span class='fu'>getStatus</span><span class='op'>(</span>reg<span class='op'>=</span><span class='va'>reg</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

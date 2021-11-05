@@ -91,7 +91,7 @@ transcripts(txdb, c(&quot;tx_name&quot;, &quot;gene_id&quot;, &quot;tx_type&quot
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@ reduced form.</p>
 <code>transcript</code> types. The latter contains as many transcript types as
 available in the <code>tx_type</code> column when extracting transcripts from
 <code>TxDb</code> objects as follows: 
-<code><a href='https://rdrr.io/pkg/GenomicFeatures/man/transcripts.html'>transcripts(txdb, c("tx_name", "gene_id", "tx_type"))</a></code></p>
+<code>transcripts(txdb, c("tx_name", "gene_id", "tx_type"))</code></p>
     </div>
 
     <pre class="usage"><span class='fu'>genFeatures</span><span class='op'>(</span><span class='va'>txdb</span>, featuretype <span class='op'>=</span> <span class='st'>"all"</span>, <span class='va'>reduce_ranges</span>, upstream <span class='op'>=</span> <span class='fl'>1000</span>, downstream <span class='op'>=</span> <span class='fl'>0</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
@@ -198,100 +198,112 @@ underscore.</p>
 the <code>GenomicFeatures</code> package.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Sample from GenomicFeatures package</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://bioconductor.org/packages/GenomicFeatures'>GenomicFeatures</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: AnnotationDbi</span></div><div class='input'><span class='va'>gffFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"GFF3_files"</span>, <span class='st'>"a.gff3"</span>, package<span class='op'>=</span><span class='st'>"GenomicFeatures"</span><span class='op'>)</span>
-<span class='va'>txdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/GenomicFeatures/man/makeTxDbFromGFF.html'>makeTxDbFromGFF</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='va'>gffFile</span>, format<span class='op'>=</span><span class='st'>"gff3"</span>, organism<span class='op'>=</span><span class='st'>"Solanum lycopersicum"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Import genomic features from the file as a GRanges object ... </span></div><div class='output co'>#&gt; <span class='message'>OK</span></div><div class='output co'>#&gt; <span class='message'>Prepare the 'metadata' data frame ... </span></div><div class='output co'>#&gt; <span class='message'>OK</span></div><div class='output co'>#&gt; <span class='message'>Make the TxDb object ... </span></div><div class='output co'>#&gt; <span class='warning'>Warning: The "phase" metadata column contains non-NA values for features of type</span>
-#&gt; <span class='warning'>  exon. This information was ignored.</span></div><div class='output co'>#&gt; <span class='message'>OK</span></div><div class='input'><span class='va'>feat</span> <span class='op'>&lt;-</span> <span class='fu'>genFeatures</span><span class='op'>(</span><span class='va'>txdb</span>, featuretype<span class='op'>=</span><span class='st'>"all"</span>, reduce_ranges<span class='op'>=</span><span class='cn'>FALSE</span>, upstream<span class='op'>=</span><span class='fl'>1000</span>, downstream<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Created feature ranges: mRNA 
-#&gt; Created feature ranges: promoter 
-#&gt; Created feature ranges: intron 
-#&gt; Created feature ranges: exon 
-#&gt; Created feature ranges: cds 
-#&gt; Created feature ranges: fiveUTR 
-#&gt; Created feature ranges: threeUTR 
-#&gt; Created feature ranges: intergenic </div><div class='input'>
-<span class='co'>## List extracted feature types</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "mRNA"       "promoter"   "intron"     "exon"       "cds"       
-#&gt; [6] "fiveUTR"    "threeUTR"   "intergenic"</div><div class='input'>
-<span class='co'>## Obtain feature lists by genes, here for promoter</span>
-<span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>$</span><span class='va'>promoter</span>, <span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='fu'>mcols</span><span class='op'>(</span><span class='va'>feat</span><span class='op'>$</span><span class='va'>promoter</span><span class='op'>)</span><span class='op'>$</span><span class='va'>feature_by</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; GRangesList object of length 488:
-#&gt; $Solyc00g005000.2
-#&gt; GRanges object with 1 range and 3 metadata columns:
-#&gt;                        seqnames      ranges strand |       feature_by
-#&gt;                           &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;
-#&gt;   Solyc00g005000.2.1 SL2.40ch00 15437-16436      + | Solyc00g005000.2
-#&gt;                          featuretype_id featuretype
-#&gt;                             &lt;character&gt; &lt;character&gt;
-#&gt;   Solyc00g005000.2.1 Solyc00g005000.2.1    promoter
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths
-#&gt; 
-#&gt; $Solyc00g005020.1
-#&gt; GRanges object with 1 range and 3 metadata columns:
-#&gt;                        seqnames      ranges strand |       feature_by
-#&gt;                           &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;
-#&gt;   Solyc00g005020.1.1 SL2.40ch00 67062-68061      + | Solyc00g005020.1
-#&gt;                          featuretype_id featuretype
-#&gt;                             &lt;character&gt; &lt;character&gt;
-#&gt;   Solyc00g005020.1.1 Solyc00g005020.1.1    promoter
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths
-#&gt; 
-#&gt; $Solyc00g005040.2
-#&gt; GRanges object with 1 range and 3 metadata columns:
-#&gt;                        seqnames        ranges strand |       feature_by
-#&gt;                           &lt;Rle&gt;     &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;
-#&gt;   Solyc00g005040.2.1 SL2.40ch00 549920-550919      + | Solyc00g005040.2
-#&gt;                          featuretype_id featuretype
-#&gt;                             &lt;character&gt; &lt;character&gt;
-#&gt;   Solyc00g005040.2.1 Solyc00g005040.2.1    promoter
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths
-#&gt; 
-#&gt; ...
-#&gt; &lt;485 more elements&gt;</div><div class='input'>
-<span class='co'>## Return all features in single GRanges object</span>
-<span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; GRanges object with 4886 ranges and 3 metadata columns:
-#&gt;                    seqnames            ranges strand |       feature_by
-#&gt;                       &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;
-#&gt;             mRNA SL2.40ch00       16437-18189      + | Solyc00g005000.2
-#&gt;             mRNA SL2.40ch00       68062-68764      + | Solyc00g005020.1
-#&gt;             mRNA SL2.40ch00     550920-551576      + | Solyc00g005040.2
-#&gt;             mRNA SL2.40ch00   1115784-1117712      + | Solyc00g005100.1
-#&gt;             mRNA SL2.40ch00   1204073-1205342      + | Solyc00g005150.1
-#&gt;              ...        ...               ...    ... .              ...
-#&gt;   intergenic.479 SL2.40ch00 13647836-13649254      * |    INTER00000479
-#&gt;   intergenic.480 SL2.40ch00 13650638-13663835      * |    INTER00000480
-#&gt;   intergenic.481 SL2.40ch00 13666166-13763879      * |    INTER00000481
-#&gt;   intergenic.482 SL2.40ch00 13767947-13768659      * |    INTER00000482
-#&gt;   intergenic.483 SL2.40ch00 13769332-13784265      * |    INTER00000483
-#&gt;                          featuretype_id featuretype
-#&gt;                             &lt;character&gt; &lt;character&gt;
-#&gt;             mRNA     Solyc00g005000.2.1        mRNA
-#&gt;             mRNA     Solyc00g005020.1.1        mRNA
-#&gt;             mRNA     Solyc00g005040.2.1        mRNA
-#&gt;             mRNA     Solyc00g005100.1.1        mRNA
-#&gt;             mRNA     Solyc00g005150.1.1        mRNA
-#&gt;              ...                    ...         ...
-#&gt;   intergenic.479 Solyc00g050030.1__So..  intergenic
-#&gt;   intergenic.480 Solyc00g050130.1__So..  intergenic
-#&gt;   intergenic.481 Solyc00g050430.2__So..  intergenic
-#&gt;   intergenic.482 Solyc00g052430.2_Sol..  intergenic
-#&gt;   intergenic.483 Solyc00g052540.1__So..  intergenic
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Sample from systemPipeRdata package</span>
-<span class='va'>file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/annotation"</span>, <span class='st'>"tair10.gff"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span>
-<span class='va'>txdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/GenomicFeatures/man/makeTxDbFromGFF.html'>makeTxDbFromGFF</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='va'>file</span>, format<span class='op'>=</span><span class='st'>"gff3"</span>, organism<span class='op'>=</span><span class='st'>"Arabidopsis"</span><span class='op'>)</span>
-<span class='va'>feat</span> <span class='op'>&lt;-</span> <span class='fu'>genFeatures</span><span class='op'>(</span><span class='va'>txdb</span>, featuretype<span class='op'>=</span><span class='st'>"all"</span>, reduce_ranges<span class='op'>=</span><span class='cn'>TRUE</span>, upstream<span class='op'>=</span><span class='fl'>1000</span>, downstream<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'>## Sample from GenomicFeatures package</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://bioconductor.org/packages/GenomicFeatures'>GenomicFeatures</a></span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: AnnotationDbi</span>
+<span class='r-in'><span class='va'>gffFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"GFF3_files"</span>, <span class='st'>"a.gff3"</span>, package<span class='op'>=</span><span class='st'>"GenomicFeatures"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>txdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/GenomicFeatures/man/makeTxDbFromGFF.html'>makeTxDbFromGFF</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='va'>gffFile</span>, format<span class='op'>=</span><span class='st'>"gff3"</span>, organism<span class='op'>=</span><span class='st'>"Solanum lycopersicum"</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Import genomic features from the file as a GRanges object ... </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> OK</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Prepare the 'metadata' data frame ... </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> OK</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Make the TxDb object ... </span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>The "phase" metadata column contains non-NA values for features of type</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   exon. This information was ignored.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> OK</span>
+<span class='r-in'><span class='va'>feat</span> <span class='op'>&lt;-</span> <span class='fu'>genFeatures</span><span class='op'>(</span><span class='va'>txdb</span>, featuretype<span class='op'>=</span><span class='st'>"all"</span>, reduce_ranges<span class='op'>=</span><span class='cn'>FALSE</span>, upstream<span class='op'>=</span><span class='fl'>1000</span>, downstream<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: mRNA </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: promoter </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: intron </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: exon </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: cds </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: fiveUTR </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: threeUTR </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Created feature ranges: intergenic </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## List extracted feature types</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mRNA"       "promoter"   "intron"     "exon"       "cds"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [6] "fiveUTR"    "threeUTR"   "intergenic"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Obtain feature lists by genes, here for promoter</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/splitAsList.html'>split</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>$</span><span class='va'>promoter</span>, <span class='fu'><a href='https://rdrr.io/pkg/BiocGenerics/man/unlist.html'>unlist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>mcols</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>$</span><span class='va'>promoter</span><span class='op'>)</span><span class='op'>$</span><span class='va'>feature_by</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRangesList object of length 488:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $Solyc00g005000.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 1 range and 3 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                        seqnames      ranges strand |       feature_by</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Solyc00g005000.2.1 SL2.40ch00 15437-16436      + | Solyc00g005000.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          featuretype_id featuretype</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                             &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Solyc00g005000.2.1 Solyc00g005000.2.1    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $Solyc00g005020.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 1 range and 3 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                        seqnames      ranges strand |       feature_by</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Solyc00g005020.1.1 SL2.40ch00 67062-68061      + | Solyc00g005020.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          featuretype_id featuretype</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                             &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Solyc00g005020.1.1 Solyc00g005020.1.1    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $Solyc00g005040.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 1 range and 3 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                        seqnames        ranges strand |       feature_by</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           &lt;Rle&gt;     &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Solyc00g005040.2.1 SL2.40ch00 549920-550919      + | Solyc00g005040.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          featuretype_id featuretype</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                             &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Solyc00g005040.2.1 Solyc00g005040.2.1    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;485 more elements&gt;</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Return all features in single GRanges object</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/BiocGenerics/man/unlist.html'>unlist</a></span><span class='op'>(</span><span class='va'>feat</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 4886 ranges and 3 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                    seqnames            ranges strand |       feature_by</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                       &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;CharacterList&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA SL2.40ch00       16437-18189      + | Solyc00g005000.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA SL2.40ch00       68062-68764      + | Solyc00g005020.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA SL2.40ch00     550920-551576      + | Solyc00g005040.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA SL2.40ch00   1115784-1117712      + | Solyc00g005100.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA SL2.40ch00   1204073-1205342      + | Solyc00g005150.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              ...        ...               ...    ... .              ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.479 SL2.40ch00 13647836-13649254      * |    INTER00000479</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.480 SL2.40ch00 13650638-13663835      * |    INTER00000480</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.481 SL2.40ch00 13666166-13763879      * |    INTER00000481</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.482 SL2.40ch00 13767947-13768659      * |    INTER00000482</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.483 SL2.40ch00 13769332-13784265      * |    INTER00000483</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          featuretype_id featuretype</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                             &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA     Solyc00g005000.2.1        mRNA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA     Solyc00g005020.1.1        mRNA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA     Solyc00g005040.2.1        mRNA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA     Solyc00g005100.1.1        mRNA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             mRNA     Solyc00g005150.1.1        mRNA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              ...                    ...         ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.479 Solyc00g050030.1__So..  intergenic</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.480 Solyc00g050130.1__So..  intergenic</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.481 Solyc00g050430.2__So..  intergenic</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.482 Solyc00g052430.2_Sol..  intergenic</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   intergenic.483 Solyc00g052540.1__So..  intergenic</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Sample from systemPipeRdata package</span></span>
+<span class='r-in'><span class='va'>file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/annotation"</span>, <span class='st'>"tair10.gff"</span>, package<span class='op'>=</span><span class='st'>"systemPipeRdata"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>txdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/GenomicFeatures/man/makeTxDbFromGFF.html'>makeTxDbFromGFF</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='va'>file</span>, format<span class='op'>=</span><span class='st'>"gff3"</span>, organism<span class='op'>=</span><span class='st'>"Arabidopsis"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>feat</span> <span class='op'>&lt;-</span> <span class='fu'>genFeatures</span><span class='op'>(</span><span class='va'>txdb</span>, featuretype<span class='op'>=</span><span class='st'>"all"</span>, reduce_ranges<span class='op'>=</span><span class='cn'>TRUE</span>, upstream<span class='op'>=</span><span class='fl'>1000</span>, downstream<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

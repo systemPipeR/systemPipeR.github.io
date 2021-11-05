@@ -96,7 +96,7 @@ software." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -209,265 +209,303 @@ software.</p>
     <div class='dont-index'><p><code>systemArgs</code> and <code>runCommandline</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"SYSargs"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Class "SYSargs" [package "systemPipeR"]
-#&gt; 
-#&gt; Slots:
-#&gt;                                                                             
-#&gt; Name:      targetsin    targetsout targetsheader       modules      software
-#&gt; Class:    data.frame    data.frame     character     character     character
-#&gt;                                                                             
-#&gt; Name:          cores         other     reference       results       infile1
-#&gt; Class:       numeric     character     character     character     character
-#&gt;                                                               
-#&gt; Name:        infile2      outfile1       sysargs      outpaths
-#&gt; Class:     character     character     character     character</div><div class='input'><span class='co'>## Construct SYSargs object from param and targets files </span>
-<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"tophat.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span></div><div class='input'><span class='va'>args</span>
-</div><div class='output co'>#&gt; An instance of 'SYSargs' for running 'tophat' on 18 samples </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>targetsin</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>targetsout</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargsList.html'>targetsheader</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; 
-</div><div class='output co'>#&gt;  [1] "targetsin"     "targetsout"    "targetsheader" "modules"      
-#&gt;  [5] "software"      "cores"         "other"         "reference"    
-#&gt;  [9] "results"       "infile1"       "infile2"       "outfile1"     
-#&gt; [13] "sysargs"       "outpaths"     </div><div class='output co'>#&gt;                       FileName SampleName Factor SampleLong Experiment
-#&gt; 1  ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A          1
-#&gt; 2  ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B          1
-#&gt; 3  ./data/SRR446029_1.fastq.gz        A1A     A1   Avr.1h.A          1
-#&gt; 4  ./data/SRR446030_1.fastq.gz        A1B     A1   Avr.1h.B          1
-#&gt; 5  ./data/SRR446031_1.fastq.gz        V1A     V1   Vir.1h.A          1
-#&gt; 6  ./data/SRR446032_1.fastq.gz        V1B     V1   Vir.1h.B          1
-#&gt; 7  ./data/SRR446033_1.fastq.gz        M6A     M6  Mock.6h.A          1
-#&gt; 8  ./data/SRR446034_1.fastq.gz        M6B     M6  Mock.6h.B          1
-#&gt; 9  ./data/SRR446035_1.fastq.gz        A6A     A6   Avr.6h.A          1
-#&gt; 10 ./data/SRR446036_1.fastq.gz        A6B     A6   Avr.6h.B          1
-#&gt; 11 ./data/SRR446037_1.fastq.gz        V6A     V6   Vir.6h.A          1
-#&gt; 12 ./data/SRR446038_1.fastq.gz        V6B     V6   Vir.6h.B          1
-#&gt; 13 ./data/SRR446039_1.fastq.gz       M12A    M12 Mock.12h.A          1
-#&gt; 14 ./data/SRR446040_1.fastq.gz       M12B    M12 Mock.12h.B          1
-#&gt; 15 ./data/SRR446041_1.fastq.gz       A12A    A12  Avr.12h.A          1
-#&gt; 16 ./data/SRR446042_1.fastq.gz       A12B    A12  Avr.12h.B          1
-#&gt; 17 ./data/SRR446043_1.fastq.gz       V12A    V12  Vir.12h.A          1
-#&gt; 18 ./data/SRR446044_1.fastq.gz       V12B    V12  Vir.12h.B          1
-#&gt;           Date
-#&gt; 1  23-Mar-2012
-#&gt; 2  23-Mar-2012
-#&gt; 3  23-Mar-2012
-#&gt; 4  23-Mar-2012
-#&gt; 5  23-Mar-2012
-#&gt; 6  23-Mar-2012
-#&gt; 7  23-Mar-2012
-#&gt; 8  23-Mar-2012
-#&gt; 9  23-Mar-2012
-#&gt; 10 23-Mar-2012
-#&gt; 11 23-Mar-2012
-#&gt; 12 23-Mar-2012
-#&gt; 13 23-Mar-2012
-#&gt; 14 23-Mar-2012
-#&gt; 15 23-Mar-2012
-#&gt; 16 23-Mar-2012
-#&gt; 17 23-Mar-2012
-#&gt; 18 23-Mar-2012</div><div class='output co'>#&gt;                                                                                                          FileName
-#&gt; 1  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 2  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 3  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 4  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 5  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 6  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 7  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 8  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 9  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 10 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 11 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 12 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 13 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 14 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 15 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 16 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 17 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat/accepted_hits.bam
-#&gt; 18 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat/accepted_hits.bam
-#&gt;    SampleName Factor SampleLong Experiment        Date
-#&gt; 1         M1A     M1  Mock.1h.A          1 23-Mar-2012
-#&gt; 2         M1B     M1  Mock.1h.B          1 23-Mar-2012
-#&gt; 3         A1A     A1   Avr.1h.A          1 23-Mar-2012
-#&gt; 4         A1B     A1   Avr.1h.B          1 23-Mar-2012
-#&gt; 5         V1A     V1   Vir.1h.A          1 23-Mar-2012
-#&gt; 6         V1B     V1   Vir.1h.B          1 23-Mar-2012
-#&gt; 7         M6A     M6  Mock.6h.A          1 23-Mar-2012
-#&gt; 8         M6B     M6  Mock.6h.B          1 23-Mar-2012
-#&gt; 9         A6A     A6   Avr.6h.A          1 23-Mar-2012
-#&gt; 10        A6B     A6   Avr.6h.B          1 23-Mar-2012
-#&gt; 11        V6A     V6   Vir.6h.A          1 23-Mar-2012
-#&gt; 12        V6B     V6   Vir.6h.B          1 23-Mar-2012
-#&gt; 13       M12A    M12 Mock.12h.A          1 23-Mar-2012
-#&gt; 14       M12B    M12 Mock.12h.B          1 23-Mar-2012
-#&gt; 15       A12A    A12  Avr.12h.A          1 23-Mar-2012
-#&gt; 16       A12B    A12  Avr.12h.B          1 23-Mar-2012
-#&gt; 17       V12A    V12  Vir.12h.A          1 23-Mar-2012
-#&gt; 18       V12B    V12  Vir.12h.B          1 23-Mar-2012</div><div class='output co'>#&gt; [1] "# Project ID: Arabidopsis - Pseudomonas alternative splicing study (SRA: SRP010938; PMID: 24098335)"                                                                              
-#&gt; [2] "# The following line(s) allow to specify the contrasts needed for comparative analyses, such as DEG identification. All possible comparisons can be specified with 'CMPset: ALL'."
-#&gt; [3] "# &lt;CMP&gt; CMPset1: M1-A1, M1-V1, A1-V1, M6-A6, M6-V6, A6-V6, M12-A12, M12-V12, A12-V12"                                                                                             
-#&gt; [4] "# &lt;CMP&gt; CMPset2: ALL"                                                                                                                                                             </div><div class='input'><span class='fu'><a href='sysargs.html'>software</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargs2-class.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>outpaths</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span> 
-</div><div class='output co'>#&gt; [1] "tophat"</div><div class='output co'>#&gt; [1] "bowtie2/2.2.5" "tophat/2.0.14"</div><div class='output co'>#&gt; [1] 4</div><div class='output co'>#&gt;                                                                                                              M1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              M1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              A1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              A1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              V1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              V1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              M6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              M6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              A6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              A6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              V6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                              V6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                             M12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                             M12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                             A12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                             A12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                             V12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat/accepted_hits.bam" 
-#&gt;                                                                                                             V12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat/accepted_hits.bam" </div><div class='input'><span class='fu'><a href='sysargs.html'>sysargs</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>other</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>reference</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>results</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>infile1</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;                                                                                                                                                                                                                                                          M1A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446027_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          M1B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446028_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          A1A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446029_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          A1B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446030_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          V1A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446031_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          V1B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446032_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          M6A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446033_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          M6B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446034_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          A6A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446035_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          A6B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446036_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          V6A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446037_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                          V6B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446038_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                         M12A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446039_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                         M12B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446040_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                         A12A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446041_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                         A12B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446042_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                         V12A 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446043_1.fastq.gz " 
-#&gt;                                                                                                                                                                                                                                                         V12B 
-#&gt; "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446044_1.fastq.gz " </div><div class='output co'>#&gt; [1] "-g 1 --segment-length 25 -i 30 -I 3000"</div><div class='output co'>#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta"</div><div class='output co'>#&gt; [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/"</div><div class='output co'>#&gt;                           M1A                           M1B 
-#&gt; "./data/SRR446027_1.fastq.gz" "./data/SRR446028_1.fastq.gz" 
-#&gt;                           A1A                           A1B 
-#&gt; "./data/SRR446029_1.fastq.gz" "./data/SRR446030_1.fastq.gz" 
-#&gt;                           V1A                           V1B 
-#&gt; "./data/SRR446031_1.fastq.gz" "./data/SRR446032_1.fastq.gz" 
-#&gt;                           M6A                           M6B 
-#&gt; "./data/SRR446033_1.fastq.gz" "./data/SRR446034_1.fastq.gz" 
-#&gt;                           A6A                           A6B 
-#&gt; "./data/SRR446035_1.fastq.gz" "./data/SRR446036_1.fastq.gz" 
-#&gt;                           V6A                           V6B 
-#&gt; "./data/SRR446037_1.fastq.gz" "./data/SRR446038_1.fastq.gz" 
-#&gt;                          M12A                          M12B 
-#&gt; "./data/SRR446039_1.fastq.gz" "./data/SRR446040_1.fastq.gz" 
-#&gt;                          A12A                          A12B 
-#&gt; "./data/SRR446041_1.fastq.gz" "./data/SRR446042_1.fastq.gz" 
-#&gt;                          V12A                          V12B 
-#&gt; "./data/SRR446043_1.fastq.gz" "./data/SRR446044_1.fastq.gz" </div><div class='input'><span class='fu'><a href='sysargs.html'>infile2</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>outfile1</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargsList.html'>SampleName</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  M1A  M1B  A1A  A1B  V1A  V1B  M6A  M6B  A6A  A6B  V6A  V6B M12A M12B A12A A12B 
-#&gt;   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   "" 
-#&gt; V12A V12B 
-#&gt;   ""   "" </div><div class='output co'>#&gt;                                                                                            M1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat" 
-#&gt;                                                                                            M1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat" 
-#&gt;                                                                                            A1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat" 
-#&gt;                                                                                            A1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat" 
-#&gt;                                                                                            V1A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat" 
-#&gt;                                                                                            V1B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat" 
-#&gt;                                                                                            M6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat" 
-#&gt;                                                                                            M6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat" 
-#&gt;                                                                                            A6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat" 
-#&gt;                                                                                            A6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat" 
-#&gt;                                                                                            V6A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat" 
-#&gt;                                                                                            V6B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat" 
-#&gt;                                                                                           M12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat" 
-#&gt;                                                                                           M12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat" 
-#&gt;                                                                                           A12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat" 
-#&gt;                                                                                           A12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat" 
-#&gt;                                                                                           V12A 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat" 
-#&gt;                                                                                           V12B 
-#&gt; "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat" </div><div class='output co'>#&gt;  [1] "M1A"  "M1B"  "A1A"  "A1B"  "V1A"  "V1B"  "M6A"  "M6B"  "A6A"  "A6B" 
-#&gt; [11] "V6A"  "V6B"  "M12A" "M12B" "A12A" "A12B" "V12A" "V12B"</div><div class='input'>
-<span class='co'>## Return sample comparisons</span>
-<span class='fu'><a href='readComp.html'>readComp</a></span><span class='op'>(</span><span class='va'>args</span>, format <span class='op'>=</span> <span class='st'>"vector"</span>, delim <span class='op'>=</span> <span class='st'>"-"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $CMPset1
-#&gt; [1] "M1-A1"   "M1-V1"   "A1-V1"   "M6-A6"   "M6-V6"   "A6-V6"   "M12-A12"
-#&gt; [8] "M12-V12" "A12-V12"
-#&gt; 
-#&gt; $CMPset2
-#&gt;  [1] "M1-A1"   "M1-V1"   "M1-M6"   "M1-A6"   "M1-V6"   "M1-M12"  "M1-A12" 
-#&gt;  [8] "M1-V12"  "A1-V1"   "A1-M6"   "A1-A6"   "A1-V6"   "A1-M12"  "A1-A12" 
-#&gt; [15] "A1-V12"  "V1-M6"   "V1-A6"   "V1-V6"   "V1-M12"  "V1-A12"  "V1-V12" 
-#&gt; [22] "M6-A6"   "M6-V6"   "M6-M12"  "M6-A12"  "M6-V12"  "A6-V6"   "A6-M12" 
-#&gt; [29] "A6-A12"  "A6-V12"  "V6-M12"  "V6-A12"  "V6-V12"  "M12-A12" "M12-V12"
-#&gt; [36] "A12-V12"
-#&gt; </div><div class='input'>
-<span class='co'>## The subsetting operator '[' allows to select specific samples</span>
-<span class='va'>args</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span>
-</div><div class='output co'>#&gt; An instance of 'SYSargs' for running 'tophat' on 4 samples </div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Execute SYSargs on single machine</span>
-<span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span><span class='op'>)</span>
-
-<span class='co'>## Execute SYSargs on multiple machines  </span>
-<span class='va'>qsubargs</span> <span class='op'>&lt;-</span> <span class='fu'>getQsubargs</span><span class='op'>(</span>queue<span class='op'>=</span><span class='st'>"batch"</span>, Nnodes<span class='op'>=</span><span class='st'>"nodes=1"</span>, cores<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, 
-                        memory<span class='op'>=</span><span class='st'>"mem=10gb"</span>, time<span class='op'>=</span><span class='st'>"walltime=20:00:00"</span><span class='op'>)</span>
-<span class='fu'>qsubRun</span><span class='op'>(</span>appfct<span class='op'>=</span><span class='st'>"runCommandline(args=args)"</span>, appargs<span class='op'>=</span><span class='va'>args</span>, qsubargs<span class='op'>=</span><span class='va'>qsubargs</span>, 
-        Nqsubs<span class='op'>=</span><span class='fl'>1</span>, submitdir<span class='op'>=</span><span class='st'>"results"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-
-<span class='co'>## Write outpaths to new targets file for next SYSargs step</span>
-<span class='fu'><a href='writeTargetsout.html'>writeTargetsout</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"default"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"SYSargs"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class "SYSargs" [package "systemPipeR"]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Slots:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:      targetsin    targetsout targetsheader       modules      software</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:    data.frame    data.frame     character     character     character</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:          cores         other     reference       results       infile1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:       numeric     character     character     character     character</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:        infile2      outfile1       sysargs      outpaths</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:     character     character     character     character</span>
+<span class='r-in'><span class='co'>## Construct SYSargs object from param and targets files </span></span>
+<span class='r-in'><span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"tophat.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
+<span class='r-in'><span class='va'>args</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> An instance of 'SYSargs' for running 'tophat' on 18 samples </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>targetsin</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>targetsout</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargsList.html'>targetsheader</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "targetsin"     "targetsout"    "targetsheader" "modules"      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "software"      "cores"         "other"         "reference"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "results"       "infile1"       "infile2"       "outfile1"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "sysargs"       "outpaths"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                       FileName SampleName Factor SampleLong Experiment</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  ./data/SRR446029_1.fastq.gz        A1A     A1   Avr.1h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  ./data/SRR446030_1.fastq.gz        A1B     A1   Avr.1h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  ./data/SRR446031_1.fastq.gz        V1A     V1   Vir.1h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  ./data/SRR446032_1.fastq.gz        V1B     V1   Vir.1h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  ./data/SRR446033_1.fastq.gz        M6A     M6  Mock.6h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  ./data/SRR446034_1.fastq.gz        M6B     M6  Mock.6h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  ./data/SRR446035_1.fastq.gz        A6A     A6   Avr.6h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 ./data/SRR446036_1.fastq.gz        A6B     A6   Avr.6h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 ./data/SRR446037_1.fastq.gz        V6A     V6   Vir.6h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 ./data/SRR446038_1.fastq.gz        V6B     V6   Vir.6h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 ./data/SRR446039_1.fastq.gz       M12A    M12 Mock.12h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 ./data/SRR446040_1.fastq.gz       M12B    M12 Mock.12h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 ./data/SRR446041_1.fastq.gz       A12A    A12  Avr.12h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 ./data/SRR446042_1.fastq.gz       A12B    A12  Avr.12h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 ./data/SRR446043_1.fastq.gz       V12A    V12  Vir.12h.A          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 ./data/SRR446044_1.fastq.gz       V12B    V12  Vir.12h.B          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           Date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                          FileName</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat/accepted_hits.bam</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    SampleName Factor SampleLong Experiment        Date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1         M1A     M1  Mock.1h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2         M1B     M1  Mock.1h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3         A1A     A1   Avr.1h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4         A1B     A1   Avr.1h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5         V1A     V1   Vir.1h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6         V1B     V1   Vir.1h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7         M6A     M6  Mock.6h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8         M6B     M6  Mock.6h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9         A6A     A6   Avr.6h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10        A6B     A6   Avr.6h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11        V6A     V6   Vir.6h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12        V6B     V6   Vir.6h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13       M12A    M12 Mock.12h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14       M12B    M12 Mock.12h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15       A12A    A12  Avr.12h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16       A12B    A12  Avr.12h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17       V12A    V12  Vir.12h.A          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18       V12B    V12  Vir.12h.B          1 23-Mar-2012</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "# Project ID: Arabidopsis - Pseudomonas alternative splicing study (SRA: SRP010938; PMID: 24098335)"                                                                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2] "# The following line(s) allow to specify the contrasts needed for comparative analyses, such as DEG identification. All possible comparisons can be specified with 'CMPset: ALL'."</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3] "# &lt;CMP&gt; CMPset1: M1-A1, M1-V1, A1-V1, M6-A6, M6-V6, A6-V6, M12-A12, M12-V12, A12-V12"                                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4] "# &lt;CMP&gt; CMPset2: ALL"                                                                                                                                                             </span>
+<span class='r-in'><span class='fu'><a href='sysargs.html'>software</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargs2-class.html'>modules</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>outpaths</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "tophat"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "bowtie2/2.2.5" "tophat/2.0.14"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              M1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              M1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              A1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              A1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              V1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              V1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              M6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              M6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              A6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              A6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              V6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                              V6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                             M12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                             M12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                             A12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                             A12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                             V12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                             V12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat/accepted_hits.bam" </span>
+<span class='r-in'><span class='fu'><a href='sysargs.html'>sysargs</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>other</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>reference</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>results</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>infile1</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          M1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446027_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          M1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446028_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          A1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446029_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          A1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446030_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          V1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446031_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          V1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446032_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          M6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446033_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          M6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446034_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          A6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446035_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          A6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446036_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          V6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446037_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                          V6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446038_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                         M12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446039_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                         M12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446040_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                         A12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446041_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                         A12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446042_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                         V12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446043_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                                                                                                                                                                                         V12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446044_1.fastq.gz " </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "-g 1 --segment-length 25 -i 30 -I 3000"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           M1A                           M1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446027_1.fastq.gz" "./data/SRR446028_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           A1A                           A1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446029_1.fastq.gz" "./data/SRR446030_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           V1A                           V1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446031_1.fastq.gz" "./data/SRR446032_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           M6A                           M6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446033_1.fastq.gz" "./data/SRR446034_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           A6A                           A6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446035_1.fastq.gz" "./data/SRR446036_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                           V6A                           V6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446037_1.fastq.gz" "./data/SRR446038_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          M12A                          M12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446039_1.fastq.gz" "./data/SRR446040_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          A12A                          A12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446041_1.fastq.gz" "./data/SRR446042_1.fastq.gz" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          V12A                          V12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "./data/SRR446043_1.fastq.gz" "./data/SRR446044_1.fastq.gz" </span>
+<span class='r-in'><span class='fu'><a href='sysargs.html'>infile2</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='sysargs.html'>outfile1</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>; <span class='fu'><a href='SYSargsList.html'>SampleName</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  M1A  M1B  A1A  A1B  V1A  V1B  M6A  M6B  A6A  A6B  V6A  V6B M12A M12B A12A A12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   ""   "" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> V12A V12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ""   "" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            M1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446027_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            M1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446028_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            A1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446029_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            A1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446030_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            V1A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446031_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            V1B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446032_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            M6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446033_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            M6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446034_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            A6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446035_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            A6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446036_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            V6A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446037_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                            V6B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446038_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                           M12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446039_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                           M12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446040_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                           A12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446041_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                           A12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446042_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                           V12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                           V12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> "/home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "M1A"  "M1B"  "A1A"  "A1B"  "V1A"  "V1B"  "M6A"  "M6B"  "A6A"  "A6B" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "V6A"  "V6B"  "M12A" "M12B" "A12A" "A12B" "V12A" "V12B"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Return sample comparisons</span></span>
+<span class='r-in'><span class='fu'><a href='readComp.html'>readComp</a></span><span class='op'>(</span><span class='va'>args</span>, format <span class='op'>=</span> <span class='st'>"vector"</span>, delim <span class='op'>=</span> <span class='st'>"-"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $CMPset1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M1-A1"   "M1-V1"   "A1-V1"   "M6-A6"   "M6-V6"   "A6-V6"   "M12-A12"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [8] "M12-V12" "A12-V12"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $CMPset2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "M1-A1"   "M1-V1"   "M1-M6"   "M1-A6"   "M1-V6"   "M1-M12"  "M1-A12" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "M1-V12"  "A1-V1"   "A1-M6"   "A1-A6"   "A1-V6"   "A1-M12"  "A1-A12" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "A1-V12"  "V1-M6"   "V1-A6"   "V1-V6"   "V1-M12"  "V1-A12"  "V1-V12" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [22] "M6-A6"   "M6-V6"   "M6-M12"  "M6-A12"  "M6-V12"  "A6-V6"   "A6-M12" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [29] "A6-A12"  "A6-V12"  "V6-M12"  "V6-A12"  "V6-V12"  "M12-A12" "M12-V12"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [36] "A12-V12"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## The subsetting operator '[' allows to select specific samples</span></span>
+<span class='r-in'><span class='va'>args</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> An instance of 'SYSargs' for running 'tophat' on 4 samples </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Execute SYSargs on single machine</span></span>
+<span class='r-in'><span class='fu'><a href='runCommandline.html'>runCommandline</a></span><span class='op'>(</span>args<span class='op'>=</span><span class='va'>args</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Execute SYSargs on multiple machines  </span></span>
+<span class='r-in'><span class='va'>qsubargs</span> <span class='op'>&lt;-</span> <span class='fu'>getQsubargs</span><span class='op'>(</span>queue<span class='op'>=</span><span class='st'>"batch"</span>, Nnodes<span class='op'>=</span><span class='st'>"nodes=1"</span>, cores<span class='op'>=</span><span class='fu'><a href='sysargs.html'>cores</a></span><span class='op'>(</span><span class='va'>args</span><span class='op'>)</span>, </span>
+<span class='r-in'>                        memory<span class='op'>=</span><span class='st'>"mem=10gb"</span>, time<span class='op'>=</span><span class='st'>"walltime=20:00:00"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>qsubRun</span><span class='op'>(</span>appfct<span class='op'>=</span><span class='st'>"runCommandline(args=args)"</span>, appargs<span class='op'>=</span><span class='va'>args</span>, qsubargs<span class='op'>=</span><span class='va'>qsubargs</span>, </span>
+<span class='r-in'>        Nqsubs<span class='op'>=</span><span class='fl'>1</span>, submitdir<span class='op'>=</span><span class='st'>"results"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Write outpaths to new targets file for next SYSargs step</span></span>
+<span class='r-in'><span class='fu'><a href='writeTargetsout.html'>writeTargetsout</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"default"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
