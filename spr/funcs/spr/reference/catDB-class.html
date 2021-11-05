@@ -89,7 +89,7 @@ ids to gene ids)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -171,41 +171,42 @@ ids to gene ids).</p>
     <div class='dont-index'><p><code>makeCATdb</code>, <code>GOHyperGAll</code>, <code>GOHyperGAll_Subset</code>, <code>GOHyperGAll_Simplify</code>, <code>GOCluster_Report</code>, <code>goBarplot</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"catDB"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Class "catDB" [package "systemPipeR"]
-#&gt; 
-#&gt; Slots:
-#&gt;                               
-#&gt; Name:   catmap catlist  idconv
-#&gt; Class:    list    list     ANY</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Obtain annotations from BioMart</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'>"biomaRt"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listMarts.html'>listMarts</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='co'># To choose BioMart database</span>
-<span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listMarts.html'>listMarts</a></span><span class='op'>(</span>host <span class='op'>=</span> <span class='st'>"plants.ensembl.org"</span><span class='op'>)</span>
-<span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/useMart.html'>useMart</a></span><span class='op'>(</span><span class='st'>"plants_mart"</span>, host <span class='op'>=</span> <span class='st'>"plants.ensembl.org"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listDatasets.html'>listDatasets</a></span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span>
-<span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/useMart.html'>useMart</a></span><span class='op'>(</span><span class='st'>"plants_mart"</span>, dataset <span class='op'>=</span> <span class='st'>"athaliana_eg_gene"</span>, host <span class='op'>=</span> <span class='st'>"plants.ensembl.org"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listAttributes.html'>listAttributes</a></span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span>  <span class='co'># Choose data types you want to download</span>
-<span class='va'>go</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/getBM.html'>getBM</a></span><span class='op'>(</span>attributes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"go_id"</span>, <span class='st'>"tair_locus"</span>, <span class='st'>"namespace_1003"</span><span class='op'>)</span>, mart <span class='op'>=</span> <span class='va'>m</span><span class='op'>)</span>
-<span class='va'>go</span> <span class='op'>&lt;-</span> <span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>!=</span> <span class='st'>""</span>, <span class='op'>]</span>
-<span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span>
-<span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"molecular_function"</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"F"</span>
-<span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"biological_process"</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"P"</span>
-<span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"cellular_component"</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"C"</span>
-<span class='va'>go</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='op'>]</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='st'>"./data/GO"</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>go</span>, <span class='st'>"data/GO/GOannotationsBiomart_mod.txt"</span>, quote <span class='op'>=</span> <span class='cn'>FALSE</span>, row.names <span class='op'>=</span> <span class='cn'>FALSE</span>,
-            col.names <span class='op'>=</span> <span class='cn'>FALSE</span>, sep <span class='op'>=</span> <span class='st'>"\t"</span><span class='op'>)</span>
-            
-<span class='co'>## Create catDB instance (takes a while but needs to be done only once)</span>
-<span class='va'>catdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='GOHyperGAll.html'>makeCATdb</a></span><span class='op'>(</span>myfile <span class='op'>=</span> <span class='st'>"data/GO/GOannotationsBiomart_mod.txt"</span>, lib <span class='op'>=</span> <span class='cn'>NULL</span>, org <span class='op'>=</span> <span class='st'>""</span>,
-                   colno <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, idconv <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
-<span class='va'>catdb</span>
-<span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span><span class='op'>(</span><span class='va'>catdb</span>, file <span class='op'>=</span> <span class='st'>"data/GO/catdb.RData"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data/GO/catdb.RData"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"catDB"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class "catDB" [package "systemPipeR"]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Slots:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Name:   catmap catlist  idconv</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Class:    list    list     ANY</span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Obtain annotations from BioMart</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'>"biomaRt"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listMarts.html'>listMarts</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='co'># To choose BioMart database</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listMarts.html'>listMarts</a></span><span class='op'>(</span>host <span class='op'>=</span> <span class='st'>"plants.ensembl.org"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/useMart.html'>useMart</a></span><span class='op'>(</span><span class='st'>"plants_mart"</span>, host <span class='op'>=</span> <span class='st'>"plants.ensembl.org"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listDatasets.html'>listDatasets</a></span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/useMart.html'>useMart</a></span><span class='op'>(</span><span class='st'>"plants_mart"</span>, dataset <span class='op'>=</span> <span class='st'>"athaliana_eg_gene"</span>, host <span class='op'>=</span> <span class='st'>"plants.ensembl.org"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/listAttributes.html'>listAttributes</a></span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span>  <span class='co'># Choose data types you want to download</span></span>
+<span class='r-in'><span class='va'>go</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biomaRt/man/getBM.html'>getBM</a></span><span class='op'>(</span>attributes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"go_id"</span>, <span class='st'>"tair_locus"</span>, <span class='st'>"namespace_1003"</span><span class='op'>)</span>, mart <span class='op'>=</span> <span class='va'>m</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>go</span> <span class='op'>&lt;-</span> <span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>!=</span> <span class='st'>""</span>, <span class='op'>]</span></span>
+<span class='r-in'><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"molecular_function"</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"F"</span></span>
+<span class='r-in'><span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"biological_process"</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"P"</span></span>
+<span class='r-in'><span class='va'>go</span><span class='op'>[</span><span class='va'>go</span><span class='op'>[</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"cellular_component"</span>, <span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"C"</span></span>
+<span class='r-in'><span class='va'>go</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='op'>]</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='st'>"./data/GO"</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.table</a></span><span class='op'>(</span><span class='va'>go</span>, <span class='st'>"data/GO/GOannotationsBiomart_mod.txt"</span>, quote <span class='op'>=</span> <span class='cn'>FALSE</span>, row.names <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>            col.names <span class='op'>=</span> <span class='cn'>FALSE</span>, sep <span class='op'>=</span> <span class='st'>"\t"</span><span class='op'>)</span></span>
+<span class='r-in'>            </span>
+<span class='r-in'><span class='co'>## Create catDB instance (takes a while but needs to be done only once)</span></span>
+<span class='r-in'><span class='va'>catdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='GOHyperGAll.html'>makeCATdb</a></span><span class='op'>(</span>myfile <span class='op'>=</span> <span class='st'>"data/GO/GOannotationsBiomart_mod.txt"</span>, lib <span class='op'>=</span> <span class='cn'>NULL</span>, org <span class='op'>=</span> <span class='st'>""</span>,</span>
+<span class='r-in'>                   colno <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, idconv <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>catdb</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span><span class='op'>(</span><span class='va'>catdb</span>, file <span class='op'>=</span> <span class='st'>"data/GO/catdb.RData"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='st'>"data/GO/catdb.RData"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

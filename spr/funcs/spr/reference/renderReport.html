@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@
               rmd_title <span class='op'>=</span> <span class='st'>"SPR workflow Template - Report"</span>,
               rmd_author <span class='op'>=</span> <span class='st'>"Author"</span>,
               rmd_date<span class='op'>=</span> <span class='st'>"Last update: `r format(Sys.time(), '%d %B, %Y')`"</span>,
-              type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"html_document"</span><span class='op'>)</span>,
+              type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span><span class='st'>"html_document"</span><span class='op'>)</span>,
               desc <span class='op'>=</span> <span class='st'>"This is a workflow template."</span>,
               quiet <span class='op'>=</span> <span class='cn'>FALSE</span>, open_file <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
@@ -187,104 +187,113 @@
     <div class='dont-index'><p>See also as <code>SYSargsList-class</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
-#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"spr_simple_wf.Rmd"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, file_path <span class='op'>=</span> <span class='va'>file_path</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-<span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SYSargsList.html'>SYSargsList</a></span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, 
-                              targets <span class='op'>=</span> <span class='va'>targetspath</span>, dir <span class='op'>=</span> <span class='cn'>TRUE</span>,
-                              wf_file <span class='op'>=</span> <span class='st'>"example/workflow_example.cwl"</span>, input_file <span class='op'>=</span> <span class='st'>"example/example.yml"</span>, 
-                              dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span>,
-                              inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>renderReport</span><span class='op'>(</span><span class='va'>sal</span>, open_file <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘BiocStyle’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:systemPipeR’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    output</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>processing file: spr_report.Rmd</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |.....                                                                 |   7%
-#&gt;    inline R code fragments
-#&gt; 
-#&gt;   |                                                                              |.........                                                             |  13%
-#&gt; label: setup (with options) 
-#&gt; List of 1
-#&gt;  $ include: logi FALSE
-#&gt; 
-#&gt;   |                                                                              |..............                                                        |  20%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |...................                                                   |  27%
-#&gt; label: load_library (with options) 
-#&gt; List of 4
-#&gt;  $ eval   : logi FALSE
-#&gt;  $ spr    : chr "r"
-#&gt;  $ spr.req: chr "mandatory"
-#&gt;  $ spr.ses: chr "rsession"
-#&gt; 
-#&gt;   |                                                                              |.......................                                               |  33%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |............................                                          |  40%
-#&gt; label: export_iris (with options) 
-#&gt; List of 4
-#&gt;  $ eval   : logi FALSE
-#&gt;  $ spr    : chr "r"
-#&gt;  $ spr.req: chr "mandatory"
-#&gt;  $ spr.ses: chr "rsession"
-#&gt; 
-#&gt;   |                                                                              |.................................                                     |  47%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |.....................................                                 |  53%
-#&gt; label: gzip (with options) 
-#&gt; List of 5
-#&gt;  $ eval   : logi FALSE
-#&gt;  $ spr    : chr "sysargs"
-#&gt;  $ spr.dep: chr "export_iris"
-#&gt;  $ spr.req: chr "mandatory"
-#&gt;  $ spr.ses: chr "rsession"
-#&gt; 
-#&gt;   |                                                                              |..........................................                            |  60%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |...............................................                       |  67%
-#&gt; label: gunzip (with options) 
-#&gt; List of 5
-#&gt;  $ eval   : logi FALSE
-#&gt;  $ spr    : chr "sysargs"
-#&gt;  $ spr.dep: chr "gzip"
-#&gt;  $ spr.req: chr "mandatory"
-#&gt;  $ spr.ses: chr "rsession"
-#&gt; 
-#&gt;   |                                                                              |...................................................                   |  73%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |........................................................              |  80%
-#&gt; label: stats (with options) 
-#&gt; List of 5
-#&gt;  $ eval   : logi FALSE
-#&gt;  $ spr    : chr "r"
-#&gt;  $ spr.dep: chr "gunzip"
-#&gt;  $ spr.req: chr "optional"
-#&gt;  $ spr.ses: chr "rsession"
-#&gt; 
-#&gt;   |                                                                              |.............................................................         |  87%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |.................................................................     |  93%
-#&gt; label: echo (with options) 
-#&gt; List of 4
-#&gt;  $ eval   : logi FALSE
-#&gt;  $ spr    : chr "sysargs"
-#&gt;  $ spr.req: chr "mandatory"
-#&gt;  $ spr.ses: chr "rsession"
-#&gt; 
-#&gt;   |                                                                              |......................................................................| 100%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt; </div><div class='output co'>#&gt; <span class='message'>output file: spr_report.knit.md</span></div><div class='output co'>#&gt; /usr/bin/pandoc +RTS -K512m -RTS spr_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output spr_report.html --lua-filter /home/runner/work/_temp/Library/bookdown/rmarkdown/lua/custom-environment.lua --lua-filter /home/runner/work/_temp/Library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /home/runner/work/_temp/Library/rmarkdown/rmarkdown/lua/latex-div.lua --self-contained --wrap preserve --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /tmp/RtmpPwqsqc/BiocStyle/template.html --no-highlight --variable highlightjs=1 --number-sections --variable theme=bootstrap --css /home/runner/work/_temp/Library/BiocStyle/resources/html/bioconductor.css --include-in-header /tmp/RtmpPwqsqc/rmarkdown-str418116beb233.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --variable code_folding=show --variable code_menu=1 </div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Output created: spr_report.html</span></div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00; font-weight: bold;'>Success! Report created at spr_report.html</span></span></div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
+<span class='r-in'><span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"spr_simple_wf.Rmd"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='importWF.html'>importWF</a></span><span class='op'>(</span><span class='va'>sal</span>, file_path <span class='op'>=</span> <span class='va'>file_path</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SYSargsList.html'>SYSargsList</a></span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, </span>
+<span class='r-in'>                              targets <span class='op'>=</span> <span class='va'>targetspath</span>, dir <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>                              wf_file <span class='op'>=</span> <span class='st'>"example/workflow_example.cwl"</span>, input_file <span class='op'>=</span> <span class='st'>"example/example.yml"</span>, </span>
+<span class='r-in'>                              dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package <span class='op'>=</span> <span class='st'>"systemPipeR"</span><span class='op'>)</span>,</span>
+<span class='r-in'>                              inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'>renderReport</span><span class='op'>(</span><span class='va'>sal</span>, open_file <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Attaching package: ‘BiocStyle’</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following object is masked from ‘package:systemPipeR’:</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>     output</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> processing file: spr_report.Rmd</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |                                                                      |   0%  |                                                                              |.....                                                                 |   7%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    inline R code fragments</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |.........                                                             |  13%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: setup (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ include: logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |..............                                                        |  20%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |...................                                                   |  27%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: load_library (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval   : logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr    : chr "r"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.req: chr "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.ses: chr "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |.......................                                               |  33%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |............................                                          |  40%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: export_iris (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval   : logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr    : chr "r"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.req: chr "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.ses: chr "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |.................................                                     |  47%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |.....................................                                 |  53%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: gzip (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval   : logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr    : chr "sysargs"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.dep: chr "export_iris"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.req: chr "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.ses: chr "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |..........................................                            |  60%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |...............................................                       |  67%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: gunzip (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval   : logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr    : chr "sysargs"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.dep: chr "gzip"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.req: chr "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.ses: chr "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |...................................................                   |  73%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |........................................................              |  80%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: stats (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval   : logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr    : chr "r"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.dep: chr "gunzip"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.req: chr "optional"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.ses: chr "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |.............................................................         |  87%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |.................................................................     |  93%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> label: echo (with options) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval   : logi FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr    : chr "sysargs"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.req: chr "mandatory"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ spr.ses: chr "local"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   |                                                                              |......................................................................| 100%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ordinary text without R code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> output file: spr_report.knit.md</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> /usr/bin/pandoc +RTS -K512m -RTS spr_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output spr_report.html --lua-filter /home/runner/work/_temp/Library/bookdown/rmarkdown/lua/custom-environment.lua --lua-filter /home/runner/work/_temp/Library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /home/runner/work/_temp/Library/rmarkdown/rmarkdown/lua/latex-div.lua --self-contained --wrap preserve --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /tmp/RtmpIDeBxS/BiocStyle/template.html --no-highlight --variable highlightjs=1 --number-sections --variable theme=bootstrap --css /home/runner/work/_temp/Library/BiocStyle/resources/html/bioconductor.css --include-in-header /tmp/RtmpIDeBxS/rmarkdown-str49f67e18c1ee.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --variable code_folding=show --variable code_menu=1 </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Output created: spr_report.html</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Success! Report created at spr_report.html</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

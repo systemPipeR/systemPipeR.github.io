@@ -83,7 +83,7 @@ and how many files are missing." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -153,65 +153,70 @@ and how many files are missing.</p>
     <p>Daniela Cassol and Thomas Girke</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Construct SYSargs2 object </span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>WF</span>
-</div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
-#&gt;    Slot names/accessors: 
-#&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
-#&gt;       modules: 1
-#&gt;       wf: 0, clt: 1, yamlinput: 7 (inputs)
-#&gt;       input: 18, output: 18
-#&gt;       cmdlist: 18
-#&gt;    Sub Steps:
-#&gt;       1. hisat2-mapping-se (rendered: TRUE)
-#&gt; 
-#&gt; </div><div class='input'><span class='co'>## Check output</span>
-<span class='fu'>check.output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    Targets Total_Files Existing_Files Missing_Files
-#&gt; 1      M1A           1              0             1
-#&gt; 2      M1B           1              0             1
-#&gt; 3      A1A           1              0             1
-#&gt; 4      A1B           1              0             1
-#&gt; 5      V1A           1              0             1
-#&gt; 6      V1B           1              0             1
-#&gt; 7      M6A           1              0             1
-#&gt; 8      M6B           1              0             1
-#&gt; 9      A6A           1              0             1
-#&gt; 10     A6B           1              0             1
-#&gt; 11     V6A           1              0             1
-#&gt; 12     V6B           1              0             1
-#&gt; 13    M12A           1              0             1
-#&gt; 14    M12B           1              0             1
-#&gt; 15    A12A           1              0             1
-#&gt; 16    A12B           1              0             1
-#&gt; 17    V12A           1              0             1
-#&gt; 18    V12B           1              0             1</div><div class='input'><span class='fu'>check.output</span><span class='op'>(</span><span class='va'>WF</span>, <span class='st'>"list"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   M1A   M1B   A1A   A1B   V1A   V1B   M6A   M6B   A6A   A6B   V6A   V6B  M12A 
-#&gt; FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE 
-#&gt;  M12B  A12A  A12B  V12A  V12B 
-#&gt; FALSE FALSE FALSE FALSE FALSE </div><div class='input'>
-<span class='co'>## Construct SYSargsList object </span>
-<span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> 
-</div><div class='output co'>#&gt; Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'
-#&gt; Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</div><div class='input'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SYSargsList.html'>SYSargsList</a></span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, 
-                      targets<span class='op'>=</span><span class='va'>targetspath</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>,
-                      wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, 
-                      dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,
-                      inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='co'>## Check outfiles</span>
-<span class='fu'>check.outfiles</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $echo
-#&gt;   Targets Total_Files Existing_Files Missing_Files
-#&gt; 1      M1           1              0             1
-#&gt; 2      M2           1              0             1
-#&gt; 3      M3           1              0             1
-#&gt; </div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'>## Construct SYSargs2 object </span></span>
+<span class='r-in'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, </span>
+<span class='r-in'>                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Slot names/accessors: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       modules: 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       wf: 0, clt: 1, yamlinput: 7 (inputs)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       input: 18, output: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       cmdlist: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sub Steps:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1. hisat2-mapping-se (rendered: TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='co'>## Check output</span></span>
+<span class='r-in'><span class='fu'>check.output</span><span class='op'>(</span><span class='va'>WF</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Targets Total_Files Existing_Files Missing_Files</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      M1A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      M1B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      A1A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      A1B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      V1A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      V1B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      M6A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      M6B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      A6A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10     A6B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     V6A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     V6B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13    M12A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14    M12B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15    A12A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16    A12B           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17    V12A           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18    V12B           1              0             1</span>
+<span class='r-in'><span class='fu'>check.output</span><span class='op'>(</span><span class='va'>WF</span>, <span class='st'>"list"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   M1A   M1B   A1A   A1B   V1A   V1B   M6A   M6B   A6A   A6B   V6A   V6B  M12A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  M12B  A12A  A12B  V12A  V12B </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> FALSE FALSE FALSE FALSE FALSE </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Construct SYSargsList object </span></span>
+<span class='r-in'><span class='va'>sal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SPRproject.html'>SPRproject</a></span><span class='op'>(</span>overwrite<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
+<span class='r-in'><span class='va'>targetspath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl/example/targets_example.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>appendStep</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='SYSargsList.html'>SYSargsList</a></span><span class='op'>(</span>step_name <span class='op'>=</span> <span class='st'>"echo"</span>, </span>
+<span class='r-in'>                      targets<span class='op'>=</span><span class='va'>targetspath</span>, dir<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span class='r-in'>                      wf_file<span class='op'>=</span><span class='st'>"example/workflow_example.cwl"</span>, input_file<span class='op'>=</span><span class='st'>"example/example.yml"</span>, </span>
+<span class='r-in'>                      dir_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>,</span>
+<span class='r-in'>                      inputvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>Message <span class='op'>=</span> <span class='st'>"_STRING_"</span>, SampleName <span class='op'>=</span> <span class='st'>"_SAMPLE_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## Check outfiles</span></span>
+<span class='r-in'><span class='fu'>check.outfiles</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Targets Total_Files Existing_Files Missing_Files</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      M1           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      M2           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      M3           1              0             1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -91,7 +91,7 @@ remove it or set overwrite=TRUE." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
       </span>
     </div>
 
@@ -133,9 +133,9 @@ remove it or set overwrite=TRUE." />
 <code>FileName</code> columns containing the paths to files generated
 by input/output processes. These processes can be commandline- or R-based software.
 Typically, the paths to the inputs are stored in the targets infile 
-(<code><a href='sysargs.html'>targetsin(args)</a></code> for <code>SYSargs</code> objects or <code><a href='targets.as.df.html'>targets.as.df(targets(WF))</a></code> 
+(<code>targetsin(args)</code> for <code>SYSargs</code> objects or <code>targets.as.df(targets(WF))</code> 
 for <code>SYSargs2</code> objects) and the outputs are stored in the targets outfile 
-(<code><a href='sysargs.html'>targetsout(args)</a></code> for <code>SYSargs</code> objects or <code><a href='SYSargs2-class.html'>output(WF)</a></code>) for 
+(<code>targetsout(args)</code> for <code>SYSargs</code> objects or <code>output(WF)</code>) for 
 <code>SYSargs2</code> objects. Note: by default the function cannot overwrite 
 any existing files. If a file exists then the user has to explicitly 
 remove it or set <code>overwrite=TRUE</code>.</p>
@@ -152,7 +152,7 @@ remove it or set <code>overwrite=TRUE</code>.</p>
     </tr>
     <tr>
       <th>file</th>
-      <td><p>Name and path of the output file. If set to "default" then the name of the output file will have the pattern 'targets_&lt;software&gt;.txt', where &lt;software&gt; will be what <code><a href='sysargs.html'>software(x)</a></code> returns, when <code>x</code> is an object of class <code>SYSargs</code>. For an object of class <code>SYSargs2</code>, the output file will have the pattern 'targets_&lt;software&gt;_&lt;step&gt;.txt', where &lt;software&gt; will be the workflow name (<code>files(x)$cwl</code>) and &lt;step&gt; will be the step chosen in the argument <code>step</code>.</p></td>
+      <td><p>Name and path of the output file. If set to "default" then the name of the output file will have the pattern 'targets_&lt;software&gt;.txt', where &lt;software&gt; will be what <code>software(x)</code> returns, when <code>x</code> is an object of class <code>SYSargs</code>. For an object of class <code>SYSargs2</code>, the output file will have the pattern 'targets_&lt;software&gt;_&lt;step&gt;.txt', where &lt;software&gt; will be the workflow name (<code>files(x)$cwl</code>) and &lt;step&gt; will be the step chosen in the argument <code>step</code>.</p></td>
     </tr>
     <tr>
       <th>silent</th>
@@ -164,7 +164,7 @@ remove it or set <code>overwrite=TRUE</code>.</p>
     </tr>
     <tr>
       <th>step</th>
-      <td><p>Name or numeric position of the step in the workflow to write the output files. The names can be check running <code><a href='https://rdrr.io/r/base/names.html'>names(x$clt)</a></code>.</p></td>
+      <td><p>Name or numeric position of the step in the workflow to write the output files. The names can be check running <code>names(x$clt)</code>.</p></td>
     </tr>
     <tr>
       <th>new_col</th>
@@ -186,8 +186,8 @@ remove it or set <code>overwrite=TRUE</code>.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Writes tabular targes files containing the header/comment lines from <code><a href='SYSargsList.html'>targetsheader(x)</a></code>
-and the columns from <code><a href='sysargs.html'>targetsout(x)</a></code>.</p>
+    <p>Writes tabular targes files containing the header/comment lines from <code>targetsheader(x)</code>
+and the columns from <code>targetsout(x)</code>.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Daniela Cassol and Thomas Girke</p>
@@ -196,44 +196,65 @@ and the columns from <code><a href='sysargs.html'>targetsout(x)</a></code>.</p>
     <div class='dont-index'><p><code>writeTargetsRef</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>#########################################</span>
-<span class='co'>## Examples with \code{SYSargs} object ##</span>
-<span class='co'>#########################################</span>
-<span class='co'>## Create SYSargs object</span>
-<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"tophat.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span></div><div class='output co'>#&gt; <span class='warning'>Warning: path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span></div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Write targets out file</span>
-<span class='fu'>writeTargetsout</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"default"</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='co'>##########################################</span>
-<span class='co'>## Examples with \code{SYSargs2} object ##</span>
-<span class='co'>##########################################</span>
-<span class='co'>## Construct SYSargs2 object </span>
-<span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, 
-                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span>
-<span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>WF</span>
-</div><div class='output co'>#&gt; <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span>
-#&gt;    Slot names/accessors: 
-#&gt;       targets: 18 (M1A...V12B), targetsheader: 4 (lines)
-#&gt;       modules: 1
-#&gt;       wf: 0, clt: 1, yamlinput: 7 (inputs)
-#&gt;       input: 18, output: 18
-#&gt;       cmdlist: 18
-#&gt;    Sub Steps:
-#&gt;       1. hisat2-mapping-se (rendered: TRUE)
-#&gt; 
-#&gt; </div><div class='input'><span class='co'>## Write targets out file</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>$</span><span class='va'>clt</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "hisat2-mapping-se.cwl"</div><div class='input'><span class='fu'>writeTargetsout</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>WF</span>, file<span class='op'>=</span><span class='st'>"default"</span>, step<span class='op'>=</span><span class='fl'>1</span>, new_col<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sam_file"</span><span class='op'>)</span>, new_col_output_index<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 	 Written content of 'targetsout(x)' to file: targets_hisat2-mapping-se.txt </div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'>#########################################</span></span>
+<span class='r-in'><span class='co'>## Examples with \code{SYSargs} object ##</span></span>
+<span class='r-in'><span class='co'>#########################################</span></span>
+<span class='r-in'><span class='co'>## Create SYSargs object</span></span>
+<span class='r-in'><span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"tophat.param"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>args</span> <span class='op'>&lt;-</span> <span class='fu'><a href='systemArgs.html'>systemArgs</a></span><span class='op'>(</span>sysma<span class='op'>=</span><span class='va'>param</span>, mytargets<span class='op'>=</span><span class='va'>targets</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Write targets out file</span></span>
+<span class='r-in'><span class='fu'>writeTargetsout</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>args</span>, file<span class='op'>=</span><span class='st'>"default"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>##########################################</span></span>
+<span class='r-in'><span class='co'>## Examples with \code{SYSargs2} object ##</span></span>
+<span class='r-in'><span class='co'>##########################################</span></span>
+<span class='r-in'><span class='co'>## Construct SYSargs2 object </span></span>
+<span class='r-in'><span class='va'>targets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"targets.txt"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dir_path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata/cwl"</span>, package<span class='op'>=</span><span class='st'>"systemPipeR"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>loadWorkflow</a></span><span class='op'>(</span>targets<span class='op'>=</span><span class='va'>targets</span>, wf_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.cwl"</span>, </span>
+<span class='r-in'>                  input_file<span class='op'>=</span><span class='st'>"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class='op'>=</span><span class='va'>dir_path</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkflow.html'>renderWF</a></span><span class='op'>(</span><span class='va'>WF</span>, inputvars<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span>FileName<span class='op'>=</span><span class='st'>"_FASTQ_PATH1_"</span>, SampleName<span class='op'>=</span><span class='st'>"_SampleName_"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>WF</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00; font-weight: bold;'>Instance of 'SYSargs2':</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Slot names/accessors: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       modules: 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       wf: 0, clt: 1, yamlinput: 7 (inputs)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       input: 18, output: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       cmdlist: 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sub Steps:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1. hisat2-mapping-se (rendered: TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='co'>## Write targets out file</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>WF</span><span class='op'>$</span><span class='va'>clt</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "hisat2-mapping-se.cwl"</span>
+<span class='r-in'><span class='fu'>writeTargetsout</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>WF</span>, file<span class='op'>=</span><span class='st'>"default"</span>, step<span class='op'>=</span><span class='fl'>1</span>, new_col<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span><span class='st'>"sam_file"</span><span class='op'>)</span>, new_col_output_index<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 Written content of 'targetsout(x)' to file: targets_hisat2-mapping-se.txt </span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
