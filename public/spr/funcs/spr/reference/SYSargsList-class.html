@@ -447,11 +447,11 @@ R-based workflow.</p>
 <span class='r-in'><span class='fu'>statusWF</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> $echo</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 3 rows and 5 columns</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Targets Total_Files Existing_Files Missing_Files     echo</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   &lt;character&gt;   &lt;numeric&gt;      &lt;numeric&gt;     &lt;numeric&gt; &lt;factor&gt;</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1          M1           1              0             1  Pending</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2          M2           1              0             1  Pending</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3          M3           1              0             1  Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        Targets Total_Files Existing_Files Missing_Files     echo</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    &lt;character&gt;   &lt;numeric&gt;      &lt;numeric&gt;     &lt;numeric&gt; &lt;matrix&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M1          M1           1              0             1  Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M2          M2           1              0             1  Pending</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M3          M3           1              0             1  Pending</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> $R_read</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> DataFrame with 1 row and 2 columns</span>
@@ -525,7 +525,7 @@ R-based workflow.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-in'><span class='fu'>runInfo</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> $env</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562676a40e28&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562bb91a29c0&gt;</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> $runOption$echo</span>
@@ -598,10 +598,10 @@ R-based workflow.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>R_read</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</span>
 <span class='r-in'><span class='fu'>copyEnvir</span><span class='op'>(</span><span class='va'>sal</span>, list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, new.env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562676a40e28&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562bb91a29c0&gt;</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> Copying to 'new.env': </span>
 <span class='r-in'><span class='fu'>viewEnvir</span><span class='op'>(</span><span class='va'>sal</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562676a40e28&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: 0x562bb91a29c0&gt;</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## Subset Methods</span></span>
