@@ -1,0 +1,43 @@
+---
+title: '&nbsp;'
+date: 'Last update: 13 November, 2021'
+output:
+  html_document:
+    includes:
+      before_body: /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/log_plot.html
+    number_sections: false
+    theme: flatly
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: false
+package: systemPipeR
+fontsize: 14pt
+---
+
+#  echo 
+
+#  R_read 
+
+Time: Nov132021_0159s38
+
+
+## Code: 
+```{r, eval=FALSE} 
+hello <- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))
+```
+
+
+## Stdout: 
+```{r, eval=FALSE}
+$M1
+[1] "Hello World!"
+
+$M2
+[1] "Hello USA!"
+
+$M3
+[1] "Hello Bioconductor!"
+
+``` 
+
