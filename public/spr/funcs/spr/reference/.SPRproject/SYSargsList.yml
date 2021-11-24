@@ -116,7 +116,19 @@ stepsWF:
         - Pending
         - Pending
         - Pending
-      status.time: {}
+      status.time:
+        Targets:
+        - M1
+        - M2
+        - M3
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
     internal_outfiles:
       M1:
         echo: results/M1.txt
@@ -169,7 +181,19 @@ statusWF:
         - Pending
         - Pending
         - Pending
-      status.time: {}
+      status.time:
+        Targets:
+        - M1
+        - M2
+        - M3
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
   R_read: |
     R_read:
       status.summary: Pending
