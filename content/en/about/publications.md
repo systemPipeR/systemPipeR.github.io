@@ -2,11 +2,6 @@
 title: "Publications" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
 date: "Last update: 05 May, 2021" 
-output:
-  BiocStyle::html_document:
-    toc_float: true
-    code_folding: show
-  BiocStyle::pdf_document: default
 package: systemPipeR
 type: docs
 weight: 3
