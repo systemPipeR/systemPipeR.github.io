@@ -1,7 +1,7 @@
 ---
 title: "Introduction" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 06 August, 2021" 
+date: "Last update: 05 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -20,10 +20,6 @@ type: docs
 weight: 1
 ---
 
-<!--
-- Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
--->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
@@ -37,9 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
       links[i].target = '_blank';
 });
 </script>
-
-**Note:** if you use *`systemPipeR`* in published research, please cite:
-Backman, T.W.H and Girke, T. (2016). *`systemPipeR`*: NGS Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 
 # Introduction
 
@@ -143,9 +136,9 @@ robust design.
 
 <div class="figure" style="text-align: center">
 
-<img src="sysargslist.png" alt="Workflow steps with input/output file operations are controlled by `SYSargs2` objects. Each `SYSargs2`instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many `SYSargs2` objects are organized in an `SYSargsList` container." width="100%" />
+<img src="sysargslist.png" alt="Workflow steps with input/output file operations are controlled by SYSargs2 objects. Each SYSargs2 instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many SYSargs2 objects are organized in an SYSargsList container." width="100%" />
 <p class="caption">
-Figure 2: Workflow steps with input/output file operations are controlled by `SYSargs2` objects. Each `SYSargs2`instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many `SYSargs2` objects are organized in an `SYSargsList` container.
+Figure 2: Workflow steps with input/output file operations are controlled by SYSargs2 objects. Each SYSargs2 instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many SYSargs2 objects are organized in an SYSargsList container.
 </p>
 
 </div>

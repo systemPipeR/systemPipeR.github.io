@@ -19,10 +19,6 @@ editor_options:
 type: docs
 weight: 1
 ---
-<!--
-- Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
--->
 
 ```{r style, echo = FALSE, results = 'asis'}
 BiocStyle::markdown()
@@ -48,9 +44,6 @@ suppressPackageStartupMessages({
     library(magrittr)
 })
 ```
-
-**Note:** if you use _`systemPipeR`_ in published research, please cite:
-Backman, T.W.H and Girke, T. (2016). _`systemPipeR`_: NGS Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 
 # Introduction
 
@@ -147,7 +140,7 @@ checking status, and monitor complex workflows from start to finish. This design
 enhances the systemPipeR workflow framework with a generalized, flexible, and 
 robust design.
 
-```{r sysargslistImage, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "Workflow steps with input/output file operations are controlled by `SYSargs2` objects. Each `SYSargs2`instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many `SYSargs2` objects are organized in an `SYSargsList` container."}
+```{r sysargslistImage, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "Workflow steps with input/output file operations are controlled by SYSargs2 objects. Each SYSargs2 instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many SYSargs2 objects are organized in an SYSargsList container."}
 
 knitr::include_graphics("sysargslist.png")
 ```

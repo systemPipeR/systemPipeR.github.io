@@ -1,7 +1,7 @@
 ---
 title: "SPR detailed installation instructions" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 28 October, 2021" 
+date: "Last update: 05 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -245,7 +245,7 @@ STAR is an ultrafast universal RNA-seq aligner.
 </tr>
 <tr>
 <td style="text-align:center;">
-<a href="https://github.com/FelixKrueger/TrimGalore">Trim\_galore</a>
+<a href="https://github.com/FelixKrueger/TrimGalore">Trim_galore</a>
 </td>
 <td style="text-align:center;">
 Trim Galore is a wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files.
