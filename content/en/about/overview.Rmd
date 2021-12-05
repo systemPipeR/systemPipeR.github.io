@@ -5,7 +5,7 @@ weight: 1
 type: docs
 exclude_search: true
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 04 December, 2021" 
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
 package: systemPipeR
 ---
 
@@ -17,7 +17,9 @@ systemPipe (SP) is a generic toolkit for designing and running reproducible data
 analysis workflows. The environment consists of three major modules implemented
 as R/Bioconductor packages. 
 
-<img src="systemPipe_logo.png" width="50%" style="display: block; margin: auto;" />
+```{r logo, eval=TRUE, echo=FALSE, out.width="50%", fig.align = "center"}
+knitr::include_graphics("systemPipe_logo.png")
+```
 
 - _systemPipeR_ (SPR) provides core functionalities for defining workflows, 
 interacting with command-line software, and executing both R and/or command-line 

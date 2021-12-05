@@ -1,8 +1,7 @@
 ---
 title: "Publications" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 05 May, 2021" 
-package: systemPipeR
+date: "Last update: 04 December, 2021" 
 type: docs
 weight: 3
 exclude_search: true
@@ -32,7 +31,7 @@ exclude_search: true
 
 ## Publications related to this project
 
-[[ PubMed ]](https://pubmed.ncbi.nlm.nih.gov/?sort=pubdate&size=50&linkname=pubmed_pubmed_citedin&from_uid=27650223) - [[ Google Scholar ]](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6906051125040672859)
+[[ PubMed ]{blk}](https://pubmed.ncbi.nlm.nih.gov/?sort=pubdate&size=50&linkname=pubmed_pubmed_citedin&from_uid=27650223) - [[ Google Scholar ]{blk}](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6906051125040672859)
 
 - Chen Y, Liu M, Dong Z. Preferential Ribosome Loading on the Stress-Upregulated mRNA Pool Shapes the Selective Translation under Stress Conditions. Plants [Internet]. 2021 Feb 5;10(2). Available from: http://dx.doi.org/10.3390/plants10020304 PMCID: [PMC7915710{blk}](http://www.ncbi.nlm.nih.gov/pmc/articles/pmc7915710/)
 
