@@ -1,19 +1,45 @@
 stepsWF:
+  load_library: |
+    codeLine: library(systemPipeR)
+    codeChunkStart: []
+    stepName: load_library
+    dependency:
+      load_library: .na
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: load_library
+        status.summary: Pending
+      status.time: {}
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        load_library:
+          directory: no
+          run_step: mandatory
+          run_session: local
   export_iris: |
     codeLine: mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)),
       file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
-    codeChunkStart: 27
-    rmdPath: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/spr_simple_wf.Rmd
+    codeChunkStart: []
     stepName: export_iris
     dependency:
-      export_iris: ''
+      export_iris: .na
     status:
       status.summary: Pending
       status.completed:
         Step: export_iris
         status.summary: Pending
       status.time: {}
-    files: []
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        export_iris:
+          directory: no
+          run_step: mandatory
+          run_session: local
   gzip: |
     targets:
       SE:
@@ -114,11 +140,12 @@ stepsWF:
     files:
       cwl: gunzip/workflow_gzip.cwl
       yml: gunzip/gzip.yml
-      dir_path: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/cwl
+      dir_path: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl
       steps: gzip
-      cltpaths: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/cwl/gunzip/gzip.cwl
+      cltpaths: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/gunzip/gzip.cwl
       output_names: gzip_file
-      targets: home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/cwl/gunzip/targets_gunzip.txt
+      targets: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/gunzip/targets_gunzip.txt
+      id: SampleName
     inputvars:
       FileName: _FILE_PATH_
       SampleName: _SampleName_
@@ -146,7 +173,19 @@ stepsWF:
         - Pending
         - Pending
         - Pending
-      status.time: {}
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
     internal_outfiles:
       SE:
         gzip: results/SE.csv.gz
@@ -254,11 +293,12 @@ stepsWF:
     files:
       cwl: gunzip/workflow_gunzip.cwl
       yml: gunzip/gunzip.yml
-      dir_path: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/cwl
+      dir_path: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl
       steps: gunzip
-      cltpaths: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/cwl/gunzip/gunzip.cwl
+      cltpaths: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/gunzip/gunzip.cwl
       output_names: gunzip_file
       targets: .na
+      id: SampleName
     inputvars:
       gzip_file: _FILE_PATH_
       SampleName: _SampleName_
@@ -286,7 +326,19 @@ stepsWF:
         - Pending
         - Pending
         - Pending
-      status.time: {}
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
     internal_outfiles:
       SE:
         gunzip: results/SE.csv
@@ -306,8 +358,7 @@ stepsWF:
       + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge())
       + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width
       = 0.2, position = ggplot2::position_dodge(0.9))
-    codeChunkStart: 63
-    rmdPath: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/spr_simple_wf.Rmd
+    codeChunkStart: []
     stepName: stats
     dependency:
       stats: gunzip
@@ -317,8 +368,22 @@ stepsWF:
         Step: stats
         status.summary: Pending
       status.time: {}
-    files: []
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        stats:
+          directory: no
+          run_step: optional
+          run_session: local
 statusWF:
+  load_library: |
+    load_library:
+      status.summary: Pending
+      status.completed:
+        Step: load_library
+        status.summary: Pending
+      status.time: {}
   export_iris: |
     export_iris:
       status.summary: Pending
@@ -350,7 +415,19 @@ statusWF:
         - Pending
         - Pending
         - Pending
-      status.time: {}
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
   gunzip: |
     gunzip:
       status.summary: Pending
@@ -375,7 +452,19 @@ statusWF:
         - Pending
         - Pending
         - Pending
-      status.time: {}
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
   stats: |
     stats:
       status.summary: Pending
@@ -384,6 +473,8 @@ statusWF:
         status.summary: Pending
       status.time: {}
 targetsWF:
+  load_library: |
+    {}
   export_iris: |
     {}
   gzip: |
@@ -407,6 +498,8 @@ targetsWF:
   stats: |
     {}
 outfiles:
+  load_library: |
+    {}
   export_iris: |
     {}
   gzip: |
@@ -421,11 +514,24 @@ outfiles:
     - results/VI.csv
   stats: |
     {}
-SEobj: |
-  []
-dependency:
+SE:
+  load_library: |
+    load_library: ~
   export_iris: |
-    export_iris: ''
+    export_iris: ~
+  gzip: |
+    dir.path: .SPRproject_rmd/SE
+    dir.name: gzip
+  gunzip: |
+    dir.path: .SPRproject_rmd/SE
+    dir.name: gunzip
+  stats: |
+    stats: ~
+dependency:
+  load_library: |
+    load_library: .na
+  export_iris: |
+    export_iris: .na
   gzip: |
     gzip: export_iris
   gunzip: |
@@ -433,6 +539,8 @@ dependency:
   stats: |
     stats: gunzip
 targets_connection:
+  load_library: |
+    load_library: ~
   export_iris: |
     export_iris: ~
   gzip: |
@@ -450,15 +558,36 @@ targets_connection:
   stats: |
     stats: ~
 projectInfo: |
-  project: /home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr
+  project: /home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/newdeploy/systemPipeR.github.io/content/en/sp/spr
   data: data
   param: param
   results: results
   logsDir: .SPRproject_rmd
   sysargslist: .SPRproject_rmd/SYSargsList.yml
-  rmd_file: /home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/spr_simple_wf.Rmd
+  rmd_file: /home/dcassol/src/R-devel/library/systemPipeR/extdata/spr_simple_wf.Rmd
 runInfo: |
-  export_iris: no
-  gzip: yes
-  gunzip: yes
-  stats: no
+  load_library:
+    directory: no
+    run_step: mandatory
+    run_session: local
+    rmd_line: '25:31'
+  export_iris:
+    directory: no
+    run_step: mandatory
+    run_session: local
+    rmd_line: '37:46'
+  gzip:
+    directory: yes
+    run_step: mandatory
+    run_session: local
+    rmd_line: 52:60
+  gunzip:
+    directory: yes
+    run_step: mandatory
+    run_session: local
+    rmd_line: 64:72
+  stats:
+    directory: no
+    run_step: optional
+    run_session: local
+    rmd_line: 76:92

@@ -1,7 +1,7 @@
 ---
 title: "How to run a Workflow" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 06 August, 2021" 
+date: "Last update: 05 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -21,9 +21,11 @@ weight: 3
 ---
 
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="/rmarkdown-libs/plotwf/plotwf.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/plotwf/viz.js"></script>
-<script src="/rmarkdown-libs/plotwf/full.render.js"></script>
+<link href="/rmarkdown-libs/vizjs/plotwf.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/vizjs/viz.js"></script>
+<script src="/rmarkdown-libs/vizjs/full.render.js"></script>
+<script src="/rmarkdown-libs/dom_to_image/dom_to_image.js"></script>
+<link id="plotwf_legend-1-attachment" rel="attachment" href="spr_run_files/plotwf_legend/plotwf_legend.svg"/>
 <script src="/rmarkdown-libs/plotwf-binding/plotwf.js"></script>
 <!--
 - Compile from command-line
@@ -52,15 +54,15 @@ container and checking the directory structure:
 sal <- SPRproject(projPath = tempdir())
 ```
 
-    ## Creating directory: /tmp/RtmpzxxPO5/data 
-    ## Creating directory: /tmp/RtmpzxxPO5/param 
-    ## Creating directory: /tmp/RtmpzxxPO5/results 
-    ## Creating directory '/tmp/RtmpzxxPO5/.SPRproject'
-    ## Creating file '/tmp/RtmpzxxPO5/.SPRproject/SYSargsList.yml'
+    ## Creating directory: /tmp/RtmpGojchK/data 
+    ## Creating directory: /tmp/RtmpGojchK/param 
+    ## Creating directory: /tmp/RtmpGojchK/results 
+    ## Creating directory '/tmp/RtmpGojchK/.SPRproject'
+    ## Creating file '/tmp/RtmpGojchK/.SPRproject/SYSargsList.yml'
 
     ## Your current working directory is different from the directory chosen for the Project Workflow.
     ## For accurate location of the files and running the Workflow, please set the working directory to 
-    ## 'setwd(/tmp/RtmpzxxPO5)'
+    ## 'setwd('/tmp/RtmpGojchK')'
 
 Internally, `SPRproject` function will create a hidden folder called `.SPRproject`,
 by default, to store all the log files.
@@ -107,7 +109,7 @@ projectInfo(sal)
 ```
 
     ## $project
-    ## [1] "/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr"
+    ## [1] "/tmp/RtmpGojchK"
     ## 
     ## $data
     ## [1] "data"
@@ -328,7 +330,7 @@ outfiles(sal)
     ## 2 results/VE.csv.gz
     ## 3 results/VI.csv.gz
 
-The column we want to use is “gzip\_file.” For the argument `targets` in the
+The column we want to use is “gzip_file.” For the argument `targets` in the
 `SYSargsList` function, it should provide the name of the correspondent step in
 the Workflow and which `outfiles` you would like to be incorporated in the next
 step.
@@ -358,11 +360,11 @@ targetsWF(sal[3])
 
     ## $gunzip
     ## DataFrame with 3 rows and 2 columns
-    ##           gzip_file  SampleName
-    ##         <character> <character>
-    ## 1 results/SE.csv.gz          SE
-    ## 2 results/VE.csv.gz          VE
-    ## 3 results/VI.csv.gz          VI
+    ##            gzip_file  SampleName
+    ##          <character> <character>
+    ## SE results/SE.csv.gz          SE
+    ## VE results/VE.csv.gz          VE
+    ## VI results/VI.csv.gz          VI
 
 We can also check all the expected `outfiles` for this particular step, as follows:
 
@@ -454,8 +456,11 @@ converted in a workflow step.
 sal_rmd <- SPRproject(logs.dir = ".SPRproject_rmd")
 ```
 
-    ## Creating directory '/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr/.SPRproject_rmd'
-    ## Creating file '/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/systemPipeR.github.io_docsy/content/en/sp/spr/.SPRproject_rmd/SYSargsList.yml'
+    ## Creating directory: /home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/newdeploy/systemPipeR.github.io/content/en/sp/spr/data 
+    ## Creating directory: /home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/newdeploy/systemPipeR.github.io/content/en/sp/spr/param 
+    ## Creating directory: /home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/newdeploy/systemPipeR.github.io/content/en/sp/spr/results 
+    ## Creating directory '/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/newdeploy/systemPipeR.github.io/content/en/sp/spr/.SPRproject_rmd'
+    ## Creating file '/home/dcassol/danielac@ucr.edu/projects/SP/SPR_org/newdeploy/systemPipeR.github.io/content/en/sp/spr/.SPRproject_rmd/SYSargsList.yml'
 
 ``` r
 sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.Rmd",
@@ -471,6 +476,10 @@ sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.R
 
     ## Ignore non-SPR chunks: 17
 
+    ## Checking chunk spr.req option
+
+    ## Checking chunk spr.ses option
+
     ## Checking chunk eval values
 
     ## Resolve step names
@@ -479,12 +488,13 @@ sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.R
 
     ## Checking chunk dependencies
 
-    ## Use the previous step as dependency for steps without 'spr.dep' options: 27
+    ## Use the previous step as dependency for steps without 'spr.dep' options: 25, 37
 
     ## Parse chunk code
 
     ## ---- Succes! Create output ----
 
+    ## Now importing step 'load_library' 
     ## Now importing step 'export_iris' 
     ## Now importing step 'gzip' 
     ## Now importing step 'gunzip' 
@@ -496,6 +506,10 @@ Let’s explore the workflow to check the steps:
 stepsWF(sal_rmd)
 ```
 
+    ## $load_library
+    ## Instance of 'LineWise'
+    ##     Code Chunk length: 1
+    ## 
     ## $export_iris
     ## Instance of 'LineWise'
     ##     Code Chunk length: 1
@@ -534,8 +548,11 @@ stepsWF(sal_rmd)
 dependency(sal_rmd)
 ```
 
+    ## $load_library
+    ## [1] NA
+    ## 
     ## $export_iris
-    ## [1] ""
+    ## [1] NA
     ## 
     ## $gzip
     ## [1] "export_iris"
@@ -552,6 +569,8 @@ codeLine(sal_rmd)
 
     ## gzip AND gunzip step have been dropped because it is not a LineWise object.
 
+    ## load_library
+    ##     library(systemPipeR)
     ## export_iris
     ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
     ## stats
@@ -565,24 +584,27 @@ codeLine(sal_rmd)
 targetsWF(sal_rmd)
 ```
 
+    ## $load_library
+    ## DataFrame with 0 rows and 0 columns
+    ## 
     ## $export_iris
     ## DataFrame with 0 rows and 0 columns
     ## 
     ## $gzip
     ## DataFrame with 3 rows and 2 columns
-    ##                 FileName  SampleName
-    ##              <character> <character>
-    ## 1     results/setosa.csv          SE
-    ## 2 results/versicolor.csv          VE
-    ## 3  results/virginica.csv          VI
+    ##                  FileName  SampleName
+    ##               <character> <character>
+    ## SE     results/setosa.csv          SE
+    ## VE results/versicolor.csv          VE
+    ## VI  results/virginica.csv          VI
     ## 
     ## $gunzip
     ## DataFrame with 3 rows and 2 columns
-    ##           gzip_file  SampleName
-    ##         <character> <character>
-    ## 1 results/SE.csv.gz          SE
-    ## 2 results/VE.csv.gz          VE
-    ## 3 results/VI.csv.gz          VI
+    ##            gzip_file  SampleName
+    ##          <character> <character>
+    ## SE results/SE.csv.gz          SE
+    ## VE results/VE.csv.gz          VE
+    ## VI results/VI.csv.gz          VI
     ## 
     ## $stats
     ## DataFrame with 0 rows and 0 columns
@@ -598,9 +620,9 @@ analysis, please use the following code chunk options:
 
 For example:
 
-> *\`\`\`{r step\_1, eval=TRUE, spr=‘r,’ spr.dep=‘step\_0’}*
+> *\`\`\`{r step_1, eval=TRUE, spr=‘r,’ spr.dep=‘step_0’}*
 
-> *\`\`\`{r step\_2, eval=TRUE, spr=‘sysargs,’ spr.dep=‘step\_1’}*
+> *\`\`\`{r step_2, eval=TRUE, spr=‘sysargs,’ spr.dep=‘step_1’}*
 
 For `spr = 'sysargs'`, the last object assigned must to be the `SYSargsList`, for example:
 
@@ -696,19 +718,19 @@ statusWF(sal)
     ## 
     ## $gzip
     ## DataFrame with 3 rows and 5 columns
-    ##       Targets Total_Files Existing_Files Missing_Files     gzip
-    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
-    ## 1          SE           1              0             1  Pending
-    ## 2          VE           1              0             1  Pending
-    ## 3          VI           1              0             1  Pending
+    ##        Targets Total_Files Existing_Files Missing_Files     gzip
+    ##    <character>   <numeric>      <numeric>     <numeric> <matrix>
+    ## SE          SE           1              0             1  Pending
+    ## VE          VE           1              0             1  Pending
+    ## VI          VI           1              0             1  Pending
     ## 
     ## $gunzip
     ## DataFrame with 3 rows and 5 columns
-    ##       Targets Total_Files Existing_Files Missing_Files   gunzip
-    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
-    ## 1          SE           1              0             1  Pending
-    ## 2          VE           1              0             1  Pending
-    ## 3          VI           1              0             1  Pending
+    ##        Targets Total_Files Existing_Files Missing_Files   gunzip
+    ##    <character>   <numeric>      <numeric>     <numeric> <matrix>
+    ## SE          SE           1              0             1  Pending
+    ## VE          VE           1              0             1  Pending
+    ## VI          VI           1              0             1  Pending
     ## 
     ## $iris_stats
     ## DataFrame with 1 row and 2 columns
@@ -770,11 +792,11 @@ If no argument is provided, the basic plot will automatically detect width,
 height, layout, plot method, branches, *etc*.
 
 ``` r
-plotWF(sal, show_legend = TRUE, width = "80%", rstudio = TRUE)
+plotWF(sal, show_legend = TRUE, width = "80%")
 ```
 
 <div id="htmlwidget-1" style="width:80%;height:480px;" class="plotwf html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"dot":"digraph {\n    node[fontsize=20];\n    subgraph {\n        node[color=\"dodgerblue\"];\n        export_iris -> gzip -> iris_stats[color=\"dodgerblue\"]\n   }\n    gzip -> gunzip\n    \n    export_iris[label=<<b><font color=\"black\">export_iris<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step export_iris: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    gzip[label=<<b><font color=\"black\">gzip<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">3<\/font><\/b>; <font color=\"black\">0s<\/font>> , style=\"rounded\", shape=\"box\"  tooltip=\"step gzip: 0 samples passed; 0 samples have warnings; 0 samples have errors; 3 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    gunzip[label=<<b><font color=\"black\">gunzip<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">3<\/font><\/b>; <font color=\"black\">0s<\/font>> , style=\"rounded\", shape=\"box\"  tooltip=\"step gunzip: 0 samples passed; 0 samples have warnings; 0 samples have errors; 3 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    iris_stats[label=<<b><font color=\"black\">iris_stats<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step iris_stats: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2021-08-06 16:41:49; End time: 2021-08-06 16:41:49; Duration: 00:00:00\"]\n    subgraph cluster_legend {\n        rankdir=TB;\n        color=\"#EEEEEE\";\n        style=filled;\n        node [style=filled];\n        {rank=same; R_step; Sysargs_step; Main_branch}\n        Main_branch -> Sysargs_step -> R_step[color=\"#EEEEEE\"]\n        Main_branch[label=\"Main branch\" color=\"dodgerblue\", style=\"filled\", fillcolor=white];   Sysargs_step ->step_state[color=\"#EEEEEE\"];\n        step_state[style=\"filled\", shape=\"box\" color=white, label =<\n            <table>\n            <tr><td><b>Step Colors<\/b><\/td><\/tr>\n            <tr><td><font color=\"black\">Pending steps<\/font>; <font color=\"#5cb85c\">Successful steps<\/font>; <font color=\"#d9534f\">Failed steps<\/font><\/td><\/tr>\n            <tr><td><b>Targets Files / Code Chunk <\/b><\/td><\/tr><tr><td><font color=\"#5cb85c\">0 (pass) <\/font> | <font color=\"#f0ad4e\">0 (warning) <\/font> | <font color=\"#d9534f\">0 (error) <\/font> | <font color=\"blue\">0 (total)<\/font>; Duration<\/td><\/tr><\/table>\n            >];\n        label=\"Legends\";\n        fontsize = 30;\n        Sysargs_step[label=\"Sysargs step\" style=\"rounded, filled\", shape=\"box\", fillcolor=white];\n        R_step[label=\"R step\" style=\"rounded, filled\", fillcolor=white];\n    }\n\n}\n","plotid":"sprwf-48365271","responsive":true,"width":"80%","height":null,"plot_method":"renderSVGElement","rmd":true,"msg":""},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"dot":"digraph {\n    node[fontsize=20];\n    subgraph {\n        export_iris -> gzip -> iris_stats\n   }\n    gzip -> gunzip\n    \n    export_iris[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">export_iris<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step export_iris: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2021-12-05 00:35:32; End time: 2021-12-05 00:35:32; Duration: 00:00:00\"]\n    gzip[fillcolor=\"#d3d6eb\" style=\"filled, rounded\" label=<<b><font color=\"black\">gzip<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">3<\/font><\/b>; <font color=\"black\">0s<\/font>> , shape=\"box\"  tooltip=\"step gzip: 0 samples passed; 0 samples have warnings; 0 samples have errors; 3 samples in total; Start time: 2021-12-05 00:35:32; End time: 2021-12-05 00:35:32; Duration: 00:00:00\"]\n    gunzip[fillcolor=\"#d3d6eb\" style=\"filled, rounded\" label=<<b><font color=\"black\">gunzip<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">3<\/font><\/b>; <font color=\"black\">0s<\/font>> , shape=\"box\"  tooltip=\"step gunzip: 0 samples passed; 0 samples have warnings; 0 samples have errors; 3 samples in total; Start time: 2021-12-05 00:35:32; End time: 2021-12-05 00:35:32; Duration: 00:00:00\"]\n    iris_stats[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">iris_stats<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step iris_stats: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2021-12-05 00:35:32; End time: 2021-12-05 00:35:32; Duration: 00:00:00\"]\n        subgraph cluster_legend {\n        rankdir=TB;\n        color=\"#eeeeee\";\n        style=filled;\n        ranksep =1;\n        label=\"Legends\";\n        fontsize = 30;\n        node [style=filled, fontsize=10];\n        legend_img-> step_state[color=\"#eeeeee\"];\n\n        legend_img[shape=none, image=\"plotwf_legend-src.png\", label = \" \", height=1, width=3, style=\"\"];\n\n        step_state[style=\"filled\", shape=\"box\" color=white, label =<\n            <table>\n            <tr><td><b>Step Colors<\/b><\/td><\/tr>\n            <tr><td><font color=\"black\">Pending steps<\/font>; <font color=\"#5cb85c\">Successful steps<\/font>; <font color=\"#d9534f\">Failed steps<\/font><\/td><\/tr>\n            <tr><td><b>Targets Files / Code Chunk <\/b><\/td><\/tr><tr><td><font color=\"#5cb85c\">0 (pass) <\/font> | <font color=\"#f0ad4e\">0 (warning) <\/font> | <font color=\"#d9534f\">0 (error) <\/font> | <font color=\"blue\">0 (total)<\/font>; Duration<\/td><\/tr><\/table>\n            >];\n\n    }\n\n}\n","plotid":"sprwf-72418563","responsive":true,"width":"80%","height":null,"plot_method":"renderSVGElement","rmd":true,"msg":"","plot_ctr":true,"pan_zoom":false},"evals":[],"jsHooks":[]}</script>
 
 For more details about the `plotWF` function, please see [here](#plotWF).
 
@@ -886,7 +908,7 @@ names(sal)
 ```
 
     ## [1] "stepsWF"            "statusWF"           "targetsWF"         
-    ## [4] "outfiles"           "SEobj"              "dependency"        
+    ## [4] "outfiles"           "SE"                 "dependency"        
     ## [7] "targets_connection" "projectInfo"        "runInfo"
 
 -   Check the length of the workflow:
@@ -977,19 +999,19 @@ statusWF(sal)
     ## 
     ## $gzip
     ## DataFrame with 3 rows and 5 columns
-    ##       Targets Total_Files Existing_Files Missing_Files     gzip
-    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
-    ## 1          SE           1              0             1  Pending
-    ## 2          VE           1              0             1  Pending
-    ## 3          VI           1              0             1  Pending
+    ##        Targets Total_Files Existing_Files Missing_Files     gzip
+    ##    <character>   <numeric>      <numeric>     <numeric> <matrix>
+    ## SE          SE           1              0             1  Pending
+    ## VE          VE           1              0             1  Pending
+    ## VI          VI           1              0             1  Pending
     ## 
     ## $gunzip
     ## DataFrame with 3 rows and 5 columns
-    ##       Targets Total_Files Existing_Files Missing_Files   gunzip
-    ##   <character>   <numeric>      <numeric>     <numeric> <factor>
-    ## 1          SE           1              0             1  Pending
-    ## 2          VE           1              0             1  Pending
-    ## 3          VI           1              0             1  Pending
+    ##        Targets Total_Files Existing_Files Missing_Files   gunzip
+    ##    <character>   <numeric>      <numeric>     <numeric> <matrix>
+    ## SE          SE           1              0             1  Pending
+    ## VE          VE           1              0             1  Pending
+    ## VI          VI           1              0             1  Pending
     ## 
     ## $iris_stats
     ## DataFrame with 1 row and 2 columns
@@ -1005,11 +1027,11 @@ targetsWF(sal[2])
 
     ## $gzip
     ## DataFrame with 3 rows and 2 columns
-    ##                 FileName  SampleName
-    ##              <character> <character>
-    ## 1     results/setosa.csv          SE
-    ## 2 results/versicolor.csv          VE
-    ## 3  results/virginica.csv          VI
+    ##                  FileName  SampleName
+    ##               <character> <character>
+    ## SE     results/setosa.csv          SE
+    ## VE results/versicolor.csv          VE
+    ## VI  results/virginica.csv          VI
 
 -   Checking the expected outfiles files:
 
@@ -1035,7 +1057,7 @@ dependency(sal)
 ```
 
     ## $export_iris
-    ## [1] ""
+    ## [1] NA
     ## 
     ## $gzip
     ## [1] "export_iris"
@@ -1108,7 +1130,7 @@ codeLine(sal, step = "export_iris")
 viewEnvir(sal)
 ```
 
-    ## <environment: 0x55bbae3bc680>
+    ## <environment: 0x5606b7c97228>
     ## character(0)
 
 -   Copy one or multiple objects from the running environment to a new environment:
@@ -1117,7 +1139,7 @@ viewEnvir(sal)
 copyEnvir(sal, list = c("plot"), new.env = globalenv(), silent = FALSE)
 ```
 
-    ## <environment: 0x55bbae3bc680>
+    ## <environment: 0x5606b7c97228>
     ## Copying to 'new.env': 
     ## plot
 
@@ -1241,15 +1263,15 @@ targetsWF(sal_sub)
     ## 
     ## $gzip
     ## DataFrame with 1 row and 2 columns
-    ##             FileName  SampleName
-    ##          <character> <character>
-    ## 1 results/setosa.csv          SE
+    ##              FileName  SampleName
+    ##           <character> <character>
+    ## SE results/setosa.csv          SE
     ## 
     ## $gunzip
     ## DataFrame with 1 row and 2 columns
-    ##           gzip_file  SampleName
-    ##         <character> <character>
-    ## 1 results/SE.csv.gz          SE
+    ##            gzip_file  SampleName
+    ##          <character> <character>
+    ## SE results/SE.csv.gz          SE
     ## 
     ## $iris_stats
     ## DataFrame with 0 rows and 0 columns
@@ -1366,6 +1388,12 @@ cmdlist(sal_c, step = "gzip", targets = 1)
 
 ``` r
 appendCodeLine(sal_c, step = "export_iris", after = 1) <- "log_cal_100 <- log(100)"
+```
+
+    ## Warning in .getPath(sys.file, full_path = FALSE): No such file or directory.
+    ## Check the file PATH.
+
+``` r
 codeLine(sal_c, step = "export_iris")
 ```
 
@@ -1382,7 +1410,7 @@ codeLine(sal_c, step = 1)
 
     ## export_iris
     ##     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
-    ##     3.91202300542815
+    ##     log_cal_100 <- log(50)
 
 For more details about the `LineWise` class, please see [below](#linewise).
 
@@ -1425,7 +1453,7 @@ dependency(sal_c)
 ```
 
     ## $newStep2
-    ## [1] ""
+    ## [1] NA
     ## 
     ## $newIndex
     ## [1] "newStep2"

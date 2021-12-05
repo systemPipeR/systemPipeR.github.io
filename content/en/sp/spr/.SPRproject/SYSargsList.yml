@@ -1,0 +1,548 @@
+stepsWF:
+  export_iris: |
+    codeLine:
+    - mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results",
+      paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    - log_cal_100 <- log(50)
+    codeChunkStart: []
+    stepName: export_iris
+    dependency:
+      export_iris: .na
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: export_iris
+        status.summary: Pending
+      status.time: {}
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        export_iris:
+          directory: no
+          run_step: mandatory
+          run_session: local
+  gzip: |
+    targets:
+      SE:
+        FileName: results/setosa.csv
+        SampleName: SE
+      VE:
+        FileName: results/versicolor.csv
+        SampleName: VE
+      VI:
+        FileName: results/virginica.csv
+        SampleName: VI
+    targetsheader:
+      targetsheader: '# Project ID: SPR Example gzip'
+    modules: []
+    wf:
+      class: Workflow
+      cwlVersion: v1.0
+      inputs:
+        file: File
+        SampleName: string
+        ext: string
+        results_path: Directory
+      outputs:
+        gzip_file:
+          outputSource: gzip/gzip_file
+          type: stdout
+      steps:
+        gzip:
+          in:
+            file: file
+            SampleName: SampleName
+            ext: ext
+            results_path: results_path
+          out: '[gzip_file]'
+          run: gunzip/gzip.cwl
+    clt:
+      gunzip/gzip.cwl:
+        cwlVersion: v1.0
+        class: CommandLineTool
+        baseCommand: gzip
+        requirements:
+        - class: InlineJavascriptRequirement
+        - class: InitialWorkDirRequirement
+          listing: $(inputs.results_path)
+        arguments:
+        - prefix: -c
+        inputs:
+          file:
+            type: File
+            inputBinding:
+              position: 1
+          SampleName:
+            label: Filename to write output to
+            type: string
+          ext:
+            label: Filename extension
+            type: string
+          results_path:
+            label: Directory to write output to
+            type: Directory
+        outputs:
+          gzip_file:
+            type: stdout
+        stdout: $(inputs.results_path.basename)/$(inputs.SampleName).$(inputs.ext)
+    yamlinput:
+      file:
+        class: File
+        path: _FILE_PATH_
+      SampleName: _SampleName_
+      ext: txt.gz
+      results_path:
+        class: Directory
+        path: ./results
+    cmdlist:
+      SE:
+        gzip: gzip -c  results/setosa.csv > results/SE.txt.gz
+      VE:
+        gzip: gzip -c  results/versicolor.csv > results/VE.txt.gz
+      VI:
+        gzip: gzip -c  results/virginica.csv > results/VI.txt.gz
+    input:
+      SE:
+        FileName: results/setosa.csv
+        SampleName: SE
+      VE:
+        FileName: results/versicolor.csv
+        SampleName: VE
+      VI:
+        FileName: results/virginica.csv
+        SampleName: VI
+    output:
+      SE:
+        gzip: results/SE.txt.gz
+      VE:
+        gzip: results/VE.txt.gz
+      VI:
+        gzip: results/VI.txt.gz
+    files:
+      cwl: gunzip/workflow_gzip.cwl
+      yml: gunzip/gzip.yml
+      dir_path: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl
+      steps: gzip
+      cltpaths: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/gunzip/gzip.cwl
+      output_names: gzip_file
+      targets: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/gunzip/targets_gunzip.txt
+      id: SampleName
+    inputvars:
+      FileName: _FILE_PATH_
+      SampleName: _SampleName_
+    cmdToCwl: []
+    status:
+      status.summary: Pending
+      status.completed:
+        Targets:
+        - SE
+        - VE
+        - VI
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        gzip:
+        - Pending
+        - Pending
+        - Pending
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
+    internal_outfiles:
+      SE:
+        gzip: results/SE.txt.gz
+      VE:
+        gzip: results/VE.txt.gz
+      VI:
+        gzip: results/VI.txt.gz
+  gunzip: |
+    targets:
+      SE:
+        gzip_file: results/SE.csv.gz
+        SampleName: SE
+      VE:
+        gzip_file: results/VE.csv.gz
+        SampleName: VE
+      VI:
+        gzip_file: results/VI.csv.gz
+        SampleName: VI
+    targetsheader:
+      targetsheader: '# Project ID: SPR Example gzip'
+    modules: []
+    wf:
+      class: Workflow
+      cwlVersion: v1.0
+      inputs:
+        file: File
+        SampleName: string
+        ext: string
+        results_path: Directory
+      outputs:
+        gunzip_file:
+          outputSource: gunzip/gunzip_file
+          type: stdout
+      steps:
+        gunzip:
+          in:
+            file: file
+            SampleName: SampleName
+            ext: ext
+            results_path: results_path
+          out: '[gunzip_file]'
+          run: gunzip/gunzip.cwl
+    clt:
+      gunzip/gunzip.cwl:
+        cwlVersion: v1.0
+        class: CommandLineTool
+        baseCommand: gunzip
+        requirements:
+        - class: InlineJavascriptRequirement
+        - class: InitialWorkDirRequirement
+          listing: $(inputs.results_path)
+        arguments:
+        - prefix: -c
+        inputs:
+          file:
+            type: File
+            inputBinding:
+              position: 1
+          SampleName:
+            label: Filename to write output to
+            type: string
+          ext:
+            label: Filename extension
+            type: string
+          results_path:
+            label: Directory to write output to
+            type: Directory
+        outputs:
+          gunzip_file:
+            type: stdout
+        stdout: $(inputs.results_path.basename)/$(inputs.SampleName).csv
+    yamlinput:
+      file:
+        class: File
+        path: _FILE_PATH_
+      SampleName: _SampleName_
+      ext: csv
+      results_path:
+        class: Directory
+        path: ./results
+    cmdlist:
+      SE:
+        gunzip: gunzip -c  results/SE.csv.gz > results/SE.csv
+      VE:
+        gunzip: gunzip -c  results/VE.csv.gz > results/VE.csv
+      VI:
+        gunzip: gunzip -c  results/VI.csv.gz > results/VI.csv
+    input:
+      SE:
+        gzip_file: results/SE.csv.gz
+        SampleName: SE
+      VE:
+        gzip_file: results/VE.csv.gz
+        SampleName: VE
+      VI:
+        gzip_file: results/VI.csv.gz
+        SampleName: VI
+    output:
+      SE:
+        gunzip: results/SE.csv
+      VE:
+        gunzip: results/VE.csv
+      VI:
+        gunzip: results/VI.csv
+    files:
+      cwl: gunzip/workflow_gunzip.cwl
+      yml: gunzip/gunzip.yml
+      dir_path: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl
+      steps: gunzip
+      cltpaths: /home/dcassol/src/R-devel/library/systemPipeR/extdata/cwl/gunzip/gunzip.cwl
+      output_names: gunzip_file
+      targets: .na
+      id: SampleName
+    inputvars:
+      gzip_file: _FILE_PATH_
+      SampleName: _SampleName_
+    cmdToCwl: []
+    status:
+      status.summary: Pending
+      status.completed:
+        Targets:
+        - SE
+        - VE
+        - VI
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        gunzip:
+        - Pending
+        - Pending
+        - Pending
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
+    internal_outfiles:
+      SE:
+        gunzip: results/SE.csv
+      VE:
+        gunzip: results/VE.csv
+      VI:
+        gunzip: results/VI.csv
+  iris_stats: |
+    codeLine:
+    - df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x,
+      sep = ",")[-1])
+    - df <- do.call(rbind, df)
+    - stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4],
+      2, sd)))
+    - stats$species <- rownames(stats)
+    - plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species))
+      + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge())
+      + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width
+      = 0.2, position = ggplot2::position_dodge(0.9))
+    codeChunkStart: []
+    stepName: iris_stats
+    dependency:
+      iris_stats: gzip
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: iris_stats
+        status.summary: Pending
+      status.time: {}
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        iris_stats:
+          directory: no
+          run_step: mandatory
+          run_session: local
+statusWF:
+  export_iris: |
+    export_iris:
+      status.summary: Pending
+      status.completed:
+        Step: export_iris
+        status.summary: Pending
+      status.time: {}
+  gzip: |
+    gzip:
+      status.summary: Pending
+      status.completed:
+        Targets:
+        - SE
+        - VE
+        - VI
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        gzip:
+        - Pending
+        - Pending
+        - Pending
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
+  gunzip: |
+    gunzip:
+      status.summary: Pending
+      status.completed:
+        Targets:
+        - SE
+        - VE
+        - VI
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        gunzip:
+        - Pending
+        - Pending
+        - Pending
+      status.time:
+        Targets:
+        - SE
+        - VE
+        - VI
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
+  iris_stats: |
+    iris_stats:
+      status.summary: Pending
+      status.completed:
+        Step: iris_stats
+        status.summary: Pending
+      status.time: {}
+targetsWF:
+  export_iris: |
+    {}
+  gzip: |
+    FileName:
+    - results/setosa.csv
+    - results/versicolor.csv
+    - results/virginica.csv
+    SampleName:
+    - SE
+    - VE
+    - VI
+  gunzip: |
+    gzip_file:
+    - results/SE.csv.gz
+    - results/VE.csv.gz
+    - results/VI.csv.gz
+    SampleName:
+    - SE
+    - VE
+    - VI
+  iris_stats: |
+    {}
+outfiles:
+  export_iris: |
+    {}
+  gzip: |
+    gzip_file:
+    - results/SE.csv.gz
+    - results/VE.csv.gz
+    - results/VI.csv.gz
+  gunzip: |
+    gunzip_file:
+    - results/SE.csv
+    - results/VE.csv
+    - results/VI.csv
+  iris_stats: |
+    {}
+SE:
+  export_iris: |
+    export_iris: ~
+  gzip: |
+    dir.path: .SPRproject/SE
+    dir.name: gzip
+  gunzip: |
+    dir.path: .SPRproject/SE
+    dir.name: gunzip
+  iris_stats: |
+    iris_stats: ~
+dependency:
+  export_iris: |
+    export_iris: .na
+  gzip: |
+    gzip: export_iris
+  gunzip: |
+    gunzip: gzip
+  iris_stats: |
+    iris_stats: gzip
+targets_connection:
+  export_iris: |
+    export_iris: ~
+  gzip: |
+    gzip: ~
+  gunzip: |
+    gunzip:
+      targets_step:
+        targets_step: gzip
+      new_targets_col:
+        new_targets_col:
+        - gzip_file
+        - SampleName
+      rm_targets_col:
+        rm_targets_col: FileName
+  iris_stats: |
+    iris_stats: ~
+projectInfo: |
+  project: /tmp/RtmpGojchK
+  data: data
+  param: param
+  results: results
+  logsDir: .SPRproject
+  sysargslist: .SPRproject/SYSargsList.yml
+runInfo: |
+  export_iris:
+    directory: no
+    run_step: mandatory
+    run_session: local
+  gzip:
+    directory: yes
+    run_step: mandatory
+    run_session: local
+  gunzip:
+    directory: yes
+    run_step: mandatory
+    run_session: local
+  iris_stats:
+    directory: no
+    run_step: mandatory
+    run_session: local
