@@ -1,7 +1,7 @@
 ---
 title: "SPR detailed installation instructions" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 05 December, 2021" 
+date: "Last update: 06 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true

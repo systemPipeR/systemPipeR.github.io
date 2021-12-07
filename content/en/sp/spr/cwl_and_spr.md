@@ -1,7 +1,7 @@
 ---
 title: "SPR and CWL" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 05 December, 2021" 
+date: "Last update: 06 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -44,8 +44,8 @@ a set of input files with a single or many command-line steps within a workflow
 (i.e. several components of the software or several independent software tools).
 The `SYSargsList` object is created and fully populated with the `SYSargsList` construct
 function.
-Full documentation of `SYSargsList` management instances can be found [here](/sp/spr/introduction/#new-workflow-management-interface)
-and [here](/sp/spr/spr_run/#build-workflow-interactive).
+Full documentation of `SYSargsList` management instances can be found [here](#sysargslist)
+and [here](#appendstep).
 
 The following imports a `.cwl` file (here `example.cwl`) for running the `echo Hello World!`
 example.
