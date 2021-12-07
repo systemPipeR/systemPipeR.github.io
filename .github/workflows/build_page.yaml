@@ -44,9 +44,11 @@ jobs:
       - name: Install R dependencies
         run: Rscript R/solve_deps.R
       - name: Install Hugo
-        run: Rscript -e 'blogdown::install_hugo(extended = TRUE)'
+        run: |
+          Rscript -e 'blogdown::install_hugo(extended = TRUE)'
       - name: Run hugo_build()
         run: |
+          Rscript -e 'install.packages("blogdown")'
           Rscript -e 'blogdown::build_site(build_rmd = "md5sum")'
           Rscript -e 'writeLines(as.character(Sys.time()), "blogdown/timestamp.txt")'
       - name: Update github
