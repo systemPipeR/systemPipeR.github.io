@@ -19,10 +19,6 @@ editor_options:
 type: docs
 weight: 1
 ---
-<!--
-- Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
--->
 
 ```{r style, echo = FALSE, results = 'asis'}
 BiocStyle::markdown()
