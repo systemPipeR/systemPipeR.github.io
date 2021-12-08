@@ -1,7 +1,7 @@
 ---
 title: "How to run a Workflow" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 06 December, 2021" 
+date: "Last update: 07 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
