@@ -11,6 +11,10 @@ on:
 
 name: build_and_deploy_gh_pages
 
+env:
+  R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   blogdown:
     name: build_and_push_to_gh_pages
