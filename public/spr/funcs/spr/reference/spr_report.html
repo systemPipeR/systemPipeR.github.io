@@ -1930,9 +1930,9 @@ function toggle_visibility(id1) {
 
 <h1 class="title toc-ignore">Simple Workflow by systemPipeR</h1>
 <p class="author-name">Author: Daniela Cassol, Le Zhang, and Thomas Girke</p>
-<h4 class="date">Last update: 03 December, 2021</h4>
+<h4 class="date">Last update: 14 December, 2021</h4>
 <h4 class="package">Package</h4>
-<p>systemPipeR 2.1.8</p>
+<p>systemPipeR 2.1.10</p>
 
 </div>
 
@@ -1948,7 +1948,7 @@ function toggle_visibility(id1) {
     step_name = &#39;load_library&#39;,
     dependency = NA,
     run_step = c(&#39;mandatory&#39;),
-    run_session = c(&#39;local&#39;))</code></pre>
+    run_session = c(&#39;management&#39;))</code></pre>
 <div id="export-dataset-to-file" class="section level2">
 <h2><span class="header-section-number">1.1</span> Export dataset to file</h2>
 <ul>
@@ -1960,7 +1960,7 @@ function toggle_visibility(id1) {
     step_name = &#39;export_iris&#39;,
     dependency = NA,
     run_step = c(&#39;mandatory&#39;),
-    run_session = c(&#39;local&#39;))</code></pre>
+    run_session = c(&#39;management&#39;))</code></pre>
 </div>
 <div id="compress-data" class="section level2">
 <h2><span class="header-section-number">1.2</span> Compress data</h2>
@@ -1978,7 +1978,7 @@ function toggle_visibility(id1) {
     dependency = c(&#39;export_iris&#39;),
     dir=TRUE,
     run_step = c(&#39;mandatory&#39;),
-    run_session = c(&#39;local&#39;)
+    run_session = c(&#39;management&#39;)
 )</code></pre>
 </div>
 <div id="decompress-data" class="section level2">
@@ -1994,7 +1994,7 @@ function toggle_visibility(id1) {
     dependency = c(&#39;gzip&#39;),
     dir=TRUE,
     run_step = c(&#39;mandatory&#39;),
-    run_session = c(&#39;local&#39;)
+    run_session = c(&#39;management&#39;)
 )</code></pre>
 </div>
 <div id="import-data-to-r-and-perform-statistical-analysis-and-visualization" class="section level2">
@@ -2009,7 +2009,7 @@ function toggle_visibility(id1) {
     step_name = &#39;stats&#39;,
     dependency = c(&#39;gunzip&#39;),
     run_step = c(&#39;optional&#39;),
-    run_session = c(&#39;local&#39;))</code></pre>
+    run_session = c(&#39;management&#39;))</code></pre>
 </div>
 </div>
 <div id="step6-echo" class="section level1">
@@ -2025,7 +2025,7 @@ function toggle_visibility(id1) {
     dependency = NA,
     dir=TRUE,
     run_step = c(&#39;mandatory&#39;),
-    run_session = c(&#39;local&#39;)
+    run_session = c(&#39;management&#39;)
 )</code></pre>
 </div>
 
