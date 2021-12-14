@@ -21,31 +21,31 @@ This is a workflow template.
 # Workflow Steps
 
 # Step1 load_library
-```{r load_library, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='local'}
+```{r load_library, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='management'}
 appendStep(sal) <- LineWise(code={
     library(systemPipeR)
     },
     step_name = 'load_library',
     dependency = NA,
     run_step = c('mandatory'),
-    run_session = c('local'))
+    run_session = c('management'))
 ```
 
 
 # Step2 export_iris
-```{r export_iris, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='local'}
+```{r export_iris, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='management'}
 appendStep(sal) <- LineWise(code={
     mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
     },
     step_name = 'export_iris',
     dependency = NA,
     run_step = c('mandatory'),
-    run_session = c('local'))
+    run_session = c('management'))
 ```
 
 
 # Step3 gzip
-```{r gzip, eval=FALSE, spr='sysargs', spr.dep='export_iris', spr.req='mandatory', spr.ses='local'}
+```{r gzip, eval=FALSE, spr='sysargs', spr.dep='export_iris', spr.req='mandatory', spr.ses='management'}
 appendStep(sal) <- SYSargsList(
     targets = "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/gunzip/targets_gunzip.txt",
     dir_path="/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl",
@@ -57,13 +57,13 @@ appendStep(sal) <- SYSargsList(
     dependency = c('export_iris'),
     dir=TRUE,
     run_step = c('mandatory'),
-    run_session = c('local')
+    run_session = c('management')
 )
 ```
 
 
 # Step4 gunzip
-```{r gunzip, eval=FALSE, spr='sysargs', spr.dep='gzip', spr.req='mandatory', spr.ses='local'}
+```{r gunzip, eval=FALSE, spr='sysargs', spr.dep='gzip', spr.req='mandatory', spr.ses='management'}
 appendStep(sal) <- SYSargsList(
     targets = c("gzip"),
     dir_path="/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl",
@@ -75,13 +75,13 @@ appendStep(sal) <- SYSargsList(
     dependency = c('gzip'),
     dir=TRUE,
     run_step = c('mandatory'),
-    run_session = c('local')
+    run_session = c('management')
 )
 ```
 
 
 # Step5 stats
-```{r stats, eval=FALSE, spr='r', spr.dep='gunzip', spr.req='optional', spr.ses='local'}
+```{r stats, eval=FALSE, spr='r', spr.dep='gunzip', spr.req='optional', spr.ses='management'}
 appendStep(sal) <- LineWise(code={
     df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
     df <- do.call(rbind, df)
@@ -92,7 +92,7 @@ appendStep(sal) <- LineWise(code={
     step_name = 'stats',
     dependency = c('gunzip'),
     run_step = c('optional'),
-    run_session = c('local'))
+    run_session = c('management'))
 ```
 
 

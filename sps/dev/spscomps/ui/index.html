@@ -1,1248 +1,70 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-
-<link rel="shortcut icon" href="../../../../favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="../../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="../../../../favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="../../../../favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="../../../../favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="../../../../favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="../../../../favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="../../../../favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="../../../../favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="../../../../favicons/android-192x192.png" sizes="192x192">
-
-<title>UI components | sysPipe</title><meta property="og:title" content="UI components" />
-<meta property="og:description" content="For most of the UI components, you can view them in the online Shiny demo{blk}. Most but not all UI components work in a Rmarkdown document. Here we demostrate how you could use some of them in a Rmarkdown doc. The source code of this document is on Github{blk}." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/sps/dev/spscomps/ui/" /><meta property="article:section" content="sps" />
-
-<meta property="article:modified_time" content="2021-12-07T22:21:06-08:00" /><meta property="og:site_name" content="sysPipe" />
-
-<meta itemprop="name" content="UI components">
-<meta itemprop="description" content="For most of the UI components, you can view them in the online Shiny demo{blk}. Most but not all UI components work in a Rmarkdown document. Here we demostrate how you could use some of them in a Rmarkdown doc. The source code of this document is on Github{blk}.">
-<meta itemprop="dateModified" content="2021-12-07T22:21:06-08:00" />
-<meta itemprop="wordCount" content="1389">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="UI components"/>
-<meta name="twitter:description" content="For most of the UI components, you can view them in the online Shiny demo{blk}. Most but not all UI components work in a Rmarkdown document. Here we demostrate how you could use some of them in a Rmarkdown doc. The source code of this document is on Github{blk}."/>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-<link rel="preload" href="../../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
-
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-
-<script
-  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
-  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
-  crossorigin="anonymous"></script>
-
-
-
-<link rel="stylesheet" href="../../../../css/prism.css"/>
-
-
-<script src="../../../../js/driver0.9.8.min.js"></script>
-<link rel="stylesheet" href="../../../../css/driver0.9.8.min.css"/>
-
-
-<link rel="stylesheet" href="../../../../css/site.css"/>
-<script src="../../../../js/site.js"></script>
-
-
-
-  </head>
-  <body class="td-page line-numbers">
-    <header>
-     
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-  <a class="navbar-brand" href="../../../../">
-	<span class="navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="55" height="59" enable-background="new 0 0 128 128" viewBox="0 0 55 59"><defs id="defs217"><linearGradient id="linearGradient2530"><stop style="stop-color:#a6dae8;stop-opacity:1" id="stop2526" offset="0"/><stop style="stop-color:#a6dae8;stop-opacity:0" id="stop2528" offset="1"/></linearGradient><radialGradient id="radialGradient2534" cx="48.106" cy="96.236" r="19.564" fx="48.106" fy="96.236" gradientTransform="matrix(1,0,0,1.623578,0,-60.010935)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2530"/><meshgradient id="meshgradient2632" x="17.689" y="-106.706" gradientTransform="matrix(0.45556163,0,0,0.45556163,69.688068,2.0372999)" gradientUnits="userSpaceOnUse"><meshrow id="meshrow2634"><meshpatch id="meshpatch2636"><stop style="stop-color:#fff;stop-opacity:1" id="stop2638" path="c 23.5857,-23.5857 61.8257,-23.5857 85.4114,0"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2640" path="c 23.5857,23.5857 23.5857,61.8257 0,85.4114"/><stop style="stop-color:#fff;stop-opacity:1" id="stop2642" path="c -23.5857,23.5857 -61.8257,23.5857 -85.4114,7.10543e-15"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2644" path="c -23.5857,-23.5857 -23.5857,-61.8257 -1.42109e-14,-85.4114"/></meshpatch></meshrow></meshgradient></defs><g id="g212" transform="translate(0,-69)"><circle id="circle2" cx="97.202" cy="-27.119" r="27.514" transform="rotate(90)" style="opacity:.83600003;fill:url(#meshgradient2632);fill-opacity:1;stroke-width:.45556161"/><g id="g210" transform="matrix(0.45556163,0,0,0.45556163,-2.0372999,69.688068)"><path id="path52" d="m89.338 83.479-3.862.922c-.6-1.295-1.291-2.522-2.061-3.688l2.783-2.633c.666-.633.693-1.683.063-2.356l-4.57-4.83c-.635-.666-1.688-.693-2.354-.065l-2.895 2.737c-1.146-.813-2.356-1.539-3.617-2.162l1.098-3.682c.26-.883-.24-1.806-1.122-2.07l-6.374-1.901c-.88-.259-1.804.24-2.065 1.121l-1.136 3.813c-1.393-.133-2.803-.149-4.221-.06L58.114 64.888C57.9 63.994 57.005 63.44 56.108 63.654l-6.469 1.543c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.013 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.731.89c-.899.215-1.45 1.114-1.237 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.694 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.235 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l6.477-1.539c.895-.213 1.445-1.11 1.232-2.005l-.922-3.865c1.289-.597 2.521-1.281 3.688-2.055l2.633 2.779c.632.672 1.677.697 2.351.066l4.836-4.572c.666-.627.692-1.683.063-2.354l-2.739-2.891c.815-1.147 1.544-2.356 2.169-3.619l3.682 1.1c.883.26 1.804-.242 2.068-1.121l1.899-6.379c.262-.877-.243-1.805-1.116-2.066l-3.814-1.141c.131-1.384.147-2.794.063-4.21l3.734-.891c.893-.213 1.438-1.11 1.228-2.008l-1.541-6.47C91.13 83.815 90.229 83.269 89.338 83.479zm-25.89 23.716c-6.292 1.498-12.605-2.387-14.105-8.678-1.499-6.29 2.386-12.604 8.677-14.104 6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.289-2.387 12.606-8.678 14.105z" style="fill:#2e4b79;fill-opacity:.91176471"/><path id="path54" d="m111.8295 28.871996-3.24301.776905c-.50038-1.091866-1.07658-2.130285-1.72291-3.113347l2.33322-2.223819c.55914-.53448.58189-1.422099.0474-1.989029l-3.83059-4.079229c-.52881-.561204-1.41396-.58602-1.9731-.05536l-2.42231 2.309717c-.96475-.68528-1.976891-1.298023-3.03831-1.824867l.919264-3.10762c.216072-.746364-.200913-1.525178-.940115-1.750423l-5.34121-1.60344c-.739202-.21952-1.510626.200429-1.732387.946793L89.930165 16.37852C88.7645 16.265897 87.583671 16.250626 86.395262 16.32889l-.746784-3.157247c-.181958-.753999-.930637-1.21976-1.683107-1.040328l-5.426502 1.301842c-.754365.181341-1.21684.941066-1.036778 1.695065l.773319 3.264147c-1.082268.500121-2.111464 1.080414-3.091381 1.735151l-2.200548-2.353621c-.53071-.566931-1.412067-.587928-1.978788-.05536l-4.050448 3.863528c-.559141.528753-.585677 1.42019-.05117 1.981394l2.295318 2.445247c-.680446.967791-1.296448 1.989029-1.810099 3.054172l-3.087592-.927705c-.741098-.21761-1.514416.208065-1.736178.950611l-1.595918 5.382979c-.221761.742546.19712 1.525177.936323 1.748513l3.197523.958246c-.109933 1.172039-.1232 2.363166-.04549 3.558111l-3.127393.752091c-.750574.18134-1.218736.939158-1.036779 1.695065l1.294552 5.463151c.180062.757816.930637 1.225486 1.686897 1.044144l3.235431-.776905c.500384 1.089958 1.074687 2.132194 1.719119 3.111438l-2.329435 2.225728c-.56293.532571-.581884 1.42019-.05307 1.985212l3.830584 4.083046c.526918.561204 1.413961.587928 1.9731.05536l2.422309-2.311626c.968544.687189 1.984474 1.30184 3.040206 1.828686l-.917368 3.109528c-.219866.742546.197119 1.527086.936322 1.746605l5.348791 1.601532c.737307.221428 1.514417-.198521 1.728596-.941067l.955277-3.222151c1.165665.106897 2.346493.124075 3.538695.04581l.746783 3.157251c.180062.753998.930636 1.217851 1.67742 1.038418l5.428398-1.301841c.750574-.177523 1.213049-.937249 1.031092-1.691248l-.771424-3.264146c1.082268-.503939 2.115255-1.082322 3.091385-1.735152l2.20813 2.345986c.5326.566931 1.40827.589838 1.97499.05726l4.05235-3.86162c.55914-.528753.58567-1.42019.0531-1.98712l-2.29911-2.441429c.68613-.967791 1.29834-1.98903 1.81768-3.056081l3.08569.927704c.7411.219519 1.51442-.202339 1.73808-.946793l1.59402-5.386796c.21607-.740633-.20471-1.523264-.93633-1.746601l-3.19941-.962063c.11182-1.168222.1213-2.35744.0512-3.552385l3.12739-.752089c.74868-.181342 1.20736-.939158 1.0292-1.696975l-1.29266-5.463148c-.18196-.755907-.93442-1.219759-1.68121-1.038418zM90.123492 48.894003c-5.276767 1.267482-10.572488-2.013844-11.827235-7.324286-1.256645-5.312351 2.003427-10.647608 7.274507-11.911271 5.274872-1.265573 10.568697 2.013844 11.823445 7.326195 1.258539 5.310442-1.997741 10.647607-7.270717 11.909362z" style="fill:#97baed;fill-opacity:1;stroke-width:1.90211201"/><path id="path56" d="m64.166 112.713c-9.08 1.85-18.058-3.824-20.221-12.906-2.165-9.083 3.288-18.198 12.227-20.642l-3.5-14.692-3.03.724c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.016 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.73.89c-.9.215-1.451 1.114-1.238 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.693 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.236 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l2.316-.549z" style="fill:url(#radialGradient2534);fill-opacity:1"/><g id="g60" transform="matrix(1.3314607,0,0,1.3314607,69.623325,-30.275292)"><path id="path58" d="m28.131 78.601-.8.19c-.185.045-.419-.051-.52-.214l-.233-.325c-.122-.146-.142-.396-.042-.56l.429-.698c.101-.162.05-.376-.113-.476l-1.079-.664c-.164-.101-.376-.049-.477.111l-.429.699c-.101.161-.332.259-.52.215L23.951 76.816C23.762 76.798 23.57 76.634 23.526 76.45l-.19-.8c-.043-.184-.232-.299-.417-.256l-1.233.295c-.185.045-.3.231-.256.416l.189.799c.044.186-.053.418-.215.519l-.323.235c-.146.123-.397.141-.561.041l-.701-.43C19.66 77.168 19.445 77.22 19.345 77.381l-.664 1.082c-.102.16-.05.375.113.476l.7.429c.159.103.257.334.216.519l-.063.396c-.017.189-.182.381-.367.425l-.798.19c-.184.043-.302.23-.257.416l.294 1.233c.043.185.234.302.418.257l.798-.19c.185-.043.417.052.52.214l.234.324c.122.146.141.397.043.561l-.432.7c-.1.161-.048.377.113.476l1.082.666c.162.098.376.047.475-.113l.43-.698c.101-.164.333-.261.52-.218l.395.063c.189.017.381.183.425.367l.189.798c.046.186.233.301.417.258l1.234-.295c.185-.045.301-.23.257-.418l-.19-.797c-.043-.188.053-.419.215-.52l.323-.235c.147-.122.397-.14.562-.04l.697.432c.164.098.377.047.477-.113l.664-1.082c.1-.161.048-.377-.113-.477l-.7-.429c-.161-.101-.258-.334-.215-.519l.063-.396c.015-.189.182-.381.367-.425l.798-.189c.184-.045.301-.233.255-.417l-.293-1.234c-.045-.186-.233-.3-.416-.257zm-4.209 3.73c-.897.213-1.8-.342-2.012-1.24-.215-.896.34-1.8 1.237-2.013.897-.215 1.8.339 2.014 1.237.215.899-.341 1.801-1.239 2.016z" style="fill:#a6dae9"/></g><path id="path72" d="m56.823 79.401 1.196 5.013c6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.288-2.387 12.605-8.678 14.104l1.193 5.013C73.7 110.049 79.293 100.952 77.136 91.895 74.978 82.837 65.883 77.242 56.823 79.401z" style="fill:#3e5a85;fill-opacity:1"/><g id="g76"><path id="path74" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z" style="fill:#a6dae9;fill-opacity:1"/></g><g id="g208" transform="matrix(1.1075584,0,0,1.1075584,-60.874681,-16.511015)"><g id="g122"><path id="path102" d="m88.853 44.64c0 .26-.209.471-.471.471h-3.201c-.259.0-.47-.21-.47-.471v-6.965c0-.26.211-.471.47-.471h3.201c.262.0.471.21.471.471z" style="fill:#8fc4d7"/><path id="path104" d="m82.745 45.318c.152.21.107.505-.104.658l-2.59 1.881c-.211.152-.505.106-.656-.104L75.3 42.118c-.153-.21-.108-.504.104-.657l2.59-1.881c.21-.152.503-.106.656.104z" style="fill:#8fc4d7"/><path id="path106" d="m78.205 49.458c.247.08.382.346.302.593l-.988 3.043c-.08.247-.346.382-.594.302L70.3 51.244C70.054 51.163 69.919 50.898 69.997 50.65l.988-3.042c.082-.247.347-.382.596-.302z" style="fill:#8fc4d7"/><path id="path108" d="m76.963 55.475c.248-.079.515.055.593.303l.99 3.043c.081.247-.057.513-.302.594l-6.626 2.151c-.246.081-.512-.055-.592-.301l-.988-3.044c-.081-.248.054-.513.302-.594z" style="fill:#8fc4d7"/><path id="path110" d="m79.496 61.073c.153-.21.448-.257.657-.104l2.59 1.88c.209.152.257.447.104.657l-4.095 5.636c-.151.213-.446.258-.655.104l-2.591-1.881c-.21-.152-.256-.446-.104-.657z" style="fill:#8fc4d7"/><path id="path112" d="m84.835 64.113c.001-.26.213-.471.473-.471h3.199c.262.0.473.21.473.471v6.966c0 .26-.213.471-.473.471h-3.199c-.26.0-.472-.211-.473-.471z" style="fill:#8fc4d7"/><path id="path114" d="m90.942 63.434c-.15-.211-.105-.505.104-.658l2.59-1.88c.21-.153.505-.106.657.104l4.093 5.635c.153.212.106.507-.104.657l-2.589 1.881c-.213.152-.504.107-.657-.104z" style="fill:#8fc4d7"/><path id="path116" d="M95.483 59.295C95.237 59.213 95.1 58.949 95.18 58.702l.988-3.045c.082-.246.349-.381.595-.301l6.623 2.152c.248.08.381.347.303.593l-.989 3.044c-.08.246-.343.381-.593.302z" style="fill:#8fc4d7"/><path id="path118" d="m96.727 53.277c-.248.08-.516-.055-.595-.301l-.986-3.045c-.082-.247.053-.512.301-.592l6.622-2.151c.248-.081.514.055.595.301l.989 3.044c.08.247-.057.511-.303.593z" style="fill:#8fc4d7"/><path id="path120" d="m94.192 47.68c-.153.21-.447.258-.657.104L90.944 45.902C90.737 45.75 90.688 45.455 90.841 45.246l4.093-5.635c.152-.211.448-.257.658-.105l2.587 1.882c.213.152.258.445.104.658z" style="fill:#8fc4d7"/></g><g id="g206"><circle id="circle124" cx="86.845" cy="54.376" r="14.798" style="fill:#8fc4d7"/><circle id="circle126" cx="86.844" cy="54.376" r="13.872" style="fill:#8fc4d7"/><circle id="circle128" cx="86.844" cy="54.376" r="10.791" style="fill:#fff"/><path id="path130" d="m77.21 55.148c0-5.959 4.83-10.791 10.79-10.791 1.966.0 3.806.528 5.396 1.446-1.818-1.39-4.088-2.217-6.551-2.217-5.959.0-10.792 4.831-10.792 10.791.0 3.994 2.175 7.48 5.397 9.345-2.577-1.973-4.24-5.078-4.24-8.574z" style="fill:#d1ecfb"/><circle id="circle132" cx="86.844" cy="54.376" r="1.927" style="fill:#3e5984;fill-opacity:1"/></g></g><g id="g76-8" transform="translate(27.024379,-56.342917)" style="fill:#2e4b79;fill-opacity:1"><path style="fill:#2e4b79;fill-opacity:1" id="path74-1" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z"/></g></g></g></svg></span><span class="font-weight-bold">sysPipe</span>
-	</a>
-	<row class="header-switch">
-	  	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
-        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
-      </div>
-    	<div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
-        <label class="custom-control-label" for="tocSwitch">toc</label>
-      </div>
-	</row>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/overview/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Overview
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../sp/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/spr_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/cwl_syntax/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 CWL syntax
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/cwl_and_spr/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR and CWL
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spt/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRTools
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spt/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Data Visualization
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/spr/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sp/sprdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/sprdata/systempiperdata/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../../sp/sprdata/newwf/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Rules
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPT GitHub
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../sps/" id="navbarDropdown" role="button">
-          	Shiny
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../sps/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 SPS Documentation
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Github
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf/installwf/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 How to install Workflow
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../spr_wf/newwf"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Rules to create Workflow
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../outreach/" id="navbarDropdown" role="button">
-          	Outreach
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../outreach/conferences/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Conferences
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../outreach/presentations/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../outreach/videos/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../news/release_3_13/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.13
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../../news/release_3_12/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block">
-
-
-
-<input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="../../../../offline-search-index.9b6aa4a25e4dbfef909fd03ee8250514.json"
-  data-offline-search-base-href="../../../../"
-  data-offline-search-max-results="10"
->
-
-</div>
-</nav>
-
-    </header>
-    <div class="container-fluid td-outer">
-      <div class="td-main">
-        <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
-            
-
-
-
-
-<div id="td-sidebar-menu" class="td-sidebar__inner">
-  
-  <form class="td-sidebar__search d-flex align-items-center">
-    
-
-
-
-<input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="../../../../offline-search-index.9b6aa4a25e4dbfef909fd03ee8250514.json"
-  data-offline-search-base-href="../../../../"
-  data-offline-search-max-results="10"
->
-
-
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
-    </button>
-  </form>
-  
-  <nav class="collapse td-sidebar-nav" id="td-section-nav">
-    
-    
-    
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="sps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsintro" href="../../../../sps/intro/">Introduction</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsinstall" href="../../../../sps/install/">Installation</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsquick_start" href="../../../../sps/quick_start/">Quick start</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsmodules">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesworkflow" href="../../../../sps/modules/workflow/">Workflow</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesrnaseq" href="../../../../sps/modules/rnaseq/">RNAseq</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsmodulesggplot" href="../../../../sps/modules/ggplot/">Quick ggplot</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spscanvas" href="../../../../sps/canvas/">Canvas</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spssps_funcs" href="../../../../sps/sps_funcs/">SPS Functions</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/adv_features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsadv_features">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresconfig" href="../../../../sps/adv_features/config/">Configuration</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featurestabs" href="../../../../sps/adv_features/tabs/">Manage tabs</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresoverwritetabs" href="../../../../sps/adv_features/overwritetabs/">Overwrite tabs</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdisplaytabs" href="../../../../sps/adv_features/displaytabs/">Toggle tabs</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresnotification" href="../../../../sps/adv_features/notification/">Notification system</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresguide" href="../../../../sps/adv_features/guide/">SPS Guide</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresapp_security" href="../../../../sps/adv_features/app_security/">App security</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdatabase" href="../../../../sps/adv_features/database/">SPS database</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featureslogin" href="../../../../sps/adv_features/login/">Accounts, login and admin</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresdebug" href="../../../../sps/adv_features/debug/">Debugging</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsadv_featuresother_customizations" href="../../../../sps/adv_features/other_customizations/">Other customizations</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdeploy" href="../../../../sps/deploy/">Deploy</a>
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdev">
-      
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/spscomps/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">spsComps</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="spsdevspscomps">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsdevspscompsui" href="../../../../sps/dev/spscomps/ui/">UI components</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspscompsserver" href="../../../../sps/dev/spscomps/server/">Server functions</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="../../../../sps/dev/drawer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a>
-  </li>
-  <ul>
-    <li class="collapse " id="spsdevdrawer">
-      
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawershiny" href="../../../../sps/dev/drawer/shiny/">drawer in Shiny</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevdrawerrmd" href="../../../../sps/dev/drawer/rmd/">drawer in Rmarkdown</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsdevspsutil" href="../../../../sps/dev/spsutil/">spsUtil</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsscreenshots" href="../../../../sps/screenshots/">Screenshots</a>
-        
-      
-      
-    </li>
-  </ul>
-</ul>
-
-  </nav>
-</div>
-
-
-
-
-          </div>
-          
-          
-
-          
-
-          
-          
-              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-                
-  
-  
-  
-  
-  
-  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-  
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
-    
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spscomps/ui.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spscomps/ui.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spscomps/ui.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    
-      
-      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-    
-
-  
-  
-  </div>
-
-
-
-
-
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#load-package">load package</a></li>
-        <li><a href="#spsgotop"><code>spsGoTop</code></a></li>
-        <li><a href="#gallery"><code>gallery</code></a></li>
-        <li><a href="#logos">Logos</a>
-          <ul>
-            <li><a href="#a-single-one-with-hexlogo">a single one with <code>hexLogo</code></a></li>
-            <li><a href="#a-panel-of-logos-with-hexpanel">a panel of logos with <code>hexPanel</code></a></li>
-          </ul>
-        </li>
-        <li><a href="#buttons">Buttons</a>
-          <ul>
-            <li><a href="#some-colorful-buttons-hreftab">Some colorful buttons <code>hrefTab</code></a></li>
-            <li><a href="#a-table-colorful-buttons-hreftable">A table colorful buttons <code>hrefTable</code></a></li>
-          </ul>
-        </li>
-        <li><a href="#animations">Animations</a>
-          <ul>
-            <li><a href="#animateui"><code>animateUI</code></a>
-              <ul>
-                <li><a href="#to-buttons">To buttons</a></li>
-                <li><a href="#to-some-text">To some text</a></li>
-                <li><a href="#on-hover-move-mouse-on-the-red-thumb">On hover, move mouse on the red thumb</a></li>
-                <li><a href="#inline-animation">Inline animation</a></li>
-              </ul>
-            </li>
-            <li><a href="#animateappend"><code>animateAppend</code></a></li>
-            <li><a href="#animateappendnested"><code>animateAppendNested</code></a></li>
-            <li><a href="#animateicon"><code>animateIcon</code></a>
-              <ul>
-                <li><a href="#default">Default</a></li>
-                <li><a href="#animation-and-color">Animation and color</a></li>
-                <li><a href="#add-to-a-button">Add to a button</a></li>
-                <li><a href="#on-hover">on hover</a></li>
-                <li><a href="#change-size">Change size</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#loaders">Loaders</a>
-          <ul>
-            <li><a href="#cssloader"><code>cssLoader</code></a>
-              <ul>
-                <li><a href="#default-loaders">Default loaders</a></li>
-                <li><a href="#your-own-loaders">Your own loaders</a></li>
-              </ul>
-            </li>
-            <li><a href="#bstooltip-and-bstip"><code>bsTooltip</code> and <code>bsTip</code></a></li>
-            <li><a href="#titles-with-spstitle">Titles with <code>spsTitle</code></a></li>
-            <li><a href="#add-horizontal-divider-lines-with-spshr">Add horizontal divider lines with <code>spsHr</code></a></li>
-          </ul>
-        </li>
-        <li><a href="#other-components">Other components</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-              </div>
-              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-                
-  
-
-                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/">systemPipeShiny</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/dev/">Developer tools</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="../../../../sps/dev/spscomps/">spsComps</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../../sps/dev/spscomps/ui/">UI components</a>
-</li>
-
-	</ol>
-</nav	>
-
-                
-<div class="td-content">
-	<h1>UI components</h1>
-    
-	       
-	<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/sps-gotop/js/sps_gotop.js"></script>
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js"></script>
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js"></script>
-<link href="../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<script src="../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
-<p>For most of the UI components, you can view them in the <a href="https://lezhang.shinyapps.io/spsComps">online Shiny demo{blk}</a>.
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../../../favicons/favicon.ico><link rel=apple-touch-icon href=../../../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../../../favicons/android-192x192.png sizes=192x192><title>UI components | sysPipe</title><meta property="og:title" content="UI components"><meta property="og:description" content="For most of the UI components, you can view them in the online Shiny demo{blk}. Most but not all UI components work in a Rmarkdown document. Here we demostrate how you could use some of them in a Rmarkdown doc. The source code of this document is on Github{blk}."><meta property="og:type" content="article"><meta property="og:url" content="/sps/dev/spscomps/ui/"><meta property="article:modified_time" content="2021-12-13T17:16:59-08:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="UI components"><meta itemprop=description content="For most of the UI components, you can view them in the online Shiny demo{blk}. Most but not all UI components work in a Rmarkdown document. Here we demostrate how you could use some of them in a Rmarkdown doc. The source code of this document is on Github{blk}."><meta itemprop=dateModified content="2021-12-13T17:16:59-08:00"><meta itemprop=wordCount content="1389"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="UI components"><meta name=twitter:description content="For most of the UI components, you can view them in the online Shiny demo{blk}. Most but not all UI components work in a Rmarkdown document. Here we demostrate how you could use some of them in a Rmarkdown doc. The source code of this document is on Github{blk}."><link rel=preload href=../../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css as=style><link href=../../../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script><link rel=stylesheet href=../../../../css/prism.css><script src=../../../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../../../css/driver0.9.8.min.css><link rel=stylesheet href=../../../../css/site.css><script src=../../../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../../../><span class=navbar-logo><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="55" height="59" enable-background="new 0 0 128 128" viewBox="0 0 55 59"><defs id="defs217"><linearGradient id="linearGradient2530"><stop style="stop-color:#a6dae8;stop-opacity:1" id="stop2526" offset="0"/><stop style="stop-color:#a6dae8;stop-opacity:0" id="stop2528" offset="1"/></linearGradient><radialGradient id="radialGradient2534" cx="48.106" cy="96.236" r="19.564" fx="48.106" fy="96.236" gradientTransform="matrix(1,0,0,1.623578,0,-60.010935)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2530"/><meshgradient id="meshgradient2632" x="17.689" y="-106.706" gradientTransform="matrix(0.45556163,0,0,0.45556163,69.688068,2.0372999)" gradientUnits="userSpaceOnUse"><meshrow id="meshrow2634"><meshpatch id="meshpatch2636"><stop style="stop-color:#fff;stop-opacity:1" id="stop2638" path="c 23.5857,-23.5857 61.8257,-23.5857 85.4114,0"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2640" path="c 23.5857,23.5857 23.5857,61.8257 0,85.4114"/><stop style="stop-color:#fff;stop-opacity:1" id="stop2642" path="c -23.5857,23.5857 -61.8257,23.5857 -85.4114,7.10543e-15"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2644" path="c -23.5857,-23.5857 -23.5857,-61.8257 -1.42109e-14,-85.4114"/></meshpatch></meshrow></meshgradient></defs><g id="g212" transform="translate(0,-69)"><circle id="circle2" cx="97.202" cy="-27.119" r="27.514" transform="rotate(90)" style="opacity:.83600003;fill:url(#meshgradient2632);fill-opacity:1;stroke-width:.45556161"/><g id="g210" transform="matrix(0.45556163,0,0,0.45556163,-2.0372999,69.688068)"><path id="path52" d="m89.338 83.479-3.862.922c-.6-1.295-1.291-2.522-2.061-3.688l2.783-2.633c.666-.633.693-1.683.063-2.356l-4.57-4.83c-.635-.666-1.688-.693-2.354-.065l-2.895 2.737c-1.146-.813-2.356-1.539-3.617-2.162l1.098-3.682c.26-.883-.24-1.806-1.122-2.07l-6.374-1.901c-.88-.259-1.804.24-2.065 1.121l-1.136 3.813c-1.393-.133-2.803-.149-4.221-.06L58.114 64.888C57.9 63.994 57.005 63.44 56.108 63.654l-6.469 1.543c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.013 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.731.89c-.899.215-1.45 1.114-1.237 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.694 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.235 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l6.477-1.539c.895-.213 1.445-1.11 1.232-2.005l-.922-3.865c1.289-.597 2.521-1.281 3.688-2.055l2.633 2.779c.632.672 1.677.697 2.351.066l4.836-4.572c.666-.627.692-1.683.063-2.354l-2.739-2.891c.815-1.147 1.544-2.356 2.169-3.619l3.682 1.1c.883.26 1.804-.242 2.068-1.121l1.899-6.379c.262-.877-.243-1.805-1.116-2.066l-3.814-1.141c.131-1.384.147-2.794.063-4.21l3.734-.891c.893-.213 1.438-1.11 1.228-2.008l-1.541-6.47C91.13 83.815 90.229 83.269 89.338 83.479zm-25.89 23.716c-6.292 1.498-12.605-2.387-14.105-8.678-1.499-6.29 2.386-12.604 8.677-14.104 6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.289-2.387 12.606-8.678 14.105z" style="fill:#2e4b79;fill-opacity:.91176471"/><path id="path54" d="m111.8295 28.871996-3.24301.776905c-.50038-1.091866-1.07658-2.130285-1.72291-3.113347l2.33322-2.223819c.55914-.53448.58189-1.422099.0474-1.989029l-3.83059-4.079229c-.52881-.561204-1.41396-.58602-1.9731-.05536l-2.42231 2.309717c-.96475-.68528-1.976891-1.298023-3.03831-1.824867l.919264-3.10762c.216072-.746364-.200913-1.525178-.940115-1.750423l-5.34121-1.60344c-.739202-.21952-1.510626.200429-1.732387.946793L89.930165 16.37852C88.7645 16.265897 87.583671 16.250626 86.395262 16.32889l-.746784-3.157247c-.181958-.753999-.930637-1.21976-1.683107-1.040328l-5.426502 1.301842c-.754365.181341-1.21684.941066-1.036778 1.695065l.773319 3.264147c-1.082268.500121-2.111464 1.080414-3.091381 1.735151l-2.200548-2.353621c-.53071-.566931-1.412067-.587928-1.978788-.05536l-4.050448 3.863528c-.559141.528753-.585677 1.42019-.05117 1.981394l2.295318 2.445247c-.680446.967791-1.296448 1.989029-1.810099 3.054172l-3.087592-.927705c-.741098-.21761-1.514416.208065-1.736178.950611l-1.595918 5.382979c-.221761.742546.19712 1.525177.936323 1.748513l3.197523.958246c-.109933 1.172039-.1232 2.363166-.04549 3.558111l-3.127393.752091c-.750574.18134-1.218736.939158-1.036779 1.695065l1.294552 5.463151c.180062.757816.930637 1.225486 1.686897 1.044144l3.235431-.776905c.500384 1.089958 1.074687 2.132194 1.719119 3.111438l-2.329435 2.225728c-.56293.532571-.581884 1.42019-.05307 1.985212l3.830584 4.083046c.526918.561204 1.413961.587928 1.9731.05536l2.422309-2.311626c.968544.687189 1.984474 1.30184 3.040206 1.828686l-.917368 3.109528c-.219866.742546.197119 1.527086.936322 1.746605l5.348791 1.601532c.737307.221428 1.514417-.198521 1.728596-.941067l.955277-3.222151c1.165665.106897 2.346493.124075 3.538695.04581l.746783 3.157251c.180062.753998.930636 1.217851 1.67742 1.038418l5.428398-1.301841c.750574-.177523 1.213049-.937249 1.031092-1.691248l-.771424-3.264146c1.082268-.503939 2.115255-1.082322 3.091385-1.735152l2.20813 2.345986c.5326.566931 1.40827.589838 1.97499.05726l4.05235-3.86162c.55914-.528753.58567-1.42019.0531-1.98712l-2.29911-2.441429c.68613-.967791 1.29834-1.98903 1.81768-3.056081l3.08569.927704c.7411.219519 1.51442-.202339 1.73808-.946793l1.59402-5.386796c.21607-.740633-.20471-1.523264-.93633-1.746601l-3.19941-.962063c.11182-1.168222.1213-2.35744.0512-3.552385l3.12739-.752089c.74868-.181342 1.20736-.939158 1.0292-1.696975l-1.29266-5.463148c-.18196-.755907-.93442-1.219759-1.68121-1.038418zM90.123492 48.894003c-5.276767 1.267482-10.572488-2.013844-11.827235-7.324286-1.256645-5.312351 2.003427-10.647608 7.274507-11.911271 5.274872-1.265573 10.568697 2.013844 11.823445 7.326195 1.258539 5.310442-1.997741 10.647607-7.270717 11.909362z" style="fill:#97baed;fill-opacity:1;stroke-width:1.90211201"/><path id="path56" d="m64.166 112.713c-9.08 1.85-18.058-3.824-20.221-12.906-2.165-9.083 3.288-18.198 12.227-20.642l-3.5-14.692-3.03.724c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.016 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.73.89c-.9.215-1.451 1.114-1.238 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.693 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.236 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l2.316-.549z" style="fill:url(#radialGradient2534);fill-opacity:1"/><g id="g60" transform="matrix(1.3314607,0,0,1.3314607,69.623325,-30.275292)"><path id="path58" d="m28.131 78.601-.8.19c-.185.045-.419-.051-.52-.214l-.233-.325c-.122-.146-.142-.396-.042-.56l.429-.698c.101-.162.05-.376-.113-.476l-1.079-.664c-.164-.101-.376-.049-.477.111l-.429.699c-.101.161-.332.259-.52.215L23.951 76.816C23.762 76.798 23.57 76.634 23.526 76.45l-.19-.8c-.043-.184-.232-.299-.417-.256l-1.233.295c-.185.045-.3.231-.256.416l.189.799c.044.186-.053.418-.215.519l-.323.235c-.146.123-.397.141-.561.041l-.701-.43C19.66 77.168 19.445 77.22 19.345 77.381l-.664 1.082c-.102.16-.05.375.113.476l.7.429c.159.103.257.334.216.519l-.063.396c-.017.189-.182.381-.367.425l-.798.19c-.184.043-.302.23-.257.416l.294 1.233c.043.185.234.302.418.257l.798-.19c.185-.043.417.052.52.214l.234.324c.122.146.141.397.043.561l-.432.7c-.1.161-.048.377.113.476l1.082.666c.162.098.376.047.475-.113l.43-.698c.101-.164.333-.261.52-.218l.395.063c.189.017.381.183.425.367l.189.798c.046.186.233.301.417.258l1.234-.295c.185-.045.301-.23.257-.418l-.19-.797c-.043-.188.053-.419.215-.52l.323-.235c.147-.122.397-.14.562-.04l.697.432c.164.098.377.047.477-.113l.664-1.082c.1-.161.048-.377-.113-.477l-.7-.429c-.161-.101-.258-.334-.215-.519l.063-.396c.015-.189.182-.381.367-.425l.798-.189c.184-.045.301-.233.255-.417l-.293-1.234c-.045-.186-.233-.3-.416-.257zm-4.209 3.73c-.897.213-1.8-.342-2.012-1.24-.215-.896.34-1.8 1.237-2.013.897-.215 1.8.339 2.014 1.237.215.899-.341 1.801-1.239 2.016z" style="fill:#a6dae9"/></g><path id="path72" d="m56.823 79.401 1.196 5.013c6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.288-2.387 12.605-8.678 14.104l1.193 5.013C73.7 110.049 79.293 100.952 77.136 91.895 74.978 82.837 65.883 77.242 56.823 79.401z" style="fill:#3e5a85;fill-opacity:1"/><g id="g76"><path id="path74" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z" style="fill:#a6dae9;fill-opacity:1"/></g><g id="g208" transform="matrix(1.1075584,0,0,1.1075584,-60.874681,-16.511015)"><g id="g122"><path id="path102" d="m88.853 44.64c0 .26-.209.471-.471.471h-3.201c-.259.0-.47-.21-.47-.471v-6.965c0-.26.211-.471.47-.471h3.201c.262.0.471.21.471.471z" style="fill:#8fc4d7"/><path id="path104" d="m82.745 45.318c.152.21.107.505-.104.658l-2.59 1.881c-.211.152-.505.106-.656-.104L75.3 42.118c-.153-.21-.108-.504.104-.657l2.59-1.881c.21-.152.503-.106.656.104z" style="fill:#8fc4d7"/><path id="path106" d="m78.205 49.458c.247.08.382.346.302.593l-.988 3.043c-.08.247-.346.382-.594.302L70.3 51.244C70.054 51.163 69.919 50.898 69.997 50.65l.988-3.042c.082-.247.347-.382.596-.302z" style="fill:#8fc4d7"/><path id="path108" d="m76.963 55.475c.248-.079.515.055.593.303l.99 3.043c.081.247-.057.513-.302.594l-6.626 2.151c-.246.081-.512-.055-.592-.301l-.988-3.044c-.081-.248.054-.513.302-.594z" style="fill:#8fc4d7"/><path id="path110" d="m79.496 61.073c.153-.21.448-.257.657-.104l2.59 1.88c.209.152.257.447.104.657l-4.095 5.636c-.151.213-.446.258-.655.104l-2.591-1.881c-.21-.152-.256-.446-.104-.657z" style="fill:#8fc4d7"/><path id="path112" d="m84.835 64.113c.001-.26.213-.471.473-.471h3.199c.262.0.473.21.473.471v6.966c0 .26-.213.471-.473.471h-3.199c-.26.0-.472-.211-.473-.471z" style="fill:#8fc4d7"/><path id="path114" d="m90.942 63.434c-.15-.211-.105-.505.104-.658l2.59-1.88c.21-.153.505-.106.657.104l4.093 5.635c.153.212.106.507-.104.657l-2.589 1.881c-.213.152-.504.107-.657-.104z" style="fill:#8fc4d7"/><path id="path116" d="M95.483 59.295C95.237 59.213 95.1 58.949 95.18 58.702l.988-3.045c.082-.246.349-.381.595-.301l6.623 2.152c.248.08.381.347.303.593l-.989 3.044c-.08.246-.343.381-.593.302z" style="fill:#8fc4d7"/><path id="path118" d="m96.727 53.277c-.248.08-.516-.055-.595-.301l-.986-3.045c-.082-.247.053-.512.301-.592l6.622-2.151c.248-.081.514.055.595.301l.989 3.044c.08.247-.057.511-.303.593z" style="fill:#8fc4d7"/><path id="path120" d="m94.192 47.68c-.153.21-.447.258-.657.104L90.944 45.902C90.737 45.75 90.688 45.455 90.841 45.246l4.093-5.635c.152-.211.448-.257.658-.105l2.587 1.882c.213.152.258.445.104.658z" style="fill:#8fc4d7"/></g><g id="g206"><circle id="circle124" cx="86.845" cy="54.376" r="14.798" style="fill:#8fc4d7"/><circle id="circle126" cx="86.844" cy="54.376" r="13.872" style="fill:#8fc4d7"/><circle id="circle128" cx="86.844" cy="54.376" r="10.791" style="fill:#fff"/><path id="path130" d="m77.21 55.148c0-5.959 4.83-10.791 10.79-10.791 1.966.0 3.806.528 5.396 1.446-1.818-1.39-4.088-2.217-6.551-2.217-5.959.0-10.792 4.831-10.792 10.791.0 3.994 2.175 7.48 5.397 9.345-2.577-1.973-4.24-5.078-4.24-8.574z" style="fill:#d1ecfb"/><circle id="circle132" cx="86.844" cy="54.376" r="1.927" style="fill:#3e5984;fill-opacity:1"/></g></g><g id="g76-8" transform="translate(27.024379,-56.342917)" style="fill:#2e4b79;fill-opacity:1"><path style="fill:#2e4b79;fill-opacity:1" id="path74-1" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z"/></g></g></g></svg></span><span class=font-weight-bold>sysPipe</span></a>
+<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
+<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
+<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
+<a class=dropdown-item href=../../../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
+<a class=dropdown-item href=../../../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
+<a class=dropdown-item href=../../../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
+<a class=dropdown-item href=../../../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../sp/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../sp/spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
+<a class=dropdown-item href=../../../../sp/spr/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
+<a class=dropdown-item href=../../../../sp/spr/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
+<a class=dropdown-item href=../../../../sp/spr/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
+<a class=dropdown-item href=../../../../sp/spr/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
+<a class=dropdown-item href=../../../../sp/spr/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
+<a class=dropdown-item href=../../../../sp/spr/cwl_syntax/ style=padding-left:2rem;font-weight:calc(3/4*500)>CWL syntax</a>
+<a class=dropdown-item href=../../../../sp/spr/cwl_and_spr/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR and CWL</a>
+<a class=dropdown-item href=../../../../sp/spr/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
+<a class=dropdown-item href=../../../../sp/spt/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRTools</a>
+<a class=dropdown-item href=../../../../sp/spt/ style=padding-left:2rem;font-weight:calc(3/4*500)>Data Visualization</a>
+<a class=dropdown-item href=../../../../sp/spr/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
+<a class=dropdown-item href=../../../../sp/sprdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
+<a class=dropdown-item href=../../../../sp/sprdata/systempiperdata/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
+<a class=dropdown-item href=../../../../sp/sprdata/newwf/ style=padding-left:2rem;font-weight:calc(3/4*500)>Rules</a>
+<a class=dropdown-item href=../../../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a>
+<a class=dropdown-item href=https://github.com/tgirke/systemPipeTools style=padding-left:2rem;font-weight:calc(3/4*500)>SPT GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
+<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
+<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a>
+<a class=dropdown-item href=../../../../spr_wf/installwf/ style=padding-left:1rem;font-weight:calc(3/3*500)>How to install Workflow</a>
+<a class=dropdown-item href=../../../../spr_wf/newwf style=padding-left:1rem;font-weight:calc(3/3*500)>Rules to create Workflow</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../outreach/ id=navbarDropdown role=button>Outreach</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../outreach/conferences/ style=padding-left:1rem;font-weight:calc(3/3*500)>Conferences</a>
+<a class=dropdown-item href=../../../../outreach/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
+<a class=dropdown-item href=../../../../outreach/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../../../news/release_3_13/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.13</a>
+<a class=dropdown-item href=../../../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=../../../../offline-search-index.48873a7e7b4eb18a5d93a2c65f6c6e02.json data-offline-search-base-href=../../../../ data-offline-search-max-results=10></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=../../../../offline-search-index.48873a7e7b4eb18a5d93a2c65f6c6e02.json data-offline-search-base-href=../../../../ data-offline-search-max-results=10>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">systemPipeShiny</a></li><ul><li class="collapse show" id=sps><a class="td-sidebar-link td-sidebar-link__page" id=m-spsintro href=../../../../sps/intro/>Introduction</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsinstall href=../../../../sps/install/>Installation</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsquick_start href=../../../../sps/quick_start/>Quick start</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/modules/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a></li><ul><li class=collapse id=spsmodules><a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesworkflow href=../../../../sps/modules/workflow/>Workflow</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesrnaseq href=../../../../sps/modules/rnaseq/>RNAseq</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsmodulesggplot href=../../../../sps/modules/ggplot/>Quick ggplot</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spscanvas href=../../../../sps/canvas/>Canvas</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spssps_funcs href=../../../../sps/sps_funcs/>SPS Functions</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/adv_features/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Advanced features</a></li><ul><li class=collapse id=spsadv_features><a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresconfig href=../../../../sps/adv_features/config/>Configuration</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featurestabs href=../../../../sps/adv_features/tabs/>Manage tabs</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresoverwritetabs href=../../../../sps/adv_features/overwritetabs/>Overwrite tabs</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresdisplaytabs href=../../../../sps/adv_features/displaytabs/>Toggle tabs</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresnotification href=../../../../sps/adv_features/notification/>Notification system</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresguide href=../../../../sps/adv_features/guide/>SPS Guide</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresapp_security href=../../../../sps/adv_features/app_security/>App security</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresdatabase href=../../../../sps/adv_features/database/>SPS database</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featureslogin href=../../../../sps/adv_features/login/>Accounts, login and admin</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresdebug href=../../../../sps/adv_features/debug/>Debugging</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsadv_featuresother_customizations href=../../../../sps/adv_features/other_customizations/>Other customizations</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdeploy href=../../../../sps/deploy/>Deploy</a><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/ class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Developer tools</a></li><ul><li class="collapse show" id=spsdev><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/spscomps/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">spsComps</a></li><ul><li class="collapse show" id=spsdevspscomps><a class="td-sidebar-link td-sidebar-link__page active" id=m-spsdevspscompsui href=../../../../sps/dev/spscomps/ui/>UI components</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspscompsserver href=../../../../sps/dev/spscomps/server/>Server functions</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../../../sps/dev/drawer/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">drawer</a></li><ul><li class=collapse id=spsdevdrawer><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawershiny href=../../../../sps/dev/drawer/shiny/>drawer in Shiny</a>
+<a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevdrawerrmd href=../../../../sps/dev/drawer/rmd/>drawer in Rmarkdown</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsdevspsutil href=../../../../sps/dev/spsutil/>spsUtil</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page" id=m-spsscreenshots href=../../../../sps/screenshots/>Screenshots</a></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd target=_blank class=source-link><i class="fa fa-code fa-fw"></i>View Rmd source</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sps/dev/spscomps/ui.md target=_blank><i class="fab fa-github fa-fw"></i>View on Github</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sps/dev/spscomps/ui.md target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
+<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sps/dev/spscomps/ui.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
+<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><ul><li><a href=#load-package>load package</a></li><li><a href=#spsgotop><code>spsGoTop</code></a></li><li><a href=#gallery><code>gallery</code></a></li><li><a href=#logos>Logos</a><ul><li><a href=#a-single-one-with-hexlogo>a single one with <code>hexLogo</code></a></li><li><a href=#a-panel-of-logos-with-hexpanel>a panel of logos with <code>hexPanel</code></a></li></ul></li><li><a href=#buttons>Buttons</a><ul><li><a href=#some-colorful-buttons-hreftab>Some colorful buttons <code>hrefTab</code></a></li><li><a href=#a-table-colorful-buttons-hreftable>A table colorful buttons <code>hrefTable</code></a></li></ul></li><li><a href=#animations>Animations</a><ul><li><a href=#animateui><code>animateUI</code></a><ul><li><a href=#to-buttons>To buttons</a></li><li><a href=#to-some-text>To some text</a></li><li><a href=#on-hover-move-mouse-on-the-red-thumb>On hover, move mouse on the red thumb</a></li><li><a href=#inline-animation>Inline animation</a></li></ul></li><li><a href=#animateappend><code>animateAppend</code></a></li><li><a href=#animateappendnested><code>animateAppendNested</code></a></li><li><a href=#animateicon><code>animateIcon</code></a><ul><li><a href=#default>Default</a></li><li><a href=#animation-and-color>Animation and color</a></li><li><a href=#add-to-a-button>Add to a button</a></li><li><a href=#on-hover>on hover</a></li><li><a href=#change-size>Change size</a></li></ul></li></ul></li><li><a href=#loaders>Loaders</a><ul><li><a href=#cssloader><code>cssLoader</code></a><ul><li><a href=#default-loaders>Default loaders</a></li><li><a href=#your-own-loaders>Your own loaders</a></li></ul></li><li><a href=#bstooltip-and-bstip><code>bsTooltip</code> and <code>bsTip</code></a></li><li><a href=#titles-with-spstitle>Titles with <code>spsTitle</code></a></li><li><a href=#add-horizontal-divider-lines-with-spshr>Add horizontal divider lines with <code>spsHr</code></a></li></ul></li><li><a href=#other-components>Other components</a></li></ul></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../../../sps/>systemPipeShiny</a></li><li class=breadcrumb-item><a href=../../../../sps/dev/>Developer tools</a></li><li class=breadcrumb-item><a href=../../../../sps/dev/spscomps/>spsComps</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../../../sps/dev/spscomps/ui/>UI components</a></li></ol></nav><div class=td-content><h1>UI components</h1><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/sps-gotop/js/sps_gotop.js></script><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-js/js/sps-comps.js></script><link href=../../../../rmarkdown-libs/spsComps-css/css/sps-comps.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-animation/js/sps_animation.js></script><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome-animation/css/font-awesome-animation.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/all.min.css rel=stylesheet><link href=../../../../rmarkdown-libs/font-awesome/css/v4-shims.min.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js></script><link href=../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js></script><link href=../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js></script><link href=../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js></script><link href=../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css rel=stylesheet><script src=../../../../rmarkdown-libs/spsComps-css-loader-js/js/sps_cssloader.js></script><link href=../../../../rmarkdown-libs/spsComps-css-loader-css/css/css_loader.css rel=stylesheet><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><script src=../../../../rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js></script><p>For most of the UI components, you can view them in the <a href=https://lezhang.shinyapps.io/spsComps>online Shiny demo{blk}</a>.
 Most but <strong>not all</strong> UI components work in a Rmarkdown document. Here we demostrate
 how you could use some of them in a Rmarkdown doc. The source code of this
-document is on <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd">Github{blk}</a>.</p>
-<h2 id="load-package">load package</h2>
-<p>To start to use <code>spsComps</code>, load it in your Shiny app file or Rmarkdown file</p>
-<pre><code class="language-r">library(spsComps)
-</code></pre>
-<pre><code>## Loading required package: shiny
-</code></pre>
-<pre><code class="language-r">library(magrittr)
-</code></pre>
-<p>So you can see it depends on <code>shiny</code>. When you load it, there is no
-need to additionally load <code>shiny</code>.</p>
-<h2 id="spsgotop"><code>spsGoTop</code></h2>
-<p>A go top button.</p>
-<pre><code class="language-r">spsGoTop()
-</code></pre>
-<div class="sps-gotop" id="gotop" style="right: 1rem;&#10;bottom: 10rem;&#10;fill: #337ab7;" data-toggle="tooltip" data-placement="left" title="Go Top" onclick="goTop()">
-          <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M526.60727968 10.90185116
-              a27.675 27.675 0 0 0-29.21455937 0
-              c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402
-              394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903
-              c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765
-              54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777
-              c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017
-              42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696
-              6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492
-              c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158
-              55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489
-              52.69160879-4.22606768a371.15156223 371.15156223 0 0 0
-              11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001
-              462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103
-              357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z">
-            </path>
-            <path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686
-              1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328
-              82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037
-              30.59548842-82.51086798 68.34111062z">
-            </path>
-          </svg>
-        </div>
-<p>It will not be display inline of the Rmd, just simply call it and maybe change the
+document is on <a href=https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sps/dev/spscomps/ui.Rmd>Github{blk}</a>.</p><h2 id=load-package>load package</h2><p>To start to use <code>spsComps</code>, load it in your Shiny app file or Rmarkdown file</p><pre><code class=language-r>library(spsComps)
+</code></pre><pre><code>## Loading required package: shiny
+</code></pre><pre><code class=language-r>library(magrittr)
+</code></pre><p>So you can see it depends on <code>shiny</code>. When you load it, there is no
+need to additionally load <code>shiny</code>.</p><h2 id=spsgotop><code>spsGoTop</code></h2><p>A go top button.</p><pre><code class=language-r>spsGoTop()
+</code></pre><div class=sps-gotop id=gotop style=right:1rem;bottom:10rem;fill:#337ab7 data-toggle=tooltip data-placement=left title="Go Top" onclick=goTop()><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M526.60727968 10.90185116a27.675 27.675.0 00-29.21455937.0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001.0 005.36959153 69.94390903c1.00431239 6.55289093-.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723.0 0011.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375.0 00140.04691725 5.34970492 1866.36093723 1866.36093723.0 00140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223.0 0011.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001.0 005.36959269-69.943909c-.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974.0 11-187.89594924 61e-8 93.93749974 93.93749974.0 01187.89594924-61e-8z"/><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499.0 82.4922232-197.00623328 82.5015456-234.7518555.0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-.00932239-82.52019037 30.59548842-82.51086798 68.34111062z"/></svg></div><p>It will not be display inline of the Rmd, just simply call it and maybe change the
 style as you want. By default, a “go to top” button will be created on the <strong>bottom-right</strong>
-<strong>corner</strong>. Now scroll this page, and you should see it (the rocket button).</p>
-<h2 id="gallery"><code>gallery</code></h2>
-<pre><code class="language-r">texts &lt;- c(&quot;p1&quot;, &quot;p2&quot;, &quot;&quot;, &quot;p4&quot;, &quot;p5&quot;)
+<strong>corner</strong>. Now scroll this page, and you should see it (the rocket button).</p><h2 id=gallery><code>gallery</code></h2><pre><code class=language-r>texts &lt;- c(&quot;p1&quot;, &quot;p2&quot;, &quot;&quot;, &quot;p4&quot;, &quot;p5&quot;)
 hrefs &lt;- c(&quot;https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true&quot;,
            &quot;https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true&quot;,
            &quot;&quot;,
@@ -1258,149 +80,34 @@ gallery(
   enlarge = TRUE,
   enlarge_method = &quot;modal&quot;
 )
-</code></pre>
-<div id="gallery1229318" class="col sps-gallery" style="">
-<p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery1229318-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery"
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-1")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" ><p class="text-center h4 ">p1</p></a>
-</div> <div  id=gallery1229318-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery"
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-2")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" ><p class="text-center h4 ">p2</p></a>
-</div> <div  id=gallery1229318-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery"
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-3")
-  >
-  <a  ><p class="text-center h4 gallery-nohover">&nbsp;</p></a>
-</div> <div  id=gallery1229318-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery"
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-4")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" ><p class="text-center h4 ">p4</p></a>
-</div> <div  id=gallery1229318-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
-  <img
-    src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery"
-    height=300 width=400
-    style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-5")
-  >
-  <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" ><p class="text-center h4 ">p5</p></a>
-</div></div>
-<!--SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<div id="sps-gallery-modal" class="gallery-modal" onclick="galModalClose()">
-<span class="gallery-modal-close">X</span>
-<img id="sps-gallery-modal-content" class="gallery-modal-content"/>
-<div class="gallery-caption"></div>
-</div>
-<!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery1229318")</script>
-</div>
-<p>You can show a gallery of plots you make in the Rmd and when people click it,
-it will be enlarged. You can also specify a link for each image.</p>
-<h2 id="logos">Logos</h2>
-<h3 id="a-single-one-with-hexlogo">a single one with <code>hexLogo</code></h3>
-<pre><code class="language-r">hexLogo(
+</code></pre><div id=gallery1229318 class="col sps-gallery"><p class="text-center h2" style=color:#0275d8>Gallery</p><div class=row style=margin:10px><div id=gallery1229318-1 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery1229318-1")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true"><p class="text-center h4">p1</p></a></div><div id=gallery1229318-2 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery1229318-2")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true"><p class="text-center h4">p2</p></a></div><div id=gallery1229318-3 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery1229318-3")'>
+<a><p class="text-center h4 gallery-nohover">&nbsp;</p></a></div><div id=gallery1229318-4 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery1229318-4")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true"><p class="text-center h4">p4</p></a></div><div id=gallery1229318-5 class="col-sm-4 sps-tab-link" style=right:1px><img src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class=img-gallery height=300 width=400 style=width:100% onclick='galEnlarge("#gallery1229318-5")'>
+<a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true"><p class="text-center h4">p5</p></a></div></div><div id=sps-gallery-modal class=gallery-modal onclick=galModalClose()><span class=gallery-modal-close>X</span>
+<img id=sps-gallery-modal-content class=gallery-modal-content><div class=gallery-caption></div></div><script>fixGalHeight("gallery1229318")</script></div><p>You can show a gallery of plots you make in the Rmd and when people click it,
+it will be enlarged. You can also specify a link for each image.</p><h2 id=logos>Logos</h2><h3 id=a-single-one-with-hexlogo>a single one with <code>hexLogo</code></h3><pre><code class=language-r>hexLogo(
     &quot;logo&quot;, &quot;Logo&quot;,
     hex_img = &quot;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&quot;,
     hex_link = &quot;https://www.google.com&quot;,
     footer = &quot;Footer&quot;,
     footer_link = &quot;https://www.google.com&quot;
 )
-</code></pre>
-<div id="logo" class="hex-container">
-  <span class="text-info">Logo</span><br>
-  <svg class="hex-box" viewBox="0 0 100 115" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="logo-hex" patternUnits="userSpaceOnUse" height="100%" width="100%">
-        <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
-      </pattern>
-    </defs>
-    <a href="https://www.google.com" ><polygon class="hex" points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#logo-hex)" stroke="var(--primary)"stroke-width="2"/></a>
-    <text x=10 y=115><a class="powerby-link"href="https://www.google.com" target="_blank">Footer</a></text>
-  </svg>
-</div>
-<h3 id="a-panel-of-logos-with-hexpanel">a panel of logos with <code>hexPanel</code></h3>
-<pre><code class="language-r">hexPanel(
+</code></pre><div id=logo class=hex-container><span class=text-info>Logo</span><br><svg class="hex-box" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="logo-hex" patternUnits="userSpaceOnUse" height="100%" width="100%"><image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%"/></pattern></defs><a href="https://www.google.com"><polygon class="hex" points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#logo-hex)" stroke="var(--primary)" stroke-width="2"/></a><text x="10" y="115"><a class="powerby-link" href="https://www.google.com" target="_blank">Footer</a></text></svg></div><h3 id=a-panel-of-logos-with-hexpanel>a panel of logos with <code>hexPanel</code></h3><pre><code class=language-r>hexPanel(
     &quot;demo1&quot;, &quot;&quot; ,
     rep(&quot;https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg&quot;, 2)
 )
-</code></pre>
-<div class="row hex-panel">
-<h5 class="text-primary"></h5>
-<div class="hex-item"><div id="demo11" class="hex-container">
-  <svg class="hex-box" viewBox="0 0 100 115" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="demo11-hex" patternUnits="userSpaceOnUse" height="100%" width="100%">
-        <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
-      </pattern>
-    </defs>
-    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#demo11-hex)" stroke="var(--primary)"stroke-width="2"/>
-  </svg>
-</div></div>
-<div class="hex-item"><div id="demo12" class="hex-container">
-  <svg class="hex-box" viewBox="0 0 100 115" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="demo12-hex" patternUnits="userSpaceOnUse" height="100%" width="100%">
-        <image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%" />
-      </pattern>
-    </defs>
-    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25"fill="url(#demo12-hex)" stroke="var(--primary)"stroke-width="2"/>
-  </svg>
-</div></div>
-</div>
-<h2 id="buttons">Buttons</h2>
-<h3 id="some-colorful-buttons-hreftab">Some colorful buttons <code>hrefTab</code></h3>
-<pre><code class="language-r">hrefTab(
+</code></pre><div class="row hex-panel"><h5 class=text-primary></h5><div class=hex-item><div id=demo11 class=hex-container><svg class="hex-box" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="demo11-hex" patternUnits="userSpaceOnUse" height="100%" width="100%"><image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%"/></pattern></defs><polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#demo11-hex)" stroke="var(--primary)" stroke-width="2"/></svg></div></div><div class=hex-item><div id=demo12 class=hex-container><svg class="hex-box" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="demo12-hex" patternUnits="userSpaceOnUse" height="100%" width="100%"><image href="https://live.staticflickr.com/7875/46106952034_954b8775fa_b.jpg" x="-10" y="-20" height="125%" width="125%"/></pattern></defs><polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#demo12-hex)" stroke="var(--primary)" stroke-width="2"/></svg></div></div></div><h2 id=buttons>Buttons</h2><h3 id=some-colorful-buttons-hreftab>Some colorful buttons <code>hrefTab</code></h3><pre><code class=language-r>hrefTab(
     title = &quot;Different background and text colors&quot;,
     label_texts = c(&quot;Go top&quot;, &quot;Disabled&quot;, &quot;Email me&quot;),
     hrefs = c(&quot;#&quot;, &quot;&quot;, &quot;mailto:xxx@abc.com&quot;),
     bg_colors = c(&quot;green&quot;, &quot;#eee&quot;, &quot;orange&quot;),
     text_colors = c(&quot;#caffc1&quot;, &quot;black&quot;, &quot;blue&quot;)
 )
-</code></pre>
-<div id="list-tab7344157" class="col">
-<p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
-<div><a
-  href="#" 
-  class="href-button sps-tab-link "
-  style="background-color: green; color: #caffc1;"
- >
-  Go top
-</a>
- <a
-  href="javascript:null;" 
-  class="href-button sps-tab-link nohover"
-  style="background-color: #eee; color: black;"
- >
-  Disabled
-</a>
- <a
-  href="mailto:xxx@abc.com" 
-  class="href-button sps-tab-link "
-  style="background-color: orange; color: blue;"
- >
-  Email me
-</a>
-</div>
-</div>
-<h3 id="a-table-colorful-buttons-hreftable">A table colorful buttons <code>hrefTable</code></h3>
-<pre><code class="language-r">hrefTable(
+</code></pre><div id=list-tab7344157 class=col><p class=h4 style=color:#0275d8;text-align:left>Different background and text colors</p><div><a href=# class="href-button sps-tab-link" style=background-color:green;color:#caffc1>Go top</a>
+<a href=javascript:null; class="href-button sps-tab-link nohover" style=background-color:#eee;color:#000>Disabled</a>
+<a href=mailto:xxx@abc.com class="href-button sps-tab-link" style=background-color:orange;color:blue>Email me</a></div></div><h3 id=a-table-colorful-buttons-hreftable>A table colorful buttons <code>hrefTable</code></h3><pre><code class=language-r>hrefTable(
     title = &quot;Change button color and text color&quot;,
     item_titles = c(&quot;workflow 1&quot;, &quot;No links&quot;),
     item_labels = list(c(&quot;tab 1&quot;), c(&quot;tab 3&quot;, &quot;tab 4&quot;)),
@@ -1409,44 +116,8 @@ it will be enlarged. You can also specify a link for each image.</p>
     item_text_colors =  list(c(&quot;black&quot;), c(&quot;yellow&quot;, &quot;green&quot;)),
     style = &quot;display: table;&quot;
 )
-</code></pre>
-<table id="list-table7317703" class="table table-hover table-href table-striped" style="display: table;">
-<caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
-<thead>
-  <tr class="info">
-    <th>Category</th>
-    <th>Options</th>
-  </tr>
-</thead>
-<tbody>  <tr>
-    <td class="h4" style="color: #0275d8;">workflow 1</td>
-    <td><a
-  href="https://www.google.com/" 
-  class="href-button  sps-tab-link"
-  style="background-color: blue; color: black;"
->
-  tab 1
-</a></td>
-  </tr>
-   <tr>
-    <td class="h4" style="color: #0275d8;">No links</td>
-    <td><a
-  href="javascript:null;" 
-  class="href-button nohover sps-tab-link"
-  style="background-color: red; color: yellow;"
->
-  tab 3
-</a><a
-  href="javascript:null;" 
-  class="href-button nohover sps-tab-link"
-  style="background-color: orange; color: green;"
->
-  tab 4
-</a></td>
-  </tr>
-</tbody>
-</table>
-<pre><code class="language-r">hrefTable(
+</code></pre><table id=list-table7317703 class="table table-hover table-href table-striped" style=display:table><caption class="text-center h2" style=color:#0275d8>Change button color and text color</caption><thead><tr class=info><th>Category</th><th>Options</th></tr></thead><tbody><tr><td class=h4 style=color:#0275d8>workflow 1</td><td><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:blue;color:#000>tab 1</a></td></tr><tr><td class=h4 style=color:#0275d8>No links</td><td><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:red;color:#ff0>tab 3
+</a><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:orange;color:green>tab 4</a></td></tr></tbody></table><pre><code class=language-r>hrefTable(
     title = &quot;Change row name colors and width&quot;,
     item_titles = c(&quot;Green&quot;, &quot;Red&quot;, &quot;Orange&quot;),
     item_labels = list(c(&quot;tab 1&quot;), c(&quot;tab 3&quot;, &quot;tab 4&quot;), c(&quot;tab 5&quot;, &quot;tab 6&quot;, &quot;tab 7&quot;)),
@@ -1458,519 +129,122 @@ it will be enlarged. You can also specify a link for each image.</p>
     item_title_colors = c(&quot;green&quot;, &quot;red&quot;, &quot;orange&quot;),
     style = &quot;display: table;&quot;
 )
-</code></pre>
-<table id="list-table8759175" class="table table-hover table-href table-striped" style="display: table;">
-<caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
-<thead>
-  <tr class="info">
-    <th>Category</th>
-    <th>Options</th>
-  </tr>
-</thead>
-<tbody>  <tr>
-    <td class="h4" style="color: green;">Green</td>
-    <td><a
-  href="https://www.google.com/" 
-  class="href-button  sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 1
-</a></td>
-  </tr>
-   <tr>
-    <td class="h4" style="color: red;">Red</td>
-    <td><a
-  href="javascript:null;" 
-  class="href-button nohover sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 3
-</a><a
-  href="javascript:null;" 
-  class="href-button nohover sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 4
-</a></td>
-  </tr>
-   <tr>
-    <td class="h4" style="color: orange;">Orange</td>
-    <td><a
-  href="https://www.google.com/" 
-  class="href-button  sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 5
-</a><a
-  href="https://www.google.com/" 
-  class="href-button  sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 6
-</a><a
-  href="javascript:null;" 
-  class="href-button nohover sps-tab-link"
-  style="background-color: #337ab7; color: white;"
->
-  tab 7
-</a></td>
-  </tr>
-</tbody>
-</table>
-<p>The table caption is on top in Shiny but on bottom in Rmd. You may also want to
-add the <code>style = &quot;display: table;&quot;</code> in Rmd to make the table occupy full length of
-the document in R markdown.</p>
-<h2 id="animations">Animations</h2>
-<h3 id="animateui"><code>animateUI</code></h3>
-<p>Add animations to existing components with <strong><code>animateUI</code></strong></p>
-<h4 id="to-buttons">To buttons</h4>
-<pre><code class="language-r">tags$button(id = &quot;btn1&quot;, &quot;random button&quot;)
-</code></pre>
-<p><button id="btn1">random button</button></p>
-<pre><code class="language-r">animateUI(&quot;btn1&quot;, animation = &quot;ring&quot;)
-</code></pre>
-<script>addSpsAnimation("#btn1", "sps-animation   faa-ring animated ")</script>
-<h4 id="to-some-text">To some text</h4>
-<pre><code class="language-r">p(id = &quot;mytext&quot;, class = &quot;text-red&quot;, &quot;some move text&quot;)
-</code></pre>
-<p id="mytext" class="text-red">some move text</p>
-<pre><code class="language-r">animateUI(&quot;mytext&quot;, animation = &quot;horizontal&quot;, speed = &quot;fast&quot;)
-</code></pre>
-<script>addSpsAnimation("#mytext", "sps-animation   faa-horizontal animated faa-fast")</script>
-<h4 id="on-hover-move-mouse-on-the-red-thumb">On hover, move mouse on the red thumb</h4>
-<pre><code class="language-r">tags$button(
+</code></pre><table id=list-table8759175 class="table table-hover table-href table-striped" style=display:table><caption class="text-center h2" style=color:#0275d8>Change row name colors and width</caption><thead><tr class=info><th>Category</th><th>Options</th></tr></thead><tbody><tr><td class=h4 style=color:green>Green</td><td><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:#337ab7;color:#fff>tab 1</a></td></tr><tr><td class=h4 style=color:red>Red</td><td><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:#337ab7;color:#fff>tab 3
+</a><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:#337ab7;color:#fff>tab 4</a></td></tr><tr><td class=h4 style=color:orange>Orange</td><td><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:#337ab7;color:#fff>tab 5
+</a><a href=https://www.google.com/ class="href-button sps-tab-link" style=background-color:#337ab7;color:#fff>tab 6
+</a><a href=javascript:null; class="href-button nohover sps-tab-link" style=background-color:#337ab7;color:#fff>tab 7</a></td></tr></tbody></table><p>The table caption is on top in Shiny but on bottom in Rmd. You may also want to
+add the <code>style = "display: table;"</code> in Rmd to make the table occupy full length of
+the document in R markdown.</p><h2 id=animations>Animations</h2><h3 id=animateui><code>animateUI</code></h3><p>Add animations to existing components with <strong><code>animateUI</code></strong></p><h4 id=to-buttons>To buttons</h4><pre><code class=language-r>tags$button(id = &quot;btn1&quot;, &quot;random button&quot;)
+</code></pre><p><button id=btn1>random button</button></p><pre><code class=language-r>animateUI(&quot;btn1&quot;, animation = &quot;ring&quot;)
+</code></pre><script>addSpsAnimation("#btn1","sps-animation   faa-ring animated ")</script><h4 id=to-some-text>To some text</h4><pre><code class=language-r>p(id = &quot;mytext&quot;, class = &quot;text-red&quot;, &quot;some move text&quot;)
+</code></pre><p id=mytext class=text-red>some move text</p><pre><code class=language-r>animateUI(&quot;mytext&quot;, animation = &quot;horizontal&quot;, speed = &quot;fast&quot;)
+</code></pre><script>addSpsAnimation("#mytext","sps-animation   faa-horizontal animated faa-fast")</script><h4 id=on-hover-move-mouse-on-the-red-thumb>On hover, move mouse on the red thumb</h4><pre><code class=language-r>tags$button(
   id = &quot;btn2&quot;,
   icon(id = &quot;myicon&quot;, &quot;thumbs-o-up&quot;),
   style = &quot;color: red; boarder: initial; border-color: transparent;&quot;
 )
-</code></pre>
-<pre><code>## The `name` provided ('thumbs-o-up') is deprecated in Font Awesome 5:
+</code></pre><pre><code>## The `name` provided ('thumbs-o-up') is deprecated in Font Awesome 5:
 ## * please consider using 'thumbs-up' or 'fas fa-thumbs-up' instead
 ## * use the `verify_fa = FALSE` to deactivate these messages
-</code></pre>
-<button id="btn2" style="color: red; boarder: initial; border-color: transparent;">
-<i class="fa fa-thumbs-o-up" role="presentation" aria-label="thumbs-o-up icon" id="myicon"></i>
-</button>
-<pre><code class="language-r">animateUI(&quot;btn2&quot;, animation = &quot;bounce&quot;, speed = &quot;fast&quot;, hover = TRUE)
-</code></pre>
-<script>addSpsAnimation("#btn2", "sps-animation   faa-bounce animated-hover faa-fast")</script>
-<h4 id="inline-animation">Inline animation</h4>
-<p>You can add animations to inline Rmarkdown text by giving it a HTML tag and id, like
-following:</p>
-<pre><code class="language-html">some text some text &lt;span id=&quot;some-text&quot; style=&quot;display: inline-block&quot;&gt;some text&lt;/span&gt; some text some text
-</code></pre>
-<p>some text some text <span id="some-text" style="display: inline-block">some text</span> some text some text</p>
-<pre><code class="language-r">animateUI(selector = &quot;some-text&quot;, animation = &quot;ring&quot;)
-</code></pre>
-<script>addSpsAnimation("#some-text", "sps-animation   faa-ring animated ")</script>
-<p><strong>Most animations required the target tag to have CSS display “block” or “inline-block”</strong>,
-you can append this by adding <code>style=&quot;display: inline-block&quot;</code> to the tag as shown above
-or check examples below.</p>
-<hr>
-<h3 id="animateappend"><code>animateAppend</code></h3>
-<p>Add animations with pipe <code>%&gt;%</code> by <strong><code>animateAppend</code></strong></p>
-<pre><code class="language-r">icon(&quot;home&quot;) %&gt;%
+</code></pre><button id=btn2 style=color:red;boarder:initial;border-color:transparent>
+<i class="fa fa-thumbs-o-up" role=presentation aria-label="thumbs-o-up icon" id=myicon></i></button><pre><code class=language-r>animateUI(&quot;btn2&quot;, animation = &quot;bounce&quot;, speed = &quot;fast&quot;, hover = TRUE)
+</code></pre><script>addSpsAnimation("#btn2","sps-animation   faa-bounce animated-hover faa-fast")</script><h4 id=inline-animation>Inline animation</h4><p>You can add animations to inline Rmarkdown text by giving it a HTML tag and id, like
+following:</p><pre><code class=language-html>some text some text &lt;span id=&quot;some-text&quot; style=&quot;display: inline-block&quot;&gt;some text&lt;/span&gt; some text some text
+</code></pre><p>some text some text <span id=some-text style=display:inline-block>some text</span> some text some text</p><pre><code class=language-r>animateUI(selector = &quot;some-text&quot;, animation = &quot;ring&quot;)
+</code></pre><script>addSpsAnimation("#some-text","sps-animation   faa-ring animated ")</script><p><strong>Most animations required the target tag to have CSS display “block” or “inline-block”</strong>,
+you can append this by adding <code>style="display: inline-block"</code> to the tag as shown above
+or check examples below.</p><hr><h3 id=animateappend><code>animateAppend</code></h3><p>Add animations with pipe <code>%>%</code> by <strong><code>animateAppend</code></strong></p><pre><code class=language-r>icon(&quot;home&quot;) %&gt;%
   animateAppend(&quot;ring&quot;)
-</code></pre>
-<p><i aria-label="home icon" class="fa fa-home sps-animation   faa-ring animated " role="presentation"></i></p>
-<pre><code class="language-r">tags$p(&quot;Append animation&quot;, class = &quot;text-primary&quot;, style=&quot;display: inline-block&quot;) %&gt;%
+</code></pre><p><i aria-label="home icon" class="fa fa-home sps-animation faa-ring animated" role=presentation></i></p><pre><code class=language-r>tags$p(&quot;Append animation&quot;, class = &quot;text-primary&quot;, style=&quot;display: inline-block&quot;) %&gt;%
   animateAppend(&quot;pulse&quot;)
-</code></pre>
-<p class="text-primary sps-animation   faa-pulse animated " style="display: inline-block">Append animation</p>
-<hr>
-<h3 id="animateappendnested"><code>animateAppendNested</code></h3>
-<p>Apply multiple animations to the same component</p>
-<pre><code class="language-r">tags$b(&quot;Nested animations&quot;, class = &quot;text-primary&quot;) %&gt;%
+</code></pre><p class="text-primary sps-animation faa-pulse animated" style=display:inline-block>Append animation</p><hr><h3 id=animateappendnested><code>animateAppendNested</code></h3><p>Apply multiple animations to the same component</p><pre><code class=language-r>tags$b(&quot;Nested animations&quot;, class = &quot;text-primary&quot;) %&gt;%
   animateAppendNested(&quot;ring&quot;) %&gt;%
   animateAppendNested(&quot;pulse&quot;) %&gt;%
   animateAppendNested(&quot;passing&quot;)
-</code></pre>
-<div style="display: inline-block;" class="sps-animation   faa-passing animated ">
-<div style="display: inline-block;" class="sps-animation   faa-pulse animated ">
-<div style="display: inline-block;" class="sps-animation   faa-ring animated ">
-<b class="text-primary">Nested animations</b>
-</div>
-</div>
-</div>
-<pre><code class="language-r">tags$b(&quot;Nested animations display changed&quot;, class = &quot;text-primary&quot;) %&gt;%
+</code></pre><div style=display:inline-block class="sps-animation faa-passing animated"><div style=display:inline-block class="sps-animation faa-pulse animated"><div style=display:inline-block class="sps-animation faa-ring animated"><b class=text-primary>Nested animations</b></div></div></div><pre><code class=language-r>tags$b(&quot;Nested animations display changed&quot;, class = &quot;text-primary&quot;) %&gt;%
   animateAppendNested(&quot;ring&quot;) %&gt;%
   animateAppendNested(&quot;pulse&quot;, display = &quot;block&quot;, style = &quot;width: 30%&quot;)
-</code></pre>
-<div class="sps-animation   faa-pulse animated " style="display: block; width: 30%">
-<div style="display: inline-block;" class="sps-animation   faa-ring animated ">
-<b class="text-primary">Nested animations display changed</b>
-</div>
-</div>
-<hr>
-<h3 id="animateicon"><code>animateIcon</code></h3>
-<p>Here is a convenient function that allows you to create font-awesome icons with
+</code></pre><div class="sps-animation faa-pulse animated" style=display:block;width:30%><div style=display:inline-block class="sps-animation faa-ring animated"><b class=text-primary>Nested animations display changed</b></div></div><hr><h3 id=animateicon><code>animateIcon</code></h3><p>Here is a convenient function that allows you to create font-awesome icons with
 animations and customize, color, size, etc, an enhanced version of original
-<code>shiny::icon</code> and can also be used in Rmarkdown.</p>
-<h4 id="default">Default</h4>
-<p>Default is the same as original icon</p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home   animated " style="color: ;"></i></p>
-<h4 id="animation-and-color">Animation and color</h4>
-<pre><code class="language-r">animateIcon(name = &quot;home&quot;, animation = &quot;horizontal&quot;, speed = &quot;slow&quot;, color =&quot;red&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home  faa-horizontal animated faa-slow" style="color: red;"></i></p>
-<h4 id="add-to-a-button">Add to a button</h4>
-<pre><code class="language-r">tags$button(animateIcon(&quot;spinner&quot;, &quot;spin&quot;, &quot;fast&quot;), &quot;A button&quot;)
-</code></pre>
-<button>
-<i class="fa sps-animation fa-spinner  faa-spin animated faa-fast" style="color: ;"></i>
-A button
-</button>
-<h4 id="on-hover">on hover</h4>
-<pre><code class="language-r">animateIcon(name = &quot;wrench&quot;, animation = &quot;wrench&quot;, hover = TRUE, color =&quot;green&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-wrench  faa-wrench animated-hover " style="color: green;"></i></p>
-<h4 id="change-size">Change size</h4>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;xs&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-xs  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;sm&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-sm  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;lg&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-lg  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;2x&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-2x  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;3x&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-3x  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;5x&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-5x  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;7x&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-7x  animated " style="color: ;"></i></p>
-<pre><code class="language-r">animateIcon(&quot;home&quot;, size = &quot;10x&quot;)
-</code></pre>
-<p><i class="fa sps-animation fa-home fa-10x  animated " style="color: ;"></i></p>
-<hr>
-<h2 id="loaders">Loaders</h2>
-<p>Add loaders to indicate busy status. Most cases, loaders are added by a backend
+<code>shiny::icon</code> and can also be used in Rmarkdown.</p><h4 id=default>Default</h4><p>Default is the same as original icon</p><pre><code class=language-r>animateIcon(&quot;home&quot;)
+</code></pre><p><i class="fa sps-animation fa-home animated" style=color:></i></p><h4 id=animation-and-color>Animation and color</h4><pre><code class=language-r>animateIcon(name = &quot;home&quot;, animation = &quot;horizontal&quot;, speed = &quot;slow&quot;, color =&quot;red&quot;)
+</code></pre><p><i class="fa sps-animation fa-home faa-horizontal animated faa-slow" style=color:red></i></p><h4 id=add-to-a-button>Add to a button</h4><pre><code class=language-r>tags$button(animateIcon(&quot;spinner&quot;, &quot;spin&quot;, &quot;fast&quot;), &quot;A button&quot;)
+</code></pre><button>
+<i class="fa sps-animation fa-spinner faa-spin animated faa-fast" style=color:></i>A button</button><h4 id=on-hover>on hover</h4><pre><code class=language-r>animateIcon(name = &quot;wrench&quot;, animation = &quot;wrench&quot;, hover = TRUE, color =&quot;green&quot;)
+</code></pre><p><i class="fa sps-animation fa-wrench faa-wrench animated-hover" style=color:green></i></p><h4 id=change-size>Change size</h4><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;xs&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-xs animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;sm&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-sm animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;lg&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-lg animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;2x&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-2x animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;3x&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-3x animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;5x&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-5x animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;7x&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-7x animated" style=color:></i></p><pre><code class=language-r>animateIcon(&quot;home&quot;, size = &quot;10x&quot;)
+</code></pre><p><i class="fa sps-animation fa-home fa-10x animated" style=color:></i></p><hr><h2 id=loaders>Loaders</h2><p>Add loaders to indicate busy status. Most cases, loaders are added by a backend
 server to show the busy processing status and are removed when the process is done.
-Rmarkdown documents does not have a server, but you can still add some loaders.</p>
-<h3 id="cssloader"><code>cssLoader</code></h3>
-<h4 id="default-loaders">Default loaders</h4>
-<p>There are 12 different default loaders: “circle,” “dual-ring,” “facebook,” “heart,”
-“ring,” “roller,” “default,” “ellipsis,” “grid,” “hourglass,” “ripple,” “spinner.”</p>
-<pre><code class="language-r">cssLoader(height = &quot;100px&quot;)
-</code></pre>
-<div id="spsloader-492156738" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
-<script>
-        $(function(){
-          $("#spsloader-492156738").prepend(chooseLoader("spsloader-492156738", "default", "", "#337ab7", "100px", "100px"));
-        });
-      </script>
-</div>
-<br>
-<p>customize it:</p>
-<pre><code class="language-r">cssLoader(type = &quot;grid&quot;, height = &quot;150px&quot;, color = &quot;orange&quot;)
-</code></pre>
-<div id="spsloader-948736521" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
-<script>
-        $(function(){
-          $("#spsloader-948736521").prepend(chooseLoader("spsloader-948736521", "grid", "", "orange", "150px", "150px"));
-        });
-      </script>
-</div>
-<br>
-<p>Add to a button:</p>
-<pre><code class="language-r">tags$button(
+Rmarkdown documents does not have a server, but you can still add some loaders.</p><h3 id=cssloader><code>cssLoader</code></h3><h4 id=default-loaders>Default loaders</h4><p>There are 12 different default loaders: “circle,” “dual-ring,” “facebook,” “heart,”
+“ring,” “roller,” “default,” “ellipsis,” “grid,” “hourglass,” “ripple,” “spinner.”</p><pre><code class=language-r>cssLoader(height = &quot;100px&quot;)
+</code></pre><div id=spsloader-492156738 class=sps-cssloader style=height:100px;width:100px;display:block;opacity:1><script>$(function(){$("#spsloader-492156738").prepend(chooseLoader("spsloader-492156738","default","","#337ab7","100px","100px"));});</script></div><br><p>customize it:</p><pre><code class=language-r>cssLoader(type = &quot;grid&quot;, height = &quot;150px&quot;, color = &quot;orange&quot;)
+</code></pre><div id=spsloader-948736521 class=sps-cssloader style=height:150px;width:150px;display:block;opacity:1><script>$(function(){$("#spsloader-948736521").prepend(chooseLoader("spsloader-948736521","grid","","orange","150px","150px"));});</script></div><br><p>Add to a button:</p><pre><code class=language-r>tags$button(
   ## `inline = TRUE` is important if you want loader and
   ## text in the same line.
   cssLoader(is_icon = TRUE, inline = TRUE, color = &quot;#3a7bd5&quot;),
   &quot;A button&quot;
 )
-</code></pre>
-<button>
-<i id="spsloader-936154827" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
-<script>
-        $(function(){
-          $("#spsloader-936154827").prepend(chooseLoader("spsloader-936154827", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
-        });
-      </script>
-</i>
-A button
-</button>
-<h4 id="your-own-loaders">Your own loaders</h4>
-<p>You can choose a gif to be a your loader</p>
-<pre><code class="language-r">cssLoader(type = &quot;gif&quot;, src = &quot;https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true&quot;, height = &quot;100px&quot;)
-</code></pre>
-<div id="spsloader-482593671" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
-<script>
-        $(function(){
-          $("#spsloader-482593671").prepend(chooseLoader("spsloader-482593671", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
-        });
-      </script>
-</div>
-<pre><code class="language-r">cssLoader(type = &quot;gif&quot;, src = &quot;https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true&quot;, height = &quot;150px&quot;)
-</code></pre>
-<div id="spsloader-129645387" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
-<script>
-        $(function(){
-          $("#spsloader-129645387").prepend(chooseLoader("spsloader-129645387", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
-        });
-      </script>
-</div>
-<h3 id="bstooltip-and-bstip"><code>bsTooltip</code> and <code>bsTip</code></h3>
-<p>Add tooltips to the documents with <code>bsTooltip</code></p>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;Tooltip on the left&quot;) %&gt;%
+</code></pre><button>
+<i id=spsloader-936154827 class=sps-cssloader style=height:1.5rem;width:1.5rem;display:inline-block;opacity:1><script>$(function(){$("#spsloader-936154827").prepend(chooseLoader("spsloader-936154827","default","","#3a7bd5","1.5rem","1.5rem"));});</script></i>A button</button><h4 id=your-own-loaders>Your own loaders</h4><p>You can choose a gif to be a your loader</p><pre><code class=language-r>cssLoader(type = &quot;gif&quot;, src = &quot;https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true&quot;, height = &quot;100px&quot;)
+</code></pre><div id=spsloader-482593671 class=sps-cssloader style=height:100px;width:100px;display:block;opacity:1><script>$(function(){$("#spsloader-482593671").prepend(chooseLoader("spsloader-482593671","gif","https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true","#337ab7","100px","100px"));});</script></div><pre><code class=language-r>cssLoader(type = &quot;gif&quot;, src = &quot;https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true&quot;, height = &quot;150px&quot;)
+</code></pre><div id=spsloader-129645387 class=sps-cssloader style=height:150px;width:150px;display:block;opacity:1><script>$(function(){$("#spsloader-129645387").prepend(chooseLoader("spsloader-129645387","gif","https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true","#337ab7","150px","150px"));});</script></div><h3 id=bstooltip-and-bstip><code>bsTooltip</code> and <code>bsTip</code></h3><p>Add tooltips to the documents with <code>bsTooltip</code></p><pre><code class=language-r>actionButton(&quot;&quot;, &quot;Tooltip on the left&quot;) %&gt;%
  bsTooltip(&quot;Tooltip on the left&quot;, &quot;left&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip92457587">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip92457587>
 Tooltip on the left
-<script>
-bsTooltip(
-  "bsTooltip92457587", "left", "Tooltip on the left", "black", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;Tooltip on the top&quot;) %&gt;%
+<script>bsTooltip("bsTooltip92457587","left","Tooltip on the left","black","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;Tooltip on the top&quot;) %&gt;%
  bsTooltip(&quot;Tooltip on the top&quot;, &quot;top&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip90742671">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip90742671>
 Tooltip on the top
-<script>
-bsTooltip(
-  "bsTooltip90742671", "top", "Tooltip on the top", "black", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;Tooltip on the right&quot;) %&gt;%
+<script>bsTooltip("bsTooltip90742671","top","Tooltip on the top","black","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;Tooltip on the right&quot;) %&gt;%
  bsTooltip(&quot;Tooltip on the right&quot;, &quot;right&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip68403796">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip68403796>
 Tooltip on the right
-<script>
-bsTooltip(
-  "bsTooltip68403796", "right", "Tooltip on the right", "black", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;Tooltip on the bottom&quot;) %&gt;%
+<script>bsTooltip("bsTooltip68403796","right","Tooltip on the right","black","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;Tooltip on the bottom&quot;) %&gt;%
  bsTooltip(&quot;Tooltip on the bottom&quot;, &quot;bottom&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip64495561">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip64495561>
 Tooltip on the bottom
-<script>
-bsTooltip(
-  "bsTooltip64495561", "bottom", "Tooltip on the bottom", "black", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<p>or use the higher leveler convenient function <code>bsTip</code></p>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;primary&quot;) %&gt;%
+<script>bsTooltip("bsTooltip64495561","bottom","Tooltip on the bottom","black","white","12px","hover focus","400","1",false)</script></button><p>or use the higher leveler convenient function <code>bsTip</code></p><pre><code class=language-r>actionButton(&quot;&quot;, &quot;primary&quot;) %&gt;%
   bsTip(&quot;primary&quot;, status = &quot;primary&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip95890775">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip95890775>
 primary
-<script>
-bsTooltip(
-  "bsTooltip95890775", "top", "primary", "#0275d8", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;info&quot;) %&gt;%
+<script>bsTooltip("bsTooltip95890775","top","primary","#0275d8","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;info&quot;) %&gt;%
   bsTip(&quot;info&quot;, status = &quot;info&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip89097746">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip89097746>
 info
-<script>
-bsTooltip(
-  "bsTooltip89097746", "top", "info", "#5bc0de", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;success&quot;) %&gt;%
+<script>bsTooltip("bsTooltip89097746","top","info","#5bc0de","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;success&quot;) %&gt;%
   bsTip(&quot;success&quot;, status = &quot;success&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip29160691">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip29160691>
 success
-<script>
-bsTooltip(
-  "bsTooltip29160691", "top", "success", "#5cb85c", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;warning&quot;) %&gt;%
+<script>bsTooltip("bsTooltip29160691","top","success","#5cb85c","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;warning&quot;) %&gt;%
   bsTip(&quot;warning&quot;, status = &quot;warning&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip14250269">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip14250269>
 warning
-<script>
-bsTooltip(
-  "bsTooltip14250269", "top", "warning", "#f0ad4e", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<pre><code class="language-r">actionButton(&quot;&quot;, &quot;danger&quot;) %&gt;%
+<script>bsTooltip("bsTooltip14250269","top","warning","#f0ad4e","white","12px","hover focus","400","1",false)</script></button><pre><code class=language-r>actionButton(&quot;&quot;, &quot;danger&quot;) %&gt;%
   bsTip(&quot;danger&quot;, status = &quot;danger&quot;)
-</code></pre>
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip16239769">
+</code></pre><button type=button class="btn btn-default action-button" data-tipid=bsTooltip16239769>
 danger
-<script>
-bsTooltip(
-  "bsTooltip16239769", "top", "danger", "#d9534f", "white",
-  "12px", "hover focus", "400", "1", false
-)
-</script>
-</button>
-<h3 id="titles-with-spstitle">Titles with <code>spsTitle</code></h3>
-<p>You can use {spsComps} to add colorful titles in Rmarkdown</p>
-<pre><code class="language-r">spsTitle(&quot;primary&quot;, status = &quot;primary&quot;)
-</code></pre>
-<h2 style="color: #0275d8; opacity: 1; ">primary</h2>
-<pre><code class="language-r">spsTitle(&quot;info&quot;, status = &quot;info&quot;)
-</code></pre>
-<h2 style="color: #5bc0de; opacity: 1; ">info</h2>
-<pre><code class="language-r">spsTitle(&quot;success&quot;, status = &quot;success&quot;)
-</code></pre>
-<h2 style="color: #5cb85c; opacity: 1; ">success</h2>
-<pre><code class="language-r">spsTitle(&quot;warning&quot;, status = &quot;warning&quot;)
-</code></pre>
-<h2 style="color: #f0ad4e; opacity: 1; ">warning</h2>
-<pre><code class="language-r">spsTitle(&quot;danger&quot;, status = &quot;danger&quot;)
-</code></pre>
-<h2 style="color: #d9534f; opacity: 1; ">danger</h2>
-<br>
-<p>Or you own colors</p>
-<pre><code class="language-r">spsTitle(&quot;purple&quot;, other_color = &quot;purple&quot;)
-</code></pre>
-<h2 style="color: purple; opacity: 1; ">purple</h2>
-<pre><code class="language-r">spsTitle(&quot;pink&quot;, other_color = &quot;pink&quot;)
-</code></pre>
-<h2 style="color: pink; opacity: 1; ">pink</h2>
-<h3 id="add-horizontal-divider-lines-with-spshr">Add horizontal divider lines with <code>spsHr</code></h3>
-<pre><code class="language-r">spsHr(&quot;info&quot;)
-</code></pre>
-<hr style="border: 0.5px solid #5bc0de; opacity: 1"/>
-<pre><code class="language-r">spsHr(&quot;primary&quot;)
-</code></pre>
-<hr style="border: 0.5px solid #0275d8; opacity: 1"/>
-<pre><code class="language-r">spsHr(&quot;success&quot;)
-</code></pre>
-<hr style="border: 0.5px solid #5cb85c; opacity: 1"/>
-<pre><code class="language-r">spsHr(&quot;warning&quot;)
-</code></pre>
-<hr style="border: 0.5px solid #f0ad4e; opacity: 1"/>
-<pre><code class="language-r">spsHr(&quot;danger&quot;)
-</code></pre>
-<hr style="border: 0.5px solid #d9534f; opacity: 1"/>
-<h2 id="other-components">Other components</h2>
-<p>Other components are either performed the best in a Shiny app or requires
-a server. Please see the <a href="https://lezhang.shinyapps.io/spsComps/">demo</a></p>
-
-	
-	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-07: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/4e8993ca21a3cef3d841442c2e4afee4367ef77c">pg_build (4e8993c)</a>
-</div>
-</div>
-
-
-              </main>
-          
-
-
-        </div>
-      </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-        
-        
-        
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-<ul class="list-inline mb-0">
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
-      <i class="fab fa-github"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
-      <i class="fa fa-dna"></i>
-    </a>
-  </li>
-  
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
-      <i class="fa fa-envelope"></i>
-    </a>
-  </li>
-  
-</ul>
-
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The systemPipe Project All Rights Reserved</small>
-        
-	
-		<p class="mt-2"><a href="../../../../about/">About systemPipe Project</a></p>
-	
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script>
-  (function() {
-    var i, text, code, codes = document.getElementsByTagName('code');
-    for (i = 0; i < codes.length;) {
-      code = codes[i];
-      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-        text = code.textContent;
-        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
-          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
-          code.textContent = text;
-        }
-        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-            /^\$(.|\s)+\$$/.test(text) ||
-            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-          code.outerHTML = code.innerHTML;  
-          continue;
-        }
-      }
-      i++;
-    }
-  })();
-</script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<script type="text/x-mathjax-config">
+<script>bsTooltip("bsTooltip16239769","top","danger","#d9534f","white","12px","hover focus","400","1",false)</script></button><h3 id=titles-with-spstitle>Titles with <code>spsTitle</code></h3><p>You can use {spsComps} to add colorful titles in Rmarkdown</p><pre><code class=language-r>spsTitle(&quot;primary&quot;, status = &quot;primary&quot;)
+</code></pre><h2 style=color:#0275d8;opacity:1>primary</h2><pre><code class=language-r>spsTitle(&quot;info&quot;, status = &quot;info&quot;)
+</code></pre><h2 style=color:#5bc0de;opacity:1>info</h2><pre><code class=language-r>spsTitle(&quot;success&quot;, status = &quot;success&quot;)
+</code></pre><h2 style=color:#5cb85c;opacity:1>success</h2><pre><code class=language-r>spsTitle(&quot;warning&quot;, status = &quot;warning&quot;)
+</code></pre><h2 style=color:#f0ad4e;opacity:1>warning</h2><pre><code class=language-r>spsTitle(&quot;danger&quot;, status = &quot;danger&quot;)
+</code></pre><h2 style=color:#d9534f;opacity:1>danger</h2><br><p>Or you own colors</p><pre><code class=language-r>spsTitle(&quot;purple&quot;, other_color = &quot;purple&quot;)
+</code></pre><h2 style=color:purple;opacity:1>purple</h2><pre><code class=language-r>spsTitle(&quot;pink&quot;, other_color = &quot;pink&quot;)
+</code></pre><h2 style=color:pink;opacity:1>pink</h2><h3 id=add-horizontal-divider-lines-with-spshr>Add horizontal divider lines with <code>spsHr</code></h3><pre><code class=language-r>spsHr(&quot;info&quot;)
+</code></pre><hr style="border:.5px solid #5bc0de;opacity:1"><pre><code class=language-r>spsHr(&quot;primary&quot;)
+</code></pre><hr style="border:.5px solid #0275d8;opacity:1"><pre><code class=language-r>spsHr(&quot;success&quot;)
+</code></pre><hr style="border:.5px solid #5cb85c;opacity:1"><pre><code class=language-r>spsHr(&quot;warning&quot;)
+</code></pre><hr style="border:.5px solid #f0ad4e;opacity:1"><pre><code class=language-r>spsHr(&quot;danger&quot;)
+</code></pre><hr style="border:.5px solid #d9534f;opacity:1"><h2 id=other-components>Other components</h2><p>Other components are either performed the best in a Shiny app or requires
+a server. Please see the <a href=https://lezhang.shinyapps.io/spsComps/>demo</a></p><div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-13: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/19d2c7868c994f0bef5e487e6fa555732ffec0b4>sps main page screenshot (19d2c78)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2021 The systemPipe Project All Rights Reserved</small><p class=mt-2><a href=../../../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
+if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
+i++;}})();</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script type=text/x-mathjax-config>
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -1986,27 +260,4 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="../../../../js/main.min.906bd02f142be20eb94bb49539a18a3e93ec0b9ff5f5dcf3796eed436a6103d2.js" integrity="sha256-kGvQLxQr4g65S7SVOaGKPpPsC5/19dzzeW7tQ2phA9I=" crossorigin="anonymous"></script>
-
-
-
-<script src='../../../../js/prism.js'></script>
-
-
-
-  </body>
-</html>
+</script><script src=../../../../js/main.min.f820bfc507c3ebefe17f8881ec4ee10013f3b89ad9555a50acf9bb1771e6823f.js integrity="sha256-+CC/xQfD6+/hf4iB7E7hABPzuJrZVVpQrPm7F3Hmgj8=" crossorigin=anonymous></script><script src=../../../../js/prism.js></script></body></html>
