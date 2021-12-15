@@ -22,10 +22,6 @@ library(spsComps)
 ## Loading required package: shiny
 ```
 
-```
-## Loading required package: spsUtil
-```
-
 ```r
 library(magrittr)
 ```
@@ -48,10 +44,10 @@ shinyCatch({
 ```
 
 ```
-## [SPS-INFO] 2021-04-14 17:31:28 This is a message
+## [SPS-INFO] 2021-12-15 01:36:28 This is a message
 ## 
-## [SPS-WARNING] 2021-04-14 17:31:28 This is a warning
-## [SPS-ERROR] 2021-04-14 17:31:28 This is an error
+## [SPS-WARNING] 2021-12-15 01:36:28 This is a warning
+## [SPS-ERROR] 2021-12-15 01:36:28 This is an error
 ```
 
 ```
@@ -66,7 +62,7 @@ be displayed in in app, like following:
 
 So the message on both UI and console is called **dual-end logging** in SPS. 
 
-#### Server only
+#### Shiny off
 Of course, if you do not want users to see the message, you can hide it by 
 `shiny = FALSE`, but the message will be still logged on R console. 
 Run the following on your own computer and watch the difference. 
@@ -107,7 +103,7 @@ value_a <- shinyCatch({
 ```
 
 ```
-## [SPS-INFO] 2021-04-14 17:31:28 1
+## [SPS-INFO] 2021-12-15 01:36:28 1
 ```
 
 ```r
@@ -125,7 +121,7 @@ value_b <- shinyCatch({
 ```
 
 ```
-## [SPS-WARNING] 2021-04-14 17:31:28 Num is 0
+## [SPS-WARNING] 2021-12-15 01:36:28 Num is 0
 ```
 
 ```r
@@ -143,7 +139,7 @@ value_c <- shinyCatch({
 ```
 
 ```
-## [SPS-ERROR] 2021-04-14 17:31:28 less than 0
+## [SPS-ERROR] 2021-12-15 01:36:28 less than 0
 ```
 
 ```r
@@ -183,7 +179,7 @@ try({
 ```
 
 ```
-## [SPS-ERROR] 2021-04-14 17:31:28 error level is the most commonly used level
+## [SPS-ERROR] 2021-12-15 01:36:28 error level is the most commonly used level
 ## Error : 
 ```
 
@@ -197,7 +193,7 @@ try({
 ```
 
 ```
-## [SPS-INFO] 2021-04-14 17:31:28 error level is the most commonly used level
+## [SPS-INFO] 2021-12-15 01:36:28 error level is the most commonly used level
 ## 
 ## Error : 
 ```
@@ -419,3 +415,91 @@ You should see something like this if there is any missing package:
 
 ![shinycheckpkg](../shinycheckpkg.png)
 
+
+### In-line  operation
+
+In-place operations like i += 1, i -= 1 is not support in R. These functions implement these operations in R. This set of functions will apply this kind of operations on [`shiny::reactiveVal`] objects.
+
+
+
+```r
+reactiveConsole(TRUE)
+rv <- reactiveVal(0)
+incRv(rv) # add 1
+rv()
+```
+
+```
+## [1] 1
+```
+
+```r
+incRv(rv) # add 1
+rv()
+```
+
+```
+## [1] 2
+```
+
+```r
+incRv(rv, -1) # minus 1
+rv()
+```
+
+```
+## [1] 1
+```
+
+```r
+incRv(rv, -1) # minus 1
+rv()
+```
+
+```
+## [1] 0
+```
+
+```r
+rv2 <- reactiveVal(1)
+multRv(rv2) # times 2
+rv2()
+```
+
+```
+## [1] 2
+```
+
+```r
+multRv(rv2) # times 2
+rv2()
+```
+
+```
+## [1] 4
+```
+
+```r
+diviRv(rv2) # divide 2
+rv2()
+```
+
+```
+## [1] 2
+```
+
+```r
+diviRv(rv2) # divide 2
+rv2()
+```
+
+```
+## [1] 1
+```
+
+```r
+reactiveConsole(FALSE)
+```
+
+If you are looking for inline operations on normal R objects or 
+`shiny::reactiveValues`, check [spsUtil](../../spsutil)

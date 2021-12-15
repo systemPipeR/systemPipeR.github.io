@@ -199,7 +199,7 @@ levels of information.&lt;/p&gt;
 &lt;p&gt;{spsUtil} provides some more informative and prettier ways to generate these kind of messages.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;my message&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [INFO] 2021-04-12 11:49:35 my message
+&lt;pre&gt;&lt;code&gt;## [INFO] 2021-12-15 01:57:33 my message
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see it starts with a &lt;code&gt;level&lt;/code&gt; information, then a time stamp, and follows the
 actual message. By default, it uses the &lt;code&gt;INFO&lt;/code&gt; level, and you can change to whatever
@@ -215,36 +215,36 @@ code get evaluated.&lt;/li&gt;
 the message out.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am info&amp;quot;, level = &amp;quot;INFO&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [INFO] 2021-04-12 11:49:35 I am info
+&lt;pre&gt;&lt;code&gt;## [INFO] 2021-12-15 01:57:33 I am info
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am warning&amp;quot;, level = &amp;quot;warning&amp;quot;) # not case sensitive
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: [WARNING] 2021-04-12 11:49:35 I am warning
+&lt;pre&gt;&lt;code&gt;## Warning: [WARNING] 2021-12-15 01:57:33 I am warning
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am error&amp;quot;, level = &amp;quot;ERROR&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Error: 
-[ERROR] 2021-04-12 11:49:35 I am error
+[ERROR] 2021-12-15 01:57:33 I am error
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am random level&amp;quot;, level = &amp;quot;MY LEVEL&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [MY LEVEL] 2021-04-12 11:49:35 I am random level
+&lt;pre&gt;&lt;code&gt;## [MY LEVEL] 2021-12-15 01:57:33 I am random level
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;prefix&#34;&gt;Prefix&lt;/h4&gt;
 &lt;p&gt;For the 3 key levels, you can specify the prefix in front of the level text to
 over write the default level text &lt;code&gt;INFO&lt;/code&gt;, &lt;code&gt;WARNING&lt;/code&gt;, or &lt;code&gt;ERROR&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am info&amp;quot;, level = &amp;quot;INFO&amp;quot;, info_text = &amp;quot;NEW-INFO&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [NEW-INFO] 2021-04-12 11:49:35 I am info
+&lt;pre&gt;&lt;code&gt;## [NEW-INFO] 2021-12-15 01:57:33 I am info
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am warning&amp;quot;, level = &amp;quot;warning&amp;quot;, warning_text = &amp;quot;MY-WARNING&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: [MY-WARNING] 2021-04-12 11:49:35 I am warning
+&lt;pre&gt;&lt;code&gt;## Warning: [MY-WARNING] 2021-12-15 01:57:33 I am warning
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am error&amp;quot;, level = &amp;quot;ERROR&amp;quot;, error_text = &amp;quot;STOP&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Error: 
-[STOP] 2021-04-12 11:49:35 I am error
+[STOP] 2021-12-15 01:57:33 I am error
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;colors&#34;&gt;Colors&lt;/h4&gt;
 &lt;p&gt;Colors are automatically enabled if it is supported. If you try all code above in
@@ -260,8 +260,8 @@ PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
 &lt;/STYLE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am info&amp;quot;, level = &amp;quot;INFO&amp;quot;, info_text = &amp;quot;NEW-INFO&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;[NEW-INFO] 2021-04-12 11:49:35 I am info&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;[NEW-INFO] 2021-12-15 01:57:33 I am info&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;p&gt;The 3 key levels has default colors:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;INFO&lt;/strong&gt;: &lt;span style=&#34;color:blue&#34;&gt;blue&lt;/span&gt;&lt;/li&gt;
@@ -271,21 +271,21 @@ PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
 &lt;p&gt;You can specify colors for your own levels&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am warning&amp;quot;, level = &amp;quot;warning&amp;quot;) ## not super orange in Rmd translation -_-=
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-04-12 11:49:35 I am warning&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[WARNING] 2021-12-15 01:57:33 I am warning&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;I am error&amp;quot;, level = &amp;quot;error&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;PRE class=&#34;fansi fansi-error&#34;&gt;&lt;CODE&gt;## Error: 
-&lt;span style=&#39;color: #BB0000;font-weight: bold;&#39;&gt;[ERROR] 2021-04-12 11:49:35 I am error&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;span style=&#39;color: #BB0000; font-weight: bold;&#39;&gt;[ERROR] 2021-12-15 01:57:33 I am error&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;oh yeah&amp;quot;, level = &amp;quot;SUCCESS&amp;quot;, .other_color = &amp;quot;green&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;[SUCCESS] 2021-04-12 11:49:35 oh yeah&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;[SUCCESS] 2021-12-15 01:57:33 oh yeah&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;msg(&amp;quot;oh no&amp;quot;, level = &amp;quot;FAIL&amp;quot;, .other_color = &amp;quot;purple&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #BB00BB;font-weight: bold;&#39;&gt;[FAIL] 2021-04-12 11:49:35 oh no&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #BB00BB; font-weight: bold;&#39;&gt;[FAIL] 2021-12-15 01:57:33 oh no&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;h4 id=&#34;wrapper&#34;&gt;Wrapper&lt;/h4&gt;
 &lt;p&gt;You can use this logging function in your own projects by wrapping it inside a
 upper level function, like what we do for &lt;code&gt;spsinfo&lt;/code&gt;, &lt;code&gt;spswarn&lt;/code&gt;, &lt;code&gt;spserror&lt;/code&gt;. They
@@ -293,17 +293,17 @@ have &lt;code&gt;SPS-&lt;/code&gt; prefix added, and have some SPS global settin
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(&#39;use_crayon&#39;, TRUE)
 spsinfo(&amp;quot;info&amp;quot;, verbose = TRUE) ## default `verbose` mute the message
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;[SPS-INFO] 2021-04-12 11:49:35 info&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;[SPS-INFO] 2021-12-15 01:57:33 info&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spswarn(&amp;quot;warning&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[SPS-WARNING] 2021-04-12 11:49:35 warning&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[SPS-WARNING] 2021-12-15 01:57:33 warning&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spserror(&amp;quot;stop&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;PRE class=&#34;fansi fansi-error&#34;&gt;&lt;CODE&gt;## Error: 
-&lt;span style=&#39;color: #BB0000;font-weight: bold;&#39;&gt;[SPS-ERROR] 2021-04-12 11:49:35 stop&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;span style=&#39;color: #BB0000; font-weight: bold;&#39;&gt;[SPS-ERROR] 2021-12-15 01:57:33 stop&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;p&gt;To create a simple one for project is very easy. Assume your project is named &amp;ldquo;My Project&amp;rdquo;.
 You can create logging as:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mpInfo &amp;lt;- function(text){
@@ -317,17 +317,17 @@ mpErr &amp;lt;- function(text){
 }
 mpInfo(&amp;quot;info&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;[MP-INFO] 2021-04-12 11:49:35 info&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-message&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;[MP-INFO] 2021-12-15 01:57:33 info&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mpWarn(&amp;quot;warning&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[MP-WARNING] 2021-04-12 11:49:35 warning&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[MP-WARNING] 2021-12-15 01:57:33 warning&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mpErr(&amp;quot;error&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;PRE class=&#34;fansi fansi-error&#34;&gt;&lt;CODE&gt;## Error: 
-&lt;span style=&#39;color: #BB0000;font-weight: bold;&#39;&gt;[MP-ERROR] 2021-04-12 11:49:35 error&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;span style=&#39;color: #BB0000; font-weight: bold;&#39;&gt;[MP-ERROR] 2021-12-15 01:57:33 error&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;h2 id=&#34;mute-message-with-quiet&#34;&gt;mute message with &lt;code&gt;quiet&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;In R, you can easily mute message and warnings with &lt;code&gt;suppressMessages()&lt;/code&gt;, and
 &lt;code&gt;suppressWarnings()&lt;/code&gt;, but not so easy with &lt;code&gt;print&lt;/code&gt; or &lt;code&gt;cat&lt;/code&gt; methods. &lt;code&gt;spsUtil::quiet&lt;/code&gt;
@@ -348,6 +348,42 @@ quiet(cat(123), print_cat = FALSE)
 ## 123
 ## [1] 123
 ## 123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;timeout&#34;&gt;timeout&lt;/h2&gt;
+&lt;p&gt;Run expressions with a time limit, stop an expression if it takes too long&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# default
+timeout({Sys.sleep(0.1)}, time_out = 0.01)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error: Timout reached
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# timeout is evaluating expressions the same level as you call it
+timeout({abc &amp;lt;- 123})
+# so you should get `abc` even outside the function call
+abc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# custom timeout callback
+timeout({Sys.sleep(0.1)}, time_out = 0.01, on_timeout = {print(&amp;quot;It takes too long&amp;quot;)})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;It takes too long&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# final call back
+timeout({Sys.sleep(0.1)}, time_out = 0.01, on_final = {print(&amp;quot;some final words&amp;quot;)}) # on error
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error: Timout reached
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;some final words&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;timeout({invisible()}, on_final = {print(&amp;quot;runs even success&amp;quot;)})  # no return by have final expression on success
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;runs even success&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# assign to value
+my_val &amp;lt;- timeout({10 + 1})
+my_val
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 11
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;check-empty-values-with-emptyisfalse&#34;&gt;check &amp;ldquo;empty&amp;rdquo; values with &lt;code&gt;emptyIsFalse&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;In R, values like &lt;code&gt;NA&lt;/code&gt;, &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, length(0) is not very meaningful in
@@ -403,9 +439,9 @@ install certain packages. &lt;code&gt;checkNameSpace&lt;/code&gt; checks all req
 the missing names.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;checkNameSpace(&amp;quot;random_pkg&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-04-12 11:49:35 These packages are missing from
-## CRAN: random_pkg&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[WARNING] 2021-12-15 01:57:34 These packages are missing from
+## CRAN: random_pkg&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;random_pkg&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can add it to your function to or on the top of your Rmd document to inform
@@ -417,14 +453,14 @@ your users the missing packages and where to install.&lt;/p&gt;
 
 missing_pkg &amp;lt;- checkNameSpace(pkgs[[1]], from =  names(pkgs)[1])
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-04-12 11:49:35 These packages are missing from
-## CRAN: pkg1,pkg2&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[WARNING] 2021-12-15 01:57:34 These packages are missing from
+## CRAN: pkg1,pkg2&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;missing_pkg &amp;lt;- c(missing_pkg, checkNameSpace(pkgs[[2]], from =  names(pkgs)[2]))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-04-12 11:49:35 These packages are missing from
-## Bioconductor: bio_pkg1,bio_pkg2&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[WARNING] 2021-12-15 01:57:34 These packages are missing from
+## Bioconductor: bio_pkg1,bio_pkg2&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;if(emptyIsFalse(missing_pkg)) stop(&amp;quot;Install packages&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): Install packages
@@ -456,6 +492,272 @@ if(emptyIsFalse(unlist(missing_pkg))) stop(&amp;quot;Install packages&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): Install packages
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;stack-methods&#34;&gt;Stack methods&lt;/h2&gt;
+&lt;h3 id=&#34;simple-stack&#34;&gt;Simple stack&lt;/h3&gt;
+&lt;p&gt;A simple stack data structure in R, with supporting of assiocated methods, like push, pop and others.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_stack &amp;lt;- simepleStack$new()
+# check length
+my_stack$len()
+#&amp;gt; [1] 0
+# add some thing
+my_stack$push(list(1, 2, 3))
+# print current stack
+str(my_stack$get())
+#&amp;gt; List of 3
+#&amp;gt;  $ : num 1
+#&amp;gt;  $ : num 2
+#&amp;gt;  $ : num 3
+# check length
+my_stack$len()
+#&amp;gt; [1] 3
+# add before the current first
+my_stack$push(list(0), after = 0)
+# print current stack
+str(my_stack$get())
+#&amp;gt; List of 4
+#&amp;gt;  $ : num 0
+#&amp;gt;  $ : num 1
+#&amp;gt;  $ : num 2
+#&amp;gt;  $ : num 3
+# pop one item
+my_stack$pop()
+#&amp;gt; [[1]]
+#&amp;gt; [1] 0
+#&amp;gt; 
+# print current stack
+str(my_stack$get())
+#&amp;gt; List of 3
+#&amp;gt;  $ : num 1
+#&amp;gt;  $ : num 2
+#&amp;gt;  $ : num 3
+# pop one item from the tail
+my_stack$pop(tail = TRUE)
+#&amp;gt; [[1]]
+#&amp;gt; [1] 3
+#&amp;gt; 
+# print current stack
+str(my_stack$get())
+#&amp;gt; List of 2
+#&amp;gt;  $ : num 1
+#&amp;gt;  $ : num 2
+# pop more than one items
+my_stack$pop(2)
+#&amp;gt; [[1]]
+#&amp;gt; [1] 1
+#&amp;gt; 
+#&amp;gt; [[2]]
+#&amp;gt; [1] 2
+#&amp;gt; 
+# print current stack
+str(my_stack$get()) # nothing left
+#&amp;gt;  list()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;history-stack&#34;&gt;History stack&lt;/h3&gt;
+&lt;p&gt;Methods for a history stack data structure. It can store history of certain
+repeating actions. For example, building the back-end of a file/image editor,
+allow undo/redo actions.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;his &amp;lt;- historyStack$new()
+#&amp;gt; Created a history stack which can record  25 steps
+# add some history
+his$add(1)
+#&amp;gt; Added one item to position 1
+his$add(2)
+#&amp;gt; Added one item to position 2
+his$add(3)
+#&amp;gt; Added one item to position 3
+his$add(4)
+#&amp;gt; Added one item to position 4
+his$add(5)
+#&amp;gt; Added one item to position 5
+# check status
+his$status()
+#&amp;gt; $pos
+#&amp;gt; [1] 5
+#&amp;gt; 
+#&amp;gt; $len
+#&amp;gt; [1] 5
+#&amp;gt; 
+#&amp;gt; $limit
+#&amp;gt; [1] 25
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] TRUE
+#&amp;gt; 
+# get item at current history position
+his$get()
+#&amp;gt; $item
+#&amp;gt; [1] 5
+#&amp;gt; 
+#&amp;gt; $pos
+#&amp;gt; [1] 5
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] TRUE
+#&amp;gt; 
+# go back to previous step
+his$backward()
+#&amp;gt; $item
+#&amp;gt; [1] 4
+#&amp;gt; 
+#&amp;gt; $pos
+#&amp;gt; [1] 4
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+# going back to step 2
+his$backward()
+#&amp;gt; $item
+#&amp;gt; [1] 3
+#&amp;gt; 
+#&amp;gt; $pos
+#&amp;gt; [1] 3
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+his$backward()
+#&amp;gt; $item
+#&amp;gt; [1] 2
+#&amp;gt; 
+#&amp;gt; $pos
+#&amp;gt; [1] 2
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+# going forward 1 step tp step 3
+his$forward()
+#&amp;gt; $item
+#&amp;gt; [1] 3
+#&amp;gt; 
+#&amp;gt; $pos
+#&amp;gt; [1] 3
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+# check current status
+his$status()
+#&amp;gt; $pos
+#&amp;gt; [1] 3
+#&amp;gt; 
+#&amp;gt; $len
+#&amp;gt; [1] 5
+#&amp;gt; 
+#&amp;gt; $limit
+#&amp;gt; [1] 25
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+# adding a new step at position 3 will remove the old step 4,5 before adding
+his$add(&amp;quot;new 4&amp;quot;)
+#&amp;gt; Added one item to position 4
+# only 3 steps + 1 new step = 4 steps left
+his$status()
+#&amp;gt; $pos
+#&amp;gt; [1] 4
+#&amp;gt; 
+#&amp;gt; $len
+#&amp;gt; [1] 4
+#&amp;gt; 
+#&amp;gt; $limit
+#&amp;gt; [1] 25
+#&amp;gt; 
+#&amp;gt; $first
+#&amp;gt; [1] FALSE
+#&amp;gt; 
+#&amp;gt; $last
+#&amp;gt; [1] TRUE
+#&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;in-line-operation&#34;&gt;In-line operation&lt;/h2&gt;
+&lt;p&gt;In-place operations like &lt;code&gt;i += 1&lt;/code&gt; with &lt;code&gt;inc(x)&lt;/code&gt;, &lt;code&gt;i -= 1&lt;/code&gt; with &lt;code&gt;inc(x, -1)&lt;/code&gt;,
+&lt;code&gt;i *= 2&lt;/code&gt; with &lt;code&gt;mult(x)&lt;/code&gt;, &lt;code&gt;i /= 2&lt;/code&gt; with &lt;code&gt;divi(x)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;i &amp;lt;- 0
+inc(i) # add 1
+i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;inc(i) # add 1
+i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;inc(i, -1) # minus 1
+i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;inc(i, -1) # minus 1
+i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 1
+mult(x) # times 2
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mult(x) # times 2
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;divi(x) # divide 2
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;divi(x) # divide 2
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;uniquefy-duplicated-strings-with-struniquefy&#34;&gt;Uniquefy duplicated strings with &lt;code&gt;strUniquefy&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Fix duplicated values in a character vector, useful in column names and some
+ID structures that requires unique identifiers. If any duplicated string is
+found in the vector, a numeric index will be added after the these strings.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;strUniquefy(c(1,1,1,2,3)) # default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1_1&amp;quot; &amp;quot;1_2&amp;quot; &amp;quot;1_3&amp;quot; &amp;quot;2&amp;quot;   &amp;quot;3&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;strUniquefy(c(1,1,1,2,3), mark_first = FALSE) # don&#39;t mark the first one
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1&amp;quot;   &amp;quot;1_1&amp;quot; &amp;quot;1_2&amp;quot; &amp;quot;2&amp;quot;   &amp;quot;3&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;strUniquefy(c(1,1,1,2,3), sep_b = &amp;quot;(&amp;quot;, sep_a = &amp;quot;)&amp;quot;) # custom before, after symbols
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1(1)&amp;quot; &amp;quot;1(2)&amp;quot; &amp;quot;1(3)&amp;quot; &amp;quot;2&amp;quot;    &amp;quot;3&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;strUniquefy(c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;b&amp;quot;)) # works with letters too
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;a_1&amp;quot; &amp;quot;b_1&amp;quot; &amp;quot;c&amp;quot;   &amp;quot;a_2&amp;quot; &amp;quot;d&amp;quot;   &amp;quot;b_2&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;check-a-url-is-reachable-with-checkurl&#34;&gt;check a URL is reachable with &lt;code&gt;checkUrl&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Useful if you need make some big HTTP requests.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;checkUrl(&amp;quot;https://google.com&amp;quot;)
@@ -464,11 +766,11 @@ if(emptyIsFalse(unlist(missing_pkg))) stop(&amp;quot;Install packages&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;checkUrl(&amp;quot;https://randomwebsite123.com&amp;quot;, timeout = 1)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-04-12 11:49:37 Bad url https://
-## randomwebsite123.com&lt;/span&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;[WARNING] 2021-04-12 11:49:37 Timeout was reached:
-&lt;h2 id=&#34;randomwebsite123com-connection-timed-out-after-1001-millisecondsspanspan&#34;&gt;[randomwebsite123.com] Connection timed out after 1001 milliseconds&lt;/span&gt;&lt;span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;&lt;/p&gt;
+&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[WARNING] 2021-12-15 01:57:35 Bad url https://
+## randomwebsite123.com&lt;/span&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;&lt;PRE class=&#34;fansi fansi-warning&#34;&gt;&lt;CODE&gt;## Warning: &lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;[WARNING] 2021-12-15 01:57:35 Timeout was reached:
+&lt;h2 id=&#34;randomwebsite123com-connection-timed-out-after-1001-millisecondsspan&#34;&gt;[randomwebsite123.com] Connection timed out after 1001 milliseconds&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;/CODE&gt;&lt;/PRE&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE
 &lt;/code&gt;&lt;/pre&gt;
 

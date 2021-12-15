@@ -14,9 +14,9 @@ some of the functionality from SPS and think installing the whole framework is
 too expensive (time consuming), cherry-pick the functionality you want in following
 categories:
 
-- **spsCpmps**: Shiny/Rmarkdown UI components, and Shiny server functions.
-- **drawer**: Shiny/Rmarkdown/HTML interactive image editing tool.
-- **spsUtil**: General R utilities, like pretty logging functions.
+- [**spsCpmps**](./spscomps): Shiny/Rmarkdown UI components, and Shiny server functions.
+- [**drawer**](./drawer): Shiny/Rmarkdown/HTML interactive image editing tool.
+- [**spsUtil**](./spsutil): General R utilities, like pretty logging functions.
 
 
 ## Install
@@ -27,7 +27,6 @@ modern package manager {[pak](https://github.com/r-lib/pak)} to install packages
 if(!requireNamespace("pak", quietly = TRUE))
   install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
 ```
-
 
 Pick and install packages as your need 
 ```{r eval=FALSE}
@@ -42,10 +41,10 @@ If you are on Linux, you need to install some system dependencies **before** R p
 installation. To figure out 
 what system dependencies and command, run: 
 
-```{r eval=TRUE}
-paste("sudo", pak::pkg_system_requirements("spsComps"))
-paste("sudo", pak::pkg_system_requirements("drawer"))
-paste("sudo", pak::pkg_system_requirements("spsUtil"))
+```{r eval=TRUE, comment=""}
+cat(paste("sudo", pak::pkg_system_requirements("spsComps")), sep = "\n")
+cat(paste("sudo", pak::pkg_system_requirements("drawer")), sep = "\n")
+cat(paste("sudo", pak::pkg_system_requirements("spsUtil")), sep = "\n")
 ```
 
 

@@ -333,3 +333,34 @@ You should see something like this if there is any missing package:
 
 ![shinycheckpkg](../shinycheckpkg.png)
 
+
+### In-line  operation
+
+In-place operations like i += 1, i -= 1 is not support in R. These functions implement these operations in R. This set of functions will apply this kind of operations on [`shiny::reactiveVal`] objects.
+
+
+```{r}
+reactiveConsole(TRUE)
+rv <- reactiveVal(0)
+incRv(rv) # add 1
+rv()
+incRv(rv) # add 1
+rv()
+incRv(rv, -1) # minus 1
+rv()
+incRv(rv, -1) # minus 1
+rv()
+rv2 <- reactiveVal(1)
+multRv(rv2) # times 2
+rv2()
+multRv(rv2) # times 2
+rv2()
+diviRv(rv2) # divide 2
+rv2()
+diviRv(rv2) # divide 2
+rv2()
+reactiveConsole(FALSE)
+```
+
+If you are looking for inline operations on normal R objects or 
+`shiny::reactiveValues`, check [spsUtil](../../spsutil)

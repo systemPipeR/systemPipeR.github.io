@@ -1,0 +1,109 @@
+---
+title: "Introduction"
+linkTitle: "Introduction"
+type: docs
+weight: 1
+---
+
+*****
+
+## Main functionalities 
+
+Currently, `SPS` includes 3 main functional categories (*Fig 1*): 
+
+ 1. Some pre-defined modules ([tabs](#sps-tabs)) include: 
+    a. A workbench for designing and configuring data analysis workflows, 
+    b. Downstream analysis and visualization tools for RNA-Seq, and 
+    c. A space to make quick ggplots. 
+ 2. A section with user custom tabs: users define their own shiny tabs.  
+ 3. An image editing tab "Canvas" which allows users to edit plots made from 
+    the previous two categories. 
+
+Besides, SPS provides many functions to extend the default Shiny development, like 
+more UI components, server functions. Also, SPS has some useful general R ulitlies
+like error catching, logging, and more. 
+
+<center id="sps_structure" >
+<img src="../img/sps_structure.png" style="height: 500px;"></img>
+</center>
+
+**Figure 1.** SPS Features
+
+The framework provides an
+interactive web interface for workflow management and data visualization.
+
+
+## Detailed features 
+
+To know more about SPS features, find your favorite section below and click the link 
+below to navigate to the section, or use the left sidebar menu to navigate. 
+
+
+```{r echo=FALSE}
+spsComps::gallery(
+    texts = c(
+        "App structure",
+        "User login",
+        "Loading themes",
+        "Workflow module",
+        "Workflow metadata",
+        "Workflow step selection & desgin",
+        "Workflow Execution",
+        "RNAseq normalization",
+        "RNAseq DEG",
+        "RNAseq plots",
+        "Canvas Module",
+        "Admin login",
+        "Admin app stats",
+        "Admin user control",
+        "Customizable notifications",
+        "Customizable interactive tutorials",
+        "Logging and error handling"
+    ),
+    hrefs = c(
+        "/sps/intro/",
+        "/sps/adv_features/login/#main-app-login",
+        "/sps/adv_features/login/#main-app-login",
+        "/sps/modules/workflow/",
+        "/sps/modules/workflow/#2-prepare-a-target-file",
+        "/sps/modules/workflow/#3-prepare-a-workflow-file",
+        "/sps/modules/workflow/#5-run-or-finish-workflow-preparation",
+        "/sps/modules/rnaseq/",
+        "/sps/modules/rnaseq/#deg-report",
+        "/sps/modules/rnaseq/#plot-options",
+        "/sps/canvas/",
+        "/sps/adv_features/login/#admin-page",
+        "/sps/adv_features/login/#app-information",
+        "/sps/adv_features/login/#account-control",
+        "/sps/adv_features/notification/",
+        "/sps/adv_features/guide/",
+        "/sps/adv_features/debug/"
+
+    ),
+    images = c(
+        "../img/sps_structure.png",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/user_login.png?raw=true",
+        "https://systempipe.org/sps/adv_features/login_theme.gif",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/wf_main.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/wf_targets.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/wf_wf.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/wf_run.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/rnaseq_normalize.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/rnaseq_deg.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/rnaseq_heatmap.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/canvas.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/admin_login.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/admin_server_info.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/admin_user_control.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/sps_notification.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/sps_guide.png?raw=true",
+        "https://github.com/systemPipeR/systemPipeR.github.io/blob/main/static/sps/img/logging.png?raw=true"
+    ),
+    title = "SPS Features",
+    enlarge = TRUE,
+    enlarge_method = "modal",
+    image_frame_size = 2,
+    target_blank = FALSE
+)
+```
+

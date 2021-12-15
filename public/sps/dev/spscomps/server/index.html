@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../../favicons/favicon.ico" >
@@ -19,21 +19,21 @@
 
 <title>Server functions | sysPipe</title><meta property="og:title" content="Server functions" />
 <meta property="og:description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
-load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception." />
+load package library(spsComps)  ## Loading required package: shiny  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/dev/spscomps/server/" /><meta property="article:section" content="sps" />
 
-<meta property="article:modified_time" content="2021-12-03T02:15:52+00:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-29T15:56:28-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Server functions">
 <meta itemprop="description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
-load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception.">
-<meta itemprop="dateModified" content="2021-12-03T02:15:52+00:00" />
-<meta itemprop="wordCount" content="1351">
+load package library(spsComps)  ## Loading required package: shiny  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception.">
+<meta itemprop="dateModified" content="2021-04-29T15:56:28-07:00" />
+<meta itemprop="wordCount" content="1471">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Server functions"/>
 <meta name="twitter:description" content="{spsComps} has some useful functions for exception catch, expression validation, and more. Even though we say they are Shiny server functions, but in fact most of them can be run without a Shiny server. We have designed the functions to detect whether there is a Shiny server, if not, they will work only in R console as well.
-load package library(spsComps)  ## Loading required package: shiny  ## Loading required package: spsUtil  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception."/>
+load package library(spsComps)  ## Loading required package: shiny  library(magrittr)  Server components shinyCatch basic The shinyCatch function is useful to capture exception."/>
 
 
 <script type="application/javascript">
@@ -52,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" as="style">
+<link href="../../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -537,7 +537,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -569,7 +569,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -1002,7 +1002,7 @@ if (!doNotTrack) {
             <li><a href="#shinycatch"><code>shinyCatch</code></a>
               <ul>
                 <li><a href="#basic">basic</a></li>
-                <li><a href="#server-only">Server only</a></li>
+                <li><a href="#shiny-off">Shiny off</a></li>
                 <li><a href="#get-return">get return</a></li>
                 <li><a href="#blocking-level">Blocking level</a></li>
                 <li><a href="#block-reative">Block reative</a></li>
@@ -1010,6 +1010,7 @@ if (!doNotTrack) {
             </li>
             <li><a href="#spsvalidate"><code>spsValidate</code></a></li>
             <li><a href="#shinycheckpkg"><code>shinyCheckPkg</code></a></li>
+            <li><a href="#in-line--operation">In-line  operation</a></li>
           </ul>
         </li>
       </ul>
@@ -1082,8 +1083,6 @@ whether there is a Shiny server, if not, they will work only in R console as wel
 </code></pre>
 <pre><code>## Loading required package: shiny
 </code></pre>
-<pre><code>## Loading required package: spsUtil
-</code></pre>
 <pre><code class="language-r">library(magrittr)
 </code></pre>
 <h2 id="server-components">Server components</h2>
@@ -1097,10 +1096,10 @@ can be <code>message</code>, <code>warning</code> or <code>error</code>. For exa
   stop(&quot;This is an error&quot;)
 })
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:28 This is a message
+<pre><code>## [SPS-INFO] 2021-12-15 01:36:28 This is a message
 ## 
-## [SPS-WARNING] 2021-04-14 17:31:28 This is a warning
-## [SPS-ERROR] 2021-04-14 17:31:28 This is an error
+## [SPS-WARNING] 2021-12-15 01:36:28 This is a warning
+## [SPS-ERROR] 2021-12-15 01:36:28 This is an error
 </code></pre>
 <pre><code>## NULL
 </code></pre>
@@ -1109,7 +1108,7 @@ in your Shiny app, a pop-up message with the corresponding log level message wil
 be displayed in in app, like following:</p>
 <p><img src="../shinycatch.png" alt="shinycatch"></p>
 <p>So the message on both UI and console is called <strong>dual-end logging</strong> in SPS.</p>
-<h4 id="server-only">Server only</h4>
+<h4 id="shiny-off">Shiny off</h4>
 <p>Of course, if you do not want users to see the message, you can hide it by
 <code>shiny = FALSE</code>, but the message will be still logged on R console.
 Run the following on your own computer and watch the difference.</p>
@@ -1141,7 +1140,7 @@ value_a &lt;- shinyCatch({
   addNum(1)
 })
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:28 1
+<pre><code>## [SPS-INFO] 2021-12-15 01:36:28 1
 </code></pre>
 <pre><code class="language-r">value_a
 </code></pre>
@@ -1151,7 +1150,7 @@ value_a &lt;- shinyCatch({
   addNum(0)
 })
 </code></pre>
-<pre><code>## [SPS-WARNING] 2021-04-14 17:31:28 Num is 0
+<pre><code>## [SPS-WARNING] 2021-12-15 01:36:28 Num is 0
 </code></pre>
 <pre><code class="language-r">value_b
 </code></pre>
@@ -1161,7 +1160,7 @@ value_a &lt;- shinyCatch({
   addNum(-1)
 })
 </code></pre>
-<pre><code>## [SPS-ERROR] 2021-04-14 17:31:28 less than 0
+<pre><code>## [SPS-ERROR] 2021-12-15 01:36:28 less than 0
 </code></pre>
 <pre><code class="language-r">value_c
 </code></pre>
@@ -1189,7 +1188,7 @@ choose <code>&quot;error&quot;</code>, <code>&quot;warning&quot;</code> or <code
   print(&quot;This will not be evaluated&quot;)
 })
 </code></pre>
-<pre><code>## [SPS-ERROR] 2021-04-14 17:31:28 error level is the most commonly used level
+<pre><code>## [SPS-ERROR] 2021-12-15 01:36:28 error level is the most commonly used level
 ## Error : 
 </code></pre>
 <pre><code class="language-r">try({
@@ -1199,7 +1198,7 @@ choose <code>&quot;error&quot;</code>, <code>&quot;warning&quot;</code> or <code
   print(&quot;This will not be evaluated either&quot;)
 })
 </code></pre>
-<pre><code>## [SPS-INFO] 2021-04-14 17:31:28 error level is the most commonly used level
+<pre><code>## [SPS-INFO] 2021-12-15 01:36:28 error level is the most commonly used level
 ## 
 ## Error : 
 </code></pre>
@@ -1371,10 +1370,59 @@ shinyApp(ui, server)
 </code></pre>
 <p>You should see something like this if there is any missing package:</p>
 <p><img src="../shinycheckpkg.png" alt="shinycheckpkg"></p>
+<h3 id="in-line--operation">In-line  operation</h3>
+<p>In-place operations like i += 1, i -= 1 is not support in R. These functions implement these operations in R. This set of functions will apply this kind of operations on [<code>shiny::reactiveVal</code>] objects.</p>
+<pre><code class="language-r">reactiveConsole(TRUE)
+rv &lt;- reactiveVal(0)
+incRv(rv) # add 1
+rv()
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">incRv(rv) # add 1
+rv()
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">incRv(rv, -1) # minus 1
+rv()
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">incRv(rv, -1) # minus 1
+rv()
+</code></pre>
+<pre><code>## [1] 0
+</code></pre>
+<pre><code class="language-r">rv2 &lt;- reactiveVal(1)
+multRv(rv2) # times 2
+rv2()
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">multRv(rv2) # times 2
+rv2()
+</code></pre>
+<pre><code>## [1] 4
+</code></pre>
+<pre><code class="language-r">diviRv(rv2) # divide 2
+rv2()
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">diviRv(rv2) # divide 2
+rv2()
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">reactiveConsole(FALSE)
+</code></pre>
+<p>If you are looking for inline operations on normal R objects or
+<code>shiny::reactiveValues</code>, check <a href="../../spsutil">spsUtil</a></p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-03: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/aedac95e8ab17b2e09b222b2201c2e5364490e47">Bot build site (aedac95)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-29: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/ff59f2d4cd6b7a0a1ef7143bffe63d2da1fdd577">Update server.md (ff59f2d4)</a>
 </div>
 </div>
 

@@ -94,6 +94,11 @@ weight: 1
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 <script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
+<script src="/rmarkdown-libs/sps-pop-tip/js/bs3pop_tip.js"></script>
 
 For most of the UI components, you can view them in the [online Shiny demo{blk}](https://lezhang.shinyapps.io/spsComps).
 Most but **not all** UI components work in a Rmarkdown document. Here we demostrate
@@ -172,50 +177,51 @@ images <- c("https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true",
 gallery(
   texts = texts, hrefs = hrefs, images = images,
   enlarge = TRUE,
-  enlarge_method = "modal"
+  # only "modal" methods workds in Rmd, but other methods work in Shiny
+  enlarge_method = "modal" 
 )
 ```
 
-<div id="gallery1229318" class="col sps-gallery" style="">
+<div id="gallery6509249" class="col sps-gallery" style="">
 <p class="text-center h2" style="color: #0275d8;">Gallery</p>
-<div class="row" style="  margin: 10px;"><div  id=gallery1229318-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
+<div class="row" style="  margin: 10px;"><div  id=gallery6509249-1 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-1")
+    onclick=galEnlarge("#gallery6509249-1")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true" ><p class="text-center h4 ">p1</p></a>
-</div> <div  id=gallery1229318-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6509249-2 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-2")
+    onclick=galEnlarge("#gallery6509249-2")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/2.jpg?raw=true" ><p class="text-center h4 ">p2</p></a>
-</div> <div  id=gallery1229318-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6509249-3 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/3.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-3")
+    onclick=galEnlarge("#gallery6509249-3")
   >
   <a  ><p class="text-center h4 gallery-nohover">&nbsp;</p></a>
-</div> <div  id=gallery1229318-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6509249-4 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-4")
+    onclick=galEnlarge("#gallery6509249-4")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/4.jpg?raw=true" ><p class="text-center h4 ">p4</p></a>
-</div> <div  id=gallery1229318-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
+</div> <div  id=gallery6509249-5 class="col-sm-4 sps-tab-link" style="right: 1px;">
   <img
     src="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" class="img-gallery"
     height=300 width=400
     style="width: 100%;"
-    onclick=galEnlarge("#gallery1229318-5")
+    onclick=galEnlarge("#gallery6509249-5")
   >
   <a href="https://github.com/lz100/spsComps/blob/master/img/5.jpg?raw=true" ><p class="text-center h4 ">p5</p></a>
 </div></div>
@@ -226,7 +232,7 @@ gallery(
 <div class="gallery-caption"></div>
 </div>
 <!--/SHINY.SINGLETON[7fdec3ac87205a269983f4a367a45b9599c89d0b]-->
-<script>fixGalHeight("gallery1229318")</script>
+<script>fixGalHeight("gallery6509249")</script>
 </div>
 
 You can show a gallery of plots you make in the Rmd and when people click it,
@@ -310,7 +316,7 @@ hrefTab(
 )
 ```
 
-<div id="list-tab7344157" class="col">
+<div id="list-tab6020372" class="col">
 <p class="h4" style="color: #0275d8; text-align: left;">Different background and text colors</p>
 <div><a
   href="#" 
@@ -350,7 +356,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table7317703" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table1676377" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change button color and text color</caption>
 <thead>
   <tr class="info">
@@ -402,7 +408,7 @@ hrefTable(
 )
 ```
 
-<table id="list-table8759175" class="table table-hover table-href table-striped" style="display: table;">
+<table id="list-table6616710" class="table table-hover table-href table-striped" style="display: table;">
 <caption class="text-center h2" style="color: #0275d8;">Change row name colors and width</caption>
 <thead>
   <tr class="info">
@@ -711,12 +717,12 @@ There are 12 different default loaders: “circle,” “dual-ring,” “facebo
 cssLoader(height = "100px")
 ```
 
-<div id="spsloader-492156738" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-927518346" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
-        $(function(){
-          $("#spsloader-492156738").prepend(chooseLoader("spsloader-492156738", "default", "", "#337ab7", "100px", "100px"));
-        });
-      </script>
+  $(function(){
+    $("#spsloader-927518346").prepend(chooseLoader("spsloader-927518346", "default", "", "#337ab7", "100px", "100px"));
+  });
+</script>
 </div>
 
 <br>
@@ -727,12 +733,12 @@ customize it:
 cssLoader(type = "grid", height = "150px", color = "orange")
 ```
 
-<div id="spsloader-948736521" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-597318642" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
-        $(function(){
-          $("#spsloader-948736521").prepend(chooseLoader("spsloader-948736521", "grid", "", "orange", "150px", "150px"));
-        });
-      </script>
+  $(function(){
+    $("#spsloader-597318642").prepend(chooseLoader("spsloader-597318642", "grid", "", "orange", "150px", "150px"));
+  });
+</script>
 </div>
 
 <br>
@@ -749,12 +755,12 @@ tags$button(
 ```
 
 <button>
-<i id="spsloader-936154827" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
+<i id="spsloader-478251369" class="sps-cssloader" style="height: 1.5rem; width: 1.5rem; display: inline-block; opacity: 1;">
 <script>
-        $(function(){
-          $("#spsloader-936154827").prepend(chooseLoader("spsloader-936154827", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
-        });
-      </script>
+  $(function(){
+    $("#spsloader-478251369").prepend(chooseLoader("spsloader-478251369", "default", "", "#3a7bd5", "1.5rem", "1.5rem"));
+  });
+</script>
 </i>
 A button
 </button>
@@ -767,24 +773,24 @@ You can choose a gif to be a your loader
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", height = "100px")
 ```
 
-<div id="spsloader-482593671" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
+<div id="spsloader-251734698" class="sps-cssloader" style="height: 100px; width: 100px; display: block; opacity: 1;">
 <script>
-        $(function(){
-          $("#spsloader-482593671").prepend(chooseLoader("spsloader-482593671", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
-        });
-      </script>
+  $(function(){
+    $("#spsloader-251734698").prepend(chooseLoader("spsloader-251734698", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/spinner.gif?raw=true", "#337ab7", "100px", "100px"));
+  });
+</script>
 </div>
 
 ``` r
 cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", height = "150px")
 ```
 
-<div id="spsloader-129645387" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
+<div id="spsloader-529478631" class="sps-cssloader" style="height: 150px; width: 150px; display: block; opacity: 1;">
 <script>
-        $(function(){
-          $("#spsloader-129645387").prepend(chooseLoader("spsloader-129645387", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
-        });
-      </script>
+  $(function(){
+    $("#spsloader-529478631").prepend(chooseLoader("spsloader-529478631", "gif", "https://github.com/lz100/spsComps/blob/master/examples/demo/www/bean_eater.gif?raw=true", "#337ab7", "150px", "150px"));
+  });
+</script>
 </div>
 
 ### `bsTooltip` and `bsTip`
@@ -796,11 +802,11 @@ actionButton("", "Tooltip on the left") %>%
  bsTooltip("Tooltip on the left", "left")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip92457587">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip89222956">
 Tooltip on the left
 <script>
 bsTooltip(
-  "bsTooltip92457587", "left", "Tooltip on the left", "black", "white",
+  "bsTooltip89222956", "left", "Tooltip on the left", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -811,11 +817,11 @@ actionButton("", "Tooltip on the top") %>%
  bsTooltip("Tooltip on the top", "top")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip90742671">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip61577506">
 Tooltip on the top
 <script>
 bsTooltip(
-  "bsTooltip90742671", "top", "Tooltip on the top", "black", "white",
+  "bsTooltip61577506", "top", "Tooltip on the top", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -826,11 +832,11 @@ actionButton("", "Tooltip on the right") %>%
  bsTooltip("Tooltip on the right", "right")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip68403796">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip83163117">
 Tooltip on the right
 <script>
 bsTooltip(
-  "bsTooltip68403796", "right", "Tooltip on the right", "black", "white",
+  "bsTooltip83163117", "right", "Tooltip on the right", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -841,11 +847,11 @@ actionButton("", "Tooltip on the bottom") %>%
  bsTooltip("Tooltip on the bottom", "bottom")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip64495561">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip54616265">
 Tooltip on the bottom
 <script>
 bsTooltip(
-  "bsTooltip64495561", "bottom", "Tooltip on the bottom", "black", "white",
+  "bsTooltip54616265", "bottom", "Tooltip on the bottom", "black", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -858,11 +864,11 @@ actionButton("", "primary") %>%
   bsTip("primary", status = "primary")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip95890775">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip69609518">
 primary
 <script>
 bsTooltip(
-  "bsTooltip95890775", "top", "primary", "#0275d8", "white",
+  "bsTooltip69609518", "top", "primary", "#0275d8", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -873,11 +879,11 @@ actionButton("", "info") %>%
   bsTip("info", status = "info")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip89097746">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip96741769">
 info
 <script>
 bsTooltip(
-  "bsTooltip89097746", "top", "info", "#5bc0de", "white",
+  "bsTooltip96741769", "top", "info", "#5bc0de", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -888,11 +894,11 @@ actionButton("", "success") %>%
   bsTip("success", status = "success")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip29160691">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip73842437">
 success
 <script>
 bsTooltip(
-  "bsTooltip29160691", "top", "success", "#5cb85c", "white",
+  "bsTooltip73842437", "top", "success", "#5cb85c", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -903,11 +909,11 @@ actionButton("", "warning") %>%
   bsTip("warning", status = "warning")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip14250269">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip99963005">
 warning
 <script>
 bsTooltip(
-  "bsTooltip14250269", "top", "warning", "#f0ad4e", "white",
+  "bsTooltip99963005", "top", "warning", "#f0ad4e", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
@@ -918,15 +924,127 @@ actionButton("", "danger") %>%
   bsTip("danger", status = "danger")
 ```
 
-<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip16239769">
+<button id="" type="button" class="btn btn-default action-button" data-tipid="bsTooltip88798086">
 danger
 <script>
 bsTooltip(
-  "bsTooltip16239769", "top", "danger", "#d9534f", "white",
+  "bsTooltip88798086", "top", "danger", "#d9534f", "white",
   "12px", "hover focus", "400", "1", false
 )
 </script>
 </button>
+
+### `bsPopover` and `bsPop`
+
+There is no extra step if you use popovers in Shiny directly. In Rmarkdown, you
+need to add following as plain text close to the end of your Rmd:
+
+``` html
+<script src="https://cdn.jsdelivr.net/npm/jquery-popover@0.0.4/src/jquery-popover.min.js"></script>
+<script>
+$(function(){
+  $('span[data-popoverid] script').map(function(){
+      let el = document.createElement("script");
+      el.innerHTML = $(this).html();
+      document.body.appendChild(el);
+  });
+});
+</script>
+```
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-popover@0.0.4/src/jquery-popover.min.js"></script>
+<script>
+$(function(){
+  $('span[data-popoverid] script').map(function(){
+      let el = document.createElement("script");
+      el.innerHTML = $(this).html();
+      document.body.appendChild(el);
+  });
+});
+</script>
+
+Add Popovers to the documents with `bsPopover`
+
+``` r
+span("Popover on the left") %>%
+ bsPopover("Popover on the left", "Popover on the left", "left")
+```
+
+<span data-popoverid="bspopover03902739">
+Popover on the left
+<script>
+bsPopover(
+  "bspopover03902739", "left", `Popover on the left`, "Popover on the left", "#ebebeb", "black",
+  "black", "14px", "12px", "hover focus", "600",
+  "400", "1", false
+)
+</script>
+</span>
+
+``` r
+span("Popover on the top") %>%
+ bsPopover("Popover on the top", "Popover on the top", "top")
+```
+
+<span data-popoverid="bspopover20455852">
+Popover on the top
+<script>
+bsPopover(
+  "bspopover20455852", "top", `Popover on the top`, "Popover on the top", "#ebebeb", "black",
+  "black", "14px", "12px", "hover focus", "600",
+  "400", "1", false
+)
+</script>
+</span>
+
+``` r
+span("Popover on the right") %>%
+ bsPopover("Popover on the right", "Popover on the right", "right")
+```
+
+<span data-popoverid="bspopover95424854">
+Popover on the right
+<script>
+bsPopover(
+  "bspopover95424854", "right", `Popover on the right`, "Popover on the right", "#ebebeb", "black",
+  "black", "14px", "12px", "hover focus", "600",
+  "400", "1", false
+)
+</script>
+</span>
+
+``` r
+span("Popover on the bottom") %>%
+ bsPopover("Popover on the bottom", "Popover on the bottom", "bottom")
+```
+
+<span data-popoverid="bspopover40865521">
+Popover on the bottom
+<script>
+bsPopover(
+  "bspopover40865521", "bottom", `Popover on the bottom`, "Popover on the bottom", "#ebebeb", "black",
+  "black", "14px", "12px", "hover focus", "600",
+  "400", "1", false
+)
+</script>
+</span>
+
+or use the higher leveler convenient function `bsPop`
+
+``` r
+span("Popover") %>% bsPop("Popover", "Popover")
+```
+
+<span data-popoverid="bspopover40358561">
+Popover
+<script>
+bsPopover(
+  "bspopover40358561", "top", `Popover`, "Popover", "#0275d8", "white",
+  "#0275d8", "14px", "12px", "hover focus", "600",
+  "400", "1", true
+)
+</script>
+</span>
 
 ### Titles with `spsTitle`
 

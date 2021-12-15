@@ -157,6 +157,28 @@ quiet(cat(123), print_cat = FALSE)
 }
 ```
 
+
+## timeout 
+Run expressions with a time limit, stop an expression if it takes too long
+
+```{r error=TRUE}
+# default
+timeout({Sys.sleep(0.1)}, time_out = 0.01)
+# timeout is evaluating expressions the same level as you call it
+timeout({abc <- 123})
+# so you should get `abc` even outside the function call
+abc
+# custom timeout callback
+timeout({Sys.sleep(0.1)}, time_out = 0.01, on_timeout = {print("It takes too long")})
+# final call back
+timeout({Sys.sleep(0.1)}, time_out = 0.01, on_final = {print("some final words")}) # on error
+timeout({invisible()}, on_final = {print("runs even success")})  # no return by have final expression on success
+# assign to value
+my_val <- timeout({10 + 1})
+my_val
+```
+
+
 ## check "empty" values with `emptyIsFalse`
 In R, values like `NA`, `""`, `NULL`, length(0) is not very meaningful in 
 condition judgment and will give you errors. Yet, R does not have a native 
@@ -244,6 +266,256 @@ if(emptyIsFalse(unlist(missing_pkg))) stop("Install packages")
 }
 ```
 
+
+## Stack methods
+
+### Simple stack
+A simple stack data structure in R, with supporting of assiocated methods, like push, pop and others.
+
+```{r eval=FALSE}
+my_stack <- simepleStack$new()
+# check length
+my_stack$len()
+#> [1] 0
+# add some thing
+my_stack$push(list(1, 2, 3))
+# print current stack
+str(my_stack$get())
+#> List of 3
+#>  $ : num 1
+#>  $ : num 2
+#>  $ : num 3
+# check length
+my_stack$len()
+#> [1] 3
+# add before the current first
+my_stack$push(list(0), after = 0)
+# print current stack
+str(my_stack$get())
+#> List of 4
+#>  $ : num 0
+#>  $ : num 1
+#>  $ : num 2
+#>  $ : num 3
+# pop one item
+my_stack$pop()
+#> [[1]]
+#> [1] 0
+#> 
+# print current stack
+str(my_stack$get())
+#> List of 3
+#>  $ : num 1
+#>  $ : num 2
+#>  $ : num 3
+# pop one item from the tail
+my_stack$pop(tail = TRUE)
+#> [[1]]
+#> [1] 3
+#> 
+# print current stack
+str(my_stack$get())
+#> List of 2
+#>  $ : num 1
+#>  $ : num 2
+# pop more than one items
+my_stack$pop(2)
+#> [[1]]
+#> [1] 1
+#> 
+#> [[2]]
+#> [1] 2
+#> 
+# print current stack
+str(my_stack$get()) # nothing left
+#>  list()
+```
+
+### History stack
+Methods for a history stack data structure. It can store history of certain 
+repeating actions. For example, building the back-end of a file/image editor, 
+allow undo/redo actions.
+
+```{r eval=FALSE}
+his <- historyStack$new()
+#> Created a history stack which can record  25 steps
+# add some history
+his$add(1)
+#> Added one item to position 1
+his$add(2)
+#> Added one item to position 2
+his$add(3)
+#> Added one item to position 3
+his$add(4)
+#> Added one item to position 4
+his$add(5)
+#> Added one item to position 5
+# check status
+his$status()
+#> $pos
+#> [1] 5
+#> 
+#> $len
+#> [1] 5
+#> 
+#> $limit
+#> [1] 25
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] TRUE
+#> 
+# get item at current history position
+his$get()
+#> $item
+#> [1] 5
+#> 
+#> $pos
+#> [1] 5
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] TRUE
+#> 
+# go back to previous step
+his$backward()
+#> $item
+#> [1] 4
+#> 
+#> $pos
+#> [1] 4
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] FALSE
+#> 
+# going back to step 2
+his$backward()
+#> $item
+#> [1] 3
+#> 
+#> $pos
+#> [1] 3
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] FALSE
+#> 
+his$backward()
+#> $item
+#> [1] 2
+#> 
+#> $pos
+#> [1] 2
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] FALSE
+#> 
+# going forward 1 step tp step 3
+his$forward()
+#> $item
+#> [1] 3
+#> 
+#> $pos
+#> [1] 3
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] FALSE
+#> 
+# check current status
+his$status()
+#> $pos
+#> [1] 3
+#> 
+#> $len
+#> [1] 5
+#> 
+#> $limit
+#> [1] 25
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] FALSE
+#> 
+# adding a new step at position 3 will remove the old step 4,5 before adding
+his$add("new 4")
+#> Added one item to position 4
+# only 3 steps + 1 new step = 4 steps left
+his$status()
+#> $pos
+#> [1] 4
+#> 
+#> $len
+#> [1] 4
+#> 
+#> $limit
+#> [1] 25
+#> 
+#> $first
+#> [1] FALSE
+#> 
+#> $last
+#> [1] TRUE
+#> 
+```
+
+
+## In-line operation
+
+In-place operations like `i += 1` with `inc(x)`, `i -= 1` with `inc(x, -1)`,
+`i *= 2` with `mult(x)`, `i /= 2` with `divi(x)`
+
+```{r}
+i <- 0
+inc(i) # add 1
+i
+inc(i) # add 1
+i
+inc(i, -1) # minus 1
+i
+inc(i, -1) # minus 1
+i
+x <- 1
+mult(x) # times 2
+x
+mult(x) # times 2
+x
+divi(x) # divide 2
+x
+divi(x) # divide 2
+x
+```
+
+
+## Uniquefy duplicated strings with `strUniquefy`
+Fix duplicated values in a character vector, useful in column names and some 
+ID structures that requires unique identifiers. If any duplicated string is 
+found in the vector, a numeric index will be added after the these strings.
+
+```{r}
+strUniquefy(c(1,1,1,2,3)) # default
+strUniquefy(c(1,1,1,2,3), mark_first = FALSE) # don't mark the first one
+strUniquefy(c(1,1,1,2,3), sep_b = "(", sep_a = ")") # custom before, after symbols
+strUniquefy(c("a","b","c","a","d","b")) # works with letters too
+```
+
+
 ## check a URL is reachable with `checkUrl`
 Useful if you need make some big HTTP requests. 
 
@@ -252,6 +524,5 @@ checkUrl("https://google.com")
 
 checkUrl("https://randomwebsite123.com", timeout = 1)
 ```
-
 
 

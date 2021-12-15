@@ -6,7 +6,7 @@ weight: 9
 ---
 
 SPS is not only a framework to run interactive workflow and visualize data, but 
-also a framework with abundant developer tools for building Shiny apps, writing R markdowns,
+also a framework with a abundant developer tools for building Shiny apps, writing R markdowns,
 integrating R-HTML and general R utilities. 
 
 These developer toolkits are distributed in supporting packages. If you like 
@@ -14,9 +14,9 @@ some of the functionality from SPS and think installing the whole framework is
 too expensive (time consuming), cherry-pick the functionality you want in following
 categories:
 
-- **spsCpmps**: Shiny/Rmarkdown UI components, and Shiny server functions.
-- **drawer**: Shiny/Rmarkdown/HTML interactive image editing tool.
-- **spsUtil**: General R utilities, like pretty logging functions.
+- [**spsCpmps**](./spscomps): Shiny/Rmarkdown UI components, and Shiny server functions.
+- [**drawer**](./drawer): Shiny/Rmarkdown/HTML interactive image editing tool.
+- [**spsUtil**](./spsutil): General R utilities, like pretty logging functions.
 
 
 ## Install
@@ -28,7 +28,6 @@ modern package manager {[pak](https://github.com/r-lib/pak)} to install packages
 if(!requireNamespace("pak", quietly = TRUE))
   install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
 ```
-
 
 Pick and install packages as your need 
 
@@ -46,34 +45,32 @@ what system dependencies and command, run:
 
 
 ```r
-paste("sudo", pak::pkg_system_requirements("spsComps"))
+cat(paste("sudo", pak::pkg_system_requirements("spsComps")), sep = "\n")
 ```
 
 ```
-## [1] "sudo apt-get install -y libcurl4-openssl-dev"
-## [2] "sudo apt-get install -y libssl-dev"          
-## [3] "sudo apt-get install -y make"                
-## [4] "sudo apt-get install -y libicu-dev"          
-## [5] "sudo apt-get install -y pandoc"
+sudo apt-get install -y make
+sudo apt-get install -y libicu-dev
 ```
 
 ```r
-paste("sudo", pak::pkg_system_requirements("drawer"))
+cat(paste("sudo", pak::pkg_system_requirements("drawer")), sep = "\n")
 ```
 
 ```
-## [1] "sudo apt-get install -y make"       "sudo apt-get install -y libicu-dev"
-## [3] "sudo apt-get install -y pandoc"
+sudo apt-get install -y make
+sudo apt-get install -y pandoc
+sudo apt-get install -y libicu-dev
 ```
 
 ```r
-paste("sudo", pak::pkg_system_requirements("spsUtil"))
+cat(paste("sudo", pak::pkg_system_requirements("spsUtil")), sep = "\n")
 ```
 
 ```
-## [1] "sudo apt-get install -y libcurl4-openssl-dev"
-## [2] "sudo apt-get install -y libssl-dev"          
-## [3] "sudo apt-get install -y libicu-dev"
+sudo apt-get install -y libcurl4-openssl-dev
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y libicu-dev
 ```
 
 

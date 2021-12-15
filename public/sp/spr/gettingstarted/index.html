@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spr/gettingstarted/" /><meta property="article:section" content="sp" />
 
-<meta property="article:modified_time" content="2021-12-14T17:56:31-08:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-12-14T17:57:34-08:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Getting Started">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Getting Started Installation systemPipeR environment can be installed from the R console using the BiocManager::install command. The associated data package systemPipeRdata can be installed the same way.">
-<meta itemprop="dateModified" content="2021-12-14T17:56:31-08:00" />
+<meta itemprop="dateModified" content="2021-12-14T17:57:34-08:00" />
 <meta itemprop="wordCount" content="1486">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting Started"/>
@@ -49,8 +49,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" as="style">
+<link href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -534,7 +534,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -566,7 +566,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1077,7 +1077,7 @@ workflows accordingly.</p>
 </li>
 </ul>
 <div class="figure" style="text-align: center">
-<img src="spr_project.png" alt="systemPipeR's preconfigured directory structure." width="100%" />
+<p><img src="spr_project.png" alt="systemPipeR's preconfigured directory structure." width="100%" /></p>
 <p class="caption">
 Figure 1: systemPipeR’s preconfigured directory structure.
 </p>
@@ -1109,7 +1109,7 @@ from <em><code>systemPipeR</code>’s</em> GitHub repository <a href="https://gi
 Please note that here it is represented a tabular file, however <em><code>systemPipeR</code></em> can
 import the inputs information from a <code>YAML</code> and <code>Google Sheets</code> files, as well as
 <code>SummarizedExperiment</code> object. For more details on how to create custom <code>targets</code>,
-please check here.</p>
+please find here.</p>
 <p>Users should note here, the usage of targets files is optional when using
 <em><code>systemPipeR's</code></em> new workflow management interface. They can be replaced by a standard YAML
 input file used by CWL. Since for organizing experimental variables targets
@@ -1190,7 +1190,7 @@ among the steps in the workflow.
 connection, providing security that all the samples will be managed efficiently
 and reproducibly.</p>
 <div class="figure" style="text-align: center">
-<img src="../../../home/dcassol/src/R-devel/library/systemPipeR/extdata/images/targets_con.png" alt="_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users." width="100%" />
+<p><img src="../../../home/dcassol/src/R-devel/library/systemPipeR/extdata/images/targets_con.png" alt="_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users." width="100%" /></p>
 <p class="caption">
 Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. *`systemPipeR`* (C) manages this connectivity among the steps automatically for the users.
 </p>
@@ -1212,7 +1212,7 @@ connection between the CWL parameters files and the targets files. Please see <a
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-14: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/f10063514130d53380d18be4be45f30997d844e8">no_render (f100635)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-14: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/0d8c271d6aa7dee66d4c76b1ae37b48f932324aa">no_render (0d8c271d)</a>
 </div>
 </div>
 

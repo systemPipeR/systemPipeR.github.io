@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spt/systempipetools/" /><meta property="article:section" content="sp" />
 
-<meta property="article:modified_time" content="2021-12-03T02:15:52+00:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-05-05T18:04:36-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Data Visualizations">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs).">
-<meta itemprop="dateModified" content="2021-12-03T02:15:52+00:00" />
+<meta itemprop="dateModified" content="2021-05-05T18:04:36-07:00" />
 <meta itemprop="wordCount" content="1454">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Visualizations"/>
@@ -49,8 +49,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" as="style">
+<link href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -534,7 +534,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -566,7 +566,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1041,7 +1041,7 @@ comparing two samples or a grid of all samples, as follows:</p>
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png" width="672" /></p>
 <p>The scatterplots are created using the log2 transform normalized reads count,
 variance stabilizing transformation (VST) (Anders and Huber (2010)), and
 regularized-logarithm transformation or <code>rlog</code> (Love, Huber, and Anders (2014)).</p>
@@ -1052,7 +1052,7 @@ distance matrix, hierarchical clustering is performed with the <code>stats::hclu
 function and the result is plotted as a dendrogram, as follows:</p>
 <pre><code class="language-r">hclustplot(exploredds, method = &quot;spearman&quot;)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png" width="672" /></p>
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="hierarchical-clustering-heatmap">Hierarchical Clustering HeatMap</h2>
 <p>This function performs hierarchical clustering on the transformed expression
@@ -1073,11 +1073,11 @@ degseqDF &lt;- systemPipeR::run_DESeq2(countDF = countMatrix, targets = targets,
     independent = FALSE)
 DEG_list &lt;- systemPipeR::filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png" width="672" /></p>
 <pre><code class="language-r">### Plot
 heatMaplot(exploredds, clust = &quot;ind&quot;, DEGlist = unique(as.character(unlist(DEG_list[[1]]))))
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png" width="672" /></p>
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="principal-component-analysis">Principal Component Analysis</h2>
 <p>This function plots a Principal Component Analysis (PCA) from transformed expression
@@ -1085,7 +1085,7 @@ matrix. This plot shows samples variation based on the expression values and
 identifies batch effects.</p>
 <pre><code class="language-r">PCAplot(exploredds, plotly = FALSE)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png" width="672" /></p>
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="multidimensional-scaling-with-mdsplot">Multidimensional scaling with <code>MDSplot</code></h2>
 <p>This function computes and plots multidimensional scaling analysis for dimension
@@ -1093,7 +1093,7 @@ reduction of count expression matrix. Internally, it is applied the <code>stats:
 function to the transformed count matrix to get sample-to-sample distances.</p>
 <pre><code class="language-r">MDSplot(exploredds, plotly = FALSE)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png" width="672" /></p>
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="dimension-reduction-with-glmplot">Dimension Reduction with <code>GLMplot</code></h2>
 <p>This function computes and plots generalized principal components analysis for
@@ -1102,14 +1102,14 @@ dimension reduction of count expression matrix.</p>
     transformationMethod = &quot;raw&quot;)
 GLMplot(exploredds_r, plotly = FALSE)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png" width="672" /></p>
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="ma-plot">MA plot</h2>
 <p>This function plots log2 fold changes (y-axis) versus the mean of normalized
 counts (on the x-axis). Statistically significant features are colored.</p>
 <pre><code class="language-r">MAplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png" width="672" /></p>
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="t-distributed-stochastic-neighbor-embedding-with-tsneplot">t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></h2>
 <p>This function computes and plots t-Distributed Stochastic Neighbor embedding (t-SNE)
@@ -1118,13 +1118,13 @@ matrix. Internally, it is applied the <code>Rtsne::Rtsne()</code> (Krijthe 2015)
 t-SNE computing with <code>theta=0.0</code>.</p>
 <pre><code class="language-r">tSNEplot(countMatrix, targets, perplexity = 5)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png" width="672" /></p>
 <h2 id="volcano-plot">Volcano plot</h2>
 <p>A simple function that shows statistical significance (<code>p-value</code>) versus magnitude
 of change (<code>log2 fold change</code>).</p>
 <pre><code class="language-r">volcanoplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
 </code></pre>
-<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png" width="672" />
+<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png" width="672" /></p>
 <h1 id="version-information">Version information</h1>
 <pre><code class="language-r">sessionInfo()
 </code></pre>
@@ -1227,7 +1227,7 @@ of change (<code>log2 fold change</code>).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-03: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/aedac95e8ab17b2e09b222b2201c2e5364490e47">Bot build site (aedac95)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-05-05: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/170c307d8bafe31cb67e9c2c61d06648ac1845bd">no_render (170c307d)</a>
 </div>
 </div>
 

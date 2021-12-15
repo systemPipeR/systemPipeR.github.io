@@ -266,7 +266,7 @@ most likely fail. Make sure you system has these tools ([Read about these tools]
 hit "Run" to start. Of course, you can delete the default code and run random R 
 code. 
 4. Output R console. 
-5. Workflow running log.
+5. Workflow running log and real-time updated progress workflow plot.
 6. View any plot output. and send a copy of your current plot to SPS Canvas tab or 
 download it. 
 

@@ -55,7 +55,8 @@ images <- c("https://github.com/lz100/spsComps/blob/master/img/1.jpg?raw=true",
 gallery(
   texts = texts, hrefs = hrefs, images = images,
   enlarge = TRUE,
-  enlarge_method = "modal"
+  # only "modal" methods workds in Rmd, but other methods work in Shiny
+  enlarge_method = "modal" 
 )
 ```
 
@@ -297,6 +298,8 @@ cssLoader(type = "gif", src = "https://github.com/lz100/spsComps/blob/master/exa
 
 Add tooltips to the documents with `bsTooltip`
 
+
+
 ```{r}
 actionButton("", "Tooltip on the left") %>%
  bsTooltip("Tooltip on the left", "left")
@@ -321,6 +324,58 @@ actionButton("", "warning") %>%
 actionButton("", "danger") %>%
   bsTip("danger", status = "danger")
 ```
+
+
+### `bsPopover` and `bsPop`
+
+There is no extra step if you use popovers in Shiny directly. In Rmarkdown, you 
+need to add following as plain text close to the end of your Rmd:
+
+
+
+```{html eval=FALSE}
+<script src="https://cdn.jsdelivr.net/npm/jquery-popover@0.0.4/src/jquery-popover.min.js"></script>
+<script>
+$(function(){
+  $('span[data-popoverid] script').map(function(){
+      let el = document.createElement("script");
+      el.innerHTML = $(this).html();
+      document.body.appendChild(el);
+  });
+});
+</script>
+```
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-popover@0.0.4/src/jquery-popover.min.js"></script>
+<script>
+$(function(){
+  $('span[data-popoverid] script').map(function(){
+      let el = document.createElement("script");
+      el.innerHTML = $(this).html();
+      document.body.appendChild(el);
+  });
+});
+</script>
+
+
+Add Popovers to the documents with `bsPopover`
+
+```{r}
+span("Popover on the left") %>%
+ bsPopover("Popover on the left", "Popover on the left", "left")
+span("Popover on the top") %>%
+ bsPopover("Popover on the top", "Popover on the top", "top")
+span("Popover on the right") %>%
+ bsPopover("Popover on the right", "Popover on the right", "right")
+span("Popover on the bottom") %>%
+ bsPopover("Popover on the bottom", "Popover on the bottom", "bottom")
+```
+
+or use the higher leveler convenient function `bsPop`
+```{r}
+span("Popover") %>% bsPop("Popover", "Popover")
+```
+
 
 ### Titles with `spsTitle`
 You can use {spsComps} to add colorful titles in Rmarkdown
