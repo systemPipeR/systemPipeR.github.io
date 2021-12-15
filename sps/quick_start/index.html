@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../favicons/favicon.ico" >
@@ -20,25 +20,25 @@
 <title>Quick start | sysPipe</title><meta property="og:title" content="Quick start" />
 <meta property="og:description" content="SPS example usage To start with SPS after installation:
 Load package Load the systemPipeShiny package in your R session.
-library(systemPipeShiny)  ## Loading required package: shiny  ## Loading required package: spsUtil  ## Loading required package: spsComps  ## Loading required package: drawer  Initialize SPS project Before launching the SPS application, a project environment needs to be created with the following command.
+library(systemPipeShiny) ## Loading required package: shiny ## Loading required package: spsUtil ## Loading required package: spsComps ## Loading required package: drawer  Initialize SPS project Before launching the SPS application, a project environment needs to be created with the following command.
 spsInit()  For this demo, the project directory structure is written to a temporary directory on a user&rsquo;s system." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/quick_start/" /><meta property="article:section" content="sps" />
 
-<meta property="article:modified_time" content="2021-12-03T02:15:52+00:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-12T11:56:01-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Quick start">
 <meta itemprop="description" content="SPS example usage To start with SPS after installation:
 Load package Load the systemPipeShiny package in your R session.
-library(systemPipeShiny)  ## Loading required package: shiny  ## Loading required package: spsUtil  ## Loading required package: spsComps  ## Loading required package: drawer  Initialize SPS project Before launching the SPS application, a project environment needs to be created with the following command.
+library(systemPipeShiny) ## Loading required package: shiny ## Loading required package: spsUtil ## Loading required package: spsComps ## Loading required package: drawer  Initialize SPS project Before launching the SPS application, a project environment needs to be created with the following command.
 spsInit()  For this demo, the project directory structure is written to a temporary directory on a user&rsquo;s system.">
-<meta itemprop="dateModified" content="2021-12-03T02:15:52+00:00" />
-<meta itemprop="wordCount" content="556">
+<meta itemprop="dateModified" content="2021-04-12T11:56:01-07:00" />
+<meta itemprop="wordCount" content="682">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quick start"/>
 <meta name="twitter:description" content="SPS example usage To start with SPS after installation:
 Load package Load the systemPipeShiny package in your R session.
-library(systemPipeShiny)  ## Loading required package: shiny  ## Loading required package: spsUtil  ## Loading required package: spsComps  ## Loading required package: drawer  Initialize SPS project Before launching the SPS application, a project environment needs to be created with the following command.
+library(systemPipeShiny) ## Loading required package: shiny ## Loading required package: spsUtil ## Loading required package: spsComps ## Loading required package: drawer  Initialize SPS project Before launching the SPS application, a project environment needs to be created with the following command.
 spsInit()  For this demo, the project directory structure is written to a temporary directory on a user&rsquo;s system."/>
 
 
@@ -58,8 +58,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" as="style">
+<link href="../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -543,7 +543,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -575,7 +575,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -1009,6 +1009,7 @@ if (!doNotTrack) {
           </ul>
         </li>
         <li><a href="#launch-sps">Launch <code>SPS</code></a></li>
+        <li><a href="#sps-tabs">SPS tabs</a></li>
       </ul>
     </li>
   </ul>
@@ -1055,14 +1056,10 @@ if (!doNotTrack) {
 <h2 id="load-package">Load package</h2>
 <p>Load the <code>systemPipeShiny</code> package in your R session.</p>
 <pre><code class="language-r">library(systemPipeShiny)
-</code></pre>
-<pre><code>## Loading required package: shiny
-</code></pre>
-<pre><code>## Loading required package: spsUtil
-</code></pre>
-<pre><code>## Loading required package: spsComps
-</code></pre>
-<pre><code>## Loading required package: drawer
+## Loading required package: shiny
+## Loading required package: spsUtil
+## Loading required package: spsComps
+## Loading required package: drawer
 </code></pre>
 <h2 id="initialize-sps-project">Initialize <code>SPS</code> project</h2>
 <p>Before launching the <code>SPS</code> application, a project environment needs to be created with the
@@ -1075,24 +1072,16 @@ defined and user controlled location on a system rather than a temporary
 directory.</p>
 <pre><code class="language-r">sps_tmp_dir &lt;- tempdir()
 spsInit(app_path = sps_tmp_dir, change_wd = FALSE, project_name = &quot;SPSProject&quot;)
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:31:39 Start to create a new SPS project
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:31:39 Create project under /tmp/RtmpgROsL7/SPSProject
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:31:39 Now copy files
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:31:39 Create SPS database
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:31:39 Created SPS database method container
-</code></pre>
-<pre><code>## [SPS-INFO] 2021-04-12 11:31:39 Creating SPS db...
-</code></pre>
-<pre><code>## [SPS-DANGER] 2021-04-12 11:31:39 Done, Db created at '/tmp/RtmpgROsL7/SPSProject/config/sps.db'. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-12 11:31:39 Key md5 ae88518aa6cce9a5af24d37c4c3c1b16
-## [SPS-INFO] 2021-04-12 11:31:39 SPS project setup done!
-</code></pre>
-<pre><code class="language-r">sps_dir &lt;- file.path(sps_tmp_dir, &quot;SPSProject&quot;)
+## [SPS-INFO] 2021-12-14 23:53:38 Start to create a new SPS project
+## [SPS-INFO] 2021-12-14 23:53:38 Create project under /tmp/RtmpGAaU3K/SPSProject
+## [SPS-INFO] 2021-12-14 23:53:38 Now copy files
+## [SPS-INFO] 2021-12-14 23:53:38 Create SPS database
+## [SPS-INFO] 2021-12-14 23:53:38 Created SPS database method container
+## [SPS-INFO] 2021-12-14 23:53:38 Creating SPS db...
+## [SPS-DANGER] 2021-12-14 23:53:38 Done, Db created at '/tmp/RtmpGAaU3K/SPSProject/config/sps.db'. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-12-14 23:53:38 Key md5 90499a61aeea98b338debf236bd5aef4
+## [SPS-INFO] 2021-12-14 23:53:38 SPS project setup done!
+sps_dir &lt;- file.path(sps_tmp_dir, &quot;SPSProject&quot;)
 </code></pre>
 <h3 id="sps-project-structure">SPS project structure</h3>
 <p>The file and directory structure of an SPS project is organized as follows.</p>
@@ -1102,20 +1091,18 @@ SPS_xx/
 ├── global.R               <span class="text-success">| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit manually</span>   
 ├── ui.R                   <span class="text-success">|</span>  
 ├── deploy.R               <span class="text-info">| Deploy helper file</span>  
-├── config                 <span class="text-success">| Important app config files. Do not edit them if you don't know</span>  
+├── config                 <span class="text-success">| Important app config files. Do not edit them by hand if you don't know</span>  
 │   ├── sps.db             <span class="text-gray">| SPS database</span> 
 │   ├── sps_options.yaml   <span class="text-gray">| SPS default option list</span> 
-│   └── tabs.csv           <span class="text-gray">| SPS tab information</span> 
+│   └── tabs.csv           <span class="text-gray">| SPS tab registration information</span> 
 ├── data                   <span class="text-primary">| App example data files</span> 
 │   ├── xx.csv             
-├── R                      <span class="text-primary">| All SPS additional tab files and helper R function files</span> 
+├── R                      <span class="text-primary">| All SPS additional tab files, helper R function, interactive guides files</span> 
 │   ├── tab_xx.R            
 ├── README.md              
-├── results                <span class="text-gray">| Not in use for this current version, you can store some data been generated from the app</span> 
+├── results                <span class="text-gray">| Not in use for this current version, but you can store some data been generated from the app</span> 
 │   └── README.md          
 └── www                    <span class="text-primary">| Internet resources</span>  
-    ├── about              <span class="text-gray">| About tab information</span> 
-    │   └── xx.md          
     ├── css                <span class="text-info">| CSS files</span>  
     │   └── sps.css         
     ├── img                <span class="text-info">| App image resources</span>    
@@ -1124,7 +1111,7 @@ SPS_xx/
     │   └── xx.js           
     ├── loading_themes     <span class="text-info">| Loading screen files</span> 
     │   └── xx.html         
-    └── plot_list          <span class="text-info">| Image files for plot gallery</span>  
+    └── plot_list          <span class="text-info">| Image files for custom visualization tab thumbnails</span>  
         └── plot_xx.jpg      
 </pre>
 <h2 id="launch-sps">Launch <code>SPS</code></h2>
@@ -1132,12 +1119,29 @@ SPS_xx/
 To launch the <code>SPS</code> Shiny application, one only needs to execute the following command.</p>
 <pre><code class="language-r">shiny::runApp()
 </code></pre>
+<p>Alternatively, when using RStudio one can click the <img src=../img/app_start.png style="display: inline;
+padding-left:0; width:10px; height:15px;"><code>Run App</code> button in the top right corner.</p>
 <p>After the SPS app has been launched, clicking the &ldquo;Continue to app&rdquo; button
 on the welcome screen will open the main dashboard (Fig.2).</p>
 <center id="sps_ui">
+<p><img src="../../sps/img/main_app.png" alt="sps_ui"></p>
+</center>
+<p><strong>Figure 2A:</strong> SPS welcome page</p>
+<p>Click on one of the big icons on the welcome page to choose for the module/tool
+you want to use, or use the lefe sidebar to navigate to different tabs.</p>
+<h2 id="sps-tabs">SPS tabs</h2>
+<p>Within the functional categories, <code>SPS</code> functions are modularized into
+sub-components, here referred to as <strong>SPS tabs</strong> that are similar to
+menu tabs in other GUI applications that organize related and inter-connected
+functionalies into groups. On the backend, <strong>SPS tabs</strong> are based on <a href="https://shiny.rstudio.com/articles/modules.html">Shiny modules</a>,
+that are stored in separate files. This modular structure is highly extensible
+and greatly simplifies the design of new <code>SPS</code> tabs by both users and/or developers.
+Details about extending existing tabs and designing new ones are provided in
+<a href="https://systempipe.org/sps/adv_features/tabs/">Manage tabs section on our website</a>.</p>
+<center id="sps_ui">
 <p><img src="../img/sps_ui_main.jpg" alt="sps_ui"></p>
 </center>
-<p><strong>Figure 2:</strong> Snapshot of SPS' UI.</p>
+<p><strong>Figure 2B:</strong> Screenshot of SPS' tabs.</p>
 <ol>
 <li>Welcome screen.</li>
 <li>Module tabs.</li>
@@ -1146,15 +1150,14 @@ on the welcome screen will open the main dashboard (Fig.2).</p>
 <li>All SPS tabs has this description on top. It is highly recommend to click here
 to expand and read the full the description for the first time.</li>
 </ol>
-<p>Alternatively, when using RStudio one can click the <img src=../img/app_start.png style="display: inline;
-padding-left:0; width:10px; height:15px;"><code>Run App</code> button in the top right corner.</p>
 <p>In addition, in Rstudio the <em>global.R</em> file will be automatically
 opened when the <code>SPS</code> project is created. Custom changes can be made inside this file
-before the app launches. Later we will discuss how to change and create new custom tabs and change other settings.</p>
+before the app launches. Later we will discuss how to change and create new custom tabs
+and change other settings in <a href="../adv_features">advanced sections</a>.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-03: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/aedac95e8ab17b2e09b222b2201c2e5364490e47">Bot build site (aedac95)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-12: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/3d323dc48d7fabb0fe59eaa0aea79b960753b673">Rmd transform (3d323dc4)</a>
 </div>
 </div>
 

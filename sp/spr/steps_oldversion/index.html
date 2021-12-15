@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -49,8 +49,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" as="style">
+<link href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -534,7 +534,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -566,7 +566,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1608,7 +1608,7 @@ hc &lt;- hclust(dist(1 - d))
 plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE,
     no.margin = TRUE)
 </code></pre>
-<img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/sample_tree_rlog-1.png" width="672" />
+<p><img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/sample_tree_rlog-1.png" width="672" /></p>
 <div align="center">
 <p><strong>Figure 2:</strong> Correlation dendrogram of samples for <em><code>rlog</code></em> values.</p>
 </div>
@@ -1623,12 +1623,12 @@ plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = &quot;blue&quot;, edge
     no.margin = TRUE)
 </code></pre>
 <h2 id="deg-analysis-with-edger">DEG analysis with <em><code>edgeR</code></em></h2>
-<p>The following <em><code>run_edgeR</code></em> function is a convenience wrapper for
+<p>The following *<code>run_edgeR</code>* function is a convenience wrapper for
 identifying differentially expressed genes (DEGs) in batch mode with
-<em><code>edgeR</code></em>’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
-pairwise sample comparisons specified under the <em><code>cmp</code></em> argument. Users
+*<code>edgeR</code><em>’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
+pairwise sample comparisons specified under the <em><code>cmp</code>* argument. Users
 are strongly encouraged to consult the
-<a href="%5Chref%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf"><em><code>edgeR</code></em></a> vignette
+</em><code>edgeR</code></em><a href="%5Chref%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf"></a> vignette
 for more detailed information on this topic and how to properly run <em><code>edgeR</code></em>
 on data sets with more complex experimental designs.</p>
 <pre><code class="language-r">targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
@@ -1659,7 +1659,7 @@ edgeDF &lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
 <p>Filter and plot DEG results for up and down-regulated genes. Because of the small size of the toy data set used by this vignette, the <em>FDR</em> value has been set to a relatively high threshold (here 10%). More commonly used <em>FDR</em> cutoffs are 1% or 5%. The definition of ‘<em>up</em>’ and ‘<em>down</em>’ is given in the corresponding help file. To open it, type <em><code>?filterDEGs</code></em> in the R console.</p>
 <pre><code class="language-r">DEG_list &lt;- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 </code></pre>
-<img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/edger_deg_counts-1.png" width="672" />
+<p><img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/edger_deg_counts-1.png" width="672" /></p>
 <div align="center">
 <p><strong>Figure 3:</strong> Up and down regulated DEGs identified by <em><code>edgeR</code></em>.</p>
 </div>
@@ -1677,11 +1677,11 @@ edgeDF &lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
 ## M6-A6       M6-A6                 0         0           0
 </code></pre>
 <h2 id="deg-analysis-with-deseq2">DEG analysis with <em><code>DESeq2</code></em></h2>
-<p>The following <em><code>run_DESeq2</code></em> function is a convenience wrapper for
-identifying DEGs in batch mode with <em><code>DESeq2</code></em> (Love, Huber, and Anders 2014) for any number of
-pairwise sample comparisons specified under the <em><code>cmp</code></em> argument. Users
+<p>The following *<code>run_DESeq2</code>* function is a convenience wrapper for
+identifying DEGs in batch mode with <em><code>DESeq2</code>* (Love, Huber, and Anders 2014) for any number of
+pairwise sample comparisons specified under the <em><code>cmp</code>* argument. Users
 are strongly encouraged to consult the
-<a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf"><em><code>DESeq2</code></em></a> vignette
+</em><code>DESeq2</code></em><a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf"></a> vignette
 for more detailed information on this topic and how to properly run <em><code>DESeq2</code></em>
 on data sets with more complex experimental designs.</p>
 <pre><code class="language-r">degseqDF &lt;- run_DESeq2(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
@@ -1693,7 +1693,7 @@ on data sets with more complex experimental designs.</p>
 <p>Filter and plot DEG results for up and down-regulated genes.</p>
 <pre><code class="language-r">DEG_list2 &lt;- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 </code></pre>
-<img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/deseq2_deg_counts-1.png" width="672" />
+<p><img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/deseq2_deg_counts-1.png" width="672" /></p>
 <div align="center">
 <p><strong>Figure 4:</strong> Up and down regulated DEGs identified by <em><code>DESeq2</code></em>.</p>
 </div>
@@ -1705,7 +1705,7 @@ vennsetdown &lt;- overLapper(DEG_list$Down[6:9], type = &quot;vennsets&quot;)
 vennPlot(list(vennsetup, vennsetdown), mymain = &quot;&quot;, mysub = &quot;&quot;, colmode = 2, ccol = c(&quot;blue&quot;,
     &quot;red&quot;))
 </code></pre>
-<img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/vennplot-1.png" width="672" />
+<p><img src="../../../en/sp/spr/steps_oldVersion_files/figure-html/vennplot-1.png" width="672" /></p>
 <div align="center">
 <p><strong>Figure 5:</strong> Venn Diagram for 4 Up and Down DEG Sets.</p>
 </div>
@@ -1815,7 +1815,7 @@ dev.off()
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-05: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/439437a7d1652f8299f9fddc4e88afb0ffda4ed2">no_render (439437a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-05: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/439437a7d1652f8299f9fddc4e88afb0ffda4ed2">no_render (439437a7)</a>
 </div>
 </div>
 

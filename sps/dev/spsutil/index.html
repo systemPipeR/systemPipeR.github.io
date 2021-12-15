@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -25,15 +25,15 @@ Functions reference manual In documents, we only highlight some important functi
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/dev/spsutil/" /><meta property="article:section" content="sps" />
 
-<meta property="article:modified_time" content="2021-12-03T02:15:52+00:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2021-04-12T11:56:01-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="spsUtil">
 <meta itemprop="description" content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
 Since SPS 1.1, these functions are separated into a supporting package called spsUtil (systemPipeShiny Utility). You can install it from CRAN.
 Installation Read the developer tools main page, not repeating here.
 Functions reference manual In documents, we only highlight some important functions. Please read the reference manuals for details of every function.">
-<meta itemprop="dateModified" content="2021-12-03T02:15:52+00:00" />
-<meta itemprop="wordCount" content="1308">
+<meta itemprop="dateModified" content="2021-04-12T11:56:01-07:00" />
+<meta itemprop="wordCount" content="2224">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="spsUtil"/>
 <meta name="twitter:description" content="SPS framework come with a plenty of useful general R utility functions, like pretty logging, package namespace checking, URL checking, and more.
@@ -58,8 +58,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
-<link href="../../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" as="style">
+<link href="../../../scss/main.min.a7a532f00d20d55b2e97b7c1feea9ada3498111970783da1cac5246199e13261.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -543,7 +543,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -575,7 +575,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.667530a1500a21ab79f50cefd279605c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00c45260314d8faf8309484844f7f551.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1018,10 +1018,19 @@ if (!doNotTrack) {
           </ul>
         </li>
         <li><a href="#mute-message-with-quiet">mute message with <code>quiet</code></a></li>
+        <li><a href="#timeout">timeout</a></li>
         <li><a href="#check-empty-values-with-emptyisfalse">check &ldquo;empty&rdquo; values with <code>emptyIsFalse</code></a></li>
         <li><a href="#check-missing-packages-checknamespace">check missing packages <code>checkNameSpace</code></a></li>
+        <li><a href="#stack-methods">Stack methods</a>
+          <ul>
+            <li><a href="#simple-stack">Simple stack</a></li>
+            <li><a href="#history-stack">History stack</a></li>
+          </ul>
+        </li>
+        <li><a href="#in-line-operation">In-line operation</a></li>
+        <li><a href="#uniquefy-duplicated-strings-with-struniquefy">Uniquefy duplicated strings with <code>strUniquefy</code></a></li>
         <li><a href="#check-a-url-is-reachable-with-checkurl">check a URL is reachable with <code>checkUrl</code></a></li>
-        <li><a href="#randomwebsite123com-connection-timed-out-after-1001-millisecondsspanspan">[randomwebsite123.com] Connection timed out after 1001 milliseconds</span><span></a></li>
+        <li><a href="#randomwebsite123com-connection-timed-out-after-1001-millisecondsspan">[randomwebsite123.com] Connection timed out after 1001 milliseconds</span></a></li>
       </ul>
     </li>
   </ul>
@@ -1094,7 +1103,7 @@ levels of information.</p>
 <p>{spsUtil} provides some more informative and prettier ways to generate these kind of messages.</p>
 <pre><code class="language-r">msg(&quot;my message&quot;)
 </code></pre>
-<pre><code>## [INFO] 2021-04-12 11:49:35 my message
+<pre><code>## [INFO] 2021-12-15 01:57:33 my message
 </code></pre>
 <p>You can see it starts with a <code>level</code> information, then a time stamp, and follows the
 actual message. By default, it uses the <code>INFO</code> level, and you can change to whatever
@@ -1110,36 +1119,36 @@ code get evaluated.</li>
 the message out.</p>
 <pre><code class="language-r">msg(&quot;I am info&quot;, level = &quot;INFO&quot;)
 </code></pre>
-<pre><code>## [INFO] 2021-04-12 11:49:35 I am info
+<pre><code>## [INFO] 2021-12-15 01:57:33 I am info
 </code></pre>
 <pre><code class="language-r">msg(&quot;I am warning&quot;, level = &quot;warning&quot;) # not case sensitive
 </code></pre>
-<pre><code>## Warning: [WARNING] 2021-04-12 11:49:35 I am warning
+<pre><code>## Warning: [WARNING] 2021-12-15 01:57:33 I am warning
 </code></pre>
 <pre><code class="language-r">msg(&quot;I am error&quot;, level = &quot;ERROR&quot;)
 </code></pre>
 <pre><code>## Error: 
-[ERROR] 2021-04-12 11:49:35 I am error
+[ERROR] 2021-12-15 01:57:33 I am error
 </code></pre>
 <pre><code class="language-r">msg(&quot;I am random level&quot;, level = &quot;MY LEVEL&quot;)
 </code></pre>
-<pre><code>## [MY LEVEL] 2021-04-12 11:49:35 I am random level
+<pre><code>## [MY LEVEL] 2021-12-15 01:57:33 I am random level
 </code></pre>
 <h4 id="prefix">Prefix</h4>
 <p>For the 3 key levels, you can specify the prefix in front of the level text to
 over write the default level text <code>INFO</code>, <code>WARNING</code>, or <code>ERROR</code></p>
 <pre><code class="language-r">msg(&quot;I am info&quot;, level = &quot;INFO&quot;, info_text = &quot;NEW-INFO&quot;)
 </code></pre>
-<pre><code>## [NEW-INFO] 2021-04-12 11:49:35 I am info
+<pre><code>## [NEW-INFO] 2021-12-15 01:57:33 I am info
 </code></pre>
 <pre><code class="language-r">msg(&quot;I am warning&quot;, level = &quot;warning&quot;, warning_text = &quot;MY-WARNING&quot;)
 </code></pre>
-<pre><code>## Warning: [MY-WARNING] 2021-04-12 11:49:35 I am warning
+<pre><code>## Warning: [MY-WARNING] 2021-12-15 01:57:33 I am warning
 </code></pre>
 <pre><code class="language-r">msg(&quot;I am error&quot;, level = &quot;ERROR&quot;, error_text = &quot;STOP&quot;)
 </code></pre>
 <pre><code>## Error: 
-[STOP] 2021-04-12 11:49:35 I am error
+[STOP] 2021-12-15 01:57:33 I am error
 </code></pre>
 <h4 id="colors">Colors</h4>
 <p>Colors are automatically enabled if it is supported. If you try all code above in
@@ -1155,8 +1164,8 @@ PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
 </STYLE>
 <pre><code class="language-r">msg(&quot;I am info&quot;, level = &quot;INFO&quot;, info_text = &quot;NEW-INFO&quot;)
 </code></pre>
-<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB;font-weight: bold;'>[NEW-INFO] 2021-04-12 11:49:35 I am info</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB; font-weight: bold;'>[NEW-INFO] 2021-12-15 01:57:33 I am info</span>
+</CODE></PRE>
 <p>The 3 key levels has default colors:</p>
 <ul>
 <li><strong>INFO</strong>: <span style="color:blue">blue</span></li>
@@ -1166,21 +1175,21 @@ PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
 <p>You can specify colors for your own levels</p>
 <pre><code class="language-r">msg(&quot;I am warning&quot;, level = &quot;warning&quot;) ## not super orange in Rmd translation -_-=
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-04-12 11:49:35 I am warning</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[WARNING] 2021-12-15 01:57:33 I am warning</span>
+</CODE></PRE>
 <pre><code class="language-r">msg(&quot;I am error&quot;, level = &quot;error&quot;)
 </code></pre>
 <PRE class="fansi fansi-error"><CODE>## Error: 
-<span style='color: #BB0000;font-weight: bold;'>[ERROR] 2021-04-12 11:49:35 I am error</span><span>
-</span></CODE></PRE>
+<span style='color: #BB0000; font-weight: bold;'>[ERROR] 2021-12-15 01:57:33 I am error</span>
+</CODE></PRE>
 <pre><code class="language-r">msg(&quot;oh yeah&quot;, level = &quot;SUCCESS&quot;, .other_color = &quot;green&quot;)
 </code></pre>
-<PRE class="fansi fansi-output"><CODE>## <span style='color: #00BB00;font-weight: bold;'>[SUCCESS] 2021-04-12 11:49:35 oh yeah</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-output"><CODE>## <span style='color: #00BB00; font-weight: bold;'>[SUCCESS] 2021-12-15 01:57:33 oh yeah</span>
+</CODE></PRE>
 <pre><code class="language-r">msg(&quot;oh no&quot;, level = &quot;FAIL&quot;, .other_color = &quot;purple&quot;)
 </code></pre>
-<PRE class="fansi fansi-output"><CODE>## <span style='color: #BB00BB;font-weight: bold;'>[FAIL] 2021-04-12 11:49:35 oh no</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-output"><CODE>## <span style='color: #BB00BB; font-weight: bold;'>[FAIL] 2021-12-15 01:57:33 oh no</span>
+</CODE></PRE>
 <h4 id="wrapper">Wrapper</h4>
 <p>You can use this logging function in your own projects by wrapping it inside a
 upper level function, like what we do for <code>spsinfo</code>, <code>spswarn</code>, <code>spserror</code>. They
@@ -1188,17 +1197,17 @@ have <code>SPS-</code> prefix added, and have some SPS global settings appended.
 <pre><code class="language-r">spsOption('use_crayon', TRUE)
 spsinfo(&quot;info&quot;, verbose = TRUE) ## default `verbose` mute the message
 </code></pre>
-<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB;font-weight: bold;'>[SPS-INFO] 2021-04-12 11:49:35 info</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB; font-weight: bold;'>[SPS-INFO] 2021-12-15 01:57:33 info</span>
+</CODE></PRE>
 <pre><code class="language-r">spswarn(&quot;warning&quot;)
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[SPS-WARNING] 2021-04-12 11:49:35 warning</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[SPS-WARNING] 2021-12-15 01:57:33 warning</span>
+</CODE></PRE>
 <pre><code class="language-r">spserror(&quot;stop&quot;)
 </code></pre>
 <PRE class="fansi fansi-error"><CODE>## Error: 
-<span style='color: #BB0000;font-weight: bold;'>[SPS-ERROR] 2021-04-12 11:49:35 stop</span><span>
-</span></CODE></PRE>
+<span style='color: #BB0000; font-weight: bold;'>[SPS-ERROR] 2021-12-15 01:57:33 stop</span>
+</CODE></PRE>
 <p>To create a simple one for project is very easy. Assume your project is named &ldquo;My Project&rdquo;.
 You can create logging as:</p>
 <pre><code class="language-r">mpInfo &lt;- function(text){
@@ -1212,17 +1221,17 @@ mpErr &lt;- function(text){
 }
 mpInfo(&quot;info&quot;)
 </code></pre>
-<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB;font-weight: bold;'>[MP-INFO] 2021-04-12 11:49:35 info</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-message"><CODE>## <span style='color: #0000BB; font-weight: bold;'>[MP-INFO] 2021-12-15 01:57:33 info</span>
+</CODE></PRE>
 <pre><code class="language-r">mpWarn(&quot;warning&quot;)
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[MP-WARNING] 2021-04-12 11:49:35 warning</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[MP-WARNING] 2021-12-15 01:57:33 warning</span>
+</CODE></PRE>
 <pre><code class="language-r">mpErr(&quot;error&quot;)
 </code></pre>
 <PRE class="fansi fansi-error"><CODE>## Error: 
-<span style='color: #BB0000;font-weight: bold;'>[MP-ERROR] 2021-04-12 11:49:35 error</span><span>
-</span></CODE></PRE>
+<span style='color: #BB0000; font-weight: bold;'>[MP-ERROR] 2021-12-15 01:57:33 error</span>
+</CODE></PRE>
 <h2 id="mute-message-with-quiet">mute message with <code>quiet</code></h2>
 <p>In R, you can easily mute message and warnings with <code>suppressMessages()</code>, and
 <code>suppressWarnings()</code>, but not so easy with <code>print</code> or <code>cat</code> methods. <code>spsUtil::quiet</code>
@@ -1243,6 +1252,42 @@ quiet(cat(123), print_cat = FALSE)
 ## 123
 ## [1] 123
 ## 123
+</code></pre>
+<h2 id="timeout">timeout</h2>
+<p>Run expressions with a time limit, stop an expression if it takes too long</p>
+<pre><code class="language-r"># default
+timeout({Sys.sleep(0.1)}, time_out = 0.01)
+</code></pre>
+<pre><code>## Error: Timout reached
+</code></pre>
+<pre><code class="language-r"># timeout is evaluating expressions the same level as you call it
+timeout({abc &lt;- 123})
+# so you should get `abc` even outside the function call
+abc
+</code></pre>
+<pre><code>## [1] 123
+</code></pre>
+<pre><code class="language-r"># custom timeout callback
+timeout({Sys.sleep(0.1)}, time_out = 0.01, on_timeout = {print(&quot;It takes too long&quot;)})
+</code></pre>
+<pre><code>## [1] &quot;It takes too long&quot;
+</code></pre>
+<pre><code class="language-r"># final call back
+timeout({Sys.sleep(0.1)}, time_out = 0.01, on_final = {print(&quot;some final words&quot;)}) # on error
+</code></pre>
+<pre><code>## Error: Timout reached
+</code></pre>
+<pre><code>## [1] &quot;some final words&quot;
+</code></pre>
+<pre><code class="language-r">timeout({invisible()}, on_final = {print(&quot;runs even success&quot;)})  # no return by have final expression on success
+</code></pre>
+<pre><code>## [1] &quot;runs even success&quot;
+</code></pre>
+<pre><code class="language-r"># assign to value
+my_val &lt;- timeout({10 + 1})
+my_val
+</code></pre>
+<pre><code>## [1] 11
 </code></pre>
 <h2 id="check-empty-values-with-emptyisfalse">check &ldquo;empty&rdquo; values with <code>emptyIsFalse</code></h2>
 <p>In R, values like <code>NA</code>, <code>&quot;&quot;</code>, <code>NULL</code>, length(0) is not very meaningful in
@@ -1298,9 +1343,9 @@ install certain packages. <code>checkNameSpace</code> checks all required packag
 the missing names.</p>
 <pre><code class="language-r">checkNameSpace(&quot;random_pkg&quot;)
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-04-12 11:49:35 These packages are missing from
-## CRAN: random_pkg</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[WARNING] 2021-12-15 01:57:34 These packages are missing from
+## CRAN: random_pkg</span>
+</CODE></PRE>
 <pre><code>## [1] &quot;random_pkg&quot;
 </code></pre>
 <p>You can add it to your function to or on the top of your Rmd document to inform
@@ -1312,14 +1357,14 @@ your users the missing packages and where to install.</p>
 
 missing_pkg &lt;- checkNameSpace(pkgs[[1]], from =  names(pkgs)[1])
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-04-12 11:49:35 These packages are missing from
-## CRAN: pkg1,pkg2</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[WARNING] 2021-12-15 01:57:34 These packages are missing from
+## CRAN: pkg1,pkg2</span>
+</CODE></PRE>
 <pre><code class="language-r">missing_pkg &lt;- c(missing_pkg, checkNameSpace(pkgs[[2]], from =  names(pkgs)[2]))
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-04-12 11:49:35 These packages are missing from
-## Bioconductor: bio_pkg1,bio_pkg2</span><span>
-</span></CODE></PRE>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[WARNING] 2021-12-15 01:57:34 These packages are missing from
+## Bioconductor: bio_pkg1,bio_pkg2</span>
+</CODE></PRE>
 <pre><code class="language-r">if(emptyIsFalse(missing_pkg)) stop(&quot;Install packages&quot;)
 </code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): Install packages
@@ -1351,6 +1396,272 @@ if(emptyIsFalse(unlist(missing_pkg))) stop(&quot;Install packages&quot;)
 </code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): Install packages
 </code></pre>
+<h2 id="stack-methods">Stack methods</h2>
+<h3 id="simple-stack">Simple stack</h3>
+<p>A simple stack data structure in R, with supporting of assiocated methods, like push, pop and others.</p>
+<pre><code class="language-r">my_stack &lt;- simepleStack$new()
+# check length
+my_stack$len()
+#&gt; [1] 0
+# add some thing
+my_stack$push(list(1, 2, 3))
+# print current stack
+str(my_stack$get())
+#&gt; List of 3
+#&gt;  $ : num 1
+#&gt;  $ : num 2
+#&gt;  $ : num 3
+# check length
+my_stack$len()
+#&gt; [1] 3
+# add before the current first
+my_stack$push(list(0), after = 0)
+# print current stack
+str(my_stack$get())
+#&gt; List of 4
+#&gt;  $ : num 0
+#&gt;  $ : num 1
+#&gt;  $ : num 2
+#&gt;  $ : num 3
+# pop one item
+my_stack$pop()
+#&gt; [[1]]
+#&gt; [1] 0
+#&gt; 
+# print current stack
+str(my_stack$get())
+#&gt; List of 3
+#&gt;  $ : num 1
+#&gt;  $ : num 2
+#&gt;  $ : num 3
+# pop one item from the tail
+my_stack$pop(tail = TRUE)
+#&gt; [[1]]
+#&gt; [1] 3
+#&gt; 
+# print current stack
+str(my_stack$get())
+#&gt; List of 2
+#&gt;  $ : num 1
+#&gt;  $ : num 2
+# pop more than one items
+my_stack$pop(2)
+#&gt; [[1]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 2
+#&gt; 
+# print current stack
+str(my_stack$get()) # nothing left
+#&gt;  list()
+</code></pre>
+<h3 id="history-stack">History stack</h3>
+<p>Methods for a history stack data structure. It can store history of certain
+repeating actions. For example, building the back-end of a file/image editor,
+allow undo/redo actions.</p>
+<pre><code class="language-r">his &lt;- historyStack$new()
+#&gt; Created a history stack which can record  25 steps
+# add some history
+his$add(1)
+#&gt; Added one item to position 1
+his$add(2)
+#&gt; Added one item to position 2
+his$add(3)
+#&gt; Added one item to position 3
+his$add(4)
+#&gt; Added one item to position 4
+his$add(5)
+#&gt; Added one item to position 5
+# check status
+his$status()
+#&gt; $pos
+#&gt; [1] 5
+#&gt; 
+#&gt; $len
+#&gt; [1] 5
+#&gt; 
+#&gt; $limit
+#&gt; [1] 25
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] TRUE
+#&gt; 
+# get item at current history position
+his$get()
+#&gt; $item
+#&gt; [1] 5
+#&gt; 
+#&gt; $pos
+#&gt; [1] 5
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] TRUE
+#&gt; 
+# go back to previous step
+his$backward()
+#&gt; $item
+#&gt; [1] 4
+#&gt; 
+#&gt; $pos
+#&gt; [1] 4
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] FALSE
+#&gt; 
+# going back to step 2
+his$backward()
+#&gt; $item
+#&gt; [1] 3
+#&gt; 
+#&gt; $pos
+#&gt; [1] 3
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] FALSE
+#&gt; 
+his$backward()
+#&gt; $item
+#&gt; [1] 2
+#&gt; 
+#&gt; $pos
+#&gt; [1] 2
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] FALSE
+#&gt; 
+# going forward 1 step tp step 3
+his$forward()
+#&gt; $item
+#&gt; [1] 3
+#&gt; 
+#&gt; $pos
+#&gt; [1] 3
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] FALSE
+#&gt; 
+# check current status
+his$status()
+#&gt; $pos
+#&gt; [1] 3
+#&gt; 
+#&gt; $len
+#&gt; [1] 5
+#&gt; 
+#&gt; $limit
+#&gt; [1] 25
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] FALSE
+#&gt; 
+# adding a new step at position 3 will remove the old step 4,5 before adding
+his$add(&quot;new 4&quot;)
+#&gt; Added one item to position 4
+# only 3 steps + 1 new step = 4 steps left
+his$status()
+#&gt; $pos
+#&gt; [1] 4
+#&gt; 
+#&gt; $len
+#&gt; [1] 4
+#&gt; 
+#&gt; $limit
+#&gt; [1] 25
+#&gt; 
+#&gt; $first
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $last
+#&gt; [1] TRUE
+#&gt; 
+</code></pre>
+<h2 id="in-line-operation">In-line operation</h2>
+<p>In-place operations like <code>i += 1</code> with <code>inc(x)</code>, <code>i -= 1</code> with <code>inc(x, -1)</code>,
+<code>i *= 2</code> with <code>mult(x)</code>, <code>i /= 2</code> with <code>divi(x)</code></p>
+<pre><code class="language-r">i &lt;- 0
+inc(i) # add 1
+i
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">inc(i) # add 1
+i
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">inc(i, -1) # minus 1
+i
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">inc(i, -1) # minus 1
+i
+</code></pre>
+<pre><code>## [1] 0
+</code></pre>
+<pre><code class="language-r">x &lt;- 1
+mult(x) # times 2
+x
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">mult(x) # times 2
+x
+</code></pre>
+<pre><code>## [1] 4
+</code></pre>
+<pre><code class="language-r">divi(x) # divide 2
+x
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">divi(x) # divide 2
+x
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<h2 id="uniquefy-duplicated-strings-with-struniquefy">Uniquefy duplicated strings with <code>strUniquefy</code></h2>
+<p>Fix duplicated values in a character vector, useful in column names and some
+ID structures that requires unique identifiers. If any duplicated string is
+found in the vector, a numeric index will be added after the these strings.</p>
+<pre><code class="language-r">strUniquefy(c(1,1,1,2,3)) # default
+</code></pre>
+<pre><code>## [1] &quot;1_1&quot; &quot;1_2&quot; &quot;1_3&quot; &quot;2&quot;   &quot;3&quot;
+</code></pre>
+<pre><code class="language-r">strUniquefy(c(1,1,1,2,3), mark_first = FALSE) # don't mark the first one
+</code></pre>
+<pre><code>## [1] &quot;1&quot;   &quot;1_1&quot; &quot;1_2&quot; &quot;2&quot;   &quot;3&quot;
+</code></pre>
+<pre><code class="language-r">strUniquefy(c(1,1,1,2,3), sep_b = &quot;(&quot;, sep_a = &quot;)&quot;) # custom before, after symbols
+</code></pre>
+<pre><code>## [1] &quot;1(1)&quot; &quot;1(2)&quot; &quot;1(3)&quot; &quot;2&quot;    &quot;3&quot;
+</code></pre>
+<pre><code class="language-r">strUniquefy(c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;a&quot;,&quot;d&quot;,&quot;b&quot;)) # works with letters too
+</code></pre>
+<pre><code>## [1] &quot;a_1&quot; &quot;b_1&quot; &quot;c&quot;   &quot;a_2&quot; &quot;d&quot;   &quot;b_2&quot;
+</code></pre>
 <h2 id="check-a-url-is-reachable-with-checkurl">check a URL is reachable with <code>checkUrl</code></h2>
 <p>Useful if you need make some big HTTP requests.</p>
 <pre><code class="language-r">checkUrl(&quot;https://google.com&quot;)
@@ -1359,17 +1670,17 @@ if(emptyIsFalse(unlist(missing_pkg))) stop(&quot;Install packages&quot;)
 </code></pre>
 <pre><code class="language-r">checkUrl(&quot;https://randomwebsite123.com&quot;, timeout = 1)
 </code></pre>
-<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-04-12 11:49:37 Bad url https://
-## randomwebsite123.com</span><span>
-</span></CODE></PRE><PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00;font-weight: bold;'>[WARNING] 2021-04-12 11:49:37 Timeout was reached:
-<h2 id="randomwebsite123com-connection-timed-out-after-1001-millisecondsspanspan">[randomwebsite123.com] Connection timed out after 1001 milliseconds</span><span></h2>
-<p></span></CODE></PRE></p>
+<PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[WARNING] 2021-12-15 01:57:35 Bad url https://
+## randomwebsite123.com</span>
+</CODE></PRE><PRE class="fansi fansi-warning"><CODE>## Warning: <span style='color: #BBBB00; font-weight: bold;'>[WARNING] 2021-12-15 01:57:35 Timeout was reached:
+<h2 id="randomwebsite123com-connection-timed-out-after-1001-millisecondsspan">[randomwebsite123.com] Connection timed out after 1001 milliseconds</span></h2>
+<p></CODE></PRE></p>
 <pre><code>## [1] FALSE
 </code></pre>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-03: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/aedac95e8ab17b2e09b222b2201c2e5364490e47">Bot build site (aedac95)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-12: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/3d323dc48d7fabb0fe59eaa0aea79b960753b673">Rmd transform (3d323dc4)</a>
 </div>
 </div>
 

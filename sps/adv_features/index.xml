@@ -32,14 +32,14 @@ case.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages(library(systemPipeShiny))
 spsInit(app_path = tempdir(), project_name = &amp;quot;config_demo&amp;quot;, overwrite = TRUE, change_wd = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-04-25 19:43:24 Done, Db created at &#39;/tmp/RtmphrNOOX/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
-## [SPS-INFO] 2021-04-25 19:43:24 Key md5 ee81377a81fdb757fbbbb6af38644756
-## [SPS-INFO] 2021-04-25 19:43:24 SPS project setup done!
+&lt;pre&gt;&lt;code&gt;## [SPS-DANGER] 2021-12-15 00:08:50 Done, Db created at &#39;/tmp/Rtmpgas05w/config_demo/config/sps.db&#39;. DO NOT share this file with others or upload to open access domains.
+## [SPS-INFO] 2021-12-15 00:08:50 Key md5 405b200ceb5c90dbb5c097c88d582dcb
+## [SPS-INFO] 2021-12-15 00:08:50 SPS project setup done!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## save project path 
 (sps_dir &amp;lt;- file.path(tempdir(), &amp;quot;config_demo&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/RtmphrNOOX/config_demo&amp;quot;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/tmp/Rtmpgas05w/config_demo&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To reproduce code locally, run the following chunk instead.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeShiny)
@@ -53,19 +53,19 @@ PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
 &lt;pre&gt;
 SPS_xx/  
 ├── server.R               &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt; 
-├── global.R               &lt;span class=&#34;text-success&#34;&gt;| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit&lt;/span&gt;   
+├── global.R               &lt;span class=&#34;text-success&#34;&gt;| Most important server, UI and global files, unless special needs, `global.R` is the only file you need to edit manually&lt;/span&gt;   
 ├── ui.R                   &lt;span class=&#34;text-success&#34;&gt;|&lt;/span&gt;  
 ├── deploy.R               &lt;span class=&#34;text-info&#34;&gt;| Deploy helper file&lt;/span&gt;  
-├── config                 &lt;span class=&#34;text-success&#34;&gt;| Important app config files. Do not edit them if you don&#39;t know&lt;/span&gt;  
+├── config                 &lt;span class=&#34;text-success&#34;&gt;| Important app config files. Do not edit them by hand if you don&#39;t know&lt;/span&gt;  
 │   ├── sps.db             &lt;span class=&#34;text-gray&#34;&gt;| SPS database&lt;/span&gt; 
 │   ├── sps_options.yaml   &lt;span class=&#34;text-gray&#34;&gt;| SPS default option list&lt;/span&gt; 
 │   └── tabs.csv           &lt;span class=&#34;text-gray&#34;&gt;| SPS tab registration information&lt;/span&gt; 
 ├── data                   &lt;span class=&#34;text-primary&#34;&gt;| App example data files&lt;/span&gt; 
 │   ├── xx.csv             
-├── R                      &lt;span class=&#34;text-primary&#34;&gt;| All SPS custom tab files and helper R function files&lt;/span&gt; 
+├── R                      &lt;span class=&#34;text-primary&#34;&gt;| All SPS additional tab files, helper R function, interactive guides files&lt;/span&gt; 
 │   ├── tab_xx.R            
 ├── README.md              
-├── results                &lt;span class=&#34;text-gray&#34;&gt;| To store data generated from the app, like the workflow module&lt;/span&gt; 
+├── results                &lt;span class=&#34;text-gray&#34;&gt;| Not in use for this current version, but you can store some data been generated from the app&lt;/span&gt; 
 │   └── README.md          
 └── www                    &lt;span class=&#34;text-primary&#34;&gt;| Internet resources&lt;/span&gt;  
     ├── css                &lt;span class=&#34;text-info&#34;&gt;| CSS files&lt;/span&gt;  
@@ -76,7 +76,7 @@ SPS_xx/
     │   └── xx.js           
     ├── loading_themes     &lt;span class=&#34;text-info&#34;&gt;| Loading screen files&lt;/span&gt; 
     │   └── xx.html         
-    └── plot_list          &lt;span class=&#34;text-info&#34;&gt;| Image files for plot gallery&lt;/span&gt;  
+    └── plot_list          &lt;span class=&#34;text-info&#34;&gt;| Image files for custom visualization tab thumbnails&lt;/span&gt;  
         └── plot_xx.jpg      
 &lt;/pre&gt;
 &lt;p&gt;This is a reminder of what you will get when a SPS project is initiated with &lt;code&gt;spsInit()&lt;/code&gt;.&lt;/p&gt;
@@ -111,125 +111,125 @@ generally describe what each option is and valid values for options. Use functio
 &lt;code&gt;spsOptDefaults&lt;/code&gt; to see the default and other valid options.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptDefaults(app_path = sps_dir)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;systemPipeShiny 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;img/sps_small.png 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;mode&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;local 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;server 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;random 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;admin 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;note_url&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;title&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;systemPipeShiny 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;img/sps_small.png 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;mode&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;local 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;server 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;random 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;verbose&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;admin 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;note_url&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;traceback&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
 ## * means any value will be accepted
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;p&gt;After the app has started once, you can use &lt;code&gt;spsOptions()&lt;/code&gt; to see all current settings.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptions(app_path = sps_dir)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;Current project option settings:&lt;/span&gt;&lt;span&gt; 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;systemPipeShiny &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;img/sps_small.png &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;mode&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;local &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;random &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;admin &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;note_url&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;&lt;span&gt;
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;&lt;span&gt;:
-##     &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;&lt;span&gt;
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;Current project option settings:&lt;/span&gt; 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;title&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;systemPipeShiny &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;img/sps_small.png &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;mode&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;local &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;random &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;verbose&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;admin &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;note_url&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;traceback&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;FALSE &lt;/span&gt;
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;:
+##     &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;TRUE &lt;/span&gt;
 ## ********
-## Option legend:
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;    known options    &lt;/span&gt;&lt;span style=&#39;color: #BBBB00;font-weight: bold;&#39;&gt;    Hidden/custom options* and values+
-## &lt;/span&gt;&lt;span&gt;Value legend:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    same as default values    &lt;/span&gt;&lt;span&gt;    different from defaults+
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+## Option legends:
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;    known options    &lt;/span&gt;&lt;span style=&#39;color: #BBBB00; font-weight: bold;&#39;&gt;    Hidden/custom options* and values+
+## &lt;/span&gt;Value legends:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    same as default values    &lt;/span&gt;    different from defaults+
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;p&gt;A copy of options in &lt;code&gt;global.R&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;options(sps = list(
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOption(.list = list(
     title = &amp;quot;systemPipeShiny&amp;quot;,
     title_logo = &amp;quot;img/sps_small.png&amp;quot;,
     mode = &amp;quot;local&amp;quot;,
@@ -488,77 +488,77 @@ write(x = new_options, file = file.path(sps_dir, &amp;quot;config&amp;quot;, &am
 &lt;p&gt;Then we can use &lt;code&gt;spsOptDefaults&lt;/code&gt; to check&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;spsOptDefaults(app_path = sps_dir)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;systemPipeShiny 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;img/sps_small.png 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;mode&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;local 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;server 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;random 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;verbose&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;admin 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;note_url&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;traceback&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;my_opt1&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;TRUE 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;FALSE 
-## &lt;/span&gt;&lt;span style=&#39;color: #0000BB;font-weight: bold;&#39;&gt;my_opt2&lt;/span&gt;&lt;span&gt;:
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;&lt;span&gt;a 
-## &lt;/span&gt;&lt;span style=&#39;color: #00BB00;font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;&lt;span&gt;* 
+&lt;PRE class=&#34;fansi fansi-output&#34;&gt;&lt;CODE&gt;## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;title&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;systemPipeShiny 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;title_logo&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;img/sps_small.png 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;mode&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;local 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;server 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;login_screen&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;login_theme&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;random 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;use_crayon&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;verbose&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;admin_page&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;admin_url&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;admin 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;warning_toast&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_wf&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_rnaseq&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;module_ggplot&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_welcome&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_vs_main&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_canvas&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;tab_about&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;note_url&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;https://raw.githubusercontent.com/systemPipeR/systemPipeShiny/master/inst/remote_resource/notifications.yaml 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;traceback&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;is_demo&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;welcome_guide&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;my_opt1&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;TRUE 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;FALSE 
+## &lt;span style=&#39;color: #0000BB; font-weight: bold;&#39;&gt;my_opt2&lt;/span&gt;:
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Default: &lt;/span&gt;a 
+## &lt;span style=&#39;color: #00BB00; font-weight: bold;&#39;&gt;    Other: &lt;/span&gt;* 
 ## * means any value will be accepted
-&lt;/span&gt;&lt;/CODE&gt;&lt;/PRE&gt;
+&lt;/CODE&gt;&lt;/PRE&gt;
 &lt;p&gt;You can see the &lt;code&gt;my_opt1&lt;/code&gt; and &lt;code&gt;my_opt2&lt;/code&gt; have been added to SPS options.&lt;/p&gt;
 
       </description>
