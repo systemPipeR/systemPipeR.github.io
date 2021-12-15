@@ -187,7 +187,7 @@ from *`systemPipeR`’s* GitHub repository [here](https://github.com/tgirke/syst
 Please note that here it is represented a tabular file, however *`systemPipeR`* can
 import the inputs information from a `YAML` and `Google Sheets` files, as well as
 `SummarizedExperiment` object. For more details on how to create custom `targets`,
-please check here.
+please find here.
 
 Users should note here, the usage of targets files is optional when using
 *`systemPipeR's`* new workflow management interface. They can be replaced by a standard YAML
