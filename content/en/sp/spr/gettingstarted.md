@@ -1,7 +1,7 @@
 ---
 title: "Getting Started" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 28 October, 2021" 
+date: "Last update: 14 December, 2021" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -31,7 +31,7 @@ weight: 2
 <script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
 <link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -44,7 +44,7 @@ weight: 2
 <script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
 <link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -57,7 +57,7 @@ weight: 2
 <script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
 <link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -175,17 +175,19 @@ The following parameter files are included in each workflow template:
     -   *`.batchtools.conf.R`*: defines the type of scheduler for *`batchtools`* pointing to template file of cluster, and located in user’s home directory
     -   *`batchtools.*.tmpl`*: specifies parameters of scheduler used by a system, *e.g.* Torque, SGE, Slurm, etc.
 
-### Structure of initial *`targets`* file
+## Structure of initial *`targets`* data
 
-The *`targets`* file defines all input files (*e.g.* FASTQ, BAM, BCF) and sample
-comparisons of an analysis workflow. The following shows the format of a sample
-*`targets`* file included in the package. It also can be viewed and downloaded
-from *`systemPipeR`*’s GitHub repository [here](https://github.com/tgirke/systemPipeR/blob/master/inst/extdata/targets.txt).
-In a target file with a single type of input files, here FASTQ files of
-single-end (SE) reads, the first column describe the path and the second column
-represents a unique id name for each sample. The third column called `Factor`
-represents the biological replicates. All subsequent columns are additional
-information, and any number of extra columns can be added as needed.
+The *`targets`* data defines all input files (*e.g.* FASTQ, BAM, BCF) and sample
+comparisons of an analysis workflow. It can, also, store any number of descriptive
+information for each sample used in the workflow.
+
+The following shows the format of a sample *`targets`* file included in the
+package. It also can be viewed and downloaded
+from *`systemPipeR`’s* GitHub repository [here](https://github.com/tgirke/systemPipeR/blob/master/inst/extdata/targets.txt).
+Please note that here it is represented a tabular file, however *`systemPipeR`* can
+import the inputs information from a `YAML` and `Google Sheets` files, as well as
+`SummarizedExperiment` object. For more details on how to create custom `targets`,
+please check here.
 
 Users should note here, the usage of targets files is optional when using
 *`systemPipeR's`* new workflow management interface. They can be replaced by a standard YAML
@@ -193,7 +195,13 @@ input file used by CWL. Since for organizing experimental variables targets
 files are extremely useful and user-friendly. Thus, we encourage users to keep using
 them.
 
-#### Structure of *`targets`* file for single-end (SE) samples
+### Structure of *`targets`* file for single-end (SE) samples
+
+In a target file with a single type of input files, here FASTQ files of
+single-end (SE) reads, the first column describe the path and the second column
+represents a unique `id` name for each sample. The third column called `Factor`
+represents the biological replicates. All subsequent columns are additional
+information, and any number of extra columns can be added as needed.
 
 ``` r
 targetspath <- system.file("extdata", "targets.txt", package = "systemPipeR")
@@ -209,7 +217,7 @@ To work with custom data, users need to generate a *`targets`* file containing
 the paths to their own FASTQ files and then provide under *`targetspath`* the
 path to the corresponding *`targets`* file.
 
-#### Structure of *`targets`* file for paired-end (PE) samples
+### Structure of *`targets`* file for paired-end (PE) samples
 
 For paired-end (PE) samples, the structure of the targets file is similar, where
 users need to provide two FASTQ path columns: *`FileName1`* and *`FileName2`*
@@ -223,7 +231,7 @@ showDF(read.delim(targetspath, comment.char = "#"))
 <div id="htmlwidget-2" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-2">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
-#### Structure of *`targets`* file for “Hello World” example
+### Structure of *`targets`* file for “Hello World” example
 
 In this example, *`targets`* file presents only two columns, which the first one
 are the different phrases used by the `echo` command-line and the second column
@@ -237,7 +245,7 @@ showDF(read.delim(targetspath, comment.char = "#"))
 <div id="htmlwidget-3" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-3">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns","Scroller"],"data":[["1","2","3"],["Hello World!","Hello USA!","Hello Bioconductor!"],["M1","M2","M3"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Message<\/th>\n      <th>SampleName<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
 
-#### Sample comparisons
+### Sample comparisons
 
 Sample comparisons are defined in the header lines of the *`targets`* file
 starting with ‘`# <CMP>`.’
@@ -275,7 +283,7 @@ readComp(file = targetspath, format = "vector", delim = "-")
     ## [29] "A6-A12"  "A6-V12"  "V6-M12"  "V6-A12"  "V6-V12"  "M12-A12" "M12-V12"
     ## [36] "A12-V12"
 
-### Downstream targets files description
+## Downstream targets files description
 
 After the step which required the initial targets file information, the downstream
 targets files are created automatically (see Figure <a href="#fig:targetsFig">2</a>).
@@ -288,9 +296,9 @@ and reproducibly.
 
 <div class="figure" style="text-align: center">
 
-<img src="targets_con.png" alt="_systemPipeR_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users." width="100%" />
+<img src="/home/dcassol/src/R-devel/library/systemPipeR/extdata/images/targets_con.png" alt="_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users." width="100%" />
 <p class="caption">
-Figure 2: *systemPipeR* automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. *`systemPipeR`* (C) manages this connectivity among the steps automatically for the users.
+Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. *`systemPipeR`* (C) manages this connectivity among the steps automatically for the users.
 </p>
 
 </div>

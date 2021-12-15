@@ -132,17 +132,19 @@ The following parameter files are included in each workflow template:
     + *`.batchtools.conf.R`*: defines the type of scheduler for *`batchtools`* pointing to template file of cluster, and located in user's home directory
     + *`batchtools.*.tmpl`*: specifies parameters of scheduler used by a system, *e.g.* Torque, SGE, Slurm, etc.
 
-### Structure of initial _`targets`_ file
+## Structure of initial _`targets`_ data
 
-The _`targets`_ file defines all input files (_e.g._ FASTQ, BAM, BCF) and sample 
-comparisons of an analysis workflow. The following shows the format of a sample 
-_`targets`_ file included in the package. It also can be viewed and downloaded 
-from _`systemPipeR`_'s GitHub repository [here](https://github.com/tgirke/systemPipeR/blob/master/inst/extdata/targets.txt). 
-In a target file with a single type of input files, here FASTQ files of 
-single-end (SE) reads, the first column describe the path and the second column
-represents a unique id name for each sample. The third column called `Factor` 
-represents the biological replicates. All subsequent columns are additional 
-information, and any number of extra columns can be added as needed.
+The _`targets`_ data defines all input files (_e.g._ FASTQ, BAM, BCF) and sample 
+comparisons of an analysis workflow. It can, also, store any number of descriptive 
+information for each sample used in the workflow. 
+
+The following shows the format of a sample _`targets`_ file included in the
+package. It also can be viewed and downloaded 
+from _`systemPipeR`'s_ GitHub repository [here](https://github.com/tgirke/systemPipeR/blob/master/inst/extdata/targets.txt). 
+Please note that here it is represented a tabular file, however _`systemPipeR`_ can 
+import the inputs information from a `YAML` and `Google Sheets` files, as well as 
+`SummarizedExperiment` object. For more details on how to create custom `targets`, 
+please check here. 
 
 Users should note here, the usage of targets files is optional when using
 _`systemPipeR's`_ new workflow management interface. They can be replaced by a standard YAML
@@ -150,7 +152,13 @@ input file used by CWL. Since for organizing experimental variables targets
 files are extremely useful and user-friendly. Thus, we encourage users to keep using 
 them. 
 
-#### Structure of _`targets`_ file for single-end (SE) samples
+### Structure of _`targets`_ file for single-end (SE) samples
+
+In a target file with a single type of input files, here FASTQ files of 
+single-end (SE) reads, the first column describe the path and the second column
+represents a unique `id` name for each sample. The third column called `Factor` 
+represents the biological replicates. All subsequent columns are additional 
+information, and any number of extra columns can be added as needed.
 
 ```{r targetsSE, eval=TRUE}
 targetspath <- system.file("extdata", "targets.txt", package = "systemPipeR") 
@@ -161,7 +169,7 @@ To work with custom data, users need to generate a _`targets`_ file containing
 the paths to their own FASTQ files and then provide under _`targetspath`_ the
 path to the corresponding _`targets`_ file. 
 
-#### Structure of _`targets`_ file for paired-end (PE) samples
+### Structure of _`targets`_ file for paired-end (PE) samples
 
 For paired-end (PE) samples, the structure of the targets file is similar, where
 users need to provide two FASTQ path columns: *`FileName1`* and *`FileName2`* 
@@ -172,7 +180,7 @@ targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
 showDF(read.delim(targetspath, comment.char = "#"))
 ```
 
-#### Structure of _`targets`_ file for "Hello World" example
+### Structure of _`targets`_ file for "Hello World" example
 
 In this example, _`targets`_ file presents only two columns, which the first one 
 are the different phrases used by the `echo` command-line and the second column
@@ -183,7 +191,7 @@ targetspath <- system.file("extdata/cwl/example/targets_example.txt", package = 
 showDF(read.delim(targetspath, comment.char = "#"))
 ```
 
-#### Sample comparisons
+### Sample comparisons
 
 Sample comparisons are defined in the header lines of the _`targets`_ file 
 starting with '``# <CMP>``'. 
@@ -204,7 +212,7 @@ genes in RNA-Seq experiments based on simple pair-wise comparisons.
 readComp(file = targetspath, format = "vector", delim = "-")
 ```
 
-### Downstream targets files description
+## Downstream targets files description
 
 After the step which required the initial targets file information, the downstream 
 targets files are created automatically (see Figure \@ref(fig:targetsFig)).
@@ -215,8 +223,8 @@ _`systemPipeR`_ provides features to automatically and systematically build this
 connection, providing security that all the samples will be managed efficiently 
 and reproducibly.
 
-```{r targetsFig, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "_systemPipeR_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users."}
-knitr::include_graphics( "targets_con.png")  
+```{r targetsFig, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users."}
+knitr::include_graphics(system.file("extdata/images", "targets_con.png", package = "systemPipeR"))  
 ```
 
 ## Structure of the new parameters files
