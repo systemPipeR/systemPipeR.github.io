@@ -21,31 +21,35 @@ This is a workflow template.
 # Workflow Steps
 
 # Step1 load_library
-```{r load_library, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='management'}
-appendStep(sal) <- LineWise(code={
-    library(systemPipeR)
+```{r load_library, eval=FALSE, spr=TRUE}
+appendStep(sal) <- LineWise(
+    code={
+        library(systemPipeR)
     },
     step_name = 'load_library',
     dependency = NA,
     run_step = c('mandatory'),
-    run_session = c('management'))
+    run_session = c('management')
+)
 ```
 
 
 # Step2 export_iris
-```{r export_iris, eval=FALSE, spr='r', spr.req='mandatory', spr.ses='management'}
-appendStep(sal) <- LineWise(code={
-    mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+```{r export_iris, eval=FALSE, spr=TRUE}
+appendStep(sal) <- LineWise(
+    code={
+        mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
     },
     step_name = 'export_iris',
     dependency = NA,
     run_step = c('mandatory'),
-    run_session = c('management'))
+    run_session = c('management')
+)
 ```
 
 
 # Step3 gzip
-```{r gzip, eval=FALSE, spr='sysargs', spr.dep='export_iris', spr.req='mandatory', spr.ses='management'}
+```{r gzip, eval=FALSE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     targets = "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/gunzip/targets_gunzip.txt",
     dir_path="/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl",
@@ -63,7 +67,7 @@ appendStep(sal) <- SYSargsList(
 
 
 # Step4 gunzip
-```{r gunzip, eval=FALSE, spr='sysargs', spr.dep='gzip', spr.req='mandatory', spr.ses='management'}
+```{r gunzip, eval=FALSE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     targets = c("gzip"),
     dir_path="/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl",
@@ -81,18 +85,20 @@ appendStep(sal) <- SYSargsList(
 
 
 # Step5 stats
-```{r stats, eval=FALSE, spr='r', spr.dep='gunzip', spr.req='optional', spr.ses='management'}
-appendStep(sal) <- LineWise(code={
-    df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
-    df <- do.call(rbind, df)
-    stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
-    stats$species <- rownames(stats)
-    plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
+```{r stats, eval=FALSE, spr=TRUE}
+appendStep(sal) <- LineWise(
+    code={
+        df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
+        df <- do.call(rbind, df)
+        stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
+        stats$species <- rownames(stats)
+        plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
     },
     step_name = 'stats',
     dependency = c('gunzip'),
     run_step = c('optional'),
-    run_session = c('management'))
+    run_session = c('management')
+)
 ```
 
 
