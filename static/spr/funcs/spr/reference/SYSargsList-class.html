@@ -25,7 +25,7 @@ SYSargsList instances are constructed by the SYSargsList function."><!-- mathjax
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.11</span>
       </span>
     </div>
 
@@ -431,7 +431,7 @@ R-based workflow.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $echo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class: SummarizedExperiment </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dim: 0 3 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> metadata(1): targetsheader</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> metadata(2): SPRversion targetsheader</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> assays(0):</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rownames: NULL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rowData names(0):</span>
@@ -469,7 +469,7 @@ R-based workflow.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu">runInfo</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $env</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x5577b970d600&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x560ab4a425a0&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $runOption</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $runOption$echo</span>
@@ -542,10 +542,10 @@ R-based workflow.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">R_read</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     hello &lt;- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))</span>
 <span class="r-in"><span class="fu">copyEnvir</span><span class="op">(</span><span class="va">sal</span>, list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>, new.env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">globalenv</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x5577b970d600&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x560ab4a425a0&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Copying to 'new.env': </span>
 <span class="r-in"><span class="fu">viewEnvir</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x5577b970d600&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x560ab4a425a0&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Subset Methods</span></span>
