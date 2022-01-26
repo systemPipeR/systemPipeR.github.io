@@ -39,7 +39,7 @@ The original UI look like this:
 To unload some tabs, scroll to the option lines in **`global.R`** file:
 
 ```r
-options(sps = list(
+spsOption(.list = list(
     ...
     tab_welcome = TRUE,
     tab_vs_main = TRUE,
@@ -71,7 +71,7 @@ the module tabs have to be unloaded the same time like following. If any module
 is loaded, this module main tab cannot be unloaded. 
 
 ```r
-options(sps = list(
+spsOption(.list = list(
     ...
     module_wf = FALSE,
     module_rnaseq = FALSE,
