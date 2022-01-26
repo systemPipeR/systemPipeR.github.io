@@ -1,6 +1,6 @@
-## Source code of systemPipe Workflow Environment Project  
+## Source code of systemPipe Workflow Environment Project Website
 
-The life version of this page is available [here](https://systempipe.org/).
+The life version of this site is available at <https://systempipe.org/>.
 
 ### systemPipeR package status <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeR.png" align="right" height="129" />
 
