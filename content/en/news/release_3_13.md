@@ -6,7 +6,7 @@ description: >
 weight: 1
 ---
 
-# *systemPipeShiny* 1.0.0 is available
+# *systemPipeTools* 1.0.0 is available
 
 `systemPipeTools` package extends the widely used systemPipeR (SPR) workflow environment with an enhanced toolkit for data visualization, including utilities to automate the data visualization for analysis of differentially expressed genes (DEGs). `systemPipeTools` provides data transformation and data exploration functions via scatterplots, hierarchical clustering heatMaps, principal component analysis, multidimensional scaling, generalized principal components, t-Distributed Stochastic Neighbor embedding (t-SNE), and MA and volcano plots. All these utilities can be integrated with the modular design of the systemPipeR environment that allows users to easily substitute any of these features and/or custom with alternatives.
 
