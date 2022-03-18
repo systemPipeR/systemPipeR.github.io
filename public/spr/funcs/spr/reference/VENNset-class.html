@@ -27,7 +27,7 @@ and vennlist contains the Venn intersect vectors."><!-- mathjax --><script src="
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.13</span>
       </span>
     </div>
 
@@ -145,50 +145,50 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "setlist"          "intersectmatrix"  "complexitylevels" "vennlist"        </span>
 <span class="r-in"><span class="fu"><a href="overLapper.html">setlist</a></span><span class="op">(</span><span class="va">vennset</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "p" "f" "e" "o" "t" "y" "k" "m" "c" "g" "x" "q" "i" "h" "u" "l" "z" "r"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "a" "b" "g" "u" "c" "r" "k" "m" "v" "o" "j" "e" "h" "t" "y" "q" "l"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "t" "c" "l" "n" "e" "q" "k" "h" "i" "f" "j" "z" "y" "g" "w"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "w" "h" "c" "y" "m" "i" "j" "v" "q" "x" "r" "n" "f" "a" "t" "b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "r" "o" "b" "u" "c" "h" "z" "w" "a" "i" "k" "d" "l" "s" "y" "m" "t" "n" "f"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "p"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "m" "i" "g" "k" "r" "a" "z" "x" "d" "q" "e" "s" "o" "t" "l" "h" "w" "v" "p"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "y" "c" "o" "t" "n" "k" "h" "g" "l" "q" "x" "r" "u" "w" "f" "a" "s" "z" "d"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "p" "m" "v"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "e" "q" "i" "x" "k" "b" "s" "f" "y" "d" "p" "m" "j" "h" "r" "l" "n" "o" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "v" "a" "w"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "i" "m" "x" "j" "u" "k" "r" "l" "w" "o" "h" "t" "s" "q" "g" "z" "n" "c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "e" "c" "d" "l" "z" "y" "f" "t" "w" "o" "u" "v" "x" "q" "j" "i" "n" "a"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="overLapper.html">intersectmatrix</a></span><span class="op">(</span><span class="va">vennset</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   A B C D E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a 0 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> b 0 1 1 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d 0 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> e 1 1 0 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> f 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> g 1 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> i 1 1 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> j 0 1 0 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> l 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> m 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> n 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> a 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> b 1 1 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 1 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> e 1 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> f 0 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> g 1 0 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> i 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> j 1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 0 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> l 1 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> m 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n 0 1 0 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> o 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p 1 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q 1 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> s 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p 0 0 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> s 0 0 1 1 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> t 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> v 0 0 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> v 1 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> w 0 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x 1 0 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> y 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> y 1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 0 1 0 1</span>
 <span class="r-in"><span class="fu"><a href="overLapper.html">complexitylevels</a></span><span class="op">(</span><span class="va">vennset</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 5</span>
 <span class="r-in"><span class="fu"><a href="overLapper.html">vennlist</a></span><span class="op">(</span><span class="va">vennset</span><span class="op">)</span></span>
@@ -202,34 +202,34 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "v"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $E</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "u"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "j"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "d"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "p" "s"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C_E</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
@@ -241,19 +241,19 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_E</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "p"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "k"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C_D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
@@ -262,79 +262,79 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "s"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "y"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "h" "m" "r"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g" "q"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "j" "y"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "m" "o" "r" "u"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "l" "o"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "n" "w"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "w" "x"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c" "h" "k" "l" "t" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "q" "t" "v"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Coerce VENNset/INTERSECTset object to list</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="va">vennset</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "p" "f" "e" "o" "t" "y" "k" "m" "c" "g" "x" "q" "i" "h" "u" "l" "z" "r"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "a" "b" "g" "u" "c" "r" "k" "m" "v" "o" "j" "e" "h" "t" "y" "q" "l"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "t" "c" "l" "n" "e" "q" "k" "h" "i" "f" "j" "z" "y" "g" "w"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "w" "h" "c" "y" "m" "i" "j" "v" "q" "x" "r" "n" "f" "a" "t" "b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "r" "o" "b" "u" "c" "h" "z" "w" "a" "i" "k" "d" "l" "s" "y" "m" "t" "n" "f"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "p"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "m" "i" "g" "k" "r" "a" "z" "x" "d" "q" "e" "s" "o" "t" "l" "h" "w" "v" "p"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "y" "c" "o" "t" "n" "k" "h" "g" "l" "q" "x" "r" "u" "w" "f" "a" "s" "z" "d"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "p" "m" "v"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "e" "q" "i" "x" "k" "b" "s" "f" "y" "d" "p" "m" "j" "h" "r" "l" "n" "o" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "v" "a" "w"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "i" "m" "x" "j" "u" "k" "r" "l" "w" "o" "h" "t" "s" "q" "g" "z" "n" "c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "e" "c" "d" "l" "z" "y" "f" "t" "w" "o" "u" "v" "x" "q" "j" "i" "n" "a"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectmatrix</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   A B C D E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a 0 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> b 0 1 1 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d 0 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> e 1 1 0 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> f 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> g 1 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> i 1 1 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> j 0 1 0 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> l 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> m 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> n 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> a 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> b 1 1 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 1 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> e 1 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> f 0 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> g 1 0 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> i 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> j 1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 0 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> l 1 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> m 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n 0 1 0 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> o 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p 1 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q 1 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> s 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p 0 0 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> s 0 0 1 1 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> t 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> v 0 0 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> v 1 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> w 0 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x 1 0 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> y 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> y 1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 0 1 0 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $complexitylevels</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 5</span>
@@ -350,34 +350,34 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "v"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$E</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "u"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$B_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$B_D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$B_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "j"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "d"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "p" "s"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$C_E</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
@@ -389,19 +389,19 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B_E</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "p"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "k"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$B_C_D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
@@ -410,28 +410,28 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "s"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "y"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "h" "m" "r"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g" "q"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "j" "y"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "m" "o" "r" "u"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "l" "o"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "n" "w"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "w" "x"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vennlist$A_B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c" "h" "k" "l" "t" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "q" "t" "v"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
@@ -448,7 +448,7 @@ and <code>vennlist</code> contains the Venn intersect vectors.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

@@ -24,7 +24,7 @@ and how many files are missing."><!-- mathjax --><script src="https://cdnjs.clou
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.13</span>
       </span>
     </div>
 
@@ -129,13 +129,16 @@ and how many files are missing.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
 <span class="r-in"><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/example/targets_example.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">appendStep</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="SYSargsList-class.html">SYSargsList</a></span><span class="op">(</span>step_name <span class="op">=</span> <span class="st">"echo"</span>, </span>
+<span class="r-in"><span class="fu">appendStep</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="SYSargsList.html">SYSargsList</a></span><span class="op">(</span>step_name <span class="op">=</span> <span class="st">"echo"</span>, </span>
 <span class="r-in">                      targets<span class="op">=</span><span class="va">targetspath</span>, dir<span class="op">=</span><span class="cn">TRUE</span>,</span>
 <span class="r-in">                      wf_file<span class="op">=</span><span class="st">"example/workflow_example.cwl"</span>, input_file<span class="op">=</span><span class="st">"example/example.yml"</span>, </span>
 <span class="r-in">                      dir_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span>,</span>
 <span class="r-in">                      inputvars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>Message <span class="op">=</span> <span class="st">"_STRING_"</span>, SampleName <span class="op">=</span> <span class="st">"_SAMPLE_"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="co">## Check outfiles</span></span>
 <span class="r-in"><span class="fu">check.outfiles</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="results/M1.txt": No such file or directory</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="results/M2.txt": No such file or directory</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="results/M3.txt": No such file or directory</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $echo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Targets Total_Files Existing_Files Missing_Files</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1      M1           1              0             1</span>
@@ -156,7 +159,7 @@ and how many files are missing.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>
