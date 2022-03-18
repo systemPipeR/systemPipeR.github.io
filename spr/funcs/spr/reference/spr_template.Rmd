@@ -41,7 +41,7 @@ appendStep(sal) <- LineWise(
         mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
     },
     step_name = 'export_iris',
-    dependency = NA,
+    dependency = c('load_library'),
     run_step = c('mandatory'),
     run_session = c('management')
 )

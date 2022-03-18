@@ -869,7 +869,7 @@ are loaded, but you can unload them by turn them to &lt;code>FALSE&lt;/code>.&lt
 &lt;caption>Default UI&lt;/caption>
 &lt;/center>
 &lt;p>To unload some tabs, scroll to the option lines in &lt;strong>&lt;code>global.R&lt;/code>&lt;/strong> file:&lt;/p>
-&lt;pre>&lt;code class="language-r">options(sps = list(
+&lt;pre>&lt;code class="language-r">spsOption(.list = list(
 ...
 tab_welcome = TRUE,
 tab_vs_main = TRUE,
@@ -894,7 +894,7 @@ named &amp;ldquo;&lt;i class="fa fa-layer-group">&lt;/i>Modules&amp;rdquo; on th
 because this tab is controlled by its sub-tabs, the module tab options. To unload this tab, all
 the module tabs have to be unloaded the same time like following. If any module
 is loaded, this module main tab cannot be unloaded.&lt;/p>
-&lt;pre>&lt;code class="language-r">options(sps = list(
+&lt;pre>&lt;code class="language-r">spsOption(.list = list(
 ...
 module_wf = FALSE,
 module_rnaseq = FALSE,
