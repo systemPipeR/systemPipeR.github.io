@@ -27,7 +27,7 @@ the filtering results and plots from filterDEGs."><!-- mathjax --><script src="h
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.18</span>
       </span>
     </div>
 
@@ -58,26 +58,35 @@ the filtering results and plots from <code>filterDEGs</code>.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">runDiff</span><span class="op">(</span><span class="va">args</span>, <span class="va">diffFct</span>, <span class="va">targets</span>, <span class="va">cmp</span>, <span class="va">dbrfilter</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">runDiff</span><span class="op">(</span><span class="va">args</span>, outfiles<span class="op">=</span><span class="cn">NULL</span>, <span class="va">diffFct</span>, <span class="va">targets</span>, <span class="va">cmp</span>, <span class="va">dbrfilter</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>args</dt>
-<dd><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code> where <code>infile1(args)</code> specifies the
-paths to the tabular read count data files and <code>outputs</code> files to
-the result files.</p></dd>
+<dd><p>An instance of <code>SYSargs</code> or <code>SYSargs2</code> constructed from a
+    <code>targets</code> file where the first column (<code>targetsin(args)</code> or 
+    <code>targets.as.df(targets(args))</code>) contains the paths to the  tabular 
+    read count data files. Another possibily is <code>named character vector</code>
+    with the paths to the tabular range data files and the elements names should
+    be the sampleID.</p></dd>
+<dt>outfiles</dt>
+<dd><p>Default is <code>NULL</code>. When <code>args</code> is an object of <code>named 
+    character vector</code> class, <code>outfile</code> argument is required. 
+    <code>Named character vector</code> with the paths to the resulting count tables
+    and the elements names should be the sampleID.</p></dd>
 <dt>diffFct</dt>
 <dd><p>Defines which function should be used for the differential abundance analysis.
-Can be <code>diffFct=run_edgeR</code> or <code>diffFct=run_DESeq2</code>.</p></dd>
+    Can be <code>diffFct=run_edgeR</code> or <code>diffFct=run_DESeq2</code>.</p></dd>
 <dt>targets</dt>
 <dd><p>targets <code>data.frame</code></p></dd>
 <dt>cmp</dt>
-<dd><p><code>character matrix</code> where comparisons are defined in two columns. This matrix should be generated with <code><a href="readComp.html">readComp()</a></code> from the targets file. Values used for comparisons need to match those in the <code>Factor</code> column of the targets file.</p></dd>
+<dd><p>codecharacter matrix where comparisons are defined in two columns. This matrix should be generated with <code><a href="readComp.html">readComp()</a></code> from the targets file. Values used for comparisons need to match those in the <code>Factor</code> column of the targets file.</p></dd>
 <dt>dbrfilter</dt>
 <dd><p>Named vector with filter cutoffs of format <code>c(Fold=2, FDR=1)</code> where <code>Fold</code> refers to the fold change cutoff (unlogged) and <code>FDR</code> to the p-value cutoff. Those values are passed on to the <code>filterDEGs</code> function.</p></dd>
 <dt>...</dt>
-<dd><p>Arguments to be passed on to the internally used <code>run_edgeR</code> or <code>run_DESeq2</code> function.</p></dd>
+<dd><p>Arguments to be passed on to the internally used <code>run_edgeR</code> or 
+    <code>run_DESeq2</code> function.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
