@@ -105,7 +105,7 @@ app appearance, debugging level, server behaviors, &lt;em&gt;etc&lt;/em&gt;. The
 be found and change on the &lt;code&gt;global.R&lt;/code&gt; file. They are similar to &lt;em&gt;Shiny&lt;/em&gt; options,
 but unlike &lt;em&gt;shiny&lt;/em&gt; options that are single values, SPS options are passed using the &lt;code&gt;Option(sps = list(...))&lt;/code&gt;
 function in &lt;code&gt;global.R&lt;/code&gt; as a group. To view all options and their default, valid
-values(&#39;*&#39; means any value is okay) see &lt;code&gt;global.R&lt;/code&gt; from
+values(&amp;rsquo;*&amp;rsquo; means any value is okay) see &lt;code&gt;global.R&lt;/code&gt; from
 the line starting with &lt;em&gt;## SPS options&lt;/em&gt;. We provided some comments below that line to
 generally describe what each option is and valid values for options. Use function
 &lt;code&gt;spsOptDefaults&lt;/code&gt; to see the default and other valid options.&lt;/p&gt;
@@ -732,7 +732,7 @@ is stored in a &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.11/re
 object and it is called &lt;code&gt;mydata$data&lt;/code&gt;. Usually we assign it to a new value so it can
 be used easily downstream, like &lt;code&gt;plot_data &amp;lt;- mydata$data&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Some validation is recommended before reaching the plotting code. You would never know what
-kind of dataset users upload. It is always good to check if users&#39; uploads meet the
+kind of dataset users upload. It is always good to check if users&amp;rsquo; uploads meet the
 requirements. In SPS you can use the &lt;code&gt;spsValidate&lt;/code&gt; function or use Shiny&amp;rsquo;s default &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.14/validate.html&#34;&gt;validate{blk}&lt;/a&gt;
 function (&lt;code&gt;spsValidate&lt;/code&gt; is discussed in &lt;a href=&#34;../../sps/dev/spscomps/server/&#34;&gt;developer tools&lt;/a&gt;).&lt;/p&gt;
 &lt;h3 id=&#34;full-template&#34;&gt;Full template&lt;/h3&gt;
@@ -1152,7 +1152,7 @@ guide_content &amp;lt;- try(list(
 &lt;li&gt;&lt;code&gt;icon&lt;/code&gt; should be a call of &lt;code&gt;shiny::icon()&lt;/code&gt;, the icon of the guide in dropdown menu&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;message&lt;/code&gt;: short description of the guide in dropdown menu&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;To add multiple guides&#39; UI, for example:&lt;/p&gt;
+&lt;p&gt;To add multiple guides&amp;rsquo; UI, for example:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;guide_ui &amp;lt;- list(
     ## An example is provided below
     shinydashboardPlus::messageItem(
@@ -1240,8 +1240,8 @@ It can be either &amp;ldquo;server&amp;rdquo; or &amp;ldquo;local&amp;rdquo;, wh
 the app on the &amp;ldquo;server&amp;rdquo; or running on your &amp;ldquo;local&amp;rdquo; machine.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;server&amp;rdquo;: for security, users &lt;strong&gt;do not&lt;/strong&gt; have access of file system on the server,
-choose files from users&#39; local computer.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;local&amp;rdquo;: Assumes the Shiny server and users&#39; local computer is the same machine,
+choose files from users&amp;rsquo; local computer.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;local&amp;rdquo;: Assumes the Shiny server and users&amp;rsquo; local computer is the same machine,
 so users &lt;strong&gt;can access&lt;/strong&gt; file Shiny server&amp;rsquo;s file system.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It is first defined in the &lt;code&gt;global.R&lt;/code&gt; file in a SPS project.&lt;/p&gt;
@@ -1265,7 +1265,7 @@ from the picture above, this is a user operating system built-in file chooser.&l
 &lt;p&gt;&lt;img src=&#34;../local.png&#34; alt=&#34;&#34;&gt;
 You can see this is different than the &amp;ldquo;server&amp;rdquo; mode.  &amp;ldquo;Local&amp;rdquo; mode is able to
 use the file system of the shiny deploy environment file system, and it is no longer
-the users&#39; local system.&lt;/p&gt;
+the users&amp;rsquo; local system.&lt;/p&gt;
 &lt;p&gt;This may be confusing for the first time. Remember &amp;ldquo;server&amp;rdquo; and &amp;ldquo;local&amp;rdquo; mean
 &lt;strong&gt;where&lt;/strong&gt; you deploy the shiny app, on the &lt;em&gt;server&lt;/em&gt; or run on your &lt;em&gt;local&lt;/em&gt; computer.&lt;/p&gt;
 &lt;table&gt;
