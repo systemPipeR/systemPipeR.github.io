@@ -1,7 +1,7 @@
 ---
 title: "SPR and CWL" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 06 December, 2021" 
+date: "Last update: 12 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -181,9 +181,14 @@ cmdlist(HW_mul)
     ## $echo$M3$echo
     ## [1] "echo Hello Bioconductor! > results/M3.txt"
 
+    ## Warning in knitr::include_graphics(system.file("extdata/images",
+    ## "SPR_CWL_hello.png", : It is highly recommended to use relative paths for
+    ## images. You had absolute paths: "/home/dcassol/src/R-devel/library/systemPipeR/
+    ## extdata/images/SPR_CWL_hello.png"
+
 <div class="figure" style="text-align: center">
 
-<img src="/home/dcassol/src/R-4.1.0/library/systemPipeR/extdata/images/SPR_CWL_hello.png" alt="WConnectivity between CWL param files and targets files." width="100%" />
+<img src="/home/dcassol/src/R-devel/library/systemPipeR/extdata/images/SPR_CWL_hello.png" alt="WConnectivity between CWL param files and targets files." width="100%" />
 <p class="caption">
 Figure 1: WConnectivity between CWL param files and targets files.
 </p>
@@ -611,3 +616,18 @@ output(cmd7)
     ## $defaultid
     ## $defaultid$hisat2
     ## [1] "./results/test.sam"
+
+## How to update or create new files for *`systemPipeR`*?
+
+*`systemPipeR`* organizes a collection of [CWL](https://www.commonwl.org/) CommandLineTool and Workflow descriptions for a variety of applications, that can be found [here](https://github.com/systemPipeR/cwl_collection).
+
+Any edition or new file added to this repository, will automatically trigger a
+push to [*systemPipeRdata* (SPRdata)](https://github.com/tgirke/systemPipeRdata) and [*systemPipeR* (SPR)](https://github.com/tgirke/systemPipeR) repositories master branch.
+
+Please notice that modifications are not synced automatically with upstream/Bioc
+branch for the `SPR` and `SPRdata` packages. The latter needs to be done manually,
+as follows:
+
+    git push upstream master # Push to Bioconductor 
+
+<!-- ## References -->
