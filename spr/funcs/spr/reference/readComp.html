@@ -25,7 +25,7 @@ can be specified with 'CMPset: ALL'."><!-- mathjax --><script src="https://cdnjs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.20</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.22</span>
       </span>
     </div>
 
@@ -138,28 +138,24 @@ can be specified with 'CMPset: ALL'.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [36] "A12-V12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co">## Return comparisons from SYSargs object</span></span>
-<span class="r-in"><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"tophat.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
+<span class="r-in"><span class="co">## Return comparisons from SYSargs2 object</span></span>
 <span class="r-in"><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[4]="./data/SRR446030_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[5]="./data/SRR446031_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[6]="./data/SRR446032_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[7]="./data/SRR446033_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[8]="./data/SRR446034_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[9]="./data/SRR446035_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[10]="./data/SRR446036_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[11]="./data/SRR446037_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[12]="./data/SRR446038_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[13]="./data/SRR446039_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[14]="./data/SRR446040_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[15]="./data/SRR446041_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
+<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targets</span>, wf_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.cwl"</span>, </span>
+<span class="r-in">                  input_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">args</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">args</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Instance of 'SYSargs2':</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Slot names/accessors: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       modules: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       wf: 0, clt: 1, yamlinput: 7 (inputs)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       input: 18, output: 18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       cmdlist: 18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Sub Steps:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       1. hisat2-mapping-se (rendered: TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu">readComp</span><span class="op">(</span><span class="va">args</span>, format <span class="op">=</span> <span class="st">"vector"</span>, delim <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $CMPset1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M1-A1"   "M1-V1"   "A1-V1"   "M6-A6"   "M6-V6"   "A6-V6"   "M12-A12"</span>
