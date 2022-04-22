@@ -50,9 +50,7 @@ Run the following on your own computer and watch the difference.
 ```{r eval=FALSE}
 library(shiny)
 
-ui <- fluidPage(
-  spsDepend("toastr")
-)
+ui <- fluidPage()
 
 server <- function(input, output, session) {
   shinyCatch({
@@ -126,7 +124,7 @@ try({
 
 You can see the following `print` in both cases are not got evaluated.
 
-#### Block reative
+#### Block reactive
 
 The most useful case for `shinyCatch` is to use it in the [Shiny reactive](https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/) 
 context. Most errors in shiny::reactive,  shiny::observer, shiny::observeEvent,
@@ -189,7 +187,7 @@ server <- function(input, output, session) {
     print("some other process")
   })
 }
-shinyApp(fluidPage(spsDepend("toastr")), server)
+shinyApp(fluidPage(), server)
 ```
 
 
@@ -202,7 +200,7 @@ server <- function(input, output, session) {
     print("some other process")
   })
 }
-shinyApp(fluidPage(spsDepend("toastr")), server)
+shinyApp(fluidPage(), server)
 ```
 
 
@@ -243,7 +241,6 @@ Try this real Shiny app:
 ```{r eval=FALSE}
 library(shiny)
 ui <- fluidPage(
-  spsDepend("toastr"),
   shiny::sliderInput(
     "num", "change number", 
     min = -1, max = 2, value = 2, step = 1
@@ -364,3 +361,8 @@ reactiveConsole(FALSE)
 
 If you are looking for inline operations on normal R objects or 
 `shiny::reactiveValues`, check [spsUtil](../../spsutil)
+
+### spsDepend("xx")
+The function `spsDepend` was required to show add HTML dependencies, so messages can be displayed on UI for server functions like `shinyCatch`. Since spsComps > 0.3, this is no longer required. We rewrote the way to append the dependencies, so it automatically do it in the background. So adding this function on UI becomes optional. There is nothing you need to do if you have the old code. Both ways are working.
+
+
