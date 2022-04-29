@@ -1,7 +1,7 @@
 ---
 title: "CWL syntax" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 28 October, 2021" 
+date: "Last update: 29 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -134,7 +134,7 @@ cwl[5]
 
 -   `stdout`: component to specify a `filename` to capture standard output.
     Note here we are using a syntax that takes advantage of the inputs section,
-    using results\_path parameter and also the `SampleName` to construct the output `filename.`
+    using results_path parameter and also the `SampleName` to construct the output `filename.`
 
 ``` r
 cwl[6]

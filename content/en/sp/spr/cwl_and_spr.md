@@ -1,7 +1,7 @@
 ---
 title: "SPR and CWL" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 12 April, 2022" 
+date: "Last update: 29 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true

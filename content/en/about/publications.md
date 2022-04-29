@@ -1,7 +1,7 @@
 ---
 title: "Publications" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 04 December, 2021" 
+date: "Last update: 29 April, 2022" 
 type: docs
 weight: 3
 exclude_search: true

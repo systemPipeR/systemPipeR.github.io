@@ -27,4 +27,4 @@ Department of Botany and Plant Sciences ([BPSC{blk}](http://plantbiology.ucr.edu
 University of California, Riverside ([UCR{blk}](http://www.ucr.edu/)) <br/>
 CA 92521 <br/>
 
-Email: <a href="mailto:danielac@ucr.edu">danielac@ucr.edu</a><br/>
+Email: <a href="mailto:danicassol@gmail.com">danicassol@gmail.com</a><br/>

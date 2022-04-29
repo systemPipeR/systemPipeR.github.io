@@ -1,0 +1,138 @@
+---
+title: "Rules to create a new Workflow Template" 
+author: "Author: Daniela Cassol (danicassol@gmail.com)"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+output:
+  BiocStyle::html_document:
+    toc_float: true
+    code_folding: show
+package: systemPipeR
+vignette: |
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{WF: New Workflow Template}
+  %\VignetteEngine{knitr::rmarkdown}
+fontsize: 14pt
+editor_options: 
+  chunk_output_type: console
+type: docs
+weight: 2
+---
+
+```{r setup, echo=FALSE, message=FALSE, wwarning=FALSE, eval=TRUE}
+suppressPackageStartupMessages({
+  library("systemPipeRdata") 
+})
+```
+
+# How to create a new Workflow Template
+
+`SPRthis` package expand [usethis](https://github.com/r-lib/usethis) package, providing automation to create [systemPipeR](https://github.com/tgirke/systemPipeR) workflows templates.
+
+## Installation 
+
+To install `SPRthis` using from `BiocManager` the following code:
+
+```{r install_pkg, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+  BiocManager::install("dcassol/SPRthis")
+```
+
+## Quick start to using to `SPRthis`
+
+```{r}
+## Load the package
+library(SPRthis)
+## create Package
+sprthis(wfName="SPRtest", analysis="SPRtest", path=tempdir())
+```
+
+<pre>
+SPRtest/  
+├── DESCRIPTION 
+├── NAMESPACE 
+├── README.md 
+├── SPRtest.Rproj 
+├── .gitignore
+├── .Rbuildignore
+├── .Rproj.user/  
+├── R/
+│   ├── functions.R
+├── vignettes 
+│   ├── bibtex.bib
+│   ├── SPRtest.Rmd  
+└── inst 
+    ├── rmarkdown 
+    │   └── templates
+    │       └── SPRtest
+    │           ├── template.yml
+    │           └── skeleton
+    │                 ├── batchtools.slurm.tmpl
+    │                 ├── .batchtools.conf.R
+    │                 ├── bibtex.bib 
+    │                 ├── NEWS
+    │                 ├── SPRconfig.yml
+    │                 ├── skeleton.Rmd 
+    │                 ├── targetsPE.txt 
+    │                 ├── data/
+    │                 ├── param/
+    │                 └── results/
+</pre>
+
+# Help functions to create the package
+
+## Create the webiste for the package with `pkgdown`
+
+Edit the `_pkgdown.yml` file and run:
+
+```{r, eval=FALSE}
+pkgdown::build_site() 
+```
+
+## Documentation with `roxygen2`
+
+```{r, eval=FALSE}
+roxygen2::roxygenise()
+```
+
+## Testing the code with `testthat`
+
+To test the code, you can run
+
+```{r, eval=FALSE}
+devtools::test()
+```
+
+# Update R Markdown template on `skeleton`
+
+```{r, eval=FALSE}
+path <- file.path("vignettes/SPRtest.Rmd")
+skeleton_update(path)
+```
+
+# Package available to `genWorkenvir` Function
+
+After creating the new repository on GitHub [systemPipeR Organization](https://github.com/systemPipeR), 
+please follow:
+
+ - Rules:
+    - The Workflow Template need to be available under [systemPipeR Organization](https://github.com/systemPipeR/);
+    - The repository needs to be `public`;
+    - About setting: 
+        - `Description`: keywords in the description are required: "Workflow Template";
+        - `Topics`: we expected "systempiper" and "release" or "development" words on Topics section;
+    - Branch name: To make simple, please name the branch as "master".
+
+## Check availability of workflow templates 
+
+A collection of workflow templates are available, and it is possible to browse the 
+current availability, as follows:
+
+```{r eval=TRUE, tidy=FALSE}
+systemPipeRdata::availableWF(github = TRUE)
+```
+
+This function returns the list of workflow templates available within the package 
+and [systemPipeR Project Organization](https://github.com/systemPipeR) on GitHub. Each one 
+listed template can be created as described above. 
+

@@ -1,12 +1,11 @@
 ---
 title: "Workflow templates and sample data"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 05 May, 2021" 
+date: "Last update: 29 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
     code_folding: show
-  BiocStyle::pdf_document: default
 package: systemPipeRdata
 vignette: |
   %\VignetteEncoding{UTF-8}
@@ -28,7 +27,8 @@ word-wrap: initial !important;
 </style>
 <!---
 - Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeRdata.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeRdata.Rmd', tangle=TRUE)"; Rscript -e "rmarkdown::render('systemPipeRdata.Rmd', c('BiocStyle::pdf_document'))"
+Rscript -e "rmarkdown::render('systemPipeRdata.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeRdata.Rmd', tangle=TRUE)"
+
 -->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -65,6 +65,19 @@ and parameter files required for running a chosen workflow.
 Pre-configured directory structure of the workflow environment and the sample data
 used by *`systemPipeRdata`* are described [here](http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#load-sample-data-and-workflow-templates).
 
+*`systemPipeRdata`* package provides a demo sample FASTQ files used in the
+workflow reporting vignettes. The chosen data set [`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938) obtains 18
+paired-end (PE) read sets from *Arabidposis thaliana* (Howard et al. 2013). To
+minimize processing time during testing, each FASTQ file has been subsetted to
+90,000-100,000 randomly sampled PE reads that map to the first 100,000
+nucleotides of each chromosome of the *A. thalina* genome. The corresponding
+reference genome sequence (FASTA) and its GFF annotation files (provided in the
+same download) have been truncated accordingly. This way the entire test sample
+data set requires less than 200MB disk storage space. A PE read set has been
+chosen for this test data set for flexibility, because it can be used for
+testing both types of analysis routines requiring either SE (single-end) reads
+or PE reads.
+
 # Getting started
 
 ## Installation
@@ -79,7 +92,7 @@ BiocManager::install("systemPipeRdata")
 Also, it is possible to install the development version from [Bioconductor](http://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html).
 
 ``` r
-BiocManager::install("systemPipeRdata", version = "devel", build_vignettes = TRUE, 
+BiocManager::install("systemPipeRdata", version = "devel", build_vignettes = TRUE,
     dependencies = TRUE)  # Installs Devel version from Bioconductor
 ```
 
@@ -94,23 +107,67 @@ library(help = "systemPipeRdata")  # Lists package info
 vignette("systemPipeRdata")  # Opens vignette
 ```
 
-## Starting with pre-configured workflow templates
+# Starting with pre-configured workflow templates
 
 Load one of the available workflows into your current working directory.
-The following does this for the *`varseq`* workflow template. The name of the resulting
+The following does this for the *`rnaseq`* workflow template. The name of the resulting
 workflow directory can be specified under the *`mydirname`* argument. The default *`NULL`*
 uses the name of the chosen workflow. An error is issued if a directory of the same
 name and path exists already.
 
 ``` r
-genWorkenvir(workflow = "systemPipeR/SPvarseq", mydirname = "varseq")
-setwd("varseq")
+genWorkenvir(workflow = "systemPipeR/SPrnaseq", mydirname = "rnaseq")
+setwd("rnaseq")
 ```
 
 On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.
 
 ``` bash
-$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname='varseq')"
+$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPrnaseq', mydirname='rnaseq')"
+```
+
+## Build, run and visualize the workflow template
+
+-   Build workflow from RMarkdown file
+
+This template provides some common steps for a `RNAseq` workflow. One can add, remove, modify
+workflow steps by operating on the `sal` object.
+
+``` r
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "systemPipeVARseq.Rmd", verbose = FALSE)
+```
+
+-   Running workflow
+
+Next, we can run the entire workflow from R with one command:
+
+``` r
+sal <- runWF(sal)
+```
+
+-   Visualize workflow
+
+*`systemPipeR`* workflows instances can be visualized with the `plotWF` function.
+
+``` r
+plotWF(sal)
+```
+
+-   Report generation
+
+*`systemPipeR`* compiles all the workflow execution logs in one central location,
+making it easier to check any standard output (`stdout`) or standard error
+(`stderr`) for any command-line tools used on the workflow or the R code stdout.
+
+``` r
+sal <- renderLogs(sal)
+```
+
+Also, the technical report can be generated using `renderReport` function.
+
+``` r
+sal <- renderReport(sal)
 ```
 
 # Workflow templates collection
@@ -196,28 +253,12 @@ accordingly.
 
 **Figure 2:** *systemPipeR’s* preconfigured directory structure.
 
-# Run workflows
-
-Next, run from within R the chosen sample workflow by executing the code provided
-in the corresponding *`*.Rmd`* template file.
-Much more detailed information on running and customizing [*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
-workflows is available in its overview vignette [here](http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html).
-This vignette can also be opened from R with the following command.
-
-``` r
-library("systemPipeR")  # Loads systemPipeR which needs to be installed via BiocManager::install() from Bioconductor
-```
-
-``` r
-vignette("systemPipeR", package = "systemPipeR")
-```
-
 ## Return paths to sample data
 
 The location of the sample data provided by *`systemPipeRdata`* can be returned as a *`list`*.
 
 ``` r
-pathList()
+pathList()[1:2]
 ```
 
     ## $targets
@@ -225,36 +266,6 @@ pathList()
     ## 
     ## $targetsPE
     ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/targetsPE.txt"
-    ## 
-    ## $annotationdir
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/annotation/"
-    ## 
-    ## $fastqdir
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/fastq/"
-    ## 
-    ## $bamdir
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/bam/"
-    ## 
-    ## $paramdir
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/"
-    ## 
-    ## $workflows
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/"
-    ## 
-    ## $chipseq
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/chipseq/"
-    ## 
-    ## $rnaseq
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/rnaseq/"
-    ## 
-    ## $riboseq
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/riboseq/"
-    ## 
-    ## $varseq
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/varseq/"
-    ## 
-    ## $new
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/workflows/new/"
 
 # Version information
 
@@ -262,12 +273,12 @@ pathList()
 sessionInfo()
 ```
 
-    ## R Under development (unstable) (2021-02-04 r79940)
+    ## R Under development (unstable) (2021-10-25 r81105)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Ubuntu 20.04.2 LTS
+    ## Running under: Ubuntu 20.04.4 LTS
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
     ## LAPACK: /home/dcassol/src/R-devel/lib/libRlapack.so
     ## 
     ## locale:
@@ -283,22 +294,29 @@ sessionInfo()
     ## [6] methods   base     
     ## 
     ## other attached packages:
-    ## [1] systemPipeRdata_1.19.2 BiocStyle_2.19.2      
+    ## [1] systemPipeRdata_1.22.3 BiocStyle_2.23.1      
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] knitr_1.33          magrittr_2.0.1     
-    ##  [3] BiocGenerics_0.37.4 R6_2.5.0           
-    ##  [5] rlang_0.4.11        stringr_1.4.0      
-    ##  [7] tools_4.1.0         parallel_4.1.0     
-    ##  [9] xfun_0.22           jquerylib_0.1.4    
-    ## [11] htmltools_0.5.1.1   remotes_2.3.0      
-    ## [13] yaml_2.2.1          digest_0.6.27      
-    ## [15] bookdown_0.22       formatR_1.9        
-    ## [17] BiocManager_1.30.12 sass_0.3.1         
-    ## [19] codetools_0.2-18    evaluate_0.14      
-    ## [21] rmarkdown_2.7.12    blogdown_1.3       
-    ## [23] stringi_1.5.3       compiler_4.1.0     
-    ## [25] bslib_0.2.4         jsonlite_1.7.2
+    ##  [1] bslib_0.3.1            compiler_4.2.0        
+    ##  [3] BiocManager_1.30.17    formatR_1.12          
+    ##  [5] jquerylib_0.1.4        GenomeInfoDb_1.32.0   
+    ##  [7] XVector_0.36.0         bitops_1.0-7          
+    ##  [9] remotes_2.4.2          tools_4.2.0           
+    ## [11] zlibbioc_1.42.0        digest_0.6.29         
+    ## [13] jsonlite_1.8.0         evaluate_0.15         
+    ## [15] rlang_1.0.2            cli_3.3.0             
+    ## [17] rstudioapi_0.13        yaml_2.3.5            
+    ## [19] blogdown_1.9           xfun_0.30             
+    ## [21] fastmap_1.1.0          GenomeInfoDbData_1.2.8
+    ## [23] stringr_1.4.0          knitr_1.38            
+    ## [25] Biostrings_2.64.0      sass_0.4.1            
+    ## [27] S4Vectors_0.34.0       IRanges_2.30.0        
+    ## [29] stats4_4.2.0           R6_2.5.1              
+    ## [31] rmarkdown_2.14         bookdown_0.26         
+    ## [33] magrittr_2.0.3         codetools_0.2-18      
+    ## [35] htmltools_0.5.2        BiocGenerics_0.42.0   
+    ## [37] stringi_1.7.6          RCurl_1.98-1.6        
+    ## [39] crayon_1.5.1
 
 # Funding
 
@@ -311,6 +329,12 @@ This project was supported by funds from the National Institutes of Health (NIH)
 <div id="ref-H_Backman2016-bt" class="csl-entry">
 
 H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+
+</div>
+
+<div id="ref-Howard2013-fq" class="csl-entry">
+
+Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” *PLoS One* 8 (10): e74183. <https://doi.org/10.1371/journal.pone.0074183>.
 
 </div>
 

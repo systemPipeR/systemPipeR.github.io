@@ -1,7 +1,7 @@
 ---
 title: "SPR Docker container" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
-date: "Last update: 23 April, 2021" 
+date: "Last update: 29 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -15,16 +15,16 @@ weight: 4
 
 > Guidelines from [bioconductor_docker](https://github.com/Bioconductor/bioconductor_docker).
 
-# Running the `systemPipeR` with Docker 
+## Running the `systemPipeR` with Docker 
 
-## Get a copy of the public docker image
+### Get a copy of the public docker image
 
 
 ```bash
 docker pull systempipe/systempipe_docker:latest
 ```
 
-## To run RStudio Server:
+### To run RStudio Server:
 
 
 ```bash
@@ -45,14 +45,14 @@ like except it cannot be `rstudio`. Log in to RStudio with the
 username `rstudio` and whatever password was specified, in this 
 example `systemPipe`.
 
-## To run R from the command line:
+### To run R from the command line:
 
 
 ```bash
 docker run -it --user rstudio systempipe/systempipe_docker:latest R
 ```
 
-## To open a Bash shell on the container:
+### To open a Bash shell on the container:
 
 
 ```bash
@@ -80,7 +80,7 @@ docker run -it --user rstudio systempipe/systempipe_docker:latest bash
 * * *
 <div id='Install'/>
 
-# Install
+## Install
 
 **Prerequisites**: 
 [Linux](https://docs.docker.com/installation/) 
@@ -108,7 +108,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo docker run hello-world
 ```
  
-## Uninstall
+### Uninstall
 
 
 ```bash
@@ -117,7 +117,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 * * *
 <div id='dockerHUb'/>
 
-# Docker Hub Account
+## Docker Hub Account
 
 To be able to share a custom image, please go to https://hub.docker.com and 
 create a free account.
@@ -125,7 +125,7 @@ create a free account.
 * * *
 <div id='login'/>
 
-## Log in to the Docker Hub locally
+### Log in to the Docker Hub locally
 
 Login with your Docker ID to push and pull images from Docker Hub. If you don't
 have a Docker ID, head over to https://hub.docker.com to create one.
@@ -141,7 +141,7 @@ docker login
 * * *
 <div id='run'/>
 
-# Run Docker 
+## Run Docker 
 
 
 ```bash
@@ -156,7 +156,7 @@ docker ps
 #5d007f66a7b3   systempipe/systempipe_docker:latest   "/init"   5 minutes ago   Up 5 minutes   0.0.0.0:49153->8787/tcp   determined_easle
 ```
 
-## Login to the container
+### Login to the container
 
 Please check the `NAMES` in this example, `determined_easle,` to login into the container.
 
@@ -167,7 +167,7 @@ docker exec -it determined_easle /bin/bash
 
 ## Other alternatives to run the container
 
-### To run RStudio Server:
+#### To run RStudio Server:
 
 
 ```bash
@@ -175,27 +175,28 @@ docker run -e PASSWORD=systemPipe -p 8787:8787 \
     systempipe/systempipe_docker:latest
 ```
 
-### To run R from the command line:
+#### To run R from the command line:
 
 
 ```bash
 docker run -it --user rstudio systempipe/systempipe_docker:latest R
 ```
 
-### To open a Bash shell on the container:
+#### To open a Bash shell on the container:
 
 
 ```bash
 docker run -it --user rstudio systempipe/systempipe_docker:latest bash
 ```
 
-### Check R Version into the container 
+#### Check R Version into the container 
 
 
 ```bash
 R --version
 ```
-## Stop Docker
+
+### Stop Docker
 
 
 ```bash
@@ -205,18 +206,18 @@ docker stop determined_easle
 * * *
 <div id='create'/>
 
-# Create your first repository [Link](https://docs.docker.com/docker-hub/)
+## Create your first repository [Link](https://docs.docker.com/docker-hub/)
 
-## Create a repository:
+### Create a repository:
 
 - Sign in to Docker Hub.
 - Click Create a Repository on the Docker Hub welcome page:
 - Name it <your-username>/my-repo.
 - Click Create.
 
-## Build and push a container image to Docker Hub from your computer
+### Build and push a container image to Docker Hub from your computer
 
-### Start by creating a *Dockerfile* to specify your application
+#### Start by creating a *Dockerfile* to specify your application
 
 
 ```bash
@@ -251,21 +252,21 @@ LABEL name="systempipe/systempipe_docker" \
       license="Artistic-2.0"
 ```
 
-### Run `docker build` to build your Docker image
+#### Run `docker build` to build your Docker image
 
 
 ```bash
 docker build -t systempipe/systempipe_docker . 
 ```
 
-### Run `docker run` to test your Docker image locally
+#### Run `docker run` to test your Docker image locally
 
 
 ```bash
 docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
 ```
 
-### Run `docker push` to push your Docker image to Docker Hub
+#### Run `docker push` to push your Docker image to Docker Hub
 
 
 ```bash
@@ -277,7 +278,7 @@ docker push systempipe/systempipe_docker
 * * *
 <div id='changes'/>
 
-# Make changes to the container and Create the new image
+## Make changes to the container and Create the new image
 
 Create a folder, for example:
 
@@ -311,34 +312,34 @@ docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnas
 * * *
 <div id='commands'/>
 
-# Commands
+## Commands
 
-## List which docker machines are available locally
+### List which docker machines are available locally
 ```{bash, eval=FALSE}docker images```
 
-## List running containers
+### List running containers
 ```{bash, eval=FALSE}docker ps```
 
-## List all containers
+### List all containers
 ```{bash, eval=FALSE}docker ps -a```
 
-## Resume a stopped container
+### Resume a stopped container
 ```{bash, eval=FALSE}docker start <CONTAINER ID>```
 
-## Shell into a running container
+### Shell into a running container
 ```{bash, eval=FALSE}docker exec -it <CONTAINER ID> /bin/bash```
 
-## Stop OR remove a cointainer
+### Stop OR remove a cointainer
 ```{bash, eval=FALSE}docker stop <CONTAINER ID>```
 ```{bash, eval=FALSE}docker rm <CONTAINER ID>```
 
-## Remove a image
+### Remove a image
 ```{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq```
 
 * * *
 <div id='github'/>
 
-# Docker and GitHub Actions
+## Docker and GitHub Actions
 
 1. To create a new token, go to Docker Hub Settings
 
@@ -372,8 +373,7 @@ docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnas
 * * *
 <div id='faq'/>
 
-
-# Common Problems
+## Common Problems
 
 
 ```bash
@@ -389,7 +389,7 @@ sudo chmod 666 /var/run/docker.sock
 * * *
 <div id='singularity'/>
 
-# Singularity Container
+## Singularity Container
 
 Please download the Docker image of systemPipe, as follow:
 
@@ -417,7 +417,7 @@ singularity shell systempipe_docker_latest.sif
 * * *
 <div id='resources'/>
 
-# Resources
+## Resources
 
 - [Docker Run: How to create images from an application](https://www.mirantis.com/blog/how-do-i-create-a-new-docker-image-for-my-application/)
 - [Docker Hub Quickstart](https://docs.docker.com/docker-hub/)
