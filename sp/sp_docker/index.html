@@ -1,75 +1,1028 @@
-<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.79.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=../../favicons/favicon.ico><link rel=apple-touch-icon href=../../favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=../../favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=../../favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=../../favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=../../favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=../../favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=../../favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=../../favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=../../favicons/android-192x192.png sizes=192x192><title>SPR Docker container | sysPipe</title><meta property="og:title" content="SPR Docker container"><meta property="og:description" content="Guidelines from bioconductor_docker.
- Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)."><meta property="og:type" content="article"><meta property="og:url" content="/sp/sp_docker/"><meta property="article:modified_time" content="2022-04-25T17:56:55-07:00"><meta property="og:site_name" content="sysPipe"><meta itemprop=name content="SPR Docker container"><meta itemprop=description content="Guidelines from bioconductor_docker.
- Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)."><meta itemprop=dateModified content="2022-04-25T17:56:55-07:00"><meta itemprop=wordCount content="963"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="SPR Docker container"><meta name=twitter:description content="Guidelines from bioconductor_docker.
- Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)."><link rel=preload href=../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css as=style><link href=../../scss/main.min.9156453689c2a62860578c0dd5be0d8047f7ff28c3529bf4b8b3279efe82e52a.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script><link rel=stylesheet href=../../css/prism.css><script src=../../js/driver0.9.8.min.js></script><link rel=stylesheet href=../../css/driver0.9.8.min.css><link rel=stylesheet href=../../css/site.css><script src=../../js/site.js></script></head><body class="td-page line-numbers"><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=../../><span class=navbar-logo><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="55" height="59" enable-background="new 0 0 128 128" viewBox="0 0 55 59"><defs id="defs217"><linearGradient id="linearGradient2530"><stop style="stop-color:#a6dae8;stop-opacity:1" id="stop2526" offset="0"/><stop style="stop-color:#a6dae8;stop-opacity:0" id="stop2528" offset="1"/></linearGradient><radialGradient id="radialGradient2534" cx="48.106" cy="96.236" r="19.564" fx="48.106" fy="96.236" gradientTransform="matrix(1,0,0,1.623578,0,-60.010935)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2530"/><meshgradient id="meshgradient2632" x="17.689" y="-106.706" gradientTransform="matrix(0.45556163,0,0,0.45556163,69.688068,2.0372999)" gradientUnits="userSpaceOnUse"><meshrow id="meshrow2634"><meshpatch id="meshpatch2636"><stop style="stop-color:#fff;stop-opacity:1" id="stop2638" path="c 23.5857,-23.5857 61.8257,-23.5857 85.4114,0"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2640" path="c 23.5857,23.5857 23.5857,61.8257 0,85.4114"/><stop style="stop-color:#fff;stop-opacity:1" id="stop2642" path="c -23.5857,23.5857 -61.8257,23.5857 -85.4114,7.10543e-15"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2644" path="c -23.5857,-23.5857 -23.5857,-61.8257 -1.42109e-14,-85.4114"/></meshpatch></meshrow></meshgradient></defs><g id="g212" transform="translate(0,-69)"><circle id="circle2" cx="97.202" cy="-27.119" r="27.514" transform="rotate(90)" style="opacity:.83600003;fill:url(#meshgradient2632);fill-opacity:1;stroke-width:.45556161"/><g id="g210" transform="matrix(0.45556163,0,0,0.45556163,-2.0372999,69.688068)"><path id="path52" d="m89.338 83.479-3.862.922c-.6-1.295-1.291-2.522-2.061-3.688l2.783-2.633c.666-.633.693-1.683.063-2.356l-4.57-4.83c-.635-.666-1.688-.693-2.354-.065l-2.895 2.737c-1.146-.813-2.356-1.539-3.617-2.162l1.098-3.682c.26-.883-.24-1.806-1.122-2.07l-6.374-1.901c-.88-.259-1.804.24-2.065 1.121l-1.136 3.813c-1.393-.133-2.803-.149-4.221-.06L58.114 64.888C57.9 63.994 57.005 63.44 56.108 63.654l-6.469 1.543c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.013 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.731.89c-.899.215-1.45 1.114-1.237 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.694 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.235 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l6.477-1.539c.895-.213 1.445-1.11 1.232-2.005l-.922-3.865c1.289-.597 2.521-1.281 3.688-2.055l2.633 2.779c.632.672 1.677.697 2.351.066l4.836-4.572c.666-.627.692-1.683.063-2.354l-2.739-2.891c.815-1.147 1.544-2.356 2.169-3.619l3.682 1.1c.883.26 1.804-.242 2.068-1.121l1.899-6.379c.262-.877-.243-1.805-1.116-2.066l-3.814-1.141c.131-1.384.147-2.794.063-4.21l3.734-.891c.893-.213 1.438-1.11 1.228-2.008l-1.541-6.47C91.13 83.815 90.229 83.269 89.338 83.479zm-25.89 23.716c-6.292 1.498-12.605-2.387-14.105-8.678-1.499-6.29 2.386-12.604 8.677-14.104 6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.289-2.387 12.606-8.678 14.105z" style="fill:#2e4b79;fill-opacity:.91176471"/><path id="path54" d="m111.8295 28.871996-3.24301.776905c-.50038-1.091866-1.07658-2.130285-1.72291-3.113347l2.33322-2.223819c.55914-.53448.58189-1.422099.0474-1.989029l-3.83059-4.079229c-.52881-.561204-1.41396-.58602-1.9731-.05536l-2.42231 2.309717c-.96475-.68528-1.976891-1.298023-3.03831-1.824867l.919264-3.10762c.216072-.746364-.200913-1.525178-.940115-1.750423l-5.34121-1.60344c-.739202-.21952-1.510626.200429-1.732387.946793L89.930165 16.37852C88.7645 16.265897 87.583671 16.250626 86.395262 16.32889l-.746784-3.157247c-.181958-.753999-.930637-1.21976-1.683107-1.040328l-5.426502 1.301842c-.754365.181341-1.21684.941066-1.036778 1.695065l.773319 3.264147c-1.082268.500121-2.111464 1.080414-3.091381 1.735151l-2.200548-2.353621c-.53071-.566931-1.412067-.587928-1.978788-.05536l-4.050448 3.863528c-.559141.528753-.585677 1.42019-.05117 1.981394l2.295318 2.445247c-.680446.967791-1.296448 1.989029-1.810099 3.054172l-3.087592-.927705c-.741098-.21761-1.514416.208065-1.736178.950611l-1.595918 5.382979c-.221761.742546.19712 1.525177.936323 1.748513l3.197523.958246c-.109933 1.172039-.1232 2.363166-.04549 3.558111l-3.127393.752091c-.750574.18134-1.218736.939158-1.036779 1.695065l1.294552 5.463151c.180062.757816.930637 1.225486 1.686897 1.044144l3.235431-.776905c.500384 1.089958 1.074687 2.132194 1.719119 3.111438l-2.329435 2.225728c-.56293.532571-.581884 1.42019-.05307 1.985212l3.830584 4.083046c.526918.561204 1.413961.587928 1.9731.05536l2.422309-2.311626c.968544.687189 1.984474 1.30184 3.040206 1.828686l-.917368 3.109528c-.219866.742546.197119 1.527086.936322 1.746605l5.348791 1.601532c.737307.221428 1.514417-.198521 1.728596-.941067l.955277-3.222151c1.165665.106897 2.346493.124075 3.538695.04581l.746783 3.157251c.180062.753998.930636 1.217851 1.67742 1.038418l5.428398-1.301841c.750574-.177523 1.213049-.937249 1.031092-1.691248l-.771424-3.264146c1.082268-.503939 2.115255-1.082322 3.091385-1.735152l2.20813 2.345986c.5326.566931 1.40827.589838 1.97499.05726l4.05235-3.86162c.55914-.528753.58567-1.42019.0531-1.98712l-2.29911-2.441429c.68613-.967791 1.29834-1.98903 1.81768-3.056081l3.08569.927704c.7411.219519 1.51442-.202339 1.73808-.946793l1.59402-5.386796c.21607-.740633-.20471-1.523264-.93633-1.746601l-3.19941-.962063c.11182-1.168222.1213-2.35744.0512-3.552385l3.12739-.752089c.74868-.181342 1.20736-.939158 1.0292-1.696975l-1.29266-5.463148c-.18196-.755907-.93442-1.219759-1.68121-1.038418zM90.123492 48.894003c-5.276767 1.267482-10.572488-2.013844-11.827235-7.324286-1.256645-5.312351 2.003427-10.647608 7.274507-11.911271 5.274872-1.265573 10.568697 2.013844 11.823445 7.326195 1.258539 5.310442-1.997741 10.647607-7.270717 11.909362z" style="fill:#97baed;fill-opacity:1;stroke-width:1.90211201"/><path id="path56" d="m64.166 112.713c-9.08 1.85-18.058-3.824-20.221-12.906-2.165-9.083 3.288-18.198 12.227-20.642l-3.5-14.692-3.03.724c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.016 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.73.89c-.9.215-1.451 1.114-1.238 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.693 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.236 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l2.316-.549z" style="fill:url(#radialGradient2534);fill-opacity:1"/><g id="g60" transform="matrix(1.3314607,0,0,1.3314607,69.623325,-30.275292)"><path id="path58" d="m28.131 78.601-.8.19c-.185.045-.419-.051-.52-.214l-.233-.325c-.122-.146-.142-.396-.042-.56l.429-.698c.101-.162.05-.376-.113-.476l-1.079-.664c-.164-.101-.376-.049-.477.111l-.429.699c-.101.161-.332.259-.52.215L23.951 76.816C23.762 76.798 23.57 76.634 23.526 76.45l-.19-.8c-.043-.184-.232-.299-.417-.256l-1.233.295c-.185.045-.3.231-.256.416l.189.799c.044.186-.053.418-.215.519l-.323.235c-.146.123-.397.141-.561.041l-.701-.43C19.66 77.168 19.445 77.22 19.345 77.381l-.664 1.082c-.102.16-.05.375.113.476l.7.429c.159.103.257.334.216.519l-.063.396c-.017.189-.182.381-.367.425l-.798.19c-.184.043-.302.23-.257.416l.294 1.233c.043.185.234.302.418.257l.798-.19c.185-.043.417.052.52.214l.234.324c.122.146.141.397.043.561l-.432.7c-.1.161-.048.377.113.476l1.082.666c.162.098.376.047.475-.113l.43-.698c.101-.164.333-.261.52-.218l.395.063c.189.017.381.183.425.367l.189.798c.046.186.233.301.417.258l1.234-.295c.185-.045.301-.23.257-.418l-.19-.797c-.043-.188.053-.419.215-.52l.323-.235c.147-.122.397-.14.562-.04l.697.432c.164.098.377.047.477-.113l.664-1.082c.1-.161.048-.377-.113-.477l-.7-.429c-.161-.101-.258-.334-.215-.519l.063-.396c.015-.189.182-.381.367-.425l.798-.189c.184-.045.301-.233.255-.417l-.293-1.234c-.045-.186-.233-.3-.416-.257zm-4.209 3.73c-.897.213-1.8-.342-2.012-1.24-.215-.896.34-1.8 1.237-2.013.897-.215 1.8.339 2.014 1.237.215.899-.341 1.801-1.239 2.016z" style="fill:#a6dae9"/></g><path id="path72" d="m56.823 79.401 1.196 5.013c6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.288-2.387 12.605-8.678 14.104l1.193 5.013C73.7 110.049 79.293 100.952 77.136 91.895 74.978 82.837 65.883 77.242 56.823 79.401z" style="fill:#3e5a85;fill-opacity:1"/><g id="g76"><path id="path74" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z" style="fill:#a6dae9;fill-opacity:1"/></g><g id="g208" transform="matrix(1.1075584,0,0,1.1075584,-60.874681,-16.511015)"><g id="g122"><path id="path102" d="m88.853 44.64c0 .26-.209.471-.471.471h-3.201c-.259.0-.47-.21-.47-.471v-6.965c0-.26.211-.471.47-.471h3.201c.262.0.471.21.471.471z" style="fill:#8fc4d7"/><path id="path104" d="m82.745 45.318c.152.21.107.505-.104.658l-2.59 1.881c-.211.152-.505.106-.656-.104L75.3 42.118c-.153-.21-.108-.504.104-.657l2.59-1.881c.21-.152.503-.106.656.104z" style="fill:#8fc4d7"/><path id="path106" d="m78.205 49.458c.247.08.382.346.302.593l-.988 3.043c-.08.247-.346.382-.594.302L70.3 51.244C70.054 51.163 69.919 50.898 69.997 50.65l.988-3.042c.082-.247.347-.382.596-.302z" style="fill:#8fc4d7"/><path id="path108" d="m76.963 55.475c.248-.079.515.055.593.303l.99 3.043c.081.247-.057.513-.302.594l-6.626 2.151c-.246.081-.512-.055-.592-.301l-.988-3.044c-.081-.248.054-.513.302-.594z" style="fill:#8fc4d7"/><path id="path110" d="m79.496 61.073c.153-.21.448-.257.657-.104l2.59 1.88c.209.152.257.447.104.657l-4.095 5.636c-.151.213-.446.258-.655.104l-2.591-1.881c-.21-.152-.256-.446-.104-.657z" style="fill:#8fc4d7"/><path id="path112" d="m84.835 64.113c.001-.26.213-.471.473-.471h3.199c.262.0.473.21.473.471v6.966c0 .26-.213.471-.473.471h-3.199c-.26.0-.472-.211-.473-.471z" style="fill:#8fc4d7"/><path id="path114" d="m90.942 63.434c-.15-.211-.105-.505.104-.658l2.59-1.88c.21-.153.505-.106.657.104l4.093 5.635c.153.212.106.507-.104.657l-2.589 1.881c-.213.152-.504.107-.657-.104z" style="fill:#8fc4d7"/><path id="path116" d="M95.483 59.295C95.237 59.213 95.1 58.949 95.18 58.702l.988-3.045c.082-.246.349-.381.595-.301l6.623 2.152c.248.08.381.347.303.593l-.989 3.044c-.08.246-.343.381-.593.302z" style="fill:#8fc4d7"/><path id="path118" d="m96.727 53.277c-.248.08-.516-.055-.595-.301l-.986-3.045c-.082-.247.053-.512.301-.592l6.622-2.151c.248-.081.514.055.595.301l.989 3.044c.08.247-.057.511-.303.593z" style="fill:#8fc4d7"/><path id="path120" d="m94.192 47.68c-.153.21-.447.258-.657.104L90.944 45.902C90.737 45.75 90.688 45.455 90.841 45.246l4.093-5.635c.152-.211.448-.257.658-.105l2.587 1.882c.213.152.258.445.104.658z" style="fill:#8fc4d7"/></g><g id="g206"><circle id="circle124" cx="86.845" cy="54.376" r="14.798" style="fill:#8fc4d7"/><circle id="circle126" cx="86.844" cy="54.376" r="13.872" style="fill:#8fc4d7"/><circle id="circle128" cx="86.844" cy="54.376" r="10.791" style="fill:#fff"/><path id="path130" d="m77.21 55.148c0-5.959 4.83-10.791 10.79-10.791 1.966.0 3.806.528 5.396 1.446-1.818-1.39-4.088-2.217-6.551-2.217-5.959.0-10.792 4.831-10.792 10.791.0 3.994 2.175 7.48 5.397 9.345-2.577-1.973-4.24-5.078-4.24-8.574z" style="fill:#d1ecfb"/><circle id="circle132" cx="86.844" cy="54.376" r="1.927" style="fill:#3e5984;fill-opacity:1"/></g></g><g id="g76-8" transform="translate(27.024379,-56.342917)" style="fill:#2e4b79;fill-opacity:1"><path style="fill:#2e4b79;fill-opacity:1" id="path74-1" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z"/></g></g></g></svg></span><span class=font-weight-bold>sysPipe</span></a>
-<row class=header-switch><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=sidebarSwitch checked>
-<label class=custom-control-label for=sidebarSwitch>sidebar</label></div><div class="custom-control custom-switch"><input type=checkbox class=custom-control-input id=tocSwitch checked>
-<label class=custom-control-label for=tocSwitch>toc</label></div></row><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../about/ id=navbarDropdown role=button>About</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../about/overview/ style=padding-left:1rem;font-weight:calc(3/3*500)>Overview</a>
-<a class=dropdown-item href=../../about/team/ style=padding-left:1rem;font-weight:calc(3/3*500)>Our Team</a>
-<a class=dropdown-item href=../../about/publications/ style=padding-left:1rem;font-weight:calc(3/3*500)>Publications</a>
-<a class=dropdown-item href=../../about/acknowledgement/ style=padding-left:1rem;font-weight:calc(3/3*500)>Acknowledgement</a>
-<a class=dropdown-item href=../../about/contact/ style=padding-left:1rem;font-weight:calc(3/3*500)>Contact</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../sp/ id=navbarDropdown role=button>systemPipeR</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../sp/spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeR Package</a>
-<a class=dropdown-item href=../../sp/spr/introduction/ style=padding-left:2rem;font-weight:calc(3/4*500)>Introduction</a>
-<a class=dropdown-item href=../../sp/spr/gettingstarted/ style=padding-left:2rem;font-weight:calc(3/4*500)>Getting Started</a>
-<a class=dropdown-item href=../../sp/spr/spr_run/ style=padding-left:2rem;font-weight:calc(3/4*500)>How to run a Workflow</a>
-<a class=dropdown-item href=../../sp/spr/steps/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow steps overview</a>
-<a class=dropdown-item href=../../sp/spr/templates/ style=padding-left:2rem;font-weight:calc(3/4*500)>Workflow Templates</a>
-<a class=dropdown-item href=../../sp/spr/cwl_syntax/ style=padding-left:2rem;font-weight:calc(3/4*500)>CWL syntax</a>
-<a class=dropdown-item href=../../sp/spr/cwl_and_spr/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR and CWL</a>
-<a class=dropdown-item href=../../sp/spr/sprinstall/ style=padding-left:2rem;font-weight:calc(3/4*500)>SPR detailed installation</a>
-<a class=dropdown-item href=../../sp/spt/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRTools</a>
-<a class=dropdown-item href=../../sp/spt/ style=padding-left:2rem;font-weight:calc(3/4*500)>Data Visualization</a>
-<a class=dropdown-item href=../../sp/spr/spr_funcs/ style=padding-left:2rem;font-weight:calc(3/4*500)>Reference Manual</a>
-<a class=dropdown-item href=../../sp/sprdata/ style=padding-left:1rem;font-weight:calc(3/3*500)>systemPipeRdata</a>
-<a class=dropdown-item href=../../sp/sprdata/systempiperdata/ style=padding-left:2rem;font-weight:calc(3/4*500)>Vignette</a>
-<a class=dropdown-item href=../../sp/sprdata/newwf/ style=padding-left:2rem;font-weight:calc(3/4*500)>Rules</a>
-<a class=dropdown-item href=../../spr/ style=padding-left:1rem;font-weight:calc(3/3*500)>Links</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPR Bioconductor</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeR style=padding-left:2rem;font-weight:calc(3/4*500)>SPR GitHub</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata Bioconductor</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeRdata style=padding-left:2rem;font-weight:calc(3/4*500)>SPRdata GitHub</a>
-<a class=dropdown-item href=https://github.com/tgirke/systemPipeTools style=padding-left:2rem;font-weight:calc(3/4*500)>SPT GitHub</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../sps/ id=navbarDropdown role=button>Shiny</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../sps/ style=padding-left:1rem;font-weight:calc(3/3*500)>SPS Documentation</a>
-<a class=dropdown-item href=https://github.com/systemPipeR/systemPipeShiny style=padding-left:1rem;font-weight:calc(3/3*500)>Github</a>
-<a class=dropdown-item href=http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../spr_wf id=navbarDropdown role=button>Workflows</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../spr_wf style=padding-left:1rem;font-weight:calc(3/3*500)>Collection</a>
-<a class=dropdown-item href=../../spr_wf/installwf/ style=padding-left:1rem;font-weight:calc(3/3*500)>How to install Workflow</a>
-<a class=dropdown-item href=../../spr_wf/newwf style=padding-left:1rem;font-weight:calc(3/3*500)>Rules to create Workflow</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../outreach/ id=navbarDropdown role=button>Outreach</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../outreach/conferences/ style=padding-left:1rem;font-weight:calc(3/3*500)>Conferences</a>
-<a class=dropdown-item href=../../outreach/presentations/ style=padding-left:1rem;font-weight:calc(3/3*500)>Presentations</a>
-<a class=dropdown-item href=../../outreach/videos/ style=padding-left:1rem;font-weight:calc(3/3*500)>Videos Tutorials</a></div></li><li class="nav-item mr-4 mb-2 mb-lg-0" style=position:relative><a class="nav-link dropdown-toggle" href=../../news/ id=navbarDropdown role=button>News</a><div class=dropdown-menu aria-labelledby=navbarDropdownMenuLink><a class=dropdown-item href=../../news/release_3_13/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.13</a>
-<a class=dropdown-item href=../../news/release_3_12/ style=padding-left:1rem;font-weight:calc(3/3*500)>Bioconductor 3.12</a></div></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=../../offline-search-index.d587d1e73b26982c7a0bdf401220dd8d.json data-offline-search-base-href=../../ data-offline-search-max-results=10></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=../../offline-search-index.d587d1e73b26982c7a0bdf401220dd8d.json data-offline-search-base-href=../../ data-offline-search-max-results=10>
-<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../sp/ class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a></li><ul><li class="collapse show" id=sp><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../sp/spr/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a></li><ul><li class=collapse id=spspr><a class="td-sidebar-link td-sidebar-link__page" id=m-spsprintroduction href=../../sp/spr/introduction/>Introduction</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprgettingstarted href=../../sp/spr/gettingstarted/>Getting Started</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprspr_run href=../../sp/spr/spr_run/>How to run a Workflow</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsteps href=../../sp/spr/steps/>Workflow steps overview</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprtemplates href=../../sp/spr/templates/>Workflow Templates</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprcwl_syntax href=../../sp/spr/cwl_syntax/>CWL syntax</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprcwl_and_spr href=../../sp/spr/cwl_and_spr/>SPR and CWL</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsprinstall href=../../sp/spr/sprinstall/>SPR detailed installation instructions</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprspr_funcs href=../../sp/spr/spr_funcs/>Help Manual</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsp_docker href=../../sp/spr/sp_docker/>SPR Docker container</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spspreditor href=../../sp/spr/editor/>Workflow Plot Editor</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprviz_editorbower_componentssvg-pan-zoomissue_template href=../../sp/spr/viz_editor/bower_components/svg-pan-zoom/issue_template/></a><a class="td-sidebar-link td-sidebar-link__page" id=m-spsprsteps_oldversion href=../../sp/spr/steps_oldversion/>Workflow steps overview</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../sp/spt/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeTools</a></li><ul><li class=collapse id=spspt><a class="td-sidebar-link td-sidebar-link__page" id=m-spsptsystempipetools href=../../sp/spt/systempipetools/>Data Visualizations</a></li></ul></ul><ul class="td-sidebar-nav__section pr-md-3"><li class=td-sidebar-nav__section-title><a href=../../sp/sprdata/ class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a></li><ul><li class=collapse id=spsprdata><a class="td-sidebar-link td-sidebar-link__page" id=m-spsprdatasystempiperdata href=../../sp/sprdata/systempiperdata/>Workflow templates and sample data</a>
-<a class="td-sidebar-link td-sidebar-link__page" id=m-spsprdatanewwf href=../../sp/sprdata/newwf/>Rules to create a new Workflow Template</a></li></ul></ul><a class="td-sidebar-link td-sidebar-link__page active" id=m-spsp_docker href=../../sp/sp_docker/>SPR Docker container</a></li></ul></ul></nav></div></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"><a href=https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/SP_docker.Rmd target=_blank class=source-link><i class="fa fa-code fa-fw"></i>View Rmd source</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/SP_docker.md target=_blank><i class="fab fa-github fa-fw"></i>View on Github</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/SP_docker.md target=_blank><i class="fa fa-edit fa-fw"></i>Edit this page</a>
-<a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/SP_docker.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i>Create child page</a>
-<a href=https://github.com/systemPipeR/systemPipeR.github.io/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i>Create project issue</a></div><nav id=TableOfContents><ul><li><a href=#running-the-systempiper-with-docker>Running the <code>systemPipeR</code> with Docker</a><ul><li><a href=#get-a-copy-of-the-public-docker-image>Get a copy of the public docker image</a></li><li><a href=#to-run-rstudio-server>To run RStudio Server:</a></li><li><a href=#to-run-r-from-the-command-line>To run R from the command line:</a></li><li><a href=#to-open-a-bash-shell-on-the-container>To open a Bash shell on the container:</a></li></ul></li><li><a href=#install>Install</a><ul><li><a href=#uninstall>Uninstall</a></li></ul></li><li><a href=#docker-hub-account>Docker Hub Account</a><ul><li><a href=#log-in-to-the-docker-hub-locally>Log in to the Docker Hub locally</a></li></ul></li><li><a href=#run-docker>Run Docker</a><ul><li><a href=#login-to-the-container>Login to the container</a></li><li><a href=#other-alternatives-to-run-the-container>Other alternatives to run the container</a><ul><li><a href=#to-run-rstudio-server-1>To run RStudio Server:</a></li><li><a href=#to-run-r-from-the-command-line-1>To run R from the command line:</a></li><li><a href=#to-open-a-bash-shell-on-the-container-1>To open a Bash shell on the container:</a></li><li><a href=#check-r-version-into-the-container>Check R Version into the container</a></li></ul></li><li><a href=#stop-docker>Stop Docker</a></li></ul></li><li><a href=#create-your-first-repository-linkhttpsdocsdockercomdocker-hub>Create your first repository <a href=https://docs.docker.com/docker-hub/>Link</a></a><ul><li><a href=#create-a-repository>Create a repository:</a></li><li><a href=#build-and-push-a-container-image-to-docker-hub-from-your-computer>Build and push a container image to Docker Hub from your computer</a><ul><li><a href=#start-by-creating-a-dockerfile-to-specify-your-application>Start by creating a <em>Dockerfile</em> to specify your application</a></li><li><a href=#run-docker-build-to-build-your-docker-image>Run <code>docker build</code> to build your Docker image</a></li><li><a href=#run-docker-run-to-test-your-docker-image-locally>Run <code>docker run</code> to test your Docker image locally</a></li><li><a href=#run-docker-push-to-push-your-docker-image-to-docker-hub>Run <code>docker push</code> to push your Docker image to Docker Hub</a></li></ul></li></ul></li><li><a href=#make-changes-to-the-container-and-create-the-new-image>Make changes to the container and Create the new image</a></li><li><a href=#commands>Commands</a><ul><li><a href=#list-which-docker-machines-are-available-locally>List which docker machines are available locally</a></li><li><a href=#list-running-containers>List running containers</a></li><li><a href=#list-all-containers>List all containers</a></li><li><a href=#resume-a-stopped-container>Resume a stopped container</a></li><li><a href=#shell-into-a-running-container>Shell into a running container</a></li><li><a href=#stop-or-remove-a-cointainer>Stop OR remove a cointainer</a></li><li><a href=#remove-a-image>Remove a image</a></li></ul></li><li><a href=#docker-and-github-actions>Docker and GitHub Actions</a></li><li><a href=#common-problems>Common Problems</a></li><li><a href=#singularity-container>Singularity Container</a></li><li><a href=#resources>Resources</a></li></ul></nav></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=../../sp/>Documentation</a></li><li class="breadcrumb-item active" aria-current=page><a href=../../sp/sp_docker/>SPR Docker container</a></li></ol></nav><div class=td-content><h1>SPR Docker container</h1><blockquote><p>Guidelines from <a href=https://github.com/Bioconductor/bioconductor_docker>bioconductor_docker</a>.</p></blockquote><h1 id=running-the-systempiper-with-docker>Running the <code>systemPipeR</code> with Docker</h1><h2 id=get-a-copy-of-the-public-docker-image>Get a copy of the public docker image</h2><pre><code class=language-bash>docker pull systempipe/systempipe_docker:latest
-</code></pre><h2 id=to-run-rstudio-server>To run RStudio Server:</h2><pre><code class=language-bash>docker run -e PASSWORD=systemPipe -p 8787:8787 \
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.89.4" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../favicons/android-192x192.png" sizes="192x192">
+
+<title>SPR Docker container | sysPipe</title><meta property="og:title" content="SPR Docker container" />
+<meta property="og:description" content="Guidelines from bioconductor_docker.
+ Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/sp/sp_docker/" /><meta property="article:section" content="sp" />
+
+<meta property="article:modified_time" content="2021-12-03T02:15:52+00:00" /><meta property="og:site_name" content="sysPipe" />
+
+<meta itemprop="name" content="SPR Docker container">
+<meta itemprop="description" content="Guidelines from bioconductor_docker.
+ Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787).">
+<meta itemprop="dateModified" content="2021-12-03T02:15:52+00:00" />
+<meta itemprop="wordCount" content="963">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPR Docker container"/>
+<meta name="twitter:description" content="Guidelines from bioconductor_docker.
+ Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest  To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest  You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" as="style">
+<link href="../../scss/main.min.97f24c8604dc06fcb9bdae47d02c3397575bd949378b3a7c1a5a4ba29a5c133c.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../css/prism.css"/>
+
+
+<script src="../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../css/site.css"/>
+<script src="../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page line-numbers">
+    <header>
+     
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="../../">
+	<span class="navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="55" height="59" enable-background="new 0 0 128 128" viewBox="0 0 55 59"><defs id="defs217"><linearGradient id="linearGradient2530"><stop style="stop-color:#a6dae8;stop-opacity:1" id="stop2526" offset="0"/><stop style="stop-color:#a6dae8;stop-opacity:0" id="stop2528" offset="1"/></linearGradient><radialGradient id="radialGradient2534" cx="48.106" cy="96.236" r="19.564" fx="48.106" fy="96.236" gradientTransform="matrix(1,0,0,1.623578,0,-60.010935)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2530"/><meshgradient id="meshgradient2632" x="17.689" y="-106.706" gradientTransform="matrix(0.45556163,0,0,0.45556163,69.688068,2.0372999)" gradientUnits="userSpaceOnUse"><meshrow id="meshrow2634"><meshpatch id="meshpatch2636"><stop style="stop-color:#fff;stop-opacity:1" id="stop2638" path="c 23.5857,-23.5857 61.8257,-23.5857 85.4114,0"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2640" path="c 23.5857,23.5857 23.5857,61.8257 0,85.4114"/><stop style="stop-color:#fff;stop-opacity:1" id="stop2642" path="c -23.5857,23.5857 -61.8257,23.5857 -85.4114,7.10543e-15"/><stop style="stop-color:#d1ecfb;stop-opacity:1" id="stop2644" path="c -23.5857,-23.5857 -23.5857,-61.8257 -1.42109e-14,-85.4114"/></meshpatch></meshrow></meshgradient></defs><g id="g212" transform="translate(0,-69)"><circle id="circle2" cx="97.202" cy="-27.119" r="27.514" transform="rotate(90)" style="opacity:.83600003;fill:url(#meshgradient2632);fill-opacity:1;stroke-width:.45556161"/><g id="g210" transform="matrix(0.45556163,0,0,0.45556163,-2.0372999,69.688068)"><path id="path52" d="m89.338 83.479-3.862.922c-.6-1.295-1.291-2.522-2.061-3.688l2.783-2.633c.666-.633.693-1.683.063-2.356l-4.57-4.83c-.635-.666-1.688-.693-2.354-.065l-2.895 2.737c-1.146-.813-2.356-1.539-3.617-2.162l1.098-3.682c.26-.883-.24-1.806-1.122-2.07l-6.374-1.901c-.88-.259-1.804.24-2.065 1.121l-1.136 3.813c-1.393-.133-2.803-.149-4.221-.06L58.114 64.888C57.9 63.994 57.005 63.44 56.108 63.654l-6.469 1.543c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.013 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.731.89c-.899.215-1.45 1.114-1.237 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.694 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.235 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l6.477-1.539c.895-.213 1.445-1.11 1.232-2.005l-.922-3.865c1.289-.597 2.521-1.281 3.688-2.055l2.633 2.779c.632.672 1.677.697 2.351.066l4.836-4.572c.666-.627.692-1.683.063-2.354l-2.739-2.891c.815-1.147 1.544-2.356 2.169-3.619l3.682 1.1c.883.26 1.804-.242 2.068-1.121l1.899-6.379c.262-.877-.243-1.805-1.116-2.066l-3.814-1.141c.131-1.384.147-2.794.063-4.21l3.734-.891c.893-.213 1.438-1.11 1.228-2.008l-1.541-6.47C91.13 83.815 90.229 83.269 89.338 83.479zm-25.89 23.716c-6.292 1.498-12.605-2.387-14.105-8.678-1.499-6.29 2.386-12.604 8.677-14.104 6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.289-2.387 12.606-8.678 14.105z" style="fill:#2e4b79;fill-opacity:.91176471"/><path id="path54" d="m111.8295 28.871996-3.24301.776905c-.50038-1.091866-1.07658-2.130285-1.72291-3.113347l2.33322-2.223819c.55914-.53448.58189-1.422099.0474-1.989029l-3.83059-4.079229c-.52881-.561204-1.41396-.58602-1.9731-.05536l-2.42231 2.309717c-.96475-.68528-1.976891-1.298023-3.03831-1.824867l.919264-3.10762c.216072-.746364-.200913-1.525178-.940115-1.750423l-5.34121-1.60344c-.739202-.21952-1.510626.200429-1.732387.946793L89.930165 16.37852C88.7645 16.265897 87.583671 16.250626 86.395262 16.32889l-.746784-3.157247c-.181958-.753999-.930637-1.21976-1.683107-1.040328l-5.426502 1.301842c-.754365.181341-1.21684.941066-1.036778 1.695065l.773319 3.264147c-1.082268.500121-2.111464 1.080414-3.091381 1.735151l-2.200548-2.353621c-.53071-.566931-1.412067-.587928-1.978788-.05536l-4.050448 3.863528c-.559141.528753-.585677 1.42019-.05117 1.981394l2.295318 2.445247c-.680446.967791-1.296448 1.989029-1.810099 3.054172l-3.087592-.927705c-.741098-.21761-1.514416.208065-1.736178.950611l-1.595918 5.382979c-.221761.742546.19712 1.525177.936323 1.748513l3.197523.958246c-.109933 1.172039-.1232 2.363166-.04549 3.558111l-3.127393.752091c-.750574.18134-1.218736.939158-1.036779 1.695065l1.294552 5.463151c.180062.757816.930637 1.225486 1.686897 1.044144l3.235431-.776905c.500384 1.089958 1.074687 2.132194 1.719119 3.111438l-2.329435 2.225728c-.56293.532571-.581884 1.42019-.05307 1.985212l3.830584 4.083046c.526918.561204 1.413961.587928 1.9731.05536l2.422309-2.311626c.968544.687189 1.984474 1.30184 3.040206 1.828686l-.917368 3.109528c-.219866.742546.197119 1.527086.936322 1.746605l5.348791 1.601532c.737307.221428 1.514417-.198521 1.728596-.941067l.955277-3.222151c1.165665.106897 2.346493.124075 3.538695.04581l.746783 3.157251c.180062.753998.930636 1.217851 1.67742 1.038418l5.428398-1.301841c.750574-.177523 1.213049-.937249 1.031092-1.691248l-.771424-3.264146c1.082268-.503939 2.115255-1.082322 3.091385-1.735152l2.20813 2.345986c.5326.566931 1.40827.589838 1.97499.05726l4.05235-3.86162c.55914-.528753.58567-1.42019.0531-1.98712l-2.29911-2.441429c.68613-.967791 1.29834-1.98903 1.81768-3.056081l3.08569.927704c.7411.219519 1.51442-.202339 1.73808-.946793l1.59402-5.386796c.21607-.740633-.20471-1.523264-.93633-1.746601l-3.19941-.962063c.11182-1.168222.1213-2.35744.0512-3.552385l3.12739-.752089c.74868-.181342 1.20736-.939158 1.0292-1.696975l-1.29266-5.463148c-.18196-.755907-.93442-1.219759-1.68121-1.038418zM90.123492 48.894003c-5.276767 1.267482-10.572488-2.013844-11.827235-7.324286-1.256645-5.312351 2.003427-10.647608 7.274507-11.911271 5.274872-1.265573 10.568697 2.013844 11.823445 7.326195 1.258539 5.310442-1.997741 10.647607-7.270717 11.909362z" style="fill:#97baed;fill-opacity:1;stroke-width:1.90211201"/><path id="path56" d="m64.166 112.713c-9.08 1.85-18.058-3.824-20.221-12.906-2.165-9.083 3.288-18.198 12.227-20.642l-3.5-14.692-3.03.724c-.899.213-1.451 1.112-1.237 2.005l.921 3.867c-1.289.594-2.518 1.279-3.682 2.055L43.016 70.34c-.637-.671-1.688-.696-2.364-.063l-4.83 4.574c-.665.627-.695 1.681-.063 2.349l2.739 2.895c-.813 1.146-1.542 2.355-2.163 3.616l-3.679-1.098c-.885-.26-1.806.246-2.071 1.125l-1.905 6.375c-.264.877.24 1.806 1.122 2.068l3.812 1.135c-.128 1.39-.147 2.798-.058 4.215l-3.73.89c-.9.215-1.451 1.114-1.238 2.01l1.542 6.469c.213.896 1.109 1.447 2.01 1.232l3.862-.921c.592 1.292 1.28 2.528 2.054 3.688l-2.785 2.634c-.668.632-.693 1.682-.066 2.349l4.57 4.838c.629.664 1.687.694 2.354.063l2.892-2.736c1.151.812 2.361 1.541 3.622 2.165l-1.094 3.684c-.268.879.236 1.808 1.113 2.066l6.382 1.896c.878.263 1.806-.235 2.063-1.113l1.139-3.813c1.389.125 2.798.146 4.218.053l.893 3.74c.213.894 1.105 1.442 1.997 1.229l2.316-.549z" style="fill:url(#radialGradient2534);fill-opacity:1"/><g id="g60" transform="matrix(1.3314607,0,0,1.3314607,69.623325,-30.275292)"><path id="path58" d="m28.131 78.601-.8.19c-.185.045-.419-.051-.52-.214l-.233-.325c-.122-.146-.142-.396-.042-.56l.429-.698c.101-.162.05-.376-.113-.476l-1.079-.664c-.164-.101-.376-.049-.477.111l-.429.699c-.101.161-.332.259-.52.215L23.951 76.816C23.762 76.798 23.57 76.634 23.526 76.45l-.19-.8c-.043-.184-.232-.299-.417-.256l-1.233.295c-.185.045-.3.231-.256.416l.189.799c.044.186-.053.418-.215.519l-.323.235c-.146.123-.397.141-.561.041l-.701-.43C19.66 77.168 19.445 77.22 19.345 77.381l-.664 1.082c-.102.16-.05.375.113.476l.7.429c.159.103.257.334.216.519l-.063.396c-.017.189-.182.381-.367.425l-.798.19c-.184.043-.302.23-.257.416l.294 1.233c.043.185.234.302.418.257l.798-.19c.185-.043.417.052.52.214l.234.324c.122.146.141.397.043.561l-.432.7c-.1.161-.048.377.113.476l1.082.666c.162.098.376.047.475-.113l.43-.698c.101-.164.333-.261.52-.218l.395.063c.189.017.381.183.425.367l.189.798c.046.186.233.301.417.258l1.234-.295c.185-.045.301-.23.257-.418l-.19-.797c-.043-.188.053-.419.215-.52l.323-.235c.147-.122.397-.14.562-.04l.697.432c.164.098.377.047.477-.113l.664-1.082c.1-.161.048-.377-.113-.477l-.7-.429c-.161-.101-.258-.334-.215-.519l.063-.396c.015-.189.182-.381.367-.425l.798-.189c.184-.045.301-.233.255-.417l-.293-1.234c-.045-.186-.233-.3-.416-.257zm-4.209 3.73c-.897.213-1.8-.342-2.012-1.24-.215-.896.34-1.8 1.237-2.013.897-.215 1.8.339 2.014 1.237.215.899-.341 1.801-1.239 2.016z" style="fill:#a6dae9"/></g><path id="path72" d="m56.823 79.401 1.196 5.013c6.291-1.499 12.606 2.385 14.106 8.677 1.498 6.288-2.387 12.605-8.678 14.104l1.193 5.013C73.7 110.049 79.293 100.952 77.136 91.895 74.978 82.837 65.883 77.242 56.823 79.401z" style="fill:#3e5a85;fill-opacity:1"/><g id="g76"><path id="path74" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z" style="fill:#a6dae9;fill-opacity:1"/></g><g id="g208" transform="matrix(1.1075584,0,0,1.1075584,-60.874681,-16.511015)"><g id="g122"><path id="path102" d="m88.853 44.64c0 .26-.209.471-.471.471h-3.201c-.259.0-.47-.21-.47-.471v-6.965c0-.26.211-.471.47-.471h3.201c.262.0.471.21.471.471z" style="fill:#8fc4d7"/><path id="path104" d="m82.745 45.318c.152.21.107.505-.104.658l-2.59 1.881c-.211.152-.505.106-.656-.104L75.3 42.118c-.153-.21-.108-.504.104-.657l2.59-1.881c.21-.152.503-.106.656.104z" style="fill:#8fc4d7"/><path id="path106" d="m78.205 49.458c.247.08.382.346.302.593l-.988 3.043c-.08.247-.346.382-.594.302L70.3 51.244C70.054 51.163 69.919 50.898 69.997 50.65l.988-3.042c.082-.247.347-.382.596-.302z" style="fill:#8fc4d7"/><path id="path108" d="m76.963 55.475c.248-.079.515.055.593.303l.99 3.043c.081.247-.057.513-.302.594l-6.626 2.151c-.246.081-.512-.055-.592-.301l-.988-3.044c-.081-.248.054-.513.302-.594z" style="fill:#8fc4d7"/><path id="path110" d="m79.496 61.073c.153-.21.448-.257.657-.104l2.59 1.88c.209.152.257.447.104.657l-4.095 5.636c-.151.213-.446.258-.655.104l-2.591-1.881c-.21-.152-.256-.446-.104-.657z" style="fill:#8fc4d7"/><path id="path112" d="m84.835 64.113c.001-.26.213-.471.473-.471h3.199c.262.0.473.21.473.471v6.966c0 .26-.213.471-.473.471h-3.199c-.26.0-.472-.211-.473-.471z" style="fill:#8fc4d7"/><path id="path114" d="m90.942 63.434c-.15-.211-.105-.505.104-.658l2.59-1.88c.21-.153.505-.106.657.104l4.093 5.635c.153.212.106.507-.104.657l-2.589 1.881c-.213.152-.504.107-.657-.104z" style="fill:#8fc4d7"/><path id="path116" d="M95.483 59.295C95.237 59.213 95.1 58.949 95.18 58.702l.988-3.045c.082-.246.349-.381.595-.301l6.623 2.152c.248.08.381.347.303.593l-.989 3.044c-.08.246-.343.381-.593.302z" style="fill:#8fc4d7"/><path id="path118" d="m96.727 53.277c-.248.08-.516-.055-.595-.301l-.986-3.045c-.082-.247.053-.512.301-.592l6.622-2.151c.248-.081.514.055.595.301l.989 3.044c.08.247-.057.511-.303.593z" style="fill:#8fc4d7"/><path id="path120" d="m94.192 47.68c-.153.21-.447.258-.657.104L90.944 45.902C90.737 45.75 90.688 45.455 90.841 45.246l4.093-5.635c.152-.211.448-.257.658-.105l2.587 1.882c.213.152.258.445.104.658z" style="fill:#8fc4d7"/></g><g id="g206"><circle id="circle124" cx="86.845" cy="54.376" r="14.798" style="fill:#8fc4d7"/><circle id="circle126" cx="86.844" cy="54.376" r="13.872" style="fill:#8fc4d7"/><circle id="circle128" cx="86.844" cy="54.376" r="10.791" style="fill:#fff"/><path id="path130" d="m77.21 55.148c0-5.959 4.83-10.791 10.79-10.791 1.966.0 3.806.528 5.396 1.446-1.818-1.39-4.088-2.217-6.551-2.217-5.959.0-10.792 4.831-10.792 10.791.0 3.994 2.175 7.48 5.397 9.345-2.577-1.973-4.24-5.078-4.24-8.574z" style="fill:#d1ecfb"/><circle id="circle132" cx="86.844" cy="54.376" r="1.927" style="fill:#3e5984;fill-opacity:1"/></g></g><g id="g76-8" transform="translate(27.024379,-56.342917)" style="fill:#2e4b79;fill-opacity:1"><path style="fill:#2e4b79;fill-opacity:1" id="path74-1" d="m60.719 113.066c-8.016.0-14.913-5.452-16.773-13.26-2.206-9.258 3.53-18.585 12.786-20.792 1.319-.313 2.67-.474 4.015-.474 8.017.0 14.916 5.453 16.778 13.263 2.205 9.257-3.532 18.583-12.791 20.788-1.32.316-2.67.475-4.015.475zm.026-33.732c-1.282.0-2.57.151-3.831.452-8.831 2.105-14.304 11.005-12.198 19.837 1.774 7.448 8.355 12.65 16.002 12.65 1.283.0 2.572-.151 3.831-.451 8.833-2.105 14.308-11.004 12.202-19.833C74.976 84.538 68.394 79.334 60.745 79.334z"/></g></g></g></svg></span><span class="font-weight-bold">sysPipe</span>
+	</a>
+	<row class="header-switch">
+	  	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="sidebarSwitch" checked=true>
+        <label class="custom-control-label" for="sidebarSwitch">sidebar</label>
+      </div>
+    	<div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="tocSwitch" checked=true>
+        <label class="custom-control-label" for="tocSwitch">toc</label>
+      </div>
+	</row>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/team/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Our Team
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/publications/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Publications
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/acknowledgement/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Acknowledgement
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../about/contact/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Contact
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../sp/" id="navbarDropdown" role="button">
+          	systemPipeR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeR Package
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/introduction/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/gettingstarted/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Getting Started
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/spr_run/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 How to run a Workflow
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/steps/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow steps overview
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/templates/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Workflow Templates
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/cwl_syntax/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 CWL syntax
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/cwl_and_spr/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR and CWL
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/sprinstall/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR detailed installation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sp/spt/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRTools
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spt/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Data Visualization
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/spr/spr_funcs/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Reference Manual
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sp/sprdata/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 systemPipeRdata
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/sprdata/systempiperdata/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Vignette
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../sp/sprdata/newwf/"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Rules
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../spr/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Links
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPR GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata Bioconductor
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPRdata GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
+              style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 SPT GitHub
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../sps/" id="navbarDropdown" role="button">
+          	Shiny
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../sps/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 SPS Documentation
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/systemPipeR/systemPipeShiny"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Github
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../spr_wf" id="navbarDropdown" role="button">
+          	Workflows
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../spr_wf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Collection
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../spr_wf/installwf/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 How to install Workflow
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../spr_wf/newwf"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Rules to create Workflow
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../outreach/" id="navbarDropdown" role="button">
+          	Outreach
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../outreach/conferences/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Conferences
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../outreach/presentations/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../outreach/videos/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Videos Tutorials
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../news/" id="navbarDropdown" role="button">
+          	News
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../news/release_3_13/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor 3.13
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../news/release_3_12/"
+              style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor 3.12
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="../../offline-search-index.b4e0e2cd9961787f109e1a8c806f50d8.json"
+  data-offline-search-base-href="../../"
+  data-offline-search-max-results="10"
+>
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="../../offline-search-index.b4e0e2cd9961787f109e1a8c806f50d8.json"
+  data-offline-search-base-href="../../"
+  data-offline-search-max-results="10"
+>
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="sp">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/spr/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeR</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spspr">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprintroduction" href="../../sp/spr/introduction/">Introduction</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprgettingstarted" href="../../sp/spr/gettingstarted/">Getting Started</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_run" href="../../sp/spr/spr_run/">How to run a Workflow</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsteps" href="../../sp/spr/steps/">Workflow steps overview</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprtemplates" href="../../sp/spr/templates/">Workflow Templates</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprcwl_syntax" href="../../sp/spr/cwl_syntax/">CWL syntax</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprcwl_and_spr" href="../../sp/spr/cwl_and_spr/">SPR and CWL</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsprinstall" href="../../sp/spr/sprinstall/">SPR detailed installation instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprspr_funcs" href="../../sp/spr/spr_funcs/">Help Manual</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsp_docker" href="../../sp/spr/sp_docker/">SPR Docker container</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spspreditor" href="../../sp/spr/editor/">Workflow Plot Editor</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprviz_editorbower_componentssvg-pan-zoomissue_template" href="../../sp/spr/viz_editor/bower_components/svg-pan-zoom/issue_template/"></a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprsteps_oldversion" href="../../sp/spr/steps_oldversion/">Workflow steps overview</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/spt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeTools</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spspt">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsptsystempipetools" href="../../sp/spt/systempipetools/">Data Visualizations</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../sp/sprdata/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">systemPipeRdata</a>
+  </li>
+  <ul>
+    <li class="collapse " id="spsprdata">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatasystempiperdata" href="../../sp/sprdata/systempiperdata/">Workflow templates and sample data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-spsprdatanewwf" href="../../sp/sprdata/newwf/">Rules to create a new Workflow Template</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-spsp_docker" href="../../sp/sp_docker/">SPR Docker container</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          
+          
+
+          
+
+          
+          
+              <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+                
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+      <a href="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/content/en/sp/SP_docker.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
+    
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/blob/main/content/en/sp/SP_docker.md" target="_blank"><i class="fab fa-github fa-fw"></i> View on Github</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/edit/main/content/en/sp/SP_docker.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/systemPipeR/systemPipeR.github.io/new/main/content/en/sp/SP_docker.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    
+      
+      <a href="https://github.com/systemPipeR/systemPipeR.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#running-the-systempiper-with-docker">Running the <code>systemPipeR</code> with Docker</a>
+          <ul>
+            <li><a href="#get-a-copy-of-the-public-docker-image">Get a copy of the public docker image</a></li>
+            <li><a href="#to-run-rstudio-server">To run RStudio Server:</a></li>
+            <li><a href="#to-run-r-from-the-command-line">To run R from the command line:</a></li>
+            <li><a href="#to-open-a-bash-shell-on-the-container">To open a Bash shell on the container:</a></li>
+          </ul>
+        </li>
+        <li><a href="#install">Install</a>
+          <ul>
+            <li><a href="#uninstall">Uninstall</a></li>
+          </ul>
+        </li>
+        <li><a href="#docker-hub-account">Docker Hub Account</a>
+          <ul>
+            <li><a href="#log-in-to-the-docker-hub-locally">Log in to the Docker Hub locally</a></li>
+          </ul>
+        </li>
+        <li><a href="#run-docker">Run Docker</a>
+          <ul>
+            <li><a href="#login-to-the-container">Login to the container</a></li>
+          </ul>
+        </li>
+        <li><a href="#other-alternatives-to-run-the-container">Other alternatives to run the container</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#to-run-rstudio-server-1">To run RStudio Server:</a></li>
+                <li><a href="#to-run-r-from-the-command-line-1">To run R from the command line:</a></li>
+                <li><a href="#to-open-a-bash-shell-on-the-container-1">To open a Bash shell on the container:</a></li>
+                <li><a href="#check-r-version-into-the-container">Check R Version into the container</a></li>
+              </ul>
+            </li>
+            <li><a href="#stop-docker">Stop Docker</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-your-first-repository-linkhttpsdocsdockercomdocker-hub">Create your first repository <a href="https://docs.docker.com/docker-hub/">Link</a></a>
+          <ul>
+            <li><a href="#create-a-repository">Create a repository:</a></li>
+            <li><a href="#build-and-push-a-container-image-to-docker-hub-from-your-computer">Build and push a container image to Docker Hub from your computer</a>
+              <ul>
+                <li><a href="#start-by-creating-a-dockerfile-to-specify-your-application">Start by creating a <em>Dockerfile</em> to specify your application</a></li>
+                <li><a href="#run-docker-build-to-build-your-docker-image">Run <code>docker build</code> to build your Docker image</a></li>
+                <li><a href="#run-docker-run-to-test-your-docker-image-locally">Run <code>docker run</code> to test your Docker image locally</a></li>
+                <li><a href="#run-docker-push-to-push-your-docker-image-to-docker-hub">Run <code>docker push</code> to push your Docker image to Docker Hub</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#make-changes-to-the-container-and-create-the-new-image">Make changes to the container and Create the new image</a></li>
+        <li><a href="#commands">Commands</a>
+          <ul>
+            <li><a href="#list-which-docker-machines-are-available-locally">List which docker machines are available locally</a></li>
+            <li><a href="#list-running-containers">List running containers</a></li>
+            <li><a href="#list-all-containers">List all containers</a></li>
+            <li><a href="#resume-a-stopped-container">Resume a stopped container</a></li>
+            <li><a href="#shell-into-a-running-container">Shell into a running container</a></li>
+            <li><a href="#stop-or-remove-a-cointainer">Stop OR remove a cointainer</a></li>
+            <li><a href="#remove-a-image">Remove a image</a></li>
+          </ul>
+        </li>
+        <li><a href="#docker-and-github-actions">Docker and GitHub Actions</a></li>
+        <li><a href="#common-problems">Common Problems</a></li>
+        <li><a href="#singularity-container">Singularity Container</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+              <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+                
+  
+
+                <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../sp/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="../../sp/sp_docker/">SPR Docker container</a>
+</li>
+
+	</ol>
+</nav	>
+
+                
+<div class="td-content">
+	<h1>SPR Docker container</h1>
+    
+	       
+	<blockquote>
+<p>Guidelines from <a href="https://github.com/Bioconductor/bioconductor_docker">bioconductor_docker</a>.</p>
+</blockquote>
+<h2 id="running-the-systempiper-with-docker">Running the <code>systemPipeR</code> with Docker</h2>
+<h3 id="get-a-copy-of-the-public-docker-image">Get a copy of the public docker image</h3>
+<pre><code class="language-bash">docker pull systempipe/systempipe_docker:latest
+</code></pre>
+<h3 id="to-run-rstudio-server">To run RStudio Server:</h3>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 \
         systempipe/systempipe_docker:latest
-</code></pre><p>You can then open a web browser pointing to your docker host on
-port 8787. If you&rsquo;re on Linux and using default settings, the docker
+</code></pre>
+<p>You can then open a web browser pointing to your docker host on
+port 8787.  If you&rsquo;re on Linux and using default settings, the docker
 host is <code>127.0.0.1</code> (or <code>localhost</code>, so the full URL to RStudio would
 be <code>http://localhost:8787)</code>. If you are on Mac or Windows and running
 <code>Docker Toolbox</code>, you can determine the docker host with the
-<code>docker-machine ip default</code> command.</p><p>In the above command, <code>-e PASSWORD=</code> is setting the RStudio password
+<code>docker-machine ip default</code> command.</p>
+<p>In the above command, <code>-e PASSWORD=</code> is setting the RStudio password
 and is required by the RStudio Docker image. It can be whatever you
 like except it cannot be <code>rstudio</code>. Log in to RStudio with the
 username <code>rstudio</code> and whatever password was specified, in this
-example <code>systemPipe</code>.</p><h2 id=to-run-r-from-the-command-line>To run R from the command line:</h2><pre><code class=language-bash>docker run -it --user rstudio systempipe/systempipe_docker:latest R
-</code></pre><h2 id=to-open-a-bash-shell-on-the-container>To open a Bash shell on the container:</h2><pre><code class=language-bash>docker run -it --user rstudio systempipe/systempipe_docker:latest bash
-</code></pre><hr><div id=Install><h1 id=install>Install</h1><p><strong>Prerequisites</strong>:
-<a href=https://docs.docker.com/installation/>Linux</a>
-<a href=http://docs.docker.com/installation/mac/>Mac</a>
-<a href=http://docs.docker.com/installation/windows/>Windows</a></p><p>Instructions <a href=https://docs.docker.com/engine/install/ubuntu/>here</a> on how to install Docker Engine on Ubuntu.</p><pre><code class=language-bash>sudo apt-get update
+example <code>systemPipe</code>.</p>
+<h3 id="to-run-r-from-the-command-line">To run R from the command line:</h3>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest R
+</code></pre>
+<h3 id="to-open-a-bash-shell-on-the-container">To open a Bash shell on the container:</h3>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+</code></pre>
+<!-- # Full Documentation -->
+<!-- This tutorial shows how to create, access, run, build a Docker container. -->
+<!-- ## Table of Content -->
+<!-- 1. [Install](#Install) -->
+<!-- 2. [Docker Hub Account](#dockerHub) -->
+<!-- 3. [Log in to the Docker Hub](#login) -->
+<!-- 4. [Run Docker](#run) -->
+<!-- 5. [Create your first repository](#create) -->
+<!-- 6. [Make changes to the container and Create the new image](#changes) -->
+<!-- 7. [Commands](#commands) -->
+<!-- 8. [Docker and GitHub Actions](#github) -->
+<!-- 9. [Common Problems](#faq) -->
+<!-- 10. [Singularity Container](#singularity) -->
+<!-- 11. [Resources](#resources) -->
+<hr>
+<div id='Install'/>
+<h2 id="install">Install</h2>
+<p><strong>Prerequisites</strong>:
+<a href="https://docs.docker.com/installation/">Linux</a>
+<a href="http://docs.docker.com/installation/mac/">Mac</a>
+<a href="http://docs.docker.com/installation/windows/">Windows</a></p>
+<p>Instructions <a href="https://docs.docker.com/engine/install/ubuntu/">here</a> on how to install Docker Engine on Ubuntu.</p>
+<pre><code class="language-bash">sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -84,28 +1037,73 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
  
 ## Verify that Docker Engine is installed correctly by running the hello-world image.
 sudo docker run hello-world
-</code></pre><h2 id=uninstall>Uninstall</h2><pre><code class=language-bash>sudo apt-get remove docker docker-engine docker.io containerd runc
-</code></pre><hr><div id=dockerHUb><h1 id=docker-hub-account>Docker Hub Account</h1><p>To be able to share a custom image, please go to <a href=https://hub.docker.com>https://hub.docker.com</a> and
-create a free account.</p><hr><div id=login><h2 id=log-in-to-the-docker-hub-locally>Log in to the Docker Hub locally</h2><p>Login with your Docker ID to push and pull images from Docker Hub. If you don&rsquo;t
-have a Docker ID, head over to <a href=https://hub.docker.com>https://hub.docker.com</a> to create one.</p><pre><code class=language-bash>docker login
+</code></pre>
+<h3 id="uninstall">Uninstall</h3>
+<pre><code class="language-bash">sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre>
+<hr>
+<div id='dockerHUb'/>
+<h2 id="docker-hub-account">Docker Hub Account</h2>
+<p>To be able to share a custom image, please go to <a href="https://hub.docker.com">https://hub.docker.com</a> and
+create a free account.</p>
+<hr>
+<div id='login'/>
+<h3 id="log-in-to-the-docker-hub-locally">Log in to the Docker Hub locally</h3>
+<p>Login with your Docker ID to push and pull images from Docker Hub. If you don&rsquo;t
+have a Docker ID, head over to <a href="https://hub.docker.com">https://hub.docker.com</a> to create one.</p>
+<pre><code class="language-bash">docker login
 # Username: XXXX
 # Password: xxx
 # Login Succeeded
-</code></pre><hr><div id=run><h1 id=run-docker>Run Docker</h1><pre><code class=language-bash>docker run-dP systempipe/systempipe_docker:latest
-</code></pre><p>Make sure the container is running:</p><pre><code class=language-bash>docker ps
+</code></pre>
+<hr>
+<div id='run'/>
+<h2 id="run-docker">Run Docker</h2>
+<pre><code class="language-bash">docker run-dP systempipe/systempipe_docker:latest
+</code></pre>
+<p>Make sure the container is running:</p>
+<pre><code class="language-bash">docker ps
 # CONTAINER ID   IMAGE                                    COMMAND   CREATED         STATUS         PORTS                     # NAMES
 #5d007f66a7b3   systempipe/systempipe_docker:latest   &quot;/init&quot;   5 minutes ago   Up 5 minutes   0.0.0.0:49153-&gt;8787/tcp   determined_easle
-</code></pre><h2 id=login-to-the-container>Login to the container</h2><p>Please check the <code>NAMES</code> in this example, <code>determined_easle,</code> to login into the container.</p><pre><code class=language-bash>docker exec -it determined_easle /bin/bash
-</code></pre><h2 id=other-alternatives-to-run-the-container>Other alternatives to run the container</h2><h3 id=to-run-rstudio-server-1>To run RStudio Server:</h3><pre><code class=language-bash>docker run -e PASSWORD=systemPipe -p 8787:8787 \
+</code></pre>
+<h3 id="login-to-the-container">Login to the container</h3>
+<p>Please check the <code>NAMES</code> in this example, <code>determined_easle,</code> to login into the container.</p>
+<pre><code class="language-bash">docker exec -it determined_easle /bin/bash
+</code></pre>
+<h2 id="other-alternatives-to-run-the-container">Other alternatives to run the container</h2>
+<h4 id="to-run-rstudio-server-1">To run RStudio Server:</h4>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 \
     systempipe/systempipe_docker:latest
-</code></pre><h3 id=to-run-r-from-the-command-line-1>To run R from the command line:</h3><pre><code class=language-bash>docker run -it --user rstudio systempipe/systempipe_docker:latest R
-</code></pre><h3 id=to-open-a-bash-shell-on-the-container-1>To open a Bash shell on the container:</h3><pre><code class=language-bash>docker run -it --user rstudio systempipe/systempipe_docker:latest bash
-</code></pre><h3 id=check-r-version-into-the-container>Check R Version into the container</h3><pre><code class=language-bash>R --version
-</code></pre><h2 id=stop-docker>Stop Docker</h2><pre><code class=language-bash>docker stop determined_easle
-</code></pre><hr><div id=create><h1 id=create-your-first-repository-linkhttpsdocsdockercomdocker-hub>Create your first repository <a href=https://docs.docker.com/docker-hub/>Link</a></h1><h2 id=create-a-repository>Create a repository:</h2><ul><li>Sign in to Docker Hub.</li><li>Click Create a Repository on the Docker Hub welcome page:</li><li>Name it <your-username>/my-repo.</li><li>Click Create.</li></ul><h2 id=build-and-push-a-container-image-to-docker-hub-from-your-computer>Build and push a container image to Docker Hub from your computer</h2><h3 id=start-by-creating-a-dockerfile-to-specify-your-application>Start by creating a <em>Dockerfile</em> to specify your application</h3><pre><code class=language-bash>mkdir docker_test
+</code></pre>
+<h4 id="to-run-r-from-the-command-line-1">To run R from the command line:</h4>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest R
+</code></pre>
+<h4 id="to-open-a-bash-shell-on-the-container-1">To open a Bash shell on the container:</h4>
+<pre><code class="language-bash">docker run -it --user rstudio systempipe/systempipe_docker:latest bash
+</code></pre>
+<h4 id="check-r-version-into-the-container">Check R Version into the container</h4>
+<pre><code class="language-bash">R --version
+</code></pre>
+<h3 id="stop-docker">Stop Docker</h3>
+<pre><code class="language-bash">docker stop determined_easle
+</code></pre>
+<hr>
+<div id='create'/>
+<h2 id="create-your-first-repository-linkhttpsdocsdockercomdocker-hub">Create your first repository <a href="https://docs.docker.com/docker-hub/">Link</a></h2>
+<h3 id="create-a-repository">Create a repository:</h3>
+<ul>
+<li>Sign in to Docker Hub.</li>
+<li>Click Create a Repository on the Docker Hub welcome page:</li>
+<li>Name it <your-username>/my-repo.</li>
+<li>Click Create.</li>
+</ul>
+<h3 id="build-and-push-a-container-image-to-docker-hub-from-your-computer">Build and push a container image to Docker Hub from your computer</h3>
+<h4 id="start-by-creating-a-dockerfile-to-specify-your-application">Start by creating a <em>Dockerfile</em> to specify your application</h4>
+<pre><code class="language-bash">mkdir docker_test
 cd docker_test
 touch Dockerfile
-</code></pre><pre><code class=language-bash># Docker inheritance
+</code></pre>
+<pre><code class="language-bash"># Docker inheritance
 FROM systempipe/systempipe_docker:latest
 
 ## Install BiocStyle
@@ -127,26 +1125,76 @@ LABEL name=&quot;systempipe/systempipe_docker&quot; \
       maintainer=&quot;email@gmail.com&quot; \
       description=&quot;Bioconductor docker image containing the systemPipeR Project&quot; \
       license=&quot;Artistic-2.0&quot;
-</code></pre><h3 id=run-docker-build-to-build-your-docker-image>Run <code>docker build</code> to build your Docker image</h3><pre><code class=language-bash>docker build -t systempipe/systempipe_docker . 
-</code></pre><h3 id=run-docker-run-to-test-your-docker-image-locally>Run <code>docker run</code> to test your Docker image locally</h3><pre><code class=language-bash>docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
-</code></pre><h3 id=run-docker-push-to-push-your-docker-image-to-docker-hub>Run <code>docker push</code> to push your Docker image to Docker Hub</h3><pre><code class=language-bash>docker push systempipe/systempipe_docker
-</code></pre><ul><li>Your repository in Docker Hub should now display a new latest tag under <code>Tags</code></li></ul><hr><div id=changes><h1 id=make-changes-to-the-container-and-create-the-new-image>Make changes to the container and Create the new image</h1><p>Create a folder, for example:</p><pre><code class=language-bash>docker run -dP systempipe/systempipe_docker
+</code></pre>
+<h4 id="run-docker-build-to-build-your-docker-image">Run <code>docker build</code> to build your Docker image</h4>
+<pre><code class="language-bash">docker build -t systempipe/systempipe_docker . 
+</code></pre>
+<h4 id="run-docker-run-to-test-your-docker-image-locally">Run <code>docker run</code> to test your Docker image locally</h4>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:latest
+</code></pre>
+<h4 id="run-docker-push-to-push-your-docker-image-to-docker-hub">Run <code>docker push</code> to push your Docker image to Docker Hub</h4>
+<pre><code class="language-bash">docker push systempipe/systempipe_docker
+</code></pre>
+<ul>
+<li>Your repository in Docker Hub should now display a new latest tag under <code>Tags</code></li>
+</ul>
+<hr>
+<div id='changes'/>
+<h2 id="make-changes-to-the-container-and-create-the-new-image">Make changes to the container and Create the new image</h2>
+<p>Create a folder, for example:</p>
+<pre><code class="language-bash">docker run -dP systempipe/systempipe_docker
 docker ps ## To check the NAME &lt;lucid_grothendieck&gt;
 docker exec -it lucid_grothendieck /bin/bash
 root@33c758eb1626:/# R
-</code></pre><pre><code class=language-bash>setwd(&quot;home/rstudio/&quot;)
+</code></pre>
+<pre><code class="language-bash">setwd(&quot;home/rstudio/&quot;)
 systemPipeRdata::genWorkenvir(&quot;rnaseq&quot;)
-</code></pre><pre><code class=language-bash>exit
+</code></pre>
+<pre><code class="language-bash">exit
 docker commit -m &quot;Added rnaseq template&quot; -a &quot;Dani Cassol&quot; lucid_grothendieck dcassol/systempipeworkshop2021:rnaseq
 docker push systempipe/systempipe_docker:rnaseq
-</code></pre><p>Run the new image:</p><pre><code class=language-bash>docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnaseq
-</code></pre><hr><div id=commands><h1 id=commands>Commands</h1><h2 id=list-which-docker-machines-are-available-locally>List which docker machines are available locally</h2><p><code>{bash, eval=FALSE}docker images</code></p><h2 id=list-running-containers>List running containers</h2><p><code>{bash, eval=FALSE}docker ps</code></p><h2 id=list-all-containers>List all containers</h2><p><code>{bash, eval=FALSE}docker ps -a</code></p><h2 id=resume-a-stopped-container>Resume a stopped container</h2><p><code>{bash, eval=FALSE}docker start &lt;CONTAINER ID></code></p><h2 id=shell-into-a-running-container>Shell into a running container</h2><p><code>{bash, eval=FALSE}docker exec -it &lt;CONTAINER ID> /bin/bash</code></p><h2 id=stop-or-remove-a-cointainer>Stop OR remove a cointainer</h2><p><code>{bash, eval=FALSE}docker stop &lt;CONTAINER ID></code>
-<code>{bash, eval=FALSE}docker rm &lt;CONTAINER ID></code></p><h2 id=remove-a-image>Remove a image</h2><p><code>{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq</code></p><hr><div id=github><h1 id=docker-and-github-actions>Docker and GitHub Actions</h1><ol><li>To create a new token, go to Docker Hub Settings</li></ol><p>1.1. Account Settings &#187; Security &#187; New Access Token
-1.2. Add Access Token Description &#187; Create
-1.3. Copy the Access Token &#187; Copy and Close</p><ol start=2><li>Go to the Repository at GitHub</li></ol><p>2.1. Settings > Secrets > New repository secret
+</code></pre>
+<p>Run the new image:</p>
+<pre><code class="language-bash">docker run -e PASSWORD=systemPipe -p 8787:8787 systempipe/systempipe_docker:rnaseq
+</code></pre>
+<hr>
+<div id='commands'/>
+<h2 id="commands">Commands</h2>
+<h3 id="list-which-docker-machines-are-available-locally">List which docker machines are available locally</h3>
+<p><code>{bash, eval=FALSE}docker images</code></p>
+<h3 id="list-running-containers">List running containers</h3>
+<p><code>{bash, eval=FALSE}docker ps</code></p>
+<h3 id="list-all-containers">List all containers</h3>
+<p><code>{bash, eval=FALSE}docker ps -a</code></p>
+<h3 id="resume-a-stopped-container">Resume a stopped container</h3>
+<p><code>{bash, eval=FALSE}docker start &lt;CONTAINER ID&gt;</code></p>
+<h3 id="shell-into-a-running-container">Shell into a running container</h3>
+<p><code>{bash, eval=FALSE}docker exec -it &lt;CONTAINER ID&gt; /bin/bash</code></p>
+<h3 id="stop-or-remove-a-cointainer">Stop OR remove a cointainer</h3>
+<p><code>{bash, eval=FALSE}docker stop &lt;CONTAINER ID&gt;</code>
+<code>{bash, eval=FALSE}docker rm &lt;CONTAINER ID&gt;</code></p>
+<h3 id="remove-a-image">Remove a image</h3>
+<p><code>{bash, eval=FALSE}docker rmi dcassol/systempipeworkshop2021:rnaseq</code></p>
+<hr>
+<div id='github'/>
+<h2 id="docker-and-github-actions">Docker and GitHub Actions</h2>
+<ol>
+<li>To create a new token, go to Docker Hub Settings</li>
+</ol>
+<p>1.1. Account Settings &raquo; Security &raquo; New Access Token
+1.2. Add Access Token Description &raquo; Create
+1.3. Copy the Access Token &raquo; Copy and Close</p>
+<ol start="2">
+<li>Go to the Repository at GitHub</li>
+</ol>
+<p>2.1. Settings &gt; Secrets &gt; New repository secret
 2.2. Create a new secret with the name <code>DOCKER_HUB_USERNAME</code> and your <code>Docker ID</code> as value
 2.3. Click at Add secret
-2.4. Create a new secret with the name <code>DOCKER_HUB_ACCESS_TOKEN</code> and your <code>Personal Access Token (PAT)</code> as value (generated in the previous step)</p><ol start=3><li>Set up the GitHub Actions workflow</li></ol><pre><code class=language-bash>    steps:
+2.4. Create a new secret with the name <code>DOCKER_HUB_ACCESS_TOKEN</code> and your <code>Personal Access Token (PAT)</code> as value (generated in the previous step)</p>
+<ol start="3">
+<li>Set up the GitHub Actions workflow</li>
+</ol>
+<pre><code class="language-bash">    steps:
     
       - name: Checkout Repo 
         uses: actions/checkout@v2
@@ -156,16 +1204,135 @@ docker push systempipe/systempipe_docker:rnaseq
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-</code></pre><hr><div id=faq><h1 id=common-problems>Common Problems</h1><pre><code class=language-bash>## Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/auth: dial unix /var/run/docker.sock: connect: permission denied
-</code></pre><p>Solution:</p><pre><code class=language-bash>sudo chmod 666 /var/run/docker.sock
-</code></pre><hr><div id=singularity><h1 id=singularity-container>Singularity Container</h1><p>Please download the Docker image of systemPipe, as follow:</p><pre><code class=language-bash>singularity pull docker://systempipe/systempipe_docker:latest
-</code></pre><p>You can also use the <code>build</code> command to download pre-built images from Docker.
+</code></pre>
+<hr>
+<div id='faq'/>
+<h2 id="common-problems">Common Problems</h2>
+<pre><code class="language-bash">## Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/auth: dial unix /var/run/docker.sock: connect: permission denied
+</code></pre>
+<p>Solution:</p>
+<pre><code class="language-bash">sudo chmod 666 /var/run/docker.sock
+</code></pre>
+<hr>
+<div id='singularity'/>
+<h2 id="singularity-container">Singularity Container</h2>
+<p>Please download the Docker image of systemPipe, as follow:</p>
+<pre><code class="language-bash">singularity pull docker://systempipe/systempipe_docker:latest
+</code></pre>
+<p>You can also use the <code>build</code> command to download pre-built images from Docker.
 Unlike <code>pull</code>, <code>build</code> will convert the image to the latest Singularity image format after
-downloading it.</p><pre><code class=language-bash>singularity build systempipe_docker_latest.sif docker://systempipe/systempipe_docker:latest
-</code></pre><p>To run the container:</p><pre><code class=language-bash>singularity shell systempipe_docker_latest.sif
-</code></pre><hr><div id=resources><h1 id=resources>Resources</h1><ul><li><a href=https://www.mirantis.com/blog/how-do-i-create-a-new-docker-image-for-my-application/>Docker Run: How to create images from an application</a></li><li><a href=https://docs.docker.com/docker-hub/>Docker Hub Quickstart</a></li><li><a href=https://docs.docker.com/ci-cd/github-actions/>Configure GitHub Actions</a></li><li><a href=https://sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images>Singularity</a></li></ul><div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-25: <a href=https://github.com/systemPipeR/systemPipeR.github.io/commit/d91cac166fa18aa0a8dc36015e1ae1844a1ae48e>Merge pull request #58 from systemPipeR/dependabot/npm_and_yarn/autoprefixer-10.4.5 (d91cac1)</a></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Bioconductor aria-label=Bioconductor><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html><i class="fa fa-dna"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Find an issue?" aria-label="Find an issue?"><a class=text-white target=_blank rel="noopener noreferrer" href=https://github.com/systemPipeR/systemPipeR/issues><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"><small class=text-white>&copy; 2022 The systemPipe Project All Rights Reserved</small><p class=mt-2><a href=../../about/>About systemPipe Project</a></p></div></div></div></footer></div><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script><script>(function(){var i,text,code,codes=document.getElementsByTagName('code');for(i=0;i<codes.length;){code=codes[i];if(code.parentNode.tagName!=='PRE'&&code.childElementCount===0){text=code.textContent;if(/^\$[^$]/.test(text)&&/[^$]\$$/.test(text)){text=text.replace(/^\$/,'\\(').replace(/\$$/,'\\)');code.textContent=text;}
-if(/^\\\((.|\s)+\\\)$/.test(text)||/^\\\[(.|\s)+\\\]$/.test(text)||/^\$(.|\s)+\$$/.test(text)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)){code.outerHTML=code.innerHTML;continue;}}
-i++;}})();</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script type=text/x-mathjax-config>
+downloading it.</p>
+<pre><code class="language-bash">singularity build systempipe_docker_latest.sif docker://systempipe/systempipe_docker:latest
+</code></pre>
+<p>To run the container:</p>
+<pre><code class="language-bash">singularity shell systempipe_docker_latest.sif
+</code></pre>
+<hr>
+<div id='resources'/>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.mirantis.com/blog/how-do-i-create-a-new-docker-image-for-my-application/">Docker Run: How to create images from an application</a></li>
+<li><a href="https://docs.docker.com/docker-hub/">Docker Hub Quickstart</a></li>
+<li><a href="https://docs.docker.com/ci-cd/github-actions/">Configure GitHub Actions</a></li>
+<li><a href="https://sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images">Singularity</a></li>
+</ul>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-12-03: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/aedac95e8ab17b2e09b222b2201c2e5364490e47">Bot build site (aedac95)</a>
+</div>
+</div>
+
+
+              </main>
+          
+
+
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bioconductor" aria-label="Bioconductor">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html">
+      <i class="fa fa-dna"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Find an issue?" aria-label="Find an issue?">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/systemPipeR/systemPipeR/issues">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The systemPipe Project All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="../../about/">About systemPipe Project</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -181,4 +1348,27 @@ MathJax.Hub.Config({
         linebreaks: { automatic: true }
     }
 });
-</script><script src=../../js/main.min.f820bfc507c3ebefe17f8881ec4ee10013f3b89ad9555a50acf9bb1771e6823f.js integrity="sha256-+CC/xQfD6+/hf4iB7E7hABPzuJrZVVpQrPm7F3Hmgj8=" crossorigin=anonymous></script><script src=../../js/prism.js></script></body></html>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../js/main.min.906bd02f142be20eb94bb49539a18a3e93ec0b9ff5f5dcf3796eed436a6103d2.js" integrity="sha256-kGvQLxQr4g65S7SVOaGKPpPsC5/19dzzeW7tQ2phA9I=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
