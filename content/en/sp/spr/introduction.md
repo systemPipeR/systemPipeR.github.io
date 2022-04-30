@@ -40,53 +40,62 @@ Backman, T.W.H and Girke, T. (2016). *`systemPipeR`*: NGS Workflow and Report Ge
 # Introduction
 
 [*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
-provides flexible utilities for designing, building, and running automated nd-to-end analysis
-workflows for a wide range of research applications, including next-generation
-sequencing (NGS) experiments (H Backman and Girke 2016). Important features include a
-uniform workflow interface across different data analysis applications, automated
+provides flexible utilities for designing, building and running automated end-to-end
+analysis workflows for a wide range of research applications, including
+next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq,
+VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform
+workflow interface across different data analysis applications, automated
 report generation, and support for running both R and command-line software,
-on local computers or compute clusters (see Figure <a href="#fig:utilities">1</a>).
-The latter supports interactive job submissions and batch submissions to queuing
-systems of clusters.
+such as NGS aligners or peak/variant callers, on local computers or compute
+clusters (Figure <a href="#fig:utilities">1</a>). The latter supports interactive job submissions and batch submissions to queuing systems of clusters.
 
-It has been designed to improve the reproducibility of large-scale data analysis
-projects while substantially reducing the time it takes to analyze complex omics
-data sets. Its unique features include a uniform workflow interface and management
-system that allows the user to run selected steps, customize, and design entirely
-new workflows. Also, the package features take advantage of central community S4
-classes of the Bioconductor ecosystem and command-line-based software support.
+*`systemPipeR`* has been designed to improve the reproducibility of large-scale data
+analysis projects while substantially reducing the time it takes to analyze
+complex omics data sets. It provides a uniform workflow interface and management
+system that allows the users to run selected workflow steps, as well as customize and design entirely new workflows. Additionally, the package take advantage of central community S4
+classes of the Bioconductor ecosystem, and enhances them with command-line software support.
 
 The main motivation and advantages of using *`systemPipeR`* for complex data analysis tasks are:
 
-1.  Facilitates the design of complex workflows involving multiple R/Bioconductor packages
+1.  Design of complex workflows involving multiple R/Bioconductor packages
 2.  Common workflow interface for different applications
-3.  Makes analysis with Bioconductor utilities more accessible to new users
-4.  Simplifies usage of command-line software from within R
-5.  Reduces the complexity of using compute clusters for R and command-line software
-6.  Accelerates runtime of workflows via parallelization on computer systems with multiple CPU cores and/or multiple compute nodes
-7.  Improves reproducibility by automating analyses and generation of analysis reports
+3.  User-friendly access to widely used Bioconductor utilities
+4.  Support of command-line software from within R
+5.  Reduced complexity of using compute clusters from R
+6.  Accelerated runtime of workflows via parallelization on computer systems with multiple CPU cores and/or multiple nodes
+7.  Improved reproducibility by automating the generation of analysis reports
 
 <div class="figure" style="text-align: center">
 
-<img src="utilities.png" alt="Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A &amp; B). Examples of *systemPipeR's* visualization functionalities are given under (C)." width="100%" />
+<img src="utilities.png" alt="Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A). Examples of `systemPipeR's` visualization functionalities are given under (B)." width="100%" />
 <p class="caption">
-Figure 1: Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A & B). Examples of *systemPipeR’s* visualization functionalities are given under (C).
+Figure 1: Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A). Examples of `systemPipeR's` visualization functionalities are given under (B).
 </p>
 
 </div>
 
-A central concept for designing workflows within the *`systemPipeR`* environment
-is the use of workflow management containers.
-Workflow management containers allow the automation of design, build, run and
-scale different steps and tools in data analysis.
-*`systemPipeR`* adopted the widely used community standard [Common Workflow Language](https://www.commonwl.org/) (CWL)
-(Amstutz et al. 2016) for describing parameters analysis workflows in a generic and reproducible
-manner. Using this community standard in *`systemPipeR`*
-has many advantages. For instance, the integration of CWL allows running *`systemPipeR`*
-workflows from a single specification instance either entirely from within R, from various command-line wrappers (e.g., *cwl-runner*) or from other languages (*, e.g.,* Bash or Python).
-*`systemPipeR`* includes support for both command-line and R/Bioconductor software
-as well as resources for containerization, parallel evaluations on computer clusters
-along with the automated generation of interactive analysis reports.
+A central concept for designing workflows within the *`systemPipeR`*
+environment is the use of workflow management containers. Workflow management
+containers facilitate the design and execution of complex data
+analysis steps. For its command-line interface *`systemPipeR`* adopts the
+widely used [Common Workflow Language](https://www.commonwl.org/) (CWL)
+(Amstutz et al. 2016). The interface to CWL is established by *`systemPipeR's`*
+workflow control class called *`SYSargsList`* (see Figure <a href="#fig:general">2</a>). This
+design offers many advantages such as: (i) options to run workflows either
+entirely from within R, from various command-line wrappers (e.g., *cwl-runner*)
+or from other languages (*, e.g.,* Bash or Python). Apart from providing
+support for both command-line and R/Bioconductor software, the package provides
+utilities for containerization, parallel evaluations on computer clusters and
+automated generation of interactive analysis reports.
+
+<div class="figure" style="text-align: center">
+
+<img src="general.png" alt="Overview of `systemPipeR` workflows management instances. A) A typical analysis workflow requires multiple software tools (red), as well the description of the input (green) and output files, including analysis reports (purple). B) `systemPipeR` provides multiple utilities to design and build a workflow, allowing multi-instance, integration of R code and command-line software, a simple and efficient annotation system, that allows automatic control of the input and output data, and multiple resources to manage the entire workflow. c) Options are provided to execute single or multiple workflow steps, while enabling scalability, checkpoints, and generation of technical and scientific reports." width="100%" />
+<p class="caption">
+Figure 2: Overview of `systemPipeR` workflows management instances. A) A typical analysis workflow requires multiple software tools (red), as well the description of the input (green) and output files, including analysis reports (purple). B) `systemPipeR` provides multiple utilities to design and build a workflow, allowing multi-instance, integration of R code and command-line software, a simple and efficient annotation system, that allows automatic control of the input and output data, and multiple resources to manage the entire workflow. c) Options are provided to execute single or multiple workflow steps, while enabling scalability, checkpoints, and generation of technical and scientific reports.
+</p>
+
+</div>
 
 An important feature of *`systemPipeR's`* CWL interface is that it provides two
 options to run command-line tools and workflows based on CWL. First, one can
@@ -96,52 +105,63 @@ command-line and workflow instructions from within R (R-based approach). In the
 latter case the same CWL workflow definition files (*e.g.* `*.cwl` and `*.yml`)
 are used but rendered and executed entirely with R functions defined by
 *`systemPipeR`*, and thus use CWL mainly as a command-line and workflow
-definition format rather than software to run workflows. In this regard
+definition format rather than execution software to run workflows. In this regard
 *`systemPipeR`* also provides several convenience functions that are useful for
 designing and debugging workflows, such as a command-line rendering function to
 retrieve the exact command-line strings for each data set and processing step
 prior to running a command-line.
 
-This overview introduces the design of a workflow management container, an S4
-class in *`systemPipeR`*, as well as the custom command-line interface,
-combined with the overview of all the common analysis steps of NGS experiments.
+## Workflow Management with *`SYSargsList`*
 
-## New workflow management interface
-
-*`systemPipeR`* allows creation (multi-step analyses) and execution of workflow
-entirely for R, with control, flexibility, and scalability of the all process.
-The execution of the workflow can be sent to a HPC, can be parallelizes,
-accelerating results acquisition.
-
-The flexibility of *`systemPipeR's`* new interface workflow management class is
-the driving factor behind the use of as many steps necessary for the analysis,
-as well as the connection between command-line- or R-based software. The
-connectivity among all workflow steps is achieved by the `SYSargsList` workflow
-management class.
-
-`SYSargsList` S4 class is a list-like container where each instance stores all the
-input/output paths and parameter components required for a particular data
-analysis step (see Figure <a href="#fig:sysargslistImage">2</a>).
-
-The `SYSargsList` constructor function will generate the instances, using as data
-input initial targets files, as well as two-parameter files (for details, see below).
-When running preconfigured workflows, the only input the user needs to provide
-is the initial targets file containing the paths to the input files (e.g., FASTQ)
-along with unique sample labels. Subsequent targets instances are created
-automatically, based on the connectivity establish between the steps. The
-parameters required for running command-line software is provided by the
-parameter (`*.cwl` and `*.yml`)) files described below.
-
-The class store one or multiple steps, allowing central control for running,
-checking status, and monitor complex workflows from start to finish. This design
-enhances the systemPipeR workflow framework with a generalized, flexible, and
-robust design.
+The `SYSargsList` S4 class is a list-like container that stores the paths to
+all input and output files along with the corresponding parameters used in each
+analysis step (see Figure <a href="#fig:sysargslistImage">3</a>). `SYSargsList` instances are constructed from an
+optional targets files, and two CWL parameter files including `*.cwl` and
+`*.yml` (for details, see below). When running preconfigured NGS workflows, the
+only input the user needs to provide is the initial targets file containing the
+paths to the input files (e.g., FASTQ) and experiment design information, such
+as sample labels and biological replicates. Subsequent targets instances are
+created automatically, based on the connectivity establish between each
+workflow step. *`SYSargsList`* containers store all information required for
+one or multiple steps. This establishes central control for running, monitoring
+and debugging complex workflows from start to finish.
 
 <div class="figure" style="text-align: center">
 
-<img src="sysargslist.png" alt="Workflow steps with input/output file operations are controlled by `SYSargs2` objects. Each `SYSargs2`instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many `SYSargs2` objects are organized in an `SYSargsList` container." width="100%" />
+<img src="SYSargsList.png" alt="Workflow steps with input/output file operations are controlled by the _`SYSargsList`_ container. Each of its components (_`SYSargs2`_) are constructed from an optional *targets* and two *param* files. Alternatively, _`LineWise`_ instances containing pure R code can be used." width="100%" />
 <p class="caption">
-Figure 2: Workflow steps with input/output file operations are controlled by `SYSargs2` objects. Each `SYSargs2`instance is constructed from one targets and two param files. The only input provided by the user is the initial targets file. Subsequent targets instances are created automatically, from the previous output files. Any number of predefined or custom workflow steps are supported. One or many `SYSargs2` objects are organized in an `SYSargsList` container.
+Figure 3: Workflow steps with input/output file operations are controlled by the *`SYSargsList`* container. Each of its components (*`SYSargs2`*) are constructed from an optional *targets* and two *param* files. Alternatively, *`LineWise`* instances containing pure R code can be used.
+</p>
+
+</div>
+
+## Command-line software support
+
+*`systemPipeR`* adopted the widely used community standard Common Workflow
+Language (CWL) (Amstutz et al. 2016) for describing command-line tools and workflows
+in a declarative, generic, and reproducible manner. CWL specifications are
+text-based files and can be structured using YAML (https://yaml.org/) syntax.
+Therefore, the description files can be easily accessed and are readable.
+The significant advantage of adopting CWL as a standard description of
+command-line tools within is the flexibility of workflow
+reusability for different computing environments and workflow frameworks in the
+community, improving reproducibility, portability, and shareability between
+collaborators and community.
+
+Following the CWL Command Line Tool Description Specification
+(https://www.commonwl.org/v1.2/CommandLineTool.html), the basic elements of the
+CWL tool description are defined in two files. Figure <a href="#fig:sprandCWL">4</a>A-B illustrate
+the “hello world” example. The main file contains all the information necessary
+to build the command-line that will be executed, specifying the input, expected
+output files, and arguments for the command-line (Figure <a href="#fig:sprandCWL">4</a>A).
+The second file is optional yet provides flexibility to assign values to
+parameters required to make the input or output objects when building the command-line.
+
+<div class="figure" style="text-align: center">
+
+<img src="SPR_CWL_hello.png" alt="Example of 'Hello World' message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using 'echo' command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the 'inputvars' arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D)." width="100%" />
+<p class="caption">
+Figure 4: Example of ‘Hello World’ message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using ‘echo’ command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the ‘inputvars’ arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D).
 </p>
 
 </div>

@@ -35,9 +35,9 @@ suppressPackageStartupMessages({
 })
 ```
 
-## Getting Started
+# Getting Started
 
-### Installation
+## Installation
 
 [_`systemPipeR`_](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) 
 environment can be installed from the R console using the [_`BiocManager::install`_](https://cran.r-project.org/web/packages/BiocManager/index.html) 
@@ -54,9 +54,9 @@ BiocManager::install("systemPipeRdata")
 
 Please note that if you desire to use a third-party command-line tool, the particular
 tool and dependencies need to be installed and exported in your PATH. 
-See [details](https://systempipe.org/sp/spr/sprinstall/). 
+See [details](#third-party-software-tools). 
 
-### Loading package and documentation
+## Loading package and documentation
 
 ```{r documentation, eval=FALSE}
 library("systemPipeR") # Loads the package
@@ -64,7 +64,7 @@ library(help="systemPipeR") # Lists package info
 vignette("systemPipeR") # Opens vignette
 ```
 
-### How to get help for systemPipeR
+## How to get help for systemPipeR
 
 All questions about the package or any particular function should be posted to 
 the Bioconductor support site [https://support.bioconductor.org](https://support.bioconductor.org). 
@@ -76,7 +76,7 @@ We appreciate receiving reports of bugs in the functions or documentation and
 suggestions for improvement. For that, please consider opening an issue at
 [GitHub](https://github.com/tgirke/systemPipeR/issues/new). 
 
-## Project structure
+# Project structure
 
 _`systemPipeR`_ expects a project directory structure that consists of a directory
 where users may store all the raw data, the results directory that will be reserved 
@@ -88,13 +88,39 @@ to a different location and still be able to run the entire workflow. Also, it
 increases efficiency and data management once the raw data is kept in a separate 
 folder and avoids duplication. 
 
-### Directory Structure {#dir}
+### Load sample data and workflow templates
 
-[_`systemPipeRdata`_](http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html), 
-helper package, provides pre-configured workflows, reporting 
+The mini sample FASTQ files used by this overview vignette as well as the
+associated workflow reporting vignettes can be loaded via the
+_`systemPipeRdata`_ package as shown below. The chosen data set
+[`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938) obtains 18
+paired-end (PE) read sets from _Arabidposis thaliana_ [@Howard2013-fq]. To
+minimize processing time during testing, each FASTQ file has been subsetted to
+90,000-100,000 randomly sampled PE reads that map to the first 100,000
+nucleotides of each chromosome of the _A. thalina_ genome. The corresponding
+reference genome sequence (FASTA) and its GFF annotation files (provided in the
+same download) have been truncated accordingly. This way the entire test sample
+data set requires less than 200MB disk storage space. A PE read set has been
+chosen for this test data set for flexibility, because it can be used for
+testing both types of analysis routines requiring either SE (single-end) reads
+or PE reads. 
+
+The following generates a fully populated _`systemPipeR`_ workflow environment 
+(here for RNA-Seq) in the current working directory of an R session. At this time 
+the package includes workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo-Seq. 
+Templates for additional NGS applications will be provided in the future.
+
+## Directory Structure {#directory-structure}
+
+[_`systemPipeRdata`_](http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html), helper package, provides pre-configured workflows, reporting 
 templates, and sample data loaded as demonstrated below. With a single command, 
 the package allows creating the workflow environment containing the structure 
 described here (see Figure \@ref(fig:dir)).
+
+```{r generate_workenvir, eval=FALSE}
+genWorkenvir(workflow="rnaseq")
+setwd("rnaseq")
+```
 
 Directory names are indicated in <span style="color:grey">***green***</span>.
 Users can change this structure as needed, but need to adjust the code in their 
@@ -114,10 +140,10 @@ workflows accordingly.
         + Metadata
         + etc.
     + <span style="color:green">_**results/**_</span>
-        + Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files
+        + Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files.
         + Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.
 
-```{r dir, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "systemPipeR's preconfigured directory structure."}
+```{r dir, eval=TRUE, echo=FALSE, warning= FALSE, out.width="100%", fig.align = "center", fig.cap= "*systemPipeR's* preconfigured directory structure.", warning=FALSE}
 knitr::include_graphics("spr_project.png")  
 ```
 
@@ -127,14 +153,13 @@ The following parameter files are included in each workflow template:
 2. *`*.param/cwl`*: defines parameter for input/output file operations, *e.g.*:
     + *`hisat2/hisat2-mapping-se.cwl`* 
     + *`hisat2/hisat2-mapping-se.yml`*
-3. *`*_run.sh`*: optional bash scripts 
-4. Configuration files for computer cluster environments (skip on single machines):
+3. Configuration files for computer cluster environments (skip on single machines):
     + *`.batchtools.conf.R`*: defines the type of scheduler for *`batchtools`* pointing to template file of cluster, and located in user's home directory
     + *`batchtools.*.tmpl`*: specifies parameters of scheduler used by a system, *e.g.* Torque, SGE, Slurm, etc.
 
-## Structure of initial _`targets`_ data
+## Structure of initial _`targets`_ file
 
-The _`targets`_ data defines all input files (_e.g._ FASTQ, BAM, BCF) and sample 
+The _`targets`_ file defines all input files (_e.g._ FASTQ, BAM, BCF) and sample 
 comparisons of an analysis workflow. It can, also, store any number of descriptive 
 information for each sample used in the workflow. 
 
@@ -142,7 +167,7 @@ The following shows the format of a sample _`targets`_ file included in the
 package. It also can be viewed and downloaded 
 from _`systemPipeR`'s_ GitHub repository [here](https://github.com/tgirke/systemPipeR/blob/master/inst/extdata/targets.txt). 
 Please note that here it is represented a tabular file, however _`systemPipeR`_ can 
-import the inputs information from a `YAML` and `Google Sheets` files, as well as 
+import the inputs information from a `YAML` files, as well as 
 `SummarizedExperiment` object. For more details on how to create custom `targets`, 
 please find here. 
 
@@ -180,24 +205,12 @@ targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
 showDF(read.delim(targetspath, comment.char = "#"))
 ```
 
-### Structure of _`targets`_ file for "Hello World" example
-
-In this example, _`targets`_ file presents only two columns, which the first one 
-are the different phrases used by the `echo` command-line and the second column
-it is the sample `id`. The `id` column is required, and each sample id should be unique. 
-
-```{r targets_echo, eval=TRUE}
-targetspath <- system.file("extdata/cwl/example/targets_example.txt", package = "systemPipeR")
-showDF(read.delim(targetspath, comment.char = "#"))
-```
-
 ### Sample comparisons
 
 Sample comparisons are defined in the header lines of the _`targets`_ file 
 starting with '``# <CMP>``'. 
 
 ```{r comment_lines, echo=TRUE}
-targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
 readLines(targetspath)[1:4]
 ```
 
@@ -223,21 +236,21 @@ _`systemPipeR`_ provides features to automatically and systematically build this
 connection, providing security that all the samples will be managed efficiently 
 and reproducibly.
 
-```{r targetsFig, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users."}
-knitr::include_graphics(system.file("extdata/images", "targets_con.png", package = "systemPipeR"))  
+```{r targetsFig, eval=TRUE, echo=FALSE, out.width="100%", fig.align = "center", fig.cap= "_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users.", warning=FALSE}
+knitr::include_graphics("targets_con.png")  
 ```
 
 ## Structure of the new parameters files
 
 The parameters and configuration required for running command-line software are 
-provided by the widely used community standard [Common Workflow Language](https://www.commonwl.org/) (CWL) [@Amstutz2016-ka], which describes
-parameters analysis workflows in a generic and reproducible manner. 
-For R-based workflow steps, param files are not required. 
-For a complete overview of the CWL syntax, please see this [section](https://systempipe.org/sp/spr/cwl_syntax/). 
+provided by the widely used community standard [Common Workflow Language](https://www.commonwl.org/) (CWL) 
+[@Amstutz2016-ka], which describes parameters analysis workflows in a generic 
+and reproducible manner. For R-based workflow steps, param files are not required. 
+For a complete overview of the CWL syntax, please see the [section](#cwl) below. 
 Also, we have a dedicated section explain how to _`systemPipeR`_ establish the 
-connection between the CWL parameters files and the targets files. Please see [here](https://systempipe.org/sp/spr/cwl_and_spr). 
+connection between the CWL parameters files and the targets files. Please see [here](#cwl_targets). 
 
-```{r cleaning, eval=TRUE, include=FALSE}
+```{r cleaning1, eval=TRUE, include=FALSE}
 if (file.exists(".SPRproject")) unlink(".SPRproject", recursive = TRUE)
 ## NOTE: Removing previous project create in the quick starts section
 ```
