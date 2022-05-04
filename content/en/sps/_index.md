@@ -86,6 +86,12 @@ For the admin panel login, account name **"admin"**, password **"admin"**.
 _shinyapp.io_ will reset the app once a while, but this will affect other people 
 who are trying the demo simultaneously. 
 
+### Rstudio Cloud demo
+There is an [Rstudio Cloud project](https://rstudio.cloud/project/2493103) instance 
+that you can also play with. You need to create a free new account. Two Bioconductor
+related modules - workflow & RNAseq are not installed. They require more than 1GB 
+RAM to install and to run which is beyond the limit of a free account. 
+
 ## Other packages in systemPipeShiny
 
 | Package | Description | Documents | Function reference | Demo |
