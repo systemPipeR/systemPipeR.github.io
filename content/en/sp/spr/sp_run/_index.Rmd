@@ -1,5 +1,5 @@
 ---
-title: "How to run a Workflow" 
+title: "Design and run a Workflow" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
 output:
@@ -68,7 +68,7 @@ sal <- SPRproject(logs.dir= ".SPRproject", sys.file=".SPRproject/SYSargsList.yml
 ```
 
 Also, this function will check and/or create the basic folder structure if missing, 
-which means `data`, `param`, and `results` folder, as described [here](#directory-structure). 
+which means `data`, `param`, and `results` folder, as described [here](https://systempipe.org/sp/spr/gettingstarted/#directory-structure). 
 If the user wants to use a different names for these directories, can be specified 
 as follows:
 
@@ -485,10 +485,10 @@ function:
 resources <- list(conffile=".batchtools.conf.R",
                   template="batchtools.slurm.tmpl", 
                   Njobs=18, 
-                  walltime=120, ## minutes
+                  walltime=120,##minutes
                   ntasks=1,
                   ncpus=4, 
-                  memory=1024, ## Mb
+                  memory=1024,##Mb
                   partition = "short"
                   )
 sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
@@ -818,6 +818,12 @@ the dependency graphs.
 ```{r}
 sal_test <- sal[-2]
 sal_test
+```
+
+
+# Session 
+```{r}
+sessionInfo()
 ```
 
 # References
