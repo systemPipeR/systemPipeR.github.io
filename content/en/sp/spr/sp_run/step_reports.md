@@ -1,5 +1,5 @@
 ---
-title: "Run/manage workflows" 
+title: "Generate Reports" 
 date: "Last update: 31 May, 2022" 
 vignette: |
   %\VignetteEncoding{UTF-8}
@@ -9,7 +9,7 @@ fontsize: 14pt
 editor_options: 
   chunk_output_type: console
 type: docs
-weight: 3
+weight: 7
 ---
 
 <!--

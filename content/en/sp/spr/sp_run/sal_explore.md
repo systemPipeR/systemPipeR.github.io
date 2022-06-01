@@ -1,6 +1,6 @@
 ---
-title: "Run/manage workflows" 
-date: "Last update: 31 May, 2022" 
+title: "Explore workflow instances" 
+date: "Last update: 25 May, 2022" 
 vignette: |
   %\VignetteEncoding{UTF-8}
   %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
@@ -9,7 +9,7 @@ fontsize: 14pt
 editor_options: 
   chunk_output_type: console
 type: docs
-weight: 3
+weight: 5
 ---
 
 <!--

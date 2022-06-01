@@ -1,5 +1,5 @@
 ---
-title: "Run/manage workflows" 
+title: "Export workflows" 
 date: "Last update: 31 May, 2022" 
 vignette: |
   %\VignetteEncoding{UTF-8}
@@ -9,7 +9,7 @@ fontsize: 14pt
 editor_options: 
   chunk_output_type: console
 type: docs
-weight: 3
+weight: 8
 ---
 
 <!--
@@ -42,7 +42,7 @@ sessionInfo()
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] bookdown_0.26   digest_0.6.29   R6_2.5.1        jsonlite_1.8.0 
-##  [5] magrittr_2.0.3  evaluate_0.15   blogdown_1.10   stringi_1.7.6  
+##  [5] magrittr_2.0.3  evaluate_0.15   blogdown_1.10.1 stringi_1.7.6  
 ##  [9] rlang_1.0.2     cli_3.3.0       rstudioapi_0.13 jquerylib_0.1.4
 ## [13] bslib_0.3.1     rmarkdown_2.14  tools_4.2.0     stringr_1.4.0  
 ## [17] xfun_0.31       yaml_2.3.5      fastmap_1.1.0   compiler_4.2.0 
