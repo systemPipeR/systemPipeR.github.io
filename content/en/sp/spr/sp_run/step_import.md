@@ -183,7 +183,12 @@ appendStep(sal) <- SYSargsList(
 In the example above the targets path is not directly loaded but given through an intermediate 
 variable `targetspath`. This is a simple example, other useful actions like path 
 concatenation, checking file integrity before piping to expensive (slow) functions
-can also be done in preprocess.
+can also be done in preprocess. Another good example will be the 
+[ChIPseq](https://systempipe.org/SPchipseq/articles/SPchipseq.html) workflow.
+Watch closely how the output of `LineWise` step [merge_bams](https://systempipe.org/SPchipseq/articles/SPchipseq.html#merge-bam-files-of-replicates-prior-to-peak-calling) is predicted and writing to an intermediate targets file 
+on-the-fly in the preprocess code of 
+[call_peaks_macs_withref](https://systempipe.org/SPchipseq/articles/SPchipseq.html#peak-calling-with-inputreference-sample)
+so it can be used in the `call_peaks_macs_withref` step creation as input targets.
 
 
 Actually, if the SPR chunk has R code before the step definition but `###pre-end`
@@ -466,6 +471,136 @@ appendStep(sal) <- LineWise(code={
 
 
 
+```r
+# the file is with `.md` extension, but `importWF` needs `.Rmd`. 
+# we need to first download and change extension
+tmp_file <- tempfile(fileext = ".rmd")
+download.file(
+  "https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md",
+  tmp_file
+)
+
+
+sal_rmd <- importWF(sal_rmd, file_path = tmp_file, update = TRUE, confirm = TRUE)
+## Reading Rmd file
+## 
+##  ---- Actions ----
+## Checking chunk eval values
+## Checking chunk SPR option
+## Ignore non-SPR chunks: 17
+## Parse chunk code
+## Checking preprocess code for each step
+## Update starts. Note for existing steps, update only fix the line number records. They are NOT imported again. If you have changed arguments in methods like `SYSargsList`, `Linewise`, `appendStep` in template for some steps, delete the original step from the workflow and rerun this function or manually to import it again, or use replacement methods to change arguments in current workflow, see ?`SYSargsList-class` help file. Otherwise, package would use what is in the current workflow to `renderReport` and `sal2rmd`. New arguments in the template will be ignored. 
+## Comparing SPR steps
+## Some new steps exist in new template but not in current SYSargsList.
+##  They will be imported to workflow later. Update existing steps first.
+## steps: sessionInfo
+## Comparing step orders 
+## Note this function checks SPR step sequental orders, not the dependency graph. Order change will not be immediately taken place in SYSargsList object. New orders will be only used in `renderReport`. `sal2rmd` still uses the order in SYSargsList object. 
+## Some steps in the new template have different order than SYSargsList. 
+## sessionInfo: 0 -> 6
+## Updating SPR steps line numbers 
+## Updating SPR steps preprocess code information 
+## Template update done. 
+## Now importing new steps
+## Now importing step 'sessionInfo' 
+## some fake preprocess code
+## Now back up current Rmd file as template for `renderReport`
+## Template for renderReport is stored at 
+##  C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/workflow_template.Rmd 
+##  Edit this file manually is not recommended 
+## update  done
+```
+
+
+We can see under update mode, `importWF` compare the old template and the new 
+template and find the difference. List all differences to users. It includes:
+
+- List all new steps
+- Compare step orders, update if needed
+- update line number records of steps from old template to new template.
+- update preprocess code
+- finally import new steps
+
+A new step has been successfully imported from the new template.
+
+```r
+sal_rmd
+```
+
+```
+## Instance of 'SYSargsList': 
+##     WF Steps:
+##        1. load_library --> Status: Pending
+##        2. export_iris --> Status: Pending
+##        3. gzip --> Status: Pending 
+##            Total Files: 3 | Existing: 0 | Missing: 3 
+##          3.1. gzip
+##              cmdlist: 3 | Pending: 3
+##        4. gunzip --> Status: Pending 
+##            Total Files: 3 | Existing: 0 | Missing: 3 
+##          4.1. gunzip
+##              cmdlist: 3 | Pending: 3
+##        5. stats --> Status: Pending
+##        6. sessionInfo --> Status: Pending
+## 
+```
+
+
+Let's see another [example](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new_precode_changed.md)
+how `importWF` update preprocess code and line numbers
+
+
+```r
+tmp_file2 <- tempfile(fileext = ".rmd")
+download.file(
+  "https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new_precode_changed.md",
+  tmp_file2
+)
+
+
+sal_rmd <- importWF(sal_rmd, file_path = tmp_file2, update = TRUE, confirm = TRUE)
+## Reading Rmd file
+## 
+##  ---- Actions ----
+## Checking chunk eval values
+## Checking chunk SPR option
+## Ignore non-SPR chunks: 17
+## Parse chunk code
+## Checking preprocess code for each step
+## Update starts. Note for existing steps, update only fix the line number records. They are NOT imported again. If you have changed arguments in methods like `SYSargsList`, `Linewise`, `appendStep` in template for some steps, delete the original step from the workflow and rerun this function or manually to import it again, or use replacement methods to change arguments in current workflow, see ?`SYSargsList-class` help file. Otherwise, package would use what is in the current workflow to `renderReport` and `sal2rmd`. New arguments in the template will be ignored. 
+## Comparing SPR steps 
+## Comparing step orders 
+## Updating SPR steps line numbers 
+## Updating step lines of  stats 76:92 -> 79:95 
+## Updating step lines of  sessionInfo 96:104 -> 99:108 
+## Updating SPR steps preprocess code information 
+## For step sessionInfo old preprocess code: 
+## cat("some fake preprocess code\n")
+## ###pre-end 
+## New preprocess code: 
+## 1+1
+## cat("some fake preprocess code that has been changed!\n")
+## ###pre-end 
+## Template update done. 
+## Now importing new steps
+## Now back up current Rmd file as template for `renderReport`
+## Template for renderReport is stored at 
+##  C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/workflow_template.Rmd 
+##  Edit this file manually is not recommended 
+## update  done
+```
+
+
+Note for existing steps, and their preprocess code, they are not re-imported or 
+re-evaluated.
+
+### Colors
+Rendering the web document is not interactive, so colors are also removed. It 
+is only gray color above, but in the actual interactive mode, multiple colors are 
+used to indicate the status:
+
+![importwf](../importwf.png)
 
 
 ## Session

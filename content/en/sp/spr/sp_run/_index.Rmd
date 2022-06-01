@@ -45,6 +45,20 @@ if (file.exists(".SPRproject")) unlink(".SPRproject", recursive = TRUE)
 ## NOTE: Removing previous project create in the quick starts section
 ```
 
+# About this section
+
+In this section, we will discuss following topics: 
+
+- How to create SPR data analysis projects.
+- How to build workflow step by step interactively or use use a template as starting point.
+- After step design, how to run a workflow.
+- After workflow finished running, how we can check the status, visualize the workflow.
+- Different options for managing the workflow, _e.g._ resume, restart, overwrite a 
+  SPR project. 
+- How to explore the workflow object (methods).
+- Finally, how to generate some data analysis reports.
+
+
 # Project initialization
 
 To create a workflow within _`systemPipeR`_, we can start by defining an empty
@@ -123,280 +137,10 @@ Until this moment, the container has no steps:
 sal
 ```
 
-Next, we need to populate the object created with the first step in the
-workflow.
+In the next subsection, we will discuss how to populate the object created with the first step in the
+workflow interactively.
 
-### Adding the first step 
 
-The first step is R code based, and we are splitting the `iris` dataset by `Species`
-and for each `Species` will be saved on file. Please note that this code will
-not be executed now; it is just store in the container for further execution. 
-
-This constructor function requires the `step_name` and the R-based code under 
-the `code` argument. 
-The R code should be enclosed by braces (`{}`) and separated by a new line. 
-
-```{r, firstStep_R, eval=TRUE}
-appendStep(sal) <- LineWise(code = {
-                              mapply(function(x, y) write.csv(x, y),
-                                     split(iris, factor(iris$Species)),
-                                     file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv"))
-                                     ) 
-                            },
-                            step_name = "export_iris")
-```
-
-For a brief overview of the workflow, we can check the object as follows:
-
-```{r show, eval=TRUE}
-sal
-```
-
-Also, for printing and double-check the R code in the step, we can use the 
-`codeLine` method:
-
-```{r codeLine, eval=TRUE}
-codeLine(sal)
-```
-
-### Adding more steps
-
-Next, an example of how to compress the exported files using 
-[`gzip`](https://www.gnu.org/software/gzip/) command-line. 
-
-The constructor function creates an `SYSargsList` S4 class object using data from
-three input files:
-
-    - CWL command-line specification file (`wf_file` argument);
-    - Input variables (`input_file` argument);
-    - Targets file (`targets` argument).
-
-In CWL, files with the extension `.cwl` define the parameters of a chosen
-command-line step or workflow, while files with the extension `.yml` define the
-input variables of command-line steps. 
-
-The `targets` file is optional for workflow steps lacking `input` files. The connection 
-between `input` variables and the `targets` file is defined under the `inputvars` 
-argument. It is required a `named vector`, where each element name needs to match
-with column names in the `targets` file, and the value must match the names of 
-the `input` variables defined in the `*.yml` files (see Figure \@ref(fig:sprandCWL)). 
-
-A detailed description of the dynamic between `input` variables and `targets` 
-files can be found [here](#cwl_targets). 
-In addition, the CWL syntax overview can be found [here](#cwl). 
-
-Besides all the data form `targets`, `wf_file`, `input_file` and `dir_path` arguments,
-`SYSargsList` constructor function options include: 
-
-  - `step_name`: a unique *name* for the step. This is not mandatory; however, 
-    it is highly recommended. If no name is provided, a default `step_x`, where
-    `x` reflects the step index, will be added. 
-  - `dir`: this option allows creating an exclusive subdirectory for the step 
-    in the workflow. All the outfiles and log files for this particular step will 
-    be generated in the respective folders.
-  - `dependency`: after the first step, all the additional steps appended to 
-    the workflow require the information of the dependency tree. 
-
-The `appendStep<-` method is used to append a new step in the workflow.
-
-```{r gzip_secondStep, eval=TRUE}
-targetspath <- system.file("extdata/cwl/gunzip", "targets_gunzip.txt", package = "systemPipeR")
-appendStep(sal) <- SYSargsList(step_name = "gzip", 
-                      targets = targetspath, dir = TRUE,
-                      wf_file = "gunzip/workflow_gzip.cwl", input_file = "gunzip/gzip.yml",
-                      dir_path = system.file("extdata/cwl", package = "systemPipeR"),
-                      inputvars = c(FileName = "_FILE_PATH_", SampleName = "_SampleName_"), 
-                      dependency = "export_iris")
-```
-
-Note: This will not work if the `gzip` is not available on your system 
-(installed and exported to PATH) and may only work on Windows systems using PowerShell. 
-
-For a overview of the workflow, we can check the object as follows:
-
-```{r}
-sal
-```
-
-Note that we have two steps, and it is expected three files from the second step.
-Also, the workflow status is *Pending*, which means the workflow object is 
-rendered in R; however, we did not execute the workflow yet. 
-In addition to this summary, it can be observed this step has three command lines. 
-
-For more details about the command-line rendered for each target file, it can be 
-checked as follows: 
-
-```{r}
-cmdlist(sal, step = "gzip")
-```
-
-#### Using the `outfiles` for the next step
-
-For building this step, all the previous procedures are being used to append the 
-next step. However, here, we can observe power features that build the 
-connectivity between steps in the workflow.
-
-In this example, we would like to use the outfiles from *gzip* Step, as
-input from the next step, which is the *gunzip*. In this case, let's look at the 
-outfiles from the first step:
-
-```{r}
-outfiles(sal)
-```
-
-The column we want to use is "gzip_file". For the argument `targets` in the 
-`SYSargsList` function, it should provide the name of the correspondent step in
-the Workflow and which `outfiles` you would like to be incorporated in the next 
-step. 
-The argument `inputvars` allows the connectivity between `outfiles` and the 
-new `targets` file. Here, the name of the previous `outfiles` should be provided 
-it. Please note that all `outfiles` column names must be unique.
-
-It is possible to keep all the original columns from the `targets` files or remove
-some columns for a clean `targets` file.
-The argument `rm_targets_col` provides this flexibility, where it is possible to
-specify the names of the columns that should be removed. If no names are passing
-here, the new columns will be appended. 
-
-```{r gunzip, eval=TRUE}
-appendStep(sal) <- SYSargsList(step_name = "gunzip", 
-                      targets = "gzip", dir = TRUE,
-                      wf_file = "gunzip/workflow_gunzip.cwl", input_file = "gunzip/gunzip.yml",
-                      dir_path = system.file("extdata/cwl", package = "systemPipeR"),
-                      inputvars = c(gzip_file = "_FILE_PATH_", SampleName = "_SampleName_"), 
-                      rm_targets_col = "FileName", 
-                      dependency = "gzip")
-```
-
-We can check the targets automatically create for this step, 
-based on the previous `outfiles`:
-
-```{r targetsWF_3, eval=TRUE}
-targetsWF(sal[3])
-```
-
-We can also check all the expected `outfiles` for this particular step, as follows:
-
-```{r outfiles_2, eval=TRUE}
-outfiles(sal[3])
-```
-
-Now, we can observe that the third step has been added and contains one substep.
-
-```{r}
-sal
-```
-
-In addition, we can access all the command lines for each one of the substeps. 
-
-```{r, eval=TRUE}
-cmdlist(sal["gzip"], targets = 1)
-```
-
-#### Getting data from a workflow instance 
-
-The final step in this simple workflow is an R code step. For that, we are using
-the `LineWise` constructor function as demonstrated above. 
-
-One interesting feature showed here is the `getColumn` method that allows 
-extracting the information for a workflow instance. Those files can be used in
-an R code, as demonstrated below. 
-
-```{r getColumn, eval=TRUE}
-getColumn(sal, step = "gunzip", 'outfiles')
-```
-
-```{r, iris_stats, eval=TRUE}
-appendStep(sal) <- LineWise(code = {
-                    df <- lapply(getColumn(sal, step = "gunzip", 'outfiles'), function(x) read.delim(x, sep = ",")[-1])
-                    df <- do.call(rbind, df)
-                    stats <- data.frame(cbind(mean = apply(df[,1:4], 2, mean), sd = apply(df[,1:4], 2, sd)))
-                    stats$species <- rownames(stats)
-                    
-                    plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + 
-                      ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) +
-                      ggplot2::geom_errorbar(ggplot2::aes(ymin = mean-sd, ymax = mean+sd), width = .2, position = ggplot2::position_dodge(.9)) 
-                    },
-                    step_name = "iris_stats", 
-                    dependency = "gzip")
-```
-
-## Build workflow from a {R Markdown} {#importWF}
-
-The precisely same workflow can be created by importing the steps from an 
-R Markdown file.
-As demonstrated above, it is required to initialize the project with `SPRproject` function. 
-
-`importWF` function will scan and import all the R chunk from the R Markdown file 
-and build all the workflow instances. Then, each R chuck in the file will be 
-converted in a workflow step. 
-
-```{r cleaning3, eval=TRUE, include=FALSE}
-if (file.exists(".SPRproject_rmd")) unlink(".SPRproject_rmd", recursive = TRUE)
-```
-
-```{r importWF_rmd, eval=TRUE}
-sal_rmd <- SPRproject(logs.dir = ".SPRproject_rmd") 
-
-sal_rmd <- importWF(sal_rmd, 
-                file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"))
-```
-
-Let's explore the workflow to check the steps:
-
-```{r importWF_details}
-stepsWF(sal_rmd)
-dependency(sal_rmd)
-codeLine(sal_rmd)
-targetsWF(sal_rmd)
-```
-
-### Rules to create the R Markdown to import as workflow
-
-To include a particular code chunk from the R Markdown file in the workflow
-analysis, please use the following code chunk options:
-
-    - `spr=TRUE'`: for code chunks with step workflow. 
-
-For example: 
-
-> *```{r step_1, eval=TRUE, spr=TRUE}*
-
-> *```{r step_2, eval=FALSE, spr=TRUE}*
-
-`importWF` function can ignore `eval` option in code chunk, and in this case, 
-both of the examples steps above would be incorporated in the workflow. 
-
-For `spr = TRUE`, the last object assigned must to be the `SYSargsList`, for example:
-
-```{r fromFile_example_rules_cmd, eval=FALSE}
-targetspath <- system.file("extdata/cwl/example/targets_example.txt", package = "systemPipeR")
-appendStep(sal) <- SYSargsList(step_name = "Example", 
-                      targets = targetspath, 
-                      wf_file = "example/example.cwl", input_file = "example/example.yml", 
-                      dir_path = system.file("extdata/cwl", package = "systemPipeR"), 
-                      inputvars = c(Message = "_STRING_", SampleName = "_SAMPLE_"))
-```
-
-OR 
-
-```{r fromFile_example_rules_r, eval=FALSE}
-appendStep(sal) <- LineWise(code = {
-                              library(systemPipeR)
-                            },
-                            step_name = "load_lib")
-```
-
-Also, note that all the required files or objects to generate one particular step 
-must be defined in an imported R code. 
-The motivation for this is that when R Markdown files are imported, the `spr = TRUE` 
-flag will be evaluated, append, and stored in the workflow control class as 
-the `SYSargsList` object. 
-
-The workflow object name used in the R Markdown (e.g. `appendStep(sal)`) needs to 
-be the same when the `importWF` function is used. It is important to keep consistency. 
-If different object names are used, when running the workflow, you can see a error, 
-like *Error: <objectName> object not found.*.
 
 # Running the workflow
 
@@ -826,4 +570,4 @@ sal_test
 sessionInfo()
 ```
 
-# References
+# Sub-sections

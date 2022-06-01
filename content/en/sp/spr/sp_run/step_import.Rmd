@@ -85,7 +85,12 @@ appendStep(sal) <- SYSargsList(
 In the example above the targets path is not directly loaded but given through an intermediate 
 variable `targetspath`. This is a simple example, other useful actions like path 
 concatenation, checking file integrity before piping to expensive (slow) functions
-can also be done in preprocess.
+can also be done in preprocess. Another good example will be the 
+[ChIPseq](https://systempipe.org/SPchipseq/articles/SPchipseq.html) workflow.
+Watch closely how the output of `LineWise` step [merge_bams](https://systempipe.org/SPchipseq/articles/SPchipseq.html#merge-bam-files-of-replicates-prior-to-peak-calling) is predicted and writing to an intermediate targets file 
+on-the-fly in the preprocess code of 
+[call_peaks_macs_withref](https://systempipe.org/SPchipseq/articles/SPchipseq.html#peak-calling-with-inputreference-sample)
+so it can be used in the `call_peaks_macs_withref` step creation as input targets.
 
 
 Actually, if the SPR chunk has R code before the step definition but `###pre-end`
@@ -216,9 +221,59 @@ appendStep(sal) <- LineWise(code={
 ````
 
 
-```{r}
+```{r collapse=TRUE}
+# the file is with `.md` extension, but `importWF` needs `.Rmd`. 
+# we need to first download and change extension
+tmp_file <- tempfile(fileext = ".rmd")
+download.file(
+  "https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md",
+  tmp_file
+)
 
+
+sal_rmd <- importWF(sal_rmd, file_path = tmp_file, update = TRUE, confirm = TRUE)
 ```
+
+
+We can see under update mode, `importWF` compare the old template and the new 
+template and find the difference. List all differences to users. It includes:
+
+- List all new steps
+- Compare step orders, update if needed
+- update line number records of steps from old template to new template.
+- update preprocess code
+- finally import new steps
+
+A new step has been successfully imported from the new template.
+```{r}
+sal_rmd
+```
+
+
+Let's see another [example](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new_precode_changed.md)
+how `importWF` update preprocess code and line numbers
+
+```{r collapse=TRUE}
+tmp_file2 <- tempfile(fileext = ".rmd")
+download.file(
+  "https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new_precode_changed.md",
+  tmp_file2
+)
+
+
+sal_rmd <- importWF(sal_rmd, file_path = tmp_file2, update = TRUE, confirm = TRUE)
+```
+
+
+Note for existing steps, and their preprocess code, they are not re-imported or 
+re-evaluated.
+
+### Colors
+Rendering the web document is not interactive, so colors are also removed. It 
+is only gray color above, but in the actual interactive mode, multiple colors are 
+used to indicate the status:
+
+![importwf](../importwf.png)
 
 
 ## Session
