@@ -93,7 +93,7 @@ appendStep(sal) <- LineWise(code={
 
 ## A new step
 This is a new step with some simple code to demonstrate the update of `importWF`
-```{r session_info, eval=TRUE, spr=TRUE}
+```{r sessionInfo, eval=TRUE, spr=TRUE}
 cat("some fake preprocess code\n")
 ###pre-end
 appendStep(sal) <- LineWise(code={
