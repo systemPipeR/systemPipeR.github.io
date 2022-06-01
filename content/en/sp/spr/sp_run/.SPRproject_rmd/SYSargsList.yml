@@ -379,6 +379,27 @@ stepsWF:
           run_step: optional
           run_session: management
           run_remote_resources: ~
+  sessionInfo: |
+    codeLine: sessionInfo()
+    codeChunkStart: []
+    stepName: sessionInfo
+    dependency:
+      sessionInfo: stats
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: sessionInfo
+        status.summary: Pending
+      status.time: {}
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        sessionInfo:
+          directory: no
+          run_step: mandatory
+          run_session: management
+          run_remote_resources: ~
 statusWF:
   load_library: |
     load_library:
@@ -475,6 +496,13 @@ statusWF:
         Step: stats
         status.summary: Pending
       status.time: {}
+  sessionInfo: |
+    sessionInfo:
+      status.summary: Pending
+      status.completed:
+        Step: sessionInfo
+        status.summary: Pending
+      status.time: {}
 targetsWF:
   load_library: |
     {}
@@ -500,6 +528,8 @@ targetsWF:
     - VI
   stats: |
     {}
+  sessionInfo: |
+    {}
 outfiles:
   load_library: |
     {}
@@ -517,6 +547,8 @@ outfiles:
     - results/VI.csv
   stats: |
     {}
+  sessionInfo: |
+    {}
 SE:
   load_library: |
     load_library: ~
@@ -530,6 +562,8 @@ SE:
     dir.name: gunzip
   stats: |
     stats: ~
+  sessionInfo: |
+    sessionInfo: ~
 dependency:
   load_library: |
     load_library: .na
@@ -541,6 +575,8 @@ dependency:
     gunzip: gzip
   stats: |
     stats: gunzip
+  sessionInfo: |
+    sessionInfo: stats
 targets_connection:
   load_library: |
     load_library: ~
@@ -560,6 +596,8 @@ targets_connection:
         rm_targets_col: FileName
   stats: |
     stats: ~
+  sessionInfo: |
+    sessionInfo: ~
 projectInfo: |
   project: C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run
   data: data
@@ -602,3 +640,13 @@ runInfo: |
     run_remote_resources: ~
     rmd_line: 76:92
     prepro_lines: ''
+  sessionInfo:
+    directory: no
+    run_step: mandatory
+    run_session: management
+    run_remote_resources: ~
+  session_info:
+    rmd_line: 96:104
+    prepro_lines: |-
+      cat("some fake preprocess code\n")
+      ###pre-end

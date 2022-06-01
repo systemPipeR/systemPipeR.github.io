@@ -23,14 +23,14 @@ suppressPackageStartupMessages({
 })
 ```
 
-### `importWF`
+## `importWF`
 
 `importWF` function will scan and import all the R chunk from the R Markdown
 file and build all the workflow instances. Then, each R chuck in the file will
 be converted in a workflow step.
 
 We have prepared the template for you already. Let's first see what is in the
-template:
+template or can be read [here](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md):
 
 
 ```r
@@ -133,7 +133,7 @@ appendStep(sal) <- LineWise(code={
 ````
 
 
-#### SPR chunks 
+### SPR chunks 
 The SPR templates has no difference than a normal R markdown file, except one 
 little thing -- the **SPR chunks**.
 
@@ -149,7 +149,7 @@ For example:
 Note here the `eval=FALSE`, by default steps with this option will still 
 be imported, but you can use `ignore_eval` flag to change it in `importWF`. 
 
-##### Preprocess code 
+#### Preprocess code 
 Inside SPR chunks, before the actual step definition, there is some special space called 
 preprocess code. 
 
@@ -193,7 +193,7 @@ when you render the report (`renderReport`) or export the workflow as a new temp
 (`sal2rmd`), these lines will **not** be included. That means, these lines are 
 **one-shot** reprocess code and not reproducible. 
 
-##### Other rules
+#### Other rules
 
 - For SPR chunks, the last object assigned must to be the `SYSargsList`, for
 example a `sysArgs2`(commandline) steps:
@@ -236,7 +236,7 @@ can see a error, like *Error:* <objectName> object not found..
   overwritten to `"step_1"` instead of `"step_99"`.
   
 
-#### start to import
+### start to import
 
 
 
@@ -269,13 +269,31 @@ sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.R
 ##  C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/workflow_template.Rmd 
 ##  Edit this file manually is not recommended 
 ## import  done
+sal_rmd
+## Instance of 'SYSargsList': 
+##     WF Steps:
+##        1. load_library --> Status: Pending
+##        2. export_iris --> Status: Pending
+##        3. gzip --> Status: Pending 
+##            Total Files: 3 | Existing: 0 | Missing: 3 
+##          3.1. gzip
+##              cmdlist: 3 | Pending: 3
+##        4. gunzip --> Status: Pending 
+##            Total Files: 3 | Existing: 0 | Missing: 3 
+##          4.1. gunzip
+##              cmdlist: 3 | Pending: 3
+##        5. stats --> Status: Pending
+## 
 ```
 
+We can see 5 steps are appended to our `sal` object.
 
-Let's explore the workflow to check the steps:
+#### Simple exploration
+After import, we can explore the workflow to check the steps:
 
 
 ```r
+# list individual steps
 stepsWF(sal_rmd)
 ```
 
@@ -320,6 +338,7 @@ stepsWF(sal_rmd)
 ```
 
 ```r
+# list step dependency
 dependency(sal_rmd)
 ```
 
@@ -341,6 +360,7 @@ dependency(sal_rmd)
 ```
 
 ```r
+# list R step code
 codeLine(sal_rmd)
 ```
 
@@ -362,6 +382,7 @@ codeLine(sal_rmd)
 ```
 
 ```r
+# list step targets
 targetsWF(sal_rmd)
 ```
 
@@ -392,8 +413,62 @@ targetsWF(sal_rmd)
 ## DataFrame with 0 rows and 0 columns
 ```
 
+## Update workflow
+Maybe you have noticed some lines in the importing
 
-# Session
+
+```r
+Template for renderReport is stored at
+xxxx/.SPRproject_rmd/workflow_template.Rmd
+Edit this file manually is not recommended
+```
+
+It means current import is successful and a copy of your workflow template is 
+copied to this position, and it will be used for `renderReport` as the skeleton.
+
+In real data analysis, the workflow template does not always stays the same, e.g. adding some 
+text, new steps to the template. One way we could add new steps is the [interactive method](../step_interactive).
+The problem is this way does not contain any text description in the final report. 
+`renderReport` has a smart way to insert these new steps that do not exist in the 
+template to the right order but it cannot create text descrption for you.
+
+Another way to import new steps or update text in the template is to use 
+`importWF(..., update = TRUE)`.
+
+
+Let's add a step and some text to `spr_simple_wf.Rmd` and try to update. 
+
+- `update = TRUE` is highly interactive. It uses a Q&A style to ask users things like
+  whether to update preprocess code of certain steps, whether to import certain 
+  new steps. In this mode, you can always say "no" to the choice, so you can 
+  choose to partially update the template. 
+- Rendering the webpage document is **not** interactive, so here we use 
+ `importWF(..., update = TRUE, confirm = TRUE)`, which means confirm all the choices, 
+  say "yes" to all. Then, partially update is no longer the option here. 
+  
+For the update template, you can download [here](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md)
+
+One step, preprocess code and some description has been added to the end:
+
+````markdown
+## A new step
+This is a new step with some simple code to demonstrate the update of `importWF`
+```{r session_info, eval=TRUE, spr=TRUE}
+cat("some fake preprocess code\n")
+###pre-end
+appendStep(sal) <- LineWise(code={
+  sessionInfo()
+  }, 
+  step_name = "sessionInfo", 
+  dependency = "stats")
+```
+````
+
+
+
+
+
+## Session
 
 
 ```r

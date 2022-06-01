@@ -72,6 +72,9 @@ appendStep(sal) <- SYSargsList(step_name = "gunzip",
 ```
 
 ## Import data to R and perform statistical analysis and visualization 
+Some other text has been added here.
+
+Some space created. 
 
 ```{r stats, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(code={
@@ -94,7 +97,8 @@ appendStep(sal) <- LineWise(code={
 ## A new step
 This is a new step with some simple code to demonstrate the update of `importWF`
 ```{r session_info, eval=TRUE, spr=TRUE}
-cat("some fake preprocess code\n")
+1+1
+cat("some fake preprocess code that has been changed!\n")
 ###pre-end
 appendStep(sal) <- LineWise(code={
   sessionInfo()
