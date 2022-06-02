@@ -7,8 +7,7 @@ type: docs
 exclude_search: true
 ---
 
-{{% pageinfo %}}
-Page under development.
-{{% /pageinfo %}}
+### SPR and SPS basics
+Presented at [Bioc2021](https://systempipe.org/systemPipeWorkshop2021/)
 
-### Video Tutorials are coming soon…
+{{< youtube _C4K7TFicDo >}}

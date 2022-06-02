@@ -392,41 +392,74 @@ enable = false
   name = "Shiny"
   url = "/sps/"
   weight = 3
-[[menu.main]]
-  name = "SPS Documentation"
-  url = "/sps/"
-  parent = "Shiny"
-  weight = 1
-[[menu.main]]
-  name = "Github"
-  url = "https://github.com/systemPipeR/systemPipeShiny"
-  parent = "Shiny"
-  weight = 2
-[[menu.main]]
-  name = "Bioconductor"
-  url = "http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
-  parent = "Shiny"
-  weight = 3
+  [[menu.main]]
+    name = "SPS Documentation"
+    url = "/sps/"
+    parent = "Shiny"
+    weight = 1
+  [[menu.main]]
+    name = "Github"
+    url = "https://github.com/systemPipeR/systemPipeShiny"
+    parent = "Shiny"
+    weight = 2
+  [[menu.main]]
+    name = "Bioconductor"
+    url = "http://bioconductor.org/packages/3.13/bioc/html/systemPipeShiny.html"
+    parent = "Shiny"
+    weight = 3
 ## SPR workflows
 [[menu.main]]
   name = "Workflows"
   url = "/spr_wf"
   weight = 4
-[[menu.main]]
-  name = "Collection"
-  url = "/spr_wf"
-  parent = "Workflows"
-  weight = 1
-[[menu.main]]
-  name = "How to install Workflow"
-  url = "/spr_wf/installwf/"
-  parent = "Workflows"
-  weight = 2
-[[menu.main]]
-  name = "Rules to create Workflow"
-  url = "/spr_wf/newwf"
-  parent = "Workflows"
-  weight = 3
+  [[menu.main]]
+    name = "Collection"
+    url = "/spr_wf"
+    parent = "Workflows"
+    weight = 1
+  [[menu.main]]
+    name = "Templates"
+    url = "/spr_wf/templates"
+    parent = "Workflows"
+    weight = 1
+    [[menu.main]]
+      name = "RNA-Seq"
+      url = "/spr_wf/templates/rnaseq"
+      parent = "Workflows"
+      weight = 2
+    [menu.main.params]
+      level = 2
+    [[menu.main]]
+      name = "VAR-Seq"
+      url = "/spr_wf/templates/varseq"
+      parent = "Workflows"
+      weight = 3
+    [menu.main.params]
+      level = 2
+    [[menu.main]]
+      name = "ChIP-Seq"
+      url = "/spr_wf/templates/chipseq"
+      parent = "Workflows"
+      weight = 4
+    [menu.main.params]
+      level = 2
+    [[menu.main]]
+      name = "RIBO-Seq"
+      url = "/spr_wf/templates/chipseq"
+      parent = "Workflows"
+      weight = 5
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
+    name = "How to install Workflow"
+    url = "/spr_wf/installwf/"
+    parent = "Workflows"
+    weight = 6
+  [[menu.main]]
+    name = "Rules to create Workflow"
+    url = "/spr_wf/newwf"
+    parent = "Workflows"
+    weight = 7
 ## Training
 [[menu.main]]
   name = "Outreach"

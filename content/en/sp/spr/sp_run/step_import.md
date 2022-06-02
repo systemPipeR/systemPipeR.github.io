@@ -248,11 +248,11 @@ can see a error, like *Error:* <objectName> object not found..
 
 ```r
 sal_rmd <- SPRproject(logs.dir = ".SPRproject_rmd") 
-## Creating directory 'C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd'
-## Creating file 'C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/SYSargsList.yml'
-## Your current working directory is different from the directory chosen for the Project Workflow.
-## For accurate location of the files and running the Workflow, please set the working directory to 
-## 'setwd('C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run')'
+## Creating directory:  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/data 
+## Creating directory:  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/param 
+## Creating directory:  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/results 
+## Creating directory '/home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject_rmd'
+## Creating file '/home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject_rmd/SYSargsList.yml'
 
 sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"))
 ## Reading Rmd file
@@ -271,7 +271,7 @@ sal_rmd <- importWF(sal_rmd, file_path = system.file("extdata", "spr_simple_wf.R
 ## Now importing step 'stats' 
 ## Now back up current Rmd file as template for `renderReport`
 ## Template for renderReport is stored at 
-##  C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/workflow_template.Rmd 
+##  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject_rmd/workflow_template.Rmd 
 ##  Edit this file manually is not recommended 
 ## import  done
 sal_rmd
@@ -440,8 +440,11 @@ template to the right order but it cannot create text descrption for you.
 Another way to import new steps or update text in the template is to use 
 `importWF(..., update = TRUE)`.
 
+### Example 1
 
-Let's add a step and some text to `spr_simple_wf.Rmd` and try to update. 
+Let's add a step and some text to 
+[`spr_simple_wf.Rmd`](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md) 
+and try to update. 
 
 - `update = TRUE` is highly interactive. It uses a Q&A style to ask users things like
   whether to update preprocess code of certain steps, whether to import certain 
@@ -451,7 +454,7 @@ Let's add a step and some text to `spr_simple_wf.Rmd` and try to update.
  `importWF(..., update = TRUE, confirm = TRUE)`, which means confirm all the choices, 
   say "yes" to all. Then, partially update is no longer the option here. 
   
-For the update template, you can download [here](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md)
+For the updated template, you can download [here](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md)
 
 One step, preprocess code and some description has been added to the end:
 
@@ -468,7 +471,6 @@ appendStep(sal) <- LineWise(code={
   dependency = "stats")
 ```
 ````
-
 
 
 ```r
@@ -507,7 +509,7 @@ sal_rmd <- importWF(sal_rmd, file_path = tmp_file, update = TRUE, confirm = TRUE
 ## some fake preprocess code
 ## Now back up current Rmd file as template for `renderReport`
 ## Template for renderReport is stored at 
-##  C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/workflow_template.Rmd 
+##  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject_rmd/workflow_template.Rmd 
 ##  Edit this file manually is not recommended 
 ## update  done
 ```
@@ -546,7 +548,24 @@ sal_rmd
 ## 
 ```
 
+Under interactive mode, users would have a lot more options. For example, when 
+adding a new step, `importWF` has a back-tracking algorithm that 
+automatically detects the right order where this step should be appended. However,
+things can go wrong and it does not work 100%. Under interactive mode, the 
+program first lists the previous step where this new step would be appended after,
+and then users have the option to choose whether this is the correct step. If not, 
+a new prompt would pop up to let the users to manually choose the right order 
+to append the new step. See the gif below. 
 
+> This does not mean you could append a step to any place. It also has to meet 
+> the dependency requirement. For example, this new step is depend on step 5 but 
+> you manually choose to append it after step 1. Then, the import would fail. 
+
+
+
+![](../importwf_interactive.gif)
+
+### Example 2
 Let's see another [example](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new_precode_changed.md)
 how `importWF` update preprocess code and line numbers
 
@@ -586,22 +605,27 @@ sal_rmd <- importWF(sal_rmd, file_path = tmp_file2, update = TRUE, confirm = TRU
 ## Now importing new steps
 ## Now back up current Rmd file as template for `renderReport`
 ## Template for renderReport is stored at 
-##  C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject_rmd/workflow_template.Rmd 
+##  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject_rmd/workflow_template.Rmd 
 ##  Edit this file manually is not recommended 
 ## update  done
 ```
 
 
-Note for existing steps, and their preprocess code, they are not re-imported or 
-re-evaluated.
+> Note for existing steps, and their preprocess code, they are not re-imported or 
+> re-evaluated.
+
+![](../importwf_interactive_preprocess.gif)
+
 
 ### Colors
 Rendering the web document is not interactive, so colors are also removed. It 
-is only gray color above, but in the actual interactive mode, multiple colors are 
-used to indicate the status:
+is only gray color in code chunks above, but in the actual interactive mode, multiple colors are 
+used to indicate the status as you have seen in the gifs.
 
-![importwf](../importwf.png)
 
+## Advanced templates
+There are quite a few pre-configed templates that is provided by the [systemPipeRdata](/sp/sprdata/)
+package. You can also take a look at them individual [here](/spr_wf/)
 
 ## Session
 
@@ -611,18 +635,21 @@ sessionInfo()
 ```
 
 ```
-## R version 4.2.0 (2022-04-22 ucrt)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19044)
+## R version 4.2.0 (2022-04-22)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.4 LTS
 ## 
 ## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-## [1] LC_COLLATE=English_United States.utf8 
-## [2] LC_CTYPE=English_United States.utf8   
-## [3] LC_MONETARY=English_United States.utf8
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.utf8    
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
@@ -632,16 +659,16 @@ sessionInfo()
 ##  [1] systemPipeR_2.3.4           ShortRead_1.54.0           
 ##  [3] GenomicAlignments_1.32.0    SummarizedExperiment_1.26.1
 ##  [5] Biobase_2.56.0              MatrixGenerics_1.8.0       
-##  [7] matrixStats_0.62.0          BiocParallel_1.30.0        
+##  [7] matrixStats_0.62.0          BiocParallel_1.30.2        
 ##  [9] Rsamtools_2.12.0            Biostrings_2.64.0          
 ## [11] XVector_0.36.0              GenomicRanges_1.48.0       
-## [13] GenomeInfoDb_1.32.1         IRanges_2.30.0             
+## [13] GenomeInfoDb_1.32.2         IRanges_2.30.0             
 ## [15] S4Vectors_0.34.0            BiocGenerics_0.42.0        
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] lattice_0.20-45        png_0.1-7              assertthat_0.2.1      
 ##  [4] digest_0.6.29          utf8_1.2.2             R6_2.5.1              
-##  [7] evaluate_0.15          ggplot2_3.3.6          blogdown_1.10.1       
+##  [7] evaluate_0.15          ggplot2_3.3.6          blogdown_1.10         
 ## [10] pillar_1.7.0           zlibbioc_1.42.0        rlang_1.0.2           
 ## [13] rstudioapi_0.13        jquerylib_0.1.4        Matrix_1.4-1          
 ## [16] rmarkdown_2.14         stringr_1.4.0          htmlwidgets_1.5.4     
@@ -660,3 +687,5 @@ sessionInfo()
 ## [55] fastmap_1.1.0          yaml_2.3.5             colorspace_2.0-3      
 ## [58] knitr_1.39             sass_0.4.1
 ```
+
+

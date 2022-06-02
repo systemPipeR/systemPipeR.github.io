@@ -1,6 +1,6 @@
 ---
 title: "Visualize workflows" 
-date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+date: "Last update: 01 June, 2022" 
 vignette: |
   %\VignetteEncoding{UTF-8}
   %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
@@ -13,7 +13,8 @@ weight: 4
 ---
 
 
-```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
+
+```r
 suppressPackageStartupMessages({
     library(systemPipeR)
 })
@@ -26,14 +27,7 @@ In this section, we will learn advanced options how to visualize workflows.
 First let's set up the workflow using the example workflow template. For real 
 production purposes, we recommend you to check out the complex templates over [here](/spr_wf/).
 
-```{r eval=TRUE, include=FALSE}
-# cleaning
-try(unlink(".SPRproject", recursive = TRUE), TRUE)
-try(unlink("data", recursive = TRUE), TRUE)
-try(unlink("results", recursive = TRUE), TRUE)
-try(unlink("param", recursive = TRUE), TRUE)
-try(unlink("varseq", recursive = TRUE), TRUE)
-```
+
 
 ## dependency graph
 The workflow plot is also called the dependency graph. It shows users how 
@@ -43,7 +37,8 @@ be run unless all dependencies has been executed successfully.
 To understand a workflow, we can simply call the sal object to print on console
 like so
 
-```{r eval=FALSE}
+
+```r
 sal
 ## Instance of 'SYSargsList': 
 ##     WF Steps:
@@ -66,26 +61,10 @@ hard to see from console. Workflow plot is the useful tool to understand the wor
 For example, the [VARseq workflow](https://systempipe.org/SPvarseq/articles/SPvarseq.html) 
 is pretty complex, we can show it by: 
 
-```{r}
-systemPipeRdata::genWorkenvir("varseq")
-sal <- SPRproject(projPath = "varseq")
-sal <- importWF(sal, file_path = "systemPipeVARseq.Rmd")
-```
-
-```{r}
-
-```
 
 
 
-For demonstration purposes here, we still use the [simple workflow](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md).
-```{r}
-sal <- SPRproject()
-sal <- importWF(sal, file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"))
-sal
-```
 
-# Session 
-```{r}
-sessionInfo()
-```
+
+
+

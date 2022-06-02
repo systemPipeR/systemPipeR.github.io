@@ -3,7 +3,7 @@ title: "Bioconductor 3.13"
 linkTitle: "Bioconductor 3.13"
 type: docs
 description: >
-weight: 1
+weight: 98
 ---
 
 # *systemPipeTools* 1.0.0 is available

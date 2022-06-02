@@ -191,8 +191,11 @@ template to the right order but it cannot create text descrption for you.
 Another way to import new steps or update text in the template is to use 
 `importWF(..., update = TRUE)`.
 
+### Example 1
 
-Let's add a step and some text to `spr_simple_wf.Rmd` and try to update. 
+Let's add a step and some text to 
+[`spr_simple_wf.Rmd`](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md) 
+and try to update. 
 
 - `update = TRUE` is highly interactive. It uses a Q&A style to ask users things like
   whether to update preprocess code of certain steps, whether to import certain 
@@ -202,7 +205,7 @@ Let's add a step and some text to `spr_simple_wf.Rmd` and try to update.
  `importWF(..., update = TRUE, confirm = TRUE)`, which means confirm all the choices, 
   say "yes" to all. Then, partially update is no longer the option here. 
   
-For the update template, you can download [here](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md)
+For the updated template, you can download [here](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new.md)
 
 One step, preprocess code and some description has been added to the end:
 
@@ -219,7 +222,6 @@ appendStep(sal) <- LineWise(code={
   dependency = "stats")
 `r ''````
 ````
-
 
 ```{r collapse=TRUE}
 # the file is with `.md` extension, but `importWF` needs `.Rmd`. 
@@ -249,7 +251,24 @@ A new step has been successfully imported from the new template.
 sal_rmd
 ```
 
+Under interactive mode, users would have a lot more options. For example, when 
+adding a new step, `importWF` has a back-tracking algorithm that 
+automatically detects the right order where this step should be appended. However,
+things can go wrong and it does not work 100%. Under interactive mode, the 
+program first lists the previous step where this new step would be appended after,
+and then users have the option to choose whether this is the correct step. If not, 
+a new prompt would pop up to let the users to manually choose the right order 
+to append the new step. See the gif below. 
 
+> This does not mean you could append a step to any place. It also has to meet 
+> the dependency requirement. For example, this new step is depend on step 5 but 
+> you manually choose to append it after step 1. Then, the import would fail. 
+
+
+
+![](../importwf_interactive.gif)
+
+### Example 2
 Let's see another [example](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf_new_precode_changed.md)
 how `importWF` update preprocess code and line numbers
 
@@ -265,19 +284,32 @@ sal_rmd <- importWF(sal_rmd, file_path = tmp_file2, update = TRUE, confirm = TRU
 ```
 
 
-Note for existing steps, and their preprocess code, they are not re-imported or 
-re-evaluated.
+> Note for existing steps, and their preprocess code, they are not re-imported or 
+> re-evaluated.
+
+![](../importwf_interactive_preprocess.gif)
+
 
 ### Colors
 Rendering the web document is not interactive, so colors are also removed. It 
-is only gray color above, but in the actual interactive mode, multiple colors are 
-used to indicate the status:
+is only gray color in code chunks above, but in the actual interactive mode, multiple colors are 
+used to indicate the status as you have seen in the gifs.
 
-![importwf](../importwf.png)
 
+## Advanced templates
+There are quite a few pre-configed templates that is provided by the [systemPipeRdata](/sp/sprdata/)
+package. You can also take a look at them individual [here](/spr_wf/)
 
 ## Session
 
 ```{r}
 sessionInfo()
+```
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject_rmd", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
 ```
