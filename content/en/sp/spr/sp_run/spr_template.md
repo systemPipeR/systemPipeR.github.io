@@ -1,0 +1,109 @@
+---
+title: "SPR workflow template"
+author: "my name"
+date: "Last update: 03 June, 2022"
+output: 
+  html_document:
+    number_sections: false
+    theme: flatly
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: false
+package: systemPipeR
+fontsize: 14pt
+---
+
+# About this Report 
+
+This is a workflow template.
+
+# Workflow Steps
+
+## Step1 load_library
+
+```r
+appendStep(sal) <- LineWise(
+    code={
+        library(systemPipeR)
+    },
+    step_name = 'load_library',
+    dependency = NA,
+    run_step = c('mandatory'),
+    run_session = c('management')
+)
+```
+
+
+## Step2 export_iris
+
+```r
+appendStep(sal) <- LineWise(
+    code={
+        mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path("results", paste0(names(split(iris, factor(iris$Species))), ".csv")))
+    },
+    step_name = 'export_iris',
+    dependency = c('load_library'),
+    run_step = c('mandatory'),
+    run_session = c('management')
+)
+```
+
+
+## Step3 gzip
+
+```r
+appendStep(sal) <- SYSargsList(
+    targets = "/home/lab/R/x86_64-pc-linux-gnu-library/4.2/systemPipeR/extdata/cwl/gunzip/targets_gunzip.txt",
+    dir_path="/home/lab/R/x86_64-pc-linux-gnu-library/4.2/systemPipeR/extdata/cwl",
+    wf_file="gunzip/workflow_gzip.cwl",
+    input_file="gunzip/gzip.yml",
+    inputvars = c( FileName="_FILE_PATH_", SampleName="_SampleName_" ),
+    rm_targets_col = NULL,
+    step_name = 'gzip',
+    dependency = c('export_iris'),
+    dir=TRUE,
+    run_step = c('mandatory'),
+    run_session = c('management')
+)
+```
+
+
+## Step4 gunzip
+
+```r
+appendStep(sal) <- SYSargsList(
+    targets = c("gzip"),
+    dir_path="/home/lab/R/x86_64-pc-linux-gnu-library/4.2/systemPipeR/extdata/cwl",
+    wf_file="gunzip/workflow_gunzip.cwl",
+    input_file="gunzip/gunzip.yml",
+    inputvars = c( gzip_file="_FILE_PATH_", SampleName="_SampleName_" ),
+    rm_targets_col = c(" FileName "),
+    step_name = 'gunzip',
+    dependency = c('gzip'),
+    dir=TRUE,
+    run_step = c('mandatory'),
+    run_session = c('management')
+)
+```
+
+
+## Step5 stats
+
+```r
+appendStep(sal) <- LineWise(
+    code={
+        df <- lapply(getColumn(sal, step = "gunzip", "outfiles"), function(x) read.delim(x, sep = ",")[-1])
+        df <- do.call(rbind, df)
+        stats <- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
+        stats$species <- rownames(stats)
+        plot <- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = "identity", color = "black", position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
+    },
+    step_name = 'stats',
+    dependency = c('gunzip'),
+    run_step = c('optional'),
+    run_session = c('management')
+)
+```
+
+

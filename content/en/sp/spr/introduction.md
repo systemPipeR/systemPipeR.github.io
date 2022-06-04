@@ -1,7 +1,7 @@
 ---
 title: "Introduction" 
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 29 April, 2022" 
+date: "Last update: 03 June, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -39,7 +39,7 @@ Backman, T.W.H and Girke, T. (2016). *`systemPipeR`*: NGS Workflow and Report Ge
 
 # Introduction
 
-[*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
+[*`systemPipeR`*(SPR)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
 provides flexible utilities for designing, building and running automated end-to-end
 analysis workflows for a wide range of research applications, including
 next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq,
@@ -128,7 +128,7 @@ and debugging complex workflows from start to finish.
 
 <div class="figure" style="text-align: center">
 
-<img src="SYSargsList.png" alt="Workflow steps with input/output file operations are controlled by the _`SYSargsList`_ container. Each of its components (_`SYSargs2`_) are constructed from an optional *targets* and two *param* files. Alternatively, _`LineWise`_ instances containing pure R code can be used." width="100%" />
+<img src="sysargslist.png" alt="Workflow steps with input/output file operations are controlled by the _`SYSargsList`_ container. Each of its components (_`SYSargs2`_) are constructed from an optional *targets* and two *param* files. Alternatively, _`LineWise`_ instances containing pure R code can be used." width="100%" />
 <p class="caption">
 Figure 3: Workflow steps with input/output file operations are controlled by the *`SYSargsList`* container. Each of its components (*`SYSargs2`*) are constructed from an optional *targets* and two *param* files. Alternatively, *`LineWise`* instances containing pure R code can be used.
 </p>

@@ -24,14 +24,11 @@ sal <- SPRproject(logs.dir= ".SPRproject", sys.file=".SPRproject/SYSargsList.yml
 
 
 ```
-## Recreating directory 'C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject'
-## Creating file 'C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run/.SPRproject/SYSargsList.yml'
-```
-
-```
-## Your current working directory is different from the directory chosen for the Project Workflow.
-## For accurate location of the files and running the Workflow, please set the working directory to 
-## 'setwd('C:\Users\lz\Desktop\lz100\systemPipeR.github.io\content\en\sp\spr\sp_run')'
+## Creating directory:  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/data 
+## Creating directory:  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/param 
+## Creating directory:  /home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/results 
+## Creating directory '/home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject'
+## Creating file '/home/lab/Desktop/spr/systemPipeR.github.io/content/en/sp/spr/sp_run/.SPRproject/SYSargsList.yml'
 ```
 
 
@@ -362,18 +359,21 @@ sessionInfo()
 ```
 
 ```
-## R version 4.2.0 (2022-04-22 ucrt)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19044)
+## R version 4.2.0 (2022-04-22)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.4 LTS
 ## 
 ## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-## [1] LC_COLLATE=English_United States.utf8 
-## [2] LC_CTYPE=English_United States.utf8   
-## [3] LC_MONETARY=English_United States.utf8
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.utf8    
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
@@ -383,10 +383,10 @@ sessionInfo()
 ##  [1] systemPipeR_2.3.4           ShortRead_1.54.0           
 ##  [3] GenomicAlignments_1.32.0    SummarizedExperiment_1.26.1
 ##  [5] Biobase_2.56.0              MatrixGenerics_1.8.0       
-##  [7] matrixStats_0.62.0          BiocParallel_1.30.0        
+##  [7] matrixStats_0.62.0          BiocParallel_1.30.2        
 ##  [9] Rsamtools_2.12.0            Biostrings_2.64.0          
 ## [11] XVector_0.36.0              GenomicRanges_1.48.0       
-## [13] GenomeInfoDb_1.32.1         IRanges_2.30.0             
+## [13] GenomeInfoDb_1.32.2         IRanges_2.30.0             
 ## [15] S4Vectors_0.34.0            BiocGenerics_0.42.0        
 ## 
 ## loaded via a namespace (and not attached):

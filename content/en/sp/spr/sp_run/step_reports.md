@@ -1,53 +1,60 @@
 ---
 title: "Generate Reports" 
-date: "Last update: 01 June, 2022" 
-vignette: |
-  %\VignetteEncoding{UTF-8}
-  %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
-  %\VignetteEngine{knitr::rmarkdown}
-fontsize: 14pt
-editor_options: 
-  chunk_output_type: console
+date: "Last update: 03 June, 2022" 
 type: docs
 weight: 7
 ---
 
-<!--
-- Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
--->
+After the analysis, we often would like to generate some reports. In SPR, we 
+provide two types of reports: technical report and text-enriched report. Both of 
+them would give you an interactive HTML file. 
 
-# Session 
+## Technical report
+
+_`systemPipeR`_ compiles all the workflow execution logs in one central location, 
+making it easier to check any standard output (`stdout`) or standard error 
+(`stderr`) for any command-line tools used on the workflow or the R code `stdout`.
+Also, the workflow plot is appended at the beginning of the report, making it 
+easier to click on the respective step.
+
 
 ```r
-sessionInfo()
+sal <- renderLogs(sal)
 ```
 
+An example log file can be viewed over [here](../logs_example.html). 
+
+## Text-enriched report
+To communicate with researchers outside one's field, text explanation is usually 
+expected. When we design a workflow and [import from a template](../step_import), 
+adding text description to help people understand the workflow is highly recommended. 
+The template can also be used to display results. Remember only **SPR chunks** `(spr=TRUE)`  
+would be imported into the workflow. Therefore, other chunks are 
+**ignored until rendering the text-enriched report** with `renderReport`. These 
+non-SPR chunks will be **evaluated** (if they do not have `eval=FALSE`) in report 
+rendering and all SPR chunks will all be **muted**. So these non-SPR chunks can be 
+good places to add some images, tables, plots, or other light calculations.
+
+
+
+```r
+sal <- renderReport(sal)
 ```
-## R version 4.2.0 (2022-04-22)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.4 LTS
-## 
-## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.26   digest_0.6.29   R6_2.5.1        jsonlite_1.8.0 
-##  [5] magrittr_2.0.3  evaluate_0.15   blogdown_1.10   stringi_1.7.6  
-##  [9] rlang_1.0.2     cli_3.3.0       rstudioapi_0.13 jquerylib_0.1.4
-## [13] bslib_0.3.1     rmarkdown_2.14  tools_4.2.0     stringr_1.4.0  
-## [17] xfun_0.31       yaml_2.3.5      fastmap_1.1.0   compiler_4.2.0 
-## [21] htmltools_0.5.2 knitr_1.39      sass_0.4.1
-```
+
+- Here the `renderReport` uses the copy of workflow template, which is stored in `.SPRProject`, 
+  as skeleton to generate the report. All text is copied over and all steps in current 
+  workflow are **translated** into reproducible code to the skeleton. 
+- If any step is added interactively, meaning they did not exist in the template when
+  you used `importWF`, `renderReport` has an internal algorithm to find the right 
+  place to inject the translated code based on the order where they appear inside 
+  `SYSargsList`. However, there will be no text description of these new steps.
+- The algorithm is smart but not 100%, so if any new step is been added interactively, 
+  we recommend you to add text description and code accordingly in the template 
+  and use `importWF(..., update = TRUE)` as discussed in [import section](../step_import) to update. 
+- If all steps are added interactively, meaning you did not use `importWF` at all,
+  `sal2rmd` will be called. We will discuss this function in the next section.
+
+To have a glimpse of what the `renderReport` file look like, check out our 
+pre-configed workflow templates rendered pages [here](/spr_wf/#workflow-templates).
+
+

@@ -41,7 +41,34 @@ sal <- importWF(sal, file_path = system.file("extdata", "spr_simple_wf.Rmd", pac
 sal
 ```
 
-## start running 
+## Before running
+It is good to check if the command-line tools are installed before running 
+the workflow. To do so, we can use the `tryCMD` function.
+
+```{r}
+tryCMD(command="R") 
+tryCMD(command="hisat2") 
+tryCMD(command="blastp") 
+```
+
+In examples above, installed tools will have a message `"All set up, proceed!"`, 
+and not installed tool will have an error message, like the `blastp` example above. 
+
+If you see the error message: 
+
+1. Check if the tool is really installed, by typing the same command from a terminal.
+   If you cannot call it even from a terminal, you need to (re)install.
+2. If the tool is available in terminal but you see the error message in `tryCMD`.
+   It is mostly likely due to the path problem. Make sure you 
+   [export the path](https://askubuntu.com/questions/720678/what-does-export-path-somethingpath-mean).
+   Or try to use following to set it up in R:
+    ```{r eval=FALSE}
+    old_path <- Sys.getenv("PATH")
+    Sys.setenv(PATH = paste(old_path, "path/to/tool_directory", sep = ":"))
+    ```
+   
+
+## Start running 
 To run the workflow, call the `runWF` function which will execute all steps in the workflow container.
 
 ```{r runWF, eval=TRUE}
@@ -286,6 +313,52 @@ plotWF(sal, width = "80%", rstudio = TRUE)
 ```
 
 We will discuss a lot more advanced use of `plotWF` function in the next section.
+
+## High-level project control
+
+If you desire to resume or restart a project that has been initialized in the past, 
+`SPRproject` function allows this operation.
+
+**Resume**
+
+With the `resume` option, it is possible to load the `SYSargsList` object in R and 
+resume the analysis. Please, make sure to provide the `logs.dir` location, and the 
+corresponded `YAML` file name, if the default names were not used when the project was created.
+
+```{r SPR_resume, eval=FALSE}
+sal <- SPRproject(resume = TRUE, logs.dir = ".SPRproject", 
+                  sys.file = ".SPRproject/SYSargsList.yml") 
+```
+
+If you choose to save the environment in the last analysis, you can recover all 
+the files created in that particular section. `SPRproject` function allows this 
+with `load.envir` argument. Please note that the environment was saved only with
+you run the workflow in the last section (`runWF()`).
+
+```{r resume_load, eval=FALSE}
+sal <- SPRproject(resume = TRUE, load.envir = TRUE) 
+```
+
+**Restart**
+
+The `resume` option will keep all previous logs in the folder; however, if you desire to 
+clean the execution (delete all the log files) history and restart the workflow, 
+the `restart=TRUE` option can be used.
+
+```{r restart_load, eval=FALSE}
+sal <- SPRproject(restart = TRUE, load.envir = FALSE) 
+```
+
+**Overwrite**
+
+The last and more drastic option from `SYSproject` function is to `overwrite` the
+logs and the `SYSargsList` object. This option will delete the hidden folder and the 
+information on the `SYSargsList.yml` file. This will not delete any parameter
+file nor any results it was created in previous runs. Please use with caution. 
+
+```{r SPR_overwrite, eval=FALSE}
+sal <- SPRproject(overwrite = TRUE) 
+```
 
 
 ## Session 
