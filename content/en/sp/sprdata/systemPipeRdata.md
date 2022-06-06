@@ -1,7 +1,7 @@
 ---
 title: "Workflow templates and sample data"
 author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 29 April, 2022" 
+date: "Last update: 04 June, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -46,24 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 **Note:** the most recent version of this vignette can be found <a href="https://github.com/tgirke/systemPipeRdata/blob/master/vignettes/systemPipeRdata.Rmd">here</a>.
 
-**Note:** if you use *`systemPipeR`* and *`systemPipeRdata`* in published research, please cite:
-
-Backman, T.W.H and Girke, T. (2016). *systemPipeR*: Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
-
-# Introduction
-
-[*`systemPipeRdata`*](https://github.com/tgirke/systemPipeRdata) is a helper package
-to generate with a single command workflow templates that are intended to be
-used by its parent package [*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) (H Backman and Girke 2016).
-The *systemPipeR* project provides a suite of R/Bioconductor packages for designing,
-building and running end-to-end analysis workflows on local machines, HPC clusters
-and cloud systems, while generating at the same time publication quality analysis reports.
-
-To test workflows quickly or design new ones from existing templates, users can
-generate with a single command workflow instances fully populated with sample data
-and parameter files required for running a chosen workflow.
-Pre-configured directory structure of the workflow environment and the sample data
-used by *`systemPipeRdata`* are described [here](http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#load-sample-data-and-workflow-templates).
+> **Note:** if you use *`systemPipeR`* or *`systemPipeRdata`* in published research, please cite:
+> Backman, T.W.H and Girke, T. (2016). *systemPipeR*: Workflow and Report Generation Environment.
+> *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 
 *`systemPipeRdata`* package provides a demo sample FASTQ files used in the
 workflow reporting vignettes. The chosen data set [`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938) obtains 18
@@ -114,6 +99,8 @@ The following does this for the *`rnaseq`* workflow template. The name of the re
 workflow directory can be specified under the *`mydirname`* argument. The default *`NULL`*
 uses the name of the chosen workflow. An error is issued if a directory of the same
 name and path exists already.
+
+> Full details of pre-configed workflows are listed on [this page](/spr_wf/)
 
 ``` r
 genWorkenvir(workflow = "systemPipeR/SPrnaseq", mydirname = "rnaseq")
@@ -262,10 +249,10 @@ pathList()[1:2]
 ```
 
     ## $targets
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/targets.txt"
+    ## [1] "C:/Users/lz/AppData/Local/R/win-library/4.2/systemPipeRdata/extdata/param/targets.txt"
     ## 
     ## $targetsPE
-    ## [1] "/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/targetsPE.txt"
+    ## [1] "C:/Users/lz/AppData/Local/R/win-library/4.2/systemPipeRdata/extdata/param/targetsPE.txt"
 
 # Version information
 
@@ -273,42 +260,39 @@ pathList()[1:2]
 sessionInfo()
 ```
 
-    ## R Under development (unstable) (2021-10-25 r81105)
-    ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Ubuntu 20.04.4 LTS
+    ## R version 4.2.0 (2022-04-22 ucrt)
+    ## Platform: x86_64-w64-mingw32/x64 (64-bit)
+    ## Running under: Windows 10 x64 (build 19044)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-    ## LAPACK: /home/dcassol/src/R-devel/lib/libRlapack.so
     ## 
     ## locale:
-    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## [1] LC_COLLATE=English_United States.utf8 
+    ## [2] LC_CTYPE=English_United States.utf8   
+    ## [3] LC_MONETARY=English_United States.utf8
+    ## [4] LC_NUMERIC=C                          
+    ## [5] LC_TIME=English_United States.utf8    
     ## 
     ## attached base packages:
     ## [1] stats     graphics  grDevices utils     datasets 
     ## [6] methods   base     
     ## 
     ## other attached packages:
-    ## [1] systemPipeRdata_1.22.3 BiocStyle_2.23.1      
+    ## [1] systemPipeRdata_2.1.1 BiocStyle_2.24.0     
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] bslib_0.3.1            compiler_4.2.0        
-    ##  [3] BiocManager_1.30.17    formatR_1.12          
-    ##  [5] jquerylib_0.1.4        GenomeInfoDb_1.32.0   
+    ##  [3] BiocManager_1.30.18    formatR_1.12          
+    ##  [5] jquerylib_0.1.4        GenomeInfoDb_1.32.1   
     ##  [7] XVector_0.36.0         bitops_1.0-7          
     ##  [9] remotes_2.4.2          tools_4.2.0           
     ## [11] zlibbioc_1.42.0        digest_0.6.29         
     ## [13] jsonlite_1.8.0         evaluate_0.15         
     ## [15] rlang_1.0.2            cli_3.3.0             
     ## [17] rstudioapi_0.13        yaml_2.3.5            
-    ## [19] blogdown_1.9           xfun_0.30             
+    ## [19] blogdown_1.10.1        xfun_0.31             
     ## [21] fastmap_1.1.0          GenomeInfoDbData_1.2.8
-    ## [23] stringr_1.4.0          knitr_1.38            
+    ## [23] stringr_1.4.0          knitr_1.39            
     ## [25] Biostrings_2.64.0      sass_0.4.1            
     ## [27] S4Vectors_0.34.0       IRanges_2.30.0        
     ## [29] stats4_4.2.0           R6_2.5.1              
@@ -325,12 +309,6 @@ This project was supported by funds from the National Institutes of Health (NIH)
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
-
-<div id="ref-H_Backman2016-bt" class="csl-entry">
-
-H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
-
-</div>
 
 <div id="ref-Howard2013-fq" class="csl-entry">
 

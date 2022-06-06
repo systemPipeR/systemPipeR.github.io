@@ -1,17 +1,5 @@
 ---
 title: "Introduction" 
-author: "Author: Daniela Cassol (danielac@ucr.edu) and Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 03 June, 2022" 
-output:
-  BiocStyle::html_document:
-    toc_float: true
-    code_folding: show
-  BiocStyle::pdf_document: default
-package: systemPipeR
-vignette: |
-  %\VignetteEncoding{UTF-8}
-  %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
-  %\VignetteEngine{knitr::rmarkdown}
 fontsize: 14pt
 bibliography: bibtex.bib
 editor_options: 
@@ -34,10 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-**Note:** if you use *`systemPipeR`* in published research, please cite:
-Backman, T.W.H and Girke, T. (2016). *`systemPipeR`*: NGS Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
-
-# Introduction
+> **Note:** if you use *{`systemPipeR`}* in published research, please cite:
+> Backman, T.W.H and Girke, T. (2016). *systemPipeR*: NGS Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. \>[10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 
 [*`systemPipeR`*(SPR)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
 provides flexible utilities for designing, building and running automated end-to-end
@@ -128,7 +114,7 @@ and debugging complex workflows from start to finish.
 
 <div class="figure" style="text-align: center">
 
-<img src="sysargslist.png" alt="Workflow steps with input/output file operations are controlled by the _`SYSargsList`_ container. Each of its components (_`SYSargs2`_) are constructed from an optional *targets* and two *param* files. Alternatively, _`LineWise`_ instances containing pure R code can be used." width="100%" />
+<img src="SYSargsList.png" alt="Workflow steps with input/output file operations are controlled by the _`SYSargsList`_ container. Each of its components (_`SYSargs2`_) are constructed from an optional *targets* and two *param* files. Alternatively, _`LineWise`_ instances containing pure R code can be used." width="100%" />
 <p class="caption">
 Figure 3: Workflow steps with input/output file operations are controlled by the *`SYSargsList`* container. Each of its components (*`SYSargs2`*) are constructed from an optional *targets* and two *param* files. Alternatively, *`LineWise`* instances containing pure R code can be used.
 </p>

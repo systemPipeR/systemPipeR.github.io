@@ -5,10 +5,6 @@ weight: 3
 type: docs
 ---
 
-{{% pageinfo %}}
-Find [here](https://systempipe.org/spr/systempiperdata/vignette/) all the documentation!
-{{% /pageinfo %}}
-
 # systemPipeRdata: Workflow templates and sample data
 
 [_`systemPipeRdata`_](https://github.com/tgirke/systemPipeRdata) is a helper package 
@@ -43,15 +39,9 @@ BiocManager::install("tgirke/systemPipeRdata", build_vignettes=TRUE, dependencie
 
 Due to the large size of the sample data (~320 MB) provided by _systemPipeRdata_, its download/install may take some time.
 
-To install the parent package _systemPipeR_ itself, please use the _BiocManager::install_ method as instructed
-[_here_](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html).
+To install the parent package _systemPipeR_ itself, please use the `BiocManager::install` method as instructed
+[_here_](../spr/gettingstarted/#installation).
 
-### Usage
-
-Detailed user manuals are available here: 
-
-+ [_systemPipeRdata_ Vignette](http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html)
-+ [_systemPipeR_ Overview Vignette](http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html)
 
 <iframe width="900" height="600" src="https://systempipe.org/presentations/sprdata/SPRdata.html#1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

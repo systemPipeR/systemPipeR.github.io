@@ -49,24 +49,9 @@ suppressPackageStartupMessages({
 
 **Note:** the most recent version of this vignette can be found <a href="https://github.com/tgirke/systemPipeRdata/blob/master/vignettes/systemPipeRdata.Rmd">here</a>.
 
-**Note:** if you use _`systemPipeR`_ and _`systemPipeRdata`_ in published research, please cite:
-
-Backman, T.W.H and Girke, T. (2016). *systemPipeR*: Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
-
-# Introduction
-
-[_`systemPipeRdata`_](https://github.com/tgirke/systemPipeRdata) is a helper package 
-to generate with a single command  workflow templates that are intended to be 
-used by its parent package [_`systemPipeR`_](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) [@H_Backman2016-bt]. 
-The *systemPipeR* project provides a suite of R/Bioconductor packages for designing,
-building and running end-to-end analysis workflows on local machines, HPC clusters 
-and cloud systems, while generating at the same time publication quality analysis reports.
-
-To test workflows quickly or design new ones from existing templates, users can
-generate with a single command workflow instances fully populated with sample data 
-and parameter files required for running a chosen workflow.
-Pre-configured directory structure of the workflow environment and the sample data 
-used by _`systemPipeRdata`_ are described [here](http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#load-sample-data-and-workflow-templates).
+> **Note:** if you use _`systemPipeR`_ or _`systemPipeRdata`_ in published research, please cite:
+> Backman, T.W.H and Girke, T. (2016). *systemPipeR*: Workflow and Report Generation Environment. 
+> *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 
 _`systemPipeRdata`_ package provides a demo sample FASTQ files used in the 
 workflow reporting vignettes. The chosen data set [`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938) obtains 18
@@ -118,6 +103,8 @@ The following does this for the _`rnaseq`_ workflow template. The name of the re
 workflow directory can be specified under the _`mydirname`_ argument. The default _`NULL`_ 
 uses the name of the chosen workflow. An error is issued if a directory of the same 
 name and path exists already. 
+
+> Full details of pre-configed workflows are listed on [this page](/spr_wf/)
 
 ```{r generate_workenvir, eval=FALSE}
 genWorkenvir(workflow="systemPipeR/SPrnaseq", mydirname="rnaseq")
