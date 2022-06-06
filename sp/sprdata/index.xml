@@ -49,20 +49,11 @@ document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
 });
 &lt;/script&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; the most recent version of this vignette can be found &lt;a href=&#34;https://github.com/tgirke/systemPipeRdata/blob/master/vignettes/systemPipeRdata.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; if you use &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt; and &lt;em&gt;&lt;code&gt;systemPipeRdata&lt;/code&gt;&lt;/em&gt; in published research, please cite:&lt;/p&gt;
-&lt;p&gt;Backman, T.W.H and Girke, T. (2016). &lt;em&gt;systemPipeR&lt;/em&gt;: Workflow and Report Generation Environment. &lt;em&gt;BMC Bioinformatics&lt;/em&gt;, 17: 388. &lt;a href=&#34;https://doi.org/10.1186/s12859-016-1241-0&#34;&gt;10.1186/s12859-016-1241-0&lt;/a&gt;.&lt;/p&gt;
-&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/tgirke/systemPipeRdata&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeRdata&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; is a helper package
-to generate with a single command workflow templates that are intended to be
-used by its parent package &lt;a href=&#34;http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; (H Backman and Girke 2016).
-The &lt;em&gt;systemPipeR&lt;/em&gt; project provides a suite of R/Bioconductor packages for designing,
-building and running end-to-end analysis workflows on local machines, HPC clusters
-and cloud systems, while generating at the same time publication quality analysis reports.&lt;/p&gt;
-&lt;p&gt;To test workflows quickly or design new ones from existing templates, users can
-generate with a single command workflow instances fully populated with sample data
-and parameter files required for running a chosen workflow.
-Pre-configured directory structure of the workflow environment and the sample data
-used by &lt;em&gt;&lt;code&gt;systemPipeRdata&lt;/code&gt;&lt;/em&gt; are described &lt;a href=&#34;http://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#load-sample-data-and-workflow-templates&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; if you use &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt; or &lt;em&gt;&lt;code&gt;systemPipeRdata&lt;/code&gt;&lt;/em&gt; in published research, please cite:
+Backman, T.W.H and Girke, T. (2016). &lt;em&gt;systemPipeR&lt;/em&gt;: Workflow and Report Generation Environment.
+&lt;em&gt;BMC Bioinformatics&lt;/em&gt;, 17: 388. &lt;a href=&#34;https://doi.org/10.1186/s12859-016-1241-0&#34;&gt;10.1186/s12859-016-1241-0&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;code&gt;systemPipeRdata&lt;/code&gt;&lt;/em&gt; package provides a demo sample FASTQ files used in the
 workflow reporting vignettes. The chosen data set &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938&#34;&gt;&lt;code&gt;SRP010938&lt;/code&gt;&lt;/a&gt; obtains 18
 paired-end (PE) read sets from &lt;em&gt;Arabidposis thaliana&lt;/em&gt; (Howard et al. 2013). To
@@ -97,6 +88,9 @@ The following does this for the &lt;em&gt;&lt;code&gt;rnaseq&lt;/code&gt;&lt;/em
 workflow directory can be specified under the &lt;em&gt;&lt;code&gt;mydirname&lt;/code&gt;&lt;/em&gt; argument. The default &lt;em&gt;&lt;code&gt;NULL&lt;/code&gt;&lt;/em&gt;
 uses the name of the chosen workflow. An error is issued if a directory of the same
 name and path exists already.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Full details of pre-configed workflows are listed on &lt;a href=&#34;../../spr_wf/&#34;&gt;this page&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;genWorkenvir(workflow = &amp;quot;systemPipeR/SPrnaseq&amp;quot;, mydirname = &amp;quot;rnaseq&amp;quot;)
 setwd(&amp;quot;rnaseq&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -216,50 +210,47 @@ accordingly.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pathList()[1:2]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $targets
-## [1] &amp;quot;/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/targets.txt&amp;quot;
+## [1] &amp;quot;C:/Users/lz/AppData/Local/R/win-library/4.2/systemPipeRdata/extdata/param/targets.txt&amp;quot;
 ## 
 ## $targetsPE
-## [1] &amp;quot;/home/dcassol/src/R-devel/library/systemPipeRdata/extdata/param/targetsPE.txt&amp;quot;
+## [1] &amp;quot;C:/Users/lz/AppData/Local/R/win-library/4.2/systemPipeRdata/extdata/param/targetsPE.txt&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;version-information&#34;&gt;Version information&lt;/h1&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sessionInfo()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## R Under development (unstable) (2021-10-25 r81105)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.4 LTS
+&lt;pre&gt;&lt;code&gt;## R version 4.2.0 (2022-04-22 ucrt)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 19044)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /home/dcassol/src/R-devel/lib/libRlapack.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## [1] LC_COLLATE=English_United States.utf8 
+## [2] LC_CTYPE=English_United States.utf8   
+## [3] LC_MONETARY=English_United States.utf8
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.utf8    
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets 
 ## [6] methods   base     
 ## 
 ## other attached packages:
-## [1] systemPipeRdata_1.22.3 BiocStyle_2.23.1      
+## [1] systemPipeRdata_2.1.1 BiocStyle_2.24.0     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] bslib_0.3.1            compiler_4.2.0        
-##  [3] BiocManager_1.30.17    formatR_1.12          
-##  [5] jquerylib_0.1.4        GenomeInfoDb_1.32.0   
+##  [3] BiocManager_1.30.18    formatR_1.12          
+##  [5] jquerylib_0.1.4        GenomeInfoDb_1.32.1   
 ##  [7] XVector_0.36.0         bitops_1.0-7          
 ##  [9] remotes_2.4.2          tools_4.2.0           
 ## [11] zlibbioc_1.42.0        digest_0.6.29         
 ## [13] jsonlite_1.8.0         evaluate_0.15         
 ## [15] rlang_1.0.2            cli_3.3.0             
 ## [17] rstudioapi_0.13        yaml_2.3.5            
-## [19] blogdown_1.9           xfun_0.30             
+## [19] blogdown_1.10.1        xfun_0.31             
 ## [21] fastmap_1.1.0          GenomeInfoDbData_1.2.8
-## [23] stringr_1.4.0          knitr_1.38            
+## [23] stringr_1.4.0          knitr_1.39            
 ## [25] Biostrings_2.64.0      sass_0.4.1            
 ## [27] S4Vectors_0.34.0       IRanges_2.30.0        
 ## [29] stats4_4.2.0           R6_2.5.1              
@@ -273,9 +264,6 @@ accordingly.&lt;/p&gt;
 &lt;p&gt;This project was supported by funds from the National Institutes of Health (NIH) and the National Science Foundation (NSF).&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
-&lt;div id=&#34;ref-H_Backman2016-bt&#34; class=&#34;csl-entry&#34;&gt;
-&lt;p&gt;H Backman, Tyler W, and Thomas Girke. 2016. “&lt;span class=&#34;nocase&#34;&gt;systemPipeR: NGS workflow and report generation environment&lt;/span&gt;.” &lt;em&gt;BMC Bioinformatics&lt;/em&gt; 17 (1): 388. &lt;a href=&#34;https://doi.org/10.1186/s12859-016-1241-0&#34;&gt;https://doi.org/10.1186/s12859-016-1241-0&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div id=&#34;ref-Howard2013-fq&#34; class=&#34;csl-entry&#34;&gt;
 &lt;p&gt;Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” &lt;em&gt;PLoS One&lt;/em&gt; 8 (10): e74183. &lt;a href=&#34;https://doi.org/10.1371/journal.pone.0074183&#34;&gt;https://doi.org/10.1371/journal.pone.0074183&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
