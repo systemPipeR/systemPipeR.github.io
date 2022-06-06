@@ -23,12 +23,12 @@ Workflow Steps Step1 load_library appendStep(sal) &lt;- LineWise( code={ library
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spr/sp_run/spr_template/" /><meta property="article:section" content="sp" />
 
-<meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2022-06-03T19:03:53-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="SPR workflow template">
 <meta itemprop="description" content="About this Report This is a workflow template.
 Workflow Steps Step1 load_library appendStep(sal) &lt;- LineWise( code={ library(systemPipeR) }, step_name = &#39;load_library&#39;, dependency = NA, run_step = c(&#39;mandatory&#39;), run_session = c(&#39;management&#39;) )  Step2 export_iris appendStep(sal) &lt;- LineWise( code={ mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path(&quot;results&quot;, paste0(names(split(iris, factor(iris$Species))), &quot;.csv&quot;))) }, step_name = &#39;export_iris&#39;, dependency = c(&#39;load_library&#39;), run_step = c(&#39;mandatory&#39;), run_session = c(&#39;management&#39;) )  Step3 gzip appendStep(sal) &lt;- SYSargsList( targets = &quot;/home/lab/R/x86_64-pc-linux-gnu-library/4.">
-
+<meta itemprop="dateModified" content="2022-06-03T19:03:53-07:00" />
 <meta itemprop="wordCount" content="223">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SPR workflow template"/>
@@ -567,7 +567,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.5771551532b3d42e6cf84b8706b94422.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.1d22e5ea27cf1e8a6c39a8a05f6736a2.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >

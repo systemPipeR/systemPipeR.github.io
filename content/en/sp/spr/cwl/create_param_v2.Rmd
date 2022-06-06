@@ -177,7 +177,11 @@ character string or or a list.
 - If x is a list, it must be named. Following items must be included in list: `name`, `preF`, 
   `type`, `value`, `index.` They refer to name, prefix, param type, default value, 
   and position index correspondingly.
-    - baseCommand modification is **not supported** to use list format. 
+    - `baseCommand` modification is **not supported** to use list format. 
+    - `inputs` position requires the list contains following items: “name”, “preF”, “type”, “value”, “index”.
+    - `args` position requires the list contains following items: “name”, “preF”, “index”.
+    - `outputs` position requires the list contains following items: “name”, “type”, “value”.
+    - `stdout` position requires the list contains following items: “name”, “type”, “value”.
   
 It will be more clear when we walk through examples below.
 
@@ -228,43 +232,80 @@ new_cmd_list <- list(name = "new_out", type = "File", value = "abc.txt")
 appendParam2(cmd, new_cmd_list, position = "outputs")
 ```
 
-### Replacing a existing argument in the command-line
-
+However, the problem as you may have seen in the message  of running `appendParam2`
+is that `inputs` and `outputs` are often paired in CWL. So most times, we want to 
+also to append the related `inputs` part to make CWL work. 
 ```{r}
-# cmd3 <- replaceParam(cmd, "base", index = 1, replace = list(baseCommand = "bwa"))
-# cmdlist(cmd3)
+new_cmd <- 'p: -new; File; new_file.txt; 99'
+commandline <- appendParam2(cmd, new_cmd, position = "inputs")
+printParam2(cmd, all = FALSE, inputs = TRUE, outputs = TRUE, raw_cmd = TRUE)
 ```
 
+This time, most of the string is similar to the `output` one, but remember to remove 
+keyword **out:** and **add prefix** if necessary.
+
+
+
+
+### Replacing existing ones
+
+##### Replace argument
 ```{r}
-# new_inputs <- new_inputs <- list(
-#     "new_input1" = list(type = "File", preF="-b", yml ="myfile"),
-#     "new_input2" = "-L <int: 4>"
-# )
-# cmd4 <- replaceParam(cmd, "inputs", index = 1:2, replace = new_inputs)
-# cmdlist(cmd4)
+new_cmd <- list(name = "new_arg2", preF = "--haha", index = 7)
+cmd <- replaceParam2(cmd, new_cmd, index = "argument1", position = "args")
+printParam2(cmd, args = TRUE, raw_cmd = TRUE, all = FALSE)
 ```
 
-### Adding new arguments
+> We can see from above that one good thing of `list` format is that the 
+> component name and prefix can be different, whereas in string format, the name is 
+> always the prefix word without leading dash(s).
 
+
+##### Replacing other posistions 
+Replacing other positions will be very similar to the example above, we will not 
+list them all here. One quick note is that the `index` in `replaceParam2` is different 
+than the `index` item in the list `new_cmd`. In `replaceParam2` it means which 
+argument in `cmd` we want to replace, it can be the **name of that component or using a number**
+to index it. In `new_cmd`, `index` means the CWL parameter position, it 
+can **only be a number**. This will be reflected in the parsed raw command. 
+
+If we change the `index` in `new_cmd` to a different number, watch closely how 
+parsed raw command change:
+
+**Before**
 ```{r}
-# newIn <- new_inputs <- list(
-#     "new_input1" = list(type = "File", preF="-b1", yml ="myfile1"),
-#     "new_input2" = list(type = "File", preF="-b2", yml ="myfile2"),
-#     "new_input3" = "-b3 <F: myfile3>"
-# )
-# cmd5 <- appendParam(cmd, "inputs", index = 1:2, append = new_inputs)
-# cmdlist(cmd5)
-# 
-# cmd6 <- appendParam(cmd, "inputs", index = 1:2, after=0, append = new_inputs)
-# cmdlist(cmd6)
+printParam2(cmd, raw_cmd = TRUE, all = FALSE)
 ```
 
-### Editing `output` param
+**After**
+```{r}
+new_cmd <- list(name = "new_arg2", preF = "--haha", index = 1)
+cmd <- replaceParam2(cmd, new_cmd, index = "new_arg2", position = "args")
+printParam2(cmd, raw_cmd = TRUE, all = FALSE)
+```
+
+### Rename a component
+
+### Replace a single component
+Replace the new argument we just replaced for example:
+```{r}
+cmd <- renameParam2(cmd, new_names = "my_arg_renamed", index = 1, position = "args")
+printParam2(cmd, args = TRUE, raw_cmd = TRUE, all = FALSE)
+```
+
+### Replace multiple components
+```{r}
+cmd <- renameParam2(cmd, new_names = c("file1", "file2"), index = c("s1", "s2"), position = "inputs")
+printParam2(cmd, inputs = TRUE, raw_cmd = TRUE, all = FALSE)
+```
+
+> length of `new_names` must be the same as `index`.
+
+### Remove components
 
 ```{r}
-# new_outs <- list(
-#     "sam_out" = "<F: $(inputs.results_path)/test.sam>"
-# ) 
-# cmd7 <- replaceParam(cmd, "outputs", index = 1, replace = new_outs)
-# output(cmd7) 
+cmd <- removeParam2(cmd, index = 1:2, position = "inputs")
+printParam2(cmd, all = FALSE, inputs = TRUE, raw_cmd = TRUE)
 ```
+
+

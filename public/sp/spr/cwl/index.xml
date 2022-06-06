@@ -1,0 +1,1441 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sysPipe – CWL</title>
+    <link>/sp/spr/cwl/</link>
+    <description>Recent content in CWL on sysPipe</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/sp/spr/cwl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Sp: CWL syntax</title>
+      <link>/sp/spr/cwl/cwl_syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sp/spr/cwl/cwl_syntax/</guid>
+      <description>
+        
+        
+        &lt;script type=&#34;text/javascript&#34;&gt;
+document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+  document.querySelector(&#34;h1&#34;).className = &#34;title&#34;;
+});
+&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i &lt; linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = &#39;_blank&#39;;
+});
+&lt;/script&gt;
+&lt;p&gt;For complete documentation, please check the CommandLineTools documentation &lt;a href=&#34;https://www.commonwl.org/v1.2/CommandLineTool.html&#34;&gt;here&lt;/a&gt;
+and &lt;a href=&#34;https://www.commonwl.org/v1.2/Workflow.html&#34;&gt;here&lt;/a&gt; for Workflows and the user guide &lt;a href=&#34;https://www.commonwl.org/user_guide/&#34;&gt;here&lt;/a&gt;.
+CWL command-line specifications are written in &lt;a href=&#34;http://yaml.org/&#34;&gt;YAML&lt;/a&gt; format.&lt;/p&gt;
+&lt;p&gt;In CWL, files with the extension &lt;code&gt;.cwl&lt;/code&gt; define the parameters of a chosen
+command-line step or workflow, while files with the extension &lt;code&gt;.yml&lt;/code&gt; define
+the input variables of command-line steps.&lt;/p&gt;
+&lt;h3 id=&#34;cwl-commandlinetool&#34;&gt;CWL &lt;code&gt;CommandLineTool&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;CommandLineTool&lt;/code&gt; by CWL definition is a standalone process, with no interaction
+if other programs, execute a program, and produce output.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s explore the &lt;code&gt;*.cwl&lt;/code&gt; file:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
+cwl &amp;lt;- yaml::read_yaml(file.path(dir_path, &amp;quot;example/example.cwl&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;cwlVersion&lt;/code&gt; component shows the CWL specification version used by the document.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;class&lt;/code&gt; component shows this document describes a &lt;code&gt;CommandLineTool.&lt;/code&gt;
+Note that CWL has another &lt;code&gt;class&lt;/code&gt;, called &lt;code&gt;Workflow&lt;/code&gt; which represents a union of one
+or more command-line tools together.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl[1:2]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $cwlVersion
+## [1] &amp;quot;v1.0&amp;quot;
+## 
+## $class
+## [1] &amp;quot;CommandLineTool&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;baseCommand&lt;/code&gt; component provides the name of the software that we desire to execute.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl[3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $baseCommand
+## [1] &amp;quot;echo&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;inputs&lt;/code&gt; section provides the input information to run the tool. Important
+components of this section are:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;id&lt;/code&gt;: each input has an id describing the input name;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt;: describe the type of input value (string, int, long, float, double,
+File, Directory or Any);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inputBinding&lt;/code&gt;: It is optional. This component indicates if the input
+parameter should appear on the command-line. If this component is missing
+when describing an input parameter, it will not appear in the command-line
+but can be used to build the command-line.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl[4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $inputs
+## $inputs$message
+## $inputs$message$type
+## [1] &amp;quot;string&amp;quot;
+## 
+## $inputs$message$inputBinding
+## $inputs$message$inputBinding$position
+## [1] 1
+## 
+## 
+## 
+## $inputs$SampleName
+## $inputs$SampleName$type
+## [1] &amp;quot;string&amp;quot;
+## 
+## 
+## $inputs$results_path
+## $inputs$results_path$type
+## [1] &amp;quot;Directory&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;outputs&lt;/code&gt; section should provide a list of the expected outputs after running the command-line tools. Important
+components of this section are:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;id&lt;/code&gt;: each input has an id describing the output name;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt;: describe the type of output value (string, int, long, float, double,
+File, Directory, Any or &lt;code&gt;stdout&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;outputBinding&lt;/code&gt;: This component defines how to set the outputs values. The &lt;code&gt;glob&lt;/code&gt; component will define the name of the output value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl[5]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $outputs
+## $outputs$string
+## $outputs$string$type
+## [1] &amp;quot;stdout&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;stdout&lt;/code&gt;: component to specify a &lt;code&gt;filename&lt;/code&gt; to capture standard output.
+Note here we are using a syntax that takes advantage of the inputs section,
+using results_path parameter and also the &lt;code&gt;SampleName&lt;/code&gt; to construct the output &lt;code&gt;filename.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl[6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $stdout
+## [1] &amp;quot;$(inputs.results_path.basename)/$(inputs.SampleName).txt&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cwl-workflow&#34;&gt;CWL &lt;code&gt;Workflow&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Workflow&lt;/code&gt; class in CWL is defined by multiple process steps, where can have
+interdependencies between the steps, and the output for one step can be used as
+input in the further steps.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl.wf &amp;lt;- yaml::read_yaml(file.path(dir_path, &amp;quot;example/workflow_example.cwl&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;cwlVersion&lt;/code&gt; component shows the CWL specification version used by the document.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;class&lt;/code&gt; component shows this document describes a &lt;code&gt;Workflow&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl.wf[1:2]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $class
+## [1] &amp;quot;Workflow&amp;quot;
+## 
+## $cwlVersion
+## [1] &amp;quot;v1.0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;inputs&lt;/code&gt; section describes the inputs of the workflow.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl.wf[3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $inputs
+## $inputs$message
+## [1] &amp;quot;string&amp;quot;
+## 
+## $inputs$SampleName
+## [1] &amp;quot;string&amp;quot;
+## 
+## $inputs$results_path
+## [1] &amp;quot;Directory&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;outputs&lt;/code&gt; section describes the outputs of the workflow.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl.wf[4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $outputs
+## $outputs$string
+## $outputs$string$outputSource
+## [1] &amp;quot;echo/string&amp;quot;
+## 
+## $outputs$string$type
+## [1] &amp;quot;stdout&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;steps&lt;/code&gt; section describes the steps of the workflow. In this simple example,
+we demonstrate one step.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cwl.wf[5]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $steps
+## $steps$echo
+## $steps$echo$`in`
+## $steps$echo$`in`$message
+## [1] &amp;quot;message&amp;quot;
+## 
+## $steps$echo$`in`$SampleName
+## [1] &amp;quot;SampleName&amp;quot;
+## 
+## $steps$echo$`in`$results_path
+## [1] &amp;quot;results_path&amp;quot;
+## 
+## 
+## $steps$echo$out
+## [1] &amp;quot;[string]&amp;quot;
+## 
+## $steps$echo$run
+## [1] &amp;quot;example/example.cwl&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cwl-input-parameter&#34;&gt;CWL Input Parameter&lt;/h3&gt;
+&lt;p&gt;Next, let&amp;rsquo;s explore the &lt;em&gt;.yml&lt;/em&gt; file, which provide the input parameter values for all
+the components we describe above.&lt;/p&gt;
+&lt;p&gt;For this simple example, we have three parameters defined:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;yaml::read_yaml(file.path(dir_path, &amp;quot;example/example_single.yml&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $message
+## [1] &amp;quot;Hello World!&amp;quot;
+## 
+## $SampleName
+## [1] &amp;quot;M1&amp;quot;
+## 
+## $results_path
+## $results_path$class
+## [1] &amp;quot;Directory&amp;quot;
+## 
+## $results_path$path
+## [1] &amp;quot;./results&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that if we define an input component in the &lt;em&gt;.cwl&lt;/em&gt; file, this value needs
+to be also defined here in the &lt;em&gt;.yml&lt;/em&gt; file.&lt;/p&gt;
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sp: SPR and CWL</title>
+      <link>/sp/spr/cwl/cwl_and_spr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sp/spr/cwl/cwl_and_spr/</guid>
+      <description>
+        
+        
+        &lt;script type=&#34;text/javascript&#34;&gt;
+document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+  document.querySelector(&#34;h1&#34;).className = &#34;title&#34;;
+});
+&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i &lt; linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = &#39;_blank&#39;;
+});
+&lt;/script&gt;
+&lt;h2 id=&#34;how-to-connect-cwl-description-files-within-_systempiper_&#34;&gt;How to connect CWL description files within &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;This section will demonstrate how to connect CWL parameters files to create
+workflows. In addition, we will show how the workflow can be easily scalable
+with &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SYSargsList&lt;/code&gt; container stores all the information and instructions needed for processing
+a set of input files with a single or many command-line steps within a workflow
+(i.e. several components of the software or several independent software tools).
+The &lt;code&gt;SYSargsList&lt;/code&gt; object is created and fully populated with the &lt;code&gt;SYSargsList&lt;/code&gt; construct
+function.
+Full documentation of &lt;code&gt;SYSargsList&lt;/code&gt; management instances can be found &lt;a href=&#34;#sysargslist&#34;&gt;here&lt;/a&gt;
+and &lt;a href=&#34;#appendstep&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The following imports a &lt;code&gt;.cwl&lt;/code&gt; file (here &lt;code&gt;example.cwl&lt;/code&gt;) for running the &lt;code&gt;echo Hello World!&lt;/code&gt;
+example.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;HW &amp;lt;- SYSargsList(wf_file = &amp;quot;example/workflow_example.cwl&amp;quot;, input_file = &amp;quot;example/example_single.yml&amp;quot;,
+    dir_path = system.file(&amp;quot;extdata/cwl&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;))
+HW
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Instance of &#39;SYSargsList&#39;: 
+##     WF Steps:
+##        1. Step_x --&amp;gt; Status: Pending 
+##            Total Files: 1 | Existing: 0 | Missing: 1 
+##          1.1. echo
+##              cmdlist: 1 | Pending: 1
+## 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(HW)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Step_x
+## $Step_x$defaultid
+## $Step_x$defaultid$echo
+## [1] &amp;quot;echo Hello World! &amp;gt; results/M1.txt&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, we are limited to run just one command-line or one sample in this example.
+To scale the command-line over many samples, a simple solution offered by &lt;code&gt;systemPipeR&lt;/code&gt;
+is to provide a &lt;code&gt;variable&lt;/code&gt; for each of the parameters that we want to run with multiple samples.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s explore the example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dir_path &amp;lt;- system.file(&amp;quot;extdata/cwl&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
+yml &amp;lt;- yaml::read_yaml(file.path(dir_path, &amp;quot;example/example.yml&amp;quot;))
+yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $message
+## [1] &amp;quot;_STRING_&amp;quot;
+## 
+## $SampleName
+## [1] &amp;quot;_SAMPLE_&amp;quot;
+## 
+## $results_path
+## $results_path$class
+## [1] &amp;quot;Directory&amp;quot;
+## 
+## $results_path$path
+## [1] &amp;quot;./results&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the &lt;code&gt;message&lt;/code&gt; and &lt;code&gt;SampleName&lt;/code&gt; parameter, we are passing a variable connecting
+with a third file called &lt;code&gt;targets.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s explore the &lt;code&gt;targets&lt;/code&gt; file structure:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetspath &amp;lt;- system.file(&amp;quot;extdata/cwl/example/targets_example.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
+read.delim(targetspath, comment.char = &amp;quot;#&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##               Message SampleName
+## 1        Hello World!         M1
+## 2          Hello USA!         M2
+## 3 Hello Bioconductor!         M3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;targets&lt;/code&gt; file defines all input files or values and sample ids of an analysis workflow.
+For this example, we have defined a string message for the &lt;code&gt;echo&lt;/code&gt; command-line tool,
+in the first column that will be evaluated, and the second column is the
+&lt;code&gt;SampleName&lt;/code&gt; id for each one of the messages.
+Any number of additional columns can be added as needed.&lt;/p&gt;
+&lt;p&gt;Users should note here, the usage of &lt;code&gt;targets&lt;/code&gt; files is optional when using
+&lt;code&gt;systemPipeR&#39;s&lt;/code&gt; new CWL interface. Since for organizing experimental variables targets
+files are extremely useful and user-friendly. Thus, we encourage users to keep using them.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-connect-the-parameter-files-and-targets-file-information&#34;&gt;How to connect the parameter files and &lt;code&gt;targets&lt;/code&gt; file information?&lt;/h3&gt;
+&lt;p&gt;The constructor function creates an &lt;code&gt;SYSargsList&lt;/code&gt; S4 class object connecting three input files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CWL command-line specification file (&lt;code&gt;wf_file&lt;/code&gt; argument);&lt;/li&gt;
+&lt;li&gt;Input variables (&lt;code&gt;input_file&lt;/code&gt; argument);&lt;/li&gt;
+&lt;li&gt;Targets file (&lt;code&gt;targets&lt;/code&gt; argument).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As demonstrated above, the latter is optional for workflow steps lacking input files.
+The connection between input variables (here defined by &lt;code&gt;input_file&lt;/code&gt; argument)
+and the &lt;code&gt;targets&lt;/code&gt; file are defined under the &lt;code&gt;inputvars&lt;/code&gt; argument.
+A named vector is required, where each element name needs to match with column
+names in the &lt;code&gt;targets&lt;/code&gt; file, and the value must match the names of the &lt;em&gt;.yml&lt;/em&gt;
+variables. This is used to replace the CWL variable and construct all the command-line
+for that particular step.&lt;/p&gt;
+&lt;p&gt;The variable pattern &lt;code&gt;_XXXX_&lt;/code&gt; is used to distinguish CWL variables that target
+columns will replace. This pattern is recommended for consistency and easy identification
+but not enforced.&lt;/p&gt;
+&lt;p&gt;The following imports a &lt;code&gt;.cwl&lt;/code&gt; file (same example demonstrated above) for running
+the &lt;code&gt;echo Hello World&lt;/code&gt; example. However, now we are connecting the variable defined
+on the &lt;code&gt;.yml&lt;/code&gt; file with the &lt;code&gt;targets&lt;/code&gt; file inputs.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;HW_mul &amp;lt;- SYSargsList(step_name = &amp;quot;echo&amp;quot;, targets = targetspath, wf_file = &amp;quot;example/workflow_example.cwl&amp;quot;,
+    input_file = &amp;quot;example/example.yml&amp;quot;, dir_path = dir_path, inputvars = c(Message = &amp;quot;_STRING_&amp;quot;,
+        SampleName = &amp;quot;_SAMPLE_&amp;quot;))
+HW_mul
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Instance of &#39;SYSargsList&#39;: 
+##     WF Steps:
+##        1. echo --&amp;gt; Status: Pending 
+##            Total Files: 3 | Existing: 0 | Missing: 3 
+##          1.1. echo
+##              cmdlist: 3 | Pending: 3
+## 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(HW_mul)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $echo
+## $echo$M1
+## $echo$M1$echo
+## [1] &amp;quot;echo Hello World! &amp;gt; results/M1.txt&amp;quot;
+## 
+## 
+## $echo$M2
+## $echo$M2$echo
+## [1] &amp;quot;echo Hello USA! &amp;gt; results/M2.txt&amp;quot;
+## 
+## 
+## $echo$M3
+## $echo$M3$echo
+## [1] &amp;quot;echo Hello Bioconductor! &amp;gt; results/M3.txt&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../SPR_CWL_hello.png&#34; alt=&#34;&#34;&gt;
+WConnectivity between CWL param files and targets files.&lt;/p&gt;
+&lt;h2 id=&#34;creating-the-cwl-param-files&#34;&gt;Creating the CWL param files&lt;/h2&gt;
+&lt;p&gt;In the next two sections, we will discuss how to use &lt;code&gt;createParam&lt;/code&gt; from SPR
+to create CWL param files. In &lt;code&gt;createParam&lt;/code&gt;, there are two versions of syntax:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;../create_param_v1&#34;&gt;version 1&lt;/a&gt;: pseudo-bash script format, easy to write&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../create_param_v2&#34;&gt;version 2&lt;/a&gt;: &lt;code&gt;;&lt;/code&gt; separated format, has more rules, but support
+a lot more functionalities.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;contribute-new-cwl-files-to-_systempiper_&#34;&gt;Contribute new CWL files to &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt; organizes a collection of &lt;a href=&#34;https://www.commonwl.org/&#34;&gt;CWL&lt;/a&gt; CommandLineTool and
+Workflow descriptions for a variety of applications, that can be
+found on Github &lt;a href=&#34;https://github.com/systemPipeR/cwl_collection&#34;&gt;cwl_collection&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have new cwl files would like to add to this collection, submit a
+&lt;a href=&#34;https://github.com/systemPipeR/cwl_collection/pulls&#34;&gt;pull request&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After adding, new files will automatically trigger a
+push to &lt;a href=&#34;https://github.com/tgirke/systemPipeRdata&#34;&gt;&lt;em&gt;systemPipeRdata&lt;/em&gt; (SPRdata)&lt;/a&gt;
+and &lt;a href=&#34;https://github.com/tgirke/systemPipeR&#34;&gt;&lt;em&gt;systemPipeR&lt;/em&gt; (SPR)&lt;/a&gt; repositories master branch
+shortly.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sp: createParam V1</title>
+      <link>/sp/spr/cwl/create_param_v1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sp/spr/cwl/create_param_v1/</guid>
+      <description>
+        
+        
+        &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages({
+    library(systemPipeR)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;createParam&lt;/code&gt; by default uses the version 1 syntax, so there is no need to
+provide additional version argument. We will see in the &lt;a href=&#34;../create_param_v2&#34;&gt;next section&lt;/a&gt; how to
+use &lt;code&gt;syntaxVersion&lt;/code&gt; to change to the v2 syntax.&lt;/p&gt;
+&lt;h2 id=&#34;input&#34;&gt;Input&lt;/h2&gt;
+&lt;p&gt;Imagine we want to create CWL for command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To use &lt;code&gt;createParam&lt;/code&gt;, simply write the command in a pseudo-bash script format:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;command &amp;lt;- &amp;quot;
+    hisat2 \
+    -S &amp;lt;F, out: ./results/M1A.sam&amp;gt; \
+    -x &amp;lt;F: ./data/tair10.fasta&amp;gt; \
+     -k &amp;lt;int: 1&amp;gt; \
+    -min-intronlen &amp;lt;int: 30&amp;gt; \
+    -max-intronlen &amp;lt;int: 3000&amp;gt; \
+    -threads &amp;lt;int: 4&amp;gt; \
+    -U &amp;lt;F: ./data/SRR446027_1.fastq.gz&amp;gt;
+&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;format&#34;&gt;Format&lt;/h3&gt;
+&lt;p&gt;What does the string above mean?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First line is the base command. Each line is an argument with its default value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For argument lines (starting from the second line), any word before the first
+space with leading &lt;code&gt;-&lt;/code&gt; or &lt;code&gt;--&lt;/code&gt; in each will be treated as a prefix, like &lt;code&gt;-S&lt;/code&gt; or
+&lt;code&gt;--min&lt;/code&gt;. Any line without this first word will be treated as no prefix.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;All defaults are placed inside &lt;code&gt;&amp;lt;...&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;First argument is the input argument type. &amp;ldquo;File&amp;rdquo; (or &amp;ldquo;F&amp;rdquo;) for files, &amp;ldquo;int&amp;rdquo; for integers, &amp;ldquo;string&amp;rdquo; for character strings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional: use the keyword &lt;code&gt;out&lt;/code&gt; followed the type with a &lt;code&gt;,&lt;/code&gt; comma separation to
+indicate if this argument is also an CWL output.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then, use &lt;code&gt;:&lt;/code&gt; to separate keywords and default values, any non-space value after the &lt;code&gt;:&lt;/code&gt;
+will be treated as the default value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If any argument has no default value, just a flag, like &lt;code&gt;--verbose&lt;/code&gt;, there is no need to add any &lt;code&gt;&amp;lt;...&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;run-createparam-function&#34;&gt;run &lt;code&gt;createParam&lt;/code&gt; Function&lt;/h2&gt;
+&lt;p&gt;The string above that we just defined will be used as input for &lt;code&gt;createParam&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If the format is correct, after parsing, the function will print the three components of the &lt;code&gt;cwl&lt;/code&gt; file:
+- &lt;code&gt;BaseCommand&lt;/code&gt;: Specifies the program to execute.
+- &lt;code&gt;Inputs&lt;/code&gt;: Defines the input parameters of the process.
+- &lt;code&gt;Outputs&lt;/code&gt;: Defines the parameters representing the output of the process.&lt;/p&gt;
+&lt;p&gt;The fourth printed component is the translated command-line from CWL.&lt;/p&gt;
+&lt;p&gt;If in you are using R interactively, the function will verify that everything is correct and
+will ask you to proceed. Here, the user can answer &amp;ldquo;no&amp;rdquo; and provide more
+information at the string level. Another question is to save the param created here.&lt;/p&gt;
+&lt;p&gt;If running the workflow in non-interactive mode, the &lt;code&gt;createParam&lt;/code&gt; function will
+consider &amp;ldquo;yes&amp;rdquo; and returning the container.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd &amp;lt;- createParam(command, writeParamFiles = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****BaseCommand*****
+## hisat2 
+## *****Inputs*****
+## S:
+##     type: File
+##     preF: -S
+##     yml: ./results/M1A.sam
+## x:
+##     type: File
+##     preF: -x
+##     yml: ./data/tair10.fasta
+## k:
+##     type: int
+##     preF: -k
+##     yml: 1
+## min-intronlen:
+##     type: int
+##     preF: -min-intronlen
+##     yml: 30
+## max-intronlen:
+##     type: int
+##     preF: -max-intronlen
+##     yml: 3000
+## threads:
+##     type: int
+##     preF: -threads
+##     yml: 4
+## U:
+##     type: File
+##     preF: -U
+##     yml: ./data/SRR446027_1.fastq.gz
+## *****Outputs*****
+## output1:
+##     type: File
+##     value: ./results/M1A.sam
+## *****Parsed raw command line*****
+## hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the user chooses not to save the &lt;code&gt;param&lt;/code&gt; files on the above operation,
+later, one can use the &lt;code&gt;writeParamFiles&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;writeParamFiles(cmd, overwrite = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 	 Written content of &#39;commandLine&#39; to file: 
+##  param/cwl/hisat2/hisat2.cwl 
+## 	 Written content of &#39;commandLine&#39; to file: 
+##  param/cwl/hisat2/hisat2.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By default, the files will be saved inside &lt;code&gt;./param/cwl/base_cmd&lt;/code&gt;. It means a
+child folder under &lt;em&gt;param&lt;/em&gt; then &lt;em&gt;cwl&lt;/em&gt;, and create a new folder named by the base command
+of the command-line.&lt;/p&gt;
+&lt;h2 id=&#34;access-and-edit-param-files&#34;&gt;Access and edit param files&lt;/h2&gt;
+&lt;h3 id=&#34;print-a-component&#34;&gt;Print a component&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam(cmd, position = &amp;quot;baseCommand&amp;quot;) ## Print a baseCommand section
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****BaseCommand*****
+## hisat2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam(cmd, position = &amp;quot;outputs&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Outputs*****
+## output1:
+##     type: File
+##     value: ./results/M1A.sam
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam(cmd, position = &amp;quot;inputs&amp;quot;, index = 1:2) ## Print by index
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## S:
+##     type: File
+##     preF: -S
+##     yml: ./results/M1A.sam
+## x:
+##     type: File
+##     preF: -x
+##     yml: ./data/tair10.fasta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam(cmd, position = &amp;quot;inputs&amp;quot;, index = -1:-2) ## Negative indexing printing to exclude certain indices in a position
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## k:
+##     type: int
+##     preF: -k
+##     yml: 1
+## min-intronlen:
+##     type: int
+##     preF: -min-intronlen
+##     yml: 30
+## max-intronlen:
+##     type: int
+##     preF: -max-intronlen
+##     yml: 3000
+## threads:
+##     type: int
+##     preF: -threads
+##     yml: 4
+## U:
+##     type: File
+##     preF: -U
+##     yml: ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;subsetting-the-command-line&#34;&gt;Subsetting the command-line&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd2 &amp;lt;- subsetParam(cmd, position = &amp;quot;inputs&amp;quot;, index = 1:2, trim = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## S:
+##     type: File
+##     preF: -S
+##     yml: ./results/M1A.sam
+## x:
+##     type: File
+##     preF: -x
+##     yml: ./data/tair10.fasta
+## *****Parsed raw command line*****
+## hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(cmd2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd2 &amp;lt;- subsetParam(cmd, position = &amp;quot;inputs&amp;quot;, index = c(&amp;quot;S&amp;quot;, &amp;quot;x&amp;quot;), trim = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## S:
+##     type: File
+##     preF: -S
+##     yml: ./results/M1A.sam
+## x:
+##     type: File
+##     preF: -x
+##     yml: ./data/tair10.fasta
+## *****Parsed raw command line*****
+## hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(cmd2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;replacing-a-existing-argument-in-the-command-line&#34;&gt;Replacing a existing argument in the command-line&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd3 &amp;lt;- replaceParam(cmd, &amp;quot;base&amp;quot;, index = 1, replace = list(baseCommand = &amp;quot;bwa&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Replacing baseCommand
+## *****BaseCommand*****
+## bwa 
+## *****Parsed raw command line*****
+## bwa -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(cmd3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;bwa -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_inputs &amp;lt;- new_inputs &amp;lt;- list(
+    &amp;quot;new_input1&amp;quot; = list(type = &amp;quot;File&amp;quot;, preF=&amp;quot;-b&amp;quot;, yml =&amp;quot;myfile&amp;quot;),
+    &amp;quot;new_input2&amp;quot; = &amp;quot;-L &amp;lt;int: 4&amp;gt;&amp;quot;
+)
+cmd4 &amp;lt;- replaceParam(cmd, &amp;quot;inputs&amp;quot;, index = 1:2, replace = new_inputs)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Replacing inputs
+## *****Inputs*****
+## new_input1:
+##     type: File
+##     preF: -b
+##     yml: myfile
+## new_input2:
+##     type: int
+##     preF: -L
+##     yml: 4
+## k:
+##     type: int
+##     preF: -k
+##     yml: 1
+## min-intronlen:
+##     type: int
+##     preF: -min-intronlen
+##     yml: 30
+## max-intronlen:
+##     type: int
+##     preF: -max-intronlen
+##     yml: 3000
+## threads:
+##     type: int
+##     preF: -threads
+##     yml: 4
+## U:
+##     type: File
+##     preF: -U
+##     yml: ./data/SRR446027_1.fastq.gz
+## *****Parsed raw command line*****
+## hisat2 -b myfile -L 4 -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(cmd4)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;hisat2 -b myfile -L 4 -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;adding-new-arguments&#34;&gt;Adding new arguments&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;newIn &amp;lt;- new_inputs &amp;lt;- list(
+    &amp;quot;new_input1&amp;quot; = list(type = &amp;quot;File&amp;quot;, preF=&amp;quot;-b1&amp;quot;, yml =&amp;quot;myfile1&amp;quot;),
+    &amp;quot;new_input2&amp;quot; = list(type = &amp;quot;File&amp;quot;, preF=&amp;quot;-b2&amp;quot;, yml =&amp;quot;myfile2&amp;quot;),
+    &amp;quot;new_input3&amp;quot; = &amp;quot;-b3 &amp;lt;F: myfile3&amp;gt;&amp;quot;
+)
+cmd5 &amp;lt;- appendParam(cmd, &amp;quot;inputs&amp;quot;, index = 1:2, append = new_inputs)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Replacing inputs
+## *****Inputs*****
+## S:
+##     type: File
+##     preF: -S
+##     yml: ./results/M1A.sam
+## x:
+##     type: File
+##     preF: -x
+##     yml: ./data/tair10.fasta
+## k:
+##     type: int
+##     preF: -k
+##     yml: 1
+## min-intronlen:
+##     type: int
+##     preF: -min-intronlen
+##     yml: 30
+## max-intronlen:
+##     type: int
+##     preF: -max-intronlen
+##     yml: 3000
+## threads:
+##     type: int
+##     preF: -threads
+##     yml: 4
+## U:
+##     type: File
+##     preF: -U
+##     yml: ./data/SRR446027_1.fastq.gz
+## new_input1:
+##     type: File
+##     preF: -b1
+##     yml: myfile1
+## new_input2:
+##     type: File
+##     preF: -b2
+##     yml: myfile2
+## new_input3:
+##     type: File
+##     preF: -b3
+##     yml: myfile3
+## *****Parsed raw command line*****
+## hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz -b1 myfile1 -b2 myfile2 -b3 myfile3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(cmd5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz -b1 myfile1 -b2 myfile2 -b3 myfile3&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd6 &amp;lt;- appendParam(cmd, &amp;quot;inputs&amp;quot;, index = 1:2, after=0, append = new_inputs)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Replacing inputs
+## *****Inputs*****
+## new_input1:
+##     type: File
+##     preF: -b1
+##     yml: myfile1
+## new_input2:
+##     type: File
+##     preF: -b2
+##     yml: myfile2
+## new_input3:
+##     type: File
+##     preF: -b3
+##     yml: myfile3
+## S:
+##     type: File
+##     preF: -S
+##     yml: ./results/M1A.sam
+## x:
+##     type: File
+##     preF: -x
+##     yml: ./data/tair10.fasta
+## k:
+##     type: int
+##     preF: -k
+##     yml: 1
+## min-intronlen:
+##     type: int
+##     preF: -min-intronlen
+##     yml: 30
+## max-intronlen:
+##     type: int
+##     preF: -max-intronlen
+##     yml: 3000
+## threads:
+##     type: int
+##     preF: -threads
+##     yml: 4
+## U:
+##     type: File
+##     preF: -U
+##     yml: ./data/SRR446027_1.fastq.gz
+## *****Parsed raw command line*****
+## hisat2 -b1 myfile1 -b2 myfile2 -b3 myfile3 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmdlist(cmd6)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;hisat2 -b1 myfile1 -b2 myfile2 -b3 myfile3 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;editing-output-param&#34;&gt;Editing &lt;code&gt;output&lt;/code&gt; param&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_outs &amp;lt;- list(
+    &amp;quot;sam_out&amp;quot; = &amp;quot;&amp;lt;F: $(inputs.results_path)/test.sam&amp;gt;&amp;quot;
+) 
+cmd7 &amp;lt;- replaceParam(cmd, &amp;quot;outputs&amp;quot;, index = 1, replace = new_outs)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Replacing outputs
+## *****Outputs*****
+## sam_out:
+##     type: File
+##     value: $(inputs.results_path)/test.sam
+## *****Parsed raw command line*****
+## hisat2 -S ./results/M1A.sam -x ./data/tair10.fasta -k 1 -min-intronlen 30 -max-intronlen 3000 -threads 4 -U ./data/SRR446027_1.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;output(cmd7) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $defaultid
+## $defaultid$hisat2
+## [1] &amp;quot;./results/test.sam&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sp: createParam V2</title>
+      <link>/sp/spr/cwl/create_param_v2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sp/spr/cwl/create_param_v2/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;createParam&lt;/code&gt; has a second different set of input syntax version 2. To use this new
+version &lt;code&gt;createParam(..., syntaxVersion = &amp;quot;v2&amp;quot;)&lt;/code&gt; must be provided.&lt;/p&gt;
+&lt;h2 id=&#34;new-in-v2&#34;&gt;New in v2&lt;/h2&gt;
+&lt;p&gt;What new features are included in the v2?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support duplicated argument flags. Some programs uses the same flag, like
+&lt;code&gt;-f file1 -f file2 -f file3&lt;/code&gt; for multiple files. This feature is added in v2.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.commonwl.org/user_guide/03-input/index.html&#34;&gt;CWL argument&lt;/a&gt; component support.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.commonwl.org/user_guide/03-input/index.html&#34;&gt;CWL positions&lt;/a&gt; in inputs and arguments components support.&lt;/li&gt;
+&lt;li&gt;positional argument without any prefix.&lt;/li&gt;
+&lt;li&gt;Prefix other than dash &lt;code&gt;-&lt;/code&gt; or &lt;code&gt;--&lt;/code&gt;. Some programs do not use dash as flags, for example some
+uses &lt;code&gt;@&lt;/code&gt;. This is supported in v2.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.commonwl.org/user_guide/05-stdout/index.html&#34;&gt;CWL standard out&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.commonwl.org/user_guide/03-input/index.html&#34;&gt;more types&lt;/a&gt; support, long, float, double, boolean&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;input&#34;&gt;Input&lt;/h2&gt;
+&lt;p&gt;Imagine we want to create CWL for command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;suppressPackageStartupMessages({
+    library(systemPipeR)
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To use &lt;code&gt;createParam&lt;/code&gt;, simply write the command in a pseudo-bash script format:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;command &amp;lt;- &#39;
+mycmd \
+    p: -s; File; sample1.txt \
+    p: -s; File; sample2.txt \
+    p: --c; ; \
+    p: -o; File; out: myout.txt \
+    ref_genome; File; a.fasta \
+    p: --nn; int; 12 \
+    mystdout; File; stdout: abc.txt
+&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;format&#34;&gt;Format&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First line of the command-line object will be treated as the &lt;code&gt;baseCommand&lt;/code&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Each line specifies one argument and its default value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Each line is composed with exact &lt;strong&gt;2&lt;/strong&gt; &lt;code&gt;;&lt;/code&gt; to separate &lt;strong&gt;3&lt;/strong&gt; columns. Some
+columns can leave empty&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Text before first &lt;code&gt;;&lt;/code&gt; will be will used as prefix/names. If it starts with keyword &amp;ldquo;&lt;code&gt;p:&lt;/code&gt;&amp;rdquo;,
+anything after &amp;ldquo;&lt;code&gt;p:&lt;/code&gt;&amp;rdquo; and before the first &lt;code&gt;;&lt;/code&gt; will be used as prefix, and the
+name of this position will be the prefix but with leading dash(s) &amp;ldquo;&lt;code&gt;-&lt;/code&gt;&amp;rdquo;, &amp;ldquo;&lt;code&gt;--&lt;/code&gt;&amp;rdquo; removed.
+If there is any duplication, a number index will be added to the end for the names.
+If there is no keyword &amp;ldquo;&lt;code&gt;p:&lt;/code&gt;&amp;rdquo; before first &lt;code&gt;;&lt;/code&gt;, all text before first &lt;code&gt;;&lt;/code&gt; will be the name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If there is keyword &amp;ldquo;&lt;code&gt;p:&lt;/code&gt;&amp;rdquo; before first &lt;code&gt;;&lt;/code&gt; but nothing before and after the second &lt;code&gt;;&lt;/code&gt;,
+this position will be treated as CWL &lt;strong&gt;argument&lt;/strong&gt; instead of input.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Text between first and second &lt;code&gt;;&lt;/code&gt; is type. Must be one of File, Directory, string, int, double, float, long, boolean.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Text after second &lt;code&gt;;&lt;/code&gt; and before &lt;code&gt;\&lt;/code&gt; or end of the line is the default value.
+If it starts with keyword &amp;ldquo;&lt;code&gt;out&lt;/code&gt;&amp;rdquo; or &amp;ldquo;&lt;code&gt;stdout&lt;/code&gt;&amp;rdquo;, this position will also be added to outputs or standard output.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is only &lt;strong&gt;1&lt;/strong&gt; line can have &amp;ldquo;&lt;code&gt;stdout&lt;/code&gt;&amp;rdquo; and usually it is the last position argument.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ending with &amp;ldquo;&lt;code&gt;\&lt;/code&gt;&amp;rdquo; is recommended but not required.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below is a table of examples to demonstrate if values given or not given in different columns
+how &lt;code&gt;createParam&lt;/code&gt; would translate them to.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;example&lt;/th&gt;
+&lt;th&gt;name/prefix column&lt;/th&gt;
+&lt;th&gt;type column&lt;/th&gt;
+&lt;th&gt;value column&lt;/th&gt;
+&lt;th&gt;translate to&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;first line&lt;/td&gt;
+&lt;td&gt;mycmd&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;-&amp;gt;base command&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;no type, no value&lt;/td&gt;
+&lt;td&gt;p: &amp;ndash;prefix;&lt;/td&gt;
+&lt;td&gt;;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;-&amp;gt; arguments&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;with prefix, type, or value&lt;/td&gt;
+&lt;td&gt;p: -prefix;&lt;/td&gt;
+&lt;td&gt;type;&lt;/td&gt;
+&lt;td&gt;default_value&lt;/td&gt;
+&lt;td&gt;-&amp;gt; normal input&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;no prefix&lt;/td&gt;
+&lt;td&gt;name;&lt;/td&gt;
+&lt;td&gt;type;&lt;/td&gt;
+&lt;td&gt;default_value&lt;/td&gt;
+&lt;td&gt;-&amp;gt; inputs no prefix&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;prefix other than dash&lt;/td&gt;
+&lt;td&gt;p: @prefix;&lt;/td&gt;
+&lt;td&gt;type;&lt;/td&gt;
+&lt;td&gt;default_value&lt;/td&gt;
+&lt;td&gt;-&amp;gt; inputs, prefix no dash&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;output binding specified in third column&lt;/td&gt;
+&lt;td&gt;p: -prefix;&lt;/td&gt;
+&lt;td&gt;type;&lt;/td&gt;
+&lt;td&gt;out: default_value&lt;/td&gt;
+&lt;td&gt;-&amp;gt; inputs, outputs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;standard out binding specified in third column&lt;/td&gt;
+&lt;td&gt;name;&lt;/td&gt;
+&lt;td&gt;type;&lt;/td&gt;
+&lt;td&gt;stdout: default_value&lt;/td&gt;
+&lt;td&gt;-&amp;gt; stdout&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;run-createparam-function&#34;&gt;run &lt;code&gt;createParam&lt;/code&gt; Function&lt;/h2&gt;
+&lt;p&gt;The string above that we just defined will be used as input for &lt;code&gt;createParam&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If the format is correct, after parsing, the function will print the three components of the &lt;code&gt;cwl&lt;/code&gt; file:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;BaseCommand&lt;/code&gt;: Specifies the program to execute.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Inputs&lt;/code&gt;: Defines the input parameters of the process.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Arguments&lt;/code&gt;: Usually flags with some fixed values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Outputs&lt;/code&gt;: Defines the parameters representing the output of the process.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Stardard out&lt;/code&gt;: stardard out capture of command-line.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd &amp;lt;- createParam(command, writeParamFiles = FALSE, syntaxVersion = &amp;quot;v2&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****BaseCommand*****
+## mycmd 
+## *****Arguments*****
+## argument1:
+##     prefix: --c
+##     position: 3
+## *****Inputs*****
+## s1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## s2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## *****Outputs*****
+## output1:
+##     type: File
+##     default value: myout.txt
+## *****Standard Outputs*****
+## mystdout:
+##     type: File
+##     default value: abc.txt
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the user chooses not to save the &lt;code&gt;param&lt;/code&gt; files on the above operation,
+later, one can use the &lt;code&gt;writeParamFiles&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;writeParamFiles(cmd, overwrite = TRUE, syntaxVersion = &amp;quot;v2&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 	 Written content of &#39;commandLine&#39; to file: 
+##  param/cwl/mycmd/mycmd.cwl 
+## 	 Written content of &#39;commandLine&#39; to file: 
+##  param/cwl/mycmd/mycmd.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By default, the files will be saved inside &lt;code&gt;./param/cwl/base_cmd&lt;/code&gt;. It means a
+child folder under &lt;em&gt;param&lt;/em&gt; then &lt;em&gt;cwl&lt;/em&gt;, and create a new folder named by the base command
+of the command-line.&lt;/p&gt;
+&lt;h2 id=&#34;access-and-edit-param-files&#34;&gt;Access and edit param files&lt;/h2&gt;
+&lt;p&gt;All access and edit functions have the ending of &lt;strong&gt;2&lt;/strong&gt;. Syntax v1 and v2 are &lt;strong&gt;not interchangeable&lt;/strong&gt;.
+Params created by &lt;em&gt;v1&lt;/em&gt; cannot be used with &lt;em&gt;v2&lt;/em&gt; utility functions, &lt;em&gt;vice versa&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Usage&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam2(sysargs, base = FALSE, args = FALSE, inputs = FALSE, outputs = FALSE, stdout = FALSE, raw_cmd = FALSE, all = TRUE)
+
+appendParam2(sysargs, x, position = c(&amp;quot;inputs&amp;quot;, &amp;quot;args&amp;quot;, &amp;quot;outputs&amp;quot;), after = NULL, verbose = FALSE)
+
+replaceParam2(sysargs, x, index=NULL,position = c(&amp;quot;inputs&amp;quot;, &amp;quot;baseCommand&amp;quot;, &amp;quot;args&amp;quot;, &amp;quot;outputs&amp;quot;, &amp;quot;stdout&amp;quot;), verbose = FALSE)
+
+removeParam2(sysargs, index=NULL, position = c(&amp;quot;inputs&amp;quot;, &amp;quot;args&amp;quot;, &amp;quot;outputs&amp;quot;, &amp;quot;stdout&amp;quot;), verbose = FALSE)
+
+renameParam2(sysargs, index=NULL, new_names, position = c(&amp;quot;inputs&amp;quot;, &amp;quot;args&amp;quot;, &amp;quot;outputs&amp;quot;, &amp;quot;stdout&amp;quot;), verbose = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;format-of-utility-functions&#34;&gt;Format of utility functions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;printParam2&lt;/code&gt;: print CWL components of desired, default is to print all.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;removeParam2&lt;/code&gt;: removes items in certain positions you select.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;replaceParam2&lt;/code&gt;: replaces the values in command-line with indices given in list by those given in values&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;renameParam2&lt;/code&gt;: rename the names of items in certain position.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;appendParam2&lt;/code&gt;: Add arguments to the original command line. Adding new &lt;code&gt;basecommand&lt;/code&gt; or standard out is not allowed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;x-format&#34;&gt;x format&lt;/h4&gt;
+&lt;p&gt;For append and replace functions, there is an argument &lt;code&gt;x&lt;/code&gt;. It can be either a length 1
+character string or or a list.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If x is a character, it requires exact &lt;strong&gt;3&lt;/strong&gt; semi-colons &lt;code&gt;;&lt;/code&gt; to separate the string
+in to &lt;strong&gt;4 columns&lt;/strong&gt;. Values before the third column are the same as &lt;code&gt;createParam&lt;/code&gt; inputs,
+first column: prefix/argument name, second column: type, third column: default value.
+The fourth column (new): numeric, index of the new item, this will be translated into
+position entries in CWL.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No &lt;code&gt;\&lt;/code&gt; should be added to the end.&lt;/li&gt;
+&lt;li&gt;If the key word &lt;code&gt;out&lt;/code&gt; or &lt;code&gt;stdout&lt;/code&gt; is included in the default value column, the new
+component will be treated as outputs or standard outputs.
+Often times, &lt;strong&gt;inputs and outputs are paired&lt;/strong&gt; in CWL, and this is done automatically
+in &lt;code&gt;createParam&lt;/code&gt; for you, but this is &lt;strong&gt;not&lt;/strong&gt; the case here. Since the &lt;code&gt;position&lt;/code&gt;
+argument limit to modify only one place. It will be good
+to check if the paired inputs component is there or otherwise append the inputs (see examples
+below).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If x is a list, it must be named. Following items must be included in list: &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;preF&lt;/code&gt;,
+&lt;code&gt;type&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;index.&lt;/code&gt; They refer to name, prefix, param type, default value,
+and position index correspondingly.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;baseCommand&lt;/code&gt; modification is &lt;strong&gt;not supported&lt;/strong&gt; to use list format.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inputs&lt;/code&gt; position requires the list contains following items: “name”, “preF”, “type”, “value”, “index”.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;args&lt;/code&gt; position requires the list contains following items: “name”, “preF”, “index”.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;outputs&lt;/code&gt; position requires the list contains following items: “name”, “type”, “value”.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stdout&lt;/code&gt; position requires the list contains following items: “name”, “type”, “value”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It will be more clear when we walk through examples below.&lt;/p&gt;
+&lt;h3 id=&#34;print-a-component&#34;&gt;Print a component&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;printParam2&lt;/code&gt; by default print out all CWL component positions. To select a
+few of them to print, turn &lt;code&gt;all = FALSE&lt;/code&gt; and turn desired positions in
+any combination to &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# print only base command 
+printParam2(cmd, base = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****BaseCommand*****
+## mycmd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# print inputs and outputs
+printParam2(cmd, inputs = TRUE, outputs = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## s1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## s2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## *****Outputs*****
+## output1:
+##     type: File
+##     default value: myout.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# print parsed raw command
+printParam2(cmd, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;appending-new-components&#34;&gt;Appending new components&lt;/h3&gt;
+&lt;h4 id=&#34;adding-new-inputs&#34;&gt;Adding new inputs&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd &amp;lt;- &#39;p: -abc; string; abc; 7&#39;
+cmd &amp;lt;- appendParam2(cmd, new_cmd, position = &amp;quot;inputs&amp;quot;)
+printParam2(cmd, inputs = TRUE, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## s1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## s2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## abc:
+##     type: string
+##     prefix: -abc
+##     default value: abc
+##     position: 7
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see that a new parameter &lt;code&gt;-abc&lt;/code&gt; and its value &lt;code&gt;abc&lt;/code&gt; has been added to the last
+command flag before the standard out.&lt;/p&gt;
+&lt;p&gt;Alternative, we can do the same with &lt;code&gt;list&lt;/code&gt; format:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd_list &amp;lt;- list(name = &amp;quot;abc&amp;quot;, preF = &amp;quot;-abc&amp;quot;, type = &amp;quot;string&amp;quot;, value = &amp;quot;abc&amp;quot;, index = 7)
+appendParam2(cmd, new_cmd_list, position = &amp;quot;inputs&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;adding-new-output&#34;&gt;Adding new output&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd &amp;lt;- &#39;new_out; File; out: new_file.txt;&#39;
+commandline &amp;lt;- appendParam2(cmd, new_cmd, position = &amp;quot;outputs&amp;quot;, verbose = T)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Detected type is: out
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Appnding to the 2th position in the list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****BaseCommand*****
+## mycmd 
+## *****Arguments*****
+## argument1:
+##     prefix: --c
+##     position: 3
+## *****Inputs*****
+## s1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## s2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## abc:
+##     type: string
+##     prefix: -abc
+##     default value: abc
+##     position: 7
+## *****Outputs*****
+## output1:
+##     type: File
+##     default value: myout.txt
+## new_out:
+##     type: File
+##     default value: new_file.txt
+## *****Standard Outputs*****
+## mystdout:
+##     type: File
+##     default value: abc.txt
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Note: New output appended. However, outputs are often come in pairs with inputs. Make sure the corresponding input is there, or append it.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam2(cmd, outputs = TRUE, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Outputs*****
+## output1:
+##     type: File
+##     default value: myout.txt
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternative, we can do the same with &lt;code&gt;list&lt;/code&gt; format:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd_list &amp;lt;- list(name = &amp;quot;new_out&amp;quot;, type = &amp;quot;File&amp;quot;, value = &amp;quot;abc.txt&amp;quot;)
+appendParam2(cmd, new_cmd_list, position = &amp;quot;outputs&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, the problem as you may have seen in the message  of running &lt;code&gt;appendParam2&lt;/code&gt;
+is that &lt;code&gt;inputs&lt;/code&gt; and &lt;code&gt;outputs&lt;/code&gt; are often paired in CWL. So most times, we want to
+also to append the related &lt;code&gt;inputs&lt;/code&gt; part to make CWL work.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd &amp;lt;- &#39;p: -new; File; new_file.txt; 99&#39;
+commandline &amp;lt;- appendParam2(cmd, new_cmd, position = &amp;quot;inputs&amp;quot;)
+printParam2(cmd, all = FALSE, inputs = TRUE, outputs = TRUE, raw_cmd = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## s1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## s2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## abc:
+##     type: string
+##     prefix: -abc
+##     default value: abc
+##     position: 7
+## *****Outputs*****
+## output1:
+##     type: File
+##     default value: myout.txt
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This time, most of the string is similar to the &lt;code&gt;output&lt;/code&gt; one, but remember to remove
+keyword &lt;strong&gt;out:&lt;/strong&gt; and &lt;strong&gt;add prefix&lt;/strong&gt; if necessary.&lt;/p&gt;
+&lt;h3 id=&#34;replacing-existing-ones&#34;&gt;Replacing existing ones&lt;/h3&gt;
+&lt;h5 id=&#34;replace-argument&#34;&gt;Replace argument&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd &amp;lt;- list(name = &amp;quot;new_arg2&amp;quot;, preF = &amp;quot;--haha&amp;quot;, index = 7)
+cmd &amp;lt;- replaceParam2(cmd, new_cmd, index = &amp;quot;argument1&amp;quot;, position = &amp;quot;args&amp;quot;)
+printParam2(cmd, args = TRUE, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Arguments*****
+## new_arg2:
+##     prefix: --haha
+##     position: 7
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt -o myout.txt  a.fasta --nn 12 -abc abc --haha &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We can see from above that one good thing of &lt;code&gt;list&lt;/code&gt; format is that the
+component name and prefix can be different, whereas in string format, the name is
+always the prefix word without leading dash(s).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;replacing-other-posistions&#34;&gt;Replacing other posistions&lt;/h5&gt;
+&lt;p&gt;Replacing other positions will be very similar to the example above, we will not
+list them all here. One quick note is that the &lt;code&gt;index&lt;/code&gt; in &lt;code&gt;replaceParam2&lt;/code&gt; is different
+than the &lt;code&gt;index&lt;/code&gt; item in the list &lt;code&gt;new_cmd&lt;/code&gt;. In &lt;code&gt;replaceParam2&lt;/code&gt; it means which
+argument in &lt;code&gt;cmd&lt;/code&gt; we want to replace, it can be the &lt;strong&gt;name of that component or using a number&lt;/strong&gt;
+to index it. In &lt;code&gt;new_cmd&lt;/code&gt;, &lt;code&gt;index&lt;/code&gt; means the CWL parameter position, it
+can &lt;strong&gt;only be a number&lt;/strong&gt;. This will be reflected in the parsed raw command.&lt;/p&gt;
+&lt;p&gt;If we change the &lt;code&gt;index&lt;/code&gt; in &lt;code&gt;new_cmd&lt;/code&gt; to a different number, watch closely how
+parsed raw command change:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam2(cmd, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Parsed raw command line*****
+## mycmd -s sample1.txt -s sample2.txt -o myout.txt  a.fasta --nn 12 -abc abc --haha &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new_cmd &amp;lt;- list(name = &amp;quot;new_arg2&amp;quot;, preF = &amp;quot;--haha&amp;quot;, index = 1)
+cmd &amp;lt;- replaceParam2(cmd, new_cmd, index = &amp;quot;new_arg2&amp;quot;, position = &amp;quot;args&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Param name new_arg2 exists, it will be renamed to: new_arg2_zk1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printParam2(cmd, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Parsed raw command line*****
+## mycmd -s sample1.txt --haha -s sample2.txt -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;rename-a-component&#34;&gt;Rename a component&lt;/h3&gt;
+&lt;h3 id=&#34;replace-a-single-component&#34;&gt;Replace a single component&lt;/h3&gt;
+&lt;p&gt;Replace the new argument we just replaced for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd &amp;lt;- renameParam2(cmd, new_names = &amp;quot;my_arg_renamed&amp;quot;, index = 1, position = &amp;quot;args&amp;quot;)
+printParam2(cmd, args = TRUE, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Arguments*****
+## my_arg_renamed:
+##     prefix: --haha
+##     position: 1
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt --haha -s sample2.txt -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;replace-multiple-components&#34;&gt;Replace multiple components&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd &amp;lt;- renameParam2(cmd, new_names = c(&amp;quot;file1&amp;quot;, &amp;quot;file2&amp;quot;), index = c(&amp;quot;s1&amp;quot;, &amp;quot;s2&amp;quot;), position = &amp;quot;inputs&amp;quot;)
+printParam2(cmd, inputs = TRUE, raw_cmd = TRUE, all = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## file1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## file2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## abc:
+##     type: string
+##     prefix: -abc
+##     default value: abc
+##     position: 7
+## *****Parsed raw command line*****
+## mycmd -s sample1.txt --haha -s sample2.txt -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;length of &lt;code&gt;new_names&lt;/code&gt; must be the same as &lt;code&gt;index&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;remove-components&#34;&gt;Remove components&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;cmd &amp;lt;- removeParam2(cmd, index = 1:2, position = &amp;quot;inputs&amp;quot;)
+printParam2(cmd, all = FALSE, inputs = TRUE, raw_cmd = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## *****Inputs*****
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## ref_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## abc:
+##     type: string
+##     prefix: -abc
+##     default value: abc
+##     position: 7
+## *****Parsed raw command line*****
+## mycmd --haha -o myout.txt  a.fasta --nn 12 -abc abc &amp;gt; abc.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

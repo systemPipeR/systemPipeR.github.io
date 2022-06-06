@@ -101,7 +101,7 @@ prior to running a command-line.
 
 The `SYSargsList` S4 class is a list-like container that stores the paths to
 all input and output files along with the corresponding parameters used in each
-analysis step (see Figure <a href="#fig:sysargslistImage">3</a>). `SYSargsList` instances are constructed from an
+analysis step (see Figure <a href="#fig:sysargslistImage"><strong>??</strong></a>). `SYSargsList` instances are constructed from an
 optional targets files, and two CWL parameter files including `*.cwl` and
 `*.yml` (for details, see below). When running preconfigured NGS workflows, the
 only input the user needs to provide is the initial targets file containing the
@@ -112,14 +112,8 @@ workflow step. *`SYSargsList`* containers store all information required for
 one or multiple steps. This establishes central control for running, monitoring
 and debugging complex workflows from start to finish.
 
-<div class="figure" style="text-align: center">
-
-<img src="SYSargsList.png" alt="Workflow steps with input/output file operations are controlled by the _`SYSargsList`_ container. Each of its components (_`SYSargs2`_) are constructed from an optional *targets* and two *param* files. Alternatively, _`LineWise`_ instances containing pure R code can be used." width="100%" />
-<p class="caption">
-Figure 3: Workflow steps with input/output file operations are controlled by the *`SYSargsList`* container. Each of its components (*`SYSargs2`*) are constructed from an optional *targets* and two *param* files. Alternatively, *`LineWise`* instances containing pure R code can be used.
-</p>
-
-</div>
+![](../sysargslist_con.png)
+Workflow steps with input/output file operations are controlled by the *`SYSargsList`* container. Each of its components (*`SYSargs2`*) are constructed from an optional *targets* and two *param* files. Alternatively, *`LineWise`* instances containing pure R code can be used.
 
 ## Command-line software support
 
@@ -136,10 +130,10 @@ collaborators and community.
 
 Following the CWL Command Line Tool Description Specification
 (https://www.commonwl.org/v1.2/CommandLineTool.html), the basic elements of the
-CWL tool description are defined in two files. Figure <a href="#fig:sprandCWL">4</a>A-B illustrate
+CWL tool description are defined in two files. Figure <a href="#fig:sprandCWL">3</a>A-B illustrate
 the “hello world” example. The main file contains all the information necessary
 to build the command-line that will be executed, specifying the input, expected
-output files, and arguments for the command-line (Figure <a href="#fig:sprandCWL">4</a>A).
+output files, and arguments for the command-line (Figure <a href="#fig:sprandCWL">3</a>A).
 The second file is optional yet provides flexibility to assign values to
 parameters required to make the input or output objects when building the command-line.
 
@@ -147,7 +141,7 @@ parameters required to make the input or output objects when building the comman
 
 <img src="SPR_CWL_hello.png" alt="Example of 'Hello World' message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using 'echo' command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the 'inputvars' arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D)." width="100%" />
 <p class="caption">
-Figure 4: Example of ‘Hello World’ message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using ‘echo’ command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the ‘inputvars’ arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D).
+Figure 3: Example of ‘Hello World’ message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using ‘echo’ command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the ‘inputvars’ arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D).
 </p>
 
 </div>
