@@ -1,12 +1,12 @@
 ---
 title: "Generate Reports" 
-date: "Last update: 03 June, 2022" 
+date: "Last update: 06 June, 2022" 
 type: docs
 weight: 7
 ---
 
 After the analysis, we often would like to generate some reports. In SPR, we 
-provide two types of reports: technical report and text-enriched report. Both of 
+provide two types of reports: technical report and analysis report. Both of 
 them would give you an interactive HTML file. 
 
 ## Technical report
@@ -24,13 +24,13 @@ sal <- renderLogs(sal)
 
 An example log file can be viewed over [here](../logs_example.html). 
 
-## Text-enriched report
+## Analysis report
 To communicate with researchers outside one's field, text explanation is usually 
 expected. When we design a workflow and [import from a template](../step_import), 
 adding text description to help people understand the workflow is highly recommended. 
 The template can also be used to display results. Remember only **SPR chunks** `(spr=TRUE)`  
 would be imported into the workflow. Therefore, other chunks are 
-**ignored until rendering the text-enriched report** with `renderReport`. These 
+**ignored until rendering the analysis report** with `renderReport`. These 
 non-SPR chunks will be **evaluated** (if they do not have `eval=FALSE`) in report 
 rendering and all SPR chunks will all be **muted**. So these non-SPR chunks can be 
 good places to add some images, tables, plots, or other light calculations.
