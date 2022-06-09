@@ -13,7 +13,7 @@ version `createParam(..., syntaxVersion = "v2")` must be provided.
 
 
 ## New in v2
-What new features are included in the v2?
+What are the new features included in the v2?
 
 - Support duplicated argument flags. Some programs uses the same flag, like 
   `-f file1 -f file2 -f file3` for multiple files. This feature is added in v2.
