@@ -213,7 +213,7 @@ printParam2(cmd, inputs = TRUE, raw_cmd = TRUE, all = FALSE)
 We can see that a new parameter `-abc` and its value `abc` has been added to the last 
 command flag before the standard out. 
 
-Alternative, we can do the same with `list` format:
+Alternatively, we can do the same with `list` format:
 ```{r eval=FALSE}
 new_cmd_list <- list(name = "abc", preF = "-abc", type = "string", value = "abc", index = 7)
 appendParam2(cmd, new_cmd_list, position = "inputs")
@@ -226,7 +226,7 @@ commandline <- appendParam2(cmd, new_cmd, position = "outputs", verbose = T)
 printParam2(cmd, outputs = TRUE, raw_cmd = TRUE, all = FALSE)
 ```
 
-Alternative, we can do the same with `list` format:
+Alternatively, we can do the same with `list` format:
 ```{r eval=FALSE}
 new_cmd_list <- list(name = "new_out", type = "File", value = "abc.txt")
 appendParam2(cmd, new_cmd_list, position = "outputs")
