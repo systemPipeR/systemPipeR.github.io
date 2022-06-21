@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -66,39 +66,52 @@
     <h2>Arguments</h2>
     <dl><dt>sysargs</dt>
 <dd><p>object of class <code>SYSargsList</code>.</p></dd>
-<dt>steps</dt>
+
+  <dt>steps</dt>
 <dd><p>character or numeric. Step name or index. If <code>NULL</code>, all the steps
     will be executed.</p></dd>
-<dt>targets</dt>
+
+  <dt>targets</dt>
 <dd><p>This option allows selecting which targets file and, by consequence which 
     command line will be executed for each <code>SYSargs2</code> class step.
     Default is <code>NULL</code>, in which all command lines will be executed.</p></dd>
-<dt>force</dt>
+
+  <dt>force</dt>
 <dd><p>Internally, the option checks if the expected <code>output</code> files exist, 
     and it skips the command lines when the respective files exist. 
     If the argument <code>force</code> is set to <code>TRUE</code>, the command line will 
     be executed and the files overwrite. Default is <code>force=FALSE</code>.</p></dd>
-<dt>saveEnv</dt>
+
+  <dt>saveEnv</dt>
 <dd><p>If set to <code>TRUE</code>, the environment will be saved to an RDS file. 
     To check the RDS file location, please use 
     <code>projectInfo(sysargs)[["envir"]]</code>.</p></dd>
-<dt>run_step</dt>
+
+  <dt>run_step</dt>
 <dd><p>character. If the step has "mandatory" or "optional" flag for the execution.
     When <code>ALL</code>, all the steps will be executed.</p></dd>
-<dt>ignore.dep</dt>
+
+  <dt>ignore.dep</dt>
 <dd><p>logical. This option allow to igonore the dependency tree, when <code>TRUE</code>.</p></dd>
-<dt>warning.stop</dt>
+
+  <dt>warning.stop</dt>
 <dd><p>If set to <code>TRUE</code>, the process will be interrupted when a warning is detected.</p></dd>
-<dt>error.stop</dt>
+
+  <dt>error.stop</dt>
 <dd><p>If set to <code>TRUE</code>, the process will be interrupted when a error is detected.</p></dd>
-<dt>silent</dt>
+
+  <dt>silent</dt>
 <dd><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Additional arguments to pass on from <code><a href="runCommandline.html">runCommandline()</a></code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>It will return an <code>SYSargsList</code> updated.</p>
+    
+
+<p>It will return an <code>SYSargsList</code> updated.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -145,7 +158,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

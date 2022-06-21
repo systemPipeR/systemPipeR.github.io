@@ -25,7 +25,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -67,13 +67,17 @@
     <h2>Arguments</h2>
     <dl><dt>sal</dt>
 <dd><p><code>SYSargsList</code> object.</p></dd>
-<dt>out_dir</dt>
+
+  <dt>out_dir</dt>
 <dd><p>string, a relative or absolute path to a directory. If the 
     directory does not exist, this function will first try to create it.</p></dd>
-<dt>bash_path</dt>
+
+  <dt>bash_path</dt>
 <dd><p>string, the path to the bash executable program</p></dd>
-<dt>stop_on_error</dt>
+
+  <dt>stop_on_error</dt>
 <dd><p>bool, should the bash script stop if any error happens in running</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -108,7 +112,9 @@
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p>no return</p>
+    
+
+<p>no return</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -123,17 +129,25 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
 <span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;"> ---- Actions ----</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Checking chunk eval values</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Checking chunk SPR option</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Ignore non-SPR chunks: 17</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Parse chunk code</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Checking preprocess code for each step</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No preprocessing code for SPR steps found</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'load_library' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'export_iris' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'gzip' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'gunzip' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'stats' </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now back up current Rmd file as template for `renderReport`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu">sal2bash</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Success: Make sure the script 'spr_wf.sh' and directory ./spr_bash is there before executing.</span></span>
@@ -151,7 +165,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

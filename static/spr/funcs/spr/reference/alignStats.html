@@ -25,7 +25,7 @@ well as the number of primary alignments in the corresponding BAM files."><!-- m
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -68,19 +68,25 @@ well as the number of primary alignments in the corresponding BAM files.</p>
     <dl><dt>args</dt>
 <dd><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code> or <code>named character vector</code> 
     with BAM files PATH and the elements names should be the sampleID.</p></dd>
-<dt>fqpaths</dt>
+
+  <dt>fqpaths</dt>
 <dd><p><code>named character vector</code> with raw FASTQ files PATH and the names should be the sampleID. 
     Required when <code>class(args)</code> is "character".</p></dd>
-<dt>pairEnd</dt>
+
+  <dt>pairEnd</dt>
 <dd><p>logical. For pair-end libraries, select <code>TRUE</code>.</p></dd>
-<dt>output_index</dt>
+
+  <dt>output_index</dt>
 <dd><p>A numeric index positions of the file in <code>SYSargs2</code> object, slot <code>output</code>. Default is <code>output_index=1</code>.</p></dd>
-<dt>subset</dt>
+
+  <dt>subset</dt>
 <dd><p><code>subset</code> are the variables defined in the <code>param.yml</code> file, for example "FileName1".</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>data.frame</code> with alignment statistics.</p>
+    <p></p>
+<p><code>data.frame</code> with alignment statistics.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -382,7 +388,7 @@ well as the number of primary alignments in the corresponding BAM files.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

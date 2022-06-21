@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -73,42 +73,55 @@
     <dl><dt>sysargs</dt>
 <dd><p><code>SYSargs2</code> object. If the object already exists, it can be used to 
   construct the <code>SYSargsList</code> object.</p></dd>
-<dt>step_name</dt>
+
+  <dt>step_name</dt>
 <dd><p>character with the step index name.</p></dd>
-<dt>targets</dt>
+
+  <dt>targets</dt>
 <dd><p>the path to <code>targets</code> file. The <code>targets</code> file can be either a simple 
   tabular or yml file. Also, it is possible to assign <code>NULL</code> to run the 
   pipeline without the 'targets' file. This can be useful for running specific 
   workflows that do not require input files.</p></dd>
-<dt>wf_file</dt>
+
+  <dt>wf_file</dt>
 <dd><p>name and path to <code>CWL parameters</code> file.</p></dd>
-<dt>input_file</dt>
+
+  <dt>input_file</dt>
 <dd><p>name and path to <code>input parameters</code> file.</p></dd>
-<dt>dir_path</dt>
+
+  <dt>dir_path</dt>
 <dd><p>full path to the directory with the <code>CWL parameters</code> and <code>input</code> 
   files.</p></dd>
-<dt>id</dt>
+
+  <dt>id</dt>
 <dd><p>A column from <code>targets</code> file, which will be used as an id for each one
   of the samples. It is required to be unique.</p></dd>
-<dt>inputvars</dt>
+
+  <dt>inputvars</dt>
 <dd><p>Each vector element is required to be defined in the <code>input</code> file, and the 
   names of the elements are needed to match the column names defined in the 
   <code>targets</code> file.</p></dd>
-<dt>rm_targets_col</dt>
+
+  <dt>rm_targets_col</dt>
 <dd><p>targets file colunms to be removed.</p></dd>
-<dt>dir</dt>
+
+  <dt>dir</dt>
 <dd><p>This option allows creating an exclusive results folder for each step in the 
   workflow. All the outfiles and log files for the particular step will be 
   created in the respective folders. Default is <code>dir=TRUE</code>.</p></dd>
-<dt>dependency</dt>
+
+  <dt>dependency</dt>
 <dd><p>character. Dependency tree, required when appending this step to 
   the workflow. Character name of a previous step in the workflow. 
   Default is <code>NA</code>.</p></dd>
-<dt>run_step</dt>
+
+  <dt>run_step</dt>
 <dd><p>character. If the step has "mandatory" or "optional" flag for the execution.</p></dd>
-<dt>run_session</dt>
+
+  <dt>run_session</dt>
 <dd><p>character. If the step has "management" or "compute" flag for the execution.</p></dd>
-<dt>run_remote_resources</dt>
+ 
+  <dt>run_remote_resources</dt>
 <dd><p><code>List</code> for reserving for each cluster job sufficient computing resources
   including memory (Megabyte), number of nodes (Int), CPU cores, walltime (Minutes),
   etc. It is necessary two additional files: <code>conffile</code> and <code>template</code>. 
@@ -122,10 +135,13 @@
   https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, 
   PBS/Torque, and Sun Grid Engine (SGE) templates are provided within the package
   demo data.</p></dd>
-<dt>silent</dt>
+
+  <dt>silent</dt>
 <dd><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></dd>
-<dt>projPath</dt>
+
+  <dt>projPath</dt>
 <dd><p>a character vector of a full project path name. Default is the current path.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -183,7 +199,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

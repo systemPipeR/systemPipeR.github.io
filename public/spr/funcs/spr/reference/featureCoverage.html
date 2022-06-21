@@ -31,7 +31,7 @@ facilitated by a downstream plotfeatureCoverage function."><!-- mathjax --><scri
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -82,27 +82,33 @@ facilitated by a downstream <code>plotfeatureCoverage</code> function.</p>
     <dl><dt>bfl</dt>
 <dd><p>Paths to BAM files provided as <code>BamFileList</code> object. The name slot of the
 BAM files will be used for naming samples in the results.</p></dd>
-<dt>grl</dt>
+
+  <dt>grl</dt>
 <dd><p>Genomic ranges provided as <code>GRangesList</code> typically generated form
 <code>txdb</code> instances with operations like: <code>cdsBy(txdb, "tx")</code> or
 <code>exonsBy(txdb, "tx")</code>. Single component features will be processed the
 same way as multi component features.</p></dd>
-<dt>resizereads</dt>
+
+  <dt>resizereads</dt>
 <dd><p>Positive integer defining the length alignments should be resized to prior to the 
 coverage calculation. <code>NULL</code> will omit the resizing step.</p></dd>
-<dt>readlengthrange</dt>
+
+  <dt>readlengthrange</dt>
 <dd><p>Positive integer of length 2 determining the read length range to use for
 the coverage calculation. Reads falling outside of the specified length range
 will be excluded from the coverage calculation. For instance,
 <code>readlengthrange=c(30:40)</code> will base the coverage calculation on reads
 between 30 to 40 bps. Assigning <code>NULL</code> will skip this filtering step.</p></dd>
-<dt>Nbins</dt>
+
+  <dt>Nbins</dt>
 <dd><p>Single positive integer defining the number of segments the coverage of each
 feature should be binned into in order to obtain coverage summaries of constant
 length, e.g. for plotting purposes.</p></dd>
-<dt>method</dt>
+
+  <dt>method</dt>
 <dd><p>Defines the summary statistics to use for binning. The default is <code>method=mean</code>.</p></dd>
-<dt>fixedmatrix</dt>
+
+  <dt>fixedmatrix</dt>
 <dd><p>If set to <code>TRUE</code>, a coverage matrix with single nucleotide resolution will be
 returned for any number of transcripts centered around precise anchor points in
 a genome annotation, such a stop/start codons or transcription start sites. For instance, a 
@@ -110,29 +116,37 @@ matrix with coverage information 20bps upstream and downstream of the stop/start
 obtained with <code>fixedmatrix=TRUE, upstream=20, downstream=20</code> along with a <code>grl</code> 
 instance containing the CDS exon ranges required for this operation, e.g. generated 
 with <code>cdsBy(txdb, "tx")</code>.</p></dd>
-<dt>resizefeatures</dt>
+
+  <dt>resizefeatures</dt>
 <dd><p>Needs to be set to <code>TRUE</code> when <code>fixedmatrix=TRUE</code>. Internally, this will use
 the <code>systemPipeR::.resizeFeature</code> function to extend single and multi component
 features at their most left and most right end coordinates. The corresponding extension 
 values are specified under the <code>upstream</code> and <code>downstream</code> arguments.</p></dd>
-<dt>upstream</dt>
+
+  <dt>upstream</dt>
 <dd><p>Single positive integer specifying the upstream extension length relative to the orientation
 of each feature in the genome. More details are given above.</p></dd>
-<dt>downstream</dt>
+
+  <dt>downstream</dt>
 <dd><p>Single positive integer specifying the downstream extension length relative to the orientation
 of each feature in the genome. More details are given above.</p></dd>
-<dt>outfile</dt>
+
+  <dt>outfile</dt>
 <dd><p>Default <code>NULL</code> omits writing of the results to a file. If a file name is specified then
 the results are written to a tabular file. If <code>bfl</code> contains the paths to several BAM files
 then the results will be appended to the same file where the first column specifies the
 sample labels. Redirecting the results to file is particularly useful when processing large 
 files of many sample where computation times can be significant.</p></dd>
-<dt>overwrite</dt>
+
+  <dt>overwrite</dt>
 <dd><p>If set to <code>TRUE</code> any existing file assigned to <code>outfile</code> will be overwritten.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The function allows to return the following four distinct outputs. The settings to return
+    
+
+<p>The function allows to return the following four distinct outputs. The settings to return
 these instances are illustrated below in the example section.</p>
 <dl><dt>(A)</dt>
 <dd><p><code>data.frame</code> containing binned coverage where rows are features and columns 
@@ -140,6 +154,7 @@ coverage bins. The first four columns contain (i) the sample names, (ii) the num
 total aligned reads in the corresponding BAM files (useful for normalization), (iii) the
 feature IDs, (iv) strand of the coverage. All following columns are numeric and contain
 the actual coverage data for the sense and antisense strand of each feature.</p></dd>
+
 <dt>(B)</dt>
 <dd><p><code>data.frame</code> containing coverage with single nucleotide
 resolution around anchor points such as start and stop codons. The two matrix
@@ -150,13 +165,16 @@ anchor point is 0. For instance, if the features are CDSs then the first 0 corre
 first nucleotide of the start codon and the second 0 to the last nucleotide of
 the stop codon. Upstream and downstream positions are indicated by negative and
 positive column numbers, respectively.</p></dd>
+ 
 <dt>(C)</dt>
 <dd><p><code>data.frame</code> containing combined results of (A) and (B) where the
 first set of columns contains to the coverage around the start codons, the second one
 the binned coverage of the CDSs and the third one the coverage around the stop codons 
 separated by the same pipe columns mentioned under (B).</p></dd>
+
 <dt>(D)</dt>
 <dd><p><code>Rle</code> list containing the nucleotide level coverage of each feature</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -245,7 +263,7 @@ separated by the same pipe columns mentioned under (B).</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

@@ -28,7 +28,7 @@ complex experimental designs."><!-- mathjax --><script src="https://cdnjs.cloudf
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -73,20 +73,28 @@ complex experimental designs.</p>
     <h2>Arguments</h2>
     <dl><dt>countDF</dt>
 <dd><p><code>date.frame</code> containing raw read counts</p></dd>
-<dt>targets</dt>
+
+  <dt>targets</dt>
 <dd><p>targets <code>data.frame</code></p></dd>
-<dt>cmp</dt>
+
+  <dt>cmp</dt>
 <dd><p><code>character matrix</code> where comparisons are defined in two columns. This matrix should be generated with <code><a href="readComp.html">readComp()</a></code> from the targets file. Values used for comparisons need to match those in the <code>Factor</code> column of the targets file.</p></dd>
-<dt>independent</dt>
+
+  <dt>independent</dt>
 <dd><p>If <code>independent=TRUE</code> then the <code>countDF</code> will be subsetted for each comparison. This behavior can be useful when working with samples from unrelated studies. For samples from the same or comparable studies, the setting <code>independent=FALSE</code> is usually preferred.</p></dd>
-<dt>paired</dt>
+
+  <dt>paired</dt>
 <dd><p>Defines pairs (<code>character vector</code>) for paired analysis. Default is unpaired (<code>paired=NULL</code>).</p></dd>
-<dt>mdsplot</dt>
+
+  <dt>mdsplot</dt>
 <dd><p>Directory where <code>plotMDS</code> should be written to. Default setting <code>mdsplot=""</code> will omit the plotting step.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>data.frame</code> containing <code>edgeR</code> results from all comparisons. Comparison labels are appended to column titles for tracking.</p>
+    
+
+<p><code>data.frame</code> containing <code>edgeR</code> results from all comparisons. Comparison labels are appended to column titles for tracking.</p>
     </div>
     <div id="references">
     <h2>References</h2>
@@ -142,7 +150,7 @@ http://www.bioconductor.org/packages/devel/bioc/html/edgeR.html</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

@@ -26,7 +26,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -71,25 +71,33 @@
     <h2>Arguments</h2>
     <dl><dt>fq</dt>
 <dd><p><code>character</code> path to fastq file that contains the target sequences.</p></dd>
-<dt>pattern</dt>
+
+  <dt>pattern</dt>
 <dd><p><code>character</code> pattern used to trim the sequence.</p></dd>
-<dt>internalmatch</dt>
+
+  <dt>internalmatch</dt>
 <dd><p>The default is <code>FALSE</code>. Trims adaptors hierarchically from longest to 
     shortest match from right end of read. If 'internalmatch=TRUE' then internal 
     matches will trigger the same behavior.</p></dd>
-<dt>minpatternlength</dt>
+
+  <dt>minpatternlength</dt>
 <dd><p>It defines shortest adaptor match to consider for reads containing only 
     partial adaptors at the right end.</p></dd>
-<dt>Nnumber</dt>
+
+  <dt>Nnumber</dt>
 <dd><p>A numeric value representing a minimum criterion for the filter. It selects
     elements with fewer than <code>Nnumber</code> 'N' symbols in each element.</p></dd>
-<dt>polyhomo</dt>
+
+  <dt>polyhomo</dt>
 <dd><p>A numeric value representing a maximum criterion for the filter. It selects 
     elements with fewer than threshold copies of any nucleotide.</p></dd>
-<dt>minreadlength</dt>
+
+  <dt>minreadlength</dt>
 <dd><p><code>numeric</code> value representing minimum read length.</p></dd>
-<dt>maxreadlength</dt>
+
+  <dt>maxreadlength</dt>
 <dd><p><code>numeric</code> value representing maximun read length.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -133,7 +141,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

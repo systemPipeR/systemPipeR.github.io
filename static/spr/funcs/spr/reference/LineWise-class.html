@@ -29,7 +29,7 @@ will store the R Markdown file path."><!-- mathjax --><script src="https://cdnjs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -82,23 +82,30 @@ will store the R Markdown file path.</p>
     <dl><dt>code</dt>
 <dd><p>R code separated either by a semi-colon (<code>\;</code>), or by a newline, and 
   enclosed by braces (<code><a href="https://rdrr.io/r/base/Paren.html" class="external-link">{ }</a></code>).</p></dd>
-<dt>step_name</dt>
+
+  <dt>step_name</dt>
 <dd><p>character. Step name needs to be unique and is required when appending this
   step to the workflow.</p></dd>
-<dt>codeChunkStart</dt>
+
+  <dt>codeChunkStart</dt>
 <dd><p>integer. R Markdown code chunk line start. This element will be populated when
   the object is built by <code><a href="importWF.html">importWF</a></code>.</p></dd>
-<dt>rmdPath</dt>
+
+  <dt>rmdPath</dt>
 <dd><p>character. Path of R Markdown file used by <code><a href="importWF.html">importWF</a></code>.</p></dd>
-<dt>dependency</dt>
+
+  <dt>dependency</dt>
 <dd><p>character. Dependency tree, required when appending this step to 
   the workflow. Character name of a previous step in the workflow. 
   Default is empty string <code>""</code>.</p></dd>
-<dt>run_step</dt>
+
+  <dt>run_step</dt>
 <dd><p>character. If the step has "mandatory" or "optional" flag for the execution.</p></dd>
-<dt>run_session</dt>
+
+  <dt>run_session</dt>
 <dd><p>character. If the step has "management" or "compute" flag for the execution.</p></dd>
-<dt>run_remote_resources</dt>
+
+  <dt>run_remote_resources</dt>
 <dd><p><code>List</code> for reserving for each cluster job sufficient computing resources
   including memory (Megabyte), number of nodes, CPU cores, walltime (minutes),
   etc. It is necessary two aditional files: <code>conffile</code> and <code>template</code>. 
@@ -111,6 +118,7 @@ will store the R Markdown file path.</p>
   can be downloaded from here: 
   https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, 
   PBS/Torque, and Sun Grid Engine (SGE) templates are provided</p></dd>
+
 </dl></div>
     <div id="objects-from-the-class">
     <h2>Objects from the Class</h2>
@@ -261,14 +269,22 @@ will store the R Markdown file path.</p>
 <span class="r-in"><span class="co"># file_path &lt;- "../inst/extdata/spr_simple_lw.Rmd"</span></span>
 <span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;"> ---- Actions ----</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Checking chunk eval values</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Checking chunk SPR option</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Ignore non-SPR chunks: 17</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Parse chunk code</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Checking preprocess code for each step</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No preprocessing code for SPR steps found</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'firstStep' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'secondStep' </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now back up current Rmd file as template for `renderReport`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="runWF.html">runWF</a></span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #BB00BB;">Running Step:  firstStep</span> </span>
@@ -321,19 +337,19 @@ will store the R Markdown file path.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status.time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         Step          time_start            time_end</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 secondStep 2022-04-30 03:05:32 2022-04-30 03:05:32</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 secondStep 2022-06-21 03:17:45 2022-06-21 03:17:45</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $total.time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $total.time$time_start</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-04-30 03:05:32 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-06-21 03:17:45 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $total.time$time_end</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-04-30 03:05:32 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-06-21 03:17:45 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="SYSargs2-class.html">files</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $log</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ".SPRproject/Rsteps/_logRstep_secondStep_Apr302022_030532"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ".SPRproject/Rsteps/_logRstep_secondStep_Jun212022_031745"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Replacement</span></span>
@@ -367,7 +383,7 @@ will store the R Markdown file path.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

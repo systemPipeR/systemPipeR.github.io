@@ -34,7 +34,7 @@ the code accordingly."><!-- mathjax --><script src="https://cdnjs.cloudflare.com
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -88,46 +88,58 @@ the code accordingly.</p>
     <h2>Arguments</h2>
     <dl><dt>projPath</dt>
 <dd><p>a character vector of a full project path name. Default is the current path.</p></dd>
-<dt>data</dt>
+
+  <dt>data</dt>
 <dd><p>a character vector of a <code>data</code> directory name. Default is <code>data</code>. 
 This subdirectory in the project stores all the raw data, reference, and annotation files.</p></dd>
-<dt>param</dt>
+
+  <dt>param</dt>
 <dd><p>a character vector of a <code>param</code> directory name. Default is <code>param</code>.
 This subdirectory in the project stores all the parameter and configuration files.</p></dd>
-<dt>results</dt>
+
+  <dt>results</dt>
 <dd><p>a character vector of a <code>results</code> directory name. Default is <code>results</code>. 
 This subdirectory in the project stores all the analysis results, including but 
 not limited: alignment, variant, and peak files (BAM, VCF, BED); tabular result files; 
 and image/plot files.</p></dd>
-<dt>logs.dir</dt>
+
+  <dt>logs.dir</dt>
 <dd><p>a character vector of a <code>logs</code> directory name. Default is <code>.SPRproject</code>.</p></dd>
-<dt>sys.file</dt>
+
+  <dt>sys.file</dt>
 <dd><p>a character vector of <code>SYSargsList</code> file name which will store all the 
   project configuration information. 
   Default is <code>SYSargsList.yml</code> and it will be save in the <code>logs.dir</code>
   folder.</p></dd>
-<dt>envir</dt>
+
+  <dt>envir</dt>
 <dd><p>the environment in which workflow will be evaluated. Default will create
   a <code><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env()</a></code>.</p></dd>
-<dt>restart</dt>
+
+  <dt>restart</dt>
 <dd><p>if set to <code>TRUE</code>, existing <code>SYSargsList</code> object saved in the 
   <code>logs.dir</code> directory will be used to restart the workflow. This option
   will delete all the log files.</p></dd>
-<dt>resume</dt>
+
+  <dt>resume</dt>
 <dd><p>if set to <code>TRUE</code>, existing <code>SYSargsList</code> object saved in the 
   <code>logs.dir</code> directory will be used to resume the workflow.</p></dd>
-<dt>load.envir</dt>
+
+  <dt>load.envir</dt>
 <dd><p>This argument allows to load the environment and recover all the objects saved
   during the workflow execution (please check <code>runWF</code> function for more 
   details). This argument can be set as <code>TRUE</code> when <code>restart = TRUE</code> 
   or <code>resume = TRUE</code> are used.</p></dd>
-<dt>overwrite</dt>
+
+  <dt>overwrite</dt>
 <dd><p>if set to <code>TRUE</code>, existing <code>logs.dir</code> directory and all the content,
   as logs files and <code>SYSargsList</code> file will be removed, and a new and 
   empty <code>SYSargsList</code> object will be created. 
   This option should be used with caution!</p></dd>
-<dt>silent</dt>
+
+  <dt>silent</dt>
 <dd><p>if set to TRUE, all messages returned by the function will be suppressed.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -137,7 +149,9 @@ and image/plot files.</p></dd>
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>SPRproject</code> will return a <code>SYSargsList</code> object.</p>
+    
+
+<p><code>SPRproject</code> will return a <code>SYSargsList</code> object.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -151,14 +165,14 @@ and image/plot files.</p></dd>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu">SPRproject</span><span class="op">(</span>projPath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /tmp/RtmpMkK5GI/data </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /tmp/RtmpMkK5GI/param </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /tmp/RtmpMkK5GI/results </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory '/tmp/RtmpMkK5GI/.SPRproject'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/tmp/RtmpMkK5GI/.SPRproject/SYSargsList.yml'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /tmp/RtmpKs68eG/data </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /tmp/RtmpKs68eG/param </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /tmp/RtmpKs68eG/results </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory '/tmp/RtmpKs68eG/.SPRproject'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/tmp/RtmpKs68eG/.SPRproject/SYSargsList.yml'</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Your current working directory is different from the directory chosen for the Project Workflow.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> For accurate location of the files and running the Workflow, please set the working directory to </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 'setwd('/tmp/RtmpMkK5GI')'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 'setwd('/tmp/RtmpKs68eG')'</span>
 <span class="r-in"><span class="va">sal</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Instance of 'SYSargsList':</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  No workflow steps added </span>
@@ -176,7 +190,7 @@ and image/plot files.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

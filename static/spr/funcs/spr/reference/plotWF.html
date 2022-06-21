@@ -26,7 +26,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -103,87 +103,142 @@
     <h2>Arguments</h2>
     <dl><dt>sysargs</dt>
 <dd><p>object of class <code>SYSargsList</code>.</p></dd>
-<dt>width</dt>
+
+  
+  <dt>width</dt>
 <dd><p>string, a valid CSS string for width, like "500px", "100%".</p></dd>
-<dt>height</dt>
+
+  
+  <dt>height</dt>
 <dd><p>string, a valid CSS string for height, like "500px", "100%".</p></dd>
-<dt>elementId</dt>
+
+  
+  <dt>elementId</dt>
 <dd><p>string, optional ID value for the plot.</p></dd>
-<dt>responsive</dt>
+
+  
+  <dt>responsive</dt>
 <dd><p>bool, should the plot be responsive? useful in Rstudio built-in
   viewer, Rmarkdown, Shiny or embed it into other web pages.</p></dd>
-<dt>branch_method</dt>
+
+  
+  <dt>branch_method</dt>
 <dd><p>string, one of "auto", "choose". How to determine the
   main branch of the workflow. "auto" will be determined by internal alrgothrim:
   Branches connecting the frist and last step and/or the longest will be favored.
   "choose" will list all possible branches and you can make a choice.</p></dd>
-<dt>branch_no</dt>
+
+  
+  <dt>branch_no</dt>
 <dd><p>numeric, only works if <code>branch_method == "choose"</code>. Specify a
   branch number to be the main branch instead of choosing from the prompt. This
   option can be good if you are in a non-interactive mode, e.g. rendering Rmd.</p></dd>
-<dt>layout</dt>
+
+  
+  <dt>layout</dt>
 <dd><p>string, one of "compact", "vertical", "horizontal", "execution".</p></dd>
-<dt>no_plot</dt>
+
+  
+  <dt>no_plot</dt>
 <dd><p>bool, if you want to assgin the plot to a variable and do not want
   to see it interactively, change this to <code>FALSE</code>.</p></dd>
-<dt>plot_method</dt>
+
+  
+  <dt>plot_method</dt>
 <dd><p>string, one of "svg", "png", how to make plot, use svg or png
   to embed the plot.</p></dd>
-<dt>out_format</dt>
+
+  
+  <dt>out_format</dt>
 <dd><p>string, one of "plot", "html", "dot", "dot_print"</p><ul><li><p>plot: directly open your viewer or browser of the plot</p></li>
 <li><p>html: save the plot to a html file</p></li>
 <li><p>dot: save the plot in DOT language, need a dot engine to remake the plot</p></li>
 <li><p>dot_print: directly cat the DOT code on console</p></li>
 </ul></dd>
-<dt>out_path</dt>
+
+  
+  <dt>out_path</dt>
 <dd><p>string, if the <code>out_format</code> is not "plot" or "dot_print",
   provide a path of where to save the plot.</p></dd>
-<dt>show_legend</dt>
+
+  
+  <dt>show_legend</dt>
 <dd><p>bool, show plot legend?</p></dd>
-<dt>mark_main_branch</dt>
+
+  
+  <dt>mark_main_branch</dt>
 <dd><p>bool, color the main branch on the plot?</p></dd>
-<dt>rstudio</dt>
+
+  
+  <dt>rstudio</dt>
 <dd><p>bool, if you are using Rstudio, open the built-in viewer to see the
   plot? Default is no, open the browser tab to see it plot. The default viewer is
   too small to see the full plot clearly, so we recommend to use the browser tab.
   However, if you are using this plot in Shiny apps, always turn <code>rstudio = TRUE</code>.</p></dd>
-<dt>in_log</dt>
+
+  
+  <dt>in_log</dt>
 <dd><p>bool, is this plot been made in a SPR log file? If <code>TRUE</code> will add
   links of steps to the corresponding log sections.</p></dd>
-<dt>rmarkdown</dt>
+
+  
+  <dt>rmarkdown</dt>
 <dd><p>are you rendering this plot in a Rmarkdown document? default value is
   "detect", this function will determine based on current R environment, or you
   can force it to be <code>TRUE</code> or <code>FALSE</code>.</p></dd>
-<dt>verbose</dt>
+
+  
+  <dt>verbose</dt>
 <dd><p>bool, turn on verbose mode will give you more information.</p></dd>
-<dt>show_warns</dt>
+
+  
+  <dt>show_warns</dt>
 <dd><p>bool, print the warning messages on the plot?.</p></dd>
-<dt>plot_ctr</dt>
+
+  
+  <dt>plot_ctr</dt>
 <dd><p>bool, add the plot control panel to the plot? This requires you 
   to have internet connection. It will download some additional javascript 
   libraries, and allow you to save the plot as png, jpg, svg, pdf or graphviz 
   directly from the browser.</p></dd>
-<dt>pan_zoom</dt>
+
+  
+  <dt>pan_zoom</dt>
 <dd><p>bool, allow panning and zooming of the plot? Use mouse wheel
   or touch pad to zoom in and out of the plot. You need to have internet 
   connection, additional javascript libraries will be loaded automatically online. 
   Cannot be used with <code>responsive = TRUE</code> together. If both 
   <code>TRUE</code>, <code>responsive</code> will be automatically set to <code>FALSE</code>.</p></dd>
-<dt>exit_point</dt>
+
+  
+  <dt>exit_point</dt>
 <dd><p>numeric, for advanced debugging only, see details</p></dd>
-<dt>outputId</dt>
+
+
+  <dt>outputId</dt>
 <dd><p>string, shiny output ID</p></dd>
-<dt>expr</dt>
+
+  
+  <dt>expr</dt>
 <dd><p>An expression that generates a plotwf, like <code>plotWF(sal)</code></p></dd>
-<dt>env</dt>
+
+  
+  <dt>env</dt>
 <dd><p>The environment in which to evaluate <code>expr</code>.</p></dd>
-<dt>quoted</dt>
+
+  
+  <dt>quoted</dt>
 <dd><p>Is <code>expr</code> a quoted expression (with <code><a href="https://rdrr.io/r/base/substitute.html" class="external-link">quote()</a></code>)? 
 This is useful if you want to save an expression in a variable.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>see <code>out_format</code> and <code>exit_point</code></p>
+    
+
+<p>see <code>out_format</code> and <code>exit_point</code></p>
+
+
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -241,7 +296,7 @@ issues.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

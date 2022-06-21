@@ -29,7 +29,7 @@ specified in a conf file provided under the conffile argument."><!-- mathjax -->
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -82,38 +82,46 @@ specified in a conf file provided under the <code>conffile</code> argument.</p>
     <h2>Arguments</h2>
     <dl><dt>args</dt>
 <dd><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code>.</p></dd>
-<dt>FUN</dt>
+
+  <dt>FUN</dt>
 <dd><p>Accepts functions such as <code>runCommandline(args, ...)</code> where the 
 	<code>args</code> argument is mandatory and needs to be of class <code>SYSargs</code> 
 	or <code>SYSargs2</code>.</p></dd>
-<dt>more.args</dt>
+
+  <dt>more.args</dt>
 <dd><p>Object of class <code>list</code>, which provides the arguments that control the 
   <code>FUN</code> function.</p></dd>
-<dt>conffile</dt>
+
+  <dt>conffile</dt>
 <dd><p>Path to conf file (default location <code>./.batchtools.conf.R</code>). This file 
 	contains in its simplest form just one command, such as this line for the 
 	Slurm scheduler: <code>cluster.functions &lt;- makeClusterFunctionsSlurm(template="batchtools.slurm.tmpl")</code>. 
 	For more detailed information visit this page: https://mllg.github.io/batchtools/index.html</p></dd>
-<dt>template</dt>
+
+  <dt>template</dt>
 <dd><p>The template files for a specific queueing/scheduling systems can be 
 	downloaded from here: 
 https://github.com/mllg/batchtools/tree/master/inst/templates. 
 Slurm, PBS/Torque, and Sun Grid Engine (SGE) templates are provided.</p></dd>
-<dt>Njobs</dt>
+
+  <dt>Njobs</dt>
 <dd><p>Interger defining the number of cluster jobs. For instance, if <code>args</code> 
 	contains 18 command-line jobs and <code>Njobs=9</code>, then the function will
 	distribute them accross 9 cluster jobs each running 2 command-line jobs. 
 	To increase the number of CPU cores used by each process, one can do this 
 	under the corresonding argument of the command-line tool, e.g. <code>-p</code> 
 	argument for Tophat.</p></dd>
-<dt>runid</dt>
+
+  <dt>runid</dt>
 <dd><p>Run identifier used for log file to track system call commands. 
 	Default is <code>"01"</code>.</p></dd>
-<dt>resourceList</dt>
+
+  <dt>resourceList</dt>
 <dd><p><code>List</code> for reserving for each cluster job sufficient computing resources
 	including memory (Megabyte), number of nodes, CPU cores, walltime (minutes),
 	etc. For more details, one can consult the template file for each 
 	queueing/scheduling system.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -452,7 +460,7 @@ page: https://github.com/mllg/batchtools/</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

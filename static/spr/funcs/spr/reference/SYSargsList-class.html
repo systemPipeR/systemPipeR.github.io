@@ -26,7 +26,7 @@ SYSargsList instances are constructed by the SYSargsList function."><!-- mathjax
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -108,15 +108,20 @@ data analysis step based on command-line- or R-based software.</p>
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>An instance of class <code>SYSargsList</code>.</p></dd>
-<dt>step</dt>
+
+  <dt>step</dt>
 <dd><p>character or numeric. Workflow step name or position index.</p></dd>
-<dt>silent</dt>
+
+  <dt>silent</dt>
 <dd><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></dd>
-<dt>list</dt>
+
+  <dt>list</dt>
 <dd><p>a character vector naming objects to be copyied from the enviroment.</p></dd>
-<dt>new.env</dt>
+
+  <dt>new.env</dt>
 <dd><p>An environment to copy to. Default is <code><a href="https://rdrr.io/r/base/environment.html" class="external-link">globalenv()</a></code>.</p></dd>
-<dt>resources</dt>
+
+  <dt>resources</dt>
 <dd><p><code>List</code> for reserving for each cluster job sufficient computing resources
   including memory (Megabyte), number of nodes (Int), CPU cores, walltime (Minutes),
   etc. It is necessary two additional files: <code>conffile</code> and <code>template</code>. 
@@ -130,23 +135,31 @@ data analysis step based on command-line- or R-based software.</p>
   https://github.com/mllg/batchtools/tree/master/inst/templates. Slurm, 
   PBS/Torque, and Sun Grid Engine (SGE) templates are provided within the package
   demo data.</p></dd>
-<dt>position</dt>
+
+  <dt>position</dt>
 <dd><p>character. Options are <code>"outfiles" or "targetsWF"</code> slots.</p></dd>
-<dt>column</dt>
+
+  <dt>column</dt>
 <dd><p>character or numeric. Which column will be subset from the <code>position</code>
   argument.</p></dd>
-<dt>names</dt>
+
+  <dt>names</dt>
 <dd><p>character vector. Names of the workflow step.</p></dd>
-<dt>after</dt>
+
+  <dt>after</dt>
 <dd><p>A subscript, after which the values are to be appended.</p></dd>
-<dt>paramName</dt>
+
+  <dt>paramName</dt>
 <dd><p>character. Input name from <code>yamlinput(x)</code>, which value should be replaced.</p></dd>
-<dt>step_name</dt>
+
+  <dt>step_name</dt>
 <dd><p>character with the new step name. Default value will automatically give a name:
   <code>step_&lt;step index position&gt;</code>.</p></dd>
-<dt>line</dt>
+
+  <dt>line</dt>
 <dd><p>numeric. Index position of the code line to be added or replaced.</p></dd>
-<dt>value</dt>
+
+  <dt>value</dt>
 <dd><p>object containing the values to be replaced to <code>SYSargsList</code>. Values may
   be of the same class as the orginal values. For <code>updateColumn&lt;-</code> a 
   <code>DataFrame</code> must have the same rows as the original <code>DataFrame</code>.
@@ -155,8 +168,10 @@ data analysis step based on command-line- or R-based software.</p>
   <code>DataFrame</code>, any existing columns with the same name as this new 
   <code>DataFrame</code> will be replaced. Any columns that do not exist in the 
   original <code>DataFrame</code> will be added to the original <code>DataFrame</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>Further arguments to be passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="objects-from-the-class">
     <h2>Objects from the Class</h2>
@@ -522,7 +537,7 @@ data analysis step based on command-line- or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu">runInfo</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $env</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x564bc0e606e8&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x55b5c5ac1168&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $runOption</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $runOption$echo</span>
@@ -598,10 +613,10 @@ data analysis step based on command-line- or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu">viewEnvir</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x564bc0e606e8&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x55b5c5ac1168&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-in"><span class="fu">copyEnvir</span><span class="op">(</span><span class="va">sal</span>, list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>, new.env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">globalenv</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x564bc0e606e8&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x55b5c5ac1168&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Copying to 'new.env': </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>conffile<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/.batchtools.conf.R"</span>, </span>
@@ -709,7 +724,7 @@ data analysis step based on command-line- or R-based software.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

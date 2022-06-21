@@ -28,7 +28,7 @@ exists then the user has to explicitly remove it or set overwrite=TRUE."><!-- ma
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -73,21 +73,29 @@ exists then the user has to explicitly remove it or set <code>overwrite=TRUE</co
     <h2>Arguments</h2>
     <dl><dt>sysargs</dt>
 <dd><p>Object of class <code>SYSargsList</code>.</p></dd>
-<dt>step</dt>
+
+  <dt>step</dt>
 <dd><p>character with the step name. To check all the names, please 
     use <code>stepName(sysargs)</code>.</p></dd>
-<dt>file</dt>
+
+  <dt>file</dt>
 <dd><p>Name and path of the output file. If set to "default" then the name of the 
     output file will have the pattern 'targets_&lt;stepName&gt;.txt'.</p></dd>
-<dt>silent</dt>
+
+  <dt>silent</dt>
 <dd><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></dd>
-<dt>overwrite</dt>
+
+  <dt>overwrite</dt>
 <dd><p>If set to <code>TRUE</code>, existing files of same name will be overwritten.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Writes tabular targes files containing the header/comment lines from 
-<code>stepsWF(sysargs)[[step]][["targetsheader"]]</code> and the 
+    
+
+<p>Writes tabular targes files containing the header/comment lines from</p>
+<p></p>
+<p><code>stepsWF(sysargs)[[step]][["targetsheader"]]</code> and the 
     columns from <code>targetsWF(sysargs)[[step]]</code>.</p>
     </div>
     <div id="author">
@@ -130,7 +138,7 @@ exists then the user has to explicitly remove it or set <code>overwrite=TRUE</co
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
