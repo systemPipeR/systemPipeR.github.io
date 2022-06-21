@@ -26,7 +26,7 @@ the variant statistics are retrieved from the input VCF files."><!-- mathjax -->
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -76,35 +76,44 @@ the variant statistics are retrieved from the input VCF files.</p>
     <h2>Arguments</h2>
     <dl><dt>files</dt>
 <dd><p><code>named character vector</code> with paths of the input VCF files.</p></dd>
-<dt>txdb</dt>
+
+  <dt>txdb</dt>
 <dd><p>Annotation data stored as <code>TranscriptDb</code> object, which can be obtained 
 	from GFF/GTF files, BioMart, Bioc Annotation packages, UCSC, etc. 
 	For details see the vignette of the <code>GenomicFeatures</code> package.
 	It is important to use here matching versions of the <code>txdb</code> and 
 	<code>fa</code> objects. The latter is the genome sequence used for read mapping 
 	and variant calling.</p></dd>
-<dt>fa</dt>
+
+  <dt>fa</dt>
 <dd><p><code>FaFile</code> object pointing to the sequence file of the corresponding r
 	eference genome stored in FASTA format or a <code>BSgenome</code> instance.</p></dd>
-<dt>organism</dt>
+
+  <dt>organism</dt>
 <dd><p>Character vector specifying the organism name of the reference genome.</p></dd>
-<dt>filtercol</dt>
+
+  <dt>filtercol</dt>
 <dd><p>Named character vector containing in the name field the column titles to 
 	filter on, and in the data field the corresponding values to include in 
 	the report. For instance, the setting <code>filtercol=c(Consequence="nonsynonymous")</code> 
 	will include only nonsysynonymous variances listed in the <code>Consequence</code> 
 	column. To omit the filtering step, one can use the setting 
 	<code>filtercol="All"</code>.</p></dd>
-<dt>ncol</dt>
+
+  <dt>ncol</dt>
 <dd><p>Integer specifying the number of columns in the tabular input files. 
 	Default is set to 15.</p></dd>
-<dt>out_dir</dt>
+
+  <dt>out_dir</dt>
 <dd><p>Character vector of a <code>results</code> directory name. 
 	Default is <code>results</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Tabular output files.</p>
+    
+
+<p>Tabular output files.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -247,7 +256,7 @@ the variant statistics are retrieved from the input VCF files.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

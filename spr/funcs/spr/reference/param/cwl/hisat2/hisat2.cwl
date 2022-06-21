@@ -1,6 +1,7 @@
 cwlVersion: v1.1
 class: CommandLineTool
 baseCommand: hisat2
+arguments: []
 inputs:
   S:
     type: File

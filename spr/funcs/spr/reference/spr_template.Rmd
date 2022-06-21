@@ -20,7 +20,7 @@ This is a workflow template.
 
 # Workflow Steps
 
-# Step1 load_library
+## Step1 load_library
 ```{r load_library, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code={
@@ -34,7 +34,7 @@ appendStep(sal) <- LineWise(
 ```
 
 
-# Step2 export_iris
+## Step2 export_iris
 ```{r export_iris, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code={
@@ -48,7 +48,7 @@ appendStep(sal) <- LineWise(
 ```
 
 
-# Step3 gzip
+## Step3 gzip
 ```{r gzip, eval=FALSE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     targets = "/home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/gunzip/targets_gunzip.txt",
@@ -66,7 +66,7 @@ appendStep(sal) <- SYSargsList(
 ```
 
 
-# Step4 gunzip
+## Step4 gunzip
 ```{r gunzip, eval=FALSE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     targets = c("gzip"),
@@ -84,7 +84,7 @@ appendStep(sal) <- SYSargsList(
 ```
 
 
-# Step5 stats
+## Step5 stats
 ```{r stats, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code={

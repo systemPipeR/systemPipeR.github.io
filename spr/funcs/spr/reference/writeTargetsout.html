@@ -32,7 +32,7 @@ remove it or set overwrite=TRUE."><!-- mathjax --><script src="https://cdnjs.clo
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -81,26 +81,40 @@ remove it or set <code>overwrite=TRUE</code>.</p>
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Object of class <code>SYSargs</code> or <code>SYSargs2</code>.</p></dd>
-<dt>file</dt>
+
+  <dt>file</dt>
 <dd><p>Name and path of the output file. If set to "default" then the name of the output file will have the pattern 'targets_&lt;software&gt;.txt', where &lt;software&gt; will be what <code>software(x)</code> returns, when <code>x</code> is an object of class <code>SYSargs</code>. For an object of class <code>SYSargs2</code>, the output file will have the pattern 'targets_&lt;software&gt;_&lt;step&gt;.txt', where &lt;software&gt; will be the workflow name (<code>files(x)$cwl</code>) and &lt;step&gt; will be the step chosen in the argument <code>step</code>.</p></dd>
-<dt>silent</dt>
+
+  <dt>silent</dt>
 <dd><p>If set to <code>TRUE</code>, all messages returned by the function will be suppressed.</p></dd>
-<dt>overwrite</dt>
+
+  <dt>overwrite</dt>
 <dd><p>If set to <code>TRUE</code>, existing files of same name will be overwritten.</p></dd>
-<dt>step</dt>
+
+  <dt>step</dt>
 <dd><p>Name or numeric position of the step in the workflow to write the output files. The names can be check running <code>names(x$clt)</code>.</p></dd>
-<dt>new_col</dt>
+
+  <dt>new_col</dt>
 <dd><p>A vector of character strings of the new column name to add to target file.</p></dd>
-<dt>new_col_output_index</dt>
+
+  <dt>new_col_output_index</dt>
 <dd><p>A vector of numeric index positions of the file in <code>SYSargs2</code> class <code>output</code>. It requires <code>new_col</code> definition.</p></dd>
-<dt>remove</dt>
+
+  <dt>remove</dt>
 <dd><p>To remove the original columns. Default is <code>FALSE</code>.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>To pass on additional arguments.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Writes tabular targes files containing the header/comment lines from <code>targetsheader(x)</code>and the columns from <code>targetsout(x)</code>.</p>
+    
+
+<p>Writes tabular targes files containing the header/comment lines from <code>targetsheader(x)</code></p>
+
+
+<p>and the columns from <code>targetsout(x)</code>.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -154,7 +168,7 @@ remove it or set <code>overwrite=TRUE</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

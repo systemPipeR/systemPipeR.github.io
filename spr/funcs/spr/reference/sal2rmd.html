@@ -24,7 +24,7 @@ template Rmarkdown format."><!-- mathjax --><script src="https://cdnjs.cloudflar
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
       </span>
     </div>
 
@@ -69,28 +69,38 @@ template Rmarkdown format.</p>
     <h2>Arguments</h2>
     <dl><dt>sal</dt>
 <dd><p><code>SYSargsList</code> object.</p></dd>
-<dt>out_path</dt>
+
+  <dt>out_path</dt>
 <dd><p>string, output file name.</p></dd>
-<dt>rmd_title</dt>
+
+  <dt>rmd_title</dt>
 <dd><p>string, title of the Rmd.</p></dd>
-<dt>rmd_author</dt>
+
+  <dt>rmd_author</dt>
 <dd><p>string, author(s) of the Rmd, put all authors in a single character string.</p></dd>
-<dt>rmd_date</dt>
+
+  <dt>rmd_date</dt>
 <dd><p>string, date header of Rmd.</p></dd>
-<dt>rmd_output</dt>
+
+  <dt>rmd_output</dt>
 <dd><p>string, output format of Rmd, used in header.</p></dd>
-<dt>desc</dt>
+
+  <dt>desc</dt>
 <dd><p>string, or character vector of strings, some description text in format 
   Rmarkdown that will be added to the document before the workflow steps start. 
   It can be a single line or multiple lines by providing a character vector,
   each item is one line.</p></dd>
-<dt>verbose</dt>
+
+  <dt>verbose</dt>
 <dd><p>logical. If <code>TRUE</code> will show you more information as 
   the function runs.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>no return</p>
+    
+
+<p>no return</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -105,17 +115,25 @@ template Rmarkdown format.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
 <span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;"> ---- Actions ----</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Checking chunk eval values</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Checking chunk SPR option</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Ignore non-SPR chunks: 17</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Parse chunk code</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Checking preprocess code for each step</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No preprocessing code for SPR steps found</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'load_library' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'export_iris' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'gzip' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'gunzip' </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now importing step 'stats' </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now back up current Rmd file as template for `renderReport`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu">sal2rmd</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">sal2rmd starts, pre-checks...</span></span>
@@ -141,7 +159,7 @@ template Rmarkdown format.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
