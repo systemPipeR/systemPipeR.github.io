@@ -1,105 +1,64 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sysPipe – systemPipeR Documentation</title><link>/sp/</link><description>Recent content in systemPipeR Documentation on sysPipe</description><generator>Hugo -- gohugo.io</generator><atom:link href="/sp/index.xml" rel="self" type="application/rss+xml"/><item><title>Sp:</title><link>/sp/spr/viz_editor/bower_components/svg-pan-zoom/issue_template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sp/spr/viz_editor/bower_components/svg-pan-zoom/issue_template/</guid><description>
-&lt;p>Hi there!&lt;/p>
-&lt;p>Thanks for submitting an issue to svg-pan-zoom.&lt;/p>
-&lt;p>To help us help you better, please do the following before submitting an issue:&lt;/p>
-&lt;ol>
-&lt;li>Review the available &lt;a href="https://github.com/ariutta/svg-pan-zoom/blob/master/README.md">documentation&lt;/a> and existing &lt;a href="https://github.com/ariutta/svg-pan-zoom#demos">examples&lt;/a>&lt;/li>
-&lt;li>Check if the same bug/feature request &lt;a href="https://github.com/ariutta/svg-pan-zoom/issues?q=is%3Aissue%20">wasn&amp;rsquo;t previously reported&lt;/a>&lt;/li>
-&lt;li>Make sure you are not asking a usage or debugging question. If you are, use &lt;a href="http://stackoverflow.com/questions/tagged/svgpanzoom">StackOverflow&lt;/a>.&lt;/li>
-&lt;li>Fill in the information that corresponds to your type of issue below&lt;/li>
-&lt;li>If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem via &lt;a href="https://jsfiddle.net">https://jsfiddle.net&lt;/a> or similar (template: &lt;a href="http://jsfiddle.net/bumbu/167usffr/)">http://jsfiddle.net/bumbu/167usffr/)&lt;/a>.&lt;/li>
-&lt;li>Delete this intro and any unrelated text :smile: (if you do not we&amp;rsquo;ll assume you haven&amp;rsquo;t read these instructions and automatically close the issue)&lt;/li>
-&lt;/ol>
-&lt;h2 id="bug-report">Bug report&lt;/h2>
-&lt;h3 id="expected-behaviour">Expected behaviour&lt;/h3>
-&lt;p>&lt;em>your text here&lt;/em>&lt;/p>
-&lt;h3 id="actual-behaviour">Actual behaviour&lt;/h3>
-&lt;p>&lt;em>your text here&lt;/em>&lt;/p>
-&lt;h3 id="steps-to-reproduce-the-behaviour">Steps to reproduce the behaviour&lt;/h3>
-&lt;ol>
-&lt;li>&lt;/li>
-&lt;li>&lt;/li>
-&lt;/ol>
-&lt;h3 id="configuration">Configuration&lt;/h3>
-&lt;ul>
-&lt;li>svg-pan-zoom version: ``&lt;/li>
-&lt;li>Browser(s): ``&lt;/li>
-&lt;li>Operating system(s): ``&lt;/li>
-&lt;li>A relevant example URL:&lt;/li>
-&lt;/ul>
-&lt;h2 id="feature-request">Feature Request&lt;/h2>
-&lt;ul>
-&lt;li>Feature description&lt;/li>
-&lt;li>Reasons for adopting new feature&lt;/li>
-&lt;li>Is this a breaking change? (How will this affect existing functionality)&lt;/li>
-&lt;/ul></description></item><item><title>Sp: SPR workflow template</title><link>/sp/spr/sp_run/spr_template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/sp/spr/sp_run/spr_template/</guid><description>
-&lt;h1 id="about-this-report">About this Report&lt;/h1>
-&lt;p>This is a workflow template.&lt;/p>
-&lt;h1 id="workflow-steps">Workflow Steps&lt;/h1>
-&lt;h2 id="step1-load_library">Step1 load_library&lt;/h2>
-&lt;pre>&lt;code class="language-r">appendStep(sal) &amp;lt;- LineWise(
-code={
-library(systemPipeR)
-},
-step_name = 'load_library',
-dependency = NA,
-run_step = c('mandatory'),
-run_session = c('management')
-)
-&lt;/code>&lt;/pre>
-&lt;h2 id="step2-export_iris">Step2 export_iris&lt;/h2>
-&lt;pre>&lt;code class="language-r">appendStep(sal) &amp;lt;- LineWise(
-code={
-mapply(function(x, y) write.csv(x, y), split(iris, factor(iris$Species)), file.path(&amp;quot;results&amp;quot;, paste0(names(split(iris, factor(iris$Species))), &amp;quot;.csv&amp;quot;)))
-},
-step_name = 'export_iris',
-dependency = c('load_library'),
-run_step = c('mandatory'),
-run_session = c('management')
-)
-&lt;/code>&lt;/pre>
-&lt;h2 id="step3-gzip">Step3 gzip&lt;/h2>
-&lt;pre>&lt;code class="language-r">appendStep(sal) &amp;lt;- SYSargsList(
-targets = &amp;quot;/home/lab/R/x86_64-pc-linux-gnu-library/4.2/systemPipeR/extdata/cwl/gunzip/targets_gunzip.txt&amp;quot;,
-dir_path=&amp;quot;/home/lab/R/x86_64-pc-linux-gnu-library/4.2/systemPipeR/extdata/cwl&amp;quot;,
-wf_file=&amp;quot;gunzip/workflow_gzip.cwl&amp;quot;,
-input_file=&amp;quot;gunzip/gzip.yml&amp;quot;,
-inputvars = c( FileName=&amp;quot;_FILE_PATH_&amp;quot;, SampleName=&amp;quot;_SampleName_&amp;quot; ),
-rm_targets_col = NULL,
-step_name = 'gzip',
-dependency = c('export_iris'),
-dir=TRUE,
-run_step = c('mandatory'),
-run_session = c('management')
-)
-&lt;/code>&lt;/pre>
-&lt;h2 id="step4-gunzip">Step4 gunzip&lt;/h2>
-&lt;pre>&lt;code class="language-r">appendStep(sal) &amp;lt;- SYSargsList(
-targets = c(&amp;quot;gzip&amp;quot;),
-dir_path=&amp;quot;/home/lab/R/x86_64-pc-linux-gnu-library/4.2/systemPipeR/extdata/cwl&amp;quot;,
-wf_file=&amp;quot;gunzip/workflow_gunzip.cwl&amp;quot;,
-input_file=&amp;quot;gunzip/gunzip.yml&amp;quot;,
-inputvars = c( gzip_file=&amp;quot;_FILE_PATH_&amp;quot;, SampleName=&amp;quot;_SampleName_&amp;quot; ),
-rm_targets_col = c(&amp;quot; FileName &amp;quot;),
-step_name = 'gunzip',
-dependency = c('gzip'),
-dir=TRUE,
-run_step = c('mandatory'),
-run_session = c('management')
-)
-&lt;/code>&lt;/pre>
-&lt;h2 id="step5-stats">Step5 stats&lt;/h2>
-&lt;pre>&lt;code class="language-r">appendStep(sal) &amp;lt;- LineWise(
-code={
-df &amp;lt;- lapply(getColumn(sal, step = &amp;quot;gunzip&amp;quot;, &amp;quot;outfiles&amp;quot;), function(x) read.delim(x, sep = &amp;quot;,&amp;quot;)[-1])
-df &amp;lt;- do.call(rbind, df)
-stats &amp;lt;- data.frame(cbind(mean = apply(df[, 1:4], 2, mean), sd = apply(df[, 1:4], 2, sd)))
-stats$species &amp;lt;- rownames(stats)
-plot &amp;lt;- ggplot2::ggplot(stats, ggplot2::aes(x = species, y = mean, fill = species)) + ggplot2::geom_bar(stat = &amp;quot;identity&amp;quot;, color = &amp;quot;black&amp;quot;, position = ggplot2::position_dodge()) + ggplot2::geom_errorbar(ggplot2::aes(ymin = mean - sd, ymax = mean + sd), width = 0.2, position = ggplot2::position_dodge(0.9))
-},
-step_name = 'stats',
-dependency = c('gunzip'),
-run_step = c('optional'),
-run_session = c('management')
-)
-&lt;/code>&lt;/pre></description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sysPipe – systemPipeR Documentation</title>
+    <link>/sp/</link>
+    <description>Recent content in systemPipeR Documentation on sysPipe</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/sp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Sp: </title>
+      <link>/sp/spr/viz_editor/bower_components/svg-pan-zoom/issue_template/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sp/spr/viz_editor/bower_components/svg-pan-zoom/issue_template/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Hi there!&lt;/p&gt;
+&lt;p&gt;Thanks for submitting an issue to svg-pan-zoom.&lt;/p&gt;
+&lt;p&gt;To help us help you better, please do the following before submitting an issue:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Review the available &lt;a href=&#34;https://github.com/ariutta/svg-pan-zoom/blob/master/README.md&#34;&gt;documentation&lt;/a&gt; and existing &lt;a href=&#34;https://github.com/ariutta/svg-pan-zoom#demos&#34;&gt;examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Check if the same bug/feature request &lt;a href=&#34;https://github.com/ariutta/svg-pan-zoom/issues?q=is%3Aissue%20&#34;&gt;wasn&amp;rsquo;t previously reported&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Make sure you are not asking a usage or debugging question. If you are, use &lt;a href=&#34;http://stackoverflow.com/questions/tagged/svgpanzoom&#34;&gt;StackOverflow&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Fill in the information that corresponds to your type of issue below&lt;/li&gt;
+&lt;li&gt;If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem via &lt;a href=&#34;https://jsfiddle.net&#34;&gt;https://jsfiddle.net&lt;/a&gt; or similar (template: &lt;a href=&#34;http://jsfiddle.net/bumbu/167usffr/)&#34;&gt;http://jsfiddle.net/bumbu/167usffr/)&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Delete this intro and any unrelated text :smile: (if you do not we&amp;rsquo;ll assume you haven&amp;rsquo;t read these instructions and automatically close the issue)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;bug-report&#34;&gt;Bug report&lt;/h2&gt;
+&lt;h3 id=&#34;expected-behaviour&#34;&gt;Expected behaviour&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;your text here&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;actual-behaviour&#34;&gt;Actual behaviour&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;your text here&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;steps-to-reproduce-the-behaviour&#34;&gt;Steps to reproduce the behaviour&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;svg-pan-zoom version: ``&lt;/li&gt;
+&lt;li&gt;Browser(s): ``&lt;/li&gt;
+&lt;li&gt;Operating system(s): ``&lt;/li&gt;
+&lt;li&gt;A relevant example URL:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feature-request&#34;&gt;Feature Request&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature description&lt;/li&gt;
+&lt;li&gt;Reasons for adopting new feature&lt;/li&gt;
+&lt;li&gt;Is this a breaking change? (How will this affect existing functionality)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

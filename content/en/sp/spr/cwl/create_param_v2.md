@@ -358,7 +358,7 @@ printParam2(cmd, inputs = TRUE, raw_cmd = TRUE, all = FALSE)
 We can see that a new parameter `-abc` and its value `abc` has been added to the last 
 command flag before the standard out. 
 
-Alternative, we can do the same with `list` format:
+Alternatively, we can do the same with `list` format:
 
 ```r
 new_cmd_list <- list(name = "abc", preF = "-abc", type = "string", value = "abc", index = 7)
@@ -450,7 +450,7 @@ printParam2(cmd, outputs = TRUE, raw_cmd = TRUE, all = FALSE)
 ## mycmd -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc > abc.txt
 ```
 
-Alternative, we can do the same with `list` format:
+Alternatively, we can do the same with `list` format:
 
 ```r
 new_cmd_list <- list(name = "new_out", type = "File", value = "abc.txt")
@@ -567,7 +567,7 @@ cmd <- replaceParam2(cmd, new_cmd, index = "new_arg2", position = "args")
 ```
 
 ```
-## Param name new_arg2 exists, it will be renamed to: new_arg2_zk1
+## Param name new_arg2 exists, it will be renamed to: new_arg2_4dq
 ```
 
 ```r

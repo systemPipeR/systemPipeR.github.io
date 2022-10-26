@@ -1,6 +1,6 @@
 ---
 title: "Export workflows" 
-date: "Last update: 03 June, 2022" 
+date: "Last update: 26 October, 2022" 
 vignette: |
   %\VignetteEncoding{UTF-8}
   %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
@@ -119,9 +119,9 @@ sessionInfo()
 ```
 
 ```
-## R version 4.2.0 (2022-04-22)
+## R version 4.2.1 (2022-06-23)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.4 LTS
+## Running under: Ubuntu 20.04.5 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -140,36 +140,37 @@ sessionInfo()
 ## [8] base     
 ## 
 ## other attached packages:
-##  [1] systemPipeR_2.3.4           ShortRead_1.54.0           
-##  [3] GenomicAlignments_1.32.0    SummarizedExperiment_1.26.1
-##  [5] Biobase_2.56.0              MatrixGenerics_1.8.0       
-##  [7] matrixStats_0.62.0          BiocParallel_1.30.2        
-##  [9] Rsamtools_2.12.0            Biostrings_2.64.0          
+##  [1] systemPipeR_2.3.5           ShortRead_1.54.0           
+##  [3] GenomicAlignments_1.32.1    SummarizedExperiment_1.26.1
+##  [5] Biobase_2.56.0              MatrixGenerics_1.8.1       
+##  [7] matrixStats_0.62.0          BiocParallel_1.30.4        
+##  [9] Rsamtools_2.12.0            Biostrings_2.64.1          
 ## [11] XVector_0.36.0              GenomicRanges_1.48.0       
-## [13] GenomeInfoDb_1.32.2         IRanges_2.30.0             
+## [13] GenomeInfoDb_1.32.4         IRanges_2.30.1             
 ## [15] S4Vectors_0.34.0            BiocGenerics_0.42.0        
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] lattice_0.20-45        png_0.1-7              assertthat_0.2.1      
-##  [4] digest_0.6.29          utf8_1.2.2             R6_2.5.1              
-##  [7] evaluate_0.15          ggplot2_3.3.6          blogdown_1.10         
-## [10] pillar_1.7.0           zlibbioc_1.42.0        rlang_1.0.2           
-## [13] rstudioapi_0.13        jquerylib_0.1.4        Matrix_1.4-1          
-## [16] rmarkdown_2.14         stringr_1.4.0          htmlwidgets_1.5.4     
-## [19] RCurl_1.98-1.6         munsell_0.5.0          DelayedArray_0.22.0   
-## [22] compiler_4.2.0         xfun_0.31              pkgconfig_2.0.3       
-## [25] htmltools_0.5.2        tidyselect_1.1.2       tibble_3.1.7          
-## [28] GenomeInfoDbData_1.2.8 bookdown_0.26          fansi_1.0.3           
-## [31] dplyr_1.0.9            crayon_1.5.1           bitops_1.0-7          
-## [34] grid_4.2.0             DBI_1.1.2              jsonlite_1.8.0        
-## [37] gtable_0.3.0           lifecycle_1.0.1        magrittr_2.0.3        
-## [40] scales_1.2.0           cli_3.3.0              stringi_1.7.6         
-## [43] hwriter_1.3.2.1        fs_1.5.2               latticeExtra_0.6-29   
-## [46] bslib_0.3.1            generics_0.1.2         ellipsis_0.3.2        
-## [49] vctrs_0.4.1            RColorBrewer_1.1-3     tools_4.2.0           
-## [52] glue_1.6.2             purrr_0.3.4            jpeg_0.1-9            
-## [55] parallel_4.2.0         fastmap_1.1.0          yaml_2.3.5            
-## [58] colorspace_2.0-3       knitr_1.39             sass_0.4.1
+##  [1] sass_0.4.2             jsonlite_1.8.3         bslib_0.4.0           
+##  [4] assertthat_0.2.1       latticeExtra_0.6-30    GenomeInfoDbData_1.2.8
+##  [7] yaml_2.3.6             pillar_1.8.1           lattice_0.20-45       
+## [10] glue_1.6.2             digest_0.6.30          RColorBrewer_1.1-3    
+## [13] colorspace_2.0-3       htmltools_0.5.3        Matrix_1.5-1          
+## [16] pkgconfig_2.0.3        bookdown_0.29          zlibbioc_1.42.0       
+## [19] scales_1.2.1           jpeg_0.1-9             tibble_3.1.8          
+## [22] generics_0.1.3         ggplot2_3.3.6          cachem_1.0.6          
+## [25] cli_3.4.1              magrittr_2.0.3         crayon_1.5.2          
+## [28] deldir_1.0-6           evaluate_0.17          fs_1.5.2              
+## [31] fansi_1.0.3            hwriter_1.3.2.1        blogdown_1.13         
+## [34] tools_4.2.1            lifecycle_1.0.3        stringr_1.4.1         
+## [37] interp_1.1-3           munsell_0.5.0          DelayedArray_0.22.0   
+## [40] compiler_4.2.1         jquerylib_0.1.4        rlang_1.0.6           
+## [43] grid_4.2.1             RCurl_1.98-1.9         rstudioapi_0.14       
+## [46] htmlwidgets_1.5.4      bitops_1.0-7           rmarkdown_2.17        
+## [49] gtable_0.3.1           codetools_0.2-18       DBI_1.1.3             
+## [52] R6_2.5.1               knitr_1.40             dplyr_1.0.10          
+## [55] fastmap_1.1.0          utf8_1.2.2             stringi_1.7.8         
+## [58] parallel_4.2.1         Rcpp_1.0.9             vctrs_0.4.2           
+## [61] png_0.1-7              tidyselect_1.2.0       xfun_0.34
 ```
 
 
