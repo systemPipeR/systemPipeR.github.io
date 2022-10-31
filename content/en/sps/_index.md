@@ -35,7 +35,7 @@ type: docs
 }
 </style>
 
-
+<iframe src="https://drive.google.com/file/d/1KokVeJhGgsK2JSRasfYum2ZxuSK7deWb/preview" width="100%" height="600px"></iframe>
 
 **<span style="color:#5DA7D6;">s</span>ystem<span
 style="color:#5DA7D6;">P</span>ipe<span style="color:#5DA7D6;">S</span>hiny**
@@ -67,7 +67,8 @@ with a session screenshot feature to edit scientific and publishable figures.
 - Three other supporting packages to help all users from beginners and advanced developers 
 to extend under current SPS framework or on their own visualization apps. 
 
-## Demo
+## Demos
+### Shinyapps.io demos
 View our online demo app:
 
 | Type and link| option changed | notes |
@@ -91,6 +92,9 @@ There is an [Rstudio Cloud project](https://rstudio.cloud/project/2493103) insta
 that you can also play with. You need to create a free new account. Two Bioconductor
 related modules - workflow & RNAseq are not installed. They require more than 1GB 
 RAM to install and to run which is beyond the limit of a free account. 
+
+### Docker
+Use [systempipe_docker](https://github.com/systemPipeR/systempipe_docker) for instructions.
 
 ## Other packages in systemPipeShiny
 
