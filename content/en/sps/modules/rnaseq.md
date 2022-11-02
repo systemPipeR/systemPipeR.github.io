@@ -7,6 +7,8 @@ weight: 2
 
 ## RNA-Seq Module
 
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_rnaseq.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+
 This is a module which takes a **raw count table** to do normalization, 
 Differential gene expression (DEG) analysis, and finally helps users to generate 
 different plots to visualize the results. 

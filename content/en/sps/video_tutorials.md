@@ -11,5 +11,17 @@ Video tutorials are located on different pages of SPS documentations. For your c
 
 
 ### Overview
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/sps_overview.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
 
-<iframe src="https://drive.google.com/file/d/1KokVeJhGgsK2JSRasfYum2ZxuSK7deWb/preview" style="width: 100%; aspect-ratio: 16 / 9"></iframe>
+### Workflow Module
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_workflow.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+
+### RNAseq Module
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_rnaseq.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+
+### Quick ggplot Module
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_ggplot.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+
+### Canvas Tool
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/canvas.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+

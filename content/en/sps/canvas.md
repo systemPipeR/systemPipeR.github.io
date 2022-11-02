@@ -7,6 +7,8 @@ weight: 5
 
 ***** 
 
+<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/canvas.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+
 SPS Canvas is a place to display and edit scrennshots from different plots. To start 
 to use Canvas, you need to take some screenshots but clicking "To Canvas" buttons 
 on different tabs/modules. After clicking, the screenshots will be automatically sent 
