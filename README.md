@@ -15,7 +15,6 @@ The life version of this site is available at <https://systempipe.org/>.
 ![R-CMD-check](https://github.com/tgirke/systemPipeR/workflows/R-CMD-check/badge.svg)
 
 
-
 ### systemPipeShiny package status <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/images/systemPipeShiny.png" align="right" height="129" />
 
 [![platforms](https://www.bioconductor.org/shields/availability/release/systemPipeShiny.svg)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeShiny.html#archives)
