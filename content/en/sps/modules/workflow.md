@@ -7,7 +7,11 @@ weight: 1
 
 ## Workflow management
 
-<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_workflow.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+<video style="width: 100%; aspect-ratio: 16 / 9"  controls>
+    <source src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_workflow.webm?raw=true" type="video/webm">
+    Video cannot be loaded or your browser does not support the video tag.
+</video>
+
 
 The workflow management module in `SPS` allows one to modify or create the
 configuration files required for running data analysis workflows in

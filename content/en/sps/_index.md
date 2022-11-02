@@ -35,7 +35,10 @@ type: docs
 }
 </style>
 
-<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/sps_overview.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+<video style="width: 100%; aspect-ratio: 16 / 9"  controls>
+    <source src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/sps_overview.webm?raw=true" type="video/webm">
+    Video cannot be loaded or your browser does not support the video tag.
+</video>
 
 **<span style="color:#5DA7D6;">s</span>ystem<span
 style="color:#5DA7D6;">P</span>ipe<span style="color:#5DA7D6;">S</span>hiny**

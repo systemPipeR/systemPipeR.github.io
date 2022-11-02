@@ -7,7 +7,11 @@ weight: 5
 
 ***** 
 
-<video src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/canvas.webm?raw=true" style="width: 100%; aspect-ratio: 16 / 9"  controls></video>
+<video style="width: 100%; aspect-ratio: 16 / 9"  controls>
+    <source src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/canvas.webm?raw=true" type="video/webm">
+    Video cannot be loaded or your browser does not support the video tag.
+</video>
+
 
 SPS Canvas is a place to display and edit scrennshots from different plots. To start 
 to use Canvas, you need to take some screenshots but clicking "To Canvas" buttons 
