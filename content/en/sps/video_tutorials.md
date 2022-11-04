@@ -40,4 +40,3 @@ Video tutorials are located on different pages of SPS documentations. For your c
     <source src="https://user-images.githubusercontent.com/35240440/199858040-9d5443ff-a0ef-4bbe-b4e7-93aa442e64fa.mp4" type="video/mp4">
     Video cannot be loaded or your browser does not support the video tag.
 </video>
-
