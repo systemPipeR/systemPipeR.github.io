@@ -64,7 +64,7 @@ classes of the Bioconductor ecosystem, and enhances them with command-line softw
 &lt;li&gt;Improved reproducibility by automating the generation of analysis reports&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;utilities.png&#34; alt=&#34;Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A). Examples of `systemPipeR&#39;s` visualization functionalities are given under (B).&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;utilities.png&#34; alt=&#34;Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A). Examples of `systemPipeR&#39;s` visualization functionalities are given under (B).&#34; width=&#34;100%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Relevant features in `systemPipeR`. Workflow design concepts are illustrated under (A). Examples of `systemPipeR&#39;s` visualization functionalities are given under (B).
 &lt;/p&gt;
@@ -83,7 +83,7 @@ support for both command-line and R/Bioconductor software, the package provides
 utilities for containerization, parallel evaluations on computer clusters and
 automated generation of interactive analysis reports.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;general.png&#34; alt=&#34;Overview of `systemPipeR` workflows management instances. A) A typical analysis workflow requires multiple software tools (red), as well the description of the input (green) and output files, including analysis reports (purple). B) `systemPipeR` provides multiple utilities to design and build a workflow, allowing multi-instance, integration of R code and command-line software, a simple and efficient annotation system, that allows automatic control of the input and output data, and multiple resources to manage the entire workflow. c) Options are provided to execute single or multiple workflow steps, while enabling scalability, checkpoints, and generation of technical and scientific reports.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;general.png&#34; alt=&#34;Overview of `systemPipeR` workflows management instances. A) A typical analysis workflow requires multiple software tools (red), as well the description of the input (green) and output files, including analysis reports (purple). B) `systemPipeR` provides multiple utilities to design and build a workflow, allowing multi-instance, integration of R code and command-line software, a simple and efficient annotation system, that allows automatic control of the input and output data, and multiple resources to manage the entire workflow. c) Options are provided to execute single or multiple workflow steps, while enabling scalability, checkpoints, and generation of technical and scientific reports.&#34; width=&#34;100%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Overview of `systemPipeR` workflows management instances. A) A typical analysis workflow requires multiple software tools (red), as well the description of the input (green) and output files, including analysis reports (purple). B) `systemPipeR` provides multiple utilities to design and build a workflow, allowing multi-instance, integration of R code and command-line software, a simple and efficient annotation system, that allows automatic control of the input and output data, and multiple resources to manage the entire workflow. c) Options are provided to execute single or multiple workflow steps, while enabling scalability, checkpoints, and generation of technical and scientific reports.
 &lt;/p&gt;
@@ -128,7 +128,7 @@ reusability for different computing environments and workflow frameworks in the
 community, improving reproducibility, portability, and shareability between
 collaborators and community.&lt;/p&gt;
 &lt;p&gt;Following the CWL Command Line Tool Description Specification
-(&lt;a href=&#34;https://www.commonwl.org/v1.2/CommandLineTool.html),&#34;&gt;https://www.commonwl.org/v1.2/CommandLineTool.html),&lt;/a&gt; the basic elements of the
+(&lt;a href=&#34;https://www.commonwl.org/v1.2/CommandLineTool.html)&#34;&gt;https://www.commonwl.org/v1.2/CommandLineTool.html)&lt;/a&gt;, the basic elements of the
 CWL tool description are defined in two files. Figure &lt;a href=&#34;#fig:sprandCWL&#34;&gt;3&lt;/a&gt;A-B illustrate
 the “hello world” example. The main file contains all the information necessary
 to build the command-line that will be executed, specifying the input, expected
@@ -136,7 +136,7 @@ output files, and arguments for the command-line (Figure &lt;a href=&#34;#fig:sp
 The second file is optional yet provides flexibility to assign values to
 parameters required to make the input or output objects when building the command-line.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;SPR_CWL_hello.png&#34; alt=&#34;Example of &#39;Hello World&#39; message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using &#39;echo&#39; command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the &#39;inputvars&#39; arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D).&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;SPR_CWL_hello.png&#34; alt=&#34;Example of &#39;Hello World&#39; message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using &#39;echo&#39; command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the &#39;inputvars&#39; arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D).&#34; width=&#34;100%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Example of ‘Hello World’ message using CWL syntax and demonstrating the connectivity with `systemPipeR`. (A) This file describes the command-line tool, here using ‘echo’ command. (B) This file describes all the parameters variables connected with the tool specification file. Here the reference value of the input parameter can be specific or can be filled dynamically, adding a variable that connects with the targets files from `systemPipeR`. (C) `SYSargsList` function provides the ‘inputvars’ arguments to build the connectivity between the CWL description of parameters and the targets files. The argument requires a named vector where each vector element is required to be defined in the CWL description of parameters file (B), and the names of the elements are needed to match the column names defined in the targets file (D).
 &lt;/p&gt;
@@ -303,7 +303,7 @@ workflows accordingly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;spr_project.png&#34; alt=&#34;*systemPipeR&#39;s* preconfigured directory structure.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;spr_project.png&#34; alt=&#34;*systemPipeR&#39;s* preconfigured directory structure.&#34; width=&#34;100%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: *systemPipeR’s* preconfigured directory structure.
 &lt;/p&gt;
@@ -405,7 +405,7 @@ among the steps in the workflow.
 connection, providing security that all the samples will be managed efficiently
 and reproducibly.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;targets_con.png&#34; alt=&#34;_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;targets_con.png&#34; alt=&#34;_`systemPipeR`_ automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. _`systemPipeR`_ (C) manages this connectivity among the steps automatically for the users.&#34; width=&#34;100%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: *`systemPipeR`* automatically creates the downstream `targets` files based on the previous steps outfiles. A) Usually, users provide the initial `targets` files, and this step will generate some outfiles, as demonstrated on B. Then, those files are used to build the new `targets` files as inputs in the next step. *`systemPipeR`* (C) manages this connectivity among the steps automatically for the users.
 &lt;/p&gt;
@@ -958,12 +958,12 @@ read in a pair is counted.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;deg-analysis-with-edger&#34;&gt;DEG analysis with &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;The following *&lt;code&gt;run_edgeR&lt;/code&gt;* function is a convenience wrapper for
+&lt;p&gt;The following &lt;em&gt;&lt;code&gt;run_edgeR&lt;/code&gt;&lt;/em&gt; function is a convenience wrapper for
 identifying differentially expressed genes (DEGs) in batch mode with
-*&lt;code&gt;edgeR&lt;/code&gt;&lt;em&gt;’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
-pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;* argument. Users
+&lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
+pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;&lt;/em&gt; argument. Users
 are strongly encouraged to consult the
-&lt;/em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;%5Chref%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34;&gt;&lt;/a&gt; vignette
+&lt;a href=&#34;%5Chref%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34;&gt;&lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; vignette
 for more detailed information on this topic and how to properly run &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;
 on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;appendStep(sal) &amp;lt;- LineWise({
@@ -986,11 +986,11 @@ on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;deg-analysis-with-deseq2&#34;&gt;DEG analysis with &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;The following *&lt;code&gt;run_DESeq2&lt;/code&gt;* function is a convenience wrapper for
-identifying DEGs in batch mode with &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;* (Love, Huber, and Anders 2014) for any number of
-pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;* argument. Users
+&lt;p&gt;The following &lt;em&gt;&lt;code&gt;run_DESeq2&lt;/code&gt;&lt;/em&gt; function is a convenience wrapper for
+identifying DEGs in batch mode with &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt; (Love, Huber, and Anders 2014) for any number of
+pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;&lt;/em&gt; argument. Users
 are strongly encouraged to consult the
-&lt;/em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf&#34;&gt;&lt;/a&gt; vignette
+&lt;a href=&#34;http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf&#34;&gt;&lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; vignette
 for more detailed information on this topic and how to properly run &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;
 on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;appendStep(sal) &amp;lt;- LineWise({
@@ -1222,7 +1222,7 @@ The following shows how to execute a workflow (&lt;em&gt;e.g.&lt;/em&gt;, system
 from the command-line.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Rscript -e &amp;quot;rmarkdown::render(&#39;systemPipeRNAseq.Rmd&#39;)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Templates for setting up custom project reports are provided as *&lt;code&gt;*.Rmd&lt;/code&gt;* files by the helper package *&lt;code&gt;systemPipeRdata&lt;/code&gt;* and in the vignettes subdirectory of &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;em&gt;. The corresponding HTML of these report templates are available here: &lt;/em&gt;&lt;code&gt;systemPipeRNAseq&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRNAseq.html&#34;&gt;&lt;/a&gt;, &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRIBOseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeRIBOseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt;, &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeChIPseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeChIPseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; and &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeVARseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeVARseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt;. To work with &lt;em&gt;&lt;code&gt;*.Rnw&lt;/code&gt;* or &lt;em&gt;&lt;code&gt;*.Rmd&lt;/code&gt;* files efficiently, basic knowledge of &lt;/em&gt;&lt;code&gt;Sweave&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;https://www.stat.uni-muenchen.de/~leisch/Sweave/&#34;&gt;&lt;/a&gt; or &lt;a href=&#34;http://yihui.name/knitr/&#34;&gt;&lt;em&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; and &lt;a href=&#34;http://www.latex-project.org/&#34;&gt;&lt;em&gt;&lt;code&gt;Latex&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; or &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;&lt;em&gt;&lt;code&gt;R Markdown v2&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; is required.&lt;/p&gt;
+&lt;p&gt;Templates for setting up custom project reports are provided as &lt;em&gt;&lt;code&gt;*.Rmd&lt;/code&gt;&lt;/em&gt; files by the helper package &lt;em&gt;&lt;code&gt;systemPipeRdata&lt;/code&gt;&lt;/em&gt; and in the vignettes subdirectory of &lt;em&gt;&lt;code&gt;systemPipeR&lt;/code&gt;&lt;/em&gt;. The corresponding HTML of these report templates are available here: &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRNAseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeRNAseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt;, &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRIBOseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeRIBOseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt;, &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeChIPseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeChIPseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; and &lt;a href=&#34;http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeVARseq.html&#34;&gt;&lt;em&gt;&lt;code&gt;systemPipeVARseq&lt;/code&gt;&lt;/em&gt;&lt;/a&gt;. To work with &lt;em&gt;&lt;code&gt;*.Rnw&lt;/code&gt;&lt;/em&gt; or &lt;em&gt;&lt;code&gt;*.Rmd&lt;/code&gt;&lt;/em&gt; files efficiently, basic knowledge of &lt;a href=&#34;https://www.stat.uni-muenchen.de/~leisch/Sweave/&#34;&gt;&lt;em&gt;&lt;code&gt;Sweave&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; or &lt;a href=&#34;http://yihui.name/knitr/&#34;&gt;&lt;em&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; and &lt;a href=&#34;http://www.latex-project.org/&#34;&gt;&lt;em&gt;&lt;code&gt;Latex&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; or &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;&lt;em&gt;&lt;code&gt;R Markdown v2&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; is required.&lt;/p&gt;
 &lt;h2 id=&#34;rna-seq-sample&#34;&gt;RNA-Seq sample&lt;/h2&gt;
 &lt;p&gt;Load the RNA-Seq sample workflow into your current working directory.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeRdata)
@@ -2784,7 +2784,7 @@ hc &amp;lt;- hclust(dist(1 - d))
 plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = 4, edge.width = 3, show.node.label = TRUE,
     no.margin = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/sample_tree_rlog-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/sample_tree_rlog-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;div align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 2:&lt;/strong&gt; Correlation dendrogram of samples for &lt;em&gt;&lt;code&gt;rlog&lt;/code&gt;&lt;/em&gt; values.&lt;/p&gt;
 &lt;/div&gt;
@@ -2799,12 +2799,12 @@ plot.phylo(as.phylo(hc), type = &amp;quot;p&amp;quot;, edge.col = &amp;quot;blue
     no.margin = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;deg-analysis-with-edger&#34;&gt;DEG analysis with &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;The following *&lt;code&gt;run_edgeR&lt;/code&gt;* function is a convenience wrapper for
+&lt;p&gt;The following &lt;em&gt;&lt;code&gt;run_edgeR&lt;/code&gt;&lt;/em&gt; function is a convenience wrapper for
 identifying differentially expressed genes (DEGs) in batch mode with
-*&lt;code&gt;edgeR&lt;/code&gt;&lt;em&gt;’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
-pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;* argument. Users
+&lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
+pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;&lt;/em&gt; argument. Users
 are strongly encouraged to consult the
-&lt;/em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;%5Chref%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34;&gt;&lt;/a&gt; vignette
+&lt;a href=&#34;%5Chref%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34;&gt;&lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; vignette
 for more detailed information on this topic and how to properly run &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;
 on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;targetspath &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;targets.txt&amp;quot;, package = &amp;quot;systemPipeR&amp;quot;)
@@ -2835,7 +2835,7 @@ edgeDF &amp;lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[
 &lt;p&gt;Filter and plot DEG results for up and down-regulated genes. Because of the small size of the toy data set used by this vignette, the &lt;em&gt;FDR&lt;/em&gt; value has been set to a relatively high threshold (here 10%). More commonly used &lt;em&gt;FDR&lt;/em&gt; cutoffs are 1% or 5%. The definition of ‘&lt;em&gt;up&lt;/em&gt;’ and ‘&lt;em&gt;down&lt;/em&gt;’ is given in the corresponding help file. To open it, type &lt;em&gt;&lt;code&gt;?filterDEGs&lt;/code&gt;&lt;/em&gt; in the R console.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DEG_list &amp;lt;- filterDEGs(degDF = edgeDF, filter = c(Fold = 2, FDR = 10))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/edger_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/edger_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;div align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 3:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -2853,11 +2853,11 @@ edgeDF &amp;lt;- run_edgeR(countDF = countDFeByg, targets = targets, cmp = cmp[[
 ## M6-A6       M6-A6                 0         0           0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;deg-analysis-with-deseq2&#34;&gt;DEG analysis with &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;The following *&lt;code&gt;run_DESeq2&lt;/code&gt;* function is a convenience wrapper for
-identifying DEGs in batch mode with &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;* (Love, Huber, and Anders 2014) for any number of
-pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;* argument. Users
+&lt;p&gt;The following &lt;em&gt;&lt;code&gt;run_DESeq2&lt;/code&gt;&lt;/em&gt; function is a convenience wrapper for
+identifying DEGs in batch mode with &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt; (Love, Huber, and Anders 2014) for any number of
+pairwise sample comparisons specified under the &lt;em&gt;&lt;code&gt;cmp&lt;/code&gt;&lt;/em&gt; argument. Users
 are strongly encouraged to consult the
-&lt;/em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;a href=&#34;http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf&#34;&gt;&lt;/a&gt; vignette
+&lt;a href=&#34;http://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf&#34;&gt;&lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;&lt;/a&gt; vignette
 for more detailed information on this topic and how to properly run &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;
 on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;degseqDF &amp;lt;- run_DESeq2(countDF = countDFeByg, targets = targets, cmp = cmp[[1]],
@@ -2869,7 +2869,7 @@ on data sets with more complex experimental designs.&lt;/p&gt;
 &lt;p&gt;Filter and plot DEG results for up and down-regulated genes.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DEG_list2 &amp;lt;- filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/deseq2_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/deseq2_deg_counts-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;div align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 4:&lt;/strong&gt; Up and down regulated DEGs identified by &lt;em&gt;&lt;code&gt;DESeq2&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -2881,7 +2881,7 @@ vennsetdown &amp;lt;- overLapper(DEG_list$Down[6:9], type = &amp;quot;vennsets&a
 vennPlot(list(vennsetup, vennsetdown), mymain = &amp;quot;&amp;quot;, mysub = &amp;quot;&amp;quot;, colmode = 2, ccol = c(&amp;quot;blue&amp;quot;,
     &amp;quot;red&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/vennplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spr/steps_oldVersion_files/figure-html/vennplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;div align=&#34;center&#34;&gt;
 &lt;p&gt;&lt;strong&gt;Figure 5:&lt;/strong&gt; Venn Diagram for 4 Up and Down DEG Sets.&lt;/p&gt;
 &lt;/div&gt;
