@@ -127,7 +127,7 @@ comparing two samples or a grid of all samples, as follows:&lt;/p&gt;
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The scatterplots are created using the log2 transform normalized reads count,
 variance stabilizing transformation (VST) (Anders and Huber (2010)), and
 regularized-logarithm transformation or &lt;code&gt;rlog&lt;/code&gt; (Love, Huber, and Anders (2014)).&lt;/p&gt;
@@ -138,7 +138,7 @@ distance matrix, hierarchical clustering is performed with the &lt;code&gt;stats
 function and the result is plotted as a dendrogram, as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hclustplot(exploredds, method = &amp;quot;spearman&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The function provides the utility to save the plot automatically.&lt;/p&gt;
 &lt;h2 id=&#34;hierarchical-clustering-heatmap&#34;&gt;Hierarchical Clustering HeatMap&lt;/h2&gt;
 &lt;p&gt;This function performs hierarchical clustering on the transformed expression
@@ -159,11 +159,11 @@ degseqDF &amp;lt;- systemPipeR::run_DESeq2(countDF = countMatrix, targets = targ
     independent = FALSE)
 DEG_list &amp;lt;- systemPipeR::filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;### Plot
 heatMaplot(exploredds, clust = &amp;quot;ind&amp;quot;, DEGlist = unique(as.character(unlist(DEG_list[[1]]))))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The function provides the utility to save the plot automatically.&lt;/p&gt;
 &lt;h2 id=&#34;principal-component-analysis&#34;&gt;Principal Component Analysis&lt;/h2&gt;
 &lt;p&gt;This function plots a Principal Component Analysis (PCA) from transformed expression
@@ -171,7 +171,7 @@ matrix. This plot shows samples variation based on the expression values and
 identifies batch effects.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;PCAplot(exploredds, plotly = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The function provides the utility to save the plot automatically.&lt;/p&gt;
 &lt;h2 id=&#34;multidimensional-scaling-with-mdsplot&#34;&gt;Multidimensional scaling with &lt;code&gt;MDSplot&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;This function computes and plots multidimensional scaling analysis for dimension
@@ -179,7 +179,7 @@ reduction of count expression matrix. Internally, it is applied the &lt;code&gt;
 function to the transformed count matrix to get sample-to-sample distances.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;MDSplot(exploredds, plotly = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The function provides the utility to save the plot automatically.&lt;/p&gt;
 &lt;h2 id=&#34;dimension-reduction-with-glmplot&#34;&gt;Dimension Reduction with &lt;code&gt;GLMplot&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;This function computes and plots generalized principal components analysis for
@@ -188,14 +188,14 @@ dimension reduction of count expression matrix.&lt;/p&gt;
     transformationMethod = &amp;quot;raw&amp;quot;)
 GLMplot(exploredds_r, plotly = FALSE)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The function provides the utility to save the plot automatically.&lt;/p&gt;
 &lt;h2 id=&#34;ma-plot&#34;&gt;MA plot&lt;/h2&gt;
 &lt;p&gt;This function plots log2 fold changes (y-axis) versus the mean of normalized
 counts (on the x-axis). Statistically significant features are colored.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;MAplot(degseqDF, comparison = &amp;quot;M12-A12&amp;quot;, filter = c(Fold = 1, FDR = 20), genes = &amp;quot;ATCG00280&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;The function provides the utility to save the plot automatically.&lt;/p&gt;
 &lt;h2 id=&#34;t-distributed-stochastic-neighbor-embedding-with-tsneplot&#34;&gt;t-Distributed Stochastic Neighbor embedding with &lt;code&gt;tSNEplot&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;This function computes and plots t-Distributed Stochastic Neighbor embedding (t-SNE)
@@ -204,13 +204,13 @@ matrix. Internally, it is applied the &lt;code&gt;Rtsne::Rtsne()&lt;/code&gt; (K
 t-SNE computing with &lt;code&gt;theta=0.0&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;tSNEplot(countMatrix, targets, perplexity = 5)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;h2 id=&#34;volcano-plot&#34;&gt;Volcano plot&lt;/h2&gt;
 &lt;p&gt;A simple function that shows statistical significance (&lt;code&gt;p-value&lt;/code&gt;) versus magnitude
 of change (&lt;code&gt;log2 fold change&lt;/code&gt;).&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;volcanoplot(degseqDF, comparison = &amp;quot;M12-A12&amp;quot;, filter = c(Fold = 1, FDR = 20), genes = &amp;quot;ATCG00280&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;h1 id=&#34;version-information&#34;&gt;Version information&lt;/h1&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sessionInfo()
 &lt;/code&gt;&lt;/pre&gt;
