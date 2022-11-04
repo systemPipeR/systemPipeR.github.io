@@ -7,9 +7,10 @@ weight: 3
 
 ## Quick {ggplot} module
 <video style="width: 100%; aspect-ratio: 16 / 9"  controls>
-    <source src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_ggplot.webm?raw=true" type="video/webm">
+    <source src="https://user-images.githubusercontent.com/35240440/199858014-02af7c97-daf1-4728-a9f5-cb0d4d256bf9.mp4" type="video/mp4">
     Video cannot be loaded or your browser does not support the video tag.
 </video>
+
 This module enables you to quickly upload datasets and make a {[ggplot{blk}](https://ggplot2.tidyverse.org/)} 
 in a second by using some functionalities from {[Esquisse{blk}](https://dreamrs.github.io/esquisse/index.html)}.
 
