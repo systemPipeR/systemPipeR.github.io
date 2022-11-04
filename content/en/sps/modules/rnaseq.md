@@ -7,7 +7,7 @@ weight: 2
 
 ## RNA-Seq Module
 <video style="width: 100%; aspect-ratio: 16 / 9"  controls>
-    <source src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_rnaseq.webm?raw=true" type="video/webm">
+    <source src="https://user-images.githubusercontent.com/35240440/199857988-525e4f50-df90-4bb5-bb3e-41142182ed83.mp4" type="video/mp4">
     Video cannot be loaded or your browser does not support the video tag.
 </video>
 
