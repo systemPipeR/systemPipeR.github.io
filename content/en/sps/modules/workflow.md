@@ -8,7 +8,7 @@ weight: 1
 ## Workflow management
 
 <video style="width: 100%; aspect-ratio: 16 / 9"  controls>
-    <source src="https://github.com/systemPipeR/sp_tutorials/blob/main/videos/sps1.8/module_workflow.webm?raw=true" type="video/webm">
+    <source src="https://user-images.githubusercontent.com/35240440/199857935-64267b1a-fbb2-4a9c-a460-bafcf2f6e95a.mp4" type="video/mp4">
     Video cannot be loaded or your browser does not support the video tag.
 </video>
 
