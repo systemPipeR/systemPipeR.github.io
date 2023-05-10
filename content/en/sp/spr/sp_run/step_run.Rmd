@@ -43,8 +43,80 @@ sal
 
 ## Before running
 It is good to check if the command-line tools are installed before running 
-the workflow. To do so, we can use the `tryCMD` function.
+the workflow. There are a few ways in SPR to find out the tool information. We 
+will discuss different utilities below. 
 
+### List/check all tools and modules 
+There are two functions, `listCmdTools`, `listCmdModules` in SPR that 
+are designed to list/check if required tools/modules are installed. The input of
+these two functions is the `SYSargsList` workflow object, and it will list all 
+the tools/modules required by the workflow as a dataframe by default. 
+
+```{r}
+listCmdTools(sal)
+```
+
+However, if no modular system is installed, it will just print out a warning message. 
+
+```{r}
+listCmdModules(sal)
+```
+
+If `check_path = TRUE` is used for `listCmdTools`, in addition, this function will 
+try to check if the listed tools are in PATH (callable), and fill the results in 
+the third column instead of using `NA`. 
+
+```{r}
+listCmdTools(sal, check_path = TRUE)
+```
+
+The same thing applies for the `listCmdModules(sal, check_module = TRUE)`. The 
+module availability is checked when `TRUE`. The machine we use to render the 
+document does not have a modular system installed, so the result is not displayed. 
+Try following if modular system is accessiable. 
+
+```{r eval=FALSE}
+listCmdModules(sal, check_module = TRUE)
+```
+
+The `listCmdTools` function also has the `check_module` argument. That means,
+when it is `TRUE`, it will also perform the `listCmdModules` check. However, please
+note, even if `check_module = TRUE`, `listCmdTools` will always return the 
+check results for tools but not for modules. 
+
+#### Tool check in `importWF`
+The easiest way to use two functions mentioned above is through `importWF`. As 
+you may have noticed, at the end of the import, tool check and module check is 
+automatically performed for the users, as shown in the screenshot below. The only 
+difference is the return of `importWF` is the `SYSargsList` object, but the 
+return of `listCmdTools` or `listCmdModules` is an invisible dataframe. 
+
+![](../listCmdTools.png)
+
+### Check single tool
+`listCmdTools` and `listCmdModules` check tools in a batch, and can only check 
+for tools required for current workflow. If you have a tool of interest but is 
+not listed in your workflow, following functions will be helpful. Or, in some 
+other cases, one would like to know the tool/module used in a certain step. 
+
+#### Single tool/module in a workflow  
+There a few access functions in SPR list tool/modules of a certain step. 
+
+```{r}
+# list tool of a step
+baseCommand(stepsWF(sal)[[3]])
+# list a module of a step
+modules(stepsWF(sal)[[3]])
+```
+
+There is no module required for this simple workflow, please see the screenshot 
+of a complex RNAseq example below: 
+
+![](../module_list_rnaseq.png)
+
+#### Generic tools
+For any other generic tools that may not be in a workflow, `tryCMD` can be used 
+to check if a command-line tool is installed in the PATH. 
 ```{r}
 tryCMD(command="R") 
 tryCMD(command="hisat2") 
@@ -67,6 +139,33 @@ If you see the error message:
     Sys.setenv(PATH = paste(old_path, "path/to/tool_directory", sep = ":"))
     ```
    
+#### Generic modules
+For any other generic modules that may not be in a workflow, the `module` function
+group will be helpful. This part requires the modular system installed in 
+current OS. Usually this is  done by the admins of HPCC. Read more about
+[modules{blk}](https://modules.sourceforge.net/).
+
+This group of functions not only has utility to check the presence of certain modules,
+but also can perform other module operations, such as load/unload modules, or 
+list all currently loaded modules, etc. See more details in 
+help file `?module`, or [here](https://systempipe.org/spr/funcs/spr/reference/moduleload.html).
+
+```{r eval=FALSE}
+module(action_type, module_name = NULL)
+moduleload(module_name)
+moduleUnload(module_name)
+modulelist()
+moduleAvail()
+moduleClear()
+moduleInit()
+```
+
+> Every modular system will be specialized to fit the needs of a given computing 
+> cluster. Therefore, there is a chance functions above will not work in your 
+> particular system. If so, please contact your system admins for a solution,
+> load the PATH of required tools using other methods, and check the PATH as 
+> mentioned above. 
+
 
 ## Start running 
 To run the workflow, call the `runWF` function which will execute all steps in the workflow container.
