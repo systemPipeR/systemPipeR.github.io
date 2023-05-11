@@ -25,7 +25,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -60,7 +60,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sal2bash</span><span class="op">(</span><span class="va">sal</span>, out_dir <span class="op">=</span> <span class="st">"."</span>, bash_path <span class="op">=</span> <span class="st">"/bin/bash"</span>, stop_on_error <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sal2bash</span><span class="op">(</span><span class="va">sal</span>, out_dir <span class="op">=</span> <span class="st">"."</span>, bash_path <span class="op">=</span> <span class="st">"/bin/bash"</span>, stop_on_error <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -123,11 +123,11 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_wf.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_wf.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -147,9 +147,18 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now check if required tools are installed</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Check if they are in path:</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Checking path for gzip</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">PASS</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Checking path for gunzip</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">PASS</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   step_name   tool in_path</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      gzip   gzip    TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    gunzip gunzip    TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">All required tools in PATH, skip module check. If you want to check modules use `listCmdModules`Import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">sal2bash</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">sal2bash</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Success: Make sure the script 'spr_wf.sh' and directory ./spr_bash is there before executing.</span></span>
 </code></pre></div>
     </div>
@@ -165,7 +174,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

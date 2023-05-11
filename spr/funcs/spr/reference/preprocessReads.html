@@ -25,7 +25,7 @@ package to stream through large files in a memory-efficient manner."><!-- mathja
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -60,10 +60,10 @@ package to stream through large files in a memory-efficient manner.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">preprocessReads</span><span class="op">(</span>args <span class="op">=</span> <span class="cn">NULL</span>,
-                FileName1 <span class="op">=</span> <span class="cn">NULL</span>, FileName2 <span class="op">=</span> <span class="cn">NULL</span>, 
-                outfile1 <span class="op">=</span> <span class="cn">NULL</span>, outfile2 <span class="op">=</span> <span class="cn">NULL</span>, 
-                <span class="va">Fct</span>, batchsize <span class="op">=</span> <span class="fl">100000</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">preprocessReads</span><span class="op">(</span>args <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                FileName1 <span class="op">=</span> <span class="cn">NULL</span>, FileName2 <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>                outfile1 <span class="op">=</span> <span class="cn">NULL</span>, outfile2 <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>                <span class="va">Fct</span>, batchsize <span class="op">=</span> <span class="fl">100000</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -116,21 +116,21 @@ function.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Preprocessing of single-end reads</span></span>
-<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/preprocessReads/trim-se"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targetspath</span>, wf_file<span class="op">=</span><span class="st">"trim-se.cwl"</span>, input_file<span class="op">=</span><span class="st">"trim-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">trim</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">preprocessReads</span><span class="op">(</span>args<span class="op">=</span><span class="va">trim</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, Fct<span class="op">=</span><span class="st">"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class="op">=</span><span class="fl">100000</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, compress<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Preprocessing of paired-end reads</span></span>
-<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/preprocessReads/trim-pe"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targetsPE.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targetspath</span>, wf_file<span class="op">=</span><span class="st">"trim-pe.cwl"</span>, input_file<span class="op">=</span><span class="st">"trim-pe.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">trim</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">c</a></span><span class="op">(</span>FileName1<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, FileName2<span class="op">=</span><span class="st">"_FASTQ_PATH2_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">trim</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Preprocessing of single-end reads</span></span></span>
+<span class="r-in"><span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/preprocessReads/trim-se"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targetspath</span>, wf_file<span class="op">=</span><span class="st">"trim-se.cwl"</span>, input_file<span class="op">=</span><span class="st">"trim-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">trim</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">preprocessReads</span><span class="op">(</span>args<span class="op">=</span><span class="va">trim</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, Fct<span class="op">=</span><span class="st">"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class="op">=</span><span class="fl">100000</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, compress<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Preprocessing of paired-end reads</span></span></span>
+<span class="r-in"><span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/preprocessReads/trim-pe"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targetsPE.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targetspath</span>, wf_file<span class="op">=</span><span class="st">"trim-pe.cwl"</span>, input_file<span class="op">=</span><span class="st">"trim-pe.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trim</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">trim</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>FileName1<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, FileName2<span class="op">=</span><span class="st">"_FASTQ_PATH2_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">trim</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Instance of 'SYSargs2':</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Slot names/accessors: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
@@ -142,9 +142,9 @@ function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       1. trim-pe (rendered: TRUE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">preprocessReads</span><span class="op">(</span>args<span class="op">=</span><span class="va">trim</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, Fct<span class="op">=</span><span class="st">"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class="op">=</span><span class="fl">100000</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, compress<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">preprocessReads</span><span class="op">(</span>args<span class="op">=</span><span class="va">trim</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, Fct<span class="op">=</span><span class="st">"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span>, batchsize<span class="op">=</span><span class="fl">100000</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, compress<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -159,7 +159,7 @@ function.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

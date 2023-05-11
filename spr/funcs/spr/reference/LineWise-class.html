@@ -29,7 +29,7 @@ will store the R Markdown file path."><!-- mathjax --><script src="https://cdnjs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -68,13 +68,13 @@ will store the R Markdown file path.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co">## Constructor</span>
-
-<span class="fu">LineWise</span><span class="op">(</span><span class="va">code</span>, step_name <span class="op">=</span> <span class="st">"default"</span>, codeChunkStart <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="op">)</span>, 
-            rmdPath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>, dependency<span class="op">=</span><span class="st">""</span>, 
-            run_step <span class="op">=</span> <span class="st">"mandatory"</span>,
-            run_session <span class="op">=</span> <span class="st">"management"</span>, 
-            run_remote_resources <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co">## Constructor</span></span>
+<span></span>
+<span><span class="fu">LineWise</span><span class="op">(</span><span class="va">code</span>, step_name <span class="op">=</span> <span class="st">"default"</span>, codeChunkStart <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>            rmdPath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>, dependency<span class="op">=</span><span class="st">""</span>, </span>
+<span>            run_step <span class="op">=</span> <span class="st">"mandatory"</span>,</span>
+<span>            run_session <span class="op">=</span> <span class="st">"management"</span>, </span>
+<span>            run_remote_resources <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -240,7 +240,7 @@ will store the R Markdown file path.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">showClass</span><span class="op">(</span><span class="st">"LineWise"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">showClass</span><span class="op">(</span><span class="st">"LineWise"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Class "LineWise" [package "systemPipeR"]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Slots:</span>
@@ -250,24 +250,24 @@ will store the R Markdown file path.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Name:          status          files        runInfo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Class:           list           list           list</span>
-<span class="r-in"><span class="va">lw</span> <span class="op">&lt;-</span> <span class="fu">LineWise</span><span class="op">(</span>code <span class="op">=</span> <span class="op">{</span></span>
-<span class="r-in">              <span class="va">log_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in">              <span class="op">}</span>,</span>
-<span class="r-in">              step_name <span class="op">=</span> <span class="st">"R_log"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">lw</span> <span class="op">&lt;-</span> <span class="fu">LineWise</span><span class="op">(</span>code <span class="op">=</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>              <span class="va">log_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span>              <span class="op">}</span>,</span></span>
+<span class="r-in"><span>              step_name <span class="op">=</span> <span class="st">"R_log"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> log_out &lt;- log(10)</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## ImportWF option</span></span>
-<span class="r-in"><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_lw.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## ImportWF option</span></span></span>
+<span class="r-in"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_lw.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /home/runner/work/systemPipeR/systemPipeR/docs/reference/data </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /home/runner/work/systemPipeR/systemPipeR/docs/reference/param </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory:  /home/runner/work/systemPipeR/systemPipeR/docs/reference/results </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
-<span class="r-in"><span class="co"># file_path &lt;- "../inst/extdata/spr_simple_lw.Rmd"</span></span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># file_path &lt;- "../inst/extdata/spr_simple_lw.Rmd"</span></span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -284,9 +284,11 @@ will store the R Markdown file path.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now check if required tools are installed</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #FFAF00; font-weight: bold;">There is no commandline (SYSargs) step in this workflow, skip.</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="runWF.html">runWF</a></span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="runWF.html">runWF</a></span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #BB00BB;">Running Step:  firstStep</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #BB00BB;">Running Session: Management</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</span>
@@ -302,32 +304,32 @@ will store the R Markdown file path.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">From command-line:      </span>Rscript -e "sal= s ystemPipeR::SPRproject(resume = TRUE); sal = systemPipeR::renderReport(sal)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBBBB; font-weight: bold;">This message is displayed once per R session</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="va">lw2</span> <span class="op">&lt;-</span> <span class="va">sal</span><span class="op">$</span><span class="va">stepsWF</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">lw2</span></span>
+<span class="r-in"><span><span class="va">lw2</span> <span class="op">&lt;-</span> <span class="va">sal</span><span class="op">$</span><span class="va">stepsWF</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">lw2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Instance of 'LineWise'</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     Code Chunk length: 3</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "codeLine"       "codeChunkStart" "stepName"       "dependency"    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5] "status"         "files"          "runInfo"       </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Accessors</span></span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Accessors</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> setosa &lt;- read.delim("results/setosa.csv", sep = ",")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> virginica &lt;- read.delim("results/virginica.csv", sep = ",")</span>
-<span class="r-in"><span class="fu">codeChunkStart</span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">codeChunkStart</span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> integer(0)</span>
-<span class="r-in"><span class="fu">rmdPath</span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">rmdPath</span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">stepName</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">stepName</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "secondStep"</span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">dependency</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">dependency</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $secondStep</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "firstStep"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="SYSargs2-class.html">status</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargs2-class.html">status</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status.summary</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Success"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -337,38 +339,38 @@ will store the R Markdown file path.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status.time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         Step          time_start            time_end</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 secondStep 2022-06-21 03:17:45 2022-06-21 03:17:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 secondStep 2023-05-11 01:52:42 2023-05-11 01:52:42</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $total.time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $total.time$time_start</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-06-21 03:17:45 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-11 01:52:42 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $total.time$time_end</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-06-21 03:17:45 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-11 01:52:42 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="SYSargs2-class.html">files</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargs2-class.html">files</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $log</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ".SPRproject/Rsteps/_logRstep_secondStep_Jun212022_031745"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ".SPRproject/Rsteps/_logRstep_secondStep_May112023_015242"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Replacement</span></span>
-<span class="r-in"><span class="fu">appendCodeLine</span><span class="op">(</span><span class="va">lw2</span>, after <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"log &lt;- log(10)"</span></span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Replacement</span></span></span>
+<span class="r-in"><span><span class="fu">appendCodeLine</span><span class="op">(</span><span class="va">lw2</span>, after <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"log &lt;- log(10)"</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> log &lt;- log(10)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> setosa &lt;- read.delim("results/setosa.csv", sep = ",")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> virginica &lt;- read.delim("results/virginica.csv", sep = ",")</span>
-<span class="r-in"><span class="fu">replaceCodeLine</span><span class="op">(</span><span class="va">lw2</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"plot(iris)"</span></span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">replaceCodeLine</span><span class="op">(</span><span class="va">lw2</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"plot(iris)"</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">codeLine</a></span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> plot(iris)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> setosa &lt;- read.delim("results/setosa.csv", sep = ",")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> versicolor &lt;- read.delim("results/versicolor.csv", sep = ",")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> virginica &lt;- read.delim("results/virginica.csv", sep = ",")</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Coerce</span></span>
-<span class="r-in"><span class="va">lw2</span> <span class="op">&lt;-</span> <span class="fu">linewise</span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span> <span class="co">## OR lw2 &lt;- as(lw2, "list") </span></span>
-<span class="r-in"><span class="va">lw2</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="va">lw2</span>, <span class="st">"LineWise"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Coerce</span></span></span>
+<span class="r-in"><span><span class="va">lw2</span> <span class="op">&lt;-</span> <span class="fu">linewise</span><span class="op">(</span><span class="va">lw2</span><span class="op">)</span> <span class="co">## OR lw2 &lt;- as(lw2, "list") </span></span></span>
+<span class="r-in"><span><span class="va">lw2</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="va">lw2</span>, <span class="st">"LineWise"</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -383,7 +385,7 @@ will store the R Markdown file path.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

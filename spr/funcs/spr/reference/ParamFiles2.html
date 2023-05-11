@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -56,17 +56,17 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">printParam2</span><span class="op">(</span><span class="va">sysargs</span>, base <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">FALSE</span>, inputs <span class="op">=</span> <span class="cn">FALSE</span>,
-        outputs <span class="op">=</span> <span class="cn">FALSE</span>, stdout <span class="op">=</span> <span class="cn">FALSE</span>, raw_cmd <span class="op">=</span> <span class="cn">FALSE</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu">appendParam2</span><span class="op">(</span><span class="va">sysargs</span>, <span class="va">x</span>, position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span><span class="op">)</span>,
-        after <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu">replaceParam2</span><span class="op">(</span><span class="va">sysargs</span>, <span class="va">x</span>, index<span class="op">=</span><span class="cn">NULL</span>,
-              position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"baseCommand"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span>, <span class="st">"stdout"</span><span class="op">)</span>,
-              verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu">removeParam2</span><span class="op">(</span><span class="va">sysargs</span>, index<span class="op">=</span><span class="cn">NULL</span>, position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span>, <span class="st">"stdout"</span><span class="op">)</span>,
-             verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu">renameParam2</span><span class="op">(</span><span class="va">sysargs</span>, index<span class="op">=</span><span class="cn">NULL</span>, <span class="va">new_names</span>,
-             position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span>, <span class="st">"stdout"</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">printParam2</span><span class="op">(</span><span class="va">sysargs</span>, base <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">FALSE</span>, inputs <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>        outputs <span class="op">=</span> <span class="cn">FALSE</span>, stdout <span class="op">=</span> <span class="cn">FALSE</span>, raw_cmd <span class="op">=</span> <span class="cn">FALSE</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">appendParam2</span><span class="op">(</span><span class="va">sysargs</span>, <span class="va">x</span>, position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span><span class="op">)</span>,</span>
+<span>        after <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu">replaceParam2</span><span class="op">(</span><span class="va">sysargs</span>, <span class="va">x</span>, index<span class="op">=</span><span class="cn">NULL</span>,</span>
+<span>              position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"baseCommand"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span>, <span class="st">"stdout"</span><span class="op">)</span>,</span>
+<span>              verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu">removeParam2</span><span class="op">(</span><span class="va">sysargs</span>, index<span class="op">=</span><span class="cn">NULL</span>, position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span>, <span class="st">"stdout"</span><span class="op">)</span>,</span>
+<span>             verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu">renameParam2</span><span class="op">(</span><span class="va">sysargs</span>, index<span class="op">=</span><span class="cn">NULL</span>, <span class="va">new_names</span>,</span>
+<span>             position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"args"</span>, <span class="st">"outputs"</span>, <span class="st">"stdout"</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -175,17 +175,17 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">command2</span> <span class="op">&lt;-</span> <span class="st">'</span>
-<span class="r-in">mycmd2 \</span>
-<span class="r-in">    p: -s; File; sample1.txt \</span>
-<span class="r-in">    p: -s; File; sample2.txt \</span>
-<span class="r-in">    p: --c; ; \</span>
-<span class="r-in">    p: -o; File; out: myout.txt \</span>
-<span class="r-in">    ref_genome; File; a.fasta \</span>
-<span class="r-in">    p: --nn; int; 12 \</span>
-<span class="r-in">    mystdout; File; stdout: abc.txt</span>
-<span class="r-in">'</span></span>
-<span class="r-in"><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu"><a href="createParamFiles.html">createParam</a></span><span class="op">(</span><span class="va">command2</span>, syntaxVersion <span class="op">=</span> <span class="st">"v2"</span>, writeParamFiles<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">command2</span> <span class="op">&lt;-</span> <span class="st">'</span></span></span>
+<span class="r-in"><span><span class="st">mycmd2 \</span></span></span>
+<span class="r-in"><span><span class="st">    p: -s; File; sample1.txt \</span></span></span>
+<span class="r-in"><span><span class="st">    p: -s; File; sample2.txt \</span></span></span>
+<span class="r-in"><span><span class="st">    p: --c; ; \</span></span></span>
+<span class="r-in"><span><span class="st">    p: -o; File; out: myout.txt \</span></span></span>
+<span class="r-in"><span><span class="st">    ref_genome; File; a.fasta \</span></span></span>
+<span class="r-in"><span><span class="st">    p: --nn; int; 12 \</span></span></span>
+<span class="r-in"><span><span class="st">    mystdout; File; stdout: abc.txt</span></span></span>
+<span class="r-in"><span><span class="st">'</span></span></span>
+<span class="r-in"><span><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu"><a href="createParamFiles.html">createParam</a></span><span class="op">(</span><span class="va">command2</span>, syntaxVersion <span class="op">=</span> <span class="st">"v2"</span>, writeParamFiles<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****BaseCommand*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mycmd2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Arguments*****</span></span>
@@ -228,10 +228,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     default value: abc.txt</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Parsed raw command line*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mycmd2 -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 &gt; abc.txt </span>
-<span class="r-in"><span class="co"># string format</span></span>
-<span class="r-in"><span class="va">new_cmd</span> <span class="op">&lt;-</span> <span class="st">'p: -abc; string; abc; 7'</span></span>
-<span class="r-in"><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">appendParam2</span><span class="op">(</span><span class="va">cmd2</span>, x <span class="op">=</span> <span class="va">new_cmd</span>, position <span class="op">=</span> <span class="st">"inputs"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, inputs <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># string format</span></span></span>
+<span class="r-in"><span><span class="va">new_cmd</span> <span class="op">&lt;-</span> <span class="st">'p: -abc; string; abc; 7'</span></span></span>
+<span class="r-in"><span><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">appendParam2</span><span class="op">(</span><span class="va">cmd2</span>, x <span class="op">=</span> <span class="va">new_cmd</span>, position <span class="op">=</span> <span class="st">"inputs"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, inputs <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Inputs*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> s1:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     type: File</span>
@@ -265,10 +265,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     position: 7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Parsed raw command line*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mycmd2 -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc &gt; abc.txt </span>
-<span class="r-in"><span class="co"># list format</span></span>
-<span class="r-in"><span class="va">new_cmd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"new_arg"</span>, preF <span class="op">=</span> <span class="st">"--foo"</span>, index <span class="op">=</span> <span class="st">"8"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">appendParam2</span><span class="op">(</span><span class="va">cmd2</span>, x <span class="op">=</span> <span class="va">new_cmd</span>, position <span class="op">=</span> <span class="st">"args"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># list format</span></span></span>
+<span class="r-in"><span><span class="va">new_cmd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"new_arg"</span>, preF <span class="op">=</span> <span class="st">"--foo"</span>, index <span class="op">=</span> <span class="st">"8"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">appendParam2</span><span class="op">(</span><span class="va">cmd2</span>, x <span class="op">=</span> <span class="va">new_cmd</span>, position <span class="op">=</span> <span class="st">"args"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Arguments*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> argument1:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     prefix: --c</span>
@@ -278,9 +278,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     position: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Parsed raw command line*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mycmd2 -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc --foo &gt; abc.txt </span>
-<span class="r-in"><span class="co"># rename</span></span>
-<span class="r-in"><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">renameParam2</span><span class="op">(</span><span class="va">cmd2</span>, <span class="st">"new_name_arg"</span>, index <span class="op">=</span> <span class="st">"new_arg"</span>, position <span class="op">=</span> <span class="st">"args"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># rename</span></span></span>
+<span class="r-in"><span><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">renameParam2</span><span class="op">(</span><span class="va">cmd2</span>, <span class="st">"new_name_arg"</span>, index <span class="op">=</span> <span class="st">"new_arg"</span>, position <span class="op">=</span> <span class="st">"args"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Arguments*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> argument1:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     prefix: --c</span>
@@ -290,9 +290,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     position: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Parsed raw command line*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mycmd2 -s sample1.txt -s sample2.txt --c -o myout.txt  a.fasta --nn 12 -abc abc --foo &gt; abc.txt </span>
-<span class="r-in"><span class="co"># remove</span></span>
-<span class="r-in"><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">removeParam2</span><span class="op">(</span><span class="va">cmd2</span>, index <span class="op">=</span> <span class="st">"new_name_arg"</span>, position <span class="op">=</span> <span class="st">"args"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># remove</span></span></span>
+<span class="r-in"><span><span class="va">cmd2</span> <span class="op">&lt;-</span> <span class="fu">removeParam2</span><span class="op">(</span><span class="va">cmd2</span>, index <span class="op">=</span> <span class="st">"new_name_arg"</span>, position <span class="op">=</span> <span class="st">"args"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">printParam2</span><span class="op">(</span><span class="va">cmd2</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, args <span class="op">=</span> <span class="cn">TRUE</span>, raw_cmd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="background-color: #0000BB;">*****Arguments*****</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> argument1:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     prefix: --c</span>
@@ -313,7 +313,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

@@ -27,7 +27,7 @@ and intersectlist contains the standard intersect vectors."><!-- mathjax --><scr
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -126,322 +126,322 @@ and <code>intersectlist</code> contains the standard intersect vectors.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">showClass</span><span class="op">(</span><span class="st">"INTERSECTset"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">showClass</span><span class="op">(</span><span class="st">"INTERSECTset"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Class "INTERSECTset" [package "systemPipeR"]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Slots:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Name:           setlist  intersectmatrix complexitylevels    intersectlist</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Class:             list           matrix          integer             list</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Sample data</span></span>
-<span class="r-in"><span class="va">setlist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>A<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">18</span><span class="op">)</span>, B<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">16</span><span class="op">)</span>,</span>
-<span class="r-in">                C<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">20</span><span class="op">)</span>, D<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">22</span><span class="op">)</span>,</span>
-<span class="r-in">                E<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">18</span><span class="op">)</span>, F<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">22</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Create VENNset</span></span>
-<span class="r-in"><span class="va">interset</span> <span class="op">&lt;-</span> <span class="fu"><a href="overLapper.html">overLapper</a></span><span class="op">(</span><span class="va">setlist</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, type<span class="op">=</span><span class="st">"intersects"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Sample data</span></span></span>
+<span class="r-in"><span><span class="va">setlist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>A<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">18</span><span class="op">)</span>, B<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">16</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                C<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">20</span><span class="op">)</span>, D<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">22</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                E<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">18</span><span class="op">)</span>, F<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">22</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Create VENNset</span></span></span>
+<span class="r-in"><span><span class="va">interset</span> <span class="op">&lt;-</span> <span class="fu"><a href="overLapper.html">overLapper</a></span><span class="op">(</span><span class="va">setlist</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, type<span class="op">=</span><span class="st">"intersects"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "INTERSECTset"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"package")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "systemPipeR"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Accessor methods for VENNset/INTERSECTset objects</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Accessor methods for VENNset/INTERSECTset objects</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "setlist"          "intersectmatrix"  "complexitylevels" "intersectlist"   </span>
-<span class="r-in"><span class="fu"><a href="overLapper.html">setlist</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="overLapper.html">setlist</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "p" "b" "g" "v" "t" "r" "c" "w" "d" "k" "i" "f" "n" "s" "h" "u" "q" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "l" "v" "k" "a" "r" "p" "m" "i" "t" "h" "j" "u" "f" "x" "e" "n" "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "u" "w" "i" "q" "y" "m" "a" "k" "t" "p" "g" "x" "o" "f" "n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "q" "x" "o" "i" "b" "g" "s" "h" "e" "l" "f" "j" "k" "v" "z" "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "k" "i" "h" "n" "f" "r" "s" "c" "b" "g" "e" "w" "j" "p" "t" "l" "q" "o" "z"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "g" "h" "b" "q" "r" "z" "c" "s" "y" "d" "j" "x" "o" "n" "e" "f" "k" "w" "a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "v"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "g" "w" "s" "l" "e" "m" "o" "n" "r" "p" "v" "a" "h" "i" "q" "b" "d" "t"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "x" "y" "k"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "x" "p" "j" "w" "v" "n" "y" "u" "t" "g" "k" "c" "a" "q" "o" "i" "e" "s" "l"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "h" "z" "m"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "x" "u" "p" "k" "c" "i" "l" "t" "a" "o" "q" "b" "j" "e" "f" "n" "s" "r"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "t" "e" "v" "y" "o" "z" "p" "g" "n" "i" "w" "a" "u" "x" "j" "h" "r" "m"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="overLapper.html">intersectmatrix</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="overLapper.html">intersectmatrix</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   A B C D E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a 0 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> b 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 0 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d 1 0 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> e 0 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> f 1 1 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> g 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> i 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> j 0 0 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> l 0 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> m 0 1 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> n 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> a 1 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> b 0 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d 0 0 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> e 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> f 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> g 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> i 1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> j 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> l 1 1 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> m 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n 1 0 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> o 0 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> s 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> t 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 1 0 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> v 1 0 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> w 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x 0 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> y 0 1 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 1 1 1 0</span>
-<span class="r-in"><span class="fu"><a href="overLapper.html">complexitylevels</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q 0 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 0 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> s 0 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> t 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> v 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> w 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> y 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 1 1 1 1</span>
+<span class="r-in"><span><span class="fu"><a href="overLapper.html">complexitylevels</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 5</span>
-<span class="r-in"><span class="fu"><a href="overLapper.html">intersectlist</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="overLapper.html">intersectlist</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "d" "f" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "u" "v" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "f" "h" "i" "j" "k" "l" "m" "n" "p" "r" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "f" "g" "i" "k" "m" "n" "o" "p" "q" "t" "u" "w" "x" "y" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "g" "h" "i" "j" "k" "l" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "g" "h" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "w" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "c" "d" "e" "f" "g" "h" "j" "k" "n" "o" "q" "r" "s" "v" "w" "x" "y"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [20] "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "d" "e" "g" "h" "i" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "v" "w"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "s" "t" "u" "v" "w"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [20] "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "c" "e" "f" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "u" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "i" "j" "m" "n" "o" "p" "r" "t" "u" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "f" "g" "i" "k" "n" "p" "q" "t" "u" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "f" "h" "i" "j" "k" "l" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "f" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "f" "h" "j" "k" "n" "r" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "d" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "v" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "h" "i" "j" "k" "l" "m" "n" "p" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "f" "i" "k" "n" "p" "q" "r" "s" "t" "u"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "h" "i" "j" "m" "n" "p" "r" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "f" "g" "i" "k" "n" "o" "p" "q" "t" "w" "x" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "g" "h" "j" "k" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "g" "i" "k" "m" "n" "o" "p" "q" "t" "w" "x" "y" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "g" "h" "i" "j" "k" "l" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "f" "i" "k" "n" "o" "p" "q" "t" "u" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "i" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "e" "g" "h" "i" "k" "l" "n" "o" "p" "q" "r" "s" "t" "w" "x" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "g" "h" "j" "k" "n" "o" "q" "s" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "j" "n" "o" "r" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "e" "i" "k" "l" "n" "o" "p" "q" "r" "s" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "i" "j" "m" "n" "o" "p" "t" "u" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "f" "g" "i" "k" "n" "p" "q" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c" "e" "f" "h" "j" "k" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g" "i" "k" "n" "p" "q" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "h" "i" "j" "k" "l" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "i" "k" "n" "p" "q" "t" "u"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "i" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "h" "j" "k" "n" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "f" "i" "k" "n" "p" "q" "r" "s" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "e" "h" "j" "n" "r" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b" "i" "k" "n" "p" "q" "r" "s" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "h" "i" "j" "m" "n" "p" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "g" "i" "k" "n" "o" "p" "q" "t" "w" "x" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "g" "h" "j" "k" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "i" "k" "n" "o" "p" "q" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "i" "k" "n" "o" "p" "q" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "i" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "e" "i" "k" "l" "n" "o" "p" "q" "r" "s" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "j" "n" "o" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g" "i" "k" "n" "p" "q" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c" "e" "h" "j" "k" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "i" "k" "n" "p" "q" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "k" "n" "p" "q" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "i" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b" "i" "k" "n" "p" "q" "r" "s" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "e" "h" "j" "n" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "k" "n" "o" "p" "q" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A_B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "k" "n" "p" "q" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Coerce VENNset/INTERSECTset object to list</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Coerce VENNset/INTERSECTset object to list</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="va">interset</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "p" "b" "g" "v" "t" "r" "c" "w" "d" "k" "i" "f" "n" "s" "h" "u" "q" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "l" "v" "k" "a" "r" "p" "m" "i" "t" "h" "j" "u" "f" "x" "e" "n" "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "u" "w" "i" "q" "y" "m" "a" "k" "t" "p" "g" "x" "o" "f" "n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "q" "x" "o" "i" "b" "g" "s" "h" "e" "l" "f" "j" "k" "v" "z" "c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "k" "i" "h" "n" "f" "r" "s" "c" "b" "g" "e" "w" "j" "p" "t" "l" "q" "o" "z"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "g" "h" "b" "q" "r" "z" "c" "s" "y" "d" "j" "x" "o" "n" "e" "f" "k" "w" "a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "v"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "z" "g" "w" "s" "l" "e" "m" "o" "n" "r" "p" "v" "a" "h" "i" "q" "b" "d" "t"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "x" "y" "k"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "x" "p" "j" "w" "v" "n" "y" "u" "t" "g" "k" "c" "a" "q" "o" "i" "e" "s" "l"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "h" "z" "m"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $setlist$E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "x" "u" "p" "k" "c" "i" "l" "t" "a" "o" "q" "b" "j" "e" "f" "n" "s" "r"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "t" "e" "v" "y" "o" "z" "p" "g" "n" "i" "w" "a" "u" "x" "j" "h" "r" "m"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectmatrix</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   A B C D E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a 0 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> b 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 0 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d 1 0 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> e 0 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> f 1 1 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> g 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 0 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> i 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> j 0 0 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> l 0 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> m 0 1 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> n 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> a 1 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> b 0 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> c 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d 0 0 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> e 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> f 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> g 0 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> h 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> i 1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> j 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> k 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> l 1 1 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> m 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n 1 0 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> o 0 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> s 1 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> t 1 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 1 0 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> v 1 0 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> w 1 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x 0 1 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> y 0 1 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q 0 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> r 1 0 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> s 0 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> t 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> u 1 0 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> v 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> w 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> y 0 0 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> z 1 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $complexitylevels</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "d" "f" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "u" "v" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "f" "h" "i" "j" "k" "l" "m" "n" "p" "r" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "f" "g" "i" "k" "m" "n" "o" "p" "q" "t" "u" "w" "x" "y" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "g" "h" "i" "j" "k" "l" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "g" "h" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "w" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "c" "d" "e" "f" "g" "h" "j" "k" "n" "o" "q" "r" "s" "v" "w" "x" "y"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [20] "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "d" "e" "g" "h" "i" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "v" "w"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "s" "t" "u" "v" "w"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [20] "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "c" "e" "f" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "u" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "i" "j" "m" "n" "o" "p" "r" "t" "u" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "f" "g" "i" "k" "n" "p" "q" "t" "u" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "f" "h" "i" "j" "k" "l" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "f" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "f" "h" "j" "k" "n" "r" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "d" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "v" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "h" "i" "j" "k" "l" "m" "n" "p" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "f" "i" "k" "n" "p" "q" "r" "s" "t" "u"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "h" "i" "j" "m" "n" "p" "r" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "f" "g" "i" "k" "n" "o" "p" "q" "t" "w" "x" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "g" "h" "j" "k" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "g" "i" "k" "m" "n" "o" "p" "q" "t" "w" "x" "y" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "g" "h" "i" "j" "k" "l" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "f" "i" "k" "n" "o" "p" "q" "t" "u" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "i" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "e" "g" "h" "i" "k" "l" "n" "o" "p" "q" "r" "s" "t" "w" "x" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "g" "h" "j" "k" "n" "o" "q" "s" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "e" "f" "i" "j" "k" "l" "n" "o" "p" "q" "r" "s" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "j" "n" "o" "r" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "e" "i" "k" "l" "n" "o" "p" "q" "r" "s" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "i" "j" "m" "n" "o" "p" "t" "u" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "f" "g" "i" "k" "n" "p" "q" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c" "e" "f" "h" "j" "k" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g" "i" "k" "n" "p" "q" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "h" "i" "j" "k" "l" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "i" "k" "n" "p" "q" "t" "u"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "i" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "g" "h" "i" "k" "n" "p" "q" "r" "s" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "c" "e" "h" "j" "k" "n" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "c" "f" "i" "k" "n" "p" "q" "r" "s" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "e" "h" "j" "n" "r" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b" "i" "k" "n" "p" "q" "r" "s" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "h" "i" "j" "m" "n" "p" "t" "u" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "g" "i" "k" "n" "o" "p" "q" "t" "w" "x" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c" "e" "g" "h" "j" "k" "o" "q" "s" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "i" "k" "n" "o" "p" "q" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "i" "k" "n" "o" "p" "q" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "i" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b" "e" "i" "k" "l" "n" "o" "p" "q" "r" "s" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "e" "g" "h" "j" "n" "o" "v" "w" "x" "y" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_C_D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g" "i" "k" "n" "p" "q" "t" "w" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c" "e" "h" "j" "k" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_C_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "i" "k" "n" "p" "q" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "k" "n" "p" "q" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "i" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b" "i" "k" "n" "p" "q" "r" "s" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "e" "h" "j" "n" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "k" "n" "o" "p" "q" "t" "x"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "g" "h" "j" "o" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $intersectlist$A_B_C_D_E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "i" "k" "n" "p" "q" "t"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "e" "h" "j" "v" "x" "z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
@@ -458,7 +458,7 @@ and <code>intersectlist</code> contains the standard intersect vectors.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

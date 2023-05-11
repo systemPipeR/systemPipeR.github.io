@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -56,7 +56,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">subsetWF</span><span class="op">(</span><span class="va">args</span>, <span class="va">slot</span>, subset<span class="op">=</span><span class="cn">NULL</span>, index<span class="op">=</span><span class="cn">NULL</span>, delete<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">subsetWF</span><span class="op">(</span><span class="va">args</span>, <span class="va">slot</span>, subset<span class="op">=</span><span class="cn">NULL</span>, index<span class="op">=</span><span class="cn">NULL</span>, delete<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -89,13 +89,13 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Construct SYSargs2 object </span></span>
-<span class="r-in"><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targets</span>, wf_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.cwl"</span>, </span>
-<span class="r-in">                  input_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">WF</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">WF</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Construct SYSargs2 object </span></span></span>
+<span class="r-in"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targets</span>, wf_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.cwl"</span>, </span></span>
+<span class="r-in"><span>                  input_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">WF</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">WF</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Instance of 'SYSargs2':</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Slot names/accessors: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
@@ -107,12 +107,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>       1. hisat2-mapping-se (rendered: TRUE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Testing subset_wf function</span></span>
-<span class="r-in"><span class="va">input</span> <span class="op">&lt;-</span> <span class="fu">subsetWF</span><span class="op">(</span><span class="va">WF</span>, slot<span class="op">=</span><span class="st">"input"</span>, subset<span class="op">=</span><span class="st">'FileName'</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">subsetWF</span><span class="op">(</span><span class="va">WF</span>, slot<span class="op">=</span><span class="st">"output"</span>, subset<span class="op">=</span><span class="fl">1</span>, index<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">step.cmd</span> <span class="op">&lt;-</span> <span class="fu">subsetWF</span><span class="op">(</span><span class="va">WF</span>, slot<span class="op">=</span><span class="st">"step"</span>, subset<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="co">## subset all the HISAT2 commandline </span></span>
-<span class="r-in"><span class="co"># subsetWF(WF, slot="output", subset=1, index=1, delete=TRUE) ## in order to delete the subset files list</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Testing subset_wf function</span></span></span>
+<span class="r-in"><span><span class="va">input</span> <span class="op">&lt;-</span> <span class="fu">subsetWF</span><span class="op">(</span><span class="va">WF</span>, slot<span class="op">=</span><span class="st">"input"</span>, subset<span class="op">=</span><span class="st">'FileName'</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">subsetWF</span><span class="op">(</span><span class="va">WF</span>, slot<span class="op">=</span><span class="st">"output"</span>, subset<span class="op">=</span><span class="fl">1</span>, index<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">step.cmd</span> <span class="op">&lt;-</span> <span class="fu">subsetWF</span><span class="op">(</span><span class="va">WF</span>, slot<span class="op">=</span><span class="st">"step"</span>, subset<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="co">## subset all the HISAT2 commandline </span></span></span>
+<span class="r-in"><span><span class="co"># subsetWF(WF, slot="output", subset=1, index=1, delete=TRUE) ## in order to delete the subset files list</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -127,7 +127,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
