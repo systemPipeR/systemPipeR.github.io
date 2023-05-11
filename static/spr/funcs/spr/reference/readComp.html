@@ -25,7 +25,7 @@ can be specified with 'CMPset: ALL'."><!-- mathjax --><script src="https://cdnjs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -60,7 +60,7 @@ can be specified with 'CMPset: ALL'.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">readComp</span><span class="op">(</span><span class="va">file</span>, format <span class="op">=</span> <span class="st">"vector"</span>, delim <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">readComp</span><span class="op">(</span><span class="va">file</span>, format <span class="op">=</span> <span class="st">"vector"</span>, delim <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -87,9 +87,9 @@ can be specified with 'CMPset: ALL'.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Return comparisons from targets file</span></span>
-<span class="r-in"><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.delim</a></span><span class="op">(</span><span class="va">targetspath</span>, comment.char <span class="op">=</span> <span class="st">"#"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Return comparisons from targets file</span></span></span>
+<span class="r-in"><span><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.delim</a></span><span class="op">(</span><span class="va">targetspath</span>, comment.char <span class="op">=</span> <span class="st">"#"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                       FileName SampleName Factor SampleLong Experiment</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A          1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B          1</span>
@@ -128,7 +128,7 @@ can be specified with 'CMPset: ALL'.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 16 23-Mar-2012</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 17 23-Mar-2012</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 18 23-Mar-2012</span>
-<span class="r-in"><span class="fu">readComp</span><span class="op">(</span>file<span class="op">=</span><span class="va">targetspath</span>, format<span class="op">=</span><span class="st">"vector"</span>, delim<span class="op">=</span><span class="st">"-"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">readComp</span><span class="op">(</span>file<span class="op">=</span><span class="va">targetspath</span>, format<span class="op">=</span><span class="st">"vector"</span>, delim<span class="op">=</span><span class="st">"-"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $CMPset1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M1-A1"   "M1-V1"   "A1-V1"   "M6-A6"   "M6-V6"   "A6-V6"   "M12-A12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [8] "M12-V12" "A12-V12"</span>
@@ -141,14 +141,14 @@ can be specified with 'CMPset: ALL'.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [29] "A6-A12"  "A6-V12"  "V6-M12"  "V6-A12"  "V6-V12"  "M12-A12" "M12-V12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [36] "A12-V12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Return comparisons from SYSargs2 object</span></span>
-<span class="r-in"><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targets</span>, wf_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.cwl"</span>, </span>
-<span class="r-in">                  input_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">args</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Return comparisons from SYSargs2 object</span></span></span>
+<span class="r-in"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targets</span>, wf_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.cwl"</span>, </span></span>
+<span class="r-in"><span>                  input_file<span class="op">=</span><span class="st">"hisat2/hisat2-mapping-se.yml"</span>, dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">args</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>FileName<span class="op">=</span><span class="st">"_FASTQ_PATH1_"</span>, SampleName<span class="op">=</span><span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Instance of 'SYSargs2':</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Slot names/accessors: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       targets: 18 (M1A...V12B), targetsheader: 4 (lines)</span>
@@ -160,7 +160,7 @@ can be specified with 'CMPset: ALL'.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       1. hisat2-mapping-se (rendered: TRUE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">readComp</span><span class="op">(</span><span class="va">args</span>, format <span class="op">=</span> <span class="st">"vector"</span>, delim <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">readComp</span><span class="op">(</span><span class="va">args</span>, format <span class="op">=</span> <span class="st">"vector"</span>, delim <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $CMPset1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M1-A1"   "M1-V1"   "A1-V1"   "M6-A6"   "M6-V6"   "A6-V6"   "M12-A12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [8] "M12-V12" "A12-V12"</span>
@@ -187,7 +187,7 @@ can be specified with 'CMPset: ALL'.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

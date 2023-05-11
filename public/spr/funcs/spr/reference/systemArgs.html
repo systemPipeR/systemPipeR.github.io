@@ -35,7 +35,7 @@ combinaton of command-line or R-based software."><!-- mathjax --><script src="ht
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -80,7 +80,7 @@ combinaton of command-line or R-based software.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">systemArgs</span><span class="op">(</span><span class="va">sysma</span>, <span class="va">mytargets</span>, type <span class="op">=</span> <span class="st">"SYSargs"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">systemArgs</span><span class="op">(</span><span class="va">sysma</span>, <span class="va">mytargets</span>, type <span class="op">=</span> <span class="st">"SYSargs"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -116,10 +116,10 @@ combinaton of command-line or R-based software.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Construct SYSargs object from param and targets files </span></span>
-<span class="r-in"><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"tophat.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu">systemArgs</span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Construct SYSargs object from param and targets files </span></span></span>
+<span class="r-in"><span><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"tophat.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu">systemArgs</span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
@@ -138,9 +138,9 @@ combinaton of command-line or R-based software.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
-<span class="r-in"><span class="va">args</span></span>
+<span class="r-in"><span><span class="va">args</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> An instance of 'SYSargs' for running 'tophat' on 18 samples </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="SYSargs2-class.html">modules</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="sysargs.html">cores</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="sysargs.html">outpaths</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="sysargs.html">sysargs</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="SYSargs2-class.html">modules</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="sysargs.html">cores</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="sysargs.html">outpaths</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="sysargs.html">sysargs</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "targetsin"     "targetsout"    "targetsheader" "modules"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "software"      "cores"         "other"         "reference"    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "results"       "infile1"       "infile2"       "outfile1"     </span>
@@ -219,27 +219,27 @@ combinaton of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446043_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446043_1.fastq.gz " </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                         V12B </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "tophat -p 4 -g 1 --segment-length 25 -i 30 -I 3000 -o /home/runner/work/systemPipeR/systemPipeR/docs/reference/results/SRR446044_1.fastq.gz.tophat /home/runner/work/systemPipeR/systemPipeR/docs/reference/data/tair10.fasta ./data/SRR446044_1.fastq.gz " </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## Execute SYSargs on single machine</span></span>
-<span class="r-in"><span class="fu"><a href="runCommandline.html">runCommandline</a></span><span class="op">(</span>args<span class="op">=</span><span class="va">args</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Execute SYSargs on multiple machines of a compute cluster</span></span>
-<span class="r-in"><span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>walltime<span class="op">=</span><span class="fl">120</span>, ntasks<span class="op">=</span><span class="fl">1</span>, ncpus<span class="op">=</span><span class="fu"><a href="sysargs.html">cores</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>, memory<span class="op">=</span><span class="fl">1024</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="clusterRun.html">clusterRun</a></span><span class="op">(</span><span class="va">args</span>, conffile<span class="op">=</span><span class="st">".batchtools.conf.R"</span>, template<span class="op">=</span><span class="st">"batchtools.slurm.tmpl"</span>, Njobs<span class="op">=</span><span class="fl">18</span>, runid<span class="op">=</span><span class="st">"01"</span>, resourceList<span class="op">=</span><span class="va">resources</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Monitor progress of submitted jobs</span></span>
-<span class="r-in"><span class="fu">getStatus</span><span class="op">(</span>reg<span class="op">=</span><span class="va">reg</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="sysargs.html">outpaths</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">loadResult</span><span class="op">(</span><span class="va">reg</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># Works once all jobs have completed successfully.</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Alignment stats</span></span>
-<span class="r-in"><span class="va">read_statsDF</span> <span class="op">&lt;-</span> <span class="fu"><a href="alignStats.html">alignStats</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span> </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.table</a></span><span class="op">(</span><span class="va">read_statsDF</span>, <span class="st">"results/alignStats.xls"</span>, row.names<span class="op">=</span><span class="cn">FALSE</span>, quote<span class="op">=</span><span class="cn">FALSE</span>, sep<span class="op">=</span><span class="st">"\t"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Write outpaths to new targets file for next SYSargs step</span></span>
-<span class="r-in"><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args</span>, file<span class="op">=</span><span class="st">"default"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## Execute SYSargs on single machine</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="runCommandline.html">runCommandline</a></span><span class="op">(</span>args<span class="op">=</span><span class="va">args</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Execute SYSargs on multiple machines of a compute cluster</span></span></span>
+<span class="r-in"><span><span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>walltime<span class="op">=</span><span class="fl">120</span>, ntasks<span class="op">=</span><span class="fl">1</span>, ncpus<span class="op">=</span><span class="fu"><a href="sysargs.html">cores</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>, memory<span class="op">=</span><span class="fl">1024</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="clusterRun.html">clusterRun</a></span><span class="op">(</span><span class="va">args</span>, conffile<span class="op">=</span><span class="st">".batchtools.conf.R"</span>, template<span class="op">=</span><span class="st">"batchtools.slurm.tmpl"</span>, Njobs<span class="op">=</span><span class="fl">18</span>, runid<span class="op">=</span><span class="st">"01"</span>, resourceList<span class="op">=</span><span class="va">resources</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Monitor progress of submitted jobs</span></span></span>
+<span class="r-in"><span><span class="fu">getStatus</span><span class="op">(</span>reg<span class="op">=</span><span class="va">reg</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="sysargs.html">outpaths</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">loadResult</span><span class="op">(</span><span class="va">reg</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># Works once all jobs have completed successfully.</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Alignment stats</span></span></span>
+<span class="r-in"><span><span class="va">read_statsDF</span> <span class="op">&lt;-</span> <span class="fu"><a href="alignStats.html">alignStats</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.table</a></span><span class="op">(</span><span class="va">read_statsDF</span>, <span class="st">"results/alignStats.xls"</span>, row.names<span class="op">=</span><span class="cn">FALSE</span>, quote<span class="op">=</span><span class="cn">FALSE</span>, sep<span class="op">=</span><span class="st">"\t"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Write outpaths to new targets file for next SYSargs step</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args</span>, file<span class="op">=</span><span class="st">"default"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -254,7 +254,7 @@ combinaton of command-line or R-based software.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

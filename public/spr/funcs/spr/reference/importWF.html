@@ -26,7 +26,7 @@ Details."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -62,10 +62,13 @@ options, to include a particular code chunk in the workflow analysis. Please che
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">importWF</span><span class="op">(</span>
-    <span class="va">sysargs</span>, <span class="va">file_path</span>, ignore_eval <span class="op">=</span> <span class="cn">TRUE</span>,
-    update <span class="op">=</span> <span class="cn">FALSE</span>, confirm <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">importWF</span><span class="op">(</span></span>
+<span>    <span class="va">sysargs</span>, <span class="va">file_path</span>, ignore_eval <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    update <span class="op">=</span> <span class="cn">FALSE</span>, confirm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    check_tool <span class="op">=</span> <span class="op">!</span><span class="va">update</span>,</span>
+<span>    check_module <span class="op">=</span> <span class="va">check_tool</span>,</span>
+<span>    verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -92,6 +95,18 @@ options, to include a particular code chunk in the workflow analysis. Please che
   will be asked during update. Changing this to <code>TRUE</code> would
   skip these questions and directly say "Yes" to all answers. Useful
   in non-interactive mode. Default is to say "No" in  non-interactive mode.</p></dd>
+
+  <dt>check_tool</dt>
+<dd><p>logical, whether to check all required tools by this workflow are in PATH (callable).
+  It uses the <code>listCmdTools</code> function to perform the check.
+  The default is the reverse of <code>update</code>. It means if it is the first importing the workflow, tools and modules
+  will be checked. If it is updating the existing workflow, tools will not be checked.</p></dd>
+
+  <dt>check_module</dt>
+<dd><p>logical, whether to check all required modules are available. To do so, a modular system has be to installed.
+  If no modular system, this check will be skipped, even if <code>check_module = TRUE</code>.
+  It uses the <code>listCmdModules</code> function to perform the check.
+  Check the help of <code><a href="moduleload.html">module</a></code> to know more about modular system.</p></dd>
 
   <dt>verbose</dt>
 <dd><p>logical, print out verbose message while function running.</p></dd>
@@ -129,11 +144,11 @@ object to populate the steps from R Markdown file.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_lw.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_lw.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu">importWF</span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu">importWF</span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -150,7 +165,9 @@ object to populate the steps from R Markdown file.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now check if required tools are installed</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #FFAF00; font-weight: bold;">There is no commandline (SYSargs) step in this workflow, skip.</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
@@ -166,7 +183,7 @@ object to populate the steps from R Markdown file.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

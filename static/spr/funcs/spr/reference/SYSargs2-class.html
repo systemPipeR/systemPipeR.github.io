@@ -33,7 +33,7 @@ any combination of command-line or R-based software."><!-- mathjax --><script sr
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -237,7 +237,7 @@ any combination of command-line or R-based software.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">showClass</span><span class="op">(</span><span class="st">"SYSargs2"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">showClass</span><span class="op">(</span><span class="st">"SYSargs2"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Class "SYSargs2" [package "systemPipeR"]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Slots:</span>
@@ -253,16 +253,16 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Name:             status internal_outfiles</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Class:              list              list</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Construct SYSargs2 object from CWl param, CWL input, and targets files </span></span>
-<span class="r-in"><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/example/targets_example.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targetspath</span>, </span>
-<span class="r-in">                  wf_file<span class="op">=</span><span class="st">"example/workflow_example.cwl"</span>, </span>
-<span class="r-in">                  input_file<span class="op">=</span><span class="st">"example/example.yml"</span>, </span>
-<span class="r-in">                  dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">WF</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>Message <span class="op">=</span> <span class="st">"_STRING_"</span>, SampleName <span class="op">=</span> <span class="st">"_SAMPLE_"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">WF</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Construct SYSargs2 object from CWl param, CWL input, and targets files </span></span></span>
+<span class="r-in"><span><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/example/targets_example.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWorkflow</a></span><span class="op">(</span>targets<span class="op">=</span><span class="va">targetspath</span>, </span></span>
+<span class="r-in"><span>                  wf_file<span class="op">=</span><span class="st">"example/workflow_example.cwl"</span>, </span></span>
+<span class="r-in"><span>                  input_file<span class="op">=</span><span class="st">"example/example.yml"</span>, </span></span>
+<span class="r-in"><span>                  dir_path<span class="op">=</span><span class="va">dir_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">WF</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">WF</span>, inputvars<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>Message <span class="op">=</span> <span class="st">"_STRING_"</span>, SampleName <span class="op">=</span> <span class="st">"_SAMPLE_"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">WF</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">Instance of 'SYSargs2':</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Slot names/accessors: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       targets: 3 (M1...M3), targetsheader: 1 (lines)</span>
@@ -274,23 +274,23 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       1. echo (rendered: TRUE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Methods</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Methods</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "targets"           "targetsheader"     "modules"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "wf"                "clt"               "yamlinput"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "cmdlist"           "input"             "output"           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10] "files"             "inputvars"         "cmdToCwl"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13] "status"            "internal_outfiles"</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">baseCommand</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">baseCommand</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "echo"</span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">SampleName</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">SampleName</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M1" "M2" "M3"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Accessors</span></span>
-<span class="r-in"><span class="fu">targets</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Accessors</span></span></span>
+<span class="r-in"><span><span class="fu">targets</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1$Message</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Hello World!"</span>
@@ -315,13 +315,13 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M3"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">targetsheader</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">targetsheader</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $targetsheader</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "# Project ID: SPR Example"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">modules</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">modules</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">yamlinput</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">yamlinput</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $message</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "_STRING_"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -336,7 +336,7 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "./results"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="SYSargsList-class.html">cmdlist</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="SYSargsList-class.html">cmdlist</a></span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1$echo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "echo Hello World! &gt; results/M1.txt"</span>
@@ -352,7 +352,7 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "echo Hello Bioconductor! &gt; results/M3.txt"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">input</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">input</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1$Message</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Hello World!"</span>
@@ -377,7 +377,7 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M3"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">output</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">output</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $M1$echo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "results/M1.txt"</span>
@@ -393,7 +393,7 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "results/M3.txt"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">files</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">files</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $cwl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "example/workflow_example.cwl"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -420,16 +420,16 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SampleName"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">inputvars</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">inputvars</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Message</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "_STRING_"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $SampleName</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "_SAMPLE_"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">cmdToCwl</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">cmdToCwl</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> list()</span>
-<span class="r-in"><span class="fu">status</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">status</span><span class="op">(</span><span class="va">WF</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status.summary</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Pending"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -445,28 +445,28 @@ any combination of command-line or R-based software.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M2      M2       &lt;NA&gt;     &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M3      M3       &lt;NA&gt;     &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## The subsetting operator '[' allows to select specific command-line/sample</span></span>
-<span class="r-in"><span class="va">WF2</span> <span class="op">&lt;-</span> <span class="va">WF</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## Execute SYSargs2 on single machine</span></span>
-<span class="r-in"><span class="va">WF2</span> <span class="op">&lt;-</span> <span class="fu"><a href="runCommandline.html">runCommandline</a></span><span class="op">(</span><span class="va">WF2</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## Execute SYSargs2 on multiple machines of a compute cluster. The following</span></span>
-<span class="r-in"><span class="co">## example uses the conf and template files for the Slurm scheduler. Please </span></span>
-<span class="r-in"><span class="co">## read the instructions on how to obtain the corresponding files for other schedulers.  </span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">".batchtools.conf.R"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span>, <span class="st">"."</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"batchtools.slurm.tmpl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span>, <span class="st">"."</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>walltime<span class="op">=</span><span class="fl">120</span>, ntasks<span class="op">=</span><span class="fl">1</span>, ncpus<span class="op">=</span><span class="fl">4</span>, memory<span class="op">=</span><span class="fl">1024</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="clusterRun.html">clusterRun</a></span><span class="op">(</span><span class="va">WF</span>, FUN <span class="op">=</span> <span class="va">runCommandline</span>, conffile<span class="op">=</span><span class="st">".batchtools.conf.R"</span>, </span>
-<span class="r-in">                  template<span class="op">=</span><span class="st">"batchtools.slurm.tmpl"</span>, Njobs<span class="op">=</span><span class="fl">2</span>, runid<span class="op">=</span><span class="st">"01"</span>, resourceList<span class="op">=</span><span class="va">resources</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Monitor progress of submitted jobs</span></span>
-<span class="r-in"><span class="fu">getStatus</span><span class="op">(</span>reg<span class="op">=</span><span class="va">reg</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## The subsetting operator '[' allows to select specific command-line/sample</span></span></span>
+<span class="r-in"><span><span class="va">WF2</span> <span class="op">&lt;-</span> <span class="va">WF</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## Execute SYSargs2 on single machine</span></span></span>
+<span class="r-in"><span><span class="va">WF2</span> <span class="op">&lt;-</span> <span class="fu"><a href="runCommandline.html">runCommandline</a></span><span class="op">(</span><span class="va">WF2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## Execute SYSargs2 on multiple machines of a compute cluster. The following</span></span></span>
+<span class="r-in"><span><span class="co">## example uses the conf and template files for the Slurm scheduler. Please </span></span></span>
+<span class="r-in"><span><span class="co">## read the instructions on how to obtain the corresponding files for other schedulers.  </span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">".batchtools.conf.R"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span>, <span class="st">"."</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"batchtools.slurm.tmpl"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span>, <span class="st">"."</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>walltime<span class="op">=</span><span class="fl">120</span>, ntasks<span class="op">=</span><span class="fl">1</span>, ncpus<span class="op">=</span><span class="fl">4</span>, memory<span class="op">=</span><span class="fl">1024</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="clusterRun.html">clusterRun</a></span><span class="op">(</span><span class="va">WF</span>, FUN <span class="op">=</span> <span class="va">runCommandline</span>, conffile<span class="op">=</span><span class="st">".batchtools.conf.R"</span>, </span></span>
+<span class="r-in"><span>                  template<span class="op">=</span><span class="st">"batchtools.slurm.tmpl"</span>, Njobs<span class="op">=</span><span class="fl">2</span>, runid<span class="op">=</span><span class="st">"01"</span>, resourceList<span class="op">=</span><span class="va">resources</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Monitor progress of submitted jobs</span></span></span>
+<span class="r-in"><span><span class="fu">getStatus</span><span class="op">(</span>reg<span class="op">=</span><span class="va">reg</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -481,7 +481,7 @@ any combination of command-line or R-based software.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

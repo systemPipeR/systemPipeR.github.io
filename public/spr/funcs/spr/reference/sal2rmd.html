@@ -24,7 +24,7 @@ template Rmarkdown format."><!-- mathjax --><script src="https://cdnjs.cloudflar
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -58,11 +58,11 @@ template Rmarkdown format.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sal2rmd</span><span class="op">(</span><span class="va">sal</span>, out_path <span class="op">=</span> <span class="st">"spr_template.Rmd"</span>, rmd_title <span class="op">=</span> <span class="st">"SPR workflow template"</span>, 
-        rmd_author <span class="op">=</span> <span class="st">"my name"</span>, 
-        rmd_date <span class="op">=</span> <span class="st">"Last update: `r format(Sys.time(), '%d %B, %Y')`"</span>, 
-        rmd_output <span class="op">=</span> <span class="st">"html_document"</span>, 
-        desc <span class="op">=</span> <span class="st">"This is a workflow template."</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sal2rmd</span><span class="op">(</span><span class="va">sal</span>, out_path <span class="op">=</span> <span class="st">"spr_template.Rmd"</span>, rmd_title <span class="op">=</span> <span class="st">"SPR workflow template"</span>, </span>
+<span>        rmd_author <span class="op">=</span> <span class="st">"my name"</span>, </span>
+<span>        rmd_date <span class="op">=</span> <span class="st">"Last update: `r format(Sys.time(), '%d %B, %Y')`"</span>, </span>
+<span>        rmd_output <span class="op">=</span> <span class="st">"html_document"</span>, </span>
+<span>        desc <span class="op">=</span> <span class="st">"This is a workflow template."</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -109,11 +109,11 @@ template Rmarkdown format.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_wf.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/spr_simple_wf.Rmd"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="SPRproject.html">SPRproject</a></span><span class="op">(</span>overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Recreating directory '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Creating file '/home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/SYSargsList.yml'</span>
-<span class="r-in"><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">sal</span> <span class="op">&lt;-</span> <span class="fu"><a href="importWF.html">importWF</a></span><span class="op">(</span><span class="va">sal</span>, <span class="va">file_path</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Reading Rmd file</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -133,9 +133,18 @@ template Rmarkdown format.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Template for renderReport is stored at</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  /home/runner/work/systemPipeR/systemPipeR/docs/reference/.SPRproject/workflow_template.Rmd </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #FFAF00;">Edit this file manually is not recommended</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">import  done</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Now check if required tools are installed</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Check if they are in path:</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Checking path for gzip</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">PASS</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Checking path for gunzip</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">PASS</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   step_name   tool in_path</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      gzip   gzip    TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    gunzip gunzip    TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00; font-weight: bold;">All required tools in PATH, skip module check. If you want to check modules use `listCmdModules`Import  done</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">sal2rmd</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">sal2rmd</span><span class="op">(</span><span class="va">sal</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">sal2rmd starts, pre-checks...</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Open spr_template.Rmd to write</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">Write Rmd header and description</span></span>
@@ -159,7 +168,7 @@ template Rmarkdown format.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

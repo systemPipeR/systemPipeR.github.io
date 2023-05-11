@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -56,7 +56,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sysargs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sysargs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -78,10 +78,10 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Construct SYSargs object from param and targets files </span></span>
-<span class="r-in"><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"hisat2.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Construct SYSargs object from param and targets files </span></span></span>
+<span class="r-in"><span><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"hisat2.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
@@ -100,9 +100,9 @@
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
-<span class="r-in"><span class="va">args</span></span>
+<span class="r-in"><span><span class="va">args</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> An instance of 'SYSargs' for running 'hisat2' on 18 samples </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="SYSargs2-class.html">modules</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu">cores</span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu">outpaths</span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu">sysargs</span><span class="op">(</span><span class="va">args</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu"><a href="SYSargs2-class.html">modules</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu">cores</span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu">outpaths</span><span class="op">(</span><span class="va">args</span><span class="op">)</span>; <span class="fu">sysargs</span><span class="op">(</span><span class="va">args</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "targetsin"     "targetsout"    "targetsheader" "modules"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "software"      "cores"         "other"         "reference"    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "results"       "infile1"       "infile2"       "outfile1"     </span>
@@ -195,7 +195,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

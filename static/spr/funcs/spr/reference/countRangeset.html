@@ -27,7 +27,7 @@ tables are directly saved to files."><!-- mathjax --><script src="https://cdnjs.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -64,7 +64,7 @@ tables are directly saved to files.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">countRangeset</span><span class="op">(</span><span class="va">bfl</span>, <span class="va">args</span>, outfiles<span class="op">=</span><span class="cn">NULL</span>, format<span class="op">=</span><span class="st">"tabular"</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">countRangeset</span><span class="op">(</span><span class="va">bfl</span>, <span class="va">args</span>, outfiles<span class="op">=</span><span class="cn">NULL</span>, format<span class="op">=</span><span class="st">"tabular"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -117,10 +117,10 @@ resulting count table files.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Paths to BAM files</span></span>
-<span class="r-in"><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"bowtieSE.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args_bam</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Paths to BAM files</span></span></span>
+<span class="r-in"><span><span class="va">param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"bowtieSE.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args_bam</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">param</span>, mytargets<span class="op">=</span><span class="va">targets</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
@@ -139,33 +139,33 @@ resulting count table files.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
-<span class="r-in"><span class="va">bfl</span> <span class="op">&lt;-</span> <span class="fu">BamFileList</span><span class="op">(</span><span class="fu"><a href="sysargs.html">outpaths</a></span><span class="op">(</span><span class="va">args_bam</span><span class="op">)</span>, yieldSize<span class="op">=</span><span class="fl">50000</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">##########################################</span></span>
-<span class="r-in"><span class="co">## Examples with \code{SYSargs2} object ##</span></span>
-<span class="r-in"><span class="co">##########################################</span></span>
-<span class="r-in"><span class="co">## Construct SYSargs2 object </span></span>
-<span class="r-in"><span class="co">## SYSargs2 with paths to range data and count files</span></span>
-<span class="r-in"><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/count_rangesets"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWF</a></span><span class="op">(</span>targets <span class="op">=</span> <span class="st">"targets_macs.txt"</span>, wf_file <span class="op">=</span> <span class="st">"count_rangesets.cwl"</span>, </span>
-<span class="r-in">    input_file <span class="op">=</span> <span class="st">"count_rangesets.yml"</span>, dir_path <span class="op">=</span> <span class="va">dir_path</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">args</span>, inputvars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>FileName <span class="op">=</span> <span class="st">"_FASTQ_PATH1_"</span>, SampleName <span class="op">=</span> <span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Iterative read counting</span></span>
-<span class="r-in"><span class="va">countDFnames</span> <span class="op">&lt;-</span> <span class="fu">countRangeset</span><span class="op">(</span><span class="va">bfl</span>, <span class="va">args</span>, mode<span class="op">=</span><span class="st">"Union"</span>, ignore.strand<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">##########################################</span></span>
-<span class="r-in"><span class="co">## Examples with \code{SYSargs} object ##</span></span>
-<span class="r-in"><span class="co">##########################################</span></span>
-<span class="r-in"><span class="co">## Construct SYSargs object </span></span>
-<span class="r-in"><span class="co">## SYSargs with paths to range data and count files</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="st">"param/count_rangesets.param"</span>, mytargets<span class="op">=</span><span class="st">"targets_macs.txt"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Iterative read counting</span></span>
-<span class="r-in"><span class="va">countDFnames</span> <span class="op">&lt;-</span> <span class="fu">countRangeset</span><span class="op">(</span><span class="va">bfl</span>, <span class="va">args</span>, mode<span class="op">=</span><span class="st">"Union"</span>, ignore.strand<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args</span>, file<span class="op">=</span><span class="st">"targets_countDF.txt"</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span><span class="va">bfl</span> <span class="op">&lt;-</span> <span class="fu">BamFileList</span><span class="op">(</span><span class="fu"><a href="sysargs.html">outpaths</a></span><span class="op">(</span><span class="va">args_bam</span><span class="op">)</span>, yieldSize<span class="op">=</span><span class="fl">50000</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">##########################################</span></span></span>
+<span class="r-in"><span><span class="co">## Examples with \code{SYSargs2} object ##</span></span></span>
+<span class="r-in"><span><span class="co">##########################################</span></span></span>
+<span class="r-in"><span><span class="co">## Construct SYSargs2 object </span></span></span>
+<span class="r-in"><span><span class="co">## SYSargs2 with paths to range data and count files</span></span></span>
+<span class="r-in"><span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cwl/count_rangesets"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">loadWF</a></span><span class="op">(</span>targets <span class="op">=</span> <span class="st">"targets_macs.txt"</span>, wf_file <span class="op">=</span> <span class="st">"count_rangesets.cwl"</span>, </span></span>
+<span class="r-in"><span>    input_file <span class="op">=</span> <span class="st">"count_rangesets.yml"</span>, dir_path <span class="op">=</span> <span class="va">dir_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="loadWorkflow.html">renderWF</a></span><span class="op">(</span><span class="va">args</span>, inputvars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>FileName <span class="op">=</span> <span class="st">"_FASTQ_PATH1_"</span>, SampleName <span class="op">=</span> <span class="st">"_SampleName_"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Iterative read counting</span></span></span>
+<span class="r-in"><span><span class="va">countDFnames</span> <span class="op">&lt;-</span> <span class="fu">countRangeset</span><span class="op">(</span><span class="va">bfl</span>, <span class="va">args</span>, mode<span class="op">=</span><span class="st">"Union"</span>, ignore.strand<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##########################################</span></span></span>
+<span class="r-in"><span><span class="co">## Examples with \code{SYSargs} object ##</span></span></span>
+<span class="r-in"><span><span class="co">##########################################</span></span></span>
+<span class="r-in"><span><span class="co">## Construct SYSargs object </span></span></span>
+<span class="r-in"><span><span class="co">## SYSargs with paths to range data and count files</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="st">"param/count_rangesets.param"</span>, mytargets<span class="op">=</span><span class="st">"targets_macs.txt"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Iterative read counting</span></span></span>
+<span class="r-in"><span><span class="va">countDFnames</span> <span class="op">&lt;-</span> <span class="fu">countRangeset</span><span class="op">(</span><span class="va">bfl</span>, <span class="va">args</span>, mode<span class="op">=</span><span class="st">"Union"</span>, ignore.strand<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args</span>, file<span class="op">=</span><span class="st">"targets_countDF.txt"</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -180,7 +180,7 @@ resulting count table files.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

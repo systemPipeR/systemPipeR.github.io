@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -56,7 +56,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">predORF</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"grl"</span>, mode <span class="op">=</span> <span class="st">"orf"</span>, strand <span class="op">=</span> <span class="st">"sense"</span>, longest_disjoint<span class="op">=</span><span class="cn">FALSE</span>, startcodon <span class="op">=</span> <span class="st">"ATG"</span>, stopcodon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TAA"</span>, <span class="st">"TAG"</span>, <span class="st">"TGA"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">predORF</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"grl"</span>, mode <span class="op">=</span> <span class="st">"orf"</span>, strand <span class="op">=</span> <span class="st">"sense"</span>, longest_disjoint<span class="op">=</span><span class="cn">FALSE</span>, startcodon <span class="op">=</span> <span class="st">"ATG"</span>, stopcodon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TAA"</span>, <span class="st">"TAG"</span>, <span class="st">"TGA"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -119,12 +119,12 @@ a shift of one or two bases, respectively.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Load DNA sample data set from Biostrings package</span></span>
-<span class="r-in"><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"someORF.fa"</span>, package<span class="op">=</span><span class="st">"Biostrings"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu">readDNAStringSet</span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Predict longest ORF for sense strand in each query sequence</span></span>
-<span class="r-in"><span class="op">(</span><span class="va">orf</span> <span class="op">&lt;-</span> <span class="fu">predORF</span><span class="op">(</span><span class="va">dna</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, n<span class="op">=</span><span class="fl">1</span>, type<span class="op">=</span><span class="st">"gr"</span>, mode<span class="op">=</span><span class="st">"orf"</span>, strand<span class="op">=</span><span class="st">"sense"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Load DNA sample data set from Biostrings package</span></span></span>
+<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"someORF.fa"</span>, package<span class="op">=</span><span class="st">"Biostrings"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu">readDNAStringSet</span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Predict longest ORF for sense strand in each query sequence</span></span></span>
+<span class="r-in"><span><span class="op">(</span><span class="va">orf</span> <span class="op">&lt;-</span> <span class="fu">predORF</span><span class="op">(</span><span class="va">dna</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, n<span class="op">=</span><span class="fl">1</span>, type<span class="op">=</span><span class="st">"gr"</span>, mode<span class="op">=</span><span class="st">"orf"</span>, strand<span class="op">=</span><span class="st">"sense"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GRanges object with 4 ranges and 2 metadata columns:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     seqnames    ranges strand | subject_id inframe2end</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                        &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;integer&gt;   &lt;numeric&gt;</span>
@@ -134,19 +134,19 @@ a shift of one or two bases, respectively.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [4] YAL005C SSA1 SGDID:S.. 1001-2929      + |          1           2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   -------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   seqinfo: 4 sequences from an unspecified genome; no seqlengths</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## Usage for more complex example</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/GenomicFeatures" class="external-link">GenomicFeatures</a></span><span class="op">)</span>; <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tgirke/systemPipeRdata" class="external-link">systemPipeRdata</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="va">gff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/annotation"</span>, <span class="st">"tair10.gff"</span>, package<span class="op">=</span><span class="st">"systemPipeRdata"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">txdb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicFeatures/man/makeTxDbFromGFF.html" class="external-link">makeTxDbFromGFF</a></span><span class="op">(</span>file<span class="op">=</span><span class="va">gff</span>, format<span class="op">=</span><span class="st">"gff3"</span>, organism<span class="op">=</span><span class="st">"Arabidopsis"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">futr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicFeatures/man/transcriptsBy.html" class="external-link">fiveUTRsByTranscript</a></span><span class="op">(</span><span class="va">txdb</span>, use.names<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">genome</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/annotation"</span>, <span class="st">"tair10.fasta"</span>, package<span class="op">=</span><span class="st">"systemPipeRdata"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicFeatures/man/extractTranscriptSeqs.html" class="external-link">extractTranscriptSeqs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/FaFile-class.html" class="external-link">FaFile</a></span><span class="op">(</span><span class="va">genome</span><span class="op">)</span>, <span class="va">futr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">uorf</span> <span class="op">&lt;-</span> <span class="fu">predORF</span><span class="op">(</span><span class="va">dna</span>, n<span class="op">=</span><span class="st">"all"</span>, mode<span class="op">=</span><span class="st">"orf"</span>, longest_disjoint<span class="op">=</span><span class="cn">TRUE</span>, strand<span class="op">=</span><span class="st">"sense"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">grl_scaled</span> <span class="op">&lt;-</span> <span class="fu"><a href="scaleRanges.html">scaleRanges</a></span><span class="op">(</span>subject<span class="op">=</span><span class="va">futr</span>, query<span class="op">=</span><span class="va">uorf</span>, type<span class="op">=</span><span class="st">"uORF"</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">export.gff3</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">grl_scaled</span><span class="op">)</span>, <span class="st">"uorf.gff"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## Usage for more complex example</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/GenomicFeatures" class="external-link">GenomicFeatures</a></span><span class="op">)</span>; <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tgirke/systemPipeRdata" class="external-link">systemPipeRdata</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">gff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/annotation"</span>, <span class="st">"tair10.gff"</span>, package<span class="op">=</span><span class="st">"systemPipeRdata"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">txdb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicFeatures/man/makeTxDbFromGFF.html" class="external-link">makeTxDbFromGFF</a></span><span class="op">(</span>file<span class="op">=</span><span class="va">gff</span>, format<span class="op">=</span><span class="st">"gff3"</span>, organism<span class="op">=</span><span class="st">"Arabidopsis"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">futr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicFeatures/man/transcriptsBy.html" class="external-link">fiveUTRsByTranscript</a></span><span class="op">(</span><span class="va">txdb</span>, use.names<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">genome</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/annotation"</span>, <span class="st">"tair10.fasta"</span>, package<span class="op">=</span><span class="st">"systemPipeRdata"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicFeatures/man/extractTranscriptSeqs.html" class="external-link">extractTranscriptSeqs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/FaFile-class.html" class="external-link">FaFile</a></span><span class="op">(</span><span class="va">genome</span><span class="op">)</span>, <span class="va">futr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">uorf</span> <span class="op">&lt;-</span> <span class="fu">predORF</span><span class="op">(</span><span class="va">dna</span>, n<span class="op">=</span><span class="st">"all"</span>, mode<span class="op">=</span><span class="st">"orf"</span>, longest_disjoint<span class="op">=</span><span class="cn">TRUE</span>, strand<span class="op">=</span><span class="st">"sense"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">grl_scaled</span> <span class="op">&lt;-</span> <span class="fu"><a href="scaleRanges.html">scaleRanges</a></span><span class="op">(</span>subject<span class="op">=</span><span class="va">futr</span>, query<span class="op">=</span><span class="va">uorf</span>, type<span class="op">=</span><span class="st">"uORF"</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">export.gff3</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">grl_scaled</span><span class="op">)</span>, <span class="st">"uorf.gff"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -161,7 +161,7 @@ a shift of one or two bases, respectively.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

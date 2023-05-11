@@ -33,7 +33,7 @@ experiments."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/lib
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">systemPipeR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.5.1</span>
       </span>
     </div>
 
@@ -76,9 +76,9 @@ experiments.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mergeBamByFactor</span><span class="op">(</span><span class="va">args</span>, targetsDF <span class="op">=</span> <span class="cn">NULL</span>, mergefactor <span class="op">=</span> <span class="st">"Factor"</span>,
-                out_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"results"</span>, <span class="st">"merge_bam"</span><span class="op">)</span>,
-                overwrite <span class="op">=</span> <span class="cn">FALSE</span>, silent <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mergeBamByFactor</span><span class="op">(</span><span class="va">args</span>, targetsDF <span class="op">=</span> <span class="cn">NULL</span>, mergefactor <span class="op">=</span> <span class="st">"Factor"</span>,</span>
+<span>                out_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"results"</span>, <span class="st">"merge_bam"</span><span class="op">)</span>,</span>
+<span>                overwrite <span class="op">=</span> <span class="cn">FALSE</span>, silent <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -149,10 +149,10 @@ samples remain unchanged.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Construct initial SYSargs object</span></span>
-<span class="r-in"><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets_chip.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">parampath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"bowtieSE.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">parampath</span>, mytargets<span class="op">=</span><span class="va">targetspath</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Construct initial SYSargs object</span></span></span>
+<span class="r-in"><span><span class="va">targetspath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"targets_chip.txt"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">parampath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"bowtieSE.param"</span>, package<span class="op">=</span><span class="st">"systemPipeR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="va">parampath</span>, mytargets<span class="op">=</span><span class="va">targetspath</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="./data/SRR446027_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[2]="./data/SRR446028_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[3]="./data/SRR446029_1.fastq.gz": No such file or directory</span>
@@ -171,19 +171,19 @@ samples remain unchanged.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[16]="./data/SRR446042_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[17]="./data/SRR446043_1.fastq.gz": No such file or directory</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[18]="./data/SRR446044_1.fastq.gz": No such file or directory</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## After running alignmets (e.g. with Bowtie2) generate targets file</span></span>
-<span class="r-in"><span class="co">## for the corresponding BAM files. The alignment step is skipped here.</span></span>
-<span class="r-in"><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args</span>, file<span class="op">=</span><span class="st">"targets_bam.txt"</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="cn">NULL</span>, mytargets<span class="op">=</span><span class="st">"targets_bam.txt"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Merge BAM files and return updated SYSargs object</span></span>
-<span class="r-in"><span class="va">args_merge</span> <span class="op">&lt;-</span> <span class="fu">mergeBamByFactor</span><span class="op">(</span><span class="va">args</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, silent<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Export modified targets file</span></span>
-<span class="r-in"><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args_merge</span>, file<span class="op">=</span><span class="st">"targets_mergeBamByFactor.txt"</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## After running alignmets (e.g. with Bowtie2) generate targets file</span></span></span>
+<span class="r-in"><span><span class="co">## for the corresponding BAM files. The alignment step is skipped here.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args</span>, file<span class="op">=</span><span class="st">"targets_bam.txt"</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="systemArgs.html">systemArgs</a></span><span class="op">(</span>sysma<span class="op">=</span><span class="cn">NULL</span>, mytargets<span class="op">=</span><span class="st">"targets_bam.txt"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Merge BAM files and return updated SYSargs object</span></span></span>
+<span class="r-in"><span><span class="va">args_merge</span> <span class="op">&lt;-</span> <span class="fu">mergeBamByFactor</span><span class="op">(</span><span class="va">args</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, silent<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Export modified targets file</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="writeTargetsout.html">writeTargetsout</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">args_merge</span>, file<span class="op">=</span><span class="st">"targets_mergeBamByFactor.txt"</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -198,7 +198,7 @@ samples remain unchanged.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
