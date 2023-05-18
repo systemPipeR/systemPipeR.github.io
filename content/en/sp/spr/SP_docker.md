@@ -1,5 +1,5 @@
 ---
-title: "SPR Docker container" 
+title: "systemPipe containers" 
 author: "Author: Daniela Cassol (danielac@ucr.edu)"
 date: "Last update: 29 April, 2022" 
 output:
@@ -13,9 +13,13 @@ type: docs
 weight: 10
 ---
 
-> Guidelines from [bioconductor_docker](https://github.com/Bioconductor/bioconductor_docker).
+The systemPipe Toolkits, including systemPipeR, systemPipeShiny and 
+systemPipeRdata (workflow templates) can be run using containers. 
+Different containers, their installation and usage are discussed below.
 
 # Running the `systemPipeR` with Docker 
+
+> Guidelines from [bioconductor_docker](https://github.com/Bioconductor/bioconductor_docker).
 
 ## Get a copy of the public docker image
 
