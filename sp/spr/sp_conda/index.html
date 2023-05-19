@@ -25,15 +25,15 @@ Create a conda environemnt Conda environment is an isolated space where users ca
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spr/sp_conda/" /><meta property="article:section" content="sp" />
 
-<meta property="article:modified_time" content="2023-05-17T18:32:27-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2023-05-19T15:01:02-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Use Conda Environment">
 <meta itemprop="description" content="Conda is an open source package management system and environment management system that runs on Windows, macOS, and Linux. Conda quickly installs, runs and updates packages and their dependencies.
  SystempipeR is also available through conda environment.
 Install conda conda can be installed on different OS. Please find your system information, and the according method to install on conda installation page.
 Create a conda environemnt Conda environment is an isolated space where users can install tools and packages specifically to each project with different versions.">
-<meta itemprop="dateModified" content="2023-05-17T18:32:27-07:00" />
-<meta itemprop="wordCount" content="818">
+<meta itemprop="dateModified" content="2023-05-19T15:01:02-07:00" />
+<meta itemprop="wordCount" content="923">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Use Conda Environment"/>
 <meta name="twitter:description" content="Conda is an open source package management system and environment management system that runs on Windows, macOS, and Linux. Conda quickly installs, runs and updates packages and their dependencies.
@@ -583,7 +583,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.47ec0867342a05d3beeb3e63d8e7dfee.json"
+  data-offline-search-index-json-src="../../../offline-search-index.088f8991eff43411326db1e3322d250c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -615,7 +615,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.47ec0867342a05d3beeb3e63d8e7dfee.json"
+  data-offline-search-index-json-src="../../../offline-search-index.088f8991eff43411326db1e3322d250c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1050,7 +1050,11 @@ if (!doNotTrack) {
         </li>
         <li><a href="#install-packages">Install packages</a></li>
         <li><a href="#exit-environment">Exit environment</a></li>
-        <li><a href="#install-command-line-tools">Install command-line tools</a></li>
+        <li><a href="#install-command-line-tools">Install command-line tools</a>
+          <ul>
+            <li><a href="#specify-version">Specify version</a></li>
+          </ul>
+        </li>
         <li><a href="#work-with-rstudio">Work with Rstudio</a></li>
         <li><a href="#resources">Resources</a></li>
       </ul>
@@ -1250,6 +1254,19 @@ copy the code from anaconda and run</p>
 #[1] &quot;All set up, proceed!&quot;
 </code></pre>
 <p>Both <code>which</code> command and <code>tryCMD</code> function return positive results.</p>
+<h3 id="specify-version">Specify version</h3>
+<p>Similar to installation of R, you can specify the version number for command-line
+tools as well. Different workflows may require different software versions. In
+systemPipeR, after loading the workflow, you can use <code>listCmdTools</code> and <code>listCmdModules</code> to check required tools for current workflow. The version number
+is usually listed in <code>listCmdModules</code>. See <a href="../sp_run/step_run/#before-running">Before running</a>.</p>
+<blockquote>
+<p><code>listCmdModules</code> is usually used for modular system, but it is okay if you do
+not have it. It is helpful to display the version number.</p>
+</blockquote>
+<p>Above, for example, the latest possible version is installed by default.
+If we want to install <code>satmools</code> version <code>1.5</code>.</p>
+<pre><code class="language-bash">conda install -y -c bioconda samtools=1.5
+</code></pre>
 <h2 id="work-with-rstudio">Work with Rstudio</h2>
 <p>Unfortunately, the free version of Rstudio does not provide support for running
 R from conda as of today (May, 2023). We would recommend using
@@ -1264,7 +1281,7 @@ installation of JupyterLab from conda can be found
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-17: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/23bda5b34b41b48b0c60bd1a590b6672ae2db4eb">no_render conda instructions (23bda5b3)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-19: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/3b8276352869784984f93a6d3d84add594c8d9c3">no_render conda cmd tool instructions (3b827635)</a>
 </div>
 </div>
 
