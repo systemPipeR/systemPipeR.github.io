@@ -2229,6 +2229,19 @@ copy the code from anaconda and run&lt;/p&gt;
 #[1] &amp;quot;All set up, proceed!&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Both &lt;code&gt;which&lt;/code&gt; command and &lt;code&gt;tryCMD&lt;/code&gt; function return positive results.&lt;/p&gt;
+&lt;h3 id=&#34;specify-version&#34;&gt;Specify version&lt;/h3&gt;
+&lt;p&gt;Similar to installation of R, you can specify the version number for command-line
+tools as well. Different workflows may require different software versions. In
+systemPipeR, after loading the workflow, you can use &lt;code&gt;listCmdTools&lt;/code&gt; and &lt;code&gt;listCmdModules&lt;/code&gt; to check required tools for current workflow. The version number
+is usually listed in &lt;code&gt;listCmdModules&lt;/code&gt;. See &lt;a href=&#34;../sp_run/step_run/#before-running&#34;&gt;Before running&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;listCmdModules&lt;/code&gt; is usually used for modular system, but it is okay if you do
+not have it. It is helpful to display the version number.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Above, for example, the latest possible version is installed by default.
+If we want to install &lt;code&gt;satmools&lt;/code&gt; version &lt;code&gt;1.5&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;conda install -y -c bioconda samtools=1.5
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;work-with-rstudio&#34;&gt;Work with Rstudio&lt;/h2&gt;
 &lt;p&gt;Unfortunately, the free version of Rstudio does not provide support for running
 R from conda as of today (May, 2023). We would recommend using

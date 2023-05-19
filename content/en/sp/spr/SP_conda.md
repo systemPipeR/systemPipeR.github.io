@@ -186,6 +186,22 @@ When conda finishes installation, we can check again
 
 Both `which` command and `tryCMD` function return positive results.
 
+### Specify version
+Similar to installation of R, you can specify the version number for command-line 
+tools as well. Different workflows may require different software versions. In
+systemPipeR, after loading the workflow, you can use `listCmdTools` and `listCmdModules` to check required tools for current workflow. The version number
+is usually listed in `listCmdModules`. See [Before running](../sp_run/step_run/#before-running).
+
+> `listCmdModules` is usually used for modular system, but it is okay if you do 
+not have it. It is helpful to display the version number. 
+
+Above, for example, the latest possible version is installed by default. 
+If we want to install `satmools` version `1.5`.
+
+```bash
+conda install -y -c bioconda samtools=1.5
+```
+
 ## Work with Rstudio
 Unfortunately, the free version of Rstudio does not provide support for running 
 R from conda as of today (May, 2023). We would recommend using 
