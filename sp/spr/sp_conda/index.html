@@ -25,15 +25,15 @@ Create a conda environemnt Conda environment is an isolated space where users ca
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spr/sp_conda/" /><meta property="article:section" content="sp" />
 
-<meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2023-05-17T18:32:27-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Use Conda Environment">
 <meta itemprop="description" content="Conda is an open source package management system and environment management system that runs on Windows, macOS, and Linux. Conda quickly installs, runs and updates packages and their dependencies.
  SystempipeR is also available through conda environment.
 Install conda conda can be installed on different OS. Please find your system information, and the according method to install on conda installation page.
 Create a conda environemnt Conda environment is an isolated space where users can install tools and packages specifically to each project with different versions.">
-
-<meta itemprop="wordCount" content="374">
+<meta itemprop="dateModified" content="2023-05-17T18:32:27-07:00" />
+<meta itemprop="wordCount" content="818">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Use Conda Environment"/>
 <meta name="twitter:description" content="Conda is an open source package management system and environment management system that runs on Windows, macOS, and Linux. Conda quickly installs, runs and updates packages and their dependencies.
@@ -583,7 +583,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.9c540f473aee66cf5d2f379c51d369a3.json"
+  data-offline-search-index-json-src="../../../offline-search-index.47ec0867342a05d3beeb3e63d8e7dfee.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -615,7 +615,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.9c540f473aee66cf5d2f379c51d369a3.json"
+  data-offline-search-index-json-src="../../../offline-search-index.47ec0867342a05d3beeb3e63d8e7dfee.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1050,6 +1050,7 @@ if (!doNotTrack) {
         </li>
         <li><a href="#install-packages">Install packages</a></li>
         <li><a href="#exit-environment">Exit environment</a></li>
+        <li><a href="#install-command-line-tools">Install command-line tools</a></li>
         <li><a href="#work-with-rstudio">Work with Rstudio</a></li>
         <li><a href="#resources">Resources</a></li>
       </ul>
@@ -1163,6 +1164,92 @@ use <code>BiocManager</code> or <code>devtools</code> to install the lastest pac
 <p>To exit or swtch different environments, use this first:</p>
 <pre><code class="language-bash">conda deactivate 
 </code></pre>
+<h2 id="install-command-line-tools">Install command-line tools</h2>
+<p>Running bioinformatic analysis in systemPipeR often requires command-line tools,
+such as <code>samtools</code>, <code>hisat2</code>, <code>gatk</code>,
+to be installed and the tools need to be callable from current R environment.</p>
+<p>Installing these tools usually requires one to also install the system dependencies,
+and compiling may also be needed. However, most times, conda is able to figure
+out the right system dependencies and can download the binary complied files directly
+for you. Therefore, installing these tools with conda is much easier.</p>
+<p>Here we demonstate how to install <code>samtools</code> as an example.</p>
+<ol>
+<li>Go to <a href="https://anaconda.org/">anaconda</a> and search the tool you want to install.</li>
+<li>If you type the name correctly, the tool should be the first result of the search.</li>
+<li>Click the results, you should see the install instruction page.</li>
+<li>Copy the code and we can start to install.</li>
+</ol>
+<p>After we activate conda, we can directly type <code>samtools</code> on console to check.
+However, sometimes if a tool is callable from console does not mean it can be
+found in R environment. It is usually related to PATH problems, but can be complicated. Here is not expanded. A better way of checking in R is to use
+<code>tryCMD</code> function in systemPipeR. Please see <a href="../sp_run/step_run/#before-running">Before running</a> section for details.</p>
+<pre><code class="language-bash">lz@hpcc:~/test$ conda activate myenv
+(myenv)lz@hpcc:~/test$ samtools
+# -bash: samtools: command not found
+(myenv)lz@hpcc:~/test$ Rscript -e &quot;systemPipeR::tryCMD('samtools')&quot;
+#ERROR:  
+# samtools : COMMAND NOT FOUND.  
+#Please make sure to configure your PATH environment variable according to the software in use. 
+</code></pre>
+<p>After the two ways of checking, we can see <code>samtools</code> is not installed. To install,
+copy the code from anaconda and run</p>
+<pre><code class="language-bash">(myenv)lz@hpcc:~/test$ conda install -c bioconda samtools
+#Collecting package metadata (current_repodata.json): done
+#Solving environment: done
+#
+### Package Plan ##
+#  environment location: /rhome/lz/shared/le/py/myenv
+#
+#  added / updated specs:
+#    - samtools
+#
+#The following packages will be downloaded:
+#
+#    package                    |            build
+#    ---------------------------|-----------------
+#    c-ares-1.19.0              |       h5eee18b_0         118 KB
+#    ------------------------------------------------------------
+#                                           Total:         118 KB
+#
+#The following NEW packages will be INSTALLED:
+#
+#  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+#  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu 
+#  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h7b6447c_0 
+#  c-ares             pkgs/main/linux-64::c-ares-1.19.0-h5eee18b_0 
+#  ca-certificates    pkgs/main/linux-64::ca-certificates-2023.01.10-h06a4308_0 
+#  curl               pkgs/main/linux-64::curl-7.88.1-h5eee18b_0 
+#  krb5               pkgs/main/linux-64::krb5-1.19.4-h568e23c_0 
+#  libcurl            pkgs/main/linux-64::libcurl-7.88.1-h91b91d3_0 
+#  libedit            pkgs/main/linux-64::libedit-3.1.20221030-h5eee18b_0 
+#  libev              pkgs/main/linux-64::libev-4.33-h7f8727e_1 
+#  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1 
+#  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1 
+#  libnghttp2         pkgs/main/linux-64::libnghttp2-1.46.0-hce63b2e_0 
+#  libssh2            pkgs/main/linux-64::libssh2-1.10.0-h8f2d780_0 
+#  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1 
+#  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0 
+#  openssl            pkgs/main/linux-64::openssl-1.1.1t-h7f8727e_0 
+#  samtools           bioconda/linux-64::samtools-1.6-hb116620_7 
+#  xz                 pkgs/main/linux-64::xz-5.2.10-h5eee18b_1 
+#  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0 
+#
+#Proceed ([y]/n)? y
+#
+#Downloading and Extracting Packages
+#
+#Preparing transaction: done
+#Verifying transaction: done
+#Executing transaction: done
+#(myenv)lz@hpcc:~/test$ which samtools
+</code></pre>
+<p>When conda finishes installation, we can check again</p>
+<pre><code class="language-bash">(myenv)lz@hpcc:~/test$ which samtools
+#~/test/myenv/bin/samtools
+(myenv)lz@hpcc:~/test$ Rscript -e &quot;systemPipeR::tryCMD('samtools')&quot;
+#[1] &quot;All set up, proceed!&quot;
+</code></pre>
+<p>Both <code>which</code> command and <code>tryCMD</code> function return positive results.</p>
 <h2 id="work-with-rstudio">Work with Rstudio</h2>
 <p>Unfortunately, the free version of Rstudio does not provide support for running
 R from conda as of today (May, 2023). We would recommend using
@@ -1177,7 +1264,7 @@ installation of JupyterLab from conda can be found
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-17: <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/23bda5b34b41b48b0c60bd1a590b6672ae2db4eb">no_render conda instructions (23bda5b3)</a>
 </div>
 </div>
 
