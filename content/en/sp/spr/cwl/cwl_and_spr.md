@@ -6,19 +6,7 @@ type: docs
 weight: 2
 ---
 
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelector("h1").className = "title";
-});
-</script>
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  var links = document.links;  
-  for (var i = 0, linksLength = links.length; i < linksLength; i++)
-    if (links[i].hostname != window.location.hostname)
-      links[i].target = '_blank';
-});
-</script>
+
 
 
 
@@ -33,8 +21,8 @@ a set of input files with a single or many command-line steps within a workflow
 (i.e. several components of the software or several independent software tools). 
 The `SYSargsList` object is created and fully populated with the `SYSargsList` construct
 function. 
-Full documentation of `SYSargsList` management instances can be found [here](#sysargslist)
-and [here](#appendstep).
+Full documentation of `SYSargsList` management instances can be found [here](/sp/spr/introduction/#workflow-management-with-sysargslist)
+and [here](/sp/spr/sp_run/step_interactive/#adding-the-first-step).
 
 The following imports a `.cwl` file (here `example.cwl`) for running the `echo Hello World!` 
 example.

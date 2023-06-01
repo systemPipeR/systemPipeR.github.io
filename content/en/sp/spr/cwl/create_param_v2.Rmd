@@ -285,6 +285,11 @@ printParam2(cmd, raw_cmd = TRUE, all = FALSE)
 ```
 
 ### Rename a component
+Rename one or more input/argument name to another.
+```{r}
+cmd <- renameParam2(cmd, index = "ref_genome", new_names = "my_new_genome", position = "inputs")
+printParam2(cmd, inputs = TRUE,  all = FALSE)
+```
 
 ### Replace a single component
 Replace the new argument we just replaced for example:

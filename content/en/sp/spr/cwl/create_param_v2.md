@@ -567,7 +567,7 @@ cmd <- replaceParam2(cmd, new_cmd, index = "new_arg2", position = "args")
 ```
 
 ```
-## Param name new_arg2 exists, it will be renamed to: new_arg2_4dq
+## Param name new_arg2 exists, it will be renamed to: new_arg2_9uk
 ```
 
 ```r
@@ -580,6 +580,46 @@ printParam2(cmd, raw_cmd = TRUE, all = FALSE)
 ```
 
 ### Rename a component
+Rename one or more input/argument name to another.
+
+```r
+cmd <- renameParam2(cmd, index = "ref_genome", new_names = "my_new_genome", position = "inputs")
+printParam2(cmd, inputs = TRUE,  all = FALSE)
+```
+
+```
+## *****Inputs*****
+## s1:
+##     type: File
+##     prefix: -s
+##     default value: sample1.txt
+##     position: 1
+## s2:
+##     type: File
+##     prefix: -s
+##     default value: sample2.txt
+##     position: 2
+## o:
+##     type: File
+##     prefix: -o
+##     default value: myout.txt
+##     position: 4
+## my_new_genome:
+##     type: File
+##     prefix: 
+##     default value: a.fasta
+##     position: 5
+## nn:
+##     type: int
+##     prefix: --nn
+##     default value: 12
+##     position: 6
+## abc:
+##     type: string
+##     prefix: -abc
+##     default value: abc
+##     position: 7
+```
 
 ### Replace a single component
 Replace the new argument we just replaced for example:
@@ -622,7 +662,7 @@ printParam2(cmd, inputs = TRUE, raw_cmd = TRUE, all = FALSE)
 ##     prefix: -o
 ##     default value: myout.txt
 ##     position: 4
-## ref_genome:
+## my_new_genome:
 ##     type: File
 ##     prefix: 
 ##     default value: a.fasta
@@ -658,7 +698,7 @@ printParam2(cmd, all = FALSE, inputs = TRUE, raw_cmd = TRUE)
 ##     prefix: -o
 ##     default value: myout.txt
 ##     position: 4
-## ref_genome:
+## my_new_genome:
 ##     type: File
 ##     prefix: 
 ##     default value: a.fasta

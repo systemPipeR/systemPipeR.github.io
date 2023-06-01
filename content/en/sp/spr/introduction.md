@@ -101,7 +101,7 @@ prior to running a command-line.
 
 The `SYSargsList` S4 class is a list-like container that stores the paths to
 all input and output files along with the corresponding parameters used in each
-analysis step (see Figure <a href="#fig:sysargslistImage"><strong>??</strong></a>). `SYSargsList` instances are constructed from an
+analysis step (see Figure below). `SYSargsList` instances are constructed from an
 optional targets files, and two CWL parameter files including `*.cwl` and
 `*.yml` (for details, see below). When running preconfigured NGS workflows, the
 only input the user needs to provide is the initial targets file containing the
