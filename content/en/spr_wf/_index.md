@@ -31,7 +31,7 @@ For `stable` workflows, one can directly use following to create/check supported
 When you typed the wrong/unsupported workflow names, all possible workflows will be 
 listed. The table below also displays workflow template development status.
 
-```{r eval=FALSE}
+```r
 systemPipeRdata::genWorkflowEnv("")
 #> Error in systemPipeRdata::genWorkenvir("") : 
 #>  workflow can only be assigned one of: chipseq, new, riboseq, rnaseq, varseq, SPblast, SPcheminfo, SPscrna
@@ -47,7 +47,7 @@ systemPipeRdata::genWorkflowEnv("")
 | [SPvarseq](https://systempiper.github.io/SPvarseq/articles/SPvarseq.html) | VAR-Seq Workflow Template | ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg) | <a href="https://github.com/systemPipeR/SPvarseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
 | [SPscrnaseq](https://github.com/systemPipeR/SPscrnaseq) | Single-Cell RNA-Seq Workflow Template | ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg) | <a href="https://github.com/systemPipeR/SPscrnaseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> |
 | [SPblast](https://github.com/systemPipeR/SPblast) | BLAST Workflow Template | ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg) | <a href="https://github.com/systemPipeR/SPblast"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
-| [SPcheminfo]() | Basic drug discovery workflow | ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg) | <a href=""> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
+| [SPcheminfo](https://github.com/systemPipeR/SPcheminfo) | Basic drug discovery workflow | ![Stable](https://img.shields.io/badge/lifecycle-stable-green.svg) | <a href="https://github.com/systemPipeR/SPcheminfo"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
 | [SPmethylseq](https://github.com/systemPipeR/SPmethylseq) | Methyl-Seq Workflow Template | ![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg) | <a href="https://github.com/systemPipeR/SPmethylseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
 | [SPdenovo](https://github.com/systemPipeR/SPdenovo) | De novo transcriptome assembly Workflow Template | ![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg) | <a href="https://github.com/systemPipeR/SPdenovo"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
 | [SPclipseq](https://github.com/systemPipeR/SPclipseq) | CLIP-Seq Workflow Template | ![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg) | <a href="https://github.com/systemPipeR/SPclipseq"> <img src="https://raw.githubusercontent.com/systemPipeR/systemPipeR/gh-pages/images/GitHub-Mark-120px-plus.png" align="center" style="width:20px;" /> | 
@@ -59,5 +59,4 @@ systemPipeRdata::genWorkflowEnv("")
 
 
 
-### Reference
 
