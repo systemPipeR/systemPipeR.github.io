@@ -1,7 +1,7 @@
 ---
 title: "How to install systemPipe Workflows" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 12 April, 2021" 
+date: "Last update: 05 April, 2024" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -19,7 +19,7 @@ type: docs
 
 
 
-## Starting with pre-configured workflow templates
+## Starting with pre-configured stable workflow templates
 
 To test workflows quickly or design new ones from existing templates, users can
 generate with a single command workflow instances fully populated with sample data 
@@ -52,55 +52,71 @@ current availability, as follows:
 
 
 ```r
+availableWF()
+```
+
+```
+## Available Workflow Templates in systemPipeRdata:
+## Name         Description
+## ------------------------------------
+## chipseq      ChIP-seq
+## new          New Empty Workflow
+## riboseq      Ribosome Profiling
+## rnaseq       RNA-seq
+## SPblast      BLAST
+## SPcheminfo   Chemical Informatics
+## SPscrna      Single-cell RNA-seq
+## varseq       Variant Calling
+```
+
+
+In addition, one can check experimental workflows available in the Github 
+Organization [systemPipeR](https://github.com/systemPipeR) as follows:
+
+
+```r
 availableWF(github = TRUE)
 ```
 
 ```
-## $systemPipeRdata
-## [1] "chipseq" "new"     "riboseq" "rnaseq"  "varseq" 
-## 
-## $github
-##                  workflow                       branches version
-## 1   systemPipeR/SPchipseq                         master release
-## 2   systemPipeR/SPriboseq                         master release
-## 3    systemPipeR/SPrnaseq cluster, master, singleMachine release
-## 4    systemPipeR/SPvarseq                         master release
-## 5   systemPipeR/SPclipseq                         master   devel
-## 6    systemPipeR/SPdenovo                         master   devel
-## 7 systemPipeR/SPmetatrans                         master   devel
-## 8 systemPipeR/SPmethylseq                         master   devel
-## 9  systemPipeR/SPmirnaseq                         master   devel
-##                                         html       description
-## 1   https://github.com/systemPipeR/SPchipseq Workflow Template
-## 2   https://github.com/systemPipeR/SPriboseq Workflow Template
-## 3    https://github.com/systemPipeR/SPrnaseq Workflow Template
-## 4    https://github.com/systemPipeR/SPvarseq Workflow Template
-## 5   https://github.com/systemPipeR/SPclipseq Workflow Template
-## 6    https://github.com/systemPipeR/SPdenovo Workflow Template
-## 7 https://github.com/systemPipeR/SPmetatrans Workflow Template
-## 8 https://github.com/systemPipeR/SPmethylseq Workflow Template
-## 9  https://github.com/systemPipeR/SPmirnaseq Workflow Template
+## Checking templates in systemPipeR GitHub, please wait ...
+## Available Workflow Templates in systemPipeRdata:
+## Name         Description
+## ------------------------------------
+## chipseq      ChIP-seq
+## new          New Empty Workflow
+## riboseq      Ribosome Profiling
+## rnaseq       RNA-seq
+## SPblast      BLAST
+## SPcheminfo   Chemical Informatics
+## SPscrna      Single-cell RNA-seq
+## varseq       Variant Calling
+## Experimental Workflow Templates in systemPipeR GitHub Organization:
+##        Workflow                                     Download URL
+## 1     SPatacseq     https://github.com/systemPipeR/SPatacseq.git
+## 2     SPclipseq     https://github.com/systemPipeR/SPclipseq.git
+## 3      SPdenovo      https://github.com/systemPipeR/SPdenovo.git
+## 4         SPhic         https://github.com/systemPipeR/SPhic.git
+## 5   SPmetatrans   https://github.com/systemPipeR/SPmetatrans.git
+## 6   SPmethylseq   https://github.com/systemPipeR/SPmethylseq.git
+## 7    SPmirnaseq    https://github.com/systemPipeR/SPmirnaseq.git
+## 8 SPpolyriboseq https://github.com/systemPipeR/SPpolyriboseq.git
+## ------------------------------------
+## To install a workflow template from GitHub, use:
+## git clone <URL>
+## e.g. git clone https://github.com/systemPipeR/SPatacseq.git
 ```
 
-This function returns the list of workflow templates available within the package 
-and [systemPipeR Project Organization](https://github.com/systemPipeR) on GitHub. Each one 
-listed template can be created as described above. 
-
-The workflow template choose from Github will be installed as an R package, and 
-also it creates an environment with all the settings and files to run the demo analysis.
-
-
-```r
-genWorkenvir(workflow="systemPipeR/SPrnaseq", mydirname="NULL")
-setwd("systemPipeVARseq")
+Installation of experimental workflows can done by `git clone` the repository.
+```bash
+git clone <URL FROM THE TABLE ABOVE>
+cd <REPO_NAME>
 ```
 
-Besides, it is possible to choose different versions of the workflow template, 
-defined through other branches on the GitHub Repository. By default, the _`master`_ 
-branch is selected, however, it is possible to define a different branch with the _`ref`_ argument. 
-
+After the installation, start the SPR project as others.
 
 ```r
-genWorkenvir(workflow="systemPipeR/SPrnaseq", ref = "singleMachine")
-setwd("systemPipeRNAseq")
+library(systemPipeR)
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "workflow_name.Rmd")
 ```

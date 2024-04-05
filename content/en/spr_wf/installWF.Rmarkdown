@@ -23,7 +23,7 @@ suppressPackageStartupMessages({
 })
 ```
 
-## Starting with pre-configured workflow templates
+## Starting with pre-configured stable workflow templates
 
 To test workflows quickly or design new ones from existing templates, users can
 generate with a single command workflow instances fully populated with sample data 
@@ -53,26 +53,26 @@ A collection of workflow templates are available, and it is possible to browse t
 current availability, as follows:
 
 ```{r eval=TRUE, tidy=FALSE}
+availableWF()
+```
+
+
+In addition, one can check experimental workflows available in the Github 
+Organization [systemPipeR](https://github.com/systemPipeR) as follows:
+
+```{r eval=TRUE, tidy=FALSE}
 availableWF(github = TRUE)
 ```
 
-This function returns the list of workflow templates available within the package 
-and [systemPipeR Project Organization](https://github.com/systemPipeR) on GitHub. Each one 
-listed template can be created as described above. 
-
-The workflow template choose from Github will be installed as an R package, and 
-also it creates an environment with all the settings and files to run the demo analysis.
-
-```{r eval=FALSE, tidy=FALSE}
-genWorkenvir(workflow="systemPipeR/SPrnaseq", mydirname="NULL")
-setwd("systemPipeVARseq")
+Installation of experimental workflows can done by `git clone` the repository.
+```bash
+git clone <URL FROM THE TABLE ABOVE>
+cd <REPO_NAME>
 ```
 
-Besides, it is possible to choose different versions of the workflow template, 
-defined through other branches on the GitHub Repository. By default, the _`master`_ 
-branch is selected, however, it is possible to define a different branch with the _`ref`_ argument. 
-
+After the installation, start the SPR project as others.
 ```{r eval=FALSE, tidy=FALSE}
-genWorkenvir(workflow="systemPipeR/SPrnaseq", ref = "singleMachine")
-setwd("systemPipeRNAseq")
+library(systemPipeR)
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "workflow_name.Rmd")
 ```

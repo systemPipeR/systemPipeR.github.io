@@ -1,7 +1,7 @@
 ---
 title: "Rules to create a new Workflow Template" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 10 April, 2021" 
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -17,7 +17,11 @@ editor_options:
 type: docs
 ---
 
-
+```{r setup, echo=FALSE, message=FALSE, wwarning=FALSE, eval=TRUE}
+suppressPackageStartupMessages({
+  library("systemPipeRdata") 
+})
+```
 
 # How to create a new Workflow Template
 
@@ -27,8 +31,7 @@ type: docs
 
 To install `SPRthis` using from `BiocManager` the following code:
 
-
-```r
+```{r install_pkg, eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
   BiocManager::install("dcassol/SPRthis")
@@ -36,64 +39,11 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 
 ## Quick start to using to `SPRthis`
 
-
-```r
+```{r}
 ## Load the package
 library(SPRthis)
 ## create Package
 sprthis(wfName="SPRtest", analysis="SPRtest", path=tempdir())
-```
-
-```
-## ✓ Setting active project to '/tmp/RtmpWTh4tB'
-```
-
-```
-## ✓ Creating 'R/'
-```
-
-```
-## ✓ Writing 'DESCRIPTION'
-```
-
-```
-## Package: SPRtest
-## Title: SPRtest
-## Version: 0.9.0
-## Authors@R (parsed):
-##     * First Last <first.last@example.com> [aut, cre] (YOUR-ORCID-ID)
-## Description: This package provides a pre-configured workflow and reporting
-##     template for SPRtest.
-## License: Artistic-2.0
-## URL: https://github.com/systemPipeR/SPRtest
-## Imports:
-##     systemPipeR (>= 1.25.0)
-## Suggests:
-##     BiocStyle,
-##     knitr,
-##     rmarkdown
-## VignetteBuilder:
-##     knitr
-## biocViews: Infrastructure, ...
-## Encoding: UTF-8
-## LazyData: true
-## Roxygen: list(markdown = TRUE)
-## RoxygenNote: 7.1.1
-## SystemRequirements: SPRtest can be used to run external command-line
-##     software, but the corresponding tool needs to be installed on a
-##     system.
-```
-
-```
-## ✓ Writing 'NAMESPACE'
-```
-
-```
-## ✓ Setting active project to '<no active project>'
-```
-
-```
-## [1] "/tmp/RtmpWTh4tB"
 ```
 
 <pre>
@@ -134,15 +84,13 @@ SPRtest/
 
 Edit the `_pkgdown.yml` file and run:
 
-
-```r
+```{r, eval=FALSE}
 pkgdown::build_site() 
 ```
 
 ## Documentation with `roxygen2`
 
-
-```r
+```{r, eval=FALSE}
 roxygen2::roxygenise()
 ```
 
@@ -150,8 +98,7 @@ roxygen2::roxygenise()
 
 To test the code, you can run
 
-
-```r
+```{r, eval=FALSE}
 devtools::test()
 ```
 
@@ -173,36 +120,8 @@ please follow:
 A collection of workflow templates are available, and it is possible to browse the 
 current availability, as follows:
 
-
-```r
+```{r eval=TRUE, tidy=FALSE}
 systemPipeRdata::availableWF(github = TRUE)
-```
-
-```
-## $systemPipeRdata
-## [1] "chipseq" "new"     "riboseq" "rnaseq"  "varseq" 
-## 
-## $github
-##                  workflow                       branches version
-## 1   systemPipeR/SPchipseq                         master release
-## 2   systemPipeR/SPriboseq                         master release
-## 3    systemPipeR/SPrnaseq cluster, master, singleMachine release
-## 4    systemPipeR/SPvarseq                         master release
-## 5   systemPipeR/SPclipseq                         master   devel
-## 6    systemPipeR/SPdenovo                         master   devel
-## 7 systemPipeR/SPmetatrans                         master   devel
-## 8 systemPipeR/SPmethylseq                         master   devel
-## 9  systemPipeR/SPmirnaseq                         master   devel
-##                                         html       description
-## 1   https://github.com/systemPipeR/SPchipseq Workflow Template
-## 2   https://github.com/systemPipeR/SPriboseq Workflow Template
-## 3    https://github.com/systemPipeR/SPrnaseq Workflow Template
-## 4    https://github.com/systemPipeR/SPvarseq Workflow Template
-## 5   https://github.com/systemPipeR/SPclipseq Workflow Template
-## 6    https://github.com/systemPipeR/SPdenovo Workflow Template
-## 7 https://github.com/systemPipeR/SPmetatrans Workflow Template
-## 8 https://github.com/systemPipeR/SPmethylseq Workflow Template
-## 9  https://github.com/systemPipeR/SPmirnaseq Workflow Template
 ```
 
 This function returns the list of workflow templates available within the package 
