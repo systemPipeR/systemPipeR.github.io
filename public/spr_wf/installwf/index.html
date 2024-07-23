@@ -23,13 +23,13 @@ Load one of the available workflows into your current working directory. The fol
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/spr_wf/installwf/" /><meta property="article:section" content="spr_wf" />
 
-<meta property="article:modified_time" content="2021-04-12T11:56:01-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2024-04-05T16:09:45-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="How to install systemPipe Workflows">
 <meta itemprop="description" content="Starting with pre-configured stable workflow templates To test workflows quickly or design new ones from existing templates, users can generate with a single command workflow instances fully populated with sample data and parameter files required for running a chosen workflow.
 Load one of the available workflows into your current working directory. The following does this for the varseq workflow template. The name of the resulting workflow directory can be specified under the mydirname argument.">
-<meta itemprop="dateModified" content="2021-04-12T11:56:01-07:00" />
-<meta itemprop="wordCount" content="365">
+<meta itemprop="dateModified" content="2024-04-05T16:09:45-07:00" />
+<meta itemprop="wordCount" content="389">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to install systemPipe Workflows"/>
 <meta name="twitter:description" content="Starting with pre-configured stable workflow templates To test workflows quickly or design new ones from existing templates, users can generate with a single command workflow instances fully populated with sample data and parameter files required for running a chosen workflow.
@@ -521,7 +521,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.091a004a75e35948ab5e28b988c9f1f8.json"
+  data-offline-search-index-json-src="../../offline-search-index.40a8f8172a27a69e76e6d1200b81fadb.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -548,7 +548,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.091a004a75e35948ab5e28b988c9f1f8.json"
+  data-offline-search-index-json-src="../../offline-search-index.40a8f8172a27a69e76e6d1200b81fadb.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -647,12 +647,28 @@ workflow directory can be specified under the <em><code>mydirname</code></em> ar
 uses the name of the chosen workflow. An error is issued if a directory of the same
 name and path exists already.</p>
 <pre><code class="language-r">library(&quot;systemPipeRdata&quot;) 
-genWorkenvir(workflow=&quot;systemPipeR/SPvarseq&quot;, mydirname=NULL)
+genWorkenvir(workflow=&quot;varseq&quot;)
 setwd(&quot;varseq&quot;)
 </code></pre>
 <p>On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.</p>
-<pre><code class="language-bash">$ Rscript -e &quot;systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname=NULL)&quot;
+<pre><code class="language-bash">$ Rscript -e &quot;systemPipeRdata::genWorkenvir(workflow='varseq')&quot;
 </code></pre>
+<p>After the command above, the directory <em><code>varseq</code></em> will be created in the current working directory.
+The structure of the directory is as follows:</p>
+<pre>
+varseq/
+├── batchtools.slurm.tmpl
+├── bibtex.bib
+├── <span style = "color:blue">data</span>
+├── <span style = "color:blue">param</span>
+├── <span style = "color:blue">results</span>
+├── systemPipeVARseq.html
+├── systemPipeVARseq.R
+├── systemPipeVARseq.Rmd
+├── targetsPE.txt
+├── targetsPE_varseq.txt
+└── targets.txt
+</pre>
 <h2 id="check-availability-of-workflow-templates">Check availability of workflow templates</h2>
 <p>A collection of workflow templates are available, and it is possible to browse the
 current availability, as follows:</p>
@@ -696,10 +712,6 @@ Organization <a href="https://github.com/systemPipeR">systemPipeR</a> as follows
 ## 6   SPmethylseq   https://github.com/systemPipeR/SPmethylseq.git
 ## 7    SPmirnaseq    https://github.com/systemPipeR/SPmirnaseq.git
 ## 8 SPpolyriboseq https://github.com/systemPipeR/SPpolyriboseq.git
-## ------------------------------------
-## To install a workflow template from GitHub, use:
-## git clone &lt;URL&gt;
-## e.g. git clone https://github.com/systemPipeR/SPatacseq.git
 </code></pre>
 <p>Installation of experimental workflows can done by <code>git clone</code> the repository.</p>
 <pre><code class="language-bash">git clone &lt;URL FROM THE TABLE ABOVE&gt;
@@ -716,8 +728,8 @@ sal &lt;- importWF(sal, file_path = &quot;workflow_name.Rmd&quot;)
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    2021-04-12
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/3d323dc48d7fabb0fe59eaa0aea79b960753b673">Rmd transform (3d323dc4)</a>
+    2024-04-05
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5791cb38598f7d9a7fc93840eb2fca79c35ea43d">fix layout and links, no_render (5791cb38)</a>
 
 </div>
 

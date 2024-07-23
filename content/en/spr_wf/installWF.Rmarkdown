@@ -37,15 +37,33 @@ name and path exists already.
 
 ```{r generate_workenvir, eval=FALSE}
 library("systemPipeRdata") 
-genWorkenvir(workflow="systemPipeR/SPvarseq", mydirname=NULL)
+genWorkenvir(workflow="varseq")
 setwd("varseq")
 ```
 
 On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.
 
 ```{bash generate_workenvir_from_shell, eval=FALSE}
-$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname=NULL)"
+$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='varseq')"
 ```
+
+After the command above, the directory _`varseq`_ will be created in the current working directory.
+The structure of the directory is as follows:
+
+<pre>
+varseq/
+├── batchtools.slurm.tmpl
+├── bibtex.bib
+├── <span style = "color:blue">data</span>
+├── <span style = "color:blue">param</span>
+├── <span style = "color:blue">results</span>
+├── systemPipeVARseq.html
+├── systemPipeVARseq.R
+├── systemPipeVARseq.Rmd
+├── targetsPE.txt
+├── targetsPE_varseq.txt
+└── targets.txt
+</pre>
 
 ## Check availability of workflow templates 
 

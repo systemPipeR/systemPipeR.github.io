@@ -25,7 +25,7 @@ and cloud systems, while generating at the same time publication quality analysi
 
 [_`systemPipeRdata`_](https://github.com/tgirke/systemPipeRdata) is a helper package 
 to generate with a single command workflow templates that are intended to be 
-used by its parent package [_`systemPipeR`_](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html) [@H_Backman2016-bt]. 
+used by its parent package [_`systemPipeR`_](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html). 
 
 For `stable` workflows, one can directly use following to create/check supported workflows.
 When you typed the wrong/unsupported workflow names, all possible workflows will be 

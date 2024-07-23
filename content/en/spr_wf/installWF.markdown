@@ -1,7 +1,7 @@
 ---
 title: "How to install systemPipe Workflows" 
 author: "Author: Daniela Cassol (danicassol@gmail.com)"
-date: "Last update: 05 April, 2024" 
+date: "Last update: 22 July, 2024" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -32,18 +32,36 @@ uses the name of the chosen workflow. An error is issued if a directory of the s
 name and path exists already. 
 
 
-```r
+``` r
 library("systemPipeRdata") 
-genWorkenvir(workflow="systemPipeR/SPvarseq", mydirname=NULL)
+genWorkenvir(workflow="varseq")
 setwd("varseq")
 ```
 
 On Linux and OS X systems the same can be achieved from the command-line of a terminal with the following commands.
 
 
-```bash
-$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='systemPipeR/SPvarseq', mydirname=NULL)"
+``` bash
+$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='varseq')"
 ```
+
+After the command above, the directory _`varseq`_ will be created in the current working directory.
+The structure of the directory is as follows:
+
+<pre>
+varseq/
+├── batchtools.slurm.tmpl
+├── bibtex.bib
+├── <span style = "color:blue">data</span>
+├── <span style = "color:blue">param</span>
+├── <span style = "color:blue">results</span>
+├── systemPipeVARseq.html
+├── systemPipeVARseq.R
+├── systemPipeVARseq.Rmd
+├── targetsPE.txt
+├── targetsPE_varseq.txt
+└── targets.txt
+</pre>
 
 ## Check availability of workflow templates 
 
@@ -51,7 +69,7 @@ A collection of workflow templates are available, and it is possible to browse t
 current availability, as follows:
 
 
-```r
+``` r
 availableWF()
 ```
 
@@ -74,7 +92,7 @@ In addition, one can check experimental workflows available in the Github
 Organization [systemPipeR](https://github.com/systemPipeR) as follows:
 
 
-```r
+``` r
 availableWF(github = TRUE)
 ```
 
@@ -101,10 +119,6 @@ availableWF(github = TRUE)
 ## 6   SPmethylseq   https://github.com/systemPipeR/SPmethylseq.git
 ## 7    SPmirnaseq    https://github.com/systemPipeR/SPmirnaseq.git
 ## 8 SPpolyriboseq https://github.com/systemPipeR/SPpolyriboseq.git
-## ------------------------------------
-## To install a workflow template from GitHub, use:
-## git clone <URL>
-## e.g. git clone https://github.com/systemPipeR/SPatacseq.git
 ```
 
 Installation of experimental workflows can done by `git clone` the repository.
@@ -115,7 +129,7 @@ cd <REPO_NAME>
 
 After the installation, start the SPR project as others.
 
-```r
+``` r
 library(systemPipeR)
 sal <- SPRproject()
 sal <- importWF(sal, file_path = "workflow_name.Rmd")
