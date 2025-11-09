@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.99.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -24,13 +24,13 @@ suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir()
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sps/adv_features/debug/" /><meta property="article:section" content="sps" />
 
-<meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" /><meta property="og:site_name" content="sysPipe" />
+<meta property="article:modified_time" content="2024-07-22T18:04:43-07:00" /><meta property="og:site_name" content="sysPipe" />
 
 <meta itemprop="name" content="Debugging">
 <meta itemprop="description" content="There are some options in SPS that will give you more information and help you on debugging. They are: verbose and traceback. You can config (enable/disable) themin a SPS project&rsquo;s global.R file, or use spsOption(&quot;verbose&quot;, TRUE) and spsOption(&quot;traceback&quot;, TRUE) to turn on them.
 Some setup:
 suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir() spsInit(app_path = app_dir, overwrite = TRUE, change_wd = FALSE, open_files = FALSE) ## [SPS-INFO] 2021-04-16 17:46:53 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 17:46:53 Create project under /tmp/RtmpUfKCYR/SPS_20210416 ## [SPS-INFO] 2021-04-16 17:46:53 Now copy files ## [SPS-INFO] 2021-04-16 17:46:53 Create SPS database ## [SPS-INFO] 2021-04-16 17:46:53 Created SPS database method container ## [SPS-INFO] 2021-04-16 17:46:53 Creating SPS db.">
-<meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
+<meta itemprop="dateModified" content="2024-07-22T18:04:43-07:00" />
 <meta itemprop="wordCount" content="1806">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Debugging"/>
@@ -39,24 +39,11 @@ Some setup:
 suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir() spsInit(app_path = app_dir, overwrite = TRUE, change_wd = FALSE, open_files = FALSE) ## [SPS-INFO] 2021-04-16 17:46:53 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 17:46:53 Create project under /tmp/RtmpUfKCYR/SPS_20210416 ## [SPS-INFO] 2021-04-16 17:46:53 Now copy files ## [SPS-INFO] 2021-04-16 17:46:53 Create SPS database ## [SPS-INFO] 2021-04-16 17:46:53 Created SPS database method container ## [SPS-INFO] 2021-04-16 17:46:53 Creating SPS db."/>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
-
-
-
-<link rel="preload" href="../../../scss/main.min.957d988e396d495afa3156d4640b99742d961f39c79e92f8d152969969aa9ece.css" as="style">
-<link href="../../../scss/main.min.957d988e396d495afa3156d4640b99742d961f39c79e92f8d152969969aa9ece.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" as="style">
+<link href="../../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -111,44 +98,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
+					<a class="nav-link" href="https://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html" target="_blank" ><span>systemPipeR</span></a>
 				
 			</li>
 			
@@ -158,214 +108,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../sp/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/sp_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/cwl/cwl_syntax/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 CWL syntax
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/cwl/cwl_and_spr/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR and CWL
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/spt/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRTools
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spt/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Data Visualization
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/systempiperdata/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/newwf/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Rules
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPT GitHub
-              </a>
-          	
-          </div>
+					<a class="nav-link" href="https://bioconductor.org/packages/release/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html" target="_blank" ><span>systemPipeRdata</span></a>
 				
 			</li>
 			
@@ -414,95 +157,41 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../spr_wf"
+              <a class="dropdown-item" href="../../../about/team/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
+                 Our Team
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../spr_wf/installwf/"
+              <a class="dropdown-item" href="../../../about/publications/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 How to install Workflow
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../outreach/" id="navbarDropdown" role="button">
-          	Outreach
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../outreach/conferences/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Conferences
+                 Publications
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../outreach/presentations/"
+              <a class="dropdown-item" href="../../../about/acknowledgement/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
+                 Acknowledgement
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../outreach/videos/"
+              <a class="dropdown-item" href="../../../about/contact/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../news/release_3_13/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.13
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../news/release_3_12/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
+                 Contact
               </a>
           	
           </div>
@@ -524,7 +213,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.40a8f8172a27a69e76e6d1200b81fadb.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9ca8cf4744a6ecd46d5b3b6681a43784.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -551,7 +240,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.40a8f8172a27a69e76e6d1200b81fadb.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9ca8cf4744a6ecd46d5b3b6681a43784.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1005,8 +694,8 @@ for more details</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    2021-04-16
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5e9129ad29c8960356962ae697b286a451f6a7c2">update in progress (5e9129ad)</a>
+    2024-07-22
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/416f041c3d9f09bb0bd4520e3c931636fd05f0ce">fix: wf install page no_render (416f041)</a>
 
 </div>
 
@@ -1055,7 +744,7 @@ for more details</p>
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2024 The systemPipe Project All Rights Reserved</small>
+        <small class="text-white">&copy; 2025 The systemPipe Project All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
@@ -1128,7 +817,7 @@ MathJax.Hub.Config({
 
 
 
-<script src="../../../js/main.min.3b172c13b62c2bea8b1c9d2599cddc8cf89718a92d792c680871c81ba43d8c85.js" integrity="sha256-OxcsE7YsK&#43;qLHJ0lmc3cjPiXGKkteSxoCHHIG6Q9jIU=" crossorigin="anonymous"></script>
+<script src="../../../js/main.min.ed4d5ba6dd1e553488f282988ee384ef44608aeee43296d0ef373812eab68dc0.js" integrity="sha256-7U1bpt0eVTSI8oKYjuOE70Rgiu7kMpbQ7zc4Euq2jcA=" crossorigin="anonymous"></script>
 
 
 
