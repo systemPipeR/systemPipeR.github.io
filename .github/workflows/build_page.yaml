@@ -19,7 +19,7 @@ jobs:
   blogdown:
     name: build_and_push_to_gh_pages
     if: "contains(toJSON(github.event.commits.*.message), 'pg_build') && ! contains(toJSON(github.event.commits.*.message), 'no_render')"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -75,7 +75,7 @@ jobs:
   ph-pages:
     name: gh_pages_only
     if: "contains(toJSON(github.event.commits.*.message), 'no_render')"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Deploy
