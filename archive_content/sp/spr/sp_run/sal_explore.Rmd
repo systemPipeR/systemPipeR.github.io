@@ -1,0 +1,284 @@
+---
+title: "Explore workflow instances" 
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+vignette: |
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
+  %\VignetteEngine{knitr::rmarkdown}
+fontsize: 14pt
+editor_options: 
+  chunk_output_type: console
+type: docs
+weight: 5
+---
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
+```
+
+We have discussed about how to run/manage a workflow. There 
+are many useful methods (functions) of the `SYSargsList`. We have discussed some 
+of them in previous secions like, `appendStep`, `addResources`, and more. We 
+will be exploring them in details in this section. To get help quickly, use 
+`?\`SYSargsList-class\`` to call up the help files. 
+
+
+```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
+suppressPackageStartupMessages({
+    library(systemPipeR)
+})
+```
+
+We still use the [simple workflow](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md) to demonstrate.
+```{r collapse=TRUE}
+sal <- SPRproject()
+sal <- importWF(sal, file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"), verbose = FALSE)
+sal
+```
+
+
+## Accessor Methods
+
+_`systemPipeR`_ provide several accessor methods and useful functions to explore 
+`SYSargsList` workflow object.
+
+Several accessor methods are available that are named after the slot names of
+the `SYSargsList` workflow object.
+
+```{r }
+names(sal)
+```
+
+### Check the length of the workflow:
+
+```{r collapse=TRUE}
+length(sal)
+```
+
+### Extract all steps of the workflow in a list:
+
+```{r collapse=TRUE}
+stepsWF(sal)
+```
+
+### Checking the command-line for each target sample:
+
+`cmdlist()` method printing the system commands for running command-line
+software as specified by a given `*.cwl` file combined with the paths to the
+input samples (*e.g.* FASTQ files) provided by a `targets` file. The example below
+shows the `cmdlist()` output for running `gzip` and `gunzip` on the first sample. 
+Evaluating the output of `cmdlist()` can be very helpful for designing
+and debugging `*.cwl` files of new command-line software or changing the
+parameter settings of existing ones.
+
+```{r collapse=TRUE}
+cmdlist(sal, step = c(2,3), targets = 1)
+```
+
+### Check the workflow status:
+
+```{r collapse=TRUE}
+statusWF(sal)
+```
+
+### Check the workflow targets files:
+
+```{r collapse=TRUE}
+targetsWF(sal[2])
+```
+
+### Checking the expected outfiles files:
+
+The `outfiles` components of `SYSargsList` define the expected outfiles files 
+for each step in the workflow, some of which are the input for the next workflow step.
+
+```{r collapse=TRUE}
+outfiles(sal[2])
+```
+
+### Check the workflow dependencies:
+
+```{r collapse=TRUE}
+dependency(sal)
+```
+
+### Check the sample comparisons:
+
+Sample comparisons are defined in the header lines of the `targets` file 
+starting with '``# <CMP>``'. This information can be accessed as follows:
+
+```{r collapse=TRUE}
+targetsheader(sal, step = "gzip")
+```
+
+This demo workflow does not have any comparison groups, for a real analysis like 
+RNAseq or ChIPseq, comparisons can be defined in the header, like 
+[this file](https://raw.githubusercontent.com/tgirke/systemPipeR/master/inst/extdata/targetsPE.txt).
+
+### Get the workflow steps names: 
+
+```{r collapse=TRUE}
+stepName(sal)
+```
+
+### Get the Sample Id for on particular step:
+
+```{r collapse=TRUE}
+SampleName(sal, step = "gzip")
+SampleName(sal, step = "stats")
+```
+
+### Get the `outfiles` or `targets` column files: 
+
+```{r collapse=TRUE}
+getColumn(sal, "outfiles", step = "gzip", column = "gzip_file")
+getColumn(sal, "targetsWF", step = "gzip", column = "FileName")
+```
+
+### Get the R code for a `LineWise` step:
+
+```{r collapse=TRUE}
+codeLine(sal, step = "export_iris")
+```
+
+### View all the objects in the running environment:
+
+```{r collapse=TRUE}
+viewEnvir(sal)
+```
+
+### Copy one or multiple objects from the running environment to a new environment:
+
+```{r collapse=TRUE}
+copyEnvir(sal, list = c("plot"), new.env = globalenv(), silent = FALSE)
+```
+
+### Accessing the `*.yml` data
+
+```{r collapse=TRUE}
+yamlinput(sal, step = "gzip")
+```
+
+## Subsetting the workflow details
+
+### The `SYSargsList` class and its subsetting operator `[`:
+
+```{r collapse=TRUE}
+sal[1]
+sal[1:3]
+sal[c(1,3)]
+```
+
+or use a character vector
+
+```{r collapse=TRUE}
+sal[c("gzip", "stats")]
+```
+
+### The `SYSargsList` class and its subsetting by steps and input samples: 
+
+```{r collapse=TRUE}
+sal_sub <- subset(sal, subset_steps = c(3,4), input_targets = ("SE"), keep_steps = TRUE)
+stepsWF(sal_sub)
+targetsWF(sal_sub)
+outfiles(sal_sub)
+```
+
+In this way, we are only selecting sample `SE` to run in step 3 (gzip) and 4 (gunzip).
+Other samples in these steps are removed. 
+
+### The `SYSargsList` class and its operator `+`
+
+```{r collapse=TRUE}
+sal[1] + sal[2] + sal[3]
+```
+
+## Replacement Methods
+
+### Update a `input` parameter in the workflow
+
+```{r collapse=TRUE}
+sal_c <- sal
+## check values
+yamlinput(sal_c, step = "gzip")
+## check on command-line
+cmdlist(sal_c, step = "gzip", targets = 1)
+## Replace
+yamlinput(sal_c, step = "gzip", paramName = "ext") <- "txt.gz"
+
+## check NEW values
+yamlinput(sal_c, step = "gzip")
+## Check on command-line
+cmdlist(sal_c, step = "gzip", targets = 1)
+```
+
+Here you can see we replace the yaml input of `"ext"` from `"csv.gz"`
+to `"txt.gz"`, so the following rendered command is also changed. In this 
+way, we can easily tweak command-line parameters of a certain steps. For example,
+we are training a machine learning model, the results are not ideal and we wish to 
+increase the iteration numbers. Then we can use similar method above to change 
+the iteration parameter and next use `runWF(.., steps = "train_model", force = TRUE)`
+to only rerun this step instead of rebuilding the whole workflow and rerun all steps. 
+
+
+### Append and Replacement methods for R Code Steps
+
+```{r collapse=TRUE}
+appendCodeLine(sal_c, step = "export_iris", after = 1) <- "log_cal_100 <- log(100)"
+codeLine(sal_c, step = "export_iris")
+
+replaceCodeLine(sal_c, step="export_iris", line = 2) <- LineWise(code={
+                    log_cal_100 <- log(50)
+                    })
+codeLine(sal_c, step = 1)
+```
+
+
+
+### Rename a Step
+
+```{r collapse=TRUE}
+renameStep(sal_c, step = 1) <- "newStep"
+renameStep(sal_c, c(1, 2)) <- c("newStep2", "newIndex")
+sal_c
+names(outfiles(sal_c))
+names(targetsWF(sal_c))
+dependency(sal_c)
+```
+
+### Replace a Step
+
+```{r collapse=TRUE}
+sal_test <- sal[c(1,2)]
+replaceStep(sal_test, step = 1, step_name = "gunzip" ) <- sal[3]
+sal_test
+```
+
+Note: Please use this method with attention, because it can disrupt all 
+the dependency graphs. 
+
+### Removing a Step
+
+```{r collapse=TRUE}
+sal_test <- sal[-2]
+sal_test
+```
+
+
+
+## Session 
+```{r}
+sessionInfo()
+```
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
+```

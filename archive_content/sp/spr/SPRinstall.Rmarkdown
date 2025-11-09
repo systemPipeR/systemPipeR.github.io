@@ -1,0 +1,93 @@
+---
+title: "SPR detailed installation instructions" 
+author: "Author: Daniela Cassol (danicassol@gmail.com)"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+output:
+  BiocStyle::html_document:
+    toc_float: true
+    code_folding: show
+package: systemPipeR
+vignette: |
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{WF: Workflow Template}
+  %\VignetteEngine{knitr::rmarkdown}
+fontsize: 14pt
+bibliography: bibtex_install.bib
+editor_options: 
+  chunk_output_type: console
+type: docs
+weight: 8
+---
+
+```{css, echo=FALSE}
+pre code {
+white-space: pre !important;
+overflow-x: scroll !important;
+word-break: keep-all !important;
+word-wrap: initial !important;
+}
+```
+
+<!--
+- Compile from command-line
+Rscript -e "rmarkdown::render('SPRinstall.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('SPRinstall.Rmd', tangle=TRUE)"; Rscript -e "rmarkdown::render('SPRinstall.Rmd', c('BiocStyle::pdf_document'))"
+-->
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+options(width=60, max.print=1000)
+knitr::opts_chunk$set(
+    eval=as.logical(Sys.getenv("KNITR_EVAL", "TRUE")),
+    cache=as.logical(Sys.getenv("KNITR_CACHE", "TRUE")), 
+    tidy.opts=list(width.cutoff=60), tidy=TRUE)
+```
+
+```{r setup, echo=FALSE, message=FALSE, wwarning=FALSE, eval=FALSE}
+suppressPackageStartupMessages({
+  
+})
+```
+
+## `systemPipeR` Installation 
+
+To install the `systemPipeR` package [@H_Backman2016-bt], please use 
+the _`BiocManager::install`_ command:
+
+```{r spr_install, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("systemPipeR")
+```
+
+To obtain the most recent updates immediately, one can install it directly from
+[GitHub](https://github.com/tgirke/systemPipeR) as follow:
+
+```{r spr_install_gh, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("tgirke/systemPipeR", dependencies=TRUE)
+```
+
+## Third-party software tools in *`SPR`*
+
+Current, *systemPipeR* provides the _`param`_ file templates for third-party 
+software tools. Please check the listed software tools. 
+
+```{r table_tools, echo=FALSE, message=FALSE}
+library(magrittr)
+SPR_software <- system.file("extdata", "SPR_software.csv", package = "systemPipeR")
+software <- read.delim(SPR_software, sep = ",", comment.char = "#")
+colors <- colorRampPalette((c("darkseagreen", "indianred1")))(length(unique(software$Category)))
+id <- as.numeric(c((unique(software$Category))))
+software %>%
+  dplyr::mutate(Step = kableExtra::cell_spec(Step, color = "white", bold = TRUE,
+    background = factor(Category, id, colors)
+  )) %>%
+   dplyr::select(Tool, Description, Step) %>%
+  dplyr::arrange(Tool) %>% 
+  kableExtra::kable(escape = FALSE, align = "c", col.names = c("Tool Name",	"Description", "Step")) %>%
+  kableExtra::kable_styling(c("striped", "hover", "condensed"), full_width = TRUE) %>%
+  kableExtra::scroll_box(width = "100%", height = "500px")
+```
+
+## References

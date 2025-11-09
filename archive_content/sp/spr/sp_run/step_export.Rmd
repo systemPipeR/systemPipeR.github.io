@@ -1,0 +1,99 @@
+---
+title: "Export workflows" 
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+vignette: |
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
+  %\VignetteEngine{knitr::rmarkdown}
+fontsize: 14pt
+editor_options: 
+  chunk_output_type: console
+type: docs
+weight: 8
+---
+
+_`systemPipeR`_ workflow management system allows one to translate workflow into 
+**reproducible code** and export the 
+workflow build interactively to R Markdown template format or an executable bash script.
+This feature advances the reusability of the workflow, as well as the flexibility
+for workflow execution.
+
+
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
+try(unlink("spr_template.md", recursive = TRUE), TRUE)
+try(unlink("spr_template.Rmd", recursive = TRUE), TRUE)
+try(unlink("spr_bash", recursive = TRUE), TRUE)
+try(unlink("spr_wf.sh", recursive = TRUE), TRUE)
+```
+
+
+
+```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
+suppressPackageStartupMessages({
+    library(systemPipeR)
+})
+```
+
+We still use the [simple workflow](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md) to demonstrate.
+```{r collapse=TRUE}
+sal <- SPRproject()
+sal <- importWF(sal, file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"), verbose = FALSE)
+sal
+```
+
+## R Markdown file
+
+`sal2rmd` function takes an `SYSargsList` workflow container and translates it to 
+SPR workflow template R markdown format. This file can be imported with the 
+[`importWF` function](../step_import). This is very similar to the 
+[text-enriched report](../step_reports), but with all text removed. 
+
+```{r, collapse=TRUE}
+sal2rmd(sal)
+```
+
+
+## Bash script
+
+`sal2bash` function takes an `SYSargsList` workflow container and translates 
+it to an executable bash script, The benefit of this is that if the workflow is 
+only composed with command-line steps, no R step (LineWise) step in involved, then 
+one could generate the workflow on one computer and run in another computer without 
+installing SPR or R at all. 
+
+```{r, collapse=TRUE}
+sal2bash(sal)
+```
+
+It will be generated on the project root an executable bash script, called by
+default the `spr_wf.sh`. Also, a directory `./spr_wf` will be created and store 
+all the R scripts based on the workflow steps. Please note that this function will 
+"collapse" adjacent R steps into one file as much as possible.
+
+```{r}
+fs::dir_tree("spr_bash")
+```
+
+
+# Session 
+```{r}
+sessionInfo()
+```
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
+try(unlink("spr_template.Rmd", recursive = TRUE), TRUE)
+try(unlink("spr_template.md", recursive = TRUE), TRUE)
+try(unlink("spr_bash", recursive = TRUE), TRUE)
+try(unlink("spr_wf.sh", recursive = TRUE), TRUE)
+```

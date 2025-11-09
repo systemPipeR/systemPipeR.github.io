@@ -8,7 +8,7 @@ package: systemPipeR
 ---
 
 {{% pageinfo %}}
-[systemPipeR{blk}](https://systempipe.org/sp/) and [systemPipeShiny{blk}](https://systempipe.org/sps/) full documentation!
+[systemPipeR{blk}](https://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html) and [systemPipeShiny{blk}](https://systempipe.org/sps/) full documentation!
 {{% /pageinfo %}}
 
 systemPipe (SP) is a generic toolkit for designing and running reproducible data 
@@ -20,11 +20,9 @@ as R/Bioconductor packages.
 - _systemPipeR_ (SPR) provides core functionalities for defining workflows, 
 interacting with command-line software, and executing both R and/or command-line 
 software, as well as generating publication-quality analysis reports. 
-
+- _systemPipeData_ (SPRdata) offers a collection of pre-configured workflow templates.
 - _systemPipeShiny_ (SPS) integrates a graphical user interface for managing 
 workflows and visualizing results interactively. 
-
-- _systemPipeWorkflow_ (SPW) offers a collection of pre-configured workflow templates.
 
  ### Availability
 

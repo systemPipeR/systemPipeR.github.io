@@ -1,0 +1,474 @@
+---
+title: "Run/manage workflows" 
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+vignette: |
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{systemPipeR: Workflow design and reporting generation environment}
+  %\VignetteEngine{knitr::rmarkdown}
+fontsize: 14pt
+editor_options: 
+  chunk_output_type: console
+type: docs
+weight: 3
+---
+
+```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
+suppressPackageStartupMessages({
+    library(systemPipeR)
+})
+```
+
+Until this point, you have learned how to create a SPR workflow [interactively](../step_interactive) or 
+use a template to [import/update](../step_import) the workflow. Next, we will 
+learn how to run the workflow and manage the workflow.
+
+
+First let's set up the workflow using the example workflow template. For real 
+production purposes, we recommend you to check out the complex templates over [here](/spr_wf/).
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
+```
+
+For demonstration purposes here, we still use the [simple workflow](https://raw.githubusercontent.com/systemPipeR/systemPipeR.github.io/main/static/en/sp/spr/sp_run/spr_simple_wf.md).
+```{r}
+sal <- SPRproject()
+sal <- importWF(sal, file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"))
+sal
+```
+
+## Before running
+It is good to check if the command-line tools are installed before running 
+the workflow. There are a few ways in SPR to find out the tool information. We 
+will discuss different utilities below. 
+
+### List/check all tools and modules 
+There are two functions, `listCmdTools`, `listCmdModules` in SPR that 
+are designed to list/check if required tools/modules are installed. The input of
+these two functions is the `SYSargsList` workflow object, and it will list all 
+the tools/modules required by the workflow as a dataframe by default. 
+
+```{r}
+listCmdTools(sal)
+```
+
+However, if no modular system is installed, it will just print out a warning message. 
+
+```{r}
+listCmdModules(sal)
+```
+
+If `check_path = TRUE` is used for `listCmdTools`, in addition, this function will 
+try to check if the listed tools are in PATH (callable), and fill the results in 
+the third column instead of using `NA`. 
+
+```{r}
+listCmdTools(sal, check_path = TRUE)
+```
+
+The same thing applies for the `listCmdModules(sal, check_module = TRUE)`. The 
+module availability is checked when `TRUE`. The machine we use to render the 
+document does not have a modular system installed, so the result is not displayed. 
+Try following if modular system is accessiable. 
+
+```{r eval=FALSE}
+listCmdModules(sal, check_module = TRUE)
+```
+
+The `listCmdTools` function also has the `check_module` argument. That means,
+when it is `TRUE`, it will also perform the `listCmdModules` check. However, please
+note, even if `check_module = TRUE`, `listCmdTools` will always return the 
+check results for tools but not for modules. 
+
+#### Tool check in `importWF`
+The easiest way to use two functions mentioned above is through `importWF`. As 
+you may have noticed, at the end of the import, tool check and module check is 
+automatically performed for the users, as shown in the screenshot below. The only 
+difference is the return of `importWF` is the `SYSargsList` object, but the 
+return of `listCmdTools` or `listCmdModules` is an invisible dataframe. 
+
+![](../listCmdTools.png)
+
+### Check single tool
+`listCmdTools` and `listCmdModules` check tools in a batch, and can only check 
+for tools required for current workflow. If you have a tool of interest but is 
+not listed in your workflow, following functions will be helpful. Or, in some 
+other cases, one would like to know the tool/module used in a certain step. 
+
+#### Single tool/module in a workflow  
+There a few access functions in SPR list tool/modules of a certain step. 
+
+```{r}
+# list tool of a step
+baseCommand(stepsWF(sal)[[3]])
+# list a module of a step
+modules(stepsWF(sal)[[3]])
+```
+
+There is no module required for this simple workflow, please see the screenshot 
+of a complex RNAseq example below: 
+
+![](../module_list_rnaseq.png)
+
+#### Generic tools
+For any other generic tools that may not be in a workflow, `tryCMD` can be used 
+to check if a command-line tool is installed in the PATH. 
+```{r}
+tryCMD(command="R") 
+tryCMD(command="hisat2") 
+tryCMD(command="blastp") 
+```
+
+In examples above, installed tools will have a message `"All set up, proceed!"`, 
+and not installed tool will have an error message, like the `blastp` example above. 
+
+If you see the error message: 
+
+1. Check if the tool is really installed, by typing the same command from a terminal.
+   If you cannot call it even from a terminal, you need to (re)install.
+2. If the tool is available in terminal but you see the error message in `tryCMD`.
+   It is mostly likely due to the path problem. Make sure you 
+   [export the path](https://askubuntu.com/questions/720678/what-does-export-path-somethingpath-mean).
+   Or try to use following to set it up in R:
+    ```{r eval=FALSE}
+    old_path <- Sys.getenv("PATH")
+    Sys.setenv(PATH = paste(old_path, "path/to/tool_directory", sep = ":"))
+    ```
+   
+#### Generic modules
+For any other generic modules that may not be in a workflow, the `module` function
+group will be helpful. This part requires the modular system installed in 
+current OS. Usually this is  done by the admins of HPCC. Read more about
+[modules{blk}](https://modules.sourceforge.net/).
+
+This group of functions not only has utility to check the presence of certain modules,
+but also can perform other module operations, such as load/unload modules, or 
+list all currently loaded modules, etc. See more details in 
+help file `?module`, or [here](https://systempipe.org/spr/funcs/spr/reference/moduleload.html).
+
+```{r eval=FALSE}
+module(action_type, module_name = NULL)
+moduleload(module_name)
+moduleUnload(module_name)
+modulelist()
+moduleAvail()
+moduleClear()
+moduleInit()
+```
+
+> Every modular system will be specialized to fit the needs of a given computing 
+> cluster. Therefore, there is a chance functions above will not work in your 
+> particular system. If so, please contact your system admins for a solution,
+> load the PATH of required tools using other methods, and check the PATH as 
+> mentioned above. 
+
+
+## Start running 
+To run the workflow, call the `runWF` function which will execute all steps in the workflow container.
+
+```{r runWF, eval=TRUE}
+sal <- runWF(sal)
+sal
+```
+
+
+![](../runwf.png)
+
+We can see the workflow status changed from `pending` to `Success`
+
+## Run selected steps
+This function allows the user to choose one or multiple steps to be 
+executed using the `steps` argument. However, it is necessary to follow the 
+workflow dependency graph. If a selected step depends on a previous step(s) that
+was not executed, the execution will fail. 
+
+```{r runWF_error, eval=TRUE}
+sal <- runWF(sal, steps = c(1,3))
+```
+
+
+We do not see any problem here because we have finished the entire workflow 
+running previously. So all depedency satisfies. Let's clean the workflow and 
+start from scratch to see what will happen if one or more depedency is not 
+met and we are trying to run some selected steps.
+
+```{r error=F}
+sal <- SPRproject(overwrite = TRUE)
+sal <- importWF(sal, file_path = system.file("extdata", "spr_simple_wf.Rmd", package = "systemPipeR"))
+sal
+sal <- runWF(sal, steps = c(1,3))
+```
+
+We can see the workflow step 3 is not run because of the dependency problem:
+> ## export_iris
+> ## have been not executed yet.
+
+## optional steps
+By default all steps are `'mandatory'`, but you can change it to `'optional'`
+```{r eval=FALSE}
+SYSargsList(..., run_step = 'optional')
+# or
+LineWise(..., run_step = 'optional')
+```
+
+When workflow is run by `runWF`, default will run all steps `'ALL'`, but you can 
+choose to only run mandatory steps `'mandatory'` or optional steps `'optional'`.
+```{r eval=FALSE}
+# default 
+sal <- runWF(sal, run_step = "ALL")
+# only mandatory
+sal <- runWF(sal, run_step = "mandatory")
+# only optional
+sal <- runWF(sal, run_step = "optional")
+```
+
+## Force to run steps
+- Forcing the execution of the steps, even if the status of the 
+  step is `'Success'` and all the expected `outfiles` exists.
+    ```{r eval=FALSE}
+    sal <- runWF(sal, force = TRUE, ... = )
+    ```
+
+- Another feature of the `runWF` function is ignoring all the warnings 
+  and errors and running the workflow by the arguments `warning.stop` and 
+  `error.stop`, respectively.
+    ```{r eval=FALSE}
+    sal <- runWF(sal, warning.stop = FALSE, error.stop = TRUE, ...)
+    ```
+
+- To force the step to run without checking the dependency, we can use 
+  `ignore.dep = TRUE`. For example, let's run the step 3 that could not 
+  be run because of dependency problem. 
+  
+```{r include=FALSE}
+try(unlink("results", recursive = TRUE), TRUE)
+try(dir.create("results", recursive = TRUE), TRUE)
+```
+  
+    ```{r eval=TRUE, error=TRUE}
+    sal <- runWF(sal, steps = 3, ignore.dep = TRUE)
+    ```
+  We can see the workflow failed, because required files from step 2 are missing 
+  and we jumped directly to step 3. Therefore, skip dependency is possible in 
+  SPR but **not recommended**.
+  
+## Workflow envirnment 
+
+When the project was initialized by `SPRproject` function, it was created an 
+environment for all object to store during the workflow preprocess code execution or 
+`Linewise` R code execution. This environment can be accessed as follows:
+
+```{r eval=TRUE, include=FALSE}
+sal <- runWF(sal)
+```
+
+```{r runWF_env, eval=TRUE}
+viewEnvir(sal)
+```
+
+We can see there are `"df"`, `"plot"`, `"stats"` 3 objects, and they are created 
+during the step 5 `Linewise` code execution.  To access these variables 
+interactive from your global environment, use `copyEnvir` method. 
+
+```{r collapse=TRUE}
+copyEnvir(sal, c("df", "plot"))
+exists("df", envir = globalenv())
+exists("plot", envir = globalenv())
+```
+
+Now we see, they are in our global enviornment, and we are free to do other operations 
+on them. 
+
+### Save envirnment
+The workflow execution allows to save this environment for future recovery:
+
+```{r runWF_saveenv, eval=FALSE}
+sal <- runWF(sal, saveEnv = TRUE)
+```
+
+> Depending on what variable you have saved in the enviorment, it can become 
+> expensive (take much space and slow to load back in resume). 
+
+## Parallelization on clusters
+
+This section of the tutorial provides an introduction to the usage of the 
+_`systemPipeR`_ features on a cluster.
+
+So far, all workflow steps are run in the same computer as we manage the workflow 
+instance. This is called running in the `management` session. 
+Alternatively, the computation can be greatly accelerated by processing many files 
+in parallel using several compute nodes of a cluster, where a scheduling/queuing
+system is used for load balancing. This is called running in the `compute` session.
+The behavior controlled by the `run_session` argument in `SYSargsList`.
+
+```{r eval=FALSE}
+SYSargsList(..., run_session = "management")
+# or 
+SYSargsList(..., run_session = "compute")
+```
+
+By default, all steps are run on `"management"`, and we can change it to use 
+`"compute"`. However, simply change the value will not work, we also couple with 
+computing resources (see below for what is 'resources'). The resources need to 
+be appended to the step by `run_remote_resources` argument.
+
+```{r eval=FALSE}
+SYSargsList(..., run_session = "compute", run_remote_resources = list(...))
+```
+
+This is how to config the running session for each step, but generally we can 
+use a more convenient method `addResources` to add resources (continue reading below). 
+
+### Resources
+Resources here refer to computer resources, like CPU, RAM, time limit, _etc._
+The `resources` list object provides the number of independent parallel cluster 
+processes defined under the `Njobs` element in the list. The following example 
+will run 18 processes in parallel using each 4 CPU cores on a slurm scheduler.
+If the resources available on a cluster allow running all 18 processes at the 
+same time, then the shown sample submission will utilize in a total of 72 CPU cores.
+
+Note, `runWF` can be used with most queueing systems as it is based on utilities 
+from the `batchtools` package, which supports the use of template files (_`*.tmpl`_)
+for defining the run parameters of different schedulers. To run the following 
+code, one needs to have both a `conffile` (see _`.batchtools.conf.R`_ samples [here](https://mllg.github.io/batchtools/)) 
+and a `template` file (see _`*.tmpl`_ samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates)) 
+for the queueing available on a system. The following example uses the sample 
+`conffile` and `template` files for the Slurm scheduler provided by this package. 
+
+The resources can be appended when the step is generated, or it is possible to 
+add these resources later, as the following example using the `addResources` 
+function:
+
+Before adding resources
+```{r collapse=TRUE}
+runInfo(sal)[['runOption']][['gzip']]
+```
+
+
+```{r runWF_cluster, eval=TRUE}
+resources <- list(conffile=".batchtools.conf.R",
+                  template="batchtools.slurm.tmpl", 
+                  Njobs=18, 
+                  walltime=120,##minutes
+                  ntasks=1,
+                  ncpus=4, 
+                  memory=1024,##Mb
+                  partition = "short"# a compute node called 'short'
+                  )
+sal <- addResources(sal, c("gzip"), resources = resources)
+```
+
+After adding resources
+```{r collapse=TRUE}
+runInfo(sal)[['runOption']][['gzip']]
+```
+
+You can see the step option is automatically replaced from 'management' to 'compute'.
+
+
+## Workflow status
+
+To check the summary of the workflow, we can use:
+
+```{r show_statusWF, eval=TRUE, collapse=TRUE}
+sal
+```
+
+To access more details about the workflow instances, we can use the `statusWF` method:
+
+```{r statusWF, eval=TRUE, collapse=TRUE}
+statusWF(sal)
+```
+
+To access the options of each workflow step, for example, whether it is mandatory step
+or optional step, where it stored in the template, where to run the step, _etc_., 
+we can use the `runInfo` function to check.
+
+```{r collapse=TRUE, collapse=TRUE}
+runInfo(sal)
+```
+
+## Visualize workflow
+
+_`systemPipeR`_ workflows instances can be visualized with the `plotWF` function.
+
+This function will make a plot of selected workflow instance and the following 
+information is displayed on the plot:
+
+    - Workflow structure (dependency graphs between different steps); 
+    - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`; 
+    - Sample status and statistics; 
+    - Workflow timing: running duration time. 
+
+If no argument is provided, the basic plot will automatically detect width, 
+height, layout, plot method, branches, _etc_. 
+
+```{r, eval=TRUE}
+plotWF(sal, width = "80%", rstudio = TRUE)
+```
+
+We will discuss a lot more advanced use of `plotWF` function in the next section.
+
+## High-level project control
+
+If you desire to resume or restart a project that has been initialized in the past, 
+`SPRproject` function allows this operation.
+
+**Resume**
+
+With the `resume` option, it is possible to load the `SYSargsList` object in R and 
+resume the analysis. Please, make sure to provide the `logs.dir` location, and the 
+corresponded `YAML` file name, if the default names were not used when the project was created.
+
+```{r SPR_resume, eval=FALSE}
+sal <- SPRproject(resume = TRUE, logs.dir = ".SPRproject", 
+                  sys.file = ".SPRproject/SYSargsList.yml") 
+```
+
+If you choose to save the environment in the last analysis, you can recover all 
+the files created in that particular section. `SPRproject` function allows this 
+with `load.envir` argument. Please note that the environment was saved only with
+you run the workflow in the last section (`runWF()`).
+
+```{r resume_load, eval=FALSE}
+sal <- SPRproject(resume = TRUE, load.envir = TRUE) 
+```
+
+**Restart**
+
+The `resume` option will keep all previous logs in the folder; however, if you desire to 
+clean the execution (delete all the log files) history and restart the workflow, 
+the `restart=TRUE` option can be used.
+
+```{r restart_load, eval=FALSE}
+sal <- SPRproject(restart = TRUE, load.envir = FALSE) 
+```
+
+**Overwrite**
+
+The last and more drastic option from `SYSproject` function is to `overwrite` the
+logs and the `SYSargsList` object. This option will delete the hidden folder and the 
+information on the `SYSargsList.yml` file. This will not delete any parameter
+file nor any results it was created in previous runs. Please use with caution. 
+
+```{r SPR_overwrite, eval=FALSE}
+sal <- SPRproject(overwrite = TRUE) 
+```
+
+
+## Session 
+```{r}
+sessionInfo()
+```
+
+```{r eval=TRUE, include=FALSE}
+# cleaning
+try(unlink(".SPRproject", recursive = TRUE), TRUE)
+try(unlink("data", recursive = TRUE), TRUE)
+try(unlink("results", recursive = TRUE), TRUE)
+try(unlink("param", recursive = TRUE), TRUE)
+```
