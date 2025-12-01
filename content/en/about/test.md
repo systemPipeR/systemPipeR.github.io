@@ -3,7 +3,7 @@ title: "test"
 linkTitle: "test"
 type: docs
 description: >
-weight: 5
+weight: 6
 exclude_search: true
 ---
 
