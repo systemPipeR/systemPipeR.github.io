@@ -26,8 +26,8 @@ hugo --verbose --cleanDestinationDir # build site. This creates rendered html fi
 cp .nojekyll public
 git add . # needs to be done to account for changes in `public/`
 git commit -am "no_render" # tell github action not to render. 
-git push origin main
-git push origin `git subtree split --prefix public`:gh-pages --force # use only to resolve possible error in push
+git push origin main # next wait until this fully completed on github actions, see here: https://github.com/systemPipeR/systemPipeR.github.io/actions
+git push origin `git subtree split --prefix public`:gh-pages --force 
 # git subtree push --prefix public origin gh-pages # alternative not used
 
 
