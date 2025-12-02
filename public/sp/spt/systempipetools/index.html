@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.111.3"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -18,39 +18,25 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Data Visualizations | sysPipe</title><meta property="og:title" content="Data Visualizations" />
-<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)." />
+<meta property="og:description" content="Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs). systemPipeTools provides functions for data transformation and data exploration via scatterplots, hierarchical clustering heatMaps, principal component analysis, multidimensional scaling, generalized principal components, t-Distributed Stochastic Neighbor embedding (t-SNE), and MA and volcano plots. All these utilities can be integrated with the modular design of the systemPipeR environment that allows users to easily substitute any of these features and/or custom with alternatives." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/sp/spt/systempipetools/" /><meta property="article:section" content="sp" />
 
 <meta property="article:modified_time" content="2021-05-05T18:04:36-07:00" /><meta property="og:site_name" content="sysPipe" />
-
 <meta itemprop="name" content="Data Visualizations">
-<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs).">
+<meta itemprop="description" content="Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs). systemPipeTools provides functions for data transformation and data exploration via scatterplots, hierarchical clustering heatMaps, principal component analysis, multidimensional scaling, generalized principal components, t-Distributed Stochastic Neighbor embedding (t-SNE), and MA and volcano plots. All these utilities can be integrated with the modular design of the systemPipeR environment that allows users to easily substitute any of these features and/or custom with alternatives.">
 <meta itemprop="dateModified" content="2021-05-05T18:04:36-07:00" />
-<meta itemprop="wordCount" content="1454">
+<meta itemprop="wordCount" content="1388">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Visualizations"/>
-<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs)."/>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-158796879-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="twitter:description" content="Data Visualization with systemPipeR systemPipeTools package extends the widely used systemPipeR (SPR) (H Backman and Girke 2016) workflow environment with enhanced toolkit for data visualization, including utilities to automate the analysis of differentially expressed genes (DEGs). systemPipeTools provides functions for data transformation and data exploration via scatterplots, hierarchical clustering heatMaps, principal component analysis, multidimensional scaling, generalized principal components, t-Distributed Stochastic Neighbor embedding (t-SNE), and MA and volcano plots. All these utilities can be integrated with the modular design of the systemPipeR environment that allows users to easily substitute any of these features and/or custom with alternatives."/>
 
 
 
 
 
-
-<link rel="preload" href="../../../scss/main.min.957d988e396d495afa3156d4640b99742d961f39c79e92f8d152969969aa9ece.css" as="style">
-<link href="../../../scss/main.min.957d988e396d495afa3156d4640b99742d961f39c79e92f8d152969969aa9ece.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" as="style">
+<link href="../../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -105,44 +91,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
-          	About
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/team/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Our Team
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/publications/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Publications
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/acknowledgement/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Acknowledgement
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../about/contact/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Contact
-              </a>
-          	
-          </div>
+					<a class="nav-link" href="https://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html" target="_blank" ><span>systemPipeR</span></a>
 				
 			</li>
 			
@@ -152,214 +101,7 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../sp/" id="navbarDropdown" role="button">
-          	systemPipeR
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeR Package
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/introduction/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Introduction
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/gettingstarted/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Getting Started
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/sp_run/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 How to run a Workflow
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/steps/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow steps overview
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/templates/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Workflow Templates
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/cwl/cwl_syntax/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 CWL syntax
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/cwl/cwl_and_spr/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR and CWL
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/sprinstall/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR detailed installation
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spr/spr_funcs/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Reference Manual
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/spt/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRTools
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/spt/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Data Visualization
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 systemPipeRdata
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/systempiperdata/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Vignette
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="../../../sp/sprdata/newwf/"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 Rules
-              </a>
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../spr/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Links
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeR"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPR GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="http://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata Bioconductor
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeRdata"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPRdata GitHub
-              </a>
-          	
-          	  
-              
-                
-              
-              
-              <a class="dropdown-item" href="https://github.com/tgirke/systemPipeTools"
-              style="padding-left: 2rem; font-weight: calc(3/4*500)">
-                 SPT GitHub
-              </a>
-          	
-          </div>
+					<a class="nav-link" href="https://bioconductor.org/packages/release/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html" target="_blank" ><span>systemPipeRdata</span></a>
 				
 			</li>
 			
@@ -408,95 +150,49 @@ if (!doNotTrack) {
 				
 				
 				
-          <a class="nav-link dropdown-toggle" href="../../../spr_wf" id="navbarDropdown" role="button">
-          	Workflows
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../spr_wf"
+              <a class="dropdown-item" href="../../../about/team/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Collection
+                 Our Team
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../spr_wf/installwf/"
+              <a class="dropdown-item" href="../../../about/publications/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 How to install Workflow
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../outreach/" id="navbarDropdown" role="button">
-          	Outreach
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../outreach/conferences/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Conferences
+                 Publications
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../outreach/presentations/"
+              <a class="dropdown-item" href="../../../about/acknowledgement/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Presentations
+                 Acknowledgement
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../outreach/videos/"
+              <a class="dropdown-item" href="../../../about/contact/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Videos Tutorials
-              </a>
-          	
-          </div>
-				
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
-				
-				
-				
-				
-				
-          <a class="nav-link dropdown-toggle" href="../../../news/" id="navbarDropdown" role="button">
-          	News
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          	
-          	  
-              
-              
-              <a class="dropdown-item" href="../../../news/release_3_13/"
-              style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.13
+                 Contact
               </a>
           	
           	  
               
               
-              <a class="dropdown-item" href="../../../news/release_3_12/"
+              <a class="dropdown-item" href="../../../about/test/"
               style="padding-left: 1rem; font-weight: calc(3/3*500)">
-                 Bioconductor 3.12
+                 test
               </a>
           	
           </div>
@@ -518,7 +214,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.40a8f8172a27a69e76e6d1200b81fadb.json"
+  data-offline-search-index-json-src="../../../offline-search-index.af853a37fc4ff9efcec02b8576a58072.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -545,7 +241,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.40a8f8172a27a69e76e6d1200b81fadb.json"
+  data-offline-search-index-json-src="../../../offline-search-index.af853a37fc4ff9efcec02b8576a58072.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -621,7 +317,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-spspt-li">
   <a href="../../../sp/spt/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-spspt"><span class="">systemPipeTools</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-spsptsystempipetools-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-spsptsystempipetools-li">
   <a href="../../../sp/spt/systempipetools/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-spsptsystempipetools"><span class="td-sidebar-nav-active-item">Data Visualizations</span></a>
 </li>
   </ul>
@@ -836,7 +532,7 @@ comparing two samples or a grid of all samples, as follows:</p>
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/exploreDDSplot-1.png" width="672" />
 <p>The scatterplots are created using the log2 transform normalized reads count,
 variance stabilizing transformation (VST) (Anders and Huber (2010)), and
 regularized-logarithm transformation or <code>rlog</code> (Love, Huber, and Anders (2014)).</p>
@@ -847,7 +543,7 @@ distance matrix, hierarchical clustering is performed with the <code>stats::hclu
 function and the result is plotted as a dendrogram, as follows:</p>
 <pre><code class="language-r">hclustplot(exploredds, method = &quot;spearman&quot;)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/hclustplot-1.png" width="672" />
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="hierarchical-clustering-heatmap">Hierarchical Clustering HeatMap</h2>
 <p>This function performs hierarchical clustering on the transformed expression
@@ -868,11 +564,11 @@ degseqDF &lt;- systemPipeR::run_DESeq2(countDF = countMatrix, targets = targets,
     independent = FALSE)
 DEG_list &lt;- systemPipeR::filterDEGs(degDF = degseqDF, filter = c(Fold = 2, FDR = 10))
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-1.png" width="672" />
 <pre><code class="language-r">### Plot
 heatMaplot(exploredds, clust = &quot;ind&quot;, DEGlist = unique(as.character(unlist(DEG_list[[1]]))))
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/heatMaplot_DEG-2.png" width="672" />
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="principal-component-analysis">Principal Component Analysis</h2>
 <p>This function plots a Principal Component Analysis (PCA) from transformed expression
@@ -880,7 +576,7 @@ matrix. This plot shows samples variation based on the expression values and
 identifies batch effects.</p>
 <pre><code class="language-r">PCAplot(exploredds, plotly = FALSE)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/PCAplot-1.png" width="672" />
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="multidimensional-scaling-with-mdsplot">Multidimensional scaling with <code>MDSplot</code></h2>
 <p>This function computes and plots multidimensional scaling analysis for dimension
@@ -888,7 +584,7 @@ reduction of count expression matrix. Internally, it is applied the <code>stats:
 function to the transformed count matrix to get sample-to-sample distances.</p>
 <pre><code class="language-r">MDSplot(exploredds, plotly = FALSE)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MDSplot-1.png" width="672" />
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="dimension-reduction-with-glmplot">Dimension Reduction with <code>GLMplot</code></h2>
 <p>This function computes and plots generalized principal components analysis for
@@ -897,14 +593,14 @@ dimension reduction of count expression matrix.</p>
     transformationMethod = &quot;raw&quot;)
 GLMplot(exploredds_r, plotly = FALSE)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/GLMplot-1.png" width="672" />
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="ma-plot">MA plot</h2>
 <p>This function plots log2 fold changes (y-axis) versus the mean of normalized
 counts (on the x-axis). Statistically significant features are colored.</p>
 <pre><code class="language-r">MAplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/MAplot-1.png" width="672" />
 <p>The function provides the utility to save the plot automatically.</p>
 <h2 id="t-distributed-stochastic-neighbor-embedding-with-tsneplot">t-Distributed Stochastic Neighbor embedding with <code>tSNEplot</code></h2>
 <p>This function computes and plots t-Distributed Stochastic Neighbor embedding (t-SNE)
@@ -913,13 +609,13 @@ matrix. Internally, it is applied the <code>Rtsne::Rtsne()</code> (Krijthe 2015)
 t-SNE computing with <code>theta=0.0</code>.</p>
 <pre><code class="language-r">tSNEplot(countMatrix, targets, perplexity = 5)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/tSNEplot-1.png" width="672" />
 <h2 id="volcano-plot">Volcano plot</h2>
 <p>A simple function that shows statistical significance (<code>p-value</code>) versus magnitude
 of change (<code>log2 fold change</code>).</p>
 <pre><code class="language-r">volcanoplot(degseqDF, comparison = &quot;M12-A12&quot;, filter = c(Fold = 1, FDR = 20), genes = &quot;ATCG00280&quot;)
 </code></pre>
-<p><img src="../../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png" width="672" /></p>
+<img src="../../../en/sp/spt/systemPipeTools_files/figure-html/volcanoplot-1.png" width="672" />
 <h1 id="version-information">Version information</h1>
 <pre><code class="language-r">sessionInfo()
 </code></pre>
@@ -1075,7 +771,7 @@ of change (<code>log2 fold change</code>).</p>
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2024 The systemPipe Project All Rights Reserved</small>
+        <small class="text-white">&copy; 2025 The systemPipe Project All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="../../../about/">About systemPipe Project</a></p>
@@ -1148,7 +844,7 @@ MathJax.Hub.Config({
 
 
 
-<script src="../../../js/main.min.3b172c13b62c2bea8b1c9d2599cddc8cf89718a92d792c680871c81ba43d8c85.js" integrity="sha256-OxcsE7YsK&#43;qLHJ0lmc3cjPiXGKkteSxoCHHIG6Q9jIU=" crossorigin="anonymous"></script>
+<script src="../../../js/main.min.3bff53fa2e8d9a2c4d0b3eeea5987ff2f2cc9a0f4eccb730274827d5e7cd5538.js" integrity="sha256-O/9T&#43;i6NmixNCz7upZh/8vLMmg9OzLcwJ0gn1efNVTg=" crossorigin="anonymous"></script>
 
 
 
