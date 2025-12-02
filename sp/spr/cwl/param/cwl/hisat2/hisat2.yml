@@ -1,0 +1,18 @@
+S:
+  class: File
+  path: ./results/M1A.sam
+x:
+  class: File
+  path: ./data/tair10.fasta
+k: '1'
+min-intronlen: '30'
+max-intronlen: '3000'
+threads: '4'
+U:
+  class: File
+  path: ./data/SRR446027_1.fastq.gz
+results_path:
+  class: Directory
+  path: ./results
+ModulesToLoad:
+  module1: hisat2
