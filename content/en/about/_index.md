@@ -1,5 +1,5 @@
 ---
-title: "About systemPipe Project"
+title: "About systemPipe"
 linkTitle: "About"
 type: docs
 ---
