@@ -14,6 +14,7 @@ git push
 ## Deploy site from local
 git checkout main # just in case
 hugo --verbose --cleanDestinationDir # build site. This creates rendered html files under `public/` 
+cp .nojekyll public
 git add . # needs to be done to account for changes in `public/`
 git commit -am "no_render" # tell github action not to render. 
 git push origin main
