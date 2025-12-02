@@ -19,5 +19,5 @@ This is the most common and robust method for community contributions.
 4. User Opens a Pull Request: When the user is ready to submit their project, they open a pull request from their personal repository back to the main "Template" repository in your organization. This pull request serves as the formal submission and review mechanism.
 5. Review Process: Organization members review the pull request, provide feedback, request changes, and ensure the submission meets community standards.
 6. Integration into the Organization:
- + If the goal is to integrate their code into the template project, you merge the pull request. 
- + If the goal is for their entire repository to become a standalone repository within your organization, you would accept the submission via the pull request review process, and then work with the user offline to have them transfer ownership of their repository to the organization.
+  + If the goal is to integrate their code into the template project, you merge the pull request. 
+  + If the goal is for their entire repository to become a standalone repository within your organization, you would accept the submission via the pull request review process, and then work with the user offline to have them transfer ownership of their repository to the organization.
