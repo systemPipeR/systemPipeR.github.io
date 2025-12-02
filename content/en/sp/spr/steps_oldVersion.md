@@ -864,8 +864,8 @@ identifying differentially expressed genes (DEGs) in batch mode with
 *`edgeR`*’s GML method (Robinson, McCarthy, and Smyth 2010) for any number of
 pairwise sample comparisons specified under the *`cmp`* argument. Users
 are strongly encouraged to consult the
-[*`edgeR`*](\href%7Bhttp://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) vignette
-for more detailed information on this topic and how to properly run *`edgeR`*
+[edgeR](http://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf)
+vignette for more detailed information on this topic and how to properly run *`edgeR`*
 on data sets with more complex experimental designs.
 
 ``` r

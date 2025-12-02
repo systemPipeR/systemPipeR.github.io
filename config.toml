@@ -20,7 +20,8 @@ defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+## old: disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy", "RSS"]
 
 # Highlighting config
 pygmentsCodeFences = false
@@ -58,11 +59,14 @@ id = "UA-158796879-1"
 
 [languages]
 [languages.en]
-title = "sysPipe"
-description = "systemPipe Workflow Environment"
-languageName ="English"
-time_format_default = "2006-01-02"
-time_format_blog = "2006-01-02"
+languageName = "English"
+# Keep standard Hugo settings (like title, weight, languageName) here.
+
+  [languages.en.params] 
+  description = "systemPipe Workflow Environment"
+  time_format_default = "2006-01-02"
+  time_format_blog = "2006-01-02"
+
 ## Weight used for sorting.
 ## uncomment below for more than one language support
 #weight = 1
