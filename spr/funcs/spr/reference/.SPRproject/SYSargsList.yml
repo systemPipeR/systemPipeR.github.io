@@ -1,0 +1,257 @@
+stepsWF:
+  echo: |
+    targets:
+      M1:
+        Message: Hello World!
+        SampleName: M1
+      M2:
+        Message: Hello USA!
+        SampleName: M2
+      M3:
+        Message: Hello Bioconductor!
+        SampleName: M3
+    targetsheader:
+      targetsheader: '# Project ID: SPR Example'
+    modules: []
+    wf:
+      class: Workflow
+      cwlVersion: v1.0
+      inputs:
+        message: string
+        SampleName: string
+        results_path: Directory
+      outputs:
+        string:
+          outputSource: echo/string
+          type: stdout
+      steps:
+        echo:
+          in:
+            message: message
+            SampleName: SampleName
+            results_path: results_path
+          out: '[string]'
+          run: example/example.cwl
+    clt:
+      example/example.cwl:
+        cwlVersion: v1.0
+        class: CommandLineTool
+        baseCommand: echo
+        inputs:
+          message:
+            type: string
+            inputBinding:
+              position: 1
+          SampleName:
+            type: string
+          results_path:
+            type: Directory
+        outputs:
+          string:
+            type: stdout
+        stdout: $(inputs.results_path.basename)/$(inputs.SampleName).txt
+    yamlinput:
+      message: _STRING_
+      SampleName: _SAMPLE_
+      results_path:
+        class: Directory
+        path: ./results
+    cmdlist:
+      M1:
+        echo: echo Hello World! > results/M1.txt
+      M2:
+        echo: echo Hello USA! > results/M2.txt
+      M3:
+        echo: echo Hello Bioconductor! > results/M3.txt
+    input:
+      M1:
+        Message: Hello World!
+        SampleName: M1
+      M2:
+        Message: Hello USA!
+        SampleName: M2
+      M3:
+        Message: Hello Bioconductor!
+        SampleName: M3
+    output:
+      M1:
+        echo: results/M1.txt
+      M2:
+        echo: results/M2.txt
+      M3:
+        echo: results/M3.txt
+    files:
+      cwl: example/workflow_example.cwl
+      yml: example/example.yml
+      dir_path: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl
+      steps: echo
+      cltpaths: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/example.cwl
+      output_names: string
+      targets: /home/runner/work/systemPipeR/systemPipeR/inst/extdata/cwl/example/targets_example.txt
+      id: SampleName
+    inputvars:
+      Message: _STRING_
+      SampleName: _SAMPLE_
+    cmdToCwl: []
+    status:
+      status.summary: Pending
+      status.completed:
+        Targets:
+        - M1
+        - M2
+        - M3
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        echo:
+        - Pending
+        - Pending
+        - Pending
+      status.time:
+        Targets:
+        - M1
+        - M2
+        - M3
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
+    internal_outfiles:
+      M1:
+        echo: results/M1.txt
+      M2:
+        echo: results/M2.txt
+      M3:
+        echo: results/M3.txt
+  R_read: |
+    codeLine: hello <- lapply(getColumn(sal, step = 1, "outfiles"), function(x) yaml::read_yaml(x))
+    codeChunkStart: []
+    stepName: R_read
+    dependency:
+      R_read: echo
+    status:
+      status.summary: Pending
+      status.completed:
+        Step: R_read
+        status.summary: Pending
+      status.time: {}
+    files:
+      rmdPath: []
+    runInfo:
+      runOption:
+        R_read:
+          directory: no
+          run_step: mandatory
+          run_session: management
+          run_remote_resources: ~
+statusWF:
+  echo: |
+    echo:
+      status.summary: Pending
+      status.completed:
+        Targets:
+        - M1
+        - M2
+        - M3
+        Total_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        Existing_Files:
+        - 0.0
+        - 0.0
+        - 0.0
+        Missing_Files:
+        - 1.0
+        - 1.0
+        - 1.0
+        echo:
+        - Pending
+        - Pending
+        - Pending
+      status.time:
+        Targets:
+        - M1
+        - M2
+        - M3
+        time_start:
+        - .na
+        - .na
+        - .na
+        time_end:
+        - .na
+        - .na
+        - .na
+  R_read: |
+    R_read:
+      status.summary: Pending
+      status.completed:
+        Step: R_read
+        status.summary: Pending
+      status.time: {}
+targetsWF:
+  echo: |
+    Message:
+    - Hello World!
+    - Hello USA!
+    - Hello Bioconductor!
+    SampleName:
+    - M1
+    - M2
+    - M3
+  R_read: |
+    {}
+outfiles:
+  echo: |
+    string:
+    - results/M1.txt
+    - results/M2.txt
+    - results/M3.txt
+  R_read: |
+    {}
+SE:
+  echo: |
+    dir.path: .SPRproject/SE
+    dir.name: echo
+  R_read: |
+    R_read: ~
+dependency:
+  echo: |
+    echo: .na
+  R_read: |
+    R_read: echo
+targets_connection:
+  echo: |
+    echo: ~
+  R_read: |
+    R_read: ~
+projectInfo: |
+  project: /home/runner/work/systemPipeR/systemPipeR/docs/reference
+  data: data
+  param: param
+  results: results
+  logsDir: .SPRproject
+  sysargslist: .SPRproject/SYSargsList.yml
+runInfo: |
+  echo:
+    directory: yes
+    run_step: mandatory
+    run_session: management
+  R_read:
+    directory: no
+    run_step: mandatory
+    run_session: management
+    run_remote_resources: ~
