@@ -217,7 +217,6 @@ enable = false
 	icon = "fa fa-envelope"
         desc = "Discuss development issues around the project"
 
-
 # Top-level navigation (horizontal)
 ## About
 [[menu.main]]
@@ -225,15 +224,20 @@ enable = false
   weight = 1
   url = "/about/"
 [[menu.main]]
-  name = "Our Team"
+  name = "Project"
+  url = "/about/project/"
+  parent = "About"
+  weight = 2
+[[menu.main]]
+  name = "Team"
   url = "/about/team/"
   parent = "About"
-  weight = 1
+  weight = 3
 [[menu.main]]
   name = "Publications"
   url = "/about/publications/"
   parent = "About"
-  weight = 2
+  weight = 4
 [[menu.main]]
   name = "Acknowledgement"
   url = "/about/acknowledgement/"

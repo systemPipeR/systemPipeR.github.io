@@ -3,7 +3,7 @@ title: "Contact"
 linkTitle: "Contact"
 type: docs
 description: >
-weight: 5
+weight: 4
 exclude_search: true
 ---
 
@@ -19,12 +19,11 @@ University of California, Riverside ([UCR{blk}](http://www.ucr.edu/)) <br/>
 CA 92521 <br/>
 Email: <a href="mailto:danielac@ucr.edu">thomas.girke@ucr.edu</a><br/>
 
-
-**Le Zhang**, Ph.D. <br/>
-
-Email: <a href="mailto:le.zhang001@email.ucr.edu">le.zhang001@email.ucr.edu</a><br/>
-
-
 **[Daniela Cassol{blk}](https://www.dcassol.com/)**, Ph.D. <br/>
+Postdoctoral Researcher <br/>
+Department of Botany and Plant Sciences ([BPSC{blk}](http://plantbiology.ucr.edu/)) <br/>
+1207E Genomics Building <br/>
+University of California, Riverside ([UCR{blk}](http://www.ucr.edu/)) <br/>
+CA 92521 <br/>
 
 Email: <a href="mailto:danicassol@gmail.com">danicassol@gmail.com</a><br/>
