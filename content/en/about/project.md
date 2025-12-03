@@ -23,7 +23,7 @@ This site serves mainly as a landing page providing a high-level overview of eac
   * __systemPipeRdata: Workflow Templates__ <br/>
 [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) offers a set of pre-configured workflow templates and associated resources that simplify the setup of common analysis pipelines.
 
-  * __systemPipeShiny: Visualization Toolbox)__ <br/>
+  * __systemPipeShiny: Visualization Toolbox__ <br/>
 [_systemPipeShiny_](https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html) provides a Shiny-based graphical interface for executing selected workflows and accessing a collection of interactive visualizations.
 
 
@@ -31,7 +31,8 @@ This site serves mainly as a landing page providing a high-level overview of eac
 
 ### Templates
 
-Preconfigured workflow templates are provided by the [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package. The provided templates are compatible with the systemPipeR WMS (H Backman and Girke 2016). Support for running external software is provided by a command-line interface (CLI) that adopts the Common Workflow Language (CWL). How to use systemPipeR is explained in its main vignette. The workflow templates provided by systemPipeRdata come equipped with sample data and the necessary parameter files required to run a selected workflow. This setup simplifies the learning process of using systemPipeR, facilitates testing of workflows, and serves as a foundation for designing new workflows. 
+The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package provides preconfigured workflow templates that are compatible with the systemPipeR WMS. These templates include the necessary CWL parameter files for running a chosen workflow. Many of the templates come equipped with sample data. This setup serves several purposes: it simplifies the learning curve for using systemPipeR, allows for easy workflow testing, and provides a starting point for developing new workflows. 
+
 
 ### Contributions
 
