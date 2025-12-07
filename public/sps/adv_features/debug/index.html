@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -22,15 +22,15 @@
 Some setup:
 suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir() spsInit(app_path = app_dir, overwrite = TRUE, change_wd = FALSE, open_files = FALSE) ## [SPS-INFO] 2021-04-16 17:46:53 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 17:46:53 Create project under /tmp/RtmpUfKCYR/SPS_20210416 ## [SPS-INFO] 2021-04-16 17:46:53 Now copy files ## [SPS-INFO] 2021-04-16 17:46:53 Create SPS database ## [SPS-INFO] 2021-04-16 17:46:53 Created SPS database method container ## [SPS-INFO] 2021-04-16 17:46:53 Creating SPS db." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://systempipe.org/sps/adv_features/debug/" /><meta property="article:section" content="sps" />
+<meta property="og:url" content="/sps/adv_features/debug/" /><meta property="article:section" content="sps" />
 
-<meta property="article:modified_time" content="2021-04-16T22:00:01-07:00" />
+<meta property="article:modified_time" content="2024-07-22T18:04:43-07:00" />
 
 <meta itemprop="name" content="Debugging">
 <meta itemprop="description" content="There are some options in SPS that will give you more information and help you on debugging. They are: verbose and traceback. You can config (enable/disable) themin a SPS project&rsquo;s global.R file, or use spsOption(&quot;verbose&quot;, TRUE) and spsOption(&quot;traceback&quot;, TRUE) to turn on them.
 Some setup:
 suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir() spsInit(app_path = app_dir, overwrite = TRUE, change_wd = FALSE, open_files = FALSE) ## [SPS-INFO] 2021-04-16 17:46:53 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 17:46:53 Create project under /tmp/RtmpUfKCYR/SPS_20210416 ## [SPS-INFO] 2021-04-16 17:46:53 Now copy files ## [SPS-INFO] 2021-04-16 17:46:53 Create SPS database ## [SPS-INFO] 2021-04-16 17:46:53 Created SPS database method container ## [SPS-INFO] 2021-04-16 17:46:53 Creating SPS db.">
-<meta itemprop="dateModified" content="2021-04-16T22:00:01-07:00" />
+<meta itemprop="dateModified" content="2024-07-22T18:04:43-07:00" />
 <meta itemprop="wordCount" content="1806">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Debugging"/>
 <meta name="twitter:description" content="There are some options in SPS that will give you more information and help you on debugging. They are: verbose and traceback. You can config (enable/disable) themin a SPS project&rsquo;s global.R file, or use spsOption(&quot;verbose&quot;, TRUE) and spsOption(&quot;traceback&quot;, TRUE) to turn on them.
@@ -38,11 +38,24 @@ Some setup:
 suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir() spsInit(app_path = app_dir, overwrite = TRUE, change_wd = FALSE, open_files = FALSE) ## [SPS-INFO] 2021-04-16 17:46:53 Start to create a new SPS project ## [SPS-INFO] 2021-04-16 17:46:53 Create project under /tmp/RtmpUfKCYR/SPS_20210416 ## [SPS-INFO] 2021-04-16 17:46:53 Now copy files ## [SPS-INFO] 2021-04-16 17:46:53 Create SPS database ## [SPS-INFO] 2021-04-16 17:46:53 Created SPS database method container ## [SPS-INFO] 2021-04-16 17:46:53 Creating SPS db."/>
 
 
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
-<link rel="preload" href="../../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" as="style">
-<link href="../../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" rel="stylesheet" integrity="">
+
+
+
+<link rel="preload" href="../../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" as="style">
+<link href="../../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -220,7 +233,7 @@ suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir()
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -247,7 +260,7 @@ suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir()
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -397,21 +410,21 @@ suppressPackageStartupMessages(library(systemPipeShiny)) app_dir &lt;- tempdir()
 
 
 <li class="breadcrumb-item" >
-	<a href="https://systempipe.org/sps/">systemPipeShiny</a>
+	<a href="../../../sps/">systemPipeShiny</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://systempipe.org/sps/adv_features/">Advanced features</a>
+	<a href="../../../sps/adv_features/">Advanced features</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://systempipe.org/sps/adv_features/debug/">Debugging</a>
+	<a href="../../../sps/adv_features/debug/">Debugging</a>
 </li>
 
 	</ol>
@@ -705,8 +718,8 @@ for more details</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    2021-04-16
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/5e9129ad29c8960356962ae697b286a451f6a7c2">update in progress (5e9129ad)</a>
+    2024-07-22
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/416f041c3d9f09bb0bd4520e3c931636fd05f0ce">fix: wf install page no_render (416f041)</a>
 
 </div>
 

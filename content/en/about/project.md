@@ -27,6 +27,20 @@ This site serves mainly as a landing page providing a high-level overview of eac
 [_systemPipeShiny_](https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html) provides a Shiny-based graphical interface for executing selected workflows and accessing a collection of interactive visualizations.
 
 
+### Containers
+
+For users who prefer containerized environments, the project maintains an official 
+Docker image on [Docker Hub](https://hub.docker.com/r/systempipe/systempipe_docker) 
+that mirrors the Bioconductor 
+[Docker/Singularity guidelines](https://www.bioconductor.org/help/docker/). 
+The image bundles systemPipeR, systemPipeRdata, systemPipeShiny, their companion packages,
+and OS-level prerequisites. Besides, common bioinformatics tools are pre-installed,
+such as FastQC, HISAT2, Bowtie2, trimmomatic, samtools, and many others,
+making it straightforward to launch consistent environments locally or on HPC systems via Docker or Singularity/Apptainer.
+Users can directly use the image or build custom images based on it.
+The usage instructions are provided on the Docker Hub link above.
+
+
 ## Workflow 
 
 ### Templates

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -21,25 +21,38 @@
 <meta property="og:description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information. The database is controlled by 3 SPS R6 classes:
 spsDb: basic database management, queries. spsEncryption: Interact with the SHA256 key pair in the database to encrypt strings, and files. Also methods to view or change the key pair, inherits spsDb spsAcount: use the encyption key pair to manage users and admin accounts in SPS, inherits spsDb and spsEncryption." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://systempipe.org/sps/adv_features/database/" /><meta property="article:section" content="sps" />
+<meta property="og:url" content="/sps/adv_features/database/" /><meta property="article:section" content="sps" />
 
-<meta property="article:modified_time" content="2021-04-22T15:46:31-07:00" />
+<meta property="article:modified_time" content="2024-07-22T18:04:43-07:00" />
 
 <meta itemprop="name" content="SPS database">
 <meta itemprop="description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information. The database is controlled by 3 SPS R6 classes:
 spsDb: basic database management, queries. spsEncryption: Interact with the SHA256 key pair in the database to encrypt strings, and files. Also methods to view or change the key pair, inherits spsDb spsAcount: use the encyption key pair to manage users and admin accounts in SPS, inherits spsDb and spsEncryption.">
-<meta itemprop="dateModified" content="2021-04-22T15:46:31-07:00" />
+<meta itemprop="dateModified" content="2024-07-22T18:04:43-07:00" />
 <meta itemprop="wordCount" content="725">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SPS database"/>
 <meta name="twitter:description" content="SPS database is a small SQLite database which stores some basic app information, the project encryption key pair, account information. The database is controlled by 3 SPS R6 classes:
 spsDb: basic database management, queries. spsEncryption: Interact with the SHA256 key pair in the database to encrypt strings, and files. Also methods to view or change the key pair, inherits spsDb spsAcount: use the encyption key pair to manage users and admin accounts in SPS, inherits spsDb and spsEncryption."/>
 
 
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
-<link rel="preload" href="../../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" as="style">
-<link href="../../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" rel="stylesheet" integrity="">
+
+
+
+<link rel="preload" href="../../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" as="style">
+<link href="../../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -217,7 +230,7 @@ spsDb: basic database management, queries. spsEncryption: Interact with the SHA2
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -244,7 +257,7 @@ spsDb: basic database management, queries. spsEncryption: Interact with the SHA2
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -401,21 +414,21 @@ spsDb: basic database management, queries. spsEncryption: Interact with the SHA2
 
 
 <li class="breadcrumb-item" >
-	<a href="https://systempipe.org/sps/">systemPipeShiny</a>
+	<a href="../../../sps/">systemPipeShiny</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://systempipe.org/sps/adv_features/">Advanced features</a>
+	<a href="../../../sps/adv_features/">Advanced features</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://systempipe.org/sps/adv_features/database/">SPS database</a>
+	<a href="../../../sps/adv_features/database/">SPS database</a>
 </li>
 
 	</ol>
@@ -616,8 +629,8 @@ my_ecpt$encrypt(&quot;test.txt&quot;, &quot;test.bin&quot;, overwrite = TRUE)
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    2021-04-22
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/2270d8d1d104464ac1d3290d97b41956c3314c02">sps updates no_render (2270d8d1)</a>
+    2024-07-22
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/416f041c3d9f09bb0bd4520e3c931636fd05f0ce">fix: wf install page no_render (416f041)</a>
 
 </div>
 

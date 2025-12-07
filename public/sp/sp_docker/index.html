@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../favicons/favicon.ico" >
@@ -21,25 +21,38 @@
 <meta property="og:description" content="Guidelines from bioconductor_docker.
 Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://systempipe.org/sp/sp_docker/" /><meta property="article:section" content="sp" />
+<meta property="og:url" content="/sp/sp_docker/" /><meta property="article:section" content="sp" />
 
-<meta property="article:modified_time" content="2022-04-29T16:53:44-07:00" />
+<meta property="article:modified_time" content="2024-07-22T18:04:43-07:00" />
 
 <meta itemprop="name" content="SPR Docker container">
 <meta itemprop="description" content="Guidelines from bioconductor_docker.
 Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787).">
-<meta itemprop="dateModified" content="2022-04-29T16:53:44-07:00" />
+<meta itemprop="dateModified" content="2024-07-22T18:04:43-07:00" />
 <meta itemprop="wordCount" content="963">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SPR Docker container"/>
 <meta name="twitter:description" content="Guidelines from bioconductor_docker.
 Running the systemPipeR with Docker Get a copy of the public docker image docker pull systempipe/systempipe_docker:latest To run RStudio Server: docker run -e PASSWORD=systemPipe -p 8787:8787 \ systempipe/systempipe_docker:latest You can then open a web browser pointing to your docker host on port 8787. If you&rsquo;re on Linux and using default settings, the docker host is 127.0.0.1 (or localhost, so the full URL to RStudio would be http://localhost:8787)."/>
 
 
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
-<link rel="preload" href="../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" as="style">
-<link href="../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" rel="stylesheet" integrity="">
+
+
+
+<link rel="preload" href="../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" as="style">
+<link href="../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -217,7 +230,7 @@ Running the systemPipeR with Docker Get a copy of the public docker image docker
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -244,7 +257,7 @@ Running the systemPipeR with Docker Get a copy of the public docker image docker
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -441,14 +454,14 @@ Running the systemPipeR with Docker Get a copy of the public docker image docker
 
 
 <li class="breadcrumb-item" >
-	<a href="https://systempipe.org/sp/">Documentation</a>
+	<a href="../../sp/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://systempipe.org/sp/sp_docker/">SPR Docker container</a>
+	<a href="../../sp/sp_docker/">SPR Docker container</a>
 </li>
 
 	</ol>
@@ -743,8 +756,8 @@ downloading it.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    2022-04-29
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/b256d52a10522958e33afe7731e584207cce2516">gh-pages (b256d52a)</a>
+    2024-07-22
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/416f041c3d9f09bb0bd4520e3c931636fd05f0ce">fix: wf install page no_render (416f041)</a>
 
 </div>
 
