@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name="generator" content="Hugo 0.123.7"><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../favicons/favicon.ico" >
@@ -21,25 +21,38 @@
 <meta property="og:description" content="Overview The systemPipe project provides a suite of R/Bioconductor packages for designing, building and running end-to-end analysis workflows on local machines and HPC systems, while generating at the same time publication quality analysis reports.
 This site serves mainly as a landing page providing a high-level overview of each package and links to the corresponding pages on Bioconductor. Detailed usage instructions are provided in the vignetted of each package on Bioconductor." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://systempipe.org/about/project/" /><meta property="article:section" content="about" />
+<meta property="og:url" content="/about/project/" /><meta property="article:section" content="about" />
 
-<meta property="article:modified_time" content="2025-12-02T16:51:38-08:00" />
+<meta property="article:modified_time" content="2025-12-02T18:49:20-08:00" />
 
 <meta itemprop="name" content="About Project">
 <meta itemprop="description" content="Overview The systemPipe project provides a suite of R/Bioconductor packages for designing, building and running end-to-end analysis workflows on local machines and HPC systems, while generating at the same time publication quality analysis reports.
 This site serves mainly as a landing page providing a high-level overview of each package and links to the corresponding pages on Bioconductor. Detailed usage instructions are provided in the vignetted of each package on Bioconductor.">
-<meta itemprop="dateModified" content="2025-12-02T16:51:38-08:00" />
-<meta itemprop="wordCount" content="442">
+<meta itemprop="dateModified" content="2025-12-02T18:49:20-08:00" />
+<meta itemprop="wordCount" content="533">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="About Project"/>
 <meta name="twitter:description" content="Overview The systemPipe project provides a suite of R/Bioconductor packages for designing, building and running end-to-end analysis workflows on local machines and HPC systems, while generating at the same time publication quality analysis reports.
 This site serves mainly as a landing page providing a high-level overview of each package and links to the corresponding pages on Bioconductor. Detailed usage instructions are provided in the vignetted of each package on Bioconductor."/>
 
 
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-158796879-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
-<link rel="preload" href="../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" as="style">
-<link href="../../scss/main.min.2632ca806a74ced739b45e7001ee9dcd887d8c6053f398fc136b3e0b0da7be80.css" rel="stylesheet" integrity="">
+
+
+
+<link rel="preload" href="../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" as="style">
+<link href="../../scss/main.min.c6c5928be51716b78e6c44331c09480ea70e8354ba1eb9057c6ae27fd4a7331b.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -217,7 +230,7 @@ This site serves mainly as a landing page providing a high-level overview of eac
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -244,7 +257,7 @@ This site serves mainly as a landing page providing a high-level overview of eac
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../offline-search-index.953c29ec1f58aa5655bab49458f2587f.json"
+  data-offline-search-index-json-src="../../offline-search-index.4155e183b6eea2d7c8a6f72154c46937.json"
   data-offline-search-base-href="../../"
   data-offline-search-max-results="10"
 >
@@ -287,6 +300,7 @@ This site serves mainly as a landing page providing a high-level overview of eac
         <li><a href="#overview">Overview</a>
           <ul>
             <li><a href="#core-packages">Core Packages</a></li>
+            <li><a href="#containers">Containers</a></li>
           </ul>
         </li>
         <li><a href="#workflow">Workflow</a>
@@ -318,14 +332,14 @@ This site serves mainly as a landing page providing a high-level overview of eac
 
 
 <li class="breadcrumb-item" >
-	<a href="https://systempipe.org/about/">About</a>
+	<a href="../../about/">About</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://systempipe.org/about/project/">Project</a>
+	<a href="../../about/project/">Project</a>
 </li>
 
 	</ol>
@@ -369,6 +383,17 @@ This site serves mainly as a landing page providing a high-level overview of eac
 <a href="https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html"><em>systemPipeShiny</em></a> provides a Shiny-based graphical interface for executing selected workflows and accessing a collection of interactive visualizations.</p>
 </li>
 </ul>
+<h3 id="containers">Containers</h3>
+<p>For users who prefer containerized environments, the project maintains an official
+Docker image on <a href="https://hub.docker.com/r/systempipe/systempipe_docker">Docker Hub</a>
+that mirrors the Bioconductor
+<a href="https://www.bioconductor.org/help/docker/">Docker/Singularity guidelines</a>.
+The image bundles systemPipeR, systemPipeRdata, systemPipeShiny, their companion packages,
+and OS-level prerequisites. Besides, common bioinformatics tools are pre-installed,
+such as FastQC, HISAT2, Bowtie2, trimmomatic, samtools, and many others,
+making it straightforward to launch consistent environments locally or on HPC systems via Docker or Singularity/Apptainer.
+Users can directly use the image or build custom images based on it.
+The usage instructions are provided on the Docker Hub link above.</p>
 <h2 id="workflow">Workflow</h2>
 <h3 id="templates">Templates</h3>
 <p>The <a href="https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html"><em>systemPipeRdata</em></a> package provides preconfigured workflow templates that are compatible with the systemPipeR WMS. These templates include the necessary CWL parameter files for running a chosen workflow. Many of the templates come equipped with sample data. This setup serves several purposes: it simplifies the learning curve for using systemPipeR, allows for easy workflow testing, and provides a starting point for developing new workflows.</p>
@@ -394,7 +419,7 @@ This site serves mainly as a landing page providing a high-level overview of eac
 
     Last modified
     2025-12-02
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/cebf168990fd5c5f5a505ea173016f4371c8a6ec">no_render (cebf1689)</a>
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/a9650d29e8523f627e151b45545339e8c2faf881">no_render (a9650d2)</a>
 
 </div>
 
