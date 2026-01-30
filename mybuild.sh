@@ -29,10 +29,12 @@ git push
 git checkout main
 git pull origin main
 
+## -> do site update work here
+
 # STEP 1: BUILD
 # --cleanDestinationDir: Wipes the public folder to remove old files.
 # --logLevel info: The modern replacement for --verbose.
-hugo --logLevel info --cleanDestinationDir 
+hugo --logLevel info --cleanDestinationDir
 
 # STEP 2: PREPARE ASSETS
 # Manually copies .nojekyll to ensure GitHub doesn't break the site.
