@@ -1,7 +1,7 @@
 ---
 title: "Publications" 
 author: "Author: Team"
-date: "Last update: 02 December, 2025" 
+date: "Last update: 07 December, 2025" 
 type: docs
 weight: 4
 exclude_search: true
