@@ -34,15 +34,3 @@ This site serves mainly as a landing page providing a high-level overview of eac
 The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package provides preconfigured workflow templates that are compatible with the systemPipeR WMS. These templates include the necessary CWL parameter files for running a chosen workflow. Many of the templates come equipped with sample data. This setup serves several purposes: it simplifies the learning curve for using systemPipeR, allows for easy workflow testing, and provides a starting point for developing new workflows. 
 
 
-### Contributions
-
-For contributing workflows, we recommend the following fork and pull request approach.
-
-1. Create a "Template" Repository: Within your organization, create a public repository that serves as a template or a starting point for submissions. It should contain contribution guidelines (CONTRIBUTING.md), a code of conduct, license information, and potentially a project structure.
-2. Community Forks the Repository: Users interested in submitting a project will fork this "Template" repository to their personal GitHub account. This creates their own copy where they can work independently.
-3. User Development: The user develops their project within their personal fork.
-4. User Opens a Pull Request: When the user is ready to submit their project, they open a pull request from their personal repository back to the main "Template" repository in your organization. This pull request serves as the formal submission and review mechanism.
-5. Review Process: Organization members review the pull request, provide feedback, request changes, and ensure the submission meets community standards.
-6. Integration into the Organization:
-   + If the goal is to integrate their code into the template project, you merge the pull request. 
-   + If the goal is for their entire repository to become a standalone repository within your organization, you would accept the submission via the pull request review process, and then work with the user offline to have them transfer ownership of their repository to the organization.
