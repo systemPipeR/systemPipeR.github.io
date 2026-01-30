@@ -19,31 +19,36 @@ git add .nojekyll
 git commit -am “no_render” # Tell github action not to render.
 git push
 
-## Deploy site from local
-git checkout main # just in case
-hugo --verbose --cleanDestinationDir # build site. This creates rendered html files under `public/` 
-#-> in new version use instead of --verbose: logLevel info
-cp .nojekyll public
-git add . # needs to be done to account for changes in `public/`
-git commit -am "no_render" # tell github action not to render. 
-git push origin main # next wait until this fully completed on github actions, see here: https://github.com/systemPipeR/systemPipeR.github.io/actions
-git push origin `git subtree split --prefix public`:gh-pages --force 
-# git subtree push --prefix public origin gh-pages # alternative not used
+###################################################
+## Deploy/update site from local (run as script) ##
+###################################################
+#!/bin/bash
 
+# STEP 0: SYNC (Crucial to prevent conflicts)
+# Ensures you have the latest changes from your other computer before starting.
+git checkout main
+git pull origin main
 
-# 1. Build the site
-hugo --cleanDestinationDir 
+# STEP 1: BUILD
+# --cleanDestinationDir: Wipes the public folder to remove old files.
+# --logLevel info: The modern replacement for --verbose.
+hugo --logLevel info --cleanDestinationDir 
 
-# 2. Safety copy of .nojekyll (just in case)
+# STEP 2: PREPARE ASSETS
+# Manually copies .nojekyll to ensure GitHub doesn't break the site.
 cp .nojekyll public/
 
-# 3. Stage and Commit
-git add . 
-git commit -m "Fix config warnings and update site"
+# STEP 3: COMMIT SOURCE FILES
+# Adds both your source code changes AND the new public/ build files.
+git add .
+git commit -m "Update site content and build"
 
-# 4. Push Source to Main
+# STEP 4: PUSH SOURCE CODE
+# Sends your markdown/Rmd files to the main branch.
+# (No need to wait for GitHub Actions; you are building the site locally below).
 git push origin main
 
-# 5. Force Push to gh-pages (Your standard deployment command)
+# STEP 5: DEPLOY (FORCE PUSH)
+# Splits the 'public' folder and forces it onto the gh-pages branch.
+# This makes the site live immediately.
 git push origin `git subtree split --prefix public`:gh-pages --force
-

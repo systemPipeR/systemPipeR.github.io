@@ -36,7 +36,7 @@ The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/exper
 
 ### Contributions
 
-For contributing workflows, zzzwe recommend the following fork and pull request approach.
+For contributing workflows, we recommend the following fork and pull request approach.
 
 1. Create a "Template" Repository: Within your organization, create a public repository that serves as a template or a starting point for submissions. It should contain contribution guidelines (CONTRIBUTING.md), a code of conduct, license information, and potentially a project structure.
 2. Community Forks the Repository: Users interested in submitting a project will fork this "Template" repository to their personal GitHub account. This creates their own copy where they can work independently.
