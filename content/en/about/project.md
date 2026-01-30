@@ -31,6 +31,6 @@ This site serves mainly as a landing page providing a high-level overview of eac
 
 ### Templates
 
-The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package provides preconfigured workflow templates that are compatible with the systemPipeR WMS. These templates include the necessary CWL parameter files for running a chosen workflow. Many of the templates come equipped with sample data. This setup serves several purposes: it simplifies the learning curve for using systemPipeR, allows for easy workflow testing, and provides a starting point for developing new workflows. 
+The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package provides preconfigured workflow templates that are compatible with the systemPipeR WMS. These templates include the necessary CWL parameter files for running a chosen workflow. Many of the templates come equipped with sample data. This setup serves several purposes: it simplifies the learning curve for using systemPipeR, allows for easy workflow testing, and provides a starting point for developing new workflows. To get started using systemPiperR's workflow templates, users should refer to the provided [overview tutorial](https://www.bioconductor.org/packages/release/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html). 
 
 
