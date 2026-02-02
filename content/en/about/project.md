@@ -11,35 +11,36 @@ exclude_search: true
 
 <img src="systemPipe_logo.png" width="20%" alt="Right Aligned" align="right" style="display: block; margin: auto;" />
 
-The systemPipe project provides a suite of R/Bioconductor packages for designing, building and running end-to-end analysis workflows on local machines and HPC systems, while generating at the same time publication quality analysis reports.
+The systemPipe project provides a suite of R/Bioconductor packages for designing, building, and executing end-to-end data analysis workflows on local machines and high-performance computing (HPC) systems, while simultaneously generating publication-quality analysis reports.
 
-This site serves mainly as a landing page providing a high-level overview of each package and links to the corresponding pages on Bioconductor. Detailed usage instructions are provided in the vignettes of each package on Bioconductor (linked below).
+This website serves primarily as a landing page that provides a high-level overview of each package and links to their corresponding pages on Bioconductor. Detailed usage instructions, examples, and technical documentation are available in the package vignettes hosted on Bioconductor (linked below).
 
 ### Core Packages
 
   * __systemPipeR: Workflow Management System (WMS)__ <br/>
-[_systemPipeR_](https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html) is the core workflow management package of this project, enabling users to define, organize, and run workflows that combine R functions with external command-line software([H Backman and Girke 2016](https://link.springer.com/article/10.1186/s12859-016-1241-0)). A scientific reporting system is integral part of the package.
+[_systemPipeR_](https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html) is the core workflow management package of the project. It enables users to define, organize, and execute workflows that integrate R-based analysis with external command-line software ([H Backman and Girke 2016](https://link.springer.com/article/10.1186/s12859-016-1241-0)). An automated scientific reporting framework is an integral component of the package, supporting reproducible and transparent analyses.
 
   * __systemPipeRdata: Workflow Templates__ <br/>
-[_systemPipeRdata_](https://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html) offers a set of pre-configured workflow templates and associated resources that simplify the setup of common analysis pipelines. 
+[_systemPipeRdata_](https://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html) provides a collection of pre-configured workflow templates and associated resources that simplify the setup of common analysis pipelines and serve as starting points for reproducible workflow development.
 
   * __systemPipeShiny: Visualization Toolbox__ <br/>
-[_systemPipeShiny_](https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html) provides a Shiny-based graphical interface for a subset of _systemPipeR's_ functionalities as well as a collection of interactive visualization tools.
+[_systemPipeShiny_](https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html) offers a Shiny-based graphical user interface for a subset of _systemPipeR_ functionalities, along with interactive visualization tools for result exploration, post-processing, and figure assembly.
 
+## Workflow Templates 
 
-## Workflow 
+The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package supplies pre-configured workflow templates that are fully compatible with _systemPipeR_. These templates include CWL parameter files for command-line steps and, in many cases, example datasets. They are designed to:
 
-### Templates
+  + reduce the learning curve,
+  + facilitate rapid testing of workflows, and
+  + provide modular building blocks for custom analyses.
 
-The [_systemPipeRdata_](https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html) package provides preconfigured workflow templates that are compatible with the _systemPipeR_ WMS. These templates include the necessary CWL parameter files for running the command-line steps of a chosen workflow. Many of the templates come equipped with sample data. This setup serves several purposes: it simplifies the learning curve for using systemPipeR, allows for easy workflow testing, and provides a starting point for developing new workflows. To get started using systemPiperR's workflow templates, users should refer to the provided overview tutorial of [_systemPipeR_](https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html) and [_systemPipeRdata_](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html).
-
-The workflow templates are also availble from GitHub. The following table lists a core set of workflows along with links for obtaining them from GitHub or via _systemPipeRdata_ from Bioconductor. 
+Templates are available via _systemPipeRdata_ on Bioconductor and from the project’s GitHub repositories. The table below lists the core workflows and links for accessing them.
 
 
 | **Name**   | **Description**                          | **URL**      |
 |------------|------------------------------------------|--------------|
 | new        | Generic Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/new.html), [GitHub](https://github.com/systemPipeR/sprwf-new-02-14-04) |
-| rnaseq     | RNA-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRNAseq.html), [GitHub](https://github.com/systemPipeR/sprwf-sprwf-rnaseq-02-14-04) |
+| rnaseq     | RNA-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRNAseq.html), [GitHub](https://github.com/systemPipeR/sprwf-rnaseq-02-14-04) |
 | riboseq    | RIBO-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRIBOseq.html), [GitHub](https://github.com/systemPipeR/sprwf-riboseq-02-14-04) |
 | chipseq    | ChIP-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeChIPseq.html), [GitHub](https://github.com/systemPipeR/sprwf-chipseq-02-14-04) |
 | varseq     | VAR-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeVARseq.html), [GitHub](https://github.com/systemPipeR/sprwf-varseq-02-14-04) |
