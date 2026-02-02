@@ -54,3 +54,8 @@ git push origin main
 # Splits the 'public' folder and forces it onto the gh-pages branch.
 # This makes the site live immediately.
 git push origin `git subtree split --prefix public`:gh-pages --force
+
+
+
+
+
