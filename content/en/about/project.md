@@ -66,19 +66,19 @@ Templates are available via _systemPipeRdata_ on Bioconductor and from the proje
 
 | **Name**   | **Description**                          | **URL**      |
 |------------|------------------------------------------|--------------|
-| new        | Generic Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/new.html), [GitHub](https://github.com/systemPipeR/sprwf-new-02-14-04) |
-| rnaseq     | RNA-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRNAseq.html), [GitHub](https://github.com/systemPipeR/sprwf-rnaseq-02-14-04) |
-| riboseq    | RIBO-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRIBOseq.html), [GitHub](https://github.com/systemPipeR/sprwf-riboseq-02-14-04) |
-| chipseq    | ChIP-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeChIPseq.html), [GitHub](https://github.com/systemPipeR/sprwf-chipseq-02-14-04) |
-| varseq     | VAR-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeVARseq.html), [GitHub](https://github.com/systemPipeR/sprwf-varseq-02-14-04) |
-| SPblast    | BLAST Workflow Template                  | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPblast.html), [GitHub](https://github.com/systemPipeR/sprwf-spblast-02-14-04) |
-| SPcheminfo | Cheminformatics Drug Similarity Template | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPcheminfo.html), [GitHub](https://github.com/systemPipeR/sprwf-spcheminfo-02-14-04) |
-| SPscrna    | Basic Single-Cell Workflow Template      | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPscrna.html), [GitHub](https://github.com/systemPipeR/sprwf-spscrna-02-14-04) |
+| new        | Generic Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/new.html), [GitHub](https://github.com/systemPipeR/sprwf-new) |
+| rnaseq     | RNA-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRNAseq.html), [GitHub](https://github.com/systemPipeR/sprwf-rnaseq) |
+| riboseq    | RIBO-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRIBOseq.html), [GitHub](https://github.com/systemPipeR/sprwf-riboseq) |
+| chipseq    | ChIP-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeChIPseq.html), [GitHub](https://github.com/systemPipeR/sprwf-chipseq) |
+| varseq     | VAR-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeVARseq.html), [GitHub](https://github.com/systemPipeR/sprwf-varseq) |
+| SPblast    | BLAST Workflow Template                  | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPblast.html), [GitHub](https://github.com/systemPipeR/sprwf-spblast) |
+| SPcheminfo | Cheminformatics Drug Similarity Template | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPcheminfo.html), [GitHub](https://github.com/systemPipeR/sprwf-spcheminfo) |
+| SPscrna    | Basic Single-Cell Workflow Template      | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPscrna.html), [GitHub](https://github.com/systemPipeR/sprwf-spscrna) |
 
 Shared components used by some or all of the above workflows are given in this table. The `param` component is required for all workflows, while `data` is only used by some of them. 
 
 | **Name**   | **Description**                          | **URL**      |
 |------------|------------------------------------------|--------------|
-| param      | CWL Parameter Files                      | [GitHub](https://github.com/systemPipeR/sprwfcmp-data) |
+| param      | CWL Parameter Files                      | [GitHub](https://github.com/systemPipeR/sprwfcmp-param) |
 | data       | Small Test Datasets                      | [GitHub](https://github.com/systemPipeR/sprwfcmp-data) |
 
