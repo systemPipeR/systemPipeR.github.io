@@ -15,20 +15,42 @@ The systemPipe project provides a suite of R/Bioconductor packages for designing
 
 This website serves primarily as a landing page that provides a high-level overview of each package and links to their corresponding pages on Bioconductor. Detailed usage instructions, examples, and technical documentation are available in the package vignettes hosted on Bioconductor (linked below).
 
-### Core Packages
+<br>
 
-  * __systemPipeR: Workflow Management System (WMS)__ <br/>
-<p align="right">
+## Core Packages
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 style="margin: 0;">systemPipeR: Workflow Management System (WMS)</h4>
   <a href="https://bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">
     <img src="https://img.shields.io/badge/TUTORIAL-blue?style=for-the-badge&logo=gitbook&logoColor=white" alt="Tutorial Badge">
   </a>
-</p>
+</div>
+<br>
+
 [_systemPipeR_](https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html) is the core workflow management package of the project. It enables users to define, organize, and execute workflows that integrate R-based analysis with external command-line software ([H Backman and Girke 2016](https://link.springer.com/article/10.1186/s12859-016-1241-0)). An automated scientific reporting framework is an integral component of the package, supporting reproducible and transparent analyses.
 
-  * __systemPipeRdata: Workflow Templates__ <br/>
+<br>
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 style="margin: 0;">systemPipeRdata: Workflow Templates</h4>
+  <a href="https://www.bioconductor.org/packages/release/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html">
+    <img src="https://img.shields.io/badge/TUTORIAL-blue?style=for-the-badge&logo=gitbook&logoColor=white" alt="Tutorial Badge">
+  </a>
+</div>
+<br>
+
 [_systemPipeRdata_](https://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html) provides a collection of pre-configured workflow templates and associated resources that simplify the setup of common analysis pipelines and serve as starting points for reproducible workflow development.
 
-  * __systemPipeShiny: Visualization Toolbox__ <br/>
+<br>
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 style="margin: 0;">systemPipeShiny: Visualization Toolbox</h4>
+  <a href="https://bioconductor.org/packages/release/bioc/vignettes/systemPipeShiny/inst/doc/systemPipeShiny.html">
+    <img src="https://img.shields.io/badge/TUTORIAL-blue?style=for-the-badge&logo=gitbook&logoColor=white" alt="Tutorial Badge">
+  </a>
+</div>
+<br>
+
 [_systemPipeShiny_](https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html) offers a Shiny-based graphical user interface for a subset of _systemPipeR_ functionalities, along with interactive visualization tools for result exploration, post-processing, and figure assembly.
 
 ## Workflow Templates 
