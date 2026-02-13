@@ -23,12 +23,12 @@ This website serves primarily as a landing page that provides a high-level overv
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://systempipe.org/about/project/" /><meta property="article:section" content="about" />
 
-<meta property="article:modified_time" content="2026-02-01T19:35:46-08:00" />
+<meta property="article:modified_time" content="2026-02-13T12:22:02-08:00" />
 
 <meta itemprop="name" content="About Project">
 <meta itemprop="description" content="Overview The systemPipe project provides a suite of R/Bioconductor packages for designing, building, and executing end-to-end data analysis workflows on local machines and high-performance computing (HPC) systems, while simultaneously generating publication-quality analysis reports.
 This website serves primarily as a landing page that provides a high-level overview of each package and links to their corresponding pages on Bioconductor. Detailed usage instructions, examples, and technical documentation are available in the package vignettes hosted on Bioconductor (linked below).">
-<meta itemprop="dateModified" content="2026-02-01T19:35:46-08:00" />
+<meta itemprop="dateModified" content="2026-02-13T12:22:02-08:00" />
 <meta itemprop="wordCount" content="365">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="About Project"/>
 <meta name="twitter:description" content="Overview The systemPipe project provides a suite of R/Bioconductor packages for designing, building, and executing end-to-end data analysis workflows on local machines and high-performance computing (HPC) systems, while simultaneously generating publication-quality analysis reports.
@@ -276,11 +276,8 @@ This website serves primarily as a landing page that provides a high-level overv
   <ul>
     <li>
       <ul>
-        <li><a href="#overview">Overview</a>
-          <ul>
-            <li><a href="#core-packages">Core Packages</a></li>
-          </ul>
-        </li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#core-packages">Core Packages</a></li>
         <li><a href="#workflow-templates">Workflow Templates</a></li>
       </ul>
     </li>
@@ -341,26 +338,34 @@ This website serves primarily as a landing page that provides a high-level overv
 <img src="systemPipe_logo.png" width="20%" alt="Right Aligned" align="right" style="display: block; margin: auto;" />
 <p>The systemPipe project provides a suite of R/Bioconductor packages for designing, building, and executing end-to-end data analysis workflows on local machines and high-performance computing (HPC) systems, while simultaneously generating publication-quality analysis reports.</p>
 <p>This website serves primarily as a landing page that provides a high-level overview of each package and links to their corresponding pages on Bioconductor. Detailed usage instructions, examples, and technical documentation are available in the package vignettes hosted on Bioconductor (linked below).</p>
-<h3 id="core-packages">Core Packages</h3>
-<ul>
-<li><strong>systemPipeR: Workflow Management System (WMS)</strong> <br/></li>
-</ul>
-<p align="right">
+<br>
+<h2 id="core-packages">Core Packages</h2>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 style="margin: 0;">systemPipeR: Workflow Management System (WMS)</h4>
   <a href="https://bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">
     <img src="https://img.shields.io/badge/TUTORIAL-blue?style=for-the-badge&logo=gitbook&logoColor=white" alt="Tutorial Badge">
   </a>
-</p>
-[_systemPipeR_](https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html) is the core workflow management package of the project. It enables users to define, organize, and execute workflows that integrate R-based analysis with external command-line software ([H Backman and Girke 2016](https://link.springer.com/article/10.1186/s12859-016-1241-0)). An automated scientific reporting framework is an integral component of the package, supporting reproducible and transparent analyses.
-<ul>
-<li>
-<p><strong>systemPipeRdata: Workflow Templates</strong> <br/>
-<a href="https://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"><em>systemPipeRdata</em></a> provides a collection of pre-configured workflow templates and associated resources that simplify the setup of common analysis pipelines and serve as starting points for reproducible workflow development.</p>
-</li>
-<li>
-<p><strong>systemPipeShiny: Visualization Toolbox</strong> <br/>
-<a href="https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html"><em>systemPipeShiny</em></a> offers a Shiny-based graphical user interface for a subset of <em>systemPipeR</em> functionalities, along with interactive visualization tools for result exploration, post-processing, and figure assembly.</p>
-</li>
-</ul>
+</div>
+<br>
+<p><a href="https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html"><em>systemPipeR</em></a> is the core workflow management package of the project. It enables users to define, organize, and execute workflows that integrate R-based analysis with external command-line software (<a href="https://link.springer.com/article/10.1186/s12859-016-1241-0">H Backman and Girke 2016</a>). An automated scientific reporting framework is an integral component of the package, supporting reproducible and transparent analyses.</p>
+<br>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 style="margin: 0;">systemPipeRdata: Workflow Templates</h4>
+  <a href="https://www.bioconductor.org/packages/release/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html">
+    <img src="https://img.shields.io/badge/TUTORIAL-blue?style=for-the-badge&logo=gitbook&logoColor=white" alt="Tutorial Badge">
+  </a>
+</div>
+<br>
+<p><a href="https://www.bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html"><em>systemPipeRdata</em></a> provides a collection of pre-configured workflow templates and associated resources that simplify the setup of common analysis pipelines and serve as starting points for reproducible workflow development.</p>
+<br>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 style="margin: 0;">systemPipeShiny: Visualization Toolbox</h4>
+  <a href="https://bioconductor.org/packages/release/bioc/vignettes/systemPipeShiny/inst/doc/systemPipeShiny.html">
+    <img src="https://img.shields.io/badge/TUTORIAL-blue?style=for-the-badge&logo=gitbook&logoColor=white" alt="Tutorial Badge">
+  </a>
+</div>
+<br>
+<p><a href="https://bioconductor.org/packages/release/bioc/html/systemPipeShiny.html"><em>systemPipeShiny</em></a> offers a Shiny-based graphical user interface for a subset of <em>systemPipeR</em> functionalities, along with interactive visualization tools for result exploration, post-processing, and figure assembly.</p>
 <h2 id="workflow-templates">Workflow Templates</h2>
 <p>The <a href="https://www.bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html"><em>systemPipeRdata</em></a> package supplies pre-configured workflow templates that are fully compatible with <em>systemPipeR</em>. These templates include CWL parameter files for command-line steps and, in many cases, example datasets. They are designed to:</p>
 <ul>
@@ -448,8 +453,8 @@ This website serves primarily as a landing page that provides a high-level overv
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    2026-02-01
-    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/3b08e02419920097732bc7eb792012dea25cfb3b">Update site content and build (3b08e024)</a>
+    2026-02-13
+    : <a  href="https://github.com/systemPipeR/systemPipeR.github.io/commit/ddd451c1936c9b29899c53deadaa77aafb4f9e00">Update site content and build (ddd451c1)</a>
 
 </div>
 
