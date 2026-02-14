@@ -71,9 +71,9 @@ Templates are available via _systemPipeRdata_ on Bioconductor and from the proje
 | riboseq    | RIBO-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRIBOseq.html), [GitHub](https://github.com/systemPipeR/sprwf-riboseq) |
 | chipseq    | ChIP-Seq Workflow Template               | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeChIPseq.html), [GitHub](https://github.com/systemPipeR/sprwf-chipseq) |
 | varseq     | VAR-Seq Workflow Template                | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeVARseq.html), [GitHub](https://github.com/systemPipeR/sprwf-varseq) |
-| SPblast    | BLAST Workflow Template                  | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPblast.html), [GitHub](https://github.com/systemPipeR/sprwf-spblast) |
-| SPcheminfo | Cheminformatics Drug Similarity Template | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPcheminfo.html), [GitHub](https://github.com/systemPipeR/sprwf-spcheminfo) |
-| SPscrna    | Basic Single-Cell Workflow Template      | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPscrna.html), [GitHub](https://github.com/systemPipeR/sprwf-spscrna) |
+| blast (SPblast)    | BLAST Workflow Template                  | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPblast.html), [GitHub](https://github.com/systemPipeR/sprwf-spblast) |
+| cheminfo (SPcheminfo) | Cheminformatics Drug Similarity Template | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPcheminfo.html), [GitHub](https://github.com/systemPipeR/sprwf-spcheminfo) |
+| scrna (SPscrna)    | Basic Single-Cell Workflow Template      | [Bioc](https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/SPscrna.html), [GitHub](https://github.com/systemPipeR/sprwf-spscrna) |
 
 Shared components used by some or all of the above workflows are given in this table. The `param` component is required for all workflows, while `data` is only used by some of them. 
 
