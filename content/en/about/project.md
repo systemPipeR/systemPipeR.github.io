@@ -27,7 +27,7 @@ This website serves primarily as a landing page that provides a high-level overv
 </div>
 <br>
 
-[_systemPipeR_](https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html) is the core workflow management package of the project. It enables users to define, organize, and execute workflows that integrate R-based analysis with external command-line software ([H Backman and Girke 2016](https://link.springer.com/article/10.1186/s12859-016-1241-0)). An automated scientific reporting framework is an integral component of the package, supporting reproducible and transparent analyses.
+[_systemPipeR_](https://bioconductor.org/packages/devel/bioc/html/systemPipeR.html) is the core workflow management package of the project. It enables users to define, organize, and execute workflows that integrate R-based analysis with external command-line software ([H Backman and Girke 2016](https://link.springer.com/article/10.1186/s12859-016-1241-0)). An automated scientific reporting framework is an integral component of the package, supporting reproducible and transparent analyses. To simplify deployment and maximize reproducibility, systemPipeR is available as a Docker image on Docker Hub [here](https://hub.docker.com/r/systempipe/systempipe_docker).
 
 <br>
 
