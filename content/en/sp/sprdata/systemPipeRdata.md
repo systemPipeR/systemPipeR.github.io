@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", function() {
 **Note:** the most recent version of this vignette can be found <a href="https://github.com/tgirke/systemPipeRdata/blob/master/vignettes/systemPipeRdata.Rmd">here</a>.
 
 > **Note:** if you use *`systemPipeR`* or *`systemPipeRdata`* in published research, please cite:
+>
+> Zhang, L., Cassol, D., Gongol, B. and Girke, T. (2026). *systemPipeR*: a multipurpose workflow management system for reproducible data analysis. *NAR Genomics and Bioinformatics*, 8(2): lqag032. [10.1093/nargab/lqag032](https://doi.org/10.1093/nargab/lqag032).
+>
 > Backman, T.W.H and Girke, T. (2016). *systemPipeR*: Workflow and Report Generation Environment.
 > *BMC Bioinformatics*, 17: 388. [10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 

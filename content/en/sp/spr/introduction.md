@@ -23,13 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 > **Note:** if you use *{`systemPipeR`}* in published research, please cite:
+>
+> Zhang, L., Cassol, D., Gongol, B. and Girke, T. (2026). *systemPipeR*: a multipurpose workflow management system for reproducible data analysis. *NAR Genomics and Bioinformatics*, 8(2): lqag032. [10.1093/nargab/lqag032](https://doi.org/10.1093/nargab/lqag032).
+>
 > Backman, T.W.H and Girke, T. (2016). *systemPipeR*: NGS Workflow and Report Generation Environment. *BMC Bioinformatics*, 17: 388. \>[10.1186/s12859-016-1241-0](https://doi.org/10.1186/s12859-016-1241-0).
 
 [*`systemPipeR`*(SPR)](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
 provides flexible utilities for designing, building and running automated end-to-end
 analysis workflows for a wide range of research applications, including
 next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq,
-VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform
+VAR-Seq and Ribo-Seq (Zhang et al. 2026; H Backman and Girke 2016). Important features include a uniform
 workflow interface across different data analysis applications, automated
 report generation, and support for running both R and command-line software,
 such as NGS aligners or peak/variant callers, on local computers or compute
@@ -159,6 +162,12 @@ Amstutz, Peter, Michael R Crusoe, Nebojša Tijanić, Brad Chapman, John Chilton,
 <div id="ref-H_Backman2016-bt" class="csl-entry">
 
 H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+
+</div>
+
+<div id="ref-Zhang2026-sp" class="csl-entry">
+
+Zhang, Le, Daniela Cassol, Brendan Gongol, and Thomas Girke. 2026. “<span class="nocase">systemPipeR: a multipurpose workflow management system for reproducible data analysis</span>.” *NAR Genomics and Bioinformatics* 8 (2): lqag032. <https://doi.org/10.1093/nargab/lqag032>.
 
 </div>
 

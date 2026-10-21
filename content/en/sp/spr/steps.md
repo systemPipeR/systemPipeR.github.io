@@ -84,7 +84,7 @@ sal <- SPRproject()
 
 ### Required packages and resources
 
-The `systemPipeR` package needs to be loaded (H Backman and Girke 2016).
+The `systemPipeR` package needs to be loaded (Zhang et al. 2026; H Backman and Girke 2016).
 
 ``` r
 appendStep(sal) <- LineWise({
@@ -835,6 +835,12 @@ Robinson, M D, D J McCarthy, and G K Smyth. 2010. “edgeR: A Bioconductor Packa
 <div id="ref-Wu2010-iq" class="csl-entry">
 
 Wu, T D, and S Nacu. 2010. “Fast and <span class="nocase">SNP-tolerant</span> Detection of Complex Variants and Splicing in Short Reads.” *Bioinformatics* 26 (7): 873–81. <https://doi.org/10.1093/bioinformatics/btq057>.
+
+</div>
+
+<div id="ref-Zhang2026-sp" class="csl-entry">
+
+Zhang, Le, Daniela Cassol, Brendan Gongol, and Thomas Girke. 2026. “<span class="nocase">systemPipeR: a multipurpose workflow management system for reproducible data analysis</span>.” *NAR Genomics and Bioinformatics* 8 (2): lqag032. <https://doi.org/10.1093/nargab/lqag032>.
 
 </div>
 

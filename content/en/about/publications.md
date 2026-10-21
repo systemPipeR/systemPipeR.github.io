@@ -1,7 +1,7 @@
 ---
 title: "Publications" 
 author: "Author: Team"
-date: "Last update: 07 December, 2025" 
+date: "Last update: 21 October, 2026" 
 type: docs
 weight: 4
 exclude_search: true
@@ -10,6 +10,8 @@ exclude_search: true
 ## Publications of this project 
 
 ### Journal publications
+
+- Zhang L, Cassol D, Gongol B, Girke T. systemPipeR: a multipurpose workflow management system for reproducible data analysis. NAR Genom Bioinform [Internet]. 2026 Apr 2;8(2):lqag032. Available from: http://dx.doi.org/10.1093/nargab/lqag032 PMCID: [PMC13044936{blk}](http://www.ncbi.nlm.nih.gov/pmc/articles/pmc13044936/)
 
 - Duan Y, Evans DS, Miller RA, Schork NJ, Cummings SR, Girke T. signatureSearch: environment for gene expression signature searching and functional interpretation. Nucleic Acids Res [Internet]. 2020 Dec 2;48(21):e124. Available from: http://dx.doi.org/10.1093/nar/gkaa878 PMCID: [PMC7708038{blk}](http://www.ncbi.nlm.nih.gov/pmc/articles/pmc7708038/)
 
