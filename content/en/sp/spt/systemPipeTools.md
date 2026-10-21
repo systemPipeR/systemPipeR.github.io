@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 # Data Visualization with `systemPipeR`
 
-*systemPipeTools* package extends the widely used *[systemPipeR](https://systempipe.org/)* (SPR) (H Backman and Girke 2016)
+*systemPipeTools* package extends the widely used *[systemPipeR](https://systempipe.org/)* (SPR) (Zhang et al. 2026; H Backman and Girke 2016)
 workflow environment with enhanced toolkit for data visualization,
 including utilities to automate the analysis of differentially expressed genes (DEGs).
 *systemPipeTools* provides functions for data transformation and data exploration via
@@ -391,6 +391,12 @@ Krijthe, Jesse H. 2015. *Rtsne: T-Distributed Stochastic Neighbor Embedding Usin
 <div id="ref-Love2014-sh" class="csl-entry">
 
 Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
+
+</div>
+
+<div id="ref-Zhang2026-sp" class="csl-entry">
+
+Zhang, Le, Daniela Cassol, Brendan Gongol, and Thomas Girke. 2026. “<span class="nocase">systemPipeR: a multipurpose workflow management system for reproducible data analysis</span>.” *NAR Genomics and Bioinformatics* 8 (2): lqag032. <https://doi.org/10.1093/nargab/lqag032>.
 
 </div>
 

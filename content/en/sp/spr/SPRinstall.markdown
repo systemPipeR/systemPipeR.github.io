@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ## `systemPipeR` Installation
 
-To install the `systemPipeR` package (H Backman and Girke 2016), please use
+To install the `systemPipeR` package (Zhang et al. 2026; H Backman and Girke 2016), please use
 the *`BiocManager::install`* command:
 
 ``` r
@@ -365,6 +365,12 @@ BLAST finds regions of similarity between biological sequences.
 <div id="ref-H_Backman2016-bt" class="csl-entry">
 
 H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+
+</div>
+
+<div id="ref-Zhang2026-sp" class="csl-entry">
+
+Zhang, Le, Daniela Cassol, Brendan Gongol, and Thomas Girke. 2026. “<span class="nocase">systemPipeR: a multipurpose workflow management system for reproducible data analysis</span>.” *NAR Genomics and Bioinformatics* 8 (2): lqag032. <https://doi.org/10.1093/nargab/lqag032>.
 
 </div>
 
